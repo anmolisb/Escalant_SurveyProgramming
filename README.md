@@ -36,22 +36,18 @@ Output: a reproducible QC report that proves coverage.
 
 All project details are in the design docs above:
 - **Charter** — Full scope, success measures, milestones, risks
-- **Software Requirement** — Tooling choices for each layer
-- **Technical Architecture** — Component deep-dives with edge cases
 - **Agent 1 Spec** — Detailed build guide for the first agent (example)
 
 ## Team
-
-| Role | Name | Email |
+| Name | Email |
 |---|---|---|
-| Project Lead | Anoop Kumar | anoop_kumar@isb.edu |
-| Agent 1 | Anoop Kumar | — |
-| Agent 2 | Anmol Jindal | — |
-| Agent 3 | Sanskar Jain | — |
-| Agent 4 | Anmol Jindal | — |
-| Agent 5 | Raveena Mallina | — |
-| Front End | Raveena Mallina | — |
+| Anoop Kumar | Anoop_Kumar_ampba2026S@isb.edu |
+| Sanskar Jain | Sanskar_Jain_ampba2026S@isb.edu |
+| Anmol Jindal | anmol_jindal_ampba2026S@isb.edu |
+| Raveena Mallina | aveena_Mallina_ampba2026S@isb.edu |
+| Atishi | Atishi_0099_ampba2026S@isb.edu |
 | Client Mentor | Sameer Saurabh | sameer.saurabh@escalent.co |
+| Faculty Mentor | Ram Vempati | ramakrishna.vempati@gmail.com |
 
 ## Milestones
 
