@@ -1,0 +1,53 @@
+# Escalent Agentic Survey QA Platform - Python dependencies
+#
+# Scope: Agent 1 Part 1 (QRE Reader / Extractor), per CLAUDE.md Section 59.
+# Dependencies for later stages are listed at the bottom as deliberately
+# deferred, so that they are not forgotten and not installed before use.
+#
+# Pins are exact. Reproducibility is a project requirement (Section 50) and a
+# floating dependency can change extraction output without any code change.
+#
+# Python 3.13
+#
+# Setup:
+#   py -m venv .venv
+#   .venv\Scripts\python.exe -m pip install -r requirements.txt
+
+
+# --- Typed models and contracts -------------------------------------------
+# QREExtractionIR and the Canonical Survey Specification (Sections 12, 21).
+pydantic==2.13.4
+
+# --- Document ingestion ----------------------------------------------------
+# DOCX and PDF are separate ingestion problems (Section 11).
+python-docx==1.2.0
+
+# pdfplumber over PyMuPDF for two reasons: it exposes per-character position
+# and table structure, which the normalized document representation needs for
+# provenance; and it is MIT licensed (via pdfminer.six), whereas PyMuPDF is
+# AGPL, which is a poor fit for a client handover. It also makes the
+# image-only PDF check in Section 8 straightforward - a page yielding no
+# characters is detectable rather than silently empty.
+pdfplumber==0.11.10
+
+# --- Configuration ---------------------------------------------------------
+# Reads config/.env. Credentials never live in source (Sections 51, 52).
+python-dotenv==1.2.3
+
+# --- Application LLM runtime -----------------------------------------------
+# Current runtime per Section 52. Imported only inside src/common/llm/.
+groq==1.6.0
+
+# --- Testing ---------------------------------------------------------------
+pytest==9.1.1
+
+
+# --- Deferred: added when the stage that needs them begins -----------------
+# Installing these now would add version churn before any code uses them.
+#
+#   langgraph      orchestration graph and the Agent 3-5 stubs (Section 3)
+#   fastapi        backend service (src/backend/)
+#   uvicorn        ASGI server for the backend
+#   streamlit      dashboard (src/dashboard/)
+#   playwright     Agent 4 respondent bot, browser automation
+#   reportlab      QC report PDF rendering (src/reports/)

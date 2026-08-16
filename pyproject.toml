@@ -1,0 +1,15 @@
+# Tool configuration only. This project is an application, not a distributable
+# package, so there is no [project] table and nothing here is published.
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+# Puts the repository root on sys.path so tests import the real package paths
+# (`from src.agents.qre_interpretation import ...`) without an editable install.
+pythonpath = ["."]
+
+# -ra summarises non-passing outcomes, so skipped and xfailed tests stay
+# visible instead of hiding behind a green run.
+# --strict-markers turns a mistyped marker into an error rather than a silently
+# unfiltered test.
+addopts = "-ra --strict-markers"

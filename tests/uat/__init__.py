@@ -1,0 +1,2 @@
+"""Sponsor acceptance scripts.
+"""
