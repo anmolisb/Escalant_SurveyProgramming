@@ -42,9 +42,10 @@ Output: a reproducible QC report that proves coverage.
 │   ├── decks/
 │   ├── architecture/            # Current-state architecture notes
 │   └── decisions/               # Append-only decision log: what changed and why
-├── fixtures/                    # Synthetic QRE corpus (committed)
-│   ├── qre-samples/             # DOCX QREs
-│   └── test-samples/            # PDF QREs
+├── fixtures/                    # Synthetic QRE corpus (committed), split by
+│   │                            #   role; each folder mixes DOCX and PDF
+│   ├── qre-samples/             # 15 QREs - develop against these
+│   └── holdout/                 # 3 QREs - do not read during development
 ├── data/                        # Runtime data. Ignored by git EXCEPT where noted
 │   ├── inputs/                  # per agent (ignored)
 │   ├── outputs/                 # per agent (ignored)

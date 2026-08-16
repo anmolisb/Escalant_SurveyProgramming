@@ -1331,7 +1331,7 @@ Escalent_SurveyProgramming/
 │
 ├── fixtures/
 │   ├── qre-samples/
-│   └── test-samples/
+│   └── holdout/
 │
 ├── data/
 │   ├── inputs/
@@ -1400,15 +1400,27 @@ Escalent_SurveyProgramming/
 architectural decision, with date and rationale. `docs/architecture/` records
 the current state; `docs/decisions/` records why it changed.
 
-`fixtures/qre-samples/` holds the synthetic DOCX QRE corpus used for
-development and evaluation.
+`fixtures/` is split by role, not by file format. Both folders contain a mix of
+DOCX and PDF, because the reader must handle both (Section 11) and format is
+already evident from the extension.
 
-`fixtures/test-samples/` holds the synthetic PDF QREs. It exists because PDF
-and DOCX are separate ingestion problems (Section 11) and the reader must be
-exercised against both. Whether any of these are reserved as a held-out
-evaluation set, rather than used for development like `qre-samples/`, is an
-open decision for the project team; until it is made, treat them as
-development fixtures and record the decision in `docs/decisions/` once taken.
+`fixtures/qre-samples/` holds the 15-QRE development corpus. Build and iterate
+against these.
+
+`fixtures/holdout/` holds 3 QREs that are NOT read during development. They
+exist to measure whether the reader learned general document-processing
+concepts or merely the documents it was built against — the risk Sections 9, 10
+and 61 guard against by intent, and which nothing else in the project actually
+measures.
+
+Do not open, read, or run against the holdout while building the reader. Use it
+only to measure extraction performance once ground truth exists for it. A
+change made in response to a holdout result must be a general improvement,
+never an accommodation of one document. If the holdout is ever used to debug a
+specific failure, it is burned: replace it with a fresh selection and record
+that in `docs/decisions/`.
+
+See `docs/decisions/0002-corpus-development-holdout-split.md`.
 
 `data/ground_truth/` holds independently reviewed ground-truth artifacts. It is
 a sibling of `data/inputs/` and `data/outputs/`, not a child of either, because
