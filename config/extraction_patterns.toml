@@ -1,0 +1,79 @@
+# Extraction vocabulary for the QRE Reader.
+#
+# These are OBSERVED PATTERNS, not rules (CLAUDE.md Section 61, category 3).
+# Every entry here came from looking at the synthetic corpus, and a real
+# Escalent QRE will phrase things differently. That is precisely why they live
+# in configuration: adding a synonym must never require changing code, and
+# nothing in the reader may assume any particular entry is present.
+#
+# If a QRE arrives whose headers are unknown, the correct outcome is an
+# unclassified table plus a review item - never a guessed mapping
+# (Sections 30, 34).
+
+[table_detection]
+# Share of header cells that must map to a known role before a table is treated
+# as a question table. Below this, the table is preserved whole and flagged
+# rather than interpreted. Provisional until calibrated against ground truth.
+min_header_match_ratio = 0.6
+
+[column_roles]
+# header text (normalized: lowercased, punctuation collapsed) -> column role
+id = ["id", "code", "qid", "question id", "question ref", "ref", "q no", "number", "item"]
+wording = ["wording", "wording instruction", "text", "question", "question text", "ask", "label", "stem"]
+type = ["type", "question type", "format", "response type", "kind", "input"]
+options = ["options", "scale", "options scale", "answers", "answer list", "response options", "codes", "categories"]
+logic = [
+  "display validation",
+  "display",
+  "validation",
+  "logic",
+  "routing",
+  "instruction",
+  "instructions",
+  "programming notes",
+  "notes",
+  "condition",
+  "base",
+]
+
+[question_id]
+# Patterns that look like a question identifier at the start of a line or cell.
+# Deliberately broad prefixes rather than an enumerated list of IDs, since
+# Section 9 forbids assuming any fixed question numbering.
+patterns = [
+  "^([A-Z]{1,3}\\d+[a-z]?)\\b",
+  "^(Q\\d+[._]\\d+)\\b",
+]
+
+[instruction_cues]
+# Cue phrases that suggest what an instruction is about. Matching is scored,
+# not exclusive: an instruction matching two kinds is recorded as ambiguous and
+# sent to review rather than silently assigned to one (Section 31).
+routing = ["skip to", "go to", "goto", "route to", "continue to", "proceed to", "jump to", "then ask"]
+display = ["show if", "display if", "ask if", "only if", "hide if", "show only", "asked if", "shown to"]
+validation = [
+  "must be",
+  "required",
+  "compulsory",
+  "mandatory",
+  "range",
+  "minimum",
+  "maximum",
+  "at least",
+  "at most",
+  "sum to",
+  "numeric only",
+  "allow",
+]
+quota = ["quota", "quota full", "quota cell", "cell limit", "target n"]
+randomization = ["randomise", "randomize", "rotate", "rotation", "anchor", "fixed position", "shuffle", "reverse order"]
+piping = ["pipe", "piped", "insert", "carry forward", "selected at", "chosen at", "from q", "placeholder"]
+disposition = ["terminate", "screen out", "screenout", "qualify", "disqualify", "complete", "quota full"]
+
+[review]
+# Unparsed content is always retained (Section 16), but only content showing one
+# of these signals is put in front of a reviewer. Flagging every leftover line
+# would produce a queue nobody reads, which defeats Section 22's goal of
+# directing reviewer attention where it matters.
+flag_unparsed_containing_cues = true
+flag_unparsed_containing_question_id = true
