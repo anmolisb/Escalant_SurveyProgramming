@@ -6,6 +6,14 @@ data/**
 !data/**/
 !data/**/.gitkeep
 
+# Ground truth (paths match the current repository structure).
+# Synthetic ground truth is independently human-reviewed evaluation material.
+# It must be committed so that evaluation is reproducible.
+!data/ground_truth/Synthetic/**
+# Client-derived ground truth is confidential and must never be committed.
+data/ground_truth/Client/**
+!data/ground_truth/Client/.gitkeep
+
 __pycache__/
 *.py[cod]
 *.egg-info/
