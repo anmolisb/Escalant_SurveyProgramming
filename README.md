@@ -36,6 +36,7 @@ Output: a reproducible QC report that proves coverage.
 ## Repository Structure
 ```
 ├── CLAUDE.md                    # Authoritative project instructions (read first)
+├── .github/workflows/ci.yml     # Runs pytest on Linux and Windows every push
 ├── docs/
 │   ├── charter/
 │   ├── weekly-progress/
@@ -114,4 +115,19 @@ Output: a reproducible QC report that proves coverage.
 | M4 | 16 Oct | Soft launch, UAT, final benchmark |
 
 ## Building
-No application code exists yet. Setup instructions and pinned dependencies will be added with the first implementation. For scope, architecture and engineering rules in the meantime, see `CLAUDE.md`.
+Requires Python 3.13.
+
+```bash
+py -m venv .venv
+.venv\Scripts\python.exe -m pip install -r requirements.txt
+.venv\Scripts\python.exe -m pytest
+```
+
+CI runs the same suite on every push and pull request, on Linux and Windows.
+
+Two things to know before working on the corpus:
+
+- **Do not read `fixtures/holdout/`.** It measures whether the reader generalizes beyond the documents it was built against. The test suite fails if anything opens it, and `src.evaluation.corpus.holdout_corpus()` refuses without a deliberate unlock. See `docs/decisions/0002-corpus-development-holdout-split.md`.
+- **Use `src.evaluation.corpus.development_corpus()`** rather than globbing `fixtures/`, so a widened search cannot quietly reach the holdout.
+
+For scope, architecture and engineering rules, see `CLAUDE.md`.

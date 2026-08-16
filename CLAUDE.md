@@ -1320,7 +1320,12 @@ Escalent_SurveyProgramming/
 ├── CLAUDE.md
 ├── README.md
 ├── requirements.txt
+├── pyproject.toml
 ├── .gitignore
+│
+├── .github/
+│   └── workflows/
+│       └── ci.yml
 │
 ├── docs/
 │   ├── charter/
@@ -1459,6 +1464,18 @@ rather than inside any one of them.
 `tests/integration/` covers the full graph executed through the supervisor.
 `tests/regression/` re-runs the evaluation set after every change.
 `tests/uat/` holds sponsor acceptance scripts.
+
+`.github/workflows/ci.yml` runs the test suite on every push and pull request,
+on both Linux and Windows. The team develops on Windows; the holdout guard
+compares filesystem paths, which is exactly the kind of code that passes on one
+platform and fails on the other.
+
+CI also asserts that `ESCALENT_ALLOW_HOLDOUT` is not set. The unlock is meant to
+be a deliberate, local, one-off act; set repository-wide it would silently
+retire the holdout, and no test would notice.
+
+`pyproject.toml` holds tool configuration only - currently pytest. There is no
+`[project]` table because this is an application, not a distributable package.
 
 Scaffold folders that are still empty carry a `.gitkeep`, because git does not
 track directories. A structural folder without one is absent from a fresh
