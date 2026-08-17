@@ -21,6 +21,7 @@ REPO_ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(REPO_ROOT))
 
 from src.agents.qre_interpretation.extraction import read_file  # noqa: E402
+from src.agents.qre_interpretation.validators import validate  # noqa: E402
 from src.common.schemas.qre_extraction import (  # noqa: E402
     InstructionKind,
     QREExtractionIR,
@@ -52,6 +53,7 @@ def summarize(ir: QREExtractionIR) -> str:
 
 def main(argv: list[str]) -> int:
     paths = [Path(a) for a in argv[1:]] or corpus.development_corpus()
+    invalid: list[str] = []
 
     for path in paths:
         if corpus.is_holdout_path(path):
@@ -60,16 +62,31 @@ def main(argv: list[str]) -> int:
             continue
 
         ir = read_file(path)
+        report = validate(ir)
+
         OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
         destination = OUTPUT_DIR / f"{path.stem}.ir.json"
         destination.write_text(
             ir.model_dump_json(indent=2, exclude_none=False), encoding="utf-8"
         )
+        (OUTPUT_DIR / f"{path.stem}.validation.json").write_text(
+            report.model_dump_json(indent=2), encoding="utf-8"
+        )
 
         print(f"{path.name}")
         print(f"      {summarize(ir)}")
+        if report.issues:
+            print(f"      {report.summary()}")
+            for issue in report.errors:
+                print(f"        {issue}")
+        if not report.is_valid:
+            invalid.append(path.name)
 
-    print(f"\nWrote IR JSON to {OUTPUT_DIR.relative_to(REPO_ROOT)}")
+    print(f"\nWrote IR and validation JSON to {OUTPUT_DIR.relative_to(REPO_ROOT)}")
+    if invalid:
+        # Section 7, Pass 7: invalid output must not be passed downstream.
+        print(f"\n{len(invalid)} document(s) FAILED validation: {', '.join(invalid)}")
+        return 1
     return 0
 
 

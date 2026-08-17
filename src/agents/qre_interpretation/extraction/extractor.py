@@ -252,7 +252,11 @@ def classify_instruction(
     )
 
 
-_CODE_PREFIX = re.compile(r"^\s*([A-Za-z0-9]{1,4})\s*[=:.\)]\s*(.+)$")
+# A response code is a number or a single letter. Allowing longer alphabetic
+# prefixes made "Rows: Access" parse as code "Rows" for label "Access", which
+# fabricates a code the QRE never gave - the precise failure Section 13 forbids.
+# Found by the partial_option_codes check in validators.py.
+_CODE_PREFIX = re.compile(r"^\s*(\d{1,3}|[A-Za-z])\s*[=:.\)]\s*(.+)$")
 _OPTION_SPLIT = re.compile(r"[;\n|]+")
 
 
