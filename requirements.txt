@@ -1,0 +1,5 @@
+# Step 1 — DOCX ingestion
+python-docx>=1.2.0
+
+# LLM runtime for semantic classification (see docs/decisions/0001-*.md)
+groq>=1.6.0
