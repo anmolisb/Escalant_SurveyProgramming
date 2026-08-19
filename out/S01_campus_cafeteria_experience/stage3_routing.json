@@ -1,0 +1,30 @@
+{
+  "target": "Routing and termination",
+  "source_kind": "table",
+  "rows": [
+    {
+      "Rule": "R1",
+      "Condition": "S1 == 'No'",
+      "Action": "terminate",
+      "Destination": "TERM_INELIGIBLE"
+    },
+    {
+      "Rule": "R2",
+      "Condition": "S2 == 'No'",
+      "Action": "terminate",
+      "Destination": "TERM_INELIGIBLE"
+    },
+    {
+      "Rule": "R3",
+      "Condition": "Q5 == 'Yes'",
+      "Action": "show",
+      "Destination": "Q6"
+    },
+    {
+      "Rule": "R4",
+      "Condition": "Q5 == 'No'",
+      "Action": "skip",
+      "Destination": "Q7"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+[
+  {
+    "id": "T1",
+    "purpose": "recent-use screenout",
+    "key_inputs": {
+      "S1": "No"
+    },
+    "expected_outcome": {
+      "expected_end": "TERM_INELIGIBLE"
+    },
+    "parse_errors": []
+  },
+  {
+    "id": "T2",
+    "purpose": "eligible with problem",
+    "key_inputs": {
+      "S1": "Yes",
+      "S2": "Yes",
+      "Q5": "Yes"
+    },
+    "expected_outcome": {
+      "expected_visible": [
+        "Q6"
+      ],
+      "expected_end": "COMPLETE"
+    },
+    "parse_errors": []
+  },
+  {
+    "id": "T3",
+    "purpose": "eligible without problem",
+    "key_inputs": {
+      "S1": "Yes",
+      "S2": "Yes",
+      "Q5": "No"
+    },
+    "expected_outcome": {
+      "expected_hidden": [
+        "Q6"
+      ],
+      "expected_end": "COMPLETE"
+    },
+    "parse_errors": []
+  }
+]

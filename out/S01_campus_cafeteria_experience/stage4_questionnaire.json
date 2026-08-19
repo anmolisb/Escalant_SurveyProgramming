@@ -1,0 +1,344 @@
+[
+  {
+    "id": "S1",
+    "wording": "Have you purchased food or a beverage from the campus cafeteria in the past 30 days?",
+    "type": "single",
+    "options": [
+      {
+        "code": null,
+        "label": "Yes"
+      },
+      {
+        "code": null,
+        "label": "No"
+      }
+    ],
+    "matrix_rows": [],
+    "display_condition": null,
+    "min_length": null,
+    "max_length": null,
+    "min_value": null,
+    "max_value": null,
+    "min_selections": null,
+    "exclusive_option": null,
+    "sum_to": null,
+    "randomize": false,
+    "optional": false,
+    "dynamic_option_source": null,
+    "other_attributes": {}
+  },
+  {
+    "id": "S2",
+    "wording": "Are you 18 years of age or older?",
+    "type": "single",
+    "options": [
+      {
+        "code": null,
+        "label": "Yes"
+      },
+      {
+        "code": null,
+        "label": "No"
+      }
+    ],
+    "matrix_rows": [],
+    "display_condition": null,
+    "min_length": null,
+    "max_length": null,
+    "min_value": null,
+    "max_value": null,
+    "min_selections": null,
+    "exclusive_option": null,
+    "sum_to": null,
+    "randomize": false,
+    "optional": false,
+    "dynamic_option_source": null,
+    "other_attributes": {}
+  },
+  {
+    "id": "Q1",
+    "wording": "Which channel did you primarily use for this cafeteria visit?",
+    "type": "single",
+    "options": [
+      {
+        "code": null,
+        "label": "Counter"
+      },
+      {
+        "code": null,
+        "label": "Mobile pre-order"
+      },
+      {
+        "code": null,
+        "label": "Vending kiosk"
+      }
+    ],
+    "matrix_rows": [],
+    "display_condition": null,
+    "min_length": null,
+    "max_length": null,
+    "min_value": null,
+    "max_value": null,
+    "min_selections": null,
+    "exclusive_option": null,
+    "sum_to": null,
+    "randomize": false,
+    "optional": false,
+    "dynamic_option_source": null,
+    "other_attributes": {}
+  },
+  {
+    "id": "Q2",
+    "wording": "Overall, how satisfied were you with the cafeteria visit?",
+    "type": "single",
+    "options": [
+      {
+        "code": "1",
+        "label": "Very poor"
+      },
+      {
+        "code": "2",
+        "label": "Poor"
+      },
+      {
+        "code": "3",
+        "label": "Fair"
+      },
+      {
+        "code": "4",
+        "label": "Good"
+      },
+      {
+        "code": "5",
+        "label": "Excellent"
+      }
+    ],
+    "matrix_rows": [],
+    "display_condition": null,
+    "min_length": null,
+    "max_length": null,
+    "min_value": null,
+    "max_value": null,
+    "min_selections": null,
+    "exclusive_option": null,
+    "sum_to": null,
+    "randomize": false,
+    "optional": false,
+    "dynamic_option_source": null,
+    "other_attributes": {}
+  },
+  {
+    "id": "Q3",
+    "wording": "How easy was it to complete what you wanted to do?",
+    "type": "single",
+    "options": [
+      {
+        "code": "1",
+        "label": "Very poor"
+      },
+      {
+        "code": "2",
+        "label": "Poor"
+      },
+      {
+        "code": "3",
+        "label": "Fair"
+      },
+      {
+        "code": "4",
+        "label": "Good"
+      },
+      {
+        "code": "5",
+        "label": "Excellent"
+      }
+    ],
+    "matrix_rows": [],
+    "display_condition": null,
+    "min_length": null,
+    "max_length": null,
+    "min_value": null,
+    "max_value": null,
+    "min_selections": null,
+    "exclusive_option": null,
+    "sum_to": null,
+    "randomize": false,
+    "optional": false,
+    "dynamic_option_source": null,
+    "other_attributes": {}
+  },
+  {
+    "id": "Q4",
+    "wording": "Which aspects influenced your rating? Select all that apply.",
+    "type": "multi",
+    "options": [
+      {
+        "code": null,
+        "label": "Food quality"
+      },
+      {
+        "code": null,
+        "label": "Menu variety"
+      },
+      {
+        "code": null,
+        "label": "Waiting time"
+      },
+      {
+        "code": null,
+        "label": "Cleanliness"
+      },
+      {
+        "code": null,
+        "label": "Staff behaviour"
+      },
+      {
+        "code": null,
+        "label": "Price"
+      }
+    ],
+    "matrix_rows": [],
+    "display_condition": null,
+    "min_length": null,
+    "max_length": null,
+    "min_value": null,
+    "max_value": null,
+    "min_selections": 1,
+    "exclusive_option": null,
+    "sum_to": null,
+    "randomize": false,
+    "optional": false,
+    "dynamic_option_source": null,
+    "other_attributes": {}
+  },
+  {
+    "id": "Q5",
+    "wording": "Did you encounter a problem?",
+    "type": "single",
+    "options": [
+      {
+        "code": null,
+        "label": "Yes"
+      },
+      {
+        "code": null,
+        "label": "No"
+      }
+    ],
+    "matrix_rows": [],
+    "display_condition": null,
+    "min_length": null,
+    "max_length": null,
+    "min_value": null,
+    "max_value": null,
+    "min_selections": null,
+    "exclusive_option": null,
+    "sum_to": null,
+    "randomize": false,
+    "optional": false,
+    "dynamic_option_source": null,
+    "other_attributes": {}
+  },
+  {
+    "id": "Q6",
+    "wording": "Please describe the main problem.",
+    "type": "text",
+    "options": [],
+    "matrix_rows": [],
+    "display_condition": "Q5 == 'Yes'",
+    "min_length": 10,
+    "max_length": 500,
+    "min_value": null,
+    "max_value": null,
+    "min_selections": null,
+    "exclusive_option": null,
+    "sum_to": null,
+    "randomize": false,
+    "optional": false,
+    "dynamic_option_source": null,
+    "other_attributes": {}
+  },
+  {
+    "id": "Q7",
+    "wording": "How likely are you to recommend this service?",
+    "type": "single",
+    "options": [
+      {
+        "code": null,
+        "label": "0"
+      },
+      {
+        "code": null,
+        "label": "1"
+      },
+      {
+        "code": null,
+        "label": "2"
+      },
+      {
+        "code": null,
+        "label": "3"
+      },
+      {
+        "code": null,
+        "label": "4"
+      },
+      {
+        "code": null,
+        "label": "5"
+      },
+      {
+        "code": null,
+        "label": "6"
+      },
+      {
+        "code": null,
+        "label": "7"
+      },
+      {
+        "code": null,
+        "label": "8"
+      },
+      {
+        "code": null,
+        "label": "9"
+      },
+      {
+        "code": null,
+        "label": "10"
+      }
+    ],
+    "matrix_rows": [],
+    "display_condition": null,
+    "min_length": null,
+    "max_length": null,
+    "min_value": null,
+    "max_value": null,
+    "min_selections": null,
+    "exclusive_option": null,
+    "sum_to": null,
+    "randomize": false,
+    "optional": false,
+    "dynamic_option_source": null,
+    "other_attributes": {}
+  },
+  {
+    "id": "Q8",
+    "wording": "What is the single most important improvement you would suggest?",
+    "type": "text",
+    "options": [],
+    "matrix_rows": [],
+    "display_condition": null,
+    "min_length": null,
+    "max_length": 500,
+    "min_value": null,
+    "max_value": null,
+    "min_selections": null,
+    "exclusive_option": null,
+    "sum_to": null,
+    "randomize": false,
+    "optional": true,
+    "dynamic_option_source": null,
+    "other_attributes": {}
+  }
+]

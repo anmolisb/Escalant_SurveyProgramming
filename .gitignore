@@ -5,14 +5,9 @@
 *.pem
 *.key
 
-# Confidential client material (CLAUDE.md §51)
-# Synthetic/sanitized fixtures are safe to commit; real QREs are not.
-data/inputs/
+# Confidential client material — synthetic fixtures are safe to commit, real
+# QREs are not.
 fixtures/real-qre/
-
-# Generated artifacts
-data/outputs/
-data/runs/
 
 # Python
 __pycache__/
@@ -25,8 +20,9 @@ venv/
 # OS / editor
 .DS_Store
 
-# generated artifacts
-out/
+# Generated artifacts are committed deliberately: they are the worked example a
+# reviewer compares against, and Stage 5's audit reads them. They regenerate on
+# every run, so expect churn.
 
 # Word lock files
 ~$*
