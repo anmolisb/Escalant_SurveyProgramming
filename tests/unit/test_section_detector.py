@@ -6,6 +6,14 @@ Run via pytest: python3 -m pytest tests/unit/test_section_detector.py -v
 
 from __future__ import annotations
 
+import os
+
+# Keep this file hermetic when run directly (pytest gets the same via
+# tests/conftest.py). The pipeline steps default to the configured LLM, so
+# without this a standalone run would make real API calls.
+os.environ["LLM_PROVIDER"] = "none"
+os.environ["GROQ_API_KEY"] = ""
+
 import sys
 import tempfile
 from pathlib import Path

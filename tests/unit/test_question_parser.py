@@ -6,6 +6,14 @@ Run via pytest: python3 -m pytest tests/unit/test_question_parser.py -v
 
 from __future__ import annotations
 
+import os
+
+# Keep this file hermetic when run directly (pytest gets the same via
+# tests/conftest.py). The pipeline steps default to the configured LLM, so
+# without this a standalone run would make real API calls.
+os.environ["LLM_PROVIDER"] = "none"
+os.environ["GROQ_API_KEY"] = ""
+
 import sys
 import tempfile
 from pathlib import Path
@@ -657,6 +665,143 @@ def test_inference_declines_when_no_column_is_id_shaped():
                          "questionnaire_section_not_found")
             for r in qe.review_queue
         )
+
+
+# ---------------------------------------------------------------------------
+# Compound cell separation (what Agent 2 consumes)
+# ---------------------------------------------------------------------------
+
+
+def test_compound_cell_separated_into_distinct_fields():
+    """Agent 2 needs display and validation apart, not as one string."""
+    cell = "Show if: Q1 == 'Yes'\nValidate: {\"min_length\": 10}\nRandomize"
+    rows = [STANDARD[0], ["Q2", "Describe", "text", "—", cell]]
+    with tempfile.TemporaryDirectory() as tmp:
+        q = _extract(tmp, rows).questions[0]
+        assert q.display_condition == "Show if: Q1 == 'Yes'"
+        assert q.validation_rules == ('Validate: {"min_length": 10}',)
+        assert q.randomize == ("Randomize",)
+        # ...and the original cell is still intact for audit
+        assert q.display_validation_raw == cell
+
+
+def test_piping_separated_from_display_condition():
+    """Both lines start with 'Show' but mean different things."""
+    cell = "Show if: Q1 contains at least one brand\nShow only brands selected at Q1."
+    rows = [STANDARD[0], ["Q2", "Which?", "multi", "A; B", cell]]
+    with tempfile.TemporaryDirectory() as tmp:
+        q = _extract(tmp, rows).questions[0]
+        assert q.display_condition == "Show if: Q1 contains at least one brand"
+        assert q.dynamic_option_source == "Show only brands selected at Q1."
+
+
+def test_optionality_separated():
+    rows = [STANDARD[0], ["Q8", "Comments?", "text", "—", 'Validate: {"max_length": 1000}\nOptional']]
+    with tempfile.TemporaryDirectory() as tmp:
+        q = _extract(tmp, rows).questions[0]
+        assert q.optionality == ("Optional",)
+        assert q.validation_rules == ('Validate: {"max_length": 1000}',)
+
+
+def test_single_instruction_cell_still_populates_its_field():
+    with tempfile.TemporaryDirectory() as tmp:
+        q = _extract(tmp, STANDARD).questions[0]
+        assert q.display_condition == "Always show"
+        assert q.validation_rules == ()
+
+
+def test_empty_cell_yields_no_instructions():
+    rows = [STANDARD[0], ["Q1", "How satisfied?", "single", "Yes; No", ""]]
+    with tempfile.TemporaryDirectory() as tmp:
+        q = _extract(tmp, rows).questions[0]
+        assert q.instructions == ()
+        assert q.display_condition is None
+        assert q.validation_rules == ()
+
+
+def test_unrecognized_instruction_preserved_and_flagged():
+    """An unknown line must not pass as understood, and must not be dropped."""
+    cell = "Show if: Q1 == 'Yes'\nInterviewer: pause for effect"
+    rows = [STANDARD[0], ["Q2", "Describe", "text", "—", cell]]
+    with tempfile.TemporaryDirectory() as tmp:
+        qe = _extract(tmp, rows)
+        q = qe.questions[0]
+        assert q.display_condition == "Show if: Q1 == 'Yes'"
+        assert q.unclassified_instructions == ("Interviewer: pause for effect",)
+        assert any(
+            r.reason == "instruction_kind_not_recognized" for r in qe.review_queue
+        )
+
+
+def test_validation_before_routing_is_flagged():
+    """Unusual ordering often means two questions' rows were merged."""
+    cell = 'Validate: {"min_length": 10}\nShow if: Q1 == \'Yes\''
+    rows = [STANDARD[0], ["Q2", "Describe", "text", "—", cell]]
+    with tempfile.TemporaryDirectory() as tmp:
+        qe = _extract(tmp, rows)
+        assert any(r.reason == "routing_follows_validation" for r in qe.review_queue)
+        # Still extracted, both fields populated — flagged, not rejected
+        assert qe.questions[0].display_condition == "Show if: Q1 == 'Yes'"
+        assert qe.questions[0].validation_rules == ('Validate: {"min_length": 10}',)
+
+
+def test_normal_ordering_is_not_flagged():
+    cell = "Show if: Q1 == 'Yes'\nValidate: {\"min_length\": 10}"
+    rows = [STANDARD[0], ["Q2", "Describe", "text", "—", cell]]
+    with tempfile.TemporaryDirectory() as tmp:
+        qe = _extract(tmp, rows)
+        assert not any(
+            r.reason == "routing_follows_validation" for r in qe.review_queue
+        )
+
+
+def test_instructions_are_not_parsed_only_separated():
+    """Separation is not interpretation — the JSON stays a string."""
+    rows = [STANDARD[0], ["Q1", "Pick", "multi", "A; B", 'Validate: {"min_selections": 1}']]
+    with tempfile.TemporaryDirectory() as tmp:
+        rule = _extract(tmp, rows).questions[0].validation_rules[0]
+        assert isinstance(rule, str)
+        assert rule == 'Validate: {"min_selections": 1}'
+
+
+def test_serialized_record_exposes_named_fields():
+    """The JSON artifact must carry named keys, not just an instructions list.
+
+    Regression: the separated fields are properties, and dataclasses.asdict
+    serializes fields only — so the artifact showed `instructions` but no
+    `display_condition`/`validation_rules`, leaving the survey builder to
+    re-group by kind.
+    """
+    cell = "Show if: Q12 == 'Not resolved'\nValidate: {\"min_length\": 10}"
+    rows = [STANDARD[0], ["Q14", "Why not resolved?", "text", "—", cell]]
+    with tempfile.TemporaryDirectory() as tmp:
+        record = _extract(tmp, rows).questions[0].to_record()
+
+        assert record["display_condition"] == "Show if: Q12 == 'Not resolved'"
+        assert record["validation_rules"] == ['Validate: {"min_length": 10}']
+        assert record["randomize"] == []
+        assert record["dynamic_option_source"] is None
+        # audit material travels alongside
+        assert record["display_validation_raw"] == cell
+        assert len(record["instructions"]) == 2
+
+
+def test_serialized_record_is_json_round_trippable():
+    import json as _json
+
+    cell = "Show if: Q1 == 'Yes'\nValidate: {\"min_length\": 10}\nRandomize"
+    rows = [STANDARD[0], ["Q2", "Describe", "text", "—", cell]]
+    with tempfile.TemporaryDirectory() as tmp:
+        extraction = _extract(tmp, rows)
+        payload = _json.loads(_json.dumps(extraction.to_dict()))
+        q = payload["questions"][0]
+        assert q["display_condition"] == "Show if: Q1 == 'Yes'"
+        assert q["validation_rules"] == ['Validate: {"min_length": 10}']
+        assert q["randomize"] == ["Randomize"]
+        assert set(payload) == {
+            "questions", "review_queue", "column_mapping",
+            "unmapped_headers", "source_tables",
+        }
 
 
 # ---------------------------------------------------------------------------

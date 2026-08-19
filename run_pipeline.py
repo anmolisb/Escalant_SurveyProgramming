@@ -9,6 +9,7 @@ Currently runs:
     Step 1  Document ingestion       → NormalizedDocument
     Step 2  Section detection        → SectionedDocument
     Step 4  Question extraction      → QuestionExtraction
+    Step 5  Per-question logic        → QuestionLogic
 
 Step 3 (study specification & standing instructions) is not built yet; it reads
 the study_specification section and does not feed Step 4, so Step 4 runs without
@@ -31,6 +32,12 @@ from pathlib import Path
 REPO_ROOT = Path(__file__).resolve().parent
 sys.path.insert(0, str(REPO_ROOT / "src"))
 
+from agents.qre_interpretation.extraction.question import (  # noqa: E402
+    QuestionLogic,
+)
+from agents.qre_interpretation.extraction.question_logic import (  # noqa: E402
+    build_questions,
+)
 from agents.qre_interpretation.extraction.question_parser import (  # noqa: E402
     parse_questions,
 )
@@ -53,8 +60,6 @@ from agents.qre_interpretation.ingestion.normalized_document import (  # noqa: E
 from common.config import get_settings  # noqa: E402
 from common.prompts.qre_interpretation import (  # noqa: E402
     SECTION_CLASSIFICATION_PROMPT_VERSION,
-    classify_section_heading,
-    classify_table_column,
 )
 
 DEFAULT_QRE = REPO_ROOT / "fixtures" / "qre-samples" / "S01_campus_cafeteria_experience.docx"
@@ -134,13 +139,65 @@ def print_step4(extraction: QuestionExtraction) -> None:
         print()
 
     if extraction.questions:
-        print(f"{'ID':<6} {'TYPE':<8} {'WORDING':<44} OPTIONS_RAW")
+        print(f"{'ID':<6} {'TYPE':<8} {'WORDING':<40} OPTIONS_RAW")
         for question in extraction.questions:
             print(
-                f"{question.id:<6} {question.type:<8} {question.wording[:42]:<44} "
-                f"{question.options_raw[:30]}"
+                f"{question.id:<6} {question.type:<8} {question.wording[:38]:<40} "
+                f"{question.options_raw[:32]}"
             )
+
+        # The display/validation cell, separated into the fields Agent 2 needs.
+        compound = [q for q in extraction.questions if len(q.instructions) > 1]
+        if compound:
+            _rule(
+                f"STEP 4 · Separated instructions — {len(compound)} of "
+                f"{len(extraction.questions)} questions have a compound cell"
+            )
+            print(f"{'ID':<6} {'DISPLAY / ROUTING':<40} {'VALIDATION':<34} OTHER")
+            for question in compound:
+                other = list(question.randomize) + list(question.optionality)
+                if question.dynamic_option_source:
+                    other.append(f"pipe: {question.dynamic_option_source}")
+                print(
+                    f"{question.id:<6} {str(question.display_condition or '—')[:38]:<40} "
+                    f"{(question.validation_rules[0] if question.validation_rules else '—')[:32]:<34} "
+                    f"{'; '.join(other)[:34]}"
+                )
     print_review_queue("STEP 4", extraction.review_queue)
+
+
+def print_step5(logic: QuestionLogic) -> None:
+    """Per-question logic: options, validation and condition, all typed."""
+    _rule(f"STEP 5 · Question logic — {len(logic.questions)} questions")
+    print(f"{'ID':<6} {'OPTS':>4} {'CONDITION':<44} {'VALIDATION':<26} FLAGS")
+    for q in logic.questions:
+        condition = q.display_condition
+        if condition is None:
+            shown = "—"
+        elif condition.is_resolved:
+            values = ",".join(condition.values)
+            shown = (
+                condition.operator
+                if condition.is_unconditional
+                else f"{condition.question_id} {condition.operator} [{values}]"
+            )
+        else:
+            shown = f"UNRESOLVED: {condition.raw}"
+        validation = "; ".join(
+            ",".join(v.parameters) for v in q.validation_rules if v.is_parsed
+        )
+        flags = []
+        if q.randomize:
+            flags.append("rand")
+        if q.dynamic_option_source:
+            flags.append("pipe")
+        if q.matrix:
+            flags.append(f"matrix {len(q.matrix.rows)}x{len(q.matrix.scale)}")
+        print(
+            f"{q.id:<6} {len(q.options):>4} {shown[:42]:<44} "
+            f"{validation[:24]:<26} {' '.join(flags)}"
+        )
+    print_review_queue("STEP 5", logic.review_queue)
 
 
 def print_review_queue(step: str, items) -> None:
@@ -162,7 +219,10 @@ def write_json(obj, document_name: str, suffix: str) -> Path:
     """Serialize a dataclass artifact to JSON and return the output path."""
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
     out_path = OUTPUT_DIR / f"{Path(document_name).stem}.{suffix}.json"
-    out_path.write_text(json.dumps(dataclasses.asdict(obj), indent=2))
+    # An artifact defining to_dict() controls its own shape — Step 4 uses this to
+    # emit separated instruction fields, which asdict() would omit as properties.
+    payload = obj.to_dict() if hasattr(obj, "to_dict") else dataclasses.asdict(obj)
+    out_path.write_text(json.dumps(payload, indent=2))
     return out_path
 
 
@@ -183,27 +243,25 @@ def main(argv: list[str]) -> int:
 
     print_step1(document)
 
-    # Wire the LLM classifier only when a provider is configured. Without it the
-    # pipeline still runs, flagging headings it cannot resolve deterministically.
-    settings = get_settings()
-    enabled = settings.llm_enabled
-    print_llm_status(settings)
+    # Each step reaches for the configured LLM on its own, so nothing is wired
+    # here. With no key set they all fall back to their deterministic paths.
+    print_llm_status(get_settings())
 
-    sectioned = detect_sections(
-        document, classifier=classify_section_heading if enabled else None
-    )
+    sectioned = detect_sections(document)
     print_step2(sectioned)
 
     # Step 3 is not built; Step 4 reads the questionnaire section directly.
-    extraction = parse_questions(
-        sectioned, classifier=classify_table_column if enabled else None
-    )
+    extraction = parse_questions(sectioned)
     print_step4(extraction)
+
+    logic = build_questions(extraction.questions)
+    print_step5(logic)
 
     written = [
         write_json(document, document.document_name, "step1"),
         write_json(sectioned, document.document_name, "step2"),
         write_json(extraction, document.document_name, "step4"),
+        write_json(logic, document.document_name, "step5"),
     ]
     _rule("OUTPUT")
     for out_path in written:

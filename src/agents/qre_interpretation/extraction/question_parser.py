@@ -14,14 +14,21 @@ document. Fully deterministic — no LLM call, matching the step table's tech st
 (python-docx / pdfplumber only) and CLAUDE.md §29's assignment of table
 extraction to code.
 
-The "as-is" boundary is strict. This step does NOT:
-  - split "Yes; No" into options — Step 5 splits multi-part cells;
+Values are carried through verbatim. This step does NOT:
+  - split "Yes; No" into options — Step 5 splits the options cell;
   - parse `Validate: {"min_length": 10}` — Step 5 reads validation JSON;
-  - interpret "Show if: Q5 == 'Yes'" — Step 5 converts conditions, Part 2
-    normalizes their semantics (CLAUDE.md §19);
+  - interpret "Show if: Q5 == 'Yes'" into a predicate — Step 5 converts
+    conditions, Part 2 normalizes their semantics (CLAUDE.md §19);
   - decide that "—" means "no options";
   - map "single"/"multi" onto any platform's type system.
-Every cell is carried through verbatim, newlines included.
+
+It DOES separate the display/validation cell. Agent 2 needs a display condition
+and a validation rule as distinct fields, and a QRE routinely packs both into one
+cell on separate lines. `instruction_splitter` divides the cell and labels each
+line by kind; `display_validation_raw` still holds the original text unchanged,
+so the split stays auditable against source. This is the "splits multi-part
+display cells" half of Step 5 — the labelling only, with no line reworded or
+parsed.
 
 Column roles are matched dynamically. "Or equivalent structural format" and
 CLAUDE.md §9 both forbid depending on the sample's column names, so headers are
@@ -34,6 +41,7 @@ from __future__ import annotations
 from collections.abc import Callable, Mapping, Sequence
 
 from ..ingestion.normalized_document import DocumentBlock, NormalizedTable, SourceReference
+from .instruction_splitter import routing_precedes_validation, split_instructions
 from .label_matching import score_label
 from .raw_question import ExtraColumn, QuestionExtraction, RawQuestion
 from .sectioned_document import ReviewItem, SectionedDocument
@@ -124,6 +132,25 @@ DEFAULT_COLUMN_ALIASES: Mapping[str, tuple[str, ...]] = {
 #: roles, or None to leave the column unmapped. Implementations must route
 #: through the approved LLM client (CLAUDE.md §52).
 ColumnClassifier = Callable[[str, Sequence[str]], str | None]
+
+#: Default for `classifier`, meaning "use whatever the project is configured to
+#: use". Distinct from None, which explicitly disables the model.
+USE_CONFIGURED_LLM = "__use_configured_llm__"
+
+
+def _configured_classifier() -> ColumnClassifier | None:
+    """The project's configured column classifier, or None if unavailable.
+
+    Imported lazily and only when the LLM is enabled, so this module keeps no
+    import-time dependency on any provider (CLAUDE.md §52).
+    """
+    from common.config import get_settings
+
+    if not get_settings().llm_enabled:
+        return None
+    from common.prompts.qre_interpretation import classify_table_column
+
+    return classify_table_column
 
 #: How many leading rows to consider as the header row. A table may open with a
 #: title or spanning-caption row before its real header.
@@ -607,12 +634,19 @@ def _parse_table(
             if index < len(row) and row[index].strip()
         )
 
+        # Split the compound display/validation cell into separate labelled
+        # instructions. The raw cell is still kept verbatim above it, so the
+        # evidence chain is intact and the split is auditable against source.
+        display_validation = _cell(row, roles, ROLE_DISPLAY_VALIDATION)
+        instructions = split_instructions(display_validation)
+
         question = RawQuestion(
             id=_cell(row, roles, ROLE_ID),
             wording=_cell(row, roles, ROLE_WORDING),
             type=_cell(row, roles, ROLE_TYPE),
             options_raw=_cell(row, roles, ROLE_OPTIONS),
-            display_validation_raw=_cell(row, roles, ROLE_DISPLAY_VALIDATION),
+            display_validation_raw=display_validation,
+            instructions=instructions,
             row_index=offset,
             source_reference=SourceReference(
                 document=document_name,
@@ -622,6 +656,41 @@ def _parse_table(
             extra_columns=extra,
         )
         questions.append(question)
+
+        # An instruction line matching no known kind is preserved but must not
+        # pass as understood — Agent 2 would otherwise never see it (§16, §30).
+        if question.unclassified_instructions:
+            review.append(
+                ReviewItem(
+                    element=question.id or f"row {offset}",
+                    reason="instruction_kind_not_recognized",
+                    detail=(
+                        f"Instruction line(s) "
+                        f"{list(question.unclassified_instructions)} in row {offset} "
+                        "matched no known instruction kind. The text is preserved "
+                        "on the question, but no field was assigned to it."
+                    ),
+                    source_reference=question.source_reference,
+                )
+            )
+
+        # A display condition governs whether the question is asked at all, so it
+        # normally precedes any constraint on the answer. Every cell in the
+        # corpus is written that way. An inversion is not proof of error, but it
+        # often means two questions' instructions have been merged into one row.
+        if not routing_precedes_validation(instructions):
+            review.append(
+                ReviewItem(
+                    element=question.id or f"row {offset}",
+                    reason="routing_follows_validation",
+                    detail=(
+                        f"Row {offset} states a validation rule before the display "
+                        "condition that gates it. Unusual ordering — check the row "
+                        "has not merged instructions belonging to two questions."
+                    ),
+                    source_reference=question.source_reference,
+                )
+            )
 
         # Malformed-object detection is part of Part 1's definition of done (§45),
         # but only the two required roles are genuinely defects when empty. An
@@ -650,7 +719,7 @@ def parse_questions(
     sectioned: SectionedDocument,
     section_label: str = "questionnaire",
     column_aliases: Mapping[str, Sequence[str]] | None = None,
-    classifier: ColumnClassifier | None = None,
+    classifier: ColumnClassifier | None | str = USE_CONFIGURED_LLM,
 ) -> QuestionExtraction:
     """Extract RawQuestion objects from a sectioned document's questionnaire.
 
@@ -660,14 +729,18 @@ def parse_questions(
                         "questionnaire".
         column_aliases: optional override of the column-role vocabulary, shaped
                         {role: (alias, ...)}. Defaults to DEFAULT_COLUMN_ALIASES.
-        classifier:     optional semantic classifier for column headers the
-                        vocabulary does not cover. Omit it and such columns are
-                        left unmapped and reported.
+        classifier:     semantic classifier for column headers the vocabulary
+                        does not cover. Defaults to the project's configured LLM.
+                        Pass None to force deterministic-only behaviour, or a
+                        callable to inject your own.
 
     Returns:
         QuestionExtraction. `.questions` is the list the step table specifies;
         `.review_queue` carries anything a human should check.
     """
+    if classifier is USE_CONFIGURED_LLM:
+        classifier = _configured_classifier()
+
     aliases = DEFAULT_COLUMN_ALIASES if column_aliases is None else column_aliases
     document_name = sectioned.document_name
 

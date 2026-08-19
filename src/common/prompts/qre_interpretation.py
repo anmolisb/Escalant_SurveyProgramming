@@ -228,3 +228,127 @@ def classify_table_column(
     if role is None or not isinstance(role, str) or not role.strip():
         return None
     return role.strip()
+
+
+# ---------------------------------------------------------------------------
+# Step 5 — prose display-condition conversion
+# ---------------------------------------------------------------------------
+
+CONDITION_CONVERSION_PROMPT_VERSION = "condition_conversion.v1"
+
+CONDITION_CONVERSION_SYSTEM_PROMPT = """\
+You convert display conditions from survey questionnaires into structured form.
+
+A display condition says when a question is shown, by testing an earlier \
+question's answer. Operator forms like "Q5 == 'Yes'" are already structured and \
+never reach you. You are given the ones written as prose, such as \
+"Show if: Q5 contains any touchpoint".
+
+You are given the condition, the id of the question it tests, and that \
+question's own answer options. Resolve the prose against those options: \
+"contains any touchpoint" over options [Physician, Hospital, Pharmacy, None of \
+these] means any of the real touchpoints, and excludes the "none" option.
+
+Allowed operators:
+- equals          answer is exactly this value
+- not_equals      answer is anything but this value
+- in              answer is one of these values
+- not_in          answer is none of these values
+- contains_any    a multi-select answer includes at least one of these values
+- contains_all    a multi-select answer includes every one of these values
+- greater_than    numeric answer above this value
+- less_than       numeric answer below this value
+
+Rules:
+- "values" must be option labels copied EXACTLY from the supplied option list. \
+Never invent, reword, translate or abbreviate an option.
+- If the condition cannot be resolved against the supplied options, or the \
+option list is empty, return null. A null answer sends the condition to a human \
+reviewer, which is cheap. A wrong operator silently routes real respondents \
+down the wrong path, which is not.
+- Never return an operator outside the allowed list.
+
+Respond with JSON only:
+{"operator": "<allowed operator>", "question_id": "<id>", "values": ["..."]}
+or {"operator": null}
+"""
+
+
+def convert_display_condition(
+    condition_text: str,
+    question_id: str,
+    options: Sequence[str],
+    client: GroqClient | None = None,
+) -> dict | None:
+    """Convert one prose display condition into a structured form.
+
+    Matches the `ConditionConverter` signature Step 5's `build_questions`
+    expects, so it can be passed straight in as `converter=`.
+
+    Only the condition text and the referenced question's option labels are sent
+    — never question wording, other questions, or document content.
+
+    Args:
+        condition_text: e.g. "Show if: Q5 contains any touchpoint".
+        question_id:    the question the condition tests, e.g. "Q5".
+        options:        that question's option labels, which the prose is
+                        resolved against.
+        client:         optional pre-built client.
+
+    Returns:
+        {"operator", "question_id", "values"}, or None when unresolvable. Step 5
+        re-checks the operator against its own set, and a value not present in
+        the supplied options is dropped, so a bad answer cannot widen the
+        contract or invent an option (CLAUDE.md §17, §30).
+    """
+    if not condition_text.strip() or not options:
+        return None
+
+    active_client = client if client is not None else build_client()
+    if active_client is None:
+        return None
+
+    user_prompt = (
+        f"Condition: {condition_text}\n"
+        f"Tests question: {question_id}\n"
+        f"That question's options:\n"
+        + "\n".join(f"- {o}" for o in options)
+        + "\n\nConvert this condition."
+    )
+
+    try:
+        payload = active_client.complete_json(
+            CONDITION_CONVERSION_SYSTEM_PROMPT, user_prompt
+        )
+    except LLMCallError as exc:
+        logger.warning(
+            "Condition conversion failed for %r (prompt %s): %s",
+            condition_text,
+            CONDITION_CONVERSION_PROMPT_VERSION,
+            exc,
+        )
+        return None
+
+    operator = payload.get("operator")
+    if not operator or not isinstance(operator, str):
+        return None
+
+    # Keep only values the referenced question actually offers. A model that
+    # invents an option would otherwise put a non-existent answer into routing.
+    proposed = payload.get("values") or []
+    allowed = {str(o) for o in options}
+    values = [str(v) for v in proposed if str(v) in allowed]
+    if proposed and not values:
+        logger.warning(
+            "Condition conversion for %r returned no value matching %s's options; "
+            "treating as unresolved.",
+            condition_text,
+            question_id,
+        )
+        return None
+
+    return {
+        "operator": operator.strip(),
+        "question_id": str(payload.get("question_id") or question_id),
+        "values": values,
+    }

@@ -123,6 +123,26 @@ DEFAULT_SECTION_TYPES: Mapping[str, tuple[str, ...]] = {
 #: route through the approved LLM client (CLAUDE.md §52).
 SectionClassifier = Callable[[str, Sequence[str]], str | None]
 
+#: Default for the `classifier` argument, meaning "use whatever the project is
+#: configured to use". Distinct from None, which explicitly disables the model.
+USE_CONFIGURED_LLM = "__use_configured_llm__"
+
+
+def _configured_classifier() -> SectionClassifier | None:
+    """The project's configured heading classifier, or None if unavailable.
+
+    Imported lazily and only when the LLM is actually enabled, so this module
+    keeps no import-time dependency on any provider. Swapping the runtime means
+    changing the prompt layer, not this file (CLAUDE.md §52).
+    """
+    from common.config import get_settings
+
+    if not get_settings().llm_enabled:
+        return None
+    from common.prompts.qre_interpretation import classify_section_heading
+
+    return classify_section_heading
+
 
 def _is_heading(block: DocumentBlock) -> bool:
     """True if a block is a heading, judged structurally.
@@ -174,7 +194,7 @@ def _classify(
 def detect_sections(
     document: NormalizedDocument,
     section_types: Mapping[str, Sequence[str]] | None = None,
-    classifier: SectionClassifier | None = None,
+    classifier: SectionClassifier | None | str = USE_CONFIGURED_LLM,
 ) -> SectionedDocument:
     """Slice a NormalizedDocument into labelled sections.
 
@@ -183,14 +203,20 @@ def detect_sections(
         section_types: optional override of the known-section vocabulary,
                        shaped {canonical_label: (alias, ...)}. Defaults to
                        DEFAULT_SECTION_TYPES.
-        classifier:    optional semantic classifier for headings the vocabulary
-                       does not cover. Omit it and such headings are flagged.
+        classifier:    semantic classifier for headings the vocabulary does not
+                       cover. Defaults to the project's configured LLM, so a
+                       caller gets it without wiring anything. Pass None to force
+                       deterministic-only behaviour, or a callable to inject your
+                       own.
 
     Returns:
         SectionedDocument. Every block of the input appears in exactly one
         section, so nothing is lost regardless of classification outcome
         (CLAUDE.md §16).
     """
+    if classifier is USE_CONFIGURED_LLM:
+        classifier = _configured_classifier()
+
     types = DEFAULT_SECTION_TYPES if section_types is None else section_types
     alias_index = build_alias_index(types)
     known_labels = list(types.keys())
