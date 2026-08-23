@@ -1,0 +1,1826 @@
+{
+  "schema_version": "1.0.0",
+  "artifact": "part2_canonical",
+  "stage": 6,
+  "survey_id": "C02_automotive_purchase_journey",
+  "source_document": {
+    "filename": "C02_automotive_purchase_journey.docx",
+    "sha256": "112a39d23aaf16dcfd2cce8a9de380d8b289dd33645c2703b7f00ec49f7e69f2",
+    "bytes": 43592
+  },
+  "generated_at": "2026-08-23T16:23:39+00:00",
+  "item_count": null,
+  "content": {
+    "source": "C02_automotive_purchase_journey.docx",
+    "semantics": {
+      "unasked_reference": "condition_false",
+      "unasked_reference_origin": "inferred",
+      "rule_precedence": "document_order_first_match",
+      "rule_precedence_origin": "inferred",
+      "multi_equality": "set_equality",
+      "multi_equality_origin": "derived"
+    },
+    "questions": [
+      {
+        "question_id": "S1",
+        "seq": 1,
+        "guard": null
+      },
+      {
+        "question_id": "S2",
+        "seq": 2,
+        "guard": null
+      },
+      {
+        "question_id": "S3",
+        "seq": 3,
+        "guard": null
+      },
+      {
+        "question_id": "S4",
+        "seq": 4,
+        "guard": null
+      },
+      {
+        "question_id": "Q1",
+        "seq": 5,
+        "guard": null
+      },
+      {
+        "question_id": "Q2",
+        "seq": 6,
+        "guard": {
+          "condition": {
+            "op": "contains_any",
+            "left": {
+              "question_id": "Q1",
+              "aggregate": null,
+              "text": null,
+              "number": null,
+              "values": null
+            },
+            "right": {
+              "question_id": null,
+              "aggregate": null,
+              "text": null,
+              "number": null,
+              "values": [
+                "Auto Brand A",
+                "Auto Brand B",
+                "Auto Brand C",
+                "Auto Brand D"
+              ]
+            },
+            "operands": [],
+            "source_text": "Q1 contains at least one brand",
+            "origin": "inferred",
+            "confidence": 0.97
+          },
+          "agreement": "agree",
+          "sources": [
+            "questionnaire",
+            "R6"
+          ],
+          "raw_texts": [
+            "Q1 contains at least one brand",
+            "Q1 contains at least one brand"
+          ]
+        }
+      },
+      {
+        "question_id": "Q3",
+        "seq": 7,
+        "guard": {
+          "condition": {
+            "op": "contains_any",
+            "left": {
+              "question_id": "Q1",
+              "aggregate": null,
+              "text": null,
+              "number": null,
+              "values": null
+            },
+            "right": {
+              "question_id": null,
+              "aggregate": null,
+              "text": null,
+              "number": null,
+              "values": [
+                "Auto Brand A",
+                "Auto Brand B",
+                "Auto Brand C",
+                "Auto Brand D"
+              ]
+            },
+            "operands": [],
+            "source_text": "Q1 contains at least one brand",
+            "origin": "inferred",
+            "confidence": 0.97
+          },
+          "agreement": "agree",
+          "sources": [
+            "questionnaire",
+            "R7"
+          ],
+          "raw_texts": [
+            "Q1 contains at least one brand",
+            "Q1 contains at least one brand"
+          ]
+        }
+      },
+      {
+        "question_id": "Q4",
+        "seq": 8,
+        "guard": null
+      },
+      {
+        "question_id": "Q5",
+        "seq": 9,
+        "guard": null
+      },
+      {
+        "question_id": "Q6",
+        "seq": 10,
+        "guard": {
+          "condition": {
+            "op": "contains_any",
+            "left": {
+              "question_id": "Q5",
+              "aggregate": null,
+              "text": null,
+              "number": null,
+              "values": null
+            },
+            "right": {
+              "question_id": null,
+              "aggregate": null,
+              "text": null,
+              "number": null,
+              "values": [
+                "Manufacturer website",
+                "Dealer visit",
+                "Review site",
+                "Social media",
+                "Friends or family",
+                "Auto show"
+              ]
+            },
+            "operands": [],
+            "source_text": "Q5 contains any touchpoint",
+            "origin": "inferred",
+            "confidence": 0.9
+          },
+          "agreement": "agree",
+          "sources": [
+            "questionnaire",
+            "R8"
+          ],
+          "raw_texts": [
+            "Q5 contains any touchpoint",
+            "Q5 contains any touchpoint"
+          ]
+        }
+      },
+      {
+        "question_id": "Q7",
+        "seq": 11,
+        "guard": {
+          "condition": {
+            "op": "ne",
+            "left": {
+              "question_id": "Q3",
+              "aggregate": null,
+              "text": null,
+              "number": null,
+              "values": null
+            },
+            "right": {
+              "question_id": null,
+              "aggregate": null,
+              "text": "None/currently not using",
+              "number": null,
+              "values": null
+            },
+            "operands": [],
+            "source_text": "Q3 != 'None/currently not using'",
+            "origin": "derived",
+            "confidence": null
+          },
+          "agreement": "agree",
+          "sources": [
+            "questionnaire",
+            "R9"
+          ],
+          "raw_texts": [
+            "Q3 != 'None/currently not using'",
+            "Q3 != 'None/currently not using'"
+          ]
+        }
+      },
+      {
+        "question_id": "Q8",
+        "seq": 12,
+        "guard": {
+          "condition": {
+            "op": "ne",
+            "left": {
+              "question_id": "Q3",
+              "aggregate": null,
+              "text": null,
+              "number": null,
+              "values": null
+            },
+            "right": {
+              "question_id": null,
+              "aggregate": null,
+              "text": "None/currently not using",
+              "number": null,
+              "values": null
+            },
+            "operands": [],
+            "source_text": "Q3 != 'None/currently not using'",
+            "origin": "derived",
+            "confidence": null
+          },
+          "agreement": "agree",
+          "sources": [
+            "questionnaire",
+            "R10"
+          ],
+          "raw_texts": [
+            "Q3 != 'None/currently not using'",
+            "Q3 != 'None/currently not using'"
+          ]
+        }
+      },
+      {
+        "question_id": "Q9",
+        "seq": 13,
+        "guard": {
+          "condition": {
+            "op": "ne",
+            "left": {
+              "question_id": "Q3",
+              "aggregate": null,
+              "text": null,
+              "number": null,
+              "values": null
+            },
+            "right": {
+              "question_id": null,
+              "aggregate": null,
+              "text": "None/currently not using",
+              "number": null,
+              "values": null
+            },
+            "operands": [],
+            "source_text": "Q3 != 'None/currently not using'",
+            "origin": "derived",
+            "confidence": null
+          },
+          "agreement": "agree",
+          "sources": [
+            "questionnaire",
+            "R11"
+          ],
+          "raw_texts": [
+            "Q3 != 'None/currently not using'",
+            "Q3 != 'None/currently not using'"
+          ]
+        }
+      },
+      {
+        "question_id": "Q10",
+        "seq": 14,
+        "guard": null
+      },
+      {
+        "question_id": "Q11",
+        "seq": 15,
+        "guard": {
+          "condition": {
+            "op": "eq",
+            "left": {
+              "question_id": "Q10",
+              "aggregate": null,
+              "text": null,
+              "number": null,
+              "values": null
+            },
+            "right": {
+              "question_id": null,
+              "aggregate": null,
+              "text": "Yes",
+              "number": null,
+              "values": null
+            },
+            "operands": [],
+            "source_text": "Q10 == 'Yes'",
+            "origin": "derived",
+            "confidence": null
+          },
+          "agreement": "agree",
+          "sources": [
+            "questionnaire",
+            "R12"
+          ],
+          "raw_texts": [
+            "Q10 == 'Yes'",
+            "Q10 == 'Yes'"
+          ]
+        }
+      },
+      {
+        "question_id": "Q12",
+        "seq": 16,
+        "guard": {
+          "condition": {
+            "op": "eq",
+            "left": {
+              "question_id": "Q10",
+              "aggregate": null,
+              "text": null,
+              "number": null,
+              "values": null
+            },
+            "right": {
+              "question_id": null,
+              "aggregate": null,
+              "text": "Yes",
+              "number": null,
+              "values": null
+            },
+            "operands": [],
+            "source_text": "Q10 == 'Yes'",
+            "origin": "derived",
+            "confidence": null
+          },
+          "agreement": "agree",
+          "sources": [
+            "questionnaire",
+            "R13"
+          ],
+          "raw_texts": [
+            "Q10 == 'Yes'",
+            "Q10 == 'Yes'"
+          ]
+        }
+      },
+      {
+        "question_id": "Q13",
+        "seq": 17,
+        "guard": {
+          "condition": {
+            "op": "in",
+            "left": {
+              "question_id": "Q12",
+              "aggregate": null,
+              "text": null,
+              "number": null,
+              "values": null
+            },
+            "right": {
+              "question_id": null,
+              "aggregate": null,
+              "text": null,
+              "number": null,
+              "values": [
+                "Fully",
+                "Partly"
+              ]
+            },
+            "operands": [],
+            "source_text": "Q12 in ['Fully','Partly']",
+            "origin": "derived",
+            "confidence": null
+          },
+          "agreement": "agree",
+          "sources": [
+            "questionnaire",
+            "R14"
+          ],
+          "raw_texts": [
+            "Q12 in ['Fully','Partly']",
+            "Q12 in ['Fully','Partly']"
+          ]
+        }
+      },
+      {
+        "question_id": "Q14",
+        "seq": 18,
+        "guard": {
+          "condition": {
+            "op": "eq",
+            "left": {
+              "question_id": "Q12",
+              "aggregate": null,
+              "text": null,
+              "number": null,
+              "values": null
+            },
+            "right": {
+              "question_id": null,
+              "aggregate": null,
+              "text": "Not resolved",
+              "number": null,
+              "values": null
+            },
+            "operands": [],
+            "source_text": "Q12 == 'Not resolved'",
+            "origin": "derived",
+            "confidence": null
+          },
+          "agreement": "agree",
+          "sources": [
+            "questionnaire",
+            "R15"
+          ],
+          "raw_texts": [
+            "Q12 == 'Not resolved'",
+            "Q12 == 'Not resolved'"
+          ]
+        }
+      },
+      {
+        "question_id": "Q15",
+        "seq": 19,
+        "guard": {
+          "condition": {
+            "op": "ne",
+            "left": {
+              "question_id": "Q3",
+              "aggregate": null,
+              "text": null,
+              "number": null,
+              "values": null
+            },
+            "right": {
+              "question_id": null,
+              "aggregate": null,
+              "text": "None/currently not using",
+              "number": null,
+              "values": null
+            },
+            "operands": [],
+            "source_text": "Q3 != 'None/currently not using'",
+            "origin": "derived",
+            "confidence": null
+          },
+          "agreement": "single_source",
+          "sources": [
+            "questionnaire"
+          ],
+          "raw_texts": [
+            "Q3 != 'None/currently not using'"
+          ]
+        }
+      },
+      {
+        "question_id": "Q16",
+        "seq": 20,
+        "guard": {
+          "condition": {
+            "op": "eq",
+            "left": {
+              "question_id": "Q15",
+              "aggregate": null,
+              "text": null,
+              "number": null,
+              "values": null
+            },
+            "right": {
+              "question_id": null,
+              "aggregate": null,
+              "text": "Yes",
+              "number": null,
+              "values": null
+            },
+            "operands": [],
+            "source_text": "Q15 == 'Yes'",
+            "origin": "derived",
+            "confidence": null
+          },
+          "agreement": "agree",
+          "sources": [
+            "questionnaire",
+            "R16"
+          ],
+          "raw_texts": [
+            "Q15 == 'Yes'",
+            "Q15 == 'Yes'"
+          ]
+        }
+      },
+      {
+        "question_id": "Q17",
+        "seq": 21,
+        "guard": {
+          "condition": {
+            "op": "eq",
+            "left": {
+              "question_id": "Q16",
+              "aggregate": null,
+              "text": null,
+              "number": null,
+              "values": null
+            },
+            "right": {
+              "question_id": null,
+              "aggregate": null,
+              "text": "Other",
+              "number": null,
+              "values": null
+            },
+            "operands": [],
+            "source_text": "Q16 == 'Other'",
+            "origin": "derived",
+            "confidence": null
+          },
+          "agreement": "agree",
+          "sources": [
+            "questionnaire",
+            "R17"
+          ],
+          "raw_texts": [
+            "Q16 == 'Other'",
+            "Q16 == 'Other'"
+          ]
+        }
+      },
+      {
+        "question_id": "Q18",
+        "seq": 22,
+        "guard": null
+      },
+      {
+        "question_id": "Q19",
+        "seq": 23,
+        "guard": null
+      },
+      {
+        "question_id": "Q20",
+        "seq": 24,
+        "guard": null
+      },
+      {
+        "question_id": "Q21",
+        "seq": 25,
+        "guard": null
+      },
+      {
+        "question_id": "D1",
+        "seq": 26,
+        "guard": null
+      },
+      {
+        "question_id": "D2",
+        "seq": 27,
+        "guard": null
+      },
+      {
+        "question_id": "D3",
+        "seq": 28,
+        "guard": null
+      },
+      {
+        "question_id": "D4",
+        "seq": 29,
+        "guard": null
+      },
+      {
+        "question_id": "Q22",
+        "seq": 30,
+        "guard": null
+      },
+      {
+        "question_id": "Q23",
+        "seq": 31,
+        "guard": null
+      }
+    ],
+    "rules": [
+      {
+        "rule_id": "R1",
+        "kind": "terminate",
+        "when": {
+          "op": "eq",
+          "left": {
+            "question_id": "S1",
+            "aggregate": null,
+            "text": null,
+            "number": null,
+            "values": null
+          },
+          "right": {
+            "question_id": null,
+            "aggregate": null,
+            "text": "No",
+            "number": null,
+            "values": null
+          },
+          "operands": [],
+          "source_text": "S1 == 'No'",
+          "origin": "derived",
+          "confidence": null
+        },
+        "when_unread": null,
+        "destination": {
+          "kind": "disposition",
+          "id": "TERM_AGE",
+          "origin": "derived"
+        },
+        "evaluation_point": "S1",
+        "evaluation_point_origin": "inferred",
+        "precedence": 1,
+        "source_reference": {
+          "document": "C02_automotive_purchase_journey.docx",
+          "section": "Routing and termination",
+          "heading_text": "Routing and termination",
+          "block_order": 12,
+          "row_index": 0,
+          "source_kind": "table",
+          "text": "R1 | S1 == 'No' | terminate | TERM_AGE"
+        }
+      },
+      {
+        "rule_id": "R2",
+        "kind": "terminate",
+        "when": {
+          "op": "ne",
+          "left": {
+            "question_id": "S2",
+            "aggregate": null,
+            "text": null,
+            "number": null,
+            "values": null
+          },
+          "right": {
+            "question_id": null,
+            "aggregate": null,
+            "text": "Purchased or seriously considered a new vehicle in the past 18 months",
+            "number": null,
+            "values": null
+          },
+          "operands": [],
+          "source_text": "S2 != 'Purchased or seriously considered a new vehicle in the past 18 months'",
+          "origin": "derived",
+          "confidence": null
+        },
+        "when_unread": null,
+        "destination": {
+          "kind": "disposition",
+          "id": "TERM_INVOLVEMENT",
+          "origin": "derived"
+        },
+        "evaluation_point": "S2",
+        "evaluation_point_origin": "inferred",
+        "precedence": 2,
+        "source_reference": {
+          "document": "C02_automotive_purchase_journey.docx",
+          "section": "Routing and termination",
+          "heading_text": "Routing and termination",
+          "block_order": 12,
+          "row_index": 1,
+          "source_kind": "table",
+          "text": "R2 | S2 != 'Purchased or seriously considered a new vehicle in the past 18 months' | terminate | TERM_INVOLVEMENT"
+        }
+      },
+      {
+        "rule_id": "R3",
+        "kind": "terminate",
+        "when": {
+          "op": "eq",
+          "left": {
+            "question_id": "S3",
+            "aggregate": null,
+            "text": null,
+            "number": null,
+            "values": null
+          },
+          "right": {
+            "question_id": null,
+            "aggregate": null,
+            "text": "Yes",
+            "number": null,
+            "values": null
+          },
+          "operands": [],
+          "source_text": "S3 == 'Yes'",
+          "origin": "derived",
+          "confidence": null
+        },
+        "when_unread": null,
+        "destination": {
+          "kind": "disposition",
+          "id": "TERM_RECENT_RESEARCH",
+          "origin": "derived"
+        },
+        "evaluation_point": "S3",
+        "evaluation_point_origin": "inferred",
+        "precedence": 3,
+        "source_reference": {
+          "document": "C02_automotive_purchase_journey.docx",
+          "section": "Routing and termination",
+          "heading_text": "Routing and termination",
+          "block_order": 12,
+          "row_index": 2,
+          "source_kind": "table",
+          "text": "R3 | S3 == 'Yes' | terminate | TERM_RECENT_RESEARCH"
+        }
+      },
+      {
+        "rule_id": "R4",
+        "kind": "terminate",
+        "when": {
+          "op": "eq",
+          "left": {
+            "question_id": "S4",
+            "aggregate": null,
+            "text": null,
+            "number": null,
+            "values": null
+          },
+          "right": {
+            "question_id": null,
+            "aggregate": null,
+            "text": "Yes",
+            "number": null,
+            "values": null
+          },
+          "operands": [],
+          "source_text": "S4 == 'Yes'",
+          "origin": "derived",
+          "confidence": null
+        },
+        "when_unread": null,
+        "destination": {
+          "kind": "disposition",
+          "id": "TERM_CONFLICT",
+          "origin": "derived"
+        },
+        "evaluation_point": "S4",
+        "evaluation_point_origin": "inferred",
+        "precedence": 4,
+        "source_reference": {
+          "document": "C02_automotive_purchase_journey.docx",
+          "section": "Routing and termination",
+          "heading_text": "Routing and termination",
+          "block_order": 12,
+          "row_index": 3,
+          "source_kind": "table",
+          "text": "R4 | S4 == 'Yes' | terminate | TERM_CONFLICT"
+        }
+      },
+      {
+        "rule_id": "R5",
+        "kind": "skip",
+        "when": {
+          "op": "set_eq",
+          "left": {
+            "question_id": "Q1",
+            "aggregate": null,
+            "text": null,
+            "number": null,
+            "values": null
+          },
+          "right": {
+            "question_id": null,
+            "aggregate": null,
+            "text": null,
+            "number": null,
+            "values": [
+              "None of these"
+            ]
+          },
+          "operands": [],
+          "source_text": "Q1 == ['None of these']",
+          "origin": "derived",
+          "confidence": null
+        },
+        "when_unread": null,
+        "destination": {
+          "kind": "question",
+          "id": "Q4",
+          "origin": "derived"
+        },
+        "evaluation_point": "Q1",
+        "evaluation_point_origin": "inferred",
+        "precedence": 5,
+        "source_reference": {
+          "document": "C02_automotive_purchase_journey.docx",
+          "section": "Routing and termination",
+          "heading_text": "Routing and termination",
+          "block_order": 12,
+          "row_index": 4,
+          "source_kind": "table",
+          "text": "R5 | Q1 == ['None of these'] | skip | Q4"
+        }
+      },
+      {
+        "rule_id": "R6",
+        "kind": "show",
+        "when": {
+          "op": "contains_any",
+          "left": {
+            "question_id": "Q1",
+            "aggregate": null,
+            "text": null,
+            "number": null,
+            "values": null
+          },
+          "right": {
+            "question_id": null,
+            "aggregate": null,
+            "text": null,
+            "number": null,
+            "values": [
+              "Auto Brand A",
+              "Auto Brand B",
+              "Auto Brand C",
+              "Auto Brand D"
+            ]
+          },
+          "operands": [],
+          "source_text": "Q1 contains at least one brand",
+          "origin": "inferred",
+          "confidence": 0.97
+        },
+        "when_unread": null,
+        "destination": {
+          "kind": "question",
+          "id": "Q2",
+          "origin": "derived"
+        },
+        "evaluation_point": "Q1",
+        "evaluation_point_origin": "inferred",
+        "precedence": 6,
+        "source_reference": {
+          "document": "C02_automotive_purchase_journey.docx",
+          "section": "Routing and termination",
+          "heading_text": "Routing and termination",
+          "block_order": 12,
+          "row_index": 5,
+          "source_kind": "table",
+          "text": "R6 | Q1 contains at least one brand | show | Q2"
+        }
+      },
+      {
+        "rule_id": "R7",
+        "kind": "show",
+        "when": {
+          "op": "contains_any",
+          "left": {
+            "question_id": "Q1",
+            "aggregate": null,
+            "text": null,
+            "number": null,
+            "values": null
+          },
+          "right": {
+            "question_id": null,
+            "aggregate": null,
+            "text": null,
+            "number": null,
+            "values": [
+              "Auto Brand A",
+              "Auto Brand B",
+              "Auto Brand C",
+              "Auto Brand D"
+            ]
+          },
+          "operands": [],
+          "source_text": "Q1 contains at least one brand",
+          "origin": "inferred",
+          "confidence": 0.97
+        },
+        "when_unread": null,
+        "destination": {
+          "kind": "question",
+          "id": "Q3",
+          "origin": "derived"
+        },
+        "evaluation_point": "Q1",
+        "evaluation_point_origin": "inferred",
+        "precedence": 7,
+        "source_reference": {
+          "document": "C02_automotive_purchase_journey.docx",
+          "section": "Routing and termination",
+          "heading_text": "Routing and termination",
+          "block_order": 12,
+          "row_index": 6,
+          "source_kind": "table",
+          "text": "R7 | Q1 contains at least one brand | show | Q3"
+        }
+      },
+      {
+        "rule_id": "R8",
+        "kind": "show",
+        "when": {
+          "op": "contains_any",
+          "left": {
+            "question_id": "Q5",
+            "aggregate": null,
+            "text": null,
+            "number": null,
+            "values": null
+          },
+          "right": {
+            "question_id": null,
+            "aggregate": null,
+            "text": null,
+            "number": null,
+            "values": [
+              "Manufacturer website",
+              "Dealer visit",
+              "Review site",
+              "Social media",
+              "Friends or family",
+              "Auto show"
+            ]
+          },
+          "operands": [],
+          "source_text": "Q5 contains any touchpoint",
+          "origin": "inferred",
+          "confidence": 0.9
+        },
+        "when_unread": null,
+        "destination": {
+          "kind": "question",
+          "id": "Q6",
+          "origin": "derived"
+        },
+        "evaluation_point": "Q5",
+        "evaluation_point_origin": "inferred",
+        "precedence": 8,
+        "source_reference": {
+          "document": "C02_automotive_purchase_journey.docx",
+          "section": "Routing and termination",
+          "heading_text": "Routing and termination",
+          "block_order": 12,
+          "row_index": 7,
+          "source_kind": "table",
+          "text": "R8 | Q5 contains any touchpoint | show | Q6"
+        }
+      },
+      {
+        "rule_id": "R9",
+        "kind": "show",
+        "when": {
+          "op": "ne",
+          "left": {
+            "question_id": "Q3",
+            "aggregate": null,
+            "text": null,
+            "number": null,
+            "values": null
+          },
+          "right": {
+            "question_id": null,
+            "aggregate": null,
+            "text": "None/currently not using",
+            "number": null,
+            "values": null
+          },
+          "operands": [],
+          "source_text": "Q3 != 'None/currently not using'",
+          "origin": "derived",
+          "confidence": null
+        },
+        "when_unread": null,
+        "destination": {
+          "kind": "question",
+          "id": "Q7",
+          "origin": "derived"
+        },
+        "evaluation_point": "Q3",
+        "evaluation_point_origin": "inferred",
+        "precedence": 9,
+        "source_reference": {
+          "document": "C02_automotive_purchase_journey.docx",
+          "section": "Routing and termination",
+          "heading_text": "Routing and termination",
+          "block_order": 12,
+          "row_index": 8,
+          "source_kind": "table",
+          "text": "R9 | Q3 != 'None/currently not using' | show | Q7"
+        }
+      },
+      {
+        "rule_id": "R10",
+        "kind": "show",
+        "when": {
+          "op": "ne",
+          "left": {
+            "question_id": "Q3",
+            "aggregate": null,
+            "text": null,
+            "number": null,
+            "values": null
+          },
+          "right": {
+            "question_id": null,
+            "aggregate": null,
+            "text": "None/currently not using",
+            "number": null,
+            "values": null
+          },
+          "operands": [],
+          "source_text": "Q3 != 'None/currently not using'",
+          "origin": "derived",
+          "confidence": null
+        },
+        "when_unread": null,
+        "destination": {
+          "kind": "question",
+          "id": "Q8",
+          "origin": "derived"
+        },
+        "evaluation_point": "Q3",
+        "evaluation_point_origin": "inferred",
+        "precedence": 10,
+        "source_reference": {
+          "document": "C02_automotive_purchase_journey.docx",
+          "section": "Routing and termination",
+          "heading_text": "Routing and termination",
+          "block_order": 12,
+          "row_index": 9,
+          "source_kind": "table",
+          "text": "R10 | Q3 != 'None/currently not using' | show | Q8"
+        }
+      },
+      {
+        "rule_id": "R11",
+        "kind": "show",
+        "when": {
+          "op": "ne",
+          "left": {
+            "question_id": "Q3",
+            "aggregate": null,
+            "text": null,
+            "number": null,
+            "values": null
+          },
+          "right": {
+            "question_id": null,
+            "aggregate": null,
+            "text": "None/currently not using",
+            "number": null,
+            "values": null
+          },
+          "operands": [],
+          "source_text": "Q3 != 'None/currently not using'",
+          "origin": "derived",
+          "confidence": null
+        },
+        "when_unread": null,
+        "destination": {
+          "kind": "question",
+          "id": "Q9",
+          "origin": "derived"
+        },
+        "evaluation_point": "Q3",
+        "evaluation_point_origin": "inferred",
+        "precedence": 11,
+        "source_reference": {
+          "document": "C02_automotive_purchase_journey.docx",
+          "section": "Routing and termination",
+          "heading_text": "Routing and termination",
+          "block_order": 12,
+          "row_index": 10,
+          "source_kind": "table",
+          "text": "R11 | Q3 != 'None/currently not using' | show | Q9"
+        }
+      },
+      {
+        "rule_id": "R12",
+        "kind": "show",
+        "when": {
+          "op": "eq",
+          "left": {
+            "question_id": "Q10",
+            "aggregate": null,
+            "text": null,
+            "number": null,
+            "values": null
+          },
+          "right": {
+            "question_id": null,
+            "aggregate": null,
+            "text": "Yes",
+            "number": null,
+            "values": null
+          },
+          "operands": [],
+          "source_text": "Q10 == 'Yes'",
+          "origin": "derived",
+          "confidence": null
+        },
+        "when_unread": null,
+        "destination": {
+          "kind": "question",
+          "id": "Q11",
+          "origin": "derived"
+        },
+        "evaluation_point": "Q10",
+        "evaluation_point_origin": "inferred",
+        "precedence": 12,
+        "source_reference": {
+          "document": "C02_automotive_purchase_journey.docx",
+          "section": "Routing and termination",
+          "heading_text": "Routing and termination",
+          "block_order": 12,
+          "row_index": 11,
+          "source_kind": "table",
+          "text": "R12 | Q10 == 'Yes' | show | Q11"
+        }
+      },
+      {
+        "rule_id": "R13",
+        "kind": "show",
+        "when": {
+          "op": "eq",
+          "left": {
+            "question_id": "Q10",
+            "aggregate": null,
+            "text": null,
+            "number": null,
+            "values": null
+          },
+          "right": {
+            "question_id": null,
+            "aggregate": null,
+            "text": "Yes",
+            "number": null,
+            "values": null
+          },
+          "operands": [],
+          "source_text": "Q10 == 'Yes'",
+          "origin": "derived",
+          "confidence": null
+        },
+        "when_unread": null,
+        "destination": {
+          "kind": "question",
+          "id": "Q12",
+          "origin": "derived"
+        },
+        "evaluation_point": "Q10",
+        "evaluation_point_origin": "inferred",
+        "precedence": 13,
+        "source_reference": {
+          "document": "C02_automotive_purchase_journey.docx",
+          "section": "Routing and termination",
+          "heading_text": "Routing and termination",
+          "block_order": 12,
+          "row_index": 12,
+          "source_kind": "table",
+          "text": "R13 | Q10 == 'Yes' | show | Q12"
+        }
+      },
+      {
+        "rule_id": "R14",
+        "kind": "show",
+        "when": {
+          "op": "in",
+          "left": {
+            "question_id": "Q12",
+            "aggregate": null,
+            "text": null,
+            "number": null,
+            "values": null
+          },
+          "right": {
+            "question_id": null,
+            "aggregate": null,
+            "text": null,
+            "number": null,
+            "values": [
+              "Fully",
+              "Partly"
+            ]
+          },
+          "operands": [],
+          "source_text": "Q12 in ['Fully','Partly']",
+          "origin": "derived",
+          "confidence": null
+        },
+        "when_unread": null,
+        "destination": {
+          "kind": "question",
+          "id": "Q13",
+          "origin": "derived"
+        },
+        "evaluation_point": "Q12",
+        "evaluation_point_origin": "inferred",
+        "precedence": 14,
+        "source_reference": {
+          "document": "C02_automotive_purchase_journey.docx",
+          "section": "Routing and termination",
+          "heading_text": "Routing and termination",
+          "block_order": 12,
+          "row_index": 13,
+          "source_kind": "table",
+          "text": "R14 | Q12 in ['Fully','Partly'] | show | Q13"
+        }
+      },
+      {
+        "rule_id": "R15",
+        "kind": "show",
+        "when": {
+          "op": "eq",
+          "left": {
+            "question_id": "Q12",
+            "aggregate": null,
+            "text": null,
+            "number": null,
+            "values": null
+          },
+          "right": {
+            "question_id": null,
+            "aggregate": null,
+            "text": "Not resolved",
+            "number": null,
+            "values": null
+          },
+          "operands": [],
+          "source_text": "Q12 == 'Not resolved'",
+          "origin": "derived",
+          "confidence": null
+        },
+        "when_unread": null,
+        "destination": {
+          "kind": "question",
+          "id": "Q14",
+          "origin": "derived"
+        },
+        "evaluation_point": "Q12",
+        "evaluation_point_origin": "inferred",
+        "precedence": 15,
+        "source_reference": {
+          "document": "C02_automotive_purchase_journey.docx",
+          "section": "Routing and termination",
+          "heading_text": "Routing and termination",
+          "block_order": 12,
+          "row_index": 14,
+          "source_kind": "table",
+          "text": "R15 | Q12 == 'Not resolved' | show | Q14"
+        }
+      },
+      {
+        "rule_id": "R16",
+        "kind": "show",
+        "when": {
+          "op": "eq",
+          "left": {
+            "question_id": "Q15",
+            "aggregate": null,
+            "text": null,
+            "number": null,
+            "values": null
+          },
+          "right": {
+            "question_id": null,
+            "aggregate": null,
+            "text": "Yes",
+            "number": null,
+            "values": null
+          },
+          "operands": [],
+          "source_text": "Q15 == 'Yes'",
+          "origin": "derived",
+          "confidence": null
+        },
+        "when_unread": null,
+        "destination": {
+          "kind": "question",
+          "id": "Q16",
+          "origin": "derived"
+        },
+        "evaluation_point": "Q15",
+        "evaluation_point_origin": "inferred",
+        "precedence": 16,
+        "source_reference": {
+          "document": "C02_automotive_purchase_journey.docx",
+          "section": "Routing and termination",
+          "heading_text": "Routing and termination",
+          "block_order": 12,
+          "row_index": 15,
+          "source_kind": "table",
+          "text": "R16 | Q15 == 'Yes' | show | Q16"
+        }
+      },
+      {
+        "rule_id": "R17",
+        "kind": "show",
+        "when": {
+          "op": "eq",
+          "left": {
+            "question_id": "Q16",
+            "aggregate": null,
+            "text": null,
+            "number": null,
+            "values": null
+          },
+          "right": {
+            "question_id": null,
+            "aggregate": null,
+            "text": "Other",
+            "number": null,
+            "values": null
+          },
+          "operands": [],
+          "source_text": "Q16 == 'Other'",
+          "origin": "derived",
+          "confidence": null
+        },
+        "when_unread": null,
+        "destination": {
+          "kind": "question",
+          "id": "Q17",
+          "origin": "derived"
+        },
+        "evaluation_point": "Q16",
+        "evaluation_point_origin": "inferred",
+        "precedence": 17,
+        "source_reference": {
+          "document": "C02_automotive_purchase_journey.docx",
+          "section": "Routing and termination",
+          "heading_text": "Routing and termination",
+          "block_order": 12,
+          "row_index": 16,
+          "source_kind": "table",
+          "text": "R17 | Q16 == 'Other' | show | Q17"
+        }
+      },
+      {
+        "rule_id": "R18",
+        "kind": "reject",
+        "when": {
+          "op": "ne",
+          "left": {
+            "question_id": "Q18",
+            "aggregate": "sum",
+            "text": null,
+            "number": null,
+            "values": null
+          },
+          "right": {
+            "question_id": null,
+            "aggregate": null,
+            "text": null,
+            "number": 100.0,
+            "values": null
+          },
+          "operands": [],
+          "source_text": "sum(Q18) != 100",
+          "origin": "derived",
+          "confidence": null
+        },
+        "when_unread": null,
+        "destination": {
+          "kind": "question",
+          "id": "Q18",
+          "origin": "derived"
+        },
+        "evaluation_point": "Q18",
+        "evaluation_point_origin": "inferred",
+        "precedence": 18,
+        "source_reference": {
+          "document": "C02_automotive_purchase_journey.docx",
+          "section": "Routing and termination",
+          "heading_text": "Routing and termination",
+          "block_order": 12,
+          "row_index": 17,
+          "source_kind": "table",
+          "text": "R18 | sum(Q18) != 100 | reject | Q18"
+        }
+      },
+      {
+        "rule_id": "R19",
+        "kind": "reject",
+        "when": {
+          "op": "or",
+          "left": null,
+          "right": null,
+          "operands": [
+            {
+              "op": "and",
+              "left": null,
+              "right": null,
+              "operands": [
+                {
+                  "op": "contains",
+                  "left": {
+                    "question_id": "Q1",
+                    "aggregate": null,
+                    "text": null,
+                    "number": null,
+                    "values": null
+                  },
+                  "right": {
+                    "question_id": null,
+                    "aggregate": null,
+                    "text": "None of these",
+                    "number": null,
+                    "values": null
+                  },
+                  "operands": [],
+                  "source_text": "contains(Q1, 'None of these')",
+                  "origin": "derived",
+                  "confidence": null
+                },
+                {
+                  "op": "not",
+                  "left": null,
+                  "right": null,
+                  "operands": [
+                    {
+                      "op": "set_eq",
+                      "left": {
+                        "question_id": "Q1",
+                        "aggregate": null,
+                        "text": null,
+                        "number": null,
+                        "values": null
+                      },
+                      "right": {
+                        "question_id": null,
+                        "aggregate": null,
+                        "text": null,
+                        "number": null,
+                        "values": [
+                          "None of these"
+                        ]
+                      },
+                      "operands": [],
+                      "source_text": "Q1 == ['None of these']",
+                      "origin": "derived",
+                      "confidence": null
+                    }
+                  ],
+                  "source_text": "not Q1 == ['None of these']",
+                  "origin": "derived",
+                  "confidence": null
+                }
+              ],
+              "source_text": "contains(Q1, 'None of these') and not Q1 == ['None of these']",
+              "origin": "derived",
+              "confidence": null
+            },
+            {
+              "op": "and",
+              "left": null,
+              "right": null,
+              "operands": [
+                {
+                  "op": "contains",
+                  "left": {
+                    "question_id": "Q5",
+                    "aggregate": null,
+                    "text": null,
+                    "number": null,
+                    "values": null
+                  },
+                  "right": {
+                    "question_id": null,
+                    "aggregate": null,
+                    "text": "None of these",
+                    "number": null,
+                    "values": null
+                  },
+                  "operands": [],
+                  "source_text": "contains(Q5, 'None of these')",
+                  "origin": "derived",
+                  "confidence": null
+                },
+                {
+                  "op": "not",
+                  "left": null,
+                  "right": null,
+                  "operands": [
+                    {
+                      "op": "set_eq",
+                      "left": {
+                        "question_id": "Q5",
+                        "aggregate": null,
+                        "text": null,
+                        "number": null,
+                        "values": null
+                      },
+                      "right": {
+                        "question_id": null,
+                        "aggregate": null,
+                        "text": null,
+                        "number": null,
+                        "values": [
+                          "None of these"
+                        ]
+                      },
+                      "operands": [],
+                      "source_text": "Q5 == ['None of these']",
+                      "origin": "derived",
+                      "confidence": null
+                    }
+                  ],
+                  "source_text": "not Q5 == ['None of these']",
+                  "origin": "derived",
+                  "confidence": null
+                }
+              ],
+              "source_text": "contains(Q5, 'None of these') and not Q5 == ['None of these']",
+              "origin": "derived",
+              "confidence": null
+            }
+          ],
+          "source_text": "exclusive option selected with another response at Q1 or Q5",
+          "origin": "inferred",
+          "confidence": 0.97
+        },
+        "when_unread": null,
+        "destination": {
+          "kind": "position",
+          "id": "CURRENT_QUESTION",
+          "origin": "derived"
+        },
+        "evaluation_point": "Q5",
+        "evaluation_point_origin": "inferred",
+        "precedence": 19,
+        "source_reference": {
+          "document": "C02_automotive_purchase_journey.docx",
+          "section": "Routing and termination",
+          "heading_text": "Routing and termination",
+          "block_order": 12,
+          "row_index": 18,
+          "source_kind": "table",
+          "text": "R19 | exclusive option selected with another response at Q1 or Q5 | reject | CURRENT_QUESTION"
+        }
+      },
+      {
+        "rule_id": "R20",
+        "kind": "reject",
+        "when": {
+          "op": "not",
+          "left": null,
+          "right": null,
+          "operands": [
+            {
+              "op": "contains",
+              "left": {
+                "question_id": "Q5",
+                "aggregate": null,
+                "text": null,
+                "number": null,
+                "values": null
+              },
+              "right": {
+                "question_id": "Q6",
+                "aggregate": null,
+                "text": null,
+                "number": null,
+                "values": null
+              },
+              "operands": [],
+              "source_text": "contains(Q5, Q6)",
+              "origin": "derived",
+              "confidence": null
+            }
+          ],
+          "source_text": "selected option at Q6 was not selected at Q5",
+          "origin": "inferred",
+          "confidence": 0.99
+        },
+        "when_unread": null,
+        "destination": {
+          "kind": "question",
+          "id": "Q6",
+          "origin": "derived"
+        },
+        "evaluation_point": "Q6",
+        "evaluation_point_origin": "inferred",
+        "precedence": 20,
+        "source_reference": {
+          "document": "C02_automotive_purchase_journey.docx",
+          "section": "Routing and termination",
+          "heading_text": "Routing and termination",
+          "block_order": 12,
+          "row_index": 19,
+          "source_kind": "table",
+          "text": "R20 | selected option at Q6 was not selected at Q5 | reject | Q6"
+        }
+      }
+    ],
+    "dependencies": [
+      {
+        "from_question": "Q1",
+        "to_question": "Q2",
+        "kind": "option_source",
+        "detail": "Show only brands selected at Q1.",
+        "origin": "derived"
+      },
+      {
+        "from_question": "Q5",
+        "to_question": "Q6",
+        "kind": "option_source",
+        "detail": "Show only touchpoints selected at Q5.",
+        "origin": "derived"
+      },
+      {
+        "from_question": "Q3",
+        "to_question": "Q8",
+        "kind": "text_pipe",
+        "detail": "the current provider",
+        "origin": "inferred"
+      },
+      {
+        "from_question": "Q3",
+        "to_question": "Q9",
+        "kind": "text_pipe",
+        "detail": "your current provider",
+        "origin": "inferred"
+      },
+      {
+        "from_question": "Q19",
+        "to_question": "Q20",
+        "kind": "text_pipe",
+        "detail": "the selected proposition",
+        "origin": "inferred"
+      }
+    ],
+    "randomization": [
+      {
+        "question_id": "Q1",
+        "scope": "options",
+        "scope_origin": "inferred",
+        "anchored": [],
+        "anchored_origin": "ambiguous",
+        "capture_display_order": true
+      },
+      {
+        "question_id": "Q5",
+        "scope": "options",
+        "scope_origin": "inferred",
+        "anchored": [],
+        "anchored_origin": "ambiguous",
+        "capture_display_order": true
+      },
+      {
+        "question_id": "Q9",
+        "scope": "rows",
+        "scope_origin": "inferred",
+        "anchored": [],
+        "anchored_origin": "unknown",
+        "capture_display_order": true
+      },
+      {
+        "question_id": "Q16",
+        "scope": "options",
+        "scope_origin": "inferred",
+        "anchored": [],
+        "anchored_origin": "unknown",
+        "capture_display_order": true
+      },
+      {
+        "question_id": "Q19",
+        "scope": "options",
+        "scope_origin": "inferred",
+        "anchored": [],
+        "anchored_origin": "unknown",
+        "capture_display_order": true
+      }
+    ],
+    "review": [
+      {
+        "check": "condition_inferred",
+        "severity": "WARNING",
+        "finding": "Q2's display condition was prose, so a model proposed a reading which the parser then accepted. Worth a human eye.",
+        "target": {
+          "kind": "question",
+          "id": "Q2"
+        },
+        "evidence": "Q1 contains at least one brand  ->  Q1 contains_any ['Auto Brand A', 'Auto Brand B', 'Auto Brand C', 'Auto Brand D']",
+        "source_reference": null
+      },
+      {
+        "check": "condition_inferred",
+        "severity": "WARNING",
+        "finding": "Q6's display condition was prose, so a model proposed a reading which the parser then accepted. Worth a human eye.",
+        "target": {
+          "kind": "question",
+          "id": "Q6"
+        },
+        "evidence": "Q5 contains any touchpoint  ->  Q5 contains_any ['Manufacturer website', 'Dealer visit', 'Review site', 'Social media', 'Friends or family', 'Auto show']",
+        "source_reference": null
+      },
+      {
+        "check": "guard_single_source",
+        "severity": "WARNING",
+        "finding": "Q15 has a display condition in the questionnaire but no matching rule in the routing table, so reading only the routing table would miss it.",
+        "target": {
+          "kind": "question",
+          "id": "Q15"
+        },
+        "evidence": "Q3 != 'None/currently not using'",
+        "source_reference": null
+      },
+      {
+        "check": "partial_option_codes",
+        "severity": "WARNING",
+        "finding": "Q13 has codes on 2 of 5 options. A bot told to answer by code cannot resolve the rest, and inventing the missing codes is not allowed.",
+        "target": {
+          "kind": "question",
+          "id": "Q13"
+        },
+        "evidence": "1=Very low; -=2; -=3; -=4; 5=Very high",
+        "source_reference": null
+      },
+      {
+        "check": "condition_inferred",
+        "severity": "WARNING",
+        "finding": "Rule R19 was prose, so a model proposed a reading which the parser then accepted. Worth a human eye.",
+        "target": {
+          "kind": "rule",
+          "id": "R19"
+        },
+        "evidence": "exclusive option selected with another response at Q1 or Q5  ->  ((Q1 contains 'None of these' and not Q1 set_eq ['None of these']) or (Q5 contains 'None of these' and not Q5 set_eq ['None of these']))",
+        "source_reference": null
+      },
+      {
+        "check": "condition_inferred",
+        "severity": "WARNING",
+        "finding": "Rule R20 was prose, so a model proposed a reading which the parser then accepted. Worth a human eye.",
+        "target": {
+          "kind": "rule",
+          "id": "R20"
+        },
+        "evidence": "selected option at Q6 was not selected at Q5  ->  not Q5 contains Q6",
+        "source_reference": null
+      },
+      {
+        "check": "text_pipe_inferred",
+        "severity": "WARNING",
+        "finding": "Q8's wording appears to quote the answer given at Q3. No table states this; it was read out of the sentence, so it is worth confirming.",
+        "target": {
+          "kind": "question",
+          "id": "Q8"
+        },
+        "evidence": "'the current provider' (confidence 0.99)",
+        "source_reference": null
+      },
+      {
+        "check": "text_pipe_inferred",
+        "severity": "WARNING",
+        "finding": "Q9's wording appears to quote the answer given at Q3. No table states this; it was read out of the sentence, so it is worth confirming.",
+        "target": {
+          "kind": "question",
+          "id": "Q9"
+        },
+        "evidence": "'your current provider' (confidence 0.99)",
+        "source_reference": null
+      },
+      {
+        "check": "text_pipe_inferred",
+        "severity": "WARNING",
+        "finding": "Q20's wording appears to quote the answer given at Q19. No table states this; it was read out of the sentence, so it is worth confirming.",
+        "target": {
+          "kind": "question",
+          "id": "Q20"
+        },
+        "evidence": "'the selected proposition' (confidence 0.99)",
+        "source_reference": null
+      },
+      {
+        "check": "randomization_anchoring",
+        "severity": "WARNING",
+        "finding": "Q1 shuffles its options and has 'None of these' as an exclusive option. Convention keeps such an option at the bottom, but the QRE does not say so.",
+        "target": {
+          "kind": "question",
+          "id": "Q1"
+        },
+        "evidence": "randomize=true, exclusive_option='None of these'",
+        "source_reference": null
+      },
+      {
+        "check": "randomization_anchoring",
+        "severity": "WARNING",
+        "finding": "Q5 shuffles its options and has 'None of these' as an exclusive option. Convention keeps such an option at the bottom, but the QRE does not say so.",
+        "target": {
+          "kind": "question",
+          "id": "Q5"
+        },
+        "evidence": "randomize=true, exclusive_option='None of these'",
+        "source_reference": null
+      },
+      {
+        "check": "semantics_unconfirmed",
+        "severity": "BLOCKING",
+        "finding": "The semantics block records three decisions the QRE never states: that a condition naming an unasked question is false, that the first matching rule wins, and that '==' against a multi-select compares the whole answer set. Each changes which questions appear on many routes and needs confirming.",
+        "target": {
+          "kind": "survey",
+          "id": "C02_automotive_purchase_journey.docx"
+        },
+        "evidence": "{\"unasked_reference\":\"condition_false\",\"unasked_reference_origin\":\"inferred\",\"rule_precedence\":\"document_order_first_match\",\"rule_precedence_origin\":\"inferred\",\"multi_equality\":\"set_equality\",\"multi_equality_origin\":\"derived\"}",
+        "source_reference": null
+      }
+    ]
+  }
+}

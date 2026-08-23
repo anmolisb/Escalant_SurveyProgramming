@@ -95,11 +95,20 @@ def _rate_limit_delay(error: Exception) -> float | None:
     return float(match.group(1)) + 0.5 if match else _FALLBACK_BACKOFF
 
 
-def complete(system: str, user: str, response_model: type[T]) -> T:
+def complete(
+    system: str, user: str, response_model: type[T], max_tokens: int | None = None
+) -> T:
     """One structured call. Temperature 0, validated into `response_model`.
 
     Retries on rate limiting only. Any other failure is raised: a malformed
     response means the prompt or schema needs fixing, and retrying hides that.
+
+    `max_tokens` overrides the default for a single call. Almost nothing needs
+    it: the default is deliberately tight because Groq counts the requested cap
+    against the rate budget, so an oversized cap throttles every other call
+    without buying anything. A schema returning a list of objects is the
+    exception - it can legitimately need more room than a handful of fields, and
+    running out shows up as an empty completion rather than as a clear error.
     """
     last: Exception | None = None
     for _attempt in range(MAX_RATE_LIMIT_RETRIES + 1):
@@ -108,7 +117,7 @@ def complete(system: str, user: str, response_model: type[T]) -> T:
                 model=get_model(),
                 response_model=response_model,
                 temperature=0,
-                max_tokens=MAX_TOKENS,
+                max_tokens=max_tokens or MAX_TOKENS,
                 messages=[
                     {"role": "system", "content": system},
                     {"role": "user", "content": user},
@@ -145,7 +154,11 @@ def _get_semaphore() -> asyncio.Semaphore:
     return semaphore
 
 
-async def complete_async(system: str, user: str, response_model: type[T]) -> T:
+async def complete_async(
+    system: str, user: str, response_model: type[T], max_tokens: int | None = None
+) -> T:
     """Async wrapper so Stage 4 can gather calls, bounded by MAX_CONCURRENCY."""
     async with _get_semaphore():
-        return await asyncio.to_thread(complete, system, user, response_model)
+        return await asyncio.to_thread(
+            complete, system, user, response_model, max_tokens
+        )

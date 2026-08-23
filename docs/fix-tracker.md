@@ -83,12 +83,12 @@ extraction contract, so none of it is started yet.
 
 | ✓ | ID | Issue in plain language | Why it waits for Part 2 |
 |---|---|---|---|
-| [~] | P3-01 | Rule R5 changed meaning; R19 can never fire; three different syntaxes; R20 compares the wrong types (B1, B2, B3, B5). | **Started.** `src/part2_conditions.py` reads a condition into a typed tree built from `condition_raw`, never from `condition_expression`. Operators come from a closed set, so the three-syntax problem cannot recur by construction. Deterministic: 22 of the 28 distinct condition forms in the corpus parse with no model, covering 116 of 154 rule instances. R5 now reads `set_eq` rather than the scalar equality the model produced, and R18 reads `sum(Q18) ne 100` where the model returned nothing. The parser refuses rather than guesses — R19 and R20 come back as unread rather than as the model's broken versions. **Still to do:** the six genuinely prose conditions need a model proposing a tree that the parser then verifies, and that path cannot be tested without an API key. |
+| [x] | P3-01 | Rule R5 changed meaning; R19 can never fire; three different syntaxes; R20 compares the wrong types (B1, B2, B3, B5). | Done. The typed condition tree is built from condition_raw, never from the model's expression, and operators come from a closed set so the three-syntax problem cannot recur. 22 of the 28 forms parse with no model at all. The six that are genuine prose now go to a model which rewrites them into the same grammar, and the parser is what decides whether to accept - so the model can only propose what the QRE could have written formally itself. All 20 of C02's rules now read. R5 keeps set equality, R18 is read where the model had returned nothing, and R19 comes out satisfiable and correct at last: None of these was chosen but not on its own, rather than the impossible condition Stage 4 produced. |
 | [x] | P3-02 | Q13's answer codes are only half filled in (C2). | Done. _check_partial_codes reports any question whose options are only partly coded. On C02 it reports Q13, coded on 2 of 5. The missing codes are not filled in, because inventing a response code is forbidden (CLAUDE.md 13) - the point is that a bot told to answer by code cannot resolve the rest, and somebody has to decide. |
 | [x] | P3-03 | The destination column mixes questions, endings and a special word (C4). | Done. Destination now carries a kind: question, disposition, position or unknown. C02 resolves to 15 questions, 4 endings and one position - CURRENT_QUESTION, correctly reported as naming a place in the flow rather than as a broken reference. |
 | [x] | P3-04 | Show-conditions live in two places in two formats and must be combined (D3, D4). | Done. _build_guards combines the questionnaire display conditions with the routing table show rules rather than choosing between them, and records whether the two agree. On C02: 9 agree, 3 are prose that could not be read, and Q15 is single_source - stated only in the questionnaire, exactly as the QRE has it. Anyone reading only the routing table would lose it. |
 | [x] | P3-05 | Nothing says when a rule is checked or which rule wins (D5). | Done. Each rule gets an evaluation_point, the last question its condition depends on, and a precedence from its position in the table. Both are marked inferred because the QRE states neither - and it says plainly not to infer unstated routing, so they are surfaced for review rather than buried. C02 derives R1 after S1, R5 after Q1, and so on. |
-| [x] | P3-06 | Piping is a sentence, and the Q19 to Q20 link is missed entirely (D6, D7). | Partly done. Piping instructions become typed links: Q1 to Q2 and Q5 to Q6 on C02, read from the source question named in the sentence. Still open: Q20 asks about "the selected proposition", meaning the answer to Q19, which no table states and which needs a model to read out of the wording. |
+| [x] | P3-06 | Piping is a sentence, and the Q19 to Q20 link is missed entirely (D6, D7). | Partly done. Piping instructions become typed links: Q1 to Q2 and Q5 to Q6 on C02, read from the source question named in the sentence. Now done: one call over the whole questionnaire finds every wording that refers back to an earlier answer. On C02 it finds three, repeatably. Q20 asks about "the selected proposition", meaning the answer to Q19; Q8 and Q9 both refer to the current provider, meaning whatever was answered at Q3. The original review by hand had spotted only the first of the three. Each is reported with the exact phrase and marked inferred, and the model must name two questions that exist in the right order, which is checked. |
 | [x] | P3-07 | Randomize is only true or false, with no scope or anchoring (D8). | Done. Randomization records what is shuffled and what is anchored. C02 gives Q9 rows (it is a matrix) and the rest options, both marked inferred. Q1 and Q5 shuffle while carrying an exclusive option, so their anchoring is marked ambiguous and raised for the client rather than silently defaulted to convention. |
 | [x] | P3-08 | Nothing says what happens when a question was never asked (E4). | Done, pending confirmation. A semantics block states the three decisions the QRE never makes: an unasked question makes a condition false, the first matching rule wins, and == against a multi-select compares the whole answer set. It is the single blocking review item on every fixture, because each of the three changes which questions appear on many routes. |
 
@@ -143,6 +143,24 @@ Not yet done: **the pipeline has not been run end to end with a real API key**,
 and `out/` has deliberately not been regenerated. Regenerating it without a key
 would overwrite the committed worked example with an empty completion-messages
 section.
+
+---
+
+## End-to-end verification
+
+Run on C02 on 23 August 2026 with a real API key, the first time the whole
+pipeline has executed since this work began.
+
+| | Before, with no key | Now |
+|---|---|---|
+| Sections extracted | 6 of 7 | 7 of 7 |
+| Completion messages | 0 | 5 |
+| Stage 4 review flags | 52, 32 blocking | 1, 0 blocking |
+| Conditions read | 15 of 20 | 20 of 20 |
+| Audit blocking finding | the missing messages section | scenario T3, a real defect |
+
+The three model-dependent paths - shape-matching a heading, transcribing prose
+messages, and splitting a question's inline instructions - all ran successfully.
 
 ---
 

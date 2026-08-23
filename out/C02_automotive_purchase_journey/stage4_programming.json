@@ -1,0 +1,105 @@
+{
+  "schema_version": "1.0.0",
+  "artifact": "stage4_programming",
+  "stage": 4,
+  "survey_id": "C02_automotive_purchase_journey",
+  "source_document": {
+    "filename": "C02_automotive_purchase_journey.docx",
+    "sha256": "112a39d23aaf16dcfd2cce8a9de380d8b289dd33645c2703b7f00ec49f7e69f2",
+    "bytes": 43592
+  },
+  "generated_at": "2026-08-23T16:22:48+00:00",
+  "item_count": 6,
+  "content": [
+    {
+      "code": null,
+      "label": null,
+      "text": "Store stable question, option, route and test-run identifiers.",
+      "raw_text": "Store stable question, option, route and test-run identifiers.",
+      "source_reference": {
+        "document": "C02_automotive_purchase_journey.docx",
+        "section": "Programming and QA requirements",
+        "heading_text": "Programming and QA requirements",
+        "block_order": 18,
+        "row_index": null,
+        "source_kind": "prose",
+        "text": "Store stable question, option, route and test-run identifiers."
+      }
+    },
+    {
+      "code": null,
+      "label": null,
+      "text": "Capture displayed random order for every randomized item.",
+      "raw_text": "Capture displayed random order for every randomized item.",
+      "source_reference": {
+        "document": "C02_automotive_purchase_journey.docx",
+        "section": "Programming and QA requirements",
+        "heading_text": "Programming and QA requirements",
+        "block_order": 19,
+        "row_index": null,
+        "source_kind": "prose",
+        "text": "Capture displayed random order for every randomized item."
+      }
+    },
+    {
+      "code": null,
+      "label": null,
+      "text": "Record expected and observed destination for every routing transition.",
+      "raw_text": "Record expected and observed destination for every routing transition.",
+      "source_reference": {
+        "document": "C02_automotive_purchase_journey.docx",
+        "section": "Programming and QA requirements",
+        "heading_text": "Programming and QA requirements",
+        "block_order": 20,
+        "row_index": null,
+        "source_kind": "prose",
+        "text": "Record expected and observed destination for every routing transition."
+      }
+    },
+    {
+      "code": null,
+      "label": null,
+      "text": "Reject mutually exclusive selections and invalid numeric/text responses before progression.",
+      "raw_text": "Reject mutually exclusive selections and invalid numeric/text responses before progression.",
+      "source_reference": {
+        "document": "C02_automotive_purchase_journey.docx",
+        "section": "Programming and QA requirements",
+        "heading_text": "Programming and QA requirements",
+        "block_order": 21,
+        "row_index": null,
+        "source_kind": "prose",
+        "text": "Reject mutually exclusive selections and invalid numeric/text responses before progression."
+      }
+    },
+    {
+      "code": null,
+      "label": null,
+      "text": "Produce an audit record containing inputs, timestamps, route, assertions, screenshots on failure and final disposition.",
+      "raw_text": "Produce an audit record containing inputs, timestamps, route, assertions, screenshots on failure and final disposition.",
+      "source_reference": {
+        "document": "C02_automotive_purchase_journey.docx",
+        "section": "Programming and QA requirements",
+        "heading_text": "Programming and QA requirements",
+        "block_order": 22,
+        "row_index": null,
+        "source_kind": "prose",
+        "text": "Produce an audit record containing inputs, timestamps, route, assertions, screenshots on failure and final disposition."
+      }
+    },
+    {
+      "code": null,
+      "label": null,
+      "text": "Do not send synthetic test responses into live operational reporting.",
+      "raw_text": "Do not send synthetic test responses into live operational reporting.",
+      "source_reference": {
+        "document": "C02_automotive_purchase_journey.docx",
+        "section": "Programming and QA requirements",
+        "heading_text": "Programming and QA requirements",
+        "block_order": 23,
+        "row_index": null,
+        "source_kind": "prose",
+        "text": "Do not send synthetic test responses into live operational reporting."
+      }
+    }
+  ]
+}

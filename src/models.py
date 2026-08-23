@@ -539,6 +539,54 @@ class Condition(BaseModel):
     confidence: float | None = None
 
 
+class LLMConditionProposal(BaseModel):
+    """LLM response: a prose condition rewritten in the parser's grammar.
+
+    The model never returns a condition tree directly. It returns text in a
+    grammar the deterministic parser already checks, and the parser is what
+    decides whether the proposal is usable. A proposal the parser rejects is
+    thrown away, so the model cannot put anything into the specification that
+    could not equally have come from the QRE writing it formally.
+    """
+
+    expression: str | None = Field(
+        default=None,
+        description="The condition in the given grammar, or null if it cannot be expressed",
+    )
+    confidence: float = Field(ge=0.0, le=1.0)
+    reasoning: str
+
+
+class LLMTextPipe(BaseModel):
+    """LLM response: whether a question's wording quotes an earlier answer."""
+
+    is_pipe: bool = Field(
+        description="True only if the wording refers to an answer given earlier"
+    )
+    source_question_id: str | None = Field(
+        default=None, description="The question whose answer is quoted"
+    )
+    target_question_id: str | None = Field(
+        default=None, description="The question whose wording does the quoting"
+    )
+    phrase: str | None = Field(
+        default=None, description="The words that do the quoting, copied exactly"
+    )
+    confidence: float = Field(ge=0.0, le=1.0)
+    reasoning: str
+
+
+class LLMTextPipes(BaseModel):
+    """LLM response: every question whose wording quotes an earlier answer.
+
+    Asked once for the whole questionnaire rather than once per question. A
+    per-question call would cost thirty on C02 to find one, and the model needs
+    to see the earlier wording anyway to judge what is being referred back to.
+    """
+
+    pipes: list[LLMTextPipe] = Field(default_factory=list)
+
+
 class AuditFinding(BaseModel):
     """One thing Stage 5 noticed while comparing Stage 4 against its inputs.
 

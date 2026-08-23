@@ -1,9 +1,27 @@
-[
-  {
-    "target_heading": "Routing and termination",
-    "status": "POSSIBLE_MATCH",
-    "candidate_heading": "R18",
-    "confidence": null,
-    "reasoning": "The condition references sum(Q18) which implies numeric values for the options, but the provided option list for Q18 contains only textual labels without any numeric codes. Without numeric values, we cannot construct a valid expression, so we return null."
-  }
-]
+{
+  "schema_version": "1.0.0",
+  "artifact": "stage4_flags",
+  "stage": 4,
+  "survey_id": "C02_automotive_purchase_journey",
+  "source_document": {
+    "filename": "C02_automotive_purchase_journey.docx",
+    "sha256": "112a39d23aaf16dcfd2cce8a9de380d8b289dd33645c2703b7f00ec49f7e69f2",
+    "bytes": 43592
+  },
+  "generated_at": "2026-08-23T16:22:48+00:00",
+  "item_count": 1,
+  "content": [
+    {
+      "target_heading": "Routing and termination",
+      "status": "POSSIBLE_MATCH",
+      "candidate_heading": "R18",
+      "confidence": null,
+      "reasoning": "The condition requires summing numeric values of the answers to Q18 and comparing the total to 100. However, the option list for Q18 provides only textual labels (Price, Quality, Convenience, Trust, Support) with no associated numeric codes or values. Without numeric codes, we cannot construct a valid sum expression, so the expression must be null.",
+      "severity": "WARNING",
+      "target": {
+        "kind": "rule",
+        "id": "R18"
+      }
+    }
+  ]
+}

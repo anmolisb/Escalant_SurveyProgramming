@@ -35,12 +35,14 @@ from models import (
     FlagTarget,
     Guard,
     GuardAgreement,
+    LLMTextPipes,
     Origin,
     Randomization,
     RandomizationScope,
     RuleKind,
     Semantics,
 )
+from llm import LLMUnavailable, complete
 import part2_conditions
 
 #: A question id inside free text, so a pipe instruction such as
@@ -113,7 +115,11 @@ def _destination(raw: str, question_ids: set[str], codes: set[str]) -> Destinati
 # ---------------------------------------------------------------------------
 
 
-def _build_guards(parsed: dict, review: list[AuditFinding]) -> dict[str, Guard]:
+def _build_guards(
+    parsed: dict,
+    review: list[AuditFinding],
+    read=None,
+) -> dict[str, Guard]:
     """Combine the questionnaire's display conditions with the routing table's
     show rules.
 
@@ -139,7 +145,14 @@ def _build_guards(parsed: dict, review: list[AuditFinding]) -> dict[str, Guard]:
 
         texts = [text for _, text in stated]
         sources = [source for source, _ in stated]
-        conditions = [part2_conditions.parse(t) for t in texts]
+        conditions = [
+            (
+                read(t, FlagTarget(kind="question", id=question.id), f"{question.id}'s display condition")
+                if read
+                else part2_conditions.parse(t)
+            )
+            for t in texts
+        ]
         readable = [c for c in conditions if c is not None]
 
         normalised = {
@@ -251,6 +264,138 @@ def _build_dependencies(parsed: dict, review: list[AuditFinding]) -> list[Depend
     return dependencies
 
 
+_PIPE_SYSTEM = """You are given the questions of a survey, in the order they are asked.
+
+Find every question whose WORDING cannot be shown as written without knowing an
+answer given earlier, because it refers back to that answer.
+
+The usual sign is a definite reference to something the respondent already
+chose: "the chosen ...", "the selected ...", "that you picked", "your earlier
+answer". When a question says THE something, and an earlier question is what
+decided which something, that is a reference and you should report it.
+
+Qualifies. In this illustration only, the questions are labelled with letters so
+they cannot be confused with the ids you will be given:
+    AA: Which of these plans would you prefer?
+    BB: How much would you pay for the selected plan?
+  BB refers to the answer given at AA. Without it, "the selected plan" names
+  nothing.
+
+Does not qualify:
+    CC: How satisfied are you with your provider?
+    DD: Would you recommend your provider?
+  Both talk about the same real thing, but neither needs the other's answer in
+  order to be displayed.
+
+For each one found, give the id of the question doing the referring, the id of
+the earlier question being referred to, and the referring words copied exactly
+from the wording.
+
+Report nothing when a question stands on its own. A wrong link makes a question
+show the wrong text to a real respondent.
+"""
+
+
+def _build_text_pipes(
+    parsed: dict, review: list[AuditFinding]
+) -> list[Dependency]:
+    """Find wording that quotes an earlier answer.
+
+    The only thing in Part 2 that genuinely needs a model. C02's Q20 asks
+    "How appealing is the selected proposition?", which means the answer given
+    at Q19 - and no table in the document says so. Nothing but reading the
+    sentence can find it.
+    """
+    questions = [q for q in parsed.get("questions", []) if q.id and q.wording]
+    if len(questions) < 2:
+        return []
+
+    listing = "\n".join(f"{q.id}: {q.wording}" for q in questions)
+    try:
+        # A list of objects needs more room than the default allows; running
+        # out returns an empty completion, which reads as "found nothing".
+        found = complete(_PIPE_SYSTEM, listing, LLMTextPipes, max_tokens=2000)
+    except LLMUnavailable as exc:
+        review.append(
+            _review(
+                "text_pipe_unchecked",
+                FlagSeverity.WARNING,
+                (
+                    "Question wording was not checked for references to earlier "
+                    f"answers: {exc}"
+                ),
+                target=FlagTarget(kind="survey", id=parsed.get("source", "")),
+            )
+        )
+        return []
+
+    known = {q.id for q in questions}
+    order = {q.id: (q.seq or 0) for q in questions}
+    pipes: list[Dependency] = []
+    for pipe in found.pipes:
+        if not pipe.is_pipe or not pipe.source_question_id:
+            continue
+        source = pipe.source_question_id.strip()
+        target_id = (pipe.target_question_id or "").strip() or next(
+            (q.id for q in questions if pipe.phrase and pipe.phrase in q.wording),
+            None,
+        )
+
+        # The model must name two questions that exist, and the quoting one must
+        # come after the quoted one. Each is a way a plausible-looking answer can
+        # still be wrong. A proposal failing any of them is reported, not
+        # dropped: silently discarding it would hide both a model mistake and a
+        # real pipe we simply could not confirm.
+        problem = None
+        if source not in known:
+            problem = f"names {source!r}, which is not a question in this QRE"
+        elif not target_id or target_id not in known:
+            problem = f"does not identify which question does the quoting"
+        elif target_id == source:
+            problem = "names the same question at both ends"
+        elif order.get(target_id, 0) <= order.get(source, 0):
+            problem = (
+                f"has {target_id} quoting {source}, but {source} is not asked first"
+            )
+        if problem:
+            review.append(
+                _review(
+                    "text_pipe_rejected",
+                    FlagSeverity.WARNING,
+                    (
+                        "A possible reference to an earlier answer was reported "
+                        f"but not accepted: it {problem}."
+                    ),
+                    target=FlagTarget(kind="question", id=target_id or source),
+                    evidence=f"phrase {pipe.phrase!r}, confidence {pipe.confidence:.2f}",
+                )
+            )
+            continue
+        pipes.append(
+            Dependency(
+                from_question=source,
+                to_question=target_id,
+                kind=DependencyKind.TEXT_PIPE,
+                detail=pipe.phrase or "",
+                origin=Origin.INFERRED,
+            )
+        )
+        review.append(
+            _review(
+                "text_pipe_inferred",
+                FlagSeverity.WARNING,
+                (
+                    f"{target_id}'s wording appears to quote the answer given at "
+                    f"{source}. No table states this; it was read out of the "
+                    "sentence, so it is worth confirming."
+                ),
+                target=FlagTarget(kind="question", id=target_id),
+                evidence=f"{pipe.phrase!r} (confidence {pipe.confidence:.2f})",
+            )
+        )
+    return pipes
+
+
 # ---------------------------------------------------------------------------
 # P3-07 — what is shuffled, and what is anchored
 # ---------------------------------------------------------------------------
@@ -324,18 +469,85 @@ def _check_partial_codes(parsed: dict, review: list[AuditFinding]) -> None:
 # ---------------------------------------------------------------------------
 
 
+def _read_condition(
+    condition_raw: str,
+    options_by_question: dict,
+    cache: dict,
+    review: list[AuditFinding],
+    label: str,
+    target: FlagTarget,
+) -> Condition | None:
+    """Read a condition, falling back to a model proposal the parser then checks.
+
+    Cached by text, because a QRE states the same condition many times over -
+    C02 writes "Q1 contains at least one brand" for both Q2 and Q3 - and each
+    distinct wording is worth exactly one call.
+    """
+    text = (condition_raw or "").strip()
+    if not text:
+        return None
+    if text in cache:
+        return cache[text]
+
+    condition = part2_conditions.parse(text)
+    if condition is None:
+        referenced = list(dict.fromkeys(_QID.findall(text)))
+        condition, note = part2_conditions.propose(
+            text, referenced, options_by_question
+        )
+        if condition is None:
+            review.append(
+                _review(
+                    "condition_unread",
+                    FlagSeverity.WARNING,
+                    f"{label} could not be read as a condition: {note}",
+                    target=target,
+                    evidence=text,
+                )
+            )
+        else:
+            review.append(
+                _review(
+                    "condition_inferred",
+                    FlagSeverity.WARNING,
+                    (
+                        f"{label} was prose, so a model proposed a reading which "
+                        "the parser then accepted. Worth a human eye."
+                    ),
+                    target=target,
+                    evidence=f"{text}  ->  {part2_conditions.describe(condition)}",
+                )
+            )
+    cache[text] = condition
+    return condition
+
+
 def run(source: str, parsed: dict) -> CanonicalSurvey:
     review: list[AuditFinding] = []
     question_ids = {q.id for q in parsed.get("questions", []) if q.id}
     codes = {m.code for m in parsed.get("messages", []) if m.code}
     seq_of = {q.id: q.seq for q in parsed.get("questions", []) if q.id}
 
-    guards = _build_guards(parsed, review)
+    options_by_question = {
+        q.id: [o.label for o in q.options] for q in parsed.get("questions", []) if q.id
+    }
+    cache: dict = {}
+
+    def read(text: str, target: FlagTarget, label: str) -> Condition | None:
+        return _read_condition(
+            text, options_by_question, cache, review, label, target
+        )
+
+    guards = _build_guards(parsed, review, read)
     _check_partial_codes(parsed, review)
 
     rules: list[CanonicalRule] = []
     for position, rule in enumerate(parsed.get("routing", []), start=1):
-        condition = part2_conditions.parse(rule.condition_raw)
+        condition = read(
+            rule.condition_raw,
+            FlagTarget(kind="rule", id=rule.rule),
+            f"Rule {rule.rule}",
+        )
         referenced = _referenced_questions(condition, rule.condition_raw)
 
         # P3-05: check a rule once every question it depends on has been asked.
@@ -358,21 +570,6 @@ def run(source: str, parsed: dict) -> CanonicalSurvey:
                     target=FlagTarget(kind="rule", id=rule.rule),
                 )
             )
-        if condition is None and rule.condition_raw.strip():
-            review.append(
-                _review(
-                    "condition_unread",
-                    FlagSeverity.WARNING,
-                    (
-                        f"Rule {rule.rule}'s condition is prose and could not be "
-                        "read as a condition. It needs a model to propose one, "
-                        "which this parser would then check."
-                    ),
-                    target=FlagTarget(kind="rule", id=rule.rule),
-                    evidence=rule.condition_raw,
-                )
-            )
-
         rules.append(
             CanonicalRule(
                 rule_id=rule.rule,
@@ -400,7 +597,8 @@ def run(source: str, parsed: dict) -> CanonicalSurvey:
         semantics=Semantics(),
         questions=questions,
         rules=rules,
-        dependencies=_build_dependencies(parsed, review),
+        dependencies=_build_dependencies(parsed, review)
+        + _build_text_pipes(parsed, review),
         randomization=_build_randomization(parsed, review),
         review=review,
     )

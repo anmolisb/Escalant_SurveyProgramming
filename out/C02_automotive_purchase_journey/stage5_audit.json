@@ -1,0 +1,147 @@
+{
+  "schema_version": "1.0.0",
+  "artifact": "stage5_audit",
+  "stage": 5,
+  "survey_id": "C02_automotive_purchase_journey",
+  "source_document": {
+    "filename": "C02_automotive_purchase_journey.docx",
+    "sha256": "112a39d23aaf16dcfd2cce8a9de380d8b289dd33645c2703b7f00ec49f7e69f2",
+    "bytes": 43592
+  },
+  "generated_at": "2026-08-23T16:22:48+00:00",
+  "item_count": null,
+  "content": {
+    "source": "C02_automotive_purchase_journey.docx",
+    "checks_run": [
+      "source_coverage",
+      "row_accounting",
+      "reference_integrity",
+      "condition_consistency",
+      "piping_symmetry"
+    ],
+    "sections": [
+      {
+        "target": "Questionnaire",
+        "rows_in": 31,
+        "objects_out": 31,
+        "identified": 31,
+        "score": 1.0,
+        "threshold": 0.95,
+        "passed": true
+      },
+      {
+        "target": "Routing and termination",
+        "rows_in": 20,
+        "objects_out": 20,
+        "identified": 20,
+        "score": 1.0,
+        "threshold": 0.95,
+        "passed": true
+      },
+      {
+        "target": "Acceptance test scenarios",
+        "rows_in": 7,
+        "objects_out": 7,
+        "identified": 7,
+        "score": 1.0,
+        "threshold": 1.0,
+        "passed": true
+      },
+      {
+        "target": "Completion messages",
+        "rows_in": 5,
+        "objects_out": 5,
+        "identified": 5,
+        "score": 1.0,
+        "threshold": 1.0,
+        "passed": true
+      },
+      {
+        "target": "Quota controls",
+        "rows_in": 3,
+        "objects_out": 3,
+        "identified": 3,
+        "score": 1.0,
+        "threshold": 1.0,
+        "passed": true
+      },
+      {
+        "target": "Study specification",
+        "rows_in": 5,
+        "objects_out": 5,
+        "identified": 5,
+        "score": 1.0,
+        "threshold": 1.0,
+        "passed": true
+      },
+      {
+        "target": "Programming and QA requirements",
+        "rows_in": 6,
+        "objects_out": 6,
+        "identified": 6,
+        "score": 1.0,
+        "threshold": 1.0,
+        "passed": true
+      }
+    ],
+    "findings": [
+      {
+        "check": "source_coverage",
+        "severity": "WARNING",
+        "finding": "3 block(s) sit outside every heading and reached no stage. Content before the first heading is not captured by any target.",
+        "target": {
+          "kind": "document",
+          "id": "C02_automotive_purchase_journey.docx"
+        },
+        "evidence": "C02 \u2022 COMPLEX; Automotive Purchase Journey; Questionnaire Requirement Document (QRE)",
+        "source_reference": null
+      },
+      {
+        "check": "reference_integrity",
+        "severity": "WARNING",
+        "finding": "Rule R19 points at 'CURRENT_QUESTION', which names a position in the flow rather than a question or an ending. The destination column mixes three kinds of thing, so a reader has to guess which is meant.",
+        "target": {
+          "kind": "rule",
+          "id": "R19"
+        },
+        "evidence": "exclusive option selected with another response at Q1 or Q5",
+        "source_reference": null
+      },
+      {
+        "check": "reference_integrity",
+        "severity": "WARNING",
+        "finding": "'TERM_QUOTA_FULL' is named in a quotas statement but is not a question or an ending in this QRE.",
+        "target": {
+          "kind": "statement",
+          "id": "TERM_QUOTA_FULL"
+        },
+        "evidence": "Quota-full respondents terminate at TERM_QUOTA_FULL before the next substantive question. Quota status must be logged.",
+        "source_reference": null
+      },
+      {
+        "check": "condition_consistency",
+        "severity": "BLOCKING",
+        "finding": "Scenario T3 names Q7, Q8, Q9 but not Q15, though all of them carry the same display condition and so can only appear or not appear together.",
+        "target": {
+          "kind": "scenario",
+          "id": "T3"
+        },
+        "evidence": "shared condition: Q3 != 'None/currently not using'",
+        "source_reference": null
+      },
+      {
+        "check": "piping_symmetry",
+        "severity": "WARNING",
+        "finding": "Q2 carries a piping instruction but no rule rejects an answer outside the piped set, while Q6 has one. Its piping would not be tested.",
+        "target": {
+          "kind": "question",
+          "id": "Q2"
+        },
+        "evidence": "Show only brands selected at Q1.",
+        "source_reference": null
+      }
+    ],
+    "blocking": 1,
+    "passed": false
+  }
+}

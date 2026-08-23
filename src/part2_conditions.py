@@ -24,7 +24,15 @@ from __future__ import annotations
 
 import re
 
-from models import Aggregate, Condition, ConditionOp, Operand, Origin
+from llm import LLMUnavailable, complete
+from models import (
+    Aggregate,
+    Condition,
+    ConditionOp,
+    LLMConditionProposal,
+    Operand,
+    Origin,
+)
 
 #: A question id: S1, Q12, D4, A_2. Kept loose because ids are the QRE's
 #: convention, not ours.
@@ -133,9 +141,9 @@ def _split_top_level(text: str) -> list[str] | None:
                 quote = None
         elif char in "'\"":
             quote = char
-        elif char == "[":
+        elif char in "[(":
             depth += 1
-        elif char == "]":
+        elif char in "])":
             depth -= 1
         elif depth == 0:
             match = _BOOLEAN.match(text, index)
@@ -185,6 +193,133 @@ def _comparison(text: str) -> Condition | None:
     return None
 
 
+#: contains(Q5, 'x') / contains_any(Q1, ['a','b']) / answered(Q3).
+_CALL = re.compile(r"^\s*([A-Za-z_]+)\s*\((.*)\)\s*$", re.S)
+
+_CALL_OPS = {
+    "contains": ConditionOp.CONTAINS,
+    "contains_any": ConditionOp.CONTAINS_ANY,
+    "contains_all": ConditionOp.CONTAINS_ALL,
+    "answered": ConditionOp.ANSWERED,
+    "unanswered": ConditionOp.UNANSWERED,
+}
+
+
+def _split_args(inner: str) -> list[str]:
+    """Split a call's arguments on commas outside quotes and brackets."""
+    args: list[str] = []
+    current: list[str] = []
+    depth = 0
+    quote: str | None = None
+    for char in inner:
+        if quote:
+            current.append(char)
+            if char == quote:
+                quote = None
+            continue
+        if char in "'\"":
+            quote = char
+            current.append(char)
+        elif char in "[(":
+            depth += 1
+            current.append(char)
+        elif char in "])":
+            depth -= 1
+            current.append(char)
+        elif char == "," and depth == 0:
+            args.append("".join(current).strip())
+            current = []
+        else:
+            current.append(char)
+    if current.strip() if isinstance(current, str) else "".join(current).strip():
+        args.append("".join(current).strip())
+    return [a for a in args if a]
+
+
+def _call(text: str) -> Condition | None:
+    """Read a function-style condition, or refuse.
+
+    These forms do not appear in any QRE we have seen — the documents write
+    prose instead. They exist because a model proposing a reading of that prose
+    has to express it in something, and a grammar this parser can check is far
+    safer than free text that nobody can.
+    """
+    match = _CALL.match(text)
+    if not match:
+        return None
+    name = match.group(1).lower()
+    op = _CALL_OPS.get(name)
+    if op is None:
+        return None
+    args = _split_args(match.group(2))
+
+    if op in (ConditionOp.ANSWERED, ConditionOp.UNANSWERED):
+        if len(args) != 1:
+            return None
+        left = _operand(args[0])
+        if left is None or left.question_id is None:
+            return None
+        return Condition(op=op, left=left, source_text=text.strip())
+
+    if len(args) < 2:
+        return None
+    left = _operand(args[0])
+    if left is None or left.question_id is None:
+        return None
+    if len(args) == 2:
+        right = _operand(args[1])
+    else:
+        # contains_any(Q1, 'a', 'b') - loose arguments rather than a list.
+        collected: list[str] = []
+        for raw in args[1:]:
+            value = _operand(raw)
+            if value is None or value.text is None:
+                return None
+            collected.append(value.text)
+        right = Operand(values=collected)
+    if right is None:
+        return None
+    # A single value handed to a set operator is still a set of one.
+    if right.values is None and right.text is not None and op is not ConditionOp.CONTAINS:
+        right = Operand(values=[right.text])
+    return Condition(op=op, left=left, right=right, source_text=text.strip())
+
+
+def _term(text: str) -> Condition | None:
+    """One piece of an expression: a negation, a bracketed group, a call, or a
+    comparison."""
+    text = text.strip()
+    if not text:
+        return None
+
+    if text.lower().startswith("not ") or text.lower().startswith("not("):
+        inner = _term(text[3:].strip())
+        return (
+            Condition(op=ConditionOp.NOT, operands=[inner], source_text=text)
+            if inner
+            else None
+        )
+
+    if text.startswith("(") and text.endswith(")"):
+        depth = 0
+        wraps = True
+        for index, char in enumerate(text):
+            if char == "(":
+                depth += 1
+            elif char == ")":
+                depth -= 1
+                if depth == 0 and index < len(text) - 1:
+                    wraps = False
+                    break
+        if wraps:
+            return parse(text[1:-1])
+
+    call = _call(text)
+    if call is not None:
+        return call
+    return _comparison(text)
+
+
 def parse(condition_raw: str) -> Condition | None:
     """Read a condition into a tree, or return None if it is not formal.
 
@@ -204,7 +339,7 @@ def parse(condition_raw: str) -> Condition | None:
             if part in ("and", "or"):
                 connectors.add(part)
                 continue
-            child = _comparison(part)
+            child = _term(part)
             if child is None:
                 return None
             operands.append(child)
@@ -217,7 +352,7 @@ def parse(condition_raw: str) -> Condition | None:
             op=op, operands=operands, source_text=text, origin=Origin.DERIVED
         )
 
-    condition = _comparison(text)
+    condition = _term(text)
     if condition is not None:
         condition.source_text = text
         condition.origin = Origin.DERIVED
@@ -255,3 +390,94 @@ def describe(condition: Condition) -> str:
     if condition.op in (ConditionOp.ANSWERED, ConditionOp.UNANSWERED):
         return f"{condition.op.value}({operand(condition.left)})"
     return f"{operand(condition.left)} {condition.op.value} {operand(condition.right)}"
+
+
+# ---------------------------------------------------------------------------
+# Prose conditions: the model proposes, the parser decides
+# ---------------------------------------------------------------------------
+
+_GRAMMAR = """Write the condition using ONLY this grammar. Anything else is rejected.
+
+  comparison   Q3 != 'None/currently not using'
+               Q12 in ['Fully','Partly']
+               S3 < 18
+               sum(Q18) != 100
+  set is exactly
+               Q1 == ['None of these']
+  membership   contains(Q5, 'Dealer visit')
+               contains_any(Q1, ['Auto Brand A','Auto Brand B'])
+               contains_all(Q1, ['Auto Brand A','Auto Brand B'])
+               contains(Q5, Q6)
+  asked or not answered(Q3)      unanswered(Q3)
+  combining    A and B           A or B           not A
+               (A and B) or (C and D)
+
+Refer to questions by the ids given. Refer to answers by their exact label in
+single quotes, copied from the option list. Never invent a label or an id.
+
+Two operators are easy to confuse and mean different things:
+  Q1 == ['None of these']   the answer set is EXACTLY that, and nothing else
+  contains(Q1, 'None of these')   that was chosen, possibly among others
+"""
+
+_PROPOSE_SYSTEM = """You rewrite one routing condition from a questionnaire into a formal expression.
+
+You are given the condition as the document wrote it, and the answer options of
+the questions it names.
+
+""" + _GRAMMAR + """
+Return expression null when the condition cannot be written in this grammar from
+what you were given, or when you are unsure which answers it means. A wrong
+expression silently routes real respondents down the wrong path; a null one only
+asks a person to look.
+"""
+
+
+def _catalogue(question_ids: list[str], options_by_question: dict) -> str:
+    lines = []
+    for qid in question_ids:
+        options = options_by_question.get(qid) or []
+        if options:
+            lines.append(f"{qid}: " + ", ".join(repr(o) for o in options))
+    return "\n".join(lines) if lines else "(no option lists available)"
+
+
+def propose(
+    condition_raw: str, question_ids: list[str], options_by_question: dict
+) -> tuple[Condition | None, str]:
+    """Ask a model to express a prose condition, then check its answer.
+
+    The model's reply is text in the grammar above, never a tree. It is handed
+    straight to `parse`, so anything the parser would refuse from a QRE it also
+    refuses from the model. That is the whole safety argument: the model can
+    only propose what the document could have written formally itself.
+
+    Returns the condition and a note explaining what happened, so a refusal is
+    recorded rather than silently dropped.
+    """
+    try:
+        proposal = complete(
+            _PROPOSE_SYSTEM,
+            f"Condition as written: {condition_raw}\n\n"
+            f"Answer options:\n{_catalogue(question_ids, options_by_question)}",
+            LLMConditionProposal,
+        )
+    except LLMUnavailable as exc:
+        return None, f"no model available: {exc}"
+
+    if not proposal.expression:
+        return None, f"model declined: {proposal.reasoning}"
+
+    condition = parse(proposal.expression)
+    if condition is None:
+        # The model wrote something outside the grammar. Rejected rather than
+        # patched, because a proposal we have to repair is one we cannot check.
+        return None, (
+            f"model proposed {proposal.expression!r}, which is not valid in the "
+            "grammar and was rejected"
+        )
+
+    condition.source_text = condition_raw
+    condition.origin = Origin.INFERRED
+    condition.confidence = proposal.confidence
+    return condition, f"read by model (confidence {proposal.confidence:.2f})"

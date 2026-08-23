@@ -1,498 +1,651 @@
 {
-  "source": "C02_automotive_purchase_journey.docx",
-  "blocks": [
-    {
-      "target": "Questionnaire",
-      "heading_text": "Questionnaire",
-      "heading_order": 9,
-      "heading_level": 1,
-      "matched_by": "direct",
-      "blocks": [
-        {
-          "kind": "table",
-          "order": 10,
-          "rows": [
-            [
-              "ID",
-              "Wording / instruction",
-              "Type",
-              "Options / scale",
-              "Display / validation"
-            ],
-            [
-              "S1",
-              "Are you 21 years of age or older?",
-              "single",
-              "Yes; No",
-              "Always show"
-            ],
-            [
-              "S2",
-              "Which statement best describes your involvement?",
-              "single",
-              "Purchased or seriously considered a new vehicle in the past 18 months; Aware but not involved; Not aware of this category",
-              "Always show"
-            ],
-            [
-              "S3",
-              "Have you participated in market research in the past 3 months?",
-              "single",
-              "Yes; No",
-              "Always show"
-            ],
-            [
-              "S4",
-              "Do you or an immediate family member work in market research, advertising, or the category being studied?",
-              "single",
-              "Yes; No",
-              "Always show"
-            ],
-            [
-              "Q1",
-              "Which of these brands have you heard of?",
-              "multi",
-              "Auto Brand A; Auto Brand B; Auto Brand C; Auto Brand D; None of these",
-              "Validate: {\"exclusive_option\": \"None of these\"}\nRandomize"
-            ],
-            [
-              "Q2",
-              "Which brands would you consider?",
-              "multi",
-              "Auto Brand A; Auto Brand B; Auto Brand C; Auto Brand D",
-              "Show if: Q1 contains at least one brand\nShow only brands selected at Q1."
-            ],
-            [
-              "Q3",
-              "Which brand is your current or most recent provider?",
-              "single",
-              "Auto Brand A; Auto Brand B; Auto Brand C; Auto Brand D; None/currently not using",
-              "Show if: Q1 contains at least one brand"
-            ],
-            [
-              "Q4",
-              "Which stage best describes your current position?",
-              "single",
-              "Initial research; Shortlisting; Test drive; Purchased; Post-purchase ownership",
-              "Always show"
-            ],
-            [
-              "Q5",
-              "Which touchpoints did you use?",
-              "multi",
-              "Manufacturer website; Dealer visit; Review site; Social media; Friends or family; Auto show; None of these",
-              "Validate: {\"exclusive_option\": \"None of these\"}\nRandomize"
-            ],
-            [
-              "Q6",
-              "Which touchpoint was most influential?",
-              "single",
-              "Manufacturer website; Dealer visit; Review site; Social media; Friends or family; Auto show",
-              "Show if: Q5 contains any touchpoint\nShow only touchpoints selected at Q5."
-            ],
-            [
-              "Q7",
-              "How satisfied are you with the overall experience?",
-              "single",
-              "1 - Very poor; 2 - Poor; 3 - Fair; 4 - Good; 5 - Excellent",
-              "Show if: Q3 != 'None/currently not using'"
-            ],
-            [
-              "Q8",
-              "How likely are you to recommend the current provider?",
-              "single",
-              "0; 1; 2; 3; 4; 5; 6; 7; 8; 9; 10",
-              "Show if: Q3 != 'None/currently not using'"
-            ],
-            [
-              "Q9",
-              "Please rate each attribute for your current provider.",
-              "matrix",
-              "Rows: Design; Performance; Safety; Technology; Dealer experience; Value for money\nScale: 1 - Very poor; 2 - Poor; 3 - Fair; 4 - Good; 5 - Excellent",
-              "Show if: Q3 != 'None/currently not using'\nValidate: {\"scale\": [\"1 - Very poor\", \"2 - Poor\", \"3 - Fair\", \"4 - Good\", \"5 - Excellent\"], \"require_each_row\": true}\nRandomize"
-            ],
-            [
-              "Q10",
-              "Did you contact support during the experience?",
-              "single",
-              "Yes; No",
-              "Always show"
-            ],
-            [
-              "Q11",
-              "Which support channels did you use?",
-              "multi",
-              "Phone; Email; Chat; In person; Self-service",
-              "Show if: Q10 == 'Yes'\nValidate: {\"min_selections\": 1}"
-            ],
-            [
-              "Q12",
-              "Was your issue resolved?",
-              "single",
-              "Fully; Partly; Not resolved",
-              "Show if: Q10 == 'Yes'"
-            ],
-            [
-              "Q13",
-              "How much effort did resolution require?",
-              "single",
-              "1 - Very low; 2; 3; 4; 5 - Very high",
-              "Show if: Q12 in ['Fully','Partly']"
-            ],
-            [
-              "Q14",
-              "Why was the issue not resolved?",
-              "text",
-              "—",
-              "Show if: Q12 == 'Not resolved'\nValidate: {\"min_length\": 10, \"max_length\": 500}"
-            ],
-            [
-              "Q15",
-              "Have you considered switching providers?",
-              "single",
-              "Yes; No",
-              "Show if: Q3 != 'None/currently not using'"
-            ],
-            [
-              "Q16",
-              "What is the main reason for considering a switch?",
-              "single",
-              "Price; Service quality; Features; Poor support; Competitor offer; Other",
-              "Show if: Q15 == 'Yes'\nRandomize"
-            ],
-            [
-              "Q17",
-              "Please specify the other switching reason.",
-              "text",
-              "—",
-              "Show if: Q16 == 'Other'\nValidate: {\"min_length\": 3, \"max_length\": 200}"
-            ],
-            [
-              "Q18",
-              "Allocate 100 points across the factors that drive your decision.",
-              "constant_sum",
-              "Price; Quality; Convenience; Trust; Support",
-              "Validate: {\"sum\": 100}"
-            ],
-            [
-              "Q19",
-              "Which new proposition do you prefer?",
-              "single",
-              "Concept A; Concept B; Concept C",
-              "Randomize\nConcept descriptions are displayed in randomized order; store display order."
-            ],
-            [
-              "Q20",
-              "How appealing is the selected proposition?",
-              "single",
-              "1 - Very poor; 2 - Poor; 3 - Fair; 4 - Good; 5 - Excellent",
-              "Always show"
-            ],
-            [
-              "Q21",
-              "What most influenced your choice?",
-              "text",
-              "—",
-              "Validate: {\"min_length\": 5, \"max_length\": 500}"
-            ],
-            [
-              "D1",
-              "Which region do you live in?",
-              "single",
-              "North; South; East; West; Central",
-              "Always show"
-            ],
-            [
-              "D2",
-              "Which age group describes you?",
-              "single",
-              "21-29; 30-39; 40-49; 50-59; 60+",
-              "Always show"
-            ],
-            [
-              "D3",
-              "How do you describe your gender?",
-              "single",
-              "Woman; Man; Non-binary; Prefer to self-describe; Prefer not to say",
-              "Always show"
-            ],
-            [
-              "D4",
-              "What is your household or organizational decision band?",
-              "single",
-              "Band 1; Band 2; Band 3; Band 4; Prefer not to say",
-              "Always show"
-            ],
-            [
-              "Q22",
-              "May we use your anonymized comments in internal reporting?",
-              "single",
-              "Yes; No",
-              "Always show"
-            ],
-            [
-              "Q23",
-              "Any final comments?",
-              "text",
-              "—",
-              "Validate: {\"max_length\": 1000}\nOptional"
+  "schema_version": "1.0.0",
+  "artifact": "stage2_blocks",
+  "stage": 2,
+  "survey_id": "C02_automotive_purchase_journey",
+  "source_document": {
+    "filename": "C02_automotive_purchase_journey.docx",
+    "sha256": "112a39d23aaf16dcfd2cce8a9de380d8b289dd33645c2703b7f00ec49f7e69f2",
+    "bytes": 43592
+  },
+  "generated_at": "2026-08-23T16:20:07+00:00",
+  "item_count": null,
+  "content": {
+    "source": "C02_automotive_purchase_journey.docx",
+    "blocks": [
+      {
+        "target": "Questionnaire",
+        "heading_text": "Questionnaire",
+        "heading_order": 9,
+        "heading_level": 1,
+        "matched_by": "direct",
+        "blocks": [
+          {
+            "kind": "table",
+            "order": 10,
+            "rows": [
+              [
+                "ID",
+                "Wording / instruction",
+                "Type",
+                "Options / scale",
+                "Display / validation"
+              ],
+              [
+                "S1",
+                "Are you 21 years of age or older?",
+                "single",
+                "Yes; No",
+                "Always show"
+              ],
+              [
+                "S2",
+                "Which statement best describes your involvement?",
+                "single",
+                "Purchased or seriously considered a new vehicle in the past 18 months; Aware but not involved; Not aware of this category",
+                "Always show"
+              ],
+              [
+                "S3",
+                "Have you participated in market research in the past 3 months?",
+                "single",
+                "Yes; No",
+                "Always show"
+              ],
+              [
+                "S4",
+                "Do you or an immediate family member work in market research, advertising, or the category being studied?",
+                "single",
+                "Yes; No",
+                "Always show"
+              ],
+              [
+                "Q1",
+                "Which of these brands have you heard of?",
+                "multi",
+                "Auto Brand A; Auto Brand B; Auto Brand C; Auto Brand D; None of these",
+                "Validate: {\"exclusive_option\": \"None of these\"}\nRandomize"
+              ],
+              [
+                "Q2",
+                "Which brands would you consider?",
+                "multi",
+                "Auto Brand A; Auto Brand B; Auto Brand C; Auto Brand D",
+                "Show if: Q1 contains at least one brand\nShow only brands selected at Q1."
+              ],
+              [
+                "Q3",
+                "Which brand is your current or most recent provider?",
+                "single",
+                "Auto Brand A; Auto Brand B; Auto Brand C; Auto Brand D; None/currently not using",
+                "Show if: Q1 contains at least one brand"
+              ],
+              [
+                "Q4",
+                "Which stage best describes your current position?",
+                "single",
+                "Initial research; Shortlisting; Test drive; Purchased; Post-purchase ownership",
+                "Always show"
+              ],
+              [
+                "Q5",
+                "Which touchpoints did you use?",
+                "multi",
+                "Manufacturer website; Dealer visit; Review site; Social media; Friends or family; Auto show; None of these",
+                "Validate: {\"exclusive_option\": \"None of these\"}\nRandomize"
+              ],
+              [
+                "Q6",
+                "Which touchpoint was most influential?",
+                "single",
+                "Manufacturer website; Dealer visit; Review site; Social media; Friends or family; Auto show",
+                "Show if: Q5 contains any touchpoint\nShow only touchpoints selected at Q5."
+              ],
+              [
+                "Q7",
+                "How satisfied are you with the overall experience?",
+                "single",
+                "1 - Very poor; 2 - Poor; 3 - Fair; 4 - Good; 5 - Excellent",
+                "Show if: Q3 != 'None/currently not using'"
+              ],
+              [
+                "Q8",
+                "How likely are you to recommend the current provider?",
+                "single",
+                "0; 1; 2; 3; 4; 5; 6; 7; 8; 9; 10",
+                "Show if: Q3 != 'None/currently not using'"
+              ],
+              [
+                "Q9",
+                "Please rate each attribute for your current provider.",
+                "matrix",
+                "Rows: Design; Performance; Safety; Technology; Dealer experience; Value for money\nScale: 1 - Very poor; 2 - Poor; 3 - Fair; 4 - Good; 5 - Excellent",
+                "Show if: Q3 != 'None/currently not using'\nValidate: {\"scale\": [\"1 - Very poor\", \"2 - Poor\", \"3 - Fair\", \"4 - Good\", \"5 - Excellent\"], \"require_each_row\": true}\nRandomize"
+              ],
+              [
+                "Q10",
+                "Did you contact support during the experience?",
+                "single",
+                "Yes; No",
+                "Always show"
+              ],
+              [
+                "Q11",
+                "Which support channels did you use?",
+                "multi",
+                "Phone; Email; Chat; In person; Self-service",
+                "Show if: Q10 == 'Yes'\nValidate: {\"min_selections\": 1}"
+              ],
+              [
+                "Q12",
+                "Was your issue resolved?",
+                "single",
+                "Fully; Partly; Not resolved",
+                "Show if: Q10 == 'Yes'"
+              ],
+              [
+                "Q13",
+                "How much effort did resolution require?",
+                "single",
+                "1 - Very low; 2; 3; 4; 5 - Very high",
+                "Show if: Q12 in ['Fully','Partly']"
+              ],
+              [
+                "Q14",
+                "Why was the issue not resolved?",
+                "text",
+                "\u2014",
+                "Show if: Q12 == 'Not resolved'\nValidate: {\"min_length\": 10, \"max_length\": 500}"
+              ],
+              [
+                "Q15",
+                "Have you considered switching providers?",
+                "single",
+                "Yes; No",
+                "Show if: Q3 != 'None/currently not using'"
+              ],
+              [
+                "Q16",
+                "What is the main reason for considering a switch?",
+                "single",
+                "Price; Service quality; Features; Poor support; Competitor offer; Other",
+                "Show if: Q15 == 'Yes'\nRandomize"
+              ],
+              [
+                "Q17",
+                "Please specify the other switching reason.",
+                "text",
+                "\u2014",
+                "Show if: Q16 == 'Other'\nValidate: {\"min_length\": 3, \"max_length\": 200}"
+              ],
+              [
+                "Q18",
+                "Allocate 100 points across the factors that drive your decision.",
+                "constant_sum",
+                "Price; Quality; Convenience; Trust; Support",
+                "Validate: {\"sum\": 100}"
+              ],
+              [
+                "Q19",
+                "Which new proposition do you prefer?",
+                "single",
+                "Concept A; Concept B; Concept C",
+                "Randomize\nConcept descriptions are displayed in randomized order; store display order."
+              ],
+              [
+                "Q20",
+                "How appealing is the selected proposition?",
+                "single",
+                "1 - Very poor; 2 - Poor; 3 - Fair; 4 - Good; 5 - Excellent",
+                "Always show"
+              ],
+              [
+                "Q21",
+                "What most influenced your choice?",
+                "text",
+                "\u2014",
+                "Validate: {\"min_length\": 5, \"max_length\": 500}"
+              ],
+              [
+                "D1",
+                "Which region do you live in?",
+                "single",
+                "North; South; East; West; Central",
+                "Always show"
+              ],
+              [
+                "D2",
+                "Which age group describes you?",
+                "single",
+                "21-29; 30-39; 40-49; 50-59; 60+",
+                "Always show"
+              ],
+              [
+                "D3",
+                "How do you describe your gender?",
+                "single",
+                "Woman; Man; Non-binary; Prefer to self-describe; Prefer not to say",
+                "Always show"
+              ],
+              [
+                "D4",
+                "What is your household or organizational decision band?",
+                "single",
+                "Band 1; Band 2; Band 3; Band 4; Prefer not to say",
+                "Always show"
+              ],
+              [
+                "Q22",
+                "May we use your anonymized comments in internal reporting?",
+                "single",
+                "Yes; No",
+                "Always show"
+              ],
+              [
+                "Q23",
+                "Any final comments?",
+                "text",
+                "\u2014",
+                "Validate: {\"max_length\": 1000}\nOptional"
+              ]
             ]
-          ]
-        }
-      ]
-    },
-    {
-      "target": "Routing and termination",
-      "heading_text": "Routing and termination",
-      "heading_order": 11,
-      "heading_level": 1,
-      "matched_by": "direct",
-      "blocks": [
-        {
-          "kind": "table",
-          "order": 12,
-          "rows": [
-            [
-              "Rule",
-              "Condition",
-              "Action",
-              "Destination"
-            ],
-            [
-              "R1",
-              "S1 == 'No'",
-              "terminate",
-              "TERM_AGE"
-            ],
-            [
-              "R2",
-              "S2 != 'Purchased or seriously considered a new vehicle in the past 18 months'",
-              "terminate",
-              "TERM_INVOLVEMENT"
-            ],
-            [
-              "R3",
-              "S3 == 'Yes'",
-              "terminate",
-              "TERM_RECENT_RESEARCH"
-            ],
-            [
-              "R4",
-              "S4 == 'Yes'",
-              "terminate",
-              "TERM_CONFLICT"
-            ],
-            [
-              "R5",
-              "Q1 == ['None of these']",
-              "skip",
-              "Q4"
-            ],
-            [
-              "R6",
-              "Q1 contains at least one brand",
-              "show",
-              "Q2"
-            ],
-            [
-              "R7",
-              "Q1 contains at least one brand",
-              "show",
-              "Q3"
-            ],
-            [
-              "R8",
-              "Q5 contains any touchpoint",
-              "show",
-              "Q6"
-            ],
-            [
-              "R9",
-              "Q3 != 'None/currently not using'",
-              "show",
-              "Q7"
-            ],
-            [
-              "R10",
-              "Q3 != 'None/currently not using'",
-              "show",
-              "Q8"
-            ],
-            [
-              "R11",
-              "Q3 != 'None/currently not using'",
-              "show",
-              "Q9"
-            ],
-            [
-              "R12",
-              "Q10 == 'Yes'",
-              "show",
-              "Q11"
-            ],
-            [
-              "R13",
-              "Q10 == 'Yes'",
-              "show",
-              "Q12"
-            ],
-            [
-              "R14",
-              "Q12 in ['Fully','Partly']",
-              "show",
-              "Q13"
-            ],
-            [
-              "R15",
-              "Q12 == 'Not resolved'",
-              "show",
-              "Q14"
-            ],
-            [
-              "R16",
-              "Q15 == 'Yes'",
-              "show",
-              "Q16"
-            ],
-            [
-              "R17",
-              "Q16 == 'Other'",
-              "show",
-              "Q17"
-            ],
-            [
-              "R18",
-              "sum(Q18) != 100",
-              "reject",
-              "Q18"
-            ],
-            [
-              "R19",
-              "exclusive option selected with another response at Q1 or Q5",
-              "reject",
-              "CURRENT_QUESTION"
-            ],
-            [
-              "R20",
-              "selected option at Q6 was not selected at Q5",
-              "reject",
-              "Q6"
+          }
+        ]
+      },
+      {
+        "target": "Routing and termination",
+        "heading_text": "Routing and termination",
+        "heading_order": 11,
+        "heading_level": 1,
+        "matched_by": "direct",
+        "blocks": [
+          {
+            "kind": "table",
+            "order": 12,
+            "rows": [
+              [
+                "Rule",
+                "Condition",
+                "Action",
+                "Destination"
+              ],
+              [
+                "R1",
+                "S1 == 'No'",
+                "terminate",
+                "TERM_AGE"
+              ],
+              [
+                "R2",
+                "S2 != 'Purchased or seriously considered a new vehicle in the past 18 months'",
+                "terminate",
+                "TERM_INVOLVEMENT"
+              ],
+              [
+                "R3",
+                "S3 == 'Yes'",
+                "terminate",
+                "TERM_RECENT_RESEARCH"
+              ],
+              [
+                "R4",
+                "S4 == 'Yes'",
+                "terminate",
+                "TERM_CONFLICT"
+              ],
+              [
+                "R5",
+                "Q1 == ['None of these']",
+                "skip",
+                "Q4"
+              ],
+              [
+                "R6",
+                "Q1 contains at least one brand",
+                "show",
+                "Q2"
+              ],
+              [
+                "R7",
+                "Q1 contains at least one brand",
+                "show",
+                "Q3"
+              ],
+              [
+                "R8",
+                "Q5 contains any touchpoint",
+                "show",
+                "Q6"
+              ],
+              [
+                "R9",
+                "Q3 != 'None/currently not using'",
+                "show",
+                "Q7"
+              ],
+              [
+                "R10",
+                "Q3 != 'None/currently not using'",
+                "show",
+                "Q8"
+              ],
+              [
+                "R11",
+                "Q3 != 'None/currently not using'",
+                "show",
+                "Q9"
+              ],
+              [
+                "R12",
+                "Q10 == 'Yes'",
+                "show",
+                "Q11"
+              ],
+              [
+                "R13",
+                "Q10 == 'Yes'",
+                "show",
+                "Q12"
+              ],
+              [
+                "R14",
+                "Q12 in ['Fully','Partly']",
+                "show",
+                "Q13"
+              ],
+              [
+                "R15",
+                "Q12 == 'Not resolved'",
+                "show",
+                "Q14"
+              ],
+              [
+                "R16",
+                "Q15 == 'Yes'",
+                "show",
+                "Q16"
+              ],
+              [
+                "R17",
+                "Q16 == 'Other'",
+                "show",
+                "Q17"
+              ],
+              [
+                "R18",
+                "sum(Q18) != 100",
+                "reject",
+                "Q18"
+              ],
+              [
+                "R19",
+                "exclusive option selected with another response at Q1 or Q5",
+                "reject",
+                "CURRENT_QUESTION"
+              ],
+              [
+                "R20",
+                "selected option at Q6 was not selected at Q5",
+                "reject",
+                "Q6"
+              ]
             ]
-          ]
-        }
-      ]
-    },
-    {
-      "target": "Acceptance test scenarios",
-      "heading_text": "Acceptance test scenarios",
-      "heading_order": 24,
-      "heading_level": 1,
-      "matched_by": "direct",
-      "blocks": [
-        {
-          "kind": "table",
-          "order": 25,
-          "rows": [
-            [
-              "ID",
-              "Purpose",
-              "Key inputs",
-              "Expected outcome"
-            ],
-            [
-              "T1",
-              "age screenout",
-              "{\"S1\": \"No\"}",
-              "{\"expected_end\": \"TERM_AGE\"}"
-            ],
-            [
-              "T2",
-              "conflict screenout",
-              "{\"S1\": \"Yes\", \"S2\": \"Purchased or seriously considered a new vehicle in the past 18 months\", \"S3\": \"No\", \"S4\": \"Yes\"}",
-              "{\"expected_end\": \"TERM_CONFLICT\"}"
-            ],
-            [
-              "T3",
-              "brand unaware journey",
-              "{\"S1\": \"Yes\", \"S2\": \"Purchased or seriously considered a new vehicle in the past 18 months\", \"S3\": \"No\", \"S4\": \"No\", \"Q1\": [\"None of these\"]}",
-              "{\"expected_hidden\": [\"Q2\", \"Q3\", \"Q7\", \"Q8\", \"Q9\"], \"expected_end\": \"COMPLETE\"}"
-            ],
-            [
-              "T4",
-              "user, no support, no switch",
-              "{\"S1\": \"Yes\", \"S2\": \"Purchased or seriously considered a new vehicle in the past 18 months\", \"S3\": \"No\", \"S4\": \"No\", \"Q1\": [\"Auto Brand A\"], \"Q3\": \"Auto Brand A\", \"Q10\": \"No\", \"Q15\": \"No\"}",
-              "{\"expected_hidden\": [\"Q11\", \"Q12\", \"Q13\", \"Q14\", \"Q16\", \"Q17\"], \"expected_end\": \"COMPLETE\"}"
-            ],
-            [
-              "T5",
-              "unresolved support and other switch reason",
-              "{\"S1\": \"Yes\", \"S2\": \"Purchased or seriously considered a new vehicle in the past 18 months\", \"S3\": \"No\", \"S4\": \"No\", \"Q1\": [\"Auto Brand B\"], \"Q3\": \"Auto Brand B\", \"Q10\": \"Yes\", \"Q12\": \"Not resolved\", \"Q15\": \"Yes\", \"Q16\": \"Other\"}",
-              "{\"expected_visible\": [\"Q11\", \"Q12\", \"Q14\", \"Q16\", \"Q17\"], \"expected_hidden\": [\"Q13\"], \"expected_end\": \"COMPLETE\"}"
-            ],
-            [
-              "T6",
-              "constant-sum under 100",
-              "{\"Q18\": {\"Price\": 30, \"Quality\": 30, \"Convenience\": 10, \"Trust\": 10, \"Support\": 10}}",
-              "{\"expected_validation_error\": \"Q18\"}"
-            ],
-            [
-              "T7",
-              "piped option violation",
-              "{\"Q5\": [\"Manufacturer website\"], \"Q6\": \"Auto show\"}",
-              "{\"expected_validation_error\": \"Q6\"}"
+          }
+        ]
+      },
+      {
+        "target": "Acceptance test scenarios",
+        "heading_text": "Acceptance test scenarios",
+        "heading_order": 24,
+        "heading_level": 1,
+        "matched_by": "direct",
+        "blocks": [
+          {
+            "kind": "table",
+            "order": 25,
+            "rows": [
+              [
+                "ID",
+                "Purpose",
+                "Key inputs",
+                "Expected outcome"
+              ],
+              [
+                "T1",
+                "age screenout",
+                "{\"S1\": \"No\"}",
+                "{\"expected_end\": \"TERM_AGE\"}"
+              ],
+              [
+                "T2",
+                "conflict screenout",
+                "{\"S1\": \"Yes\", \"S2\": \"Purchased or seriously considered a new vehicle in the past 18 months\", \"S3\": \"No\", \"S4\": \"Yes\"}",
+                "{\"expected_end\": \"TERM_CONFLICT\"}"
+              ],
+              [
+                "T3",
+                "brand unaware journey",
+                "{\"S1\": \"Yes\", \"S2\": \"Purchased or seriously considered a new vehicle in the past 18 months\", \"S3\": \"No\", \"S4\": \"No\", \"Q1\": [\"None of these\"]}",
+                "{\"expected_hidden\": [\"Q2\", \"Q3\", \"Q7\", \"Q8\", \"Q9\"], \"expected_end\": \"COMPLETE\"}"
+              ],
+              [
+                "T4",
+                "user, no support, no switch",
+                "{\"S1\": \"Yes\", \"S2\": \"Purchased or seriously considered a new vehicle in the past 18 months\", \"S3\": \"No\", \"S4\": \"No\", \"Q1\": [\"Auto Brand A\"], \"Q3\": \"Auto Brand A\", \"Q10\": \"No\", \"Q15\": \"No\"}",
+                "{\"expected_hidden\": [\"Q11\", \"Q12\", \"Q13\", \"Q14\", \"Q16\", \"Q17\"], \"expected_end\": \"COMPLETE\"}"
+              ],
+              [
+                "T5",
+                "unresolved support and other switch reason",
+                "{\"S1\": \"Yes\", \"S2\": \"Purchased or seriously considered a new vehicle in the past 18 months\", \"S3\": \"No\", \"S4\": \"No\", \"Q1\": [\"Auto Brand B\"], \"Q3\": \"Auto Brand B\", \"Q10\": \"Yes\", \"Q12\": \"Not resolved\", \"Q15\": \"Yes\", \"Q16\": \"Other\"}",
+                "{\"expected_visible\": [\"Q11\", \"Q12\", \"Q14\", \"Q16\", \"Q17\"], \"expected_hidden\": [\"Q13\"], \"expected_end\": \"COMPLETE\"}"
+              ],
+              [
+                "T6",
+                "constant-sum under 100",
+                "{\"Q18\": {\"Price\": 30, \"Quality\": 30, \"Convenience\": 10, \"Trust\": 10, \"Support\": 10}}",
+                "{\"expected_validation_error\": \"Q18\"}"
+              ],
+              [
+                "T7",
+                "piped option violation",
+                "{\"Q5\": [\"Manufacturer website\"], \"Q6\": \"Auto show\"}",
+                "{\"expected_validation_error\": \"Q6\"}"
+              ]
             ]
-          ]
-        }
-      ]
-    },
-    {
-      "target": "Completion messages",
-      "heading_text": "Completion messages",
-      "heading_order": 26,
-      "heading_level": 1,
-      "matched_by": "direct",
-      "blocks": [
-        {
-          "kind": "paragraph",
-          "order": 27,
-          "text": "TERM_AGE: Thank you for your interest. You do not qualify for this survey.",
-          "style": "Normal",
-          "is_bold": true,
-          "heading_level": null
-        },
-        {
-          "kind": "paragraph",
-          "order": 28,
-          "text": "TERM_CONFLICT: Thank you for your interest. You do not qualify for this survey.",
-          "style": "Normal",
-          "is_bold": true,
-          "heading_level": null
-        },
-        {
-          "kind": "paragraph",
-          "order": 29,
-          "text": "TERM_INVOLVEMENT: Thank you for your interest. You do not qualify for this survey.",
-          "style": "Normal",
-          "is_bold": true,
-          "heading_level": null
-        },
-        {
-          "kind": "paragraph",
-          "order": 30,
-          "text": "TERM_RECENT_RESEARCH: Thank you for your interest. You do not qualify for this survey.",
-          "style": "Normal",
-          "is_bold": true,
-          "heading_level": null
-        },
-        {
-          "kind": "paragraph",
-          "order": 31,
-          "text": "COMPLETE: Thank you. Your response has been recorded.",
-          "style": "Normal",
-          "is_bold": true,
-          "heading_level": null
-        }
-      ]
-    }
-  ],
-  "flags": []
+          }
+        ]
+      },
+      {
+        "target": "Completion messages",
+        "heading_text": "Completion messages",
+        "heading_order": 26,
+        "heading_level": 1,
+        "matched_by": "direct",
+        "blocks": [
+          {
+            "kind": "paragraph",
+            "order": 27,
+            "text": "TERM_AGE: Thank you for your interest. You do not qualify for this survey.",
+            "style": "Normal",
+            "is_bold": true,
+            "heading_level": null
+          },
+          {
+            "kind": "paragraph",
+            "order": 28,
+            "text": "TERM_CONFLICT: Thank you for your interest. You do not qualify for this survey.",
+            "style": "Normal",
+            "is_bold": true,
+            "heading_level": null
+          },
+          {
+            "kind": "paragraph",
+            "order": 29,
+            "text": "TERM_INVOLVEMENT: Thank you for your interest. You do not qualify for this survey.",
+            "style": "Normal",
+            "is_bold": true,
+            "heading_level": null
+          },
+          {
+            "kind": "paragraph",
+            "order": 30,
+            "text": "TERM_RECENT_RESEARCH: Thank you for your interest. You do not qualify for this survey.",
+            "style": "Normal",
+            "is_bold": true,
+            "heading_level": null
+          },
+          {
+            "kind": "paragraph",
+            "order": 31,
+            "text": "COMPLETE: Thank you. Your response has been recorded.",
+            "style": "Normal",
+            "is_bold": true,
+            "heading_level": null
+          }
+        ]
+      },
+      {
+        "target": "Quota controls",
+        "heading_text": "Quota controls",
+        "heading_order": 13,
+        "heading_level": 1,
+        "matched_by": "direct",
+        "blocks": [
+          {
+            "kind": "paragraph",
+            "order": 14,
+            "text": "QUOTA_REGION: hard quota on D1: North=20%, South=20%, East=20%, West=20%, Central=20%",
+            "style": "Normal",
+            "is_bold": true,
+            "heading_level": null
+          },
+          {
+            "kind": "paragraph",
+            "order": 15,
+            "text": "QUOTA_AGE: soft quota on D2: 21-29=20%, 30-39=25%, 40-49=25%, 50-59=20%, 60+=10%",
+            "style": "Normal",
+            "is_bold": true,
+            "heading_level": null
+          },
+          {
+            "kind": "paragraph",
+            "order": 16,
+            "text": "Quota-full respondents terminate at TERM_QUOTA_FULL before the next substantive question. Quota status must be logged.",
+            "style": "Normal",
+            "is_bold": false,
+            "heading_level": null
+          }
+        ]
+      },
+      {
+        "target": "Study specification",
+        "heading_text": "Study specification",
+        "heading_order": 3,
+        "heading_level": 1,
+        "matched_by": "direct",
+        "blocks": [
+          {
+            "kind": "paragraph",
+            "order": 4,
+            "text": "Business objective: Understand brand funnel, purchase touchpoints, ownership satisfaction and switching.",
+            "style": "Normal",
+            "is_bold": true,
+            "heading_level": null
+          },
+          {
+            "kind": "paragraph",
+            "order": 5,
+            "text": "Target population: Purchased or seriously considered a new vehicle in the past 18 months",
+            "style": "Normal",
+            "is_bold": true,
+            "heading_level": null
+          },
+          {
+            "kind": "paragraph",
+            "order": 6,
+            "text": "Mode: Self-completion web survey",
+            "style": "Normal",
+            "is_bold": true,
+            "heading_level": null
+          },
+          {
+            "kind": "paragraph",
+            "order": 7,
+            "text": "Estimated length: 12 minutes",
+            "style": "Normal",
+            "is_bold": true,
+            "heading_level": null
+          },
+          {
+            "kind": "paragraph",
+            "order": 8,
+            "text": "General instruction: All questions are mandatory unless explicitly marked optional. Do not infer unstated routing.",
+            "style": "Normal",
+            "is_bold": true,
+            "heading_level": null
+          }
+        ]
+      },
+      {
+        "target": "Programming and QA requirements",
+        "heading_text": "Programming and QA requirements",
+        "heading_order": 17,
+        "heading_level": 1,
+        "matched_by": "direct",
+        "blocks": [
+          {
+            "kind": "paragraph",
+            "order": 18,
+            "text": "Store stable question, option, route and test-run identifiers.",
+            "style": "List Bullet",
+            "is_bold": false,
+            "heading_level": null
+          },
+          {
+            "kind": "paragraph",
+            "order": 19,
+            "text": "Capture displayed random order for every randomized item.",
+            "style": "List Bullet",
+            "is_bold": false,
+            "heading_level": null
+          },
+          {
+            "kind": "paragraph",
+            "order": 20,
+            "text": "Record expected and observed destination for every routing transition.",
+            "style": "List Bullet",
+            "is_bold": false,
+            "heading_level": null
+          },
+          {
+            "kind": "paragraph",
+            "order": 21,
+            "text": "Reject mutually exclusive selections and invalid numeric/text responses before progression.",
+            "style": "List Bullet",
+            "is_bold": false,
+            "heading_level": null
+          },
+          {
+            "kind": "paragraph",
+            "order": 22,
+            "text": "Produce an audit record containing inputs, timestamps, route, assertions, screenshots on failure and final disposition.",
+            "style": "List Bullet",
+            "is_bold": false,
+            "heading_level": null
+          },
+          {
+            "kind": "paragraph",
+            "order": 23,
+            "text": "Do not send synthetic test responses into live operational reporting.",
+            "style": "List Bullet",
+            "is_bold": false,
+            "heading_level": null
+          }
+        ]
+      }
+    ],
+    "flags": [],
+    "unclassified": []
+  }
 }
