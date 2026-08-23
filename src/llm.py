@@ -79,7 +79,34 @@ def get_model() -> str:
 
 #: Seconds to wait when the provider reports a rate limit but names no delay.
 _FALLBACK_BACKOFF = 5.0
-_RETRY_AFTER = re.compile(r"try again in ([\d.]+)s")
+#: The provider writes the wait as "1.4775s", "97.499999ms" or "2m41.567999999s".
+#: Reading only the seconds form meant a wait stated in minutes fell through to
+#: the flat fallback, so a request needing three minutes was retried after five
+#: seconds and failed six times in a row.
+_RETRY_AFTER = re.compile(
+    r"try again in (?:(?P<minutes>[\d.]+)m)?(?P<seconds>[\d.]+)(?P<unit>ms|s)\b"
+)
+
+
+class DailyQuotaExhausted(LLMUnavailable):
+    """The day's token budget is gone. Waiting will not help until it resets.
+
+    A kind of LLMUnavailable on purpose. Every stage already degrades gracefully
+    when the model cannot be reached — raising something they do not catch would
+    turn a known limit into a crash halfway through a corpus run.
+    """
+
+
+def _is_daily_quota(message: str) -> bool:
+    """Whether a rate-limit message is the per-day cap rather than per-minute.
+
+    Worth separating. A per-minute limit clears in seconds and retrying is
+    exactly right; a per-day limit clears at midnight, so the same retry loop
+    burns its attempts on calls that cannot succeed and then reports a generic
+    failure that reads like a transient blip.
+    """
+    lowered = message.lower()
+    return "tokens per day" in lowered or "(tpd)" in lowered
 
 
 def _rate_limit_delay(error: Exception) -> float | None:
@@ -92,7 +119,14 @@ def _rate_limit_delay(error: Exception) -> float | None:
     if "rate_limit" not in message and "429" not in message:
         return None
     match = _RETRY_AFTER.search(message)
-    return float(match.group(1)) + 0.5 if match else _FALLBACK_BACKOFF
+    if not match:
+        return _FALLBACK_BACKOFF
+    seconds = float(match.group("seconds"))
+    if match.group("unit") == "ms":
+        seconds /= 1000.0
+    if match.group("minutes"):
+        seconds += float(match.group("minutes")) * 60.0
+    return seconds + 0.5
 
 
 def complete(
@@ -124,6 +158,15 @@ def complete(
                 ],
             )
         except Exception as exc:
+            if _is_daily_quota(str(exc)):
+                # Fail now rather than sleeping through five more attempts that
+                # cannot succeed, and say plainly why, because "rate limited"
+                # alone sends the reader looking for a transient problem.
+                raise DailyQuotaExhausted(
+                    "The provider's daily token budget is used up. Retrying will "
+                    "not help until it resets. Reduce the work, wait for the "
+                    f"reset, or raise the quota. Provider said: {exc}"
+                ) from exc
             delay = _rate_limit_delay(exc)
             if delay is None:
                 raise
