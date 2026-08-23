@@ -16,6 +16,7 @@ Artifacts, under out/<document stem>/:
     stage3_<target>.json    (one per matched target)
     stage4_<target>.json    stage4_flags.json
     stage5_audit.json
+    part2_canonical.json     (Part 2 — what the QRE means)
 
 Targets: questionnaire, routing, scenarios, messages, quotas, study,
 programming. A target absent from the document is flagged, not fatal.
@@ -36,6 +37,7 @@ import stage2_headings
 import stage3_raw_json
 import stage4_deep_parse
 import stage5_audit
+import part2_canonical
 from models import (
     SCHEMA_VERSION,
     ArtifactEnvelope,
@@ -45,6 +47,7 @@ from models import (
     Stage1Document,
     Stage2Blocks,
     Stage3Block,
+    CanonicalSurvey,
     Stage5Audit,
     TargetHeading,
 )
@@ -241,6 +244,24 @@ def run_stage5(
     return audit
 
 
+def run_part2(source: str, parsed: dict) -> CanonicalSurvey:
+    """Build the canonical specification: what the QRE means.
+
+    A separate artifact from Part 1's, not a replacement for them. Part 1's
+    files stay the record of what the document says, so a disagreement about
+    interpretation never costs us the extraction.
+    """
+    survey = part2_canonical.run(source, parsed)
+    _write(
+        _out_dir(source) / "part2_canonical.json",
+        survey,
+        artifact="part2_canonical",
+        stage=6,
+        source=source,
+    )
+    return survey
+
+
 # ---------------------------------------------------------------------------
 # Re-entry: load a previous stage's artifact instead of recomputing it
 # ---------------------------------------------------------------------------
@@ -326,6 +347,24 @@ def _summarise_audit(audit: Stage5Audit) -> None:
         print("\nFINDINGS — none. All five checks ran and found nothing.")
 
 
+def _summarise_part2(survey: CanonicalSurvey) -> None:
+    from collections import Counter
+
+    readable = sum(1 for r in survey.rules if r.when is not None)
+    kinds = Counter(r.destination.kind.value for r in survey.rules)
+    guards = Counter(q.guard.agreement.value for q in survey.questions if q.guard)
+    blocking = sum(
+        1 for r in survey.review if r.severity is FlagSeverity.BLOCKING
+    )
+    print("\nPART 2 — CANONICAL SPECIFICATION")
+    print(f"  rules            {len(survey.rules)} ({readable} conditions read)")
+    print(f"  destinations     {dict(kinds)}")
+    print(f"  guards           {dict(guards)}")
+    print(f"  dependencies     {len(survey.dependencies)}")
+    print(f"  randomised       {len(survey.randomization)}")
+    print(f"  review           {len(survey.review)} ({blocking} blocking)")
+
+
 def main(argv: list[str]) -> int:
     args = [a for a in argv[1:] if not a.startswith("--")]
     if not args:
@@ -358,9 +397,11 @@ def main(argv: list[str]) -> int:
 
     parsed, stage4_flags = run_stage4(source, stage3)
     audit = run_stage5(document, blocks, stage3, parsed)
+    survey = run_part2(source, parsed)
 
     _summarise(blocks, stage3, parsed, [*stage3_flags, *stage4_flags])
     _summarise_audit(audit)
+    _summarise_part2(survey)
     print(f"\nArtifacts: {_out_dir(source)}")
     return 0
 

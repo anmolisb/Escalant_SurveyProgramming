@@ -597,4 +597,171 @@ class Stage4Output(BaseModel):
     flags: list[ReviewFlag] = Field(default_factory=list)
 
 
+# ---------------------------------------------------------------------------
+# Part 2 — the canonical survey specification
+# ---------------------------------------------------------------------------
+
+
+class DestinationKind(str, Enum):
+    QUESTION = "question"
+    DISPOSITION = "disposition"
+    #: Names a position in the flow, not a thing: C02's CURRENT_QUESTION.
+    POSITION = "position"
+    UNKNOWN = "unknown"
+
+
+class Destination(BaseModel):
+    """Where a rule sends the respondent, with its kind made explicit.
+
+    Part 1's `destination` is one string holding three different sorts of thing
+    - a question id, an ending code, and the word CURRENT_QUESTION - so every
+    reader had to guess which it was holding. Guessing wrong sends a respondent
+    to the wrong place.
+    """
+
+    kind: DestinationKind
+    id: str
+    origin: Origin = Origin.DERIVED
+
+
+class RuleKind(str, Enum):
+    TERMINATE = "terminate"
+    SKIP = "skip"
+    SHOW = "show"
+    REJECT = "reject"
+    OTHER = "other"
+
+
+class CanonicalRule(BaseModel):
+    rule_id: str
+    kind: RuleKind
+    #: The condition as a tree. Null where it could not be read.
+    when: Condition | None = None
+    #: The source text, kept when `when` is null so nothing is lost.
+    when_unread: str | None = None
+    destination: Destination
+    #: The question after which this rule is checked. Worked out from the
+    #: questions the condition names, because the QRE never states it.
+    evaluation_point: str | None = None
+    evaluation_point_origin: Origin = Origin.INFERRED
+    #: Position in the routing table, used as precedence under
+    #: `Semantics.rule_precedence`.
+    precedence: int = 0
+    source_reference: SourceReference | None = None
+
+
+class GuardAgreement(str, Enum):
+    #: Stated in one place only.
+    SINGLE_SOURCE = "single_source"
+    #: Stated in both the questionnaire and the routing table, identically.
+    AGREE = "agree"
+    #: Stated in both, differently. Needs a human.
+    DISAGREE = "disagree"
+    #: Stated, but not readable as a tree.
+    UNREAD = "unread"
+
+
+class Guard(BaseModel):
+    """When a question is shown.
+
+    Built by combining both places a QRE states this. Neither is complete on its
+    own: in C02 twelve display conditions appear in both the questionnaire and
+    the routing table, and Q15's appears only in the questionnaire - the routing
+    table omits it, and so would anyone who read only that.
+    """
+
+    condition: Condition | None = None
+    agreement: GuardAgreement
+    #: Where the condition was stated: "questionnaire", or a rule id.
+    sources: list[str] = Field(default_factory=list)
+    raw_texts: list[str] = Field(default_factory=list)
+
+
+class RandomizationScope(str, Enum):
+    OPTIONS = "options"
+    ROWS = "rows"
+
+
+class Randomization(BaseModel):
+    """What is shuffled, and what stays put.
+
+    Part 1 records only that a question randomises. That cannot say whether the
+    answer options or a matrix's rows move, nor whether an exclusive option such
+    as "None of these" is anchored at the bottom, which is what convention
+    expects and what the QRE never states.
+    """
+
+    question_id: str
+    scope: RandomizationScope
+    scope_origin: Origin = Origin.INFERRED
+    #: Options that should keep their position. Empty and marked ambiguous when
+    #: the QRE does not say.
+    anchored: list[str] = Field(default_factory=list)
+    anchored_origin: Origin = Origin.UNKNOWN
+    #: The QRE asks for the shown order to be recorded for every randomised item.
+    capture_display_order: bool = True
+
+
+class DependencyKind(str, Enum):
+    #: The options offered come from an earlier question's answers.
+    OPTION_SOURCE = "option_source"
+    #: The wording quotes an earlier question's answer.
+    TEXT_PIPE = "text_pipe"
+
+
+class Dependency(BaseModel):
+    from_question: str
+    to_question: str
+    kind: DependencyKind
+    detail: str = ""
+    origin: Origin = Origin.DERIVED
+
+
+class Semantics(BaseModel):
+    """Decisions about how this survey's language works.
+
+    Written down because they are decisions, not readings. Every later stage
+    behaves the same way only if they are stated once, in the file, where a
+    reviewer can disagree with them.
+    """
+
+    #: What a condition means when it names a question the respondent was never
+    #: asked. C02's scenario T3 implies false, by expecting Q7 to Q9 hidden when
+    #: Q3 was skipped, but never says so.
+    unasked_reference: str = "condition_false"
+    unasked_reference_origin: Origin = Origin.INFERRED
+    #: Which rule wins when two apply. The routing table is ordered, but nothing
+    #: states that the order means anything.
+    rule_precedence: str = "document_order_first_match"
+    rule_precedence_origin: Origin = Origin.INFERRED
+    #: What "==" means against a multi-select answer.
+    multi_equality: str = "set_equality"
+    multi_equality_origin: Origin = Origin.DERIVED
+
+
+class CanonicalQuestion(BaseModel):
+    question_id: str
+    seq: int | None = None
+    guard: Guard | None = None
+
+
+class CanonicalSurvey(BaseModel):
+    """What the QRE means, as opposed to what it says.
+
+    Part 1's artifacts remain the record of what was written. This is the
+    reading of them, and every value it adds carries an origin saying whether it
+    was extracted, derived or inferred.
+    """
+
+    source: str
+    semantics: Semantics = Field(default_factory=Semantics)
+    questions: list[CanonicalQuestion] = Field(default_factory=list)
+    rules: list[CanonicalRule] = Field(default_factory=list)
+    dependencies: list[Dependency] = Field(default_factory=list)
+    randomization: list[Randomization] = Field(default_factory=list)
+    #: Things a person needs to decide. Reuses the audit's finding shape so the
+    #: two queues can be read together.
+    review: list[AuditFinding] = Field(default_factory=list)
+
+
 Condition.model_rebuild()
