@@ -12,6 +12,7 @@ import logging
 import os
 import re
 import time
+import weakref
 from functools import lru_cache
 from pathlib import Path
 from typing import TypeVar
@@ -123,15 +124,25 @@ def complete(system: str, user: str, response_model: type[T]) -> T:
     raise RuntimeError(f"Rate limited after {MAX_RATE_LIMIT_RETRIES} retries: {last}")
 
 
-_semaphore: "asyncio.Semaphore | None" = None
+#: Keyed by event loop, because an asyncio primitive binds to the loop it is
+#: first awaited on. A single module-level semaphore worked only while the
+#: process ran one loop: a second `asyncio.run` — a test suite, or two documents
+#: in one process — inherited the first loop's semaphore and raised
+#: "is bound to a different event loop". Weak keys so a finished loop does not
+#: keep its semaphore alive.
+_semaphores: "weakref.WeakKeyDictionary[asyncio.AbstractEventLoop, asyncio.Semaphore]" = (
+    weakref.WeakKeyDictionary()
+)
 
 
 def _get_semaphore() -> asyncio.Semaphore:
     """One semaphore per event loop, created lazily inside the running loop."""
-    global _semaphore
-    if _semaphore is None:
-        _semaphore = asyncio.Semaphore(MAX_CONCURRENCY)
-    return _semaphore
+    loop = asyncio.get_running_loop()
+    semaphore = _semaphores.get(loop)
+    if semaphore is None:
+        semaphore = asyncio.Semaphore(MAX_CONCURRENCY)
+        _semaphores[loop] = semaphore
+    return semaphore
 
 
 async def complete_async(system: str, user: str, response_model: type[T]) -> T:
