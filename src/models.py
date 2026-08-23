@@ -456,6 +456,89 @@ class CompletionMessage(BaseModel):
     source_reference: SourceReference | None = None
 
 
+# ---------------------------------------------------------------------------
+# Part 2 — the typed condition
+# ---------------------------------------------------------------------------
+
+
+class ConditionOp(str, Enum):
+    """Operators a condition can use.
+
+    A closed set on purpose. The whole problem with Stage 4's
+    `condition_expression` is that it is free text, so the same operator comes
+    out written three different ways and nothing can check it. Choosing from a
+    fixed list makes that impossible by construction.
+    """
+
+    EQ = "eq"
+    NE = "ne"
+    LT = "lt"
+    LE = "le"
+    GT = "gt"
+    GE = "ge"
+    IN = "in"
+    NOT_IN = "not_in"
+    #: The answer set is exactly this set — "Q1 == ['None of these']" means None
+    #: of these was the ONLY answer, which is not the same as it being among
+    #: them. Stage 4's expression lost that distinction on C02's rule R5.
+    SET_EQ = "set_eq"
+    CONTAINS = "contains"
+    CONTAINS_ANY = "contains_any"
+    CONTAINS_ALL = "contains_all"
+    AND = "and"
+    OR = "or"
+    NOT = "not"
+    #: Whether the question was put to the respondent at all. Needed because a
+    #: condition can refer to a question that was skipped.
+    ANSWERED = "answered"
+    UNANSWERED = "unanswered"
+
+
+class Aggregate(str, Enum):
+    SUM = "sum"
+    COUNT = "count"
+
+
+class Operand(BaseModel):
+    """One side of a comparison.
+
+    Deliberately one flat type rather than a union of reference-or-literal. A
+    union needs the reader to work out which arm it is holding, and gets that
+    wrong quietly; here `question_id` is either set or it is not.
+    """
+
+    #: Set when this side names a question's answer.
+    question_id: str | None = None
+    #: Set when the reference is aggregated, as in "sum(Q18)".
+    aggregate: Aggregate | None = None
+    #: Set when this side is a literal.
+    text: str | None = None
+    number: float | None = None
+    #: Set when this side is a list, as in "in ['Fully','Partly']".
+    values: list[str] | None = None
+
+
+class Condition(BaseModel):
+    """A condition as a tree, not as a string.
+
+    Built from `RoutingRule.condition_raw`, which is verbatim source text, and
+    never from `condition_expression`, which a model wrote and which changed
+    meaning on two of C02's twenty rules.
+    """
+
+    op: ConditionOp
+    left: Operand | None = None
+    right: Operand | None = None
+    #: Children, for and / or / not.
+    operands: list["Condition"] = Field(default_factory=list)
+    #: The text this was built from, kept so the reading can always be checked
+    #: against what the QRE actually said.
+    source_text: str = ""
+    origin: Origin = Origin.DERIVED
+    #: Set when a model proposed this rather than the parser deriving it.
+    confidence: float | None = None
+
+
 class AuditFinding(BaseModel):
     """One thing Stage 5 noticed while comparing Stage 4 against its inputs.
 
@@ -512,3 +595,6 @@ class Stage4Output(BaseModel):
     scenarios: list[AcceptanceScenario] = Field(default_factory=list)
     messages: list[CompletionMessage] = Field(default_factory=list)
     flags: list[ReviewFlag] = Field(default_factory=list)
+
+
+Condition.model_rebuild()

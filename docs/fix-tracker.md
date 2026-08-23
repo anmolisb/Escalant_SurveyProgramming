@@ -83,7 +83,7 @@ extraction contract, so none of it is started yet.
 
 | ✓ | ID | Issue in plain language | Why it waits for Part 2 |
 |---|---|---|---|
-| [-] | P3-01 | Rule R5 changed meaning; R19 can never fire; three different syntaxes; R20 compares the wrong types (B1, B2, B3, B5). | Deciding what an operator means is Part 2's job by definition (§7.1, §19). |
+| [~] | P3-01 | Rule R5 changed meaning; R19 can never fire; three different syntaxes; R20 compares the wrong types (B1, B2, B3, B5). | **Started.** `src/part2_conditions.py` reads a condition into a typed tree built from `condition_raw`, never from `condition_expression`. Operators come from a closed set, so the three-syntax problem cannot recur by construction. Deterministic: 22 of the 28 distinct condition forms in the corpus parse with no model, covering 116 of 154 rule instances. R5 now reads `set_eq` rather than the scalar equality the model produced, and R18 reads `sum(Q18) ne 100` where the model returned nothing. The parser refuses rather than guesses — R19 and R20 come back as unread rather than as the model's broken versions. **Still to do:** the six genuinely prose conditions need a model proposing a tree that the parser then verifies, and that path cannot be tested without an API key. |
 | [-] | P3-02 | Q13's answer codes are only half filled in (C2). | Filling the gaps would be inventing codes, which §13 forbids. It gets flagged as ambiguous instead and resolved in Part 2. |
 | [-] | P3-03 | The destination column mixes questions, endings and a special word (C4). | Typing a destination requires knowing what exists, which is interpretation. |
 | [-] | P3-04 | Show-conditions live in two places in two formats and must be combined (D3, D4). | Combining two representations is normalisation, not extraction. |
@@ -100,6 +100,7 @@ Filled in as work lands. Newest first.
 
 | Date | ID | Change | Files touched |
 |---|---|---|---|
+| 23 Aug 2026 | P3-01 | Typed condition tree and a deterministic parser for it. 75% of routing rules parse with no model; R5 and R18 fixed. | `src/part2_conditions.py` (new), `src/models.py` |
 | 23 Aug 2026 | P2-01..05 | Stage 5 built: five deterministic checks, written to `stage5_audit.json`. Catches the T3 defect mechanically. | `src/stage5_audit.py` (new), `src/models.py`, `src/orchestrator.py`, `README.md` |
 | 23 Aug 2026 | P1-14, P1-15 | Flags carry a severity and a typed target; `condition_expression` is labelled as an unverified inference. | `src/models.py`, `src/stage2_headings.py`, `src/stage3_raw_json.py`, `src/stage4_deep_parse.py`, `src/orchestrator.py` |
 | 23 Aug 2026 | P1-13 | Scenarios record which questions they answer and which identifiers they expect. Resolving those against the questionnaire moves to Stage 5. | `src/models.py`, `src/stage4_deep_parse.py` |
