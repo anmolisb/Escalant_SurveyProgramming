@@ -40,30 +40,116 @@ from models import (
 # Column resolution — the source names its columns, we find them by keyword
 # ---------------------------------------------------------------------------
 
-_COLUMN_HINTS = {
-    "id": ("id", "ref", "rule", "no", "code", "number"),
-    "wording": ("wording", "question", "text", "instruction", "purpose"),
-    "type": ("type", "format"),
-    "options": ("option", "scale", "codeframe", "answer", "response"),
-    "display": ("display", "validation", "condition", "base", "logic"),
-    "action": ("action",),
-    "destination": ("destination", "target", "go to", "goto"),
-    "inputs": ("input",),
+#: What a column called by some name is likely to hold. Names are the QRE's own
+#: convention, so these are guesses ranked by fit, never a required vocabulary.
+#:
+#: Split by table because the same word means different things in each. A column
+#: headed "Rule" is the identifier of a routing rule, but in a questionnaire a
+#: column headed "Gating rule" is the condition for showing a question - reading
+#: the second as an identifier is how Z01 ended up with every question id set to
+#: "everyone".
+_QUESTION_HINTS = {
+    "id": ("id", "qid", "code", "number", "no", "item", "ref", "marker", "label"),
+    "wording": ("wording", "question", "text", "instruction", "verbatim", "stem"),
+    "type": ("type", "format", "kind", "mode", "capture"),
+    "options": ("option", "scale", "codeframe", "answer", "response", "reply", "choice"),
+    "display": ("display", "validation", "condition", "base", "logic", "gating", "rule", "show"),
+}
+
+_ROUTING_HINTS = {
+    "id": ("rule", "id", "ref", "no", "number"),
+    "display": ("condition", "display", "logic", "when", "base", "if"),
+    "action": ("action", "do", "effect"),
+    "destination": ("destination", "target", "go to", "goto", "then", "jump"),
+}
+
+_SCENARIO_HINTS = {
+    "id": ("id", "ref", "no", "number", "case", "test"),
+    "wording": ("purpose", "description", "name", "scenario", "objective"),
+    "inputs": ("input", "given", "answer"),
     "outcome": ("outcome", "expected", "result"),
 }
 
-
-def _find_column(row: dict[str, str], role: str) -> str | None:
-    """Return the key in `row` whose name carries this role's keyword."""
-    for key in row:
-        lowered = key.lower()
-        if any(hint in lowered for hint in _COLUMN_HINTS[role]):
-            return key
-    return None
+#: Kept for anything still reading the old name.
+_COLUMN_HINTS = _QUESTION_HINTS
 
 
-def _value(row: dict[str, str], role: str) -> str:
-    key = _find_column(row, role)
+def _words(name: str) -> list[str]:
+    """Split a column name into comparable words."""
+    return [w for w in re.split(r"[^a-z0-9]+", name.lower()) if w]
+
+
+def _stem(word: str) -> str:
+    """Crude singular. "options" and "option" should match; "notes" and "no"
+    should not."""
+    if len(word) > 3 and word.endswith("ies"):
+        return word[:-3] + "y"
+    if len(word) > 3 and word.endswith("es"):
+        return word[:-2]
+    if len(word) > 2 and word.endswith("s"):
+        return word[:-1]
+    return word
+
+
+def _hint_score(name: str, hint: str) -> int:
+    """How well a column name fits one hint. Zero means it does not.
+
+    Whole words only. Substring matching is what made "no" match "Scripter
+    notes" and "rule" match "Gating rule", so a column of scripting notes became
+    the question id and every id was lost.
+    """
+    words = _words(name)
+    if not words:
+        return 0
+    hint_words = _words(hint)
+    if len(hint_words) > 1:
+        # A multi-word hint such as "go to" only counts if it appears in order.
+        joined = " ".join(words)
+        return 40 if " ".join(hint_words) in joined else 0
+    hint_word = hint_words[0]
+    for position, word in enumerate(words):
+        if word == hint_word or _stem(word) == _stem(hint_word):
+            # A one-word column named exactly after the hint is the clearest
+            # signal there is; earlier words beat later ones.
+            score = 50 if len(words) == 1 else 30
+            return score - position
+    return 0
+
+
+def _resolve_columns(row: dict[str, str], hints: dict) -> dict[str, str]:
+    """Decide which column serves which role, one column per role.
+
+    Every role is scored against every column and the strongest pairings are
+    taken first. Without this, roles were filled in dictionary order and the
+    first passable column won: in Z02 the column headed "Answer Type" was taken
+    as the answer options, so the real codeframe was never read and every
+    question came out with its type as its only option.
+    """
+    candidates = []
+    for role, role_hints in hints.items():
+        for name in row:
+            best = max((_hint_score(name, h) for h in role_hints), default=0)
+            if best > 0:
+                candidates.append((best, role, name))
+    candidates.sort(key=lambda c: -c[0])
+
+    resolved: dict[str, str] = {}
+    taken: set[str] = set()
+    for _score, role, name in candidates:
+        if role in resolved or name in taken:
+            continue
+        resolved[role] = name
+        taken.add(name)
+    return resolved
+
+
+def _find_column(row: dict[str, str], role: str, hints: dict | None = None) -> str | None:
+    """Return the column serving this role, or None."""
+    return _resolve_columns(row, hints or _QUESTION_HINTS).get(role)
+
+
+def _value(row: dict[str, str], role: str, hints: dict | None = None) -> str:
+    key = _find_column(row, role, hints)
     return (row.get(key) or "").strip() if key else ""
 
 
@@ -86,7 +172,13 @@ _NO_OPTIONS = {"", "—", "-", "–", "n/a", "na"}
 #: "1 - Very poor", "1=Yes", "1) Yes". Hyphen needs a trailing space so "T-shirt"
 #: is not read as code "T"; "=" and ")" do not occur inside words.
 _CODE = re.compile(r"^\s*(\d+|[A-Za-z0-9]{1,3})\s*(?:[=)]\s*|-\s+)(.*\S)\s*$")
-_MATRIX_PART = re.compile(r"^\s*(rows?|scale|columns?)\s*:\s*(.*)$", re.IGNORECASE)
+#: "cols" is Z02's own abbreviation for "columns", which is itself only ever
+#: the scale in this pipeline's two-part rows/scale model. Kept as a fixed set
+#: rather than a stemming rule, since an abbreviation cannot be derived from
+#: the word it stands for the way a plural can.
+_MATRIX_PART = re.compile(
+    r"^\s*(rows?|scale|columns?|cols?)\s*:\s*(.*)$", re.IGNORECASE
+)
 _JSON_OBJECT = re.compile(r"\{.*\}", re.DOTALL)
 #: An identifier standing alone in a scenario's expected outcome: a question id
 #: such as Q12, or a disposition code such as TERM_AGE or COMPLETE. Deliberately
@@ -158,10 +250,19 @@ def _split_options(text: str) -> list[Option]:
 
 
 def _split_matrix(text: str) -> tuple[list[Option], list[Option]]:
-    """Return (rows, scale) for "Rows: … / Scale: …" notation."""
+    """Return (rows, scale) for "Rows: … / Scale: …" notation.
+
+    A QRE writes the two parts as separate lines, or joined on one line with
+    "||" — "ROWS: Staff; Stock || COLS: 1=Poor; 2=OK". Splitting only on the
+    newline read the second form as one blob, so the last row swallowed the
+    whole scale and the scale's own values fell apart at their commas. Each
+    part is matched by its own leading keyword regardless of how the QRE joined
+    them, so both forms read the same way rather than favouring the one the
+    sample fixtures happen to use.
+    """
     rows: list[Option] = []
     scale: list[Option] = []
-    for line in text.split("\n"):
+    for line in re.split(r"\n|\|\|", text):
         match = _MATRIX_PART.match(line)
         if not match:
             continue
@@ -366,12 +467,12 @@ async def parse_routing(
     flags: list[ReviewFlag] = []
 
     async def one(index: int, row: dict[str, str]) -> RoutingRule:
-        condition = _value(row, "display") or row.get("Condition", "")
+        condition = _value(row, "display", _ROUTING_HINTS) or row.get("Condition", "")
         rule = RoutingRule(
-            rule=_value(row, "id"),
+            rule=_value(row, "id", _ROUTING_HINTS),
             condition_raw=condition,
-            action=_value(row, "action"),
-            destination=_value(row, "destination"),
+            action=_value(row, "action", _ROUTING_HINTS),
+            destination=_value(row, "destination", _ROUTING_HINTS),
             source_reference=_source_for(block, index),
         )
         if not condition:
@@ -465,12 +566,12 @@ async def parse_scenarios(
 
     for index, row in enumerate(block.rows):
         scenario = AcceptanceScenario(
-            id=_value(row, "id"),
-            purpose=_value(row, "wording"),
+            id=_value(row, "id", _SCENARIO_HINTS),
+            purpose=_value(row, "wording", _SCENARIO_HINTS),
             source_reference=_source_for(block, index),
         )
         for role, field in (("inputs", "key_inputs"), ("outcome", "expected_outcome")):
-            cell = _value(row, role)
+            cell = _value(row, role, _SCENARIO_HINTS)
             if not cell:
                 continue
             match = _JSON_OBJECT.search(cell)
