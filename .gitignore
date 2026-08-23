@@ -1,5 +1,8 @@
-# Secrets — never commit (CLAUDE.md §51, §53)
-.env
+# Secrets — never commit
+# .env IS tracked, but only ever with a blank GROQ_API_KEY. Your real key lives
+# in your local copy, which is held back by:
+#     git update-index --skip-worktree .env
+# Run that once after cloning. See README "Setup".
 .env.*
 !.env.example
 *.pem

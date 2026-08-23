@@ -1,0 +1,1128 @@
+[
+  {
+    "id": "S1",
+    "wording": "Are you 21 years of age or older?",
+    "type": "single",
+    "options": [
+      {
+        "code": null,
+        "label": "Yes"
+      },
+      {
+        "code": null,
+        "label": "No"
+      }
+    ],
+    "matrix_rows": [],
+    "display_condition": null,
+    "min_length": null,
+    "max_length": null,
+    "min_value": null,
+    "max_value": null,
+    "min_selections": null,
+    "exclusive_option": null,
+    "sum_to": null,
+    "randomize": false,
+    "optional": false,
+    "dynamic_option_source": null,
+    "other_attributes": {}
+  },
+  {
+    "id": "S2",
+    "wording": "Which statement best describes your involvement?",
+    "type": "single",
+    "options": [
+      {
+        "code": null,
+        "label": "Purchased or seriously considered a new vehicle in the past 18 months"
+      },
+      {
+        "code": null,
+        "label": "Aware but not involved"
+      },
+      {
+        "code": null,
+        "label": "Not aware of this category"
+      }
+    ],
+    "matrix_rows": [],
+    "display_condition": null,
+    "min_length": null,
+    "max_length": null,
+    "min_value": null,
+    "max_value": null,
+    "min_selections": null,
+    "exclusive_option": null,
+    "sum_to": null,
+    "randomize": false,
+    "optional": false,
+    "dynamic_option_source": null,
+    "other_attributes": {}
+  },
+  {
+    "id": "S3",
+    "wording": "Have you participated in market research in the past 3 months?",
+    "type": "single",
+    "options": [
+      {
+        "code": null,
+        "label": "Yes"
+      },
+      {
+        "code": null,
+        "label": "No"
+      }
+    ],
+    "matrix_rows": [],
+    "display_condition": null,
+    "min_length": null,
+    "max_length": null,
+    "min_value": null,
+    "max_value": null,
+    "min_selections": null,
+    "exclusive_option": null,
+    "sum_to": null,
+    "randomize": false,
+    "optional": false,
+    "dynamic_option_source": null,
+    "other_attributes": {}
+  },
+  {
+    "id": "S4",
+    "wording": "Do you or an immediate family member work in market research, advertising, or the category being studied?",
+    "type": "single",
+    "options": [
+      {
+        "code": null,
+        "label": "Yes"
+      },
+      {
+        "code": null,
+        "label": "No"
+      }
+    ],
+    "matrix_rows": [],
+    "display_condition": null,
+    "min_length": null,
+    "max_length": null,
+    "min_value": null,
+    "max_value": null,
+    "min_selections": null,
+    "exclusive_option": null,
+    "sum_to": null,
+    "randomize": false,
+    "optional": false,
+    "dynamic_option_source": null,
+    "other_attributes": {}
+  },
+  {
+    "id": "Q1",
+    "wording": "Which of these brands have you heard of?",
+    "type": "multi",
+    "options": [
+      {
+        "code": null,
+        "label": "Auto Brand A"
+      },
+      {
+        "code": null,
+        "label": "Auto Brand B"
+      },
+      {
+        "code": null,
+        "label": "Auto Brand C"
+      },
+      {
+        "code": null,
+        "label": "Auto Brand D"
+      },
+      {
+        "code": null,
+        "label": "None of these"
+      }
+    ],
+    "matrix_rows": [],
+    "display_condition": null,
+    "min_length": null,
+    "max_length": null,
+    "min_value": null,
+    "max_value": null,
+    "min_selections": null,
+    "exclusive_option": "None of these",
+    "sum_to": null,
+    "randomize": true,
+    "optional": false,
+    "dynamic_option_source": null,
+    "other_attributes": {}
+  },
+  {
+    "id": "Q2",
+    "wording": "Which brands would you consider?",
+    "type": "multi",
+    "options": [
+      {
+        "code": null,
+        "label": "Auto Brand A"
+      },
+      {
+        "code": null,
+        "label": "Auto Brand B"
+      },
+      {
+        "code": null,
+        "label": "Auto Brand C"
+      },
+      {
+        "code": null,
+        "label": "Auto Brand D"
+      }
+    ],
+    "matrix_rows": [],
+    "display_condition": "Q1 contains at least one brand",
+    "min_length": null,
+    "max_length": null,
+    "min_value": null,
+    "max_value": null,
+    "min_selections": null,
+    "exclusive_option": null,
+    "sum_to": null,
+    "randomize": false,
+    "optional": false,
+    "dynamic_option_source": "Show only brands selected at Q1.",
+    "other_attributes": {}
+  },
+  {
+    "id": "Q3",
+    "wording": "Which brand is your current or most recent provider?",
+    "type": "single",
+    "options": [
+      {
+        "code": null,
+        "label": "Auto Brand A"
+      },
+      {
+        "code": null,
+        "label": "Auto Brand B"
+      },
+      {
+        "code": null,
+        "label": "Auto Brand C"
+      },
+      {
+        "code": null,
+        "label": "Auto Brand D"
+      },
+      {
+        "code": null,
+        "label": "None/currently not using"
+      }
+    ],
+    "matrix_rows": [],
+    "display_condition": "Q1 contains at least one brand",
+    "min_length": null,
+    "max_length": null,
+    "min_value": null,
+    "max_value": null,
+    "min_selections": null,
+    "exclusive_option": null,
+    "sum_to": null,
+    "randomize": false,
+    "optional": false,
+    "dynamic_option_source": null,
+    "other_attributes": {}
+  },
+  {
+    "id": "Q4",
+    "wording": "Which stage best describes your current position?",
+    "type": "single",
+    "options": [
+      {
+        "code": null,
+        "label": "Initial research"
+      },
+      {
+        "code": null,
+        "label": "Shortlisting"
+      },
+      {
+        "code": null,
+        "label": "Test drive"
+      },
+      {
+        "code": null,
+        "label": "Purchased"
+      },
+      {
+        "code": null,
+        "label": "Post-purchase ownership"
+      }
+    ],
+    "matrix_rows": [],
+    "display_condition": null,
+    "min_length": null,
+    "max_length": null,
+    "min_value": null,
+    "max_value": null,
+    "min_selections": null,
+    "exclusive_option": null,
+    "sum_to": null,
+    "randomize": false,
+    "optional": false,
+    "dynamic_option_source": null,
+    "other_attributes": {}
+  },
+  {
+    "id": "Q5",
+    "wording": "Which touchpoints did you use?",
+    "type": "multi",
+    "options": [
+      {
+        "code": null,
+        "label": "Manufacturer website"
+      },
+      {
+        "code": null,
+        "label": "Dealer visit"
+      },
+      {
+        "code": null,
+        "label": "Review site"
+      },
+      {
+        "code": null,
+        "label": "Social media"
+      },
+      {
+        "code": null,
+        "label": "Friends or family"
+      },
+      {
+        "code": null,
+        "label": "Auto show"
+      },
+      {
+        "code": null,
+        "label": "None of these"
+      }
+    ],
+    "matrix_rows": [],
+    "display_condition": null,
+    "min_length": null,
+    "max_length": null,
+    "min_value": null,
+    "max_value": null,
+    "min_selections": null,
+    "exclusive_option": "None of these",
+    "sum_to": null,
+    "randomize": true,
+    "optional": false,
+    "dynamic_option_source": null,
+    "other_attributes": {}
+  },
+  {
+    "id": "Q6",
+    "wording": "Which touchpoint was most influential?",
+    "type": "single",
+    "options": [
+      {
+        "code": null,
+        "label": "Manufacturer website"
+      },
+      {
+        "code": null,
+        "label": "Dealer visit"
+      },
+      {
+        "code": null,
+        "label": "Review site"
+      },
+      {
+        "code": null,
+        "label": "Social media"
+      },
+      {
+        "code": null,
+        "label": "Friends or family"
+      },
+      {
+        "code": null,
+        "label": "Auto show"
+      }
+    ],
+    "matrix_rows": [],
+    "display_condition": "Q5 contains any touchpoint",
+    "min_length": null,
+    "max_length": null,
+    "min_value": null,
+    "max_value": null,
+    "min_selections": null,
+    "exclusive_option": null,
+    "sum_to": null,
+    "randomize": false,
+    "optional": false,
+    "dynamic_option_source": "Show only touchpoints selected at Q5.",
+    "other_attributes": {}
+  },
+  {
+    "id": "Q7",
+    "wording": "How satisfied are you with the overall experience?",
+    "type": "single",
+    "options": [
+      {
+        "code": "1",
+        "label": "Very poor"
+      },
+      {
+        "code": "2",
+        "label": "Poor"
+      },
+      {
+        "code": "3",
+        "label": "Fair"
+      },
+      {
+        "code": "4",
+        "label": "Good"
+      },
+      {
+        "code": "5",
+        "label": "Excellent"
+      }
+    ],
+    "matrix_rows": [],
+    "display_condition": "Q3 != 'None/currently not using'",
+    "min_length": null,
+    "max_length": null,
+    "min_value": null,
+    "max_value": null,
+    "min_selections": null,
+    "exclusive_option": null,
+    "sum_to": null,
+    "randomize": false,
+    "optional": false,
+    "dynamic_option_source": null,
+    "other_attributes": {}
+  },
+  {
+    "id": "Q8",
+    "wording": "How likely are you to recommend the current provider?",
+    "type": "single",
+    "options": [
+      {
+        "code": null,
+        "label": "0"
+      },
+      {
+        "code": null,
+        "label": "1"
+      },
+      {
+        "code": null,
+        "label": "2"
+      },
+      {
+        "code": null,
+        "label": "3"
+      },
+      {
+        "code": null,
+        "label": "4"
+      },
+      {
+        "code": null,
+        "label": "5"
+      },
+      {
+        "code": null,
+        "label": "6"
+      },
+      {
+        "code": null,
+        "label": "7"
+      },
+      {
+        "code": null,
+        "label": "8"
+      },
+      {
+        "code": null,
+        "label": "9"
+      },
+      {
+        "code": null,
+        "label": "10"
+      }
+    ],
+    "matrix_rows": [],
+    "display_condition": "Q3 != 'None/currently not using'",
+    "min_length": null,
+    "max_length": null,
+    "min_value": null,
+    "max_value": null,
+    "min_selections": null,
+    "exclusive_option": null,
+    "sum_to": null,
+    "randomize": false,
+    "optional": false,
+    "dynamic_option_source": null,
+    "other_attributes": {}
+  },
+  {
+    "id": "Q9",
+    "wording": "Please rate each attribute for your current provider.",
+    "type": "matrix",
+    "options": [
+      {
+        "code": "1",
+        "label": "Very poor"
+      },
+      {
+        "code": "2",
+        "label": "Poor"
+      },
+      {
+        "code": "3",
+        "label": "Fair"
+      },
+      {
+        "code": "4",
+        "label": "Good"
+      },
+      {
+        "code": "5",
+        "label": "Excellent"
+      }
+    ],
+    "matrix_rows": [
+      {
+        "code": null,
+        "label": "Design"
+      },
+      {
+        "code": null,
+        "label": "Performance"
+      },
+      {
+        "code": null,
+        "label": "Safety"
+      },
+      {
+        "code": null,
+        "label": "Technology"
+      },
+      {
+        "code": null,
+        "label": "Dealer experience"
+      },
+      {
+        "code": null,
+        "label": "Value for money"
+      }
+    ],
+    "display_condition": "Q3 != 'None/currently not using'",
+    "min_length": null,
+    "max_length": null,
+    "min_value": null,
+    "max_value": null,
+    "min_selections": null,
+    "exclusive_option": null,
+    "sum_to": null,
+    "randomize": true,
+    "optional": false,
+    "dynamic_option_source": null,
+    "other_attributes": {
+      "scale": "[\"1 - Very poor\", \"2 - Poor\", \"3 - Fair\", \"4 - Good\", \"5 - Excellent\"]",
+      "require_each_row": "true"
+    }
+  },
+  {
+    "id": "Q10",
+    "wording": "Did you contact support during the experience?",
+    "type": "single",
+    "options": [
+      {
+        "code": null,
+        "label": "Yes"
+      },
+      {
+        "code": null,
+        "label": "No"
+      }
+    ],
+    "matrix_rows": [],
+    "display_condition": null,
+    "min_length": null,
+    "max_length": null,
+    "min_value": null,
+    "max_value": null,
+    "min_selections": null,
+    "exclusive_option": null,
+    "sum_to": null,
+    "randomize": false,
+    "optional": false,
+    "dynamic_option_source": null,
+    "other_attributes": {}
+  },
+  {
+    "id": "Q11",
+    "wording": "Which support channels did you use?",
+    "type": "multi",
+    "options": [
+      {
+        "code": null,
+        "label": "Phone"
+      },
+      {
+        "code": null,
+        "label": "Email"
+      },
+      {
+        "code": null,
+        "label": "Chat"
+      },
+      {
+        "code": null,
+        "label": "In person"
+      },
+      {
+        "code": null,
+        "label": "Self-service"
+      }
+    ],
+    "matrix_rows": [],
+    "display_condition": "Q10 == 'Yes'",
+    "min_length": null,
+    "max_length": null,
+    "min_value": null,
+    "max_value": null,
+    "min_selections": 1,
+    "exclusive_option": null,
+    "sum_to": null,
+    "randomize": false,
+    "optional": false,
+    "dynamic_option_source": null,
+    "other_attributes": {}
+  },
+  {
+    "id": "Q12",
+    "wording": "Was your issue resolved?",
+    "type": "single",
+    "options": [
+      {
+        "code": null,
+        "label": "Fully"
+      },
+      {
+        "code": null,
+        "label": "Partly"
+      },
+      {
+        "code": null,
+        "label": "Not resolved"
+      }
+    ],
+    "matrix_rows": [],
+    "display_condition": "Q10 == 'Yes'",
+    "min_length": null,
+    "max_length": null,
+    "min_value": null,
+    "max_value": null,
+    "min_selections": null,
+    "exclusive_option": null,
+    "sum_to": null,
+    "randomize": false,
+    "optional": false,
+    "dynamic_option_source": null,
+    "other_attributes": {}
+  },
+  {
+    "id": "Q13",
+    "wording": "How much effort did resolution require?",
+    "type": "single",
+    "options": [
+      {
+        "code": "1",
+        "label": "Very low"
+      },
+      {
+        "code": null,
+        "label": "2"
+      },
+      {
+        "code": null,
+        "label": "3"
+      },
+      {
+        "code": null,
+        "label": "4"
+      },
+      {
+        "code": "5",
+        "label": "Very high"
+      }
+    ],
+    "matrix_rows": [],
+    "display_condition": "Q12 in ['Fully','Partly']",
+    "min_length": null,
+    "max_length": null,
+    "min_value": null,
+    "max_value": null,
+    "min_selections": null,
+    "exclusive_option": null,
+    "sum_to": null,
+    "randomize": false,
+    "optional": false,
+    "dynamic_option_source": null,
+    "other_attributes": {}
+  },
+  {
+    "id": "Q14",
+    "wording": "Why was the issue not resolved?",
+    "type": "text",
+    "options": [],
+    "matrix_rows": [],
+    "display_condition": "Q12 == 'Not resolved'",
+    "min_length": 10,
+    "max_length": 500,
+    "min_value": null,
+    "max_value": null,
+    "min_selections": null,
+    "exclusive_option": null,
+    "sum_to": null,
+    "randomize": false,
+    "optional": false,
+    "dynamic_option_source": null,
+    "other_attributes": {}
+  },
+  {
+    "id": "Q15",
+    "wording": "Have you considered switching providers?",
+    "type": "single",
+    "options": [
+      {
+        "code": null,
+        "label": "Yes"
+      },
+      {
+        "code": null,
+        "label": "No"
+      }
+    ],
+    "matrix_rows": [],
+    "display_condition": "Q3 != 'None/currently not using'",
+    "min_length": null,
+    "max_length": null,
+    "min_value": null,
+    "max_value": null,
+    "min_selections": null,
+    "exclusive_option": null,
+    "sum_to": null,
+    "randomize": false,
+    "optional": false,
+    "dynamic_option_source": null,
+    "other_attributes": {}
+  },
+  {
+    "id": "Q16",
+    "wording": "What is the main reason for considering a switch?",
+    "type": "single",
+    "options": [
+      {
+        "code": null,
+        "label": "Price"
+      },
+      {
+        "code": null,
+        "label": "Service quality"
+      },
+      {
+        "code": null,
+        "label": "Features"
+      },
+      {
+        "code": null,
+        "label": "Poor support"
+      },
+      {
+        "code": null,
+        "label": "Competitor offer"
+      },
+      {
+        "code": null,
+        "label": "Other"
+      }
+    ],
+    "matrix_rows": [],
+    "display_condition": "Q15 == 'Yes'",
+    "min_length": null,
+    "max_length": null,
+    "min_value": null,
+    "max_value": null,
+    "min_selections": null,
+    "exclusive_option": null,
+    "sum_to": null,
+    "randomize": true,
+    "optional": false,
+    "dynamic_option_source": null,
+    "other_attributes": {}
+  },
+  {
+    "id": "Q17",
+    "wording": "Please specify the other switching reason.",
+    "type": "text",
+    "options": [],
+    "matrix_rows": [],
+    "display_condition": "Q16 == 'Other'",
+    "min_length": 3,
+    "max_length": 200,
+    "min_value": null,
+    "max_value": null,
+    "min_selections": null,
+    "exclusive_option": null,
+    "sum_to": null,
+    "randomize": false,
+    "optional": false,
+    "dynamic_option_source": null,
+    "other_attributes": {}
+  },
+  {
+    "id": "Q18",
+    "wording": "Allocate 100 points across the factors that drive your decision.",
+    "type": "constant_sum",
+    "options": [
+      {
+        "code": null,
+        "label": "Price"
+      },
+      {
+        "code": null,
+        "label": "Quality"
+      },
+      {
+        "code": null,
+        "label": "Convenience"
+      },
+      {
+        "code": null,
+        "label": "Trust"
+      },
+      {
+        "code": null,
+        "label": "Support"
+      }
+    ],
+    "matrix_rows": [],
+    "display_condition": null,
+    "min_length": null,
+    "max_length": null,
+    "min_value": null,
+    "max_value": null,
+    "min_selections": null,
+    "exclusive_option": null,
+    "sum_to": 100.0,
+    "randomize": false,
+    "optional": false,
+    "dynamic_option_source": null,
+    "other_attributes": {}
+  },
+  {
+    "id": "Q19",
+    "wording": "Which new proposition do you prefer?",
+    "type": "single",
+    "options": [
+      {
+        "code": null,
+        "label": "Concept A"
+      },
+      {
+        "code": null,
+        "label": "Concept B"
+      },
+      {
+        "code": null,
+        "label": "Concept C"
+      }
+    ],
+    "matrix_rows": [],
+    "display_condition": null,
+    "min_length": null,
+    "max_length": null,
+    "min_value": null,
+    "max_value": null,
+    "min_selections": null,
+    "exclusive_option": null,
+    "sum_to": null,
+    "randomize": true,
+    "optional": false,
+    "dynamic_option_source": null,
+    "other_attributes": {
+      "note": "Concept descriptions are displayed in randomized order; store display order."
+    }
+  },
+  {
+    "id": "Q20",
+    "wording": "How appealing is the selected proposition?",
+    "type": "single",
+    "options": [
+      {
+        "code": "1",
+        "label": "Very poor"
+      },
+      {
+        "code": "2",
+        "label": "Poor"
+      },
+      {
+        "code": "3",
+        "label": "Fair"
+      },
+      {
+        "code": "4",
+        "label": "Good"
+      },
+      {
+        "code": "5",
+        "label": "Excellent"
+      }
+    ],
+    "matrix_rows": [],
+    "display_condition": null,
+    "min_length": null,
+    "max_length": null,
+    "min_value": null,
+    "max_value": null,
+    "min_selections": null,
+    "exclusive_option": null,
+    "sum_to": null,
+    "randomize": false,
+    "optional": false,
+    "dynamic_option_source": null,
+    "other_attributes": {}
+  },
+  {
+    "id": "Q21",
+    "wording": "What most influenced your choice?",
+    "type": "text",
+    "options": [],
+    "matrix_rows": [],
+    "display_condition": null,
+    "min_length": 5,
+    "max_length": 500,
+    "min_value": null,
+    "max_value": null,
+    "min_selections": null,
+    "exclusive_option": null,
+    "sum_to": null,
+    "randomize": false,
+    "optional": false,
+    "dynamic_option_source": null,
+    "other_attributes": {}
+  },
+  {
+    "id": "D1",
+    "wording": "Which region do you live in?",
+    "type": "single",
+    "options": [
+      {
+        "code": null,
+        "label": "North"
+      },
+      {
+        "code": null,
+        "label": "South"
+      },
+      {
+        "code": null,
+        "label": "East"
+      },
+      {
+        "code": null,
+        "label": "West"
+      },
+      {
+        "code": null,
+        "label": "Central"
+      }
+    ],
+    "matrix_rows": [],
+    "display_condition": null,
+    "min_length": null,
+    "max_length": null,
+    "min_value": null,
+    "max_value": null,
+    "min_selections": null,
+    "exclusive_option": null,
+    "sum_to": null,
+    "randomize": false,
+    "optional": false,
+    "dynamic_option_source": null,
+    "other_attributes": {}
+  },
+  {
+    "id": "D2",
+    "wording": "Which age group describes you?",
+    "type": "single",
+    "options": [
+      {
+        "code": null,
+        "label": "21-29"
+      },
+      {
+        "code": null,
+        "label": "30-39"
+      },
+      {
+        "code": null,
+        "label": "40-49"
+      },
+      {
+        "code": null,
+        "label": "50-59"
+      },
+      {
+        "code": null,
+        "label": "60+"
+      }
+    ],
+    "matrix_rows": [],
+    "display_condition": null,
+    "min_length": null,
+    "max_length": null,
+    "min_value": null,
+    "max_value": null,
+    "min_selections": null,
+    "exclusive_option": null,
+    "sum_to": null,
+    "randomize": false,
+    "optional": false,
+    "dynamic_option_source": null,
+    "other_attributes": {}
+  },
+  {
+    "id": "D3",
+    "wording": "How do you describe your gender?",
+    "type": "single",
+    "options": [
+      {
+        "code": null,
+        "label": "Woman"
+      },
+      {
+        "code": null,
+        "label": "Man"
+      },
+      {
+        "code": null,
+        "label": "Non-binary"
+      },
+      {
+        "code": null,
+        "label": "Prefer to self-describe"
+      },
+      {
+        "code": null,
+        "label": "Prefer not to say"
+      }
+    ],
+    "matrix_rows": [],
+    "display_condition": null,
+    "min_length": null,
+    "max_length": null,
+    "min_value": null,
+    "max_value": null,
+    "min_selections": null,
+    "exclusive_option": null,
+    "sum_to": null,
+    "randomize": false,
+    "optional": false,
+    "dynamic_option_source": null,
+    "other_attributes": {}
+  },
+  {
+    "id": "D4",
+    "wording": "What is your household or organizational decision band?",
+    "type": "single",
+    "options": [
+      {
+        "code": null,
+        "label": "Band 1"
+      },
+      {
+        "code": null,
+        "label": "Band 2"
+      },
+      {
+        "code": null,
+        "label": "Band 3"
+      },
+      {
+        "code": null,
+        "label": "Band 4"
+      },
+      {
+        "code": null,
+        "label": "Prefer not to say"
+      }
+    ],
+    "matrix_rows": [],
+    "display_condition": null,
+    "min_length": null,
+    "max_length": null,
+    "min_value": null,
+    "max_value": null,
+    "min_selections": null,
+    "exclusive_option": null,
+    "sum_to": null,
+    "randomize": false,
+    "optional": false,
+    "dynamic_option_source": null,
+    "other_attributes": {}
+  },
+  {
+    "id": "Q22",
+    "wording": "May we use your anonymized comments in internal reporting?",
+    "type": "single",
+    "options": [
+      {
+        "code": null,
+        "label": "Yes"
+      },
+      {
+        "code": null,
+        "label": "No"
+      }
+    ],
+    "matrix_rows": [],
+    "display_condition": null,
+    "min_length": null,
+    "max_length": null,
+    "min_value": null,
+    "max_value": null,
+    "min_selections": null,
+    "exclusive_option": null,
+    "sum_to": null,
+    "randomize": false,
+    "optional": false,
+    "dynamic_option_source": null,
+    "other_attributes": {}
+  },
+  {
+    "id": "Q23",
+    "wording": "Any final comments?",
+    "type": "text",
+    "options": [],
+    "matrix_rows": [],
+    "display_condition": null,
+    "min_length": null,
+    "max_length": 1000,
+    "min_value": null,
+    "max_value": null,
+    "min_selections": null,
+    "exclusive_option": null,
+    "sum_to": null,
+    "randomize": false,
+    "optional": true,
+    "dynamic_option_source": null,
+    "other_attributes": {}
+  }
+]

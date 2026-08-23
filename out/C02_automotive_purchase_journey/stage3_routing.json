@@ -1,0 +1,126 @@
+{
+  "target": "Routing and termination",
+  "source_kind": "table",
+  "rows": [
+    {
+      "Rule": "R1",
+      "Condition": "S1 == 'No'",
+      "Action": "terminate",
+      "Destination": "TERM_AGE"
+    },
+    {
+      "Rule": "R2",
+      "Condition": "S2 != 'Purchased or seriously considered a new vehicle in the past 18 months'",
+      "Action": "terminate",
+      "Destination": "TERM_INVOLVEMENT"
+    },
+    {
+      "Rule": "R3",
+      "Condition": "S3 == 'Yes'",
+      "Action": "terminate",
+      "Destination": "TERM_RECENT_RESEARCH"
+    },
+    {
+      "Rule": "R4",
+      "Condition": "S4 == 'Yes'",
+      "Action": "terminate",
+      "Destination": "TERM_CONFLICT"
+    },
+    {
+      "Rule": "R5",
+      "Condition": "Q1 == ['None of these']",
+      "Action": "skip",
+      "Destination": "Q4"
+    },
+    {
+      "Rule": "R6",
+      "Condition": "Q1 contains at least one brand",
+      "Action": "show",
+      "Destination": "Q2"
+    },
+    {
+      "Rule": "R7",
+      "Condition": "Q1 contains at least one brand",
+      "Action": "show",
+      "Destination": "Q3"
+    },
+    {
+      "Rule": "R8",
+      "Condition": "Q5 contains any touchpoint",
+      "Action": "show",
+      "Destination": "Q6"
+    },
+    {
+      "Rule": "R9",
+      "Condition": "Q3 != 'None/currently not using'",
+      "Action": "show",
+      "Destination": "Q7"
+    },
+    {
+      "Rule": "R10",
+      "Condition": "Q3 != 'None/currently not using'",
+      "Action": "show",
+      "Destination": "Q8"
+    },
+    {
+      "Rule": "R11",
+      "Condition": "Q3 != 'None/currently not using'",
+      "Action": "show",
+      "Destination": "Q9"
+    },
+    {
+      "Rule": "R12",
+      "Condition": "Q10 == 'Yes'",
+      "Action": "show",
+      "Destination": "Q11"
+    },
+    {
+      "Rule": "R13",
+      "Condition": "Q10 == 'Yes'",
+      "Action": "show",
+      "Destination": "Q12"
+    },
+    {
+      "Rule": "R14",
+      "Condition": "Q12 in ['Fully','Partly']",
+      "Action": "show",
+      "Destination": "Q13"
+    },
+    {
+      "Rule": "R15",
+      "Condition": "Q12 == 'Not resolved'",
+      "Action": "show",
+      "Destination": "Q14"
+    },
+    {
+      "Rule": "R16",
+      "Condition": "Q15 == 'Yes'",
+      "Action": "show",
+      "Destination": "Q16"
+    },
+    {
+      "Rule": "R17",
+      "Condition": "Q16 == 'Other'",
+      "Action": "show",
+      "Destination": "Q17"
+    },
+    {
+      "Rule": "R18",
+      "Condition": "sum(Q18) != 100",
+      "Action": "reject",
+      "Destination": "Q18"
+    },
+    {
+      "Rule": "R19",
+      "Condition": "exclusive option selected with another response at Q1 or Q5",
+      "Action": "reject",
+      "Destination": "CURRENT_QUESTION"
+    },
+    {
+      "Rule": "R20",
+      "Condition": "selected option at Q6 was not selected at Q5",
+      "Action": "reject",
+      "Destination": "Q6"
+    }
+  ]
+}

@@ -1,0 +1,223 @@
+{
+  "target": "Questionnaire",
+  "source_kind": "table",
+  "rows": [
+    {
+      "ID": "S1",
+      "Wording / instruction": "Are you 21 years of age or older?",
+      "Type": "single",
+      "Options / scale": "Yes; No",
+      "Display / validation": "Always show"
+    },
+    {
+      "ID": "S2",
+      "Wording / instruction": "Which statement best describes your involvement?",
+      "Type": "single",
+      "Options / scale": "Purchased or seriously considered a new vehicle in the past 18 months; Aware but not involved; Not aware of this category",
+      "Display / validation": "Always show"
+    },
+    {
+      "ID": "S3",
+      "Wording / instruction": "Have you participated in market research in the past 3 months?",
+      "Type": "single",
+      "Options / scale": "Yes; No",
+      "Display / validation": "Always show"
+    },
+    {
+      "ID": "S4",
+      "Wording / instruction": "Do you or an immediate family member work in market research, advertising, or the category being studied?",
+      "Type": "single",
+      "Options / scale": "Yes; No",
+      "Display / validation": "Always show"
+    },
+    {
+      "ID": "Q1",
+      "Wording / instruction": "Which of these brands have you heard of?",
+      "Type": "multi",
+      "Options / scale": "Auto Brand A; Auto Brand B; Auto Brand C; Auto Brand D; None of these",
+      "Display / validation": "Validate: {\"exclusive_option\": \"None of these\"}\nRandomize"
+    },
+    {
+      "ID": "Q2",
+      "Wording / instruction": "Which brands would you consider?",
+      "Type": "multi",
+      "Options / scale": "Auto Brand A; Auto Brand B; Auto Brand C; Auto Brand D",
+      "Display / validation": "Show if: Q1 contains at least one brand\nShow only brands selected at Q1."
+    },
+    {
+      "ID": "Q3",
+      "Wording / instruction": "Which brand is your current or most recent provider?",
+      "Type": "single",
+      "Options / scale": "Auto Brand A; Auto Brand B; Auto Brand C; Auto Brand D; None/currently not using",
+      "Display / validation": "Show if: Q1 contains at least one brand"
+    },
+    {
+      "ID": "Q4",
+      "Wording / instruction": "Which stage best describes your current position?",
+      "Type": "single",
+      "Options / scale": "Initial research; Shortlisting; Test drive; Purchased; Post-purchase ownership",
+      "Display / validation": "Always show"
+    },
+    {
+      "ID": "Q5",
+      "Wording / instruction": "Which touchpoints did you use?",
+      "Type": "multi",
+      "Options / scale": "Manufacturer website; Dealer visit; Review site; Social media; Friends or family; Auto show; None of these",
+      "Display / validation": "Validate: {\"exclusive_option\": \"None of these\"}\nRandomize"
+    },
+    {
+      "ID": "Q6",
+      "Wording / instruction": "Which touchpoint was most influential?",
+      "Type": "single",
+      "Options / scale": "Manufacturer website; Dealer visit; Review site; Social media; Friends or family; Auto show",
+      "Display / validation": "Show if: Q5 contains any touchpoint\nShow only touchpoints selected at Q5."
+    },
+    {
+      "ID": "Q7",
+      "Wording / instruction": "How satisfied are you with the overall experience?",
+      "Type": "single",
+      "Options / scale": "1 - Very poor; 2 - Poor; 3 - Fair; 4 - Good; 5 - Excellent",
+      "Display / validation": "Show if: Q3 != 'None/currently not using'"
+    },
+    {
+      "ID": "Q8",
+      "Wording / instruction": "How likely are you to recommend the current provider?",
+      "Type": "single",
+      "Options / scale": "0; 1; 2; 3; 4; 5; 6; 7; 8; 9; 10",
+      "Display / validation": "Show if: Q3 != 'None/currently not using'"
+    },
+    {
+      "ID": "Q9",
+      "Wording / instruction": "Please rate each attribute for your current provider.",
+      "Type": "matrix",
+      "Options / scale": "Rows: Design; Performance; Safety; Technology; Dealer experience; Value for money\nScale: 1 - Very poor; 2 - Poor; 3 - Fair; 4 - Good; 5 - Excellent",
+      "Display / validation": "Show if: Q3 != 'None/currently not using'\nValidate: {\"scale\": [\"1 - Very poor\", \"2 - Poor\", \"3 - Fair\", \"4 - Good\", \"5 - Excellent\"], \"require_each_row\": true}\nRandomize"
+    },
+    {
+      "ID": "Q10",
+      "Wording / instruction": "Did you contact support during the experience?",
+      "Type": "single",
+      "Options / scale": "Yes; No",
+      "Display / validation": "Always show"
+    },
+    {
+      "ID": "Q11",
+      "Wording / instruction": "Which support channels did you use?",
+      "Type": "multi",
+      "Options / scale": "Phone; Email; Chat; In person; Self-service",
+      "Display / validation": "Show if: Q10 == 'Yes'\nValidate: {\"min_selections\": 1}"
+    },
+    {
+      "ID": "Q12",
+      "Wording / instruction": "Was your issue resolved?",
+      "Type": "single",
+      "Options / scale": "Fully; Partly; Not resolved",
+      "Display / validation": "Show if: Q10 == 'Yes'"
+    },
+    {
+      "ID": "Q13",
+      "Wording / instruction": "How much effort did resolution require?",
+      "Type": "single",
+      "Options / scale": "1 - Very low; 2; 3; 4; 5 - Very high",
+      "Display / validation": "Show if: Q12 in ['Fully','Partly']"
+    },
+    {
+      "ID": "Q14",
+      "Wording / instruction": "Why was the issue not resolved?",
+      "Type": "text",
+      "Options / scale": "—",
+      "Display / validation": "Show if: Q12 == 'Not resolved'\nValidate: {\"min_length\": 10, \"max_length\": 500}"
+    },
+    {
+      "ID": "Q15",
+      "Wording / instruction": "Have you considered switching providers?",
+      "Type": "single",
+      "Options / scale": "Yes; No",
+      "Display / validation": "Show if: Q3 != 'None/currently not using'"
+    },
+    {
+      "ID": "Q16",
+      "Wording / instruction": "What is the main reason for considering a switch?",
+      "Type": "single",
+      "Options / scale": "Price; Service quality; Features; Poor support; Competitor offer; Other",
+      "Display / validation": "Show if: Q15 == 'Yes'\nRandomize"
+    },
+    {
+      "ID": "Q17",
+      "Wording / instruction": "Please specify the other switching reason.",
+      "Type": "text",
+      "Options / scale": "—",
+      "Display / validation": "Show if: Q16 == 'Other'\nValidate: {\"min_length\": 3, \"max_length\": 200}"
+    },
+    {
+      "ID": "Q18",
+      "Wording / instruction": "Allocate 100 points across the factors that drive your decision.",
+      "Type": "constant_sum",
+      "Options / scale": "Price; Quality; Convenience; Trust; Support",
+      "Display / validation": "Validate: {\"sum\": 100}"
+    },
+    {
+      "ID": "Q19",
+      "Wording / instruction": "Which new proposition do you prefer?",
+      "Type": "single",
+      "Options / scale": "Concept A; Concept B; Concept C",
+      "Display / validation": "Randomize\nConcept descriptions are displayed in randomized order; store display order."
+    },
+    {
+      "ID": "Q20",
+      "Wording / instruction": "How appealing is the selected proposition?",
+      "Type": "single",
+      "Options / scale": "1 - Very poor; 2 - Poor; 3 - Fair; 4 - Good; 5 - Excellent",
+      "Display / validation": "Always show"
+    },
+    {
+      "ID": "Q21",
+      "Wording / instruction": "What most influenced your choice?",
+      "Type": "text",
+      "Options / scale": "—",
+      "Display / validation": "Validate: {\"min_length\": 5, \"max_length\": 500}"
+    },
+    {
+      "ID": "D1",
+      "Wording / instruction": "Which region do you live in?",
+      "Type": "single",
+      "Options / scale": "North; South; East; West; Central",
+      "Display / validation": "Always show"
+    },
+    {
+      "ID": "D2",
+      "Wording / instruction": "Which age group describes you?",
+      "Type": "single",
+      "Options / scale": "21-29; 30-39; 40-49; 50-59; 60+",
+      "Display / validation": "Always show"
+    },
+    {
+      "ID": "D3",
+      "Wording / instruction": "How do you describe your gender?",
+      "Type": "single",
+      "Options / scale": "Woman; Man; Non-binary; Prefer to self-describe; Prefer not to say",
+      "Display / validation": "Always show"
+    },
+    {
+      "ID": "D4",
+      "Wording / instruction": "What is your household or organizational decision band?",
+      "Type": "single",
+      "Options / scale": "Band 1; Band 2; Band 3; Band 4; Prefer not to say",
+      "Display / validation": "Always show"
+    },
+    {
+      "ID": "Q22",
+      "Wording / instruction": "May we use your anonymized comments in internal reporting?",
+      "Type": "single",
+      "Options / scale": "Yes; No",
+      "Display / validation": "Always show"
+    },
+    {
+      "ID": "Q23",
+      "Wording / instruction": "Any final comments?",
+      "Type": "text",
+      "Options / scale": "—",
+      "Display / validation": "Validate: {\"max_length\": 1000}\nOptional"
+    }
+  ]
+}

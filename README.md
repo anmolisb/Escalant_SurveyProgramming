@@ -6,7 +6,21 @@ DOCX questionnaire requirement document → four structured JSON outputs.
 
 ```bash
 pip3 install -r requirements.txt
-cp .env.example .env      # add GROQ_API_KEY
+```
+
+`.env` is **tracked in git**, but only ever with a blank key. Put your real key
+in it, then run this once so your local copy is never staged:
+
+```bash
+git update-index --skip-worktree .env
+```
+
+Without that flag, `git add -A` will commit your key. The flag is per-clone, so
+every clone needs it. To edit the tracked template itself — changing the model,
+say — release the flag first:
+
+```bash
+git update-index --no-skip-worktree .env
 ```
 
 `GROQ_MODEL` must be a model that emits JSON directly. Reasoning models

@@ -1,0 +1,48 @@
+{
+  "target": "Acceptance test scenarios",
+  "source_kind": "table",
+  "rows": [
+    {
+      "ID": "T1",
+      "Purpose": "age screenout",
+      "Key inputs": "{\"S1\": \"No\"}",
+      "Expected outcome": "{\"expected_end\": \"TERM_AGE\"}"
+    },
+    {
+      "ID": "T2",
+      "Purpose": "conflict screenout",
+      "Key inputs": "{\"S1\": \"Yes\", \"S2\": \"Purchased or seriously considered a new vehicle in the past 18 months\", \"S3\": \"No\", \"S4\": \"Yes\"}",
+      "Expected outcome": "{\"expected_end\": \"TERM_CONFLICT\"}"
+    },
+    {
+      "ID": "T3",
+      "Purpose": "brand unaware journey",
+      "Key inputs": "{\"S1\": \"Yes\", \"S2\": \"Purchased or seriously considered a new vehicle in the past 18 months\", \"S3\": \"No\", \"S4\": \"No\", \"Q1\": [\"None of these\"]}",
+      "Expected outcome": "{\"expected_hidden\": [\"Q2\", \"Q3\", \"Q7\", \"Q8\", \"Q9\"], \"expected_end\": \"COMPLETE\"}"
+    },
+    {
+      "ID": "T4",
+      "Purpose": "user, no support, no switch",
+      "Key inputs": "{\"S1\": \"Yes\", \"S2\": \"Purchased or seriously considered a new vehicle in the past 18 months\", \"S3\": \"No\", \"S4\": \"No\", \"Q1\": [\"Auto Brand A\"], \"Q3\": \"Auto Brand A\", \"Q10\": \"No\", \"Q15\": \"No\"}",
+      "Expected outcome": "{\"expected_hidden\": [\"Q11\", \"Q12\", \"Q13\", \"Q14\", \"Q16\", \"Q17\"], \"expected_end\": \"COMPLETE\"}"
+    },
+    {
+      "ID": "T5",
+      "Purpose": "unresolved support and other switch reason",
+      "Key inputs": "{\"S1\": \"Yes\", \"S2\": \"Purchased or seriously considered a new vehicle in the past 18 months\", \"S3\": \"No\", \"S4\": \"No\", \"Q1\": [\"Auto Brand B\"], \"Q3\": \"Auto Brand B\", \"Q10\": \"Yes\", \"Q12\": \"Not resolved\", \"Q15\": \"Yes\", \"Q16\": \"Other\"}",
+      "Expected outcome": "{\"expected_visible\": [\"Q11\", \"Q12\", \"Q14\", \"Q16\", \"Q17\"], \"expected_hidden\": [\"Q13\"], \"expected_end\": \"COMPLETE\"}"
+    },
+    {
+      "ID": "T6",
+      "Purpose": "constant-sum under 100",
+      "Key inputs": "{\"Q18\": {\"Price\": 30, \"Quality\": 30, \"Convenience\": 10, \"Trust\": 10, \"Support\": 10}}",
+      "Expected outcome": "{\"expected_validation_error\": \"Q18\"}"
+    },
+    {
+      "ID": "T7",
+      "Purpose": "piped option violation",
+      "Key inputs": "{\"Q5\": [\"Manufacturer website\"], \"Q6\": \"Auto show\"}",
+      "Expected outcome": "{\"expected_validation_error\": \"Q6\"}"
+    }
+  ]
+}

@@ -1,0 +1,142 @@
+[
+  {
+    "id": "T1",
+    "purpose": "age screenout",
+    "key_inputs": {
+      "S1": "No"
+    },
+    "expected_outcome": {
+      "expected_end": "TERM_AGE"
+    },
+    "parse_errors": []
+  },
+  {
+    "id": "T2",
+    "purpose": "conflict screenout",
+    "key_inputs": {
+      "S1": "Yes",
+      "S2": "Purchased or seriously considered a new vehicle in the past 18 months",
+      "S3": "No",
+      "S4": "Yes"
+    },
+    "expected_outcome": {
+      "expected_end": "TERM_CONFLICT"
+    },
+    "parse_errors": []
+  },
+  {
+    "id": "T3",
+    "purpose": "brand unaware journey",
+    "key_inputs": {
+      "S1": "Yes",
+      "S2": "Purchased or seriously considered a new vehicle in the past 18 months",
+      "S3": "No",
+      "S4": "No",
+      "Q1": [
+        "None of these"
+      ]
+    },
+    "expected_outcome": {
+      "expected_hidden": [
+        "Q2",
+        "Q3",
+        "Q7",
+        "Q8",
+        "Q9"
+      ],
+      "expected_end": "COMPLETE"
+    },
+    "parse_errors": []
+  },
+  {
+    "id": "T4",
+    "purpose": "user, no support, no switch",
+    "key_inputs": {
+      "S1": "Yes",
+      "S2": "Purchased or seriously considered a new vehicle in the past 18 months",
+      "S3": "No",
+      "S4": "No",
+      "Q1": [
+        "Auto Brand A"
+      ],
+      "Q3": "Auto Brand A",
+      "Q10": "No",
+      "Q15": "No"
+    },
+    "expected_outcome": {
+      "expected_hidden": [
+        "Q11",
+        "Q12",
+        "Q13",
+        "Q14",
+        "Q16",
+        "Q17"
+      ],
+      "expected_end": "COMPLETE"
+    },
+    "parse_errors": []
+  },
+  {
+    "id": "T5",
+    "purpose": "unresolved support and other switch reason",
+    "key_inputs": {
+      "S1": "Yes",
+      "S2": "Purchased or seriously considered a new vehicle in the past 18 months",
+      "S3": "No",
+      "S4": "No",
+      "Q1": [
+        "Auto Brand B"
+      ],
+      "Q3": "Auto Brand B",
+      "Q10": "Yes",
+      "Q12": "Not resolved",
+      "Q15": "Yes",
+      "Q16": "Other"
+    },
+    "expected_outcome": {
+      "expected_visible": [
+        "Q11",
+        "Q12",
+        "Q14",
+        "Q16",
+        "Q17"
+      ],
+      "expected_hidden": [
+        "Q13"
+      ],
+      "expected_end": "COMPLETE"
+    },
+    "parse_errors": []
+  },
+  {
+    "id": "T6",
+    "purpose": "constant-sum under 100",
+    "key_inputs": {
+      "Q18": {
+        "Price": 30,
+        "Quality": 30,
+        "Convenience": 10,
+        "Trust": 10,
+        "Support": 10
+      }
+    },
+    "expected_outcome": {
+      "expected_validation_error": "Q18"
+    },
+    "parse_errors": []
+  },
+  {
+    "id": "T7",
+    "purpose": "piped option violation",
+    "key_inputs": {
+      "Q5": [
+        "Manufacturer website"
+      ],
+      "Q6": "Auto show"
+    },
+    "expected_outcome": {
+      "expected_validation_error": "Q6"
+    },
+    "parse_errors": []
+  }
+]
