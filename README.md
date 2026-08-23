@@ -142,14 +142,38 @@ flags" and "the stage did not run".
 
 ---
 
-## Stage 5 — extraction quality check (not built)
+## Stage 5 — extraction quality check
 
 Audits Stage 4's output against the source. **Audits, not re-extracts**: a second
 independent extraction tends to repeat the first one's mistakes, so it agrees
 with a wrong answer instead of catching it.
 
-Manual for now via a Streamlit review UI; a Groq audit-style call with a Pydantic
-schema later.
+Five deterministic checks are built. No model is called, so the same inputs
+always give the same findings, which is what makes this usable as a gate rather
+than as advice.
+
+| Check | What it answers |
+|---|---|
+| `source_coverage` | Was every block Stage 1 read accounted for? |
+| `row_accounting` | Did every transcribed row become an object? |
+| `reference_integrity` | Does every identifier point at something that exists? |
+| `condition_consistency` | Do scenarios treat identical conditions identically? |
+| `piping_symmetry` | Are piped questions guarded the way their peers are? |
+
+Written to `stage5_audit.json`, holding the per-section scores, the findings and
+a pass/fail. Kept separate from `stage4_flags.json` rather than appended to it:
+a Stage 4 flag is trouble that stage hit while working, an audit finding is a
+disagreement between artifacts that each looked fine alone, and conflating the
+two loses which you are reading.
+
+Nothing here evaluates a condition. Deciding whether
+`Q3 != 'None/currently not using'` holds means parsing it, which is Part 2's
+job. `condition_consistency` reaches the same defect by comparing condition text
+for equality — enough to report that C02's scenario T3 names Q7, Q8 and Q9 but
+not Q15, though all four carry an identical display condition.
+
+Still to come: the field-by-field comparand against Stage 3 described below, and
+a review UI.
 
 ### Inputs
 
@@ -229,7 +253,11 @@ tier. Stage 5's audit will add one call per section on top of that.
 
 - **No tests.** The previous suite covered modules that no longer exist and was
   deleted with them; nothing replaced it.
-- **Stage 5 not built.** Manual review is the only quality check today.
-- **Two fixtures verified end to end** — `S01` (10 questions) and `C01` (31
-  questions, matrix, prose routing conditions). The rest of the corpus has not
-  been run through this pipeline.
+- **Stage 5 scores rows, not fields.** A section's score is the share of
+  transcribed rows that produced an identified object. The field-by-field
+  comparand against Stage 3 is not built.
+- **Stages 1 to 4 run over the whole corpus**, all 17 fixtures, without error.
+  What has *not* been exercised is anything needing a `GROQ_API_KEY`: Stage 2
+  shape-matching, Stage 3 prose transcription, and Stage 4's field split and
+  condition translation. Runs without a key leave completion messages empty and
+  the audit reports that, correctly, as a blocking failure.

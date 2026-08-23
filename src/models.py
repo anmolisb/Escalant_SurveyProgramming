@@ -456,6 +456,55 @@ class CompletionMessage(BaseModel):
     source_reference: SourceReference | None = None
 
 
+class AuditFinding(BaseModel):
+    """One thing Stage 5 noticed while comparing Stage 4 against its inputs.
+
+    Kept separate from `ReviewFlag` on purpose. A flag records trouble a stage
+    hit while producing its own output; a finding records a disagreement between
+    artifacts that each looked fine on their own. Conflating them would lose
+    which of the two you are reading.
+    """
+
+    #: Which check produced this, so a finding can be traced to its rule.
+    check: str
+    severity: FlagSeverity
+    finding: str
+    target: FlagTarget | None = None
+    #: What the check actually saw, quoted rather than summarised.
+    evidence: str | None = None
+    source_reference: SourceReference | None = None
+
+
+class SectionScore(BaseModel):
+    """How much of one section survived the journey from Stage 3 to Stage 4."""
+
+    target: TargetHeading
+    rows_in: int
+    objects_out: int
+    identified: int = Field(
+        description="Objects that came out carrying a non-empty identifier"
+    )
+    score: float
+    threshold: float
+    passed: bool
+
+
+class Stage5Audit(BaseModel):
+    """The extraction quality check.
+
+    Audits Stage 4's output against what it was produced from. It does not
+    re-extract: a second independent extraction tends to repeat the first one's
+    mistakes and agree with a wrong answer rather than catch it.
+    """
+
+    source: str
+    checks_run: list[str] = Field(default_factory=list)
+    sections: list[SectionScore] = Field(default_factory=list)
+    findings: list[AuditFinding] = Field(default_factory=list)
+    blocking: int = 0
+    passed: bool = True
+
+
 class Stage4Output(BaseModel):
     source: str
     questions: list[Question] = Field(default_factory=list)

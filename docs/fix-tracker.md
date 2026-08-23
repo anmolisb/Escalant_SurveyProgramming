@@ -68,10 +68,11 @@ Stage 2 rather than re-extracting. These checks live there.
 
 | ✓ | ID | Issue in plain language | What changed | Why it was needed |
 |---|---|---|---|---|
-| [ ] | P2-01 | Nothing notices when a whole section of the document is skipped (F4). | | This is the failure that hurt C02 worst, and it produced no flag at all. Comparing Stage 1's block list against what was used catches it with no AI involved. |
-| [ ] | P2-02 | `parse_errors` is empty everywhere, including on the faulty T3 (F5). | | An empty list currently means "not checked", but reads as "nothing wrong". |
-| [ ] | P2-03 | Acceptance scenarios are never replayed against the rules (E1). | | Replaying T3 exposes that Q15, Q16 and Q17 should also be hidden. Fully deterministic, and the cheapest real check available. |
-| [ ] | P2-04 | Q2's piped options have no validation rule while Q6's does (D9). | | The asymmetry is in the QRE itself. It should be surfaced, not silently evened out. |
+| [x] | P2-01 | Nothing noticed when a whole section of the document was skipped (F4). | `check_source_coverage` accounts for every block Stage 1 read. A block is accounted for if it sits under a matched heading or under an unmatched one that Stage 2 now keeps. Anything else is reported. | This is the failure that hurt C02 worst, and it produced no flag at all. It needs no model: Stage 1 already lists every block. It also found something new — three blocks of front matter above the first heading reach no stage at all, on every fixture. |
+| [x] | P2-02 | `parse_errors` was empty everywhere, including on the faulty T3 (F5). | `check_row_accounting` compares Stage 3's transcribed rows against Stage 4's objects per section and scores each one against the README's thresholds. The audit lists `checks_run` by name, and scenario `parse_errors` are surfaced as blocking findings. | An empty list used to mean "nothing was looked at" while reading as "nothing is wrong". Naming the checks that ran makes an empty result mean something. A matched section that transcribes nothing now scores zero rather than passing vacuously. |
+| [x] | P2-03 | Acceptance scenarios were never checked against the rules (E1). | `check_condition_consistency` groups questions by their display condition text and reports any scenario that names some of a group but not the rest. **Not a full replay** — see why in the note. | A real replay means evaluating "Q3 != 'None/currently not using'", which means parsing it, which is Part 2's job. Comparing condition text for equality needs no evaluator and catches the same defect: on the committed C02 artifacts it reports that T3 names Q7, Q8 and Q9 but not Q15, though all four carry an identical condition. That is the defect found by hand in the original review, now found mechanically. |
+| [x] | P2-05 | Not on the original list: nothing checked that identifiers point at things that exist. | `check_reference_integrity` resolves every routing destination, every identifier a scenario expects, and every code named in a prose statement against the questions and endings that exist. | Added because the material was already there once P1-13 recorded what scenarios name. It surfaces two real things on C02: `CURRENT_QUESTION` is a destination that names neither a question nor an ending, and `TERM_QUOTA_FULL` is named by a quota statement but defined nowhere — which is issue A2 found automatically. |
+| [x] | P2-04 | Q2's piped options had no validation rule while Q6's did (D9). | `check_piping_symmetry` compares questions carrying a piping instruction and reports any that no rule guards while a peer is guarded. | The asymmetry is in the QRE itself, so it is surfaced rather than evened out. On C02 it reports that Q2's piping would never be tested, while Q6 has R20. |
 
 ---
 
@@ -99,6 +100,7 @@ Filled in as work lands. Newest first.
 
 | Date | ID | Change | Files touched |
 |---|---|---|---|
+| 23 Aug 2026 | P2-01..05 | Stage 5 built: five deterministic checks, written to `stage5_audit.json`. Catches the T3 defect mechanically. | `src/stage5_audit.py` (new), `src/models.py`, `src/orchestrator.py`, `README.md` |
 | 23 Aug 2026 | P1-14, P1-15 | Flags carry a severity and a typed target; `condition_expression` is labelled as an unverified inference. | `src/models.py`, `src/stage2_headings.py`, `src/stage3_raw_json.py`, `src/stage4_deep_parse.py`, `src/orchestrator.py` |
 | 23 Aug 2026 | P1-13 | Scenarios record which questions they answer and which identifiers they expect. Resolving those against the questionnaire moves to Stage 5. | `src/models.py`, `src/stage4_deep_parse.py` |
 | 23 Aug 2026 | P1-12 | Questions carry an explicit position in the survey, so document order survives storage and re-sorting. | `src/models.py`, `src/stage4_deep_parse.py` |

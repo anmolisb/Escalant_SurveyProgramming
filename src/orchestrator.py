@@ -15,6 +15,7 @@ Artifacts, under out/<document stem>/:
     stage2_blocks.json      stage2_flags.json
     stage3_<target>.json    (one per matched target)
     stage4_<target>.json    stage4_flags.json
+    stage5_audit.json
 
 Targets: questionnaire, routing, scenarios, messages, quotas, study,
 programming. A target absent from the document is flagged, not fatal.
@@ -34,6 +35,7 @@ import stage1_ingestion
 import stage2_headings
 import stage3_raw_json
 import stage4_deep_parse
+import stage5_audit
 from models import (
     SCHEMA_VERSION,
     ArtifactEnvelope,
@@ -43,6 +45,7 @@ from models import (
     Stage1Document,
     Stage2Blocks,
     Stage3Block,
+    Stage5Audit,
     TargetHeading,
 )
 
@@ -214,6 +217,30 @@ def run_stage4(source: str, blocks: list[Stage3Block]) -> tuple[dict, list[Revie
     return parsed, flags
 
 
+def run_stage5(
+    document: Stage1Document,
+    stage2: Stage2Blocks,
+    stage3: list[Stage3Block],
+    parsed: dict,
+) -> Stage5Audit:
+    """Audit Stage 4 against what produced it.
+
+    Written as one artifact rather than appended to `stage4_flags.json`. The
+    README left that open; keeping them apart preserves which of the two you are
+    reading — a Stage 4 flag is trouble that stage hit while working, an audit
+    finding is a disagreement between artifacts that each looked fine alone.
+    """
+    audit = stage5_audit.run(document, stage2, stage3, parsed)
+    _write(
+        _out_dir(document.source) / "stage5_audit.json",
+        audit,
+        artifact="stage5_audit",
+        stage=5,
+        source=document.source,
+    )
+    return audit
+
+
 # ---------------------------------------------------------------------------
 # Re-entry: load a previous stage's artifact instead of recomputing it
 # ---------------------------------------------------------------------------
@@ -277,6 +304,28 @@ def _summarise(blocks: Stage2Blocks, stage3: list[Stage3Block], parsed: dict, fl
         print("\nREVIEW FLAGS — none")
 
 
+def _summarise_audit(audit: Stage5Audit) -> None:
+    print(f"\nSTAGE 5 AUDIT — {'PASS' if audit.passed else 'FAIL'}")
+    print(f"{'SECTION':<28} {'ROWS':>5} {'IDENT':>6} {'SCORE':>7} {'':>5}")
+    print("-" * 55)
+    for score in audit.sections:
+        mark = "ok" if score.passed else "BELOW"
+        print(
+            f"{score.target.value[:28]:<28} {score.rows_in:>5} {score.identified:>6} "
+            f"{score.score:>6.0%} {mark:>6}"
+        )
+    if audit.findings:
+        print(f"\nFINDINGS — {len(audit.findings)} ({audit.blocking} blocking)")
+        for f in sorted(
+            audit.findings, key=lambda f: f.severity is not FlagSeverity.BLOCKING
+        ):
+            target = f" {f.target.kind}:{f.target.id}" if f.target else ""
+            print(f"  [{f.severity.value:<8}] {f.check}{target}")
+            print(f"      {f.finding}")
+    else:
+        print("\nFINDINGS — none. All five checks ran and found nothing.")
+
+
 def main(argv: list[str]) -> int:
     args = [a for a in argv[1:] if not a.startswith("--")]
     if not args:
@@ -308,8 +357,10 @@ def main(argv: list[str]) -> int:
         stage3, stage3_flags = load_stage3(source), []
 
     parsed, stage4_flags = run_stage4(source, stage3)
+    audit = run_stage5(document, blocks, stage3, parsed)
 
     _summarise(blocks, stage3, parsed, [*stage3_flags, *stage4_flags])
+    _summarise_audit(audit)
     print(f"\nArtifacts: {_out_dir(source)}")
     return 0
 
