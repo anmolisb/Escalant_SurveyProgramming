@@ -7,6 +7,7 @@ Naming convention: `Stage1*` … `Stage4*` for artifacts written to disk,
 from __future__ import annotations
 
 from enum import Enum
+from typing import Any
 
 from pydantic import BaseModel, Field
 
@@ -20,11 +21,124 @@ class TargetHeading(str, Enum):
     ROUTING_AND_TERMINATION = "Routing and termination"
     ACCEPTANCE_TEST_SCENARIOS = "Acceptance test scenarios"
     COMPLETION_MESSAGES = "Completion messages"
+    # Sections the pipeline previously ignored. These name concepts, not
+    # document conventions: a QRE calling its quota section "Sample & Quotas"
+    # still matches, by shape if not by name, and no target has to be present.
+    QUOTA_CONTROLS = "Quota controls"
+    STUDY_SPECIFICATION = "Study specification"
+    PROGRAMMING_AND_QA = "Programming and QA requirements"
 
 
 class FlagStatus(str, Enum):
     NOT_PRESENT = "NOT_PRESENT"
     POSSIBLE_MATCH = "POSSIBLE_MATCH"
+
+
+class FlagSeverity(str, Enum):
+    """How much a flag should stop things.
+
+    Without this every flag looked equally urgent, so in practice none of them
+    were prioritised at all.
+    """
+
+    #: Output is incomplete or unusable as it stands. Do not build on it.
+    BLOCKING = "BLOCKING"
+    #: Worth a look, but the artifact is still usable.
+    WARNING = "WARNING"
+    #: Recorded for the audit trail; no action expected.
+    INFO = "INFO"
+
+
+class Origin(str, Enum):
+    """Where a value came from, per CLAUDE.md §14.
+
+    An inference must never be presented as something the QRE stated.
+    """
+
+    #: Read directly out of the document.
+    EXTRACTED = "extracted"
+    #: Worked out from extracted values by fixed rules, with no judgement.
+    DERIVED = "derived"
+    #: Produced by semantic reasoning, and therefore not guaranteed correct.
+    INFERRED = "inferred"
+    #: The source does not say.
+    UNKNOWN = "unknown"
+    #: The source supports more than one reading.
+    AMBIGUOUS = "ambiguous"
+
+
+#: Bumped when an artifact's shape changes in a way a reader must know about.
+#: Artifacts written before headers existed carry no version at all, which is
+#: itself the signal that they predate this.
+SCHEMA_VERSION = "1.0.0"
+
+
+# ---------------------------------------------------------------------------
+# Provenance — shared by every stage
+# ---------------------------------------------------------------------------
+
+
+class SourceDocument(BaseModel):
+    """The QRE an artifact was produced from.
+
+    The digest is what makes this useful: a filename alone cannot tell you that
+    the client sent a revised document, and a stale artifact next to a changed
+    QRE is the kind of error nobody notices by eye.
+    """
+
+    filename: str
+    #: SHA-256 of the file. Null when the document was not readable at the time
+    #: of writing, which happens re-running a later stage from saved artifacts.
+    sha256: str | None = None
+    bytes: int | None = None
+
+
+class ArtifactEnvelope(BaseModel):
+    """Header wrapped around every artifact this pipeline writes.
+
+    Before this, `stage4_questionnaire.json` was a bare array. Two runs of two
+    different QREs produced files that were indistinguishable without reading
+    the survey content itself, and nothing recorded which document, which code
+    version, or when.
+
+    Readers should treat a payload with no `schema_version` as pre-header and
+    read it as the content itself.
+    """
+
+    schema_version: str = SCHEMA_VERSION
+    artifact: str
+    stage: int
+    survey_id: str
+    source_document: SourceDocument
+    generated_at: str
+    #: Number of records, for list artifacts. Null for a single object.
+    item_count: int | None = None
+    content: Any
+
+
+class SourceReference(BaseModel):
+    """Where a piece of extracted content came from in the source document.
+
+    Answers "where did this come from in the QRE?" for review, debugging and
+    defect traceability. Every field is optional because what is knowable varies
+    by source: a table row can name its row index, a sentence transcribed out of
+    a prose block cannot.
+
+    Page number is deliberately absent. python-docx reads the document body, not
+    its rendered pagination, so a page number here would be a guess.
+    """
+
+    document: str | None = None
+    section: str | None = None
+    heading_text: str | None = None
+    #: Stage 1 block index — the position of the paragraph or table in the body.
+    block_order: int | None = None
+    #: Row within a table, counting data rows only, so 0 is the row under the
+    #: header. None for prose, where rows do not map one to one.
+    row_index: int | None = None
+    source_kind: str | None = None
+    #: Verbatim source text, where a single short span can be pointed at.
+    text: str | None = None
 
 
 # ---------------------------------------------------------------------------
@@ -80,18 +194,59 @@ class ContentBlock(BaseModel):
     blocks: list[Paragraph | Table]
 
 
+class FlagTarget(BaseModel):
+    """The specific thing a flag is about.
+
+    `target_heading` says which section; this says which item inside it. Before
+    this existed, a flag about routing rule R18 had to put "R18" into
+    `candidate_heading`, a field meant for heading-match candidates, so nothing
+    could route a flag to the right item or count flags per rule.
+    """
+
+    #: What sort of thing `id` names: question, rule, scenario, message,
+    #: statement, option or section. Left open rather than fixed to an enum,
+    #: because new kinds appear as the pipeline learns to read more of a QRE.
+    kind: str
+    id: str
+
+
 class ReviewFlag(BaseModel):
     target_heading: TargetHeading
     status: FlagStatus
     candidate_heading: str | None = None
     confidence: float | None = None
     reasoning: str
+    #: Flags written before severity existed load as WARNING, which is the
+    #: neutral reading: they were worth recording but nothing was stopped.
+    severity: FlagSeverity = FlagSeverity.WARNING
+    target: FlagTarget | None = None
+
+
+class UnclassifiedSection(BaseModel):
+    """A heading whose content matched no target.
+
+    Kept rather than dropped. A section this pipeline does not yet understand is
+    still part of the QRE: C02's `Quota controls` and
+    `Programming and QA requirements` both describe real survey behaviour, and
+    before this existed they were discarded at Stage 2 without a trace. Retaining
+    them means a later stage — or a human — can still see what was there.
+    """
+
+    heading_text: str
+    heading_order: int
+    heading_level: int
+    blocks: list[Paragraph | Table]
+    reason: str = "heading matched no known target"
+    requires_review: bool = True
 
 
 class Stage2Blocks(BaseModel):
     source: str
     blocks: list[ContentBlock]
     flags: list[ReviewFlag]
+    #: Sections that matched no target. Defaults to empty so artifacts written
+    #: before this field existed still load.
+    unclassified: list[UnclassifiedSection] = Field(default_factory=list)
 
 
 class LLMHeadingCandidate(BaseModel):
@@ -113,6 +268,34 @@ class Stage3Block(BaseModel):
     target: TargetHeading
     source_kind: str = Field(description="table | prose")
     rows: list[dict[str, str]]
+    #: Index-aligned with `rows`: `row_sources[i]` describes where `rows[i]` came
+    #: from. A parallel list rather than a field on each row, so `rows` keeps its
+    #: plain dict shape — Stage 4 reads it by column name, and Stage 5's audit
+    #: relies on it staying row-aligned with Stage 4's output.
+    #:
+    #: Empty on artifacts written before provenance existed, so consumers must
+    #: tolerate a list that is absent or shorter than `rows`.
+    row_sources: list[SourceReference] = Field(default_factory=list)
+
+
+class ExtractedStatement(BaseModel):
+    """One statement captured verbatim from a prose section.
+
+    Part 1 records what the QRE says; Part 2 decides what it means. A quota line
+    such as "QUOTA_REGION: hard quota on D1: North=20%, ..." is kept whole here,
+    not broken into cells and percentages, because splitting it is interpretation
+    and belongs downstream (CLAUDE.md §19).
+    """
+
+    #: Leading identifier where the line supplies one, e.g. QUOTA_REGION.
+    code: str | None = None
+    #: Leading label where the line reads "Label: value", e.g. Mode.
+    label: str | None = None
+    #: The statement as written, minus only the code or label prefix.
+    text: str
+    #: The whole line as it appeared, including any prefix.
+    raw_text: str
+    source_reference: SourceReference | None = None
 
 
 class LLMCompletionMessages(BaseModel):
@@ -129,12 +312,42 @@ class LLMCompletionMessages(BaseModel):
 
 
 class Option(BaseModel):
+    #: A handle for this option, derived from the question id and the option's
+    #: position, e.g. `Q1-O3`. NOT a response code: CLAUDE.md §13 forbids
+    #: inventing those, and `code` below stays null where the QRE supplied none.
+    #: This exists so later stages and other agents can refer to an option
+    #: without matching on its label text, which changes with any rewording.
+    #: Null where the question has no id to derive it from.
+    option_id: str | None = None
     code: str | None = None
     label: str
+    #: The number this option stands for, where the QRE wrote one — read from the
+    #: code if it is numeric, otherwise from the label. Derived, not invented:
+    #: Q8's labels really are "0" to "10", and Q13's scale really does write
+    #: "1 - Very low; 2; 3; 4; 5 - Very high". Null wherever neither is a number,
+    #: which is most options: "Auto Brand A" and the age band "60+" have no
+    #: numeric value.
+    #:
+    #: Exists so a scale can be ordered and its endpoints found without parsing
+    #: label text downstream. Deliberately separate from the question's
+    #: `min_value` / `max_value`, which are extracted from an explicit
+    #: `Validate:` instruction and must not be confused with a derived reading.
+    numeric_value: float | None = None
 
 
 class Question(BaseModel):
     id: str
+    #: Position in the questionnaire, counting from 1 in document order.
+    #:
+    #: Derived, not read: the QRE states the order by the sequence it writes the
+    #: rows in, and this records that sequence explicitly so it survives being
+    #: stored, re-serialised or re-sorted. C02 runs S1-S4, Q1-Q21, D1-D4, then
+    #: Q22-Q23 — sorting those ids alphabetically would move the demographics to
+    #: the end and quietly change the survey.
+    #:
+    #: Distinct from `source_reference.row_index`, which restarts at zero for
+    #: each table and so cannot order a questionnaire split across two of them.
+    seq: int | None = None
     wording: str
     type: str
     options: list[Option] = Field(default_factory=list)
@@ -142,15 +355,27 @@ class Question(BaseModel):
     display_condition: str | None = None
     min_length: int | None = None
     max_length: int | None = None
-    min_value: float | None = None
-    max_value: float | None = None
+    #: Kept as the QRE wrote it. `int | float` rather than plain `float` so a
+    #: whole number stays whole: a constant sum written as 100 should not come
+    #: back as 100.0, which reads as a precision the source never claimed and
+    #: which LimeSurvey would have to round back.
+    min_value: int | float | None = None
+    max_value: int | float | None = None
     min_selections: int | None = None
     exclusive_option: str | None = None
-    sum_to: float | None = None
+    sum_to: int | float | None = None
     randomize: bool = False
     optional: bool = False
     dynamic_option_source: str | None = None
-    other_attributes: dict[str, str] = Field(default_factory=dict)
+    #: Validation settings with no field of their own, kept with their original
+    #: JSON type. Previously every value was run through `json.dumps`, so Q9's
+    #: scale arrived as a string that merely looked like a list and its
+    #: `require_each_row` as the word "true" — both of which had to be parsed a
+    #: second time downstream, and one day would have been parsed wrongly.
+    other_attributes: dict[str, Any] = Field(default_factory=dict)
+    #: Where this came from in the QRE. None on artifacts written before
+    #: provenance existed.
+    source_reference: SourceReference | None = None
 
 
 class LLMQuestionFields(BaseModel):
@@ -165,10 +390,29 @@ class LLMQuestionFields(BaseModel):
 
 class RoutingRule(BaseModel):
     rule: str
+    #: The condition exactly as the QRE wrote it. Trustworthy: on C02 all twenty
+    #: match the source document word for word.
     condition_raw: str
+    #: A formal reading of `condition_raw`, produced by a language model.
+    #:
+    #: NOT TRUSTWORTHY, and deliberately kept anyway. On C02 two of the twenty
+    #: changed meaning — R5 turned an "only answer" test into an "among the
+    #: answers" test, and R19 came out as a condition that can never be true —
+    #: one came back empty, and the same operator is written three different
+    #: ways across the set. There is no grammar behind this field.
+    #:
+    #: Do not parse it. Part 2 builds the real condition from `condition_raw`;
+    #: this is kept as a hint and as evidence of what the model thought.
+    #: See `condition_expression_origin`.
     condition_expression: str | None = None
+    #: How `condition_expression` was produced. Always `inferred` when there is
+    #: one, because a model wrote it. Null when there is none.
+    condition_expression_origin: Origin | None = None
     action: str
     destination: str
+    #: Where this came from in the QRE. None on artifacts written before
+    #: provenance existed.
+    source_reference: SourceReference | None = None
 
 
 class LLMRoutingExpression(BaseModel):
@@ -186,12 +430,30 @@ class AcceptanceScenario(BaseModel):
     purpose: str
     key_inputs: dict = Field(default_factory=dict)
     expected_outcome: dict = Field(default_factory=dict)
+    #: Questions the scenario supplies an answer for, in the order written.
+    #: Read from the keys of `key_inputs`, so it needs no knowledge of the
+    #: questionnaire and makes no claim about whether the set is sufficient.
+    input_question_ids: list[str] = Field(default_factory=list)
+    #: Every identifier-shaped token in the expected outcome — questions it
+    #: expects to see or not see, and the disposition it expects to end at.
+    #:
+    #: Collected without deciding which is which, because telling a question id
+    #: from a disposition code needs the questionnaire and the message list.
+    #: Stage 5 resolves these against both; anything that resolves to nothing is
+    #: a broken reference in the QRE.
+    referenced_ids: list[str] = Field(default_factory=list)
     parse_errors: list[str] = Field(default_factory=list)
+    #: Where this came from in the QRE. None on artifacts written before
+    #: provenance existed.
+    source_reference: SourceReference | None = None
 
 
 class CompletionMessage(BaseModel):
     code: str
     message: str
+    #: Where this came from in the QRE. None on artifacts written before
+    #: provenance existed.
+    source_reference: SourceReference | None = None
 
 
 class Stage4Output(BaseModel):

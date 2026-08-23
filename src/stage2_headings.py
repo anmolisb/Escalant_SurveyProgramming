@@ -1,4 +1,4 @@
-"""Stage 2 — heading identification. Locate the four target blocks.
+"""Stage 2 — heading identification. Locate the target blocks.
 
 Heading candidates are paragraphs carrying a Word heading style. Each target is
 first matched by name; anything still unmatched is offered to the LLM, which
@@ -15,7 +15,9 @@ import re
 from llm import LLMUnavailable, complete
 from models import (
     ContentBlock,
+    FlagSeverity,
     FlagStatus,
+    FlagTarget,
     LLMHeadingCandidate,
     Paragraph,
     ReviewFlag,
@@ -23,6 +25,7 @@ from models import (
     Stage2Blocks,
     Table,
     TargetHeading,
+    UnclassifiedSection,
 )
 
 #: What each target's content looks like, for the shape-matching prompt.
@@ -42,6 +45,21 @@ _TARGET_SHAPES = {
     TargetHeading.COMPLETION_MESSAGES: (
         "prose or a short table pairing a disposition code such as COMPLETE or "
         "TERM_INELIGIBLE with the message text shown to the respondent"
+    ),
+    TargetHeading.QUOTA_CONTROLS: (
+        "prose or a table describing sampling quotas — named quota groups, the "
+        "question or demographic each is measured on, target shares or counts "
+        "per cell, and what happens to a respondent whose cell is already full"
+    ),
+    TargetHeading.STUDY_SPECIFICATION: (
+        "prose stating study-level facts — the business objective, the target "
+        "population, the interviewing mode, expected length, and instructions "
+        "that apply to the questionnaire as a whole"
+    ),
+    TargetHeading.PROGRAMMING_AND_QA: (
+        "prose listing instructions to whoever programs or tests the survey — "
+        "what identifiers to store, what to log or capture, what to reject, and "
+        "what evidence a test run must produce"
     ),
 }
 
@@ -160,6 +178,8 @@ def run(document: Stage1Document) -> Stage2Blocks:
                     ReviewFlag(
                         target_heading=target,
                         status=FlagStatus.NOT_PRESENT,
+                        severity=FlagSeverity.BLOCKING,
+                        target=FlagTarget(kind="section", id=target.value),
                         reasoning=f"No name match and shape-matching unavailable: {exc}",
                     )
                 )
@@ -174,6 +194,10 @@ def run(document: Stage1Document) -> Stage2Blocks:
                     ReviewFlag(
                         target_heading=target,
                         status=FlagStatus.NOT_PRESENT,
+                        # A QRE need not contain every section; S01 has no
+                        # quotas and that is not an error.
+                        severity=FlagSeverity.WARNING,
+                        target=FlagTarget(kind="section", id=target.value),
                         reasoning=(
                             "No heading matched by name, and no unmatched heading's "
                             "content had this section's shape."
@@ -200,12 +224,34 @@ def run(document: Stage1Document) -> Stage2Blocks:
                 status=FlagStatus.POSSIBLE_MATCH,
                 candidate_heading=heading.text,
                 confidence=confidence,
+                severity=FlagSeverity.WARNING,
+                target=FlagTarget(kind="section", id=target.value),
                 reasoning=verdict.reasoning,
             )
         )
+
+    # --- keep whatever matched nothing ---------------------------------------
+    # A heading no target claimed is not noise. C02's `Quota controls` and
+    # `Programming and QA requirements` both land here, and both state real
+    # survey behaviour. Dropping them is how they went missing unnoticed.
+    unclassified = [
+        UnclassifiedSection(
+            heading_text=document.blocks[index].text,
+            heading_order=document.blocks[index].order,
+            heading_level=document.blocks[index].heading_level or 1,
+            blocks=_content_after(
+                document,
+                index,
+                document.blocks[index].heading_level or 1,
+                heading_indexes,
+            ),
+        )
+        for index in spare_indexes
+    ]
 
     return Stage2Blocks(
         source=document.source,
         blocks=[matched[t] for t in TargetHeading if t in matched],
         flags=flags,
+        unclassified=unclassified,
     )

@@ -20,13 +20,18 @@ from llm import LLMUnavailable, complete_async
 from models import (
     AcceptanceScenario,
     CompletionMessage,
+    ExtractedStatement,
+    FlagSeverity,
     FlagStatus,
+    FlagTarget,
     LLMQuestionFields,
     LLMRoutingExpression,
     Option,
+    Origin,
     Question,
     ReviewFlag,
     RoutingRule,
+    SourceReference,
     Stage3Block,
     TargetHeading,
 )
@@ -62,6 +67,17 @@ def _value(row: dict[str, str], role: str) -> str:
     return (row.get(key) or "").strip() if key else ""
 
 
+def _source_for(block: Stage3Block, index: int) -> SourceReference | None:
+    """Provenance for one row, when Stage 3 recorded it.
+
+    Tolerates a short or absent list so artifacts written before provenance
+    existed still parse.
+    """
+    if index < len(block.row_sources):
+        return block.row_sources[index]
+    return None
+
+
 # ---------------------------------------------------------------------------
 # Questionnaire
 # ---------------------------------------------------------------------------
@@ -72,6 +88,15 @@ _NO_OPTIONS = {"", "—", "-", "–", "n/a", "na"}
 _CODE = re.compile(r"^\s*(\d+|[A-Za-z0-9]{1,3})\s*(?:[=)]\s*|-\s+)(.*\S)\s*$")
 _MATRIX_PART = re.compile(r"^\s*(rows?|scale|columns?)\s*:\s*(.*)$", re.IGNORECASE)
 _JSON_OBJECT = re.compile(r"\{.*\}", re.DOTALL)
+#: An identifier standing alone in a scenario's expected outcome: a question id
+#: such as Q12, or a disposition code such as TERM_AGE or COMPLETE. Deliberately
+#: broad, because Part 1 collects these without deciding which kind each one is.
+_IDENTIFIER = re.compile(r"\b([A-Z][A-Za-z0-9_]{1,})\b")
+
+#: An option whose code or label is a bare number, e.g. "3", "10", "-2".
+#: Anchored so "21-29" and "60+" are correctly not numbers.
+_NUMERIC_OPTION = re.compile(r"^-?\d+(?:\.\d+)?$")
+
 #: A question id inside a routing condition, e.g. Q12, S1, A_2.
 _QUESTION_REF = re.compile(r"\b([A-Z]{1,3}[A-Za-z]*_?\d+)\b")
 
@@ -97,6 +122,23 @@ Copy text exactly. Never invent an attribute the cell does not state.
 """
 
 
+def _numeric_value(option: Option) -> float | None:
+    """The number an option stands for, where the QRE wrote one.
+
+    The code is preferred over the label because a coded scale states its number
+    there — Q7 is `1 = Very poor`. Where there is no code the label may itself be
+    the number, as in Q8's 0-to-10 recommendation scale.
+
+    This reads a number the document already wrote; it does not assign one. An
+    option with neither returns None rather than being given a position number,
+    which would be an invention.
+    """
+    for candidate in (option.code, option.label):
+        if candidate and _NUMERIC_OPTION.match(candidate.strip()):
+            return float(candidate.strip())
+    return None
+
+
 def _split_options(text: str) -> list[Option]:
     if text.strip().lower() in _NO_OPTIONS:
         return []
@@ -111,6 +153,7 @@ def _split_options(text: str) -> list[Option]:
             options.append(Option(code=match.group(1), label=match.group(2).strip()))
         else:
             options.append(Option(code=None, label=raw))
+        options[-1].numeric_value = _numeric_value(options[-1])
     return options
 
 
@@ -151,18 +194,39 @@ def _apply_validation(question: Question, cell: str) -> list[str]:
             elif key == "max_length":
                 question.max_length = int(value)
             elif key == "min":
-                question.min_value = float(value)
+                question.min_value = value
             elif key == "max":
-                question.max_value = float(value)
+                question.max_value = value
             elif key == "min_selections":
                 question.min_selections = int(value)
             elif key == "exclusive_option":
                 question.exclusive_option = str(value)
             elif key == "sum":
-                question.sum_to = float(value)
+                question.sum_to = value
             else:
-                question.other_attributes[key] = json.dumps(value)
+                # Stored with its own type. Flattening to a string here forced
+                # every consumer to guess how to read it back.
+                question.other_attributes[key] = value
     return errors
+
+
+def _assign_option_ids(question: Question) -> None:
+    """Give every option and matrix row a stable handle.
+
+    Position-based, so it is derived rather than invented: it says where the
+    option sits in the list the QRE wrote, and nothing more. Rows are lettered
+    R so a matrix row and an answer option can never collide.
+
+    Left alone when the question has no id, because a handle like `-O1` would
+    collide across every unidentified question. The missing id is the real
+    problem there and shows up on its own.
+    """
+    if not question.id:
+        return
+    for position, option in enumerate(question.options, start=1):
+        option.option_id = f"{question.id}-O{position}"
+    for position, row in enumerate(question.matrix_rows, start=1):
+        row.option_id = f"{question.id}-R{position}"
 
 
 async def parse_questionnaire(
@@ -174,14 +238,16 @@ async def parse_questionnaire(
     questions: list[Question] = []
     flags: list[ReviewFlag] = []
 
-    async def one(row: dict[str, str]) -> Question:
+    async def one(index: int, row: dict[str, str]) -> Question:
         options_cell = _value(row, "options")
         display_cell = _value(row, "display")
 
         question = Question(
             id=_value(row, "id"),
+            seq=index + 1,
             wording=_value(row, "wording"),
             type=_value(row, "type"),
+            source_reference=_source_for(block, index),
         )
 
         matrix_rows, scale = _split_matrix(options_cell)
@@ -191,12 +257,16 @@ async def parse_questionnaire(
         else:
             question.options = _split_options(options_cell)
 
+        _assign_option_ids(question)
+
         for error in _apply_validation(question, display_cell):
             flags.append(
                 ReviewFlag(
                     target_heading=TargetHeading.QUESTIONNAIRE,
                     status=FlagStatus.POSSIBLE_MATCH,
                     candidate_heading=question.id,
+                    severity=FlagSeverity.BLOCKING,
+                    target=FlagTarget(kind="question", id=question.id),
                     reasoning=error,
                 )
             )
@@ -219,12 +289,20 @@ async def parse_questionnaire(
                         target_heading=TargetHeading.QUESTIONNAIRE,
                         status=FlagStatus.POSSIBLE_MATCH,
                         candidate_heading=question.id,
+                        # The display condition and randomisation flag are in
+                        # that cell. Without them the question is incomplete.
+                        severity=FlagSeverity.BLOCKING,
+                        target=FlagTarget(kind="question", id=question.id),
                         reasoning=f"Inline attributes not split: {exc}",
                     )
                 )
         return question
 
-    questions = list(await asyncio.gather(*(one(row) for row in block.rows)))
+    questions = list(
+        await asyncio.gather(
+            *(one(index, row) for index, row in enumerate(block.rows))
+        )
+    )
     return questions, flags
 
 
@@ -287,13 +365,14 @@ async def parse_routing(
 
     flags: list[ReviewFlag] = []
 
-    async def one(row: dict[str, str]) -> RoutingRule:
+    async def one(index: int, row: dict[str, str]) -> RoutingRule:
         condition = _value(row, "display") or row.get("Condition", "")
         rule = RoutingRule(
             rule=_value(row, "id"),
             condition_raw=condition,
             action=_value(row, "action"),
             destination=_value(row, "destination"),
+            source_reference=_source_for(block, index),
         )
         if not condition:
             return rule
@@ -304,12 +383,21 @@ async def parse_routing(
                 LLMRoutingExpression,
             )
             rule.condition_expression = translated.expression
+            if translated.expression is not None:
+                # A model wrote it, so it is an inference and nothing downstream
+                # may treat it as something the QRE stated (CLAUDE.md §14).
+                rule.condition_expression_origin = Origin.INFERRED
             if translated.expression is None:
                 flags.append(
                     ReviewFlag(
                         target_heading=TargetHeading.ROUTING_AND_TERMINATION,
                         status=FlagStatus.POSSIBLE_MATCH,
                         candidate_heading=rule.rule,
+                        # condition_raw still holds what the QRE said, and Part 2
+                        # builds the real condition from that, so a missing
+                        # expression loses nothing that mattered.
+                        severity=FlagSeverity.WARNING,
+                        target=FlagTarget(kind="rule", id=rule.rule),
                         reasoning=translated.reasoning,
                     )
                 )
@@ -319,18 +407,51 @@ async def parse_routing(
                     target_heading=TargetHeading.ROUTING_AND_TERMINATION,
                     status=FlagStatus.POSSIBLE_MATCH,
                     candidate_heading=rule.rule,
+                    severity=FlagSeverity.WARNING,
+                    target=FlagTarget(kind="rule", id=rule.rule),
                     reasoning=f"Condition not translated: {exc}",
                 )
             )
         return rule
 
-    rules = list(await asyncio.gather(*(one(row) for row in block.rows)))
+    rules = list(
+        await asyncio.gather(
+            *(one(index, row) for index, row in enumerate(block.rows))
+        )
+    )
     return rules, flags
 
 
 # ---------------------------------------------------------------------------
 # Acceptance test scenarios — JSON already embedded in the cells
 # ---------------------------------------------------------------------------
+
+
+def _identifiers_in(value: object) -> list[str]:
+    """Every identifier-shaped token inside a scenario's expected outcome.
+
+    Walks whatever shape the cell held — the QRE writes it as JSON and nothing
+    guarantees which keys it uses — and returns the tokens in first-seen order.
+    No attempt is made to say which are questions and which are dispositions;
+    that needs the questionnaire and the message list, which Stage 5 has.
+    """
+    found: list[str] = []
+
+    def walk(node: object) -> None:
+        if isinstance(node, dict):
+            for key, item in node.items():
+                walk(key)
+                walk(item)
+        elif isinstance(node, (list, tuple)):
+            for item in node:
+                walk(item)
+        elif isinstance(node, str):
+            for token in _IDENTIFIER.findall(node):
+                if token not in found:
+                    found.append(token)
+
+    walk(value)
+    return found
 
 
 async def parse_scenarios(
@@ -342,9 +463,11 @@ async def parse_scenarios(
     scenarios: list[AcceptanceScenario] = []
     flags: list[ReviewFlag] = []
 
-    for row in block.rows:
+    for index, row in enumerate(block.rows):
         scenario = AcceptanceScenario(
-            id=_value(row, "id"), purpose=_value(row, "wording")
+            id=_value(row, "id"),
+            purpose=_value(row, "wording"),
+            source_reference=_source_for(block, index),
         )
         for role, field in (("inputs", "key_inputs"), ("outcome", "expected_outcome")):
             cell = _value(row, role)
@@ -358,12 +481,17 @@ async def parse_scenarios(
                 setattr(scenario, field, json.loads(match.group(0)))
             except json.JSONDecodeError as exc:
                 scenario.parse_errors.append(f"{role}: {exc}")
+
+        scenario.input_question_ids = list(scenario.key_inputs)
+        scenario.referenced_ids = _identifiers_in(scenario.expected_outcome)
         if scenario.parse_errors:
             flags.append(
                 ReviewFlag(
                     target_heading=TargetHeading.ACCEPTANCE_TEST_SCENARIOS,
                     status=FlagStatus.POSSIBLE_MATCH,
                     candidate_heading=scenario.id,
+                    severity=FlagSeverity.BLOCKING,
+                    target=FlagTarget(kind="scenario", id=scenario.id),
                     reasoning="; ".join(scenario.parse_errors),
                 )
             )
@@ -390,7 +518,7 @@ async def parse_messages(
     messages: list[CompletionMessage] = []
     flags: list[ReviewFlag] = []
 
-    for row in block.rows:
+    for index, row in enumerate(block.rows):
         code = row.get("code") or _value(row, "id")
         text = row.get("message") or _value(row, "wording")
 
@@ -409,17 +537,62 @@ async def parse_messages(
                 code, text = match.group(1), match.group(2)
 
         if code and text:
-            messages.append(CompletionMessage(code=code.strip(), message=text.strip()))
+            messages.append(
+                CompletionMessage(
+                    code=code.strip(),
+                    message=text.strip(),
+                    source_reference=_source_for(block, index),
+                )
+            )
         else:
             flags.append(
                 ReviewFlag(
                     target_heading=TargetHeading.COMPLETION_MESSAGES,
                     status=FlagStatus.POSSIBLE_MATCH,
+                    severity=FlagSeverity.BLOCKING,
+                    target=FlagTarget(kind="message", id=str(index)),
                     reasoning=f"Row is not a code/message pair: {row}",
                 )
             )
 
     return messages, flags
+
+
+# ---------------------------------------------------------------------------
+# Prose sections captured as statements — quotas, study spec, programming notes
+# ---------------------------------------------------------------------------
+
+
+async def parse_statements(
+    block: Stage3Block | None,
+) -> tuple[list[ExtractedStatement], list[ReviewFlag]]:
+    """Carry Stage 3's literal prose rows onto typed statements.
+
+    No parsing beyond what Stage 3 already did. A quota line keeps its cells and
+    percentages as written; deciding that "North=20%" means a 20 percent target
+    on option North is Part 2's job. Part 1's contribution is that the statement
+    now exists, is addressable, and knows where it came from — none of which was
+    true before, because these sections never reached Stage 3 at all.
+    """
+    if block is None:
+        return [], []
+
+    statements: list[ExtractedStatement] = []
+    for index, row in enumerate(block.rows):
+        raw = (row.get("raw_text") or "").strip()
+        text = (row.get("text") or raw).strip()
+        if not text:
+            continue
+        statements.append(
+            ExtractedStatement(
+                code=row.get("code") or None,
+                label=row.get("label") or None,
+                text=text,
+                raw_text=raw or text,
+                source_reference=_source_for(block, index),
+            )
+        )
+    return statements, []
 
 
 # ---------------------------------------------------------------------------
@@ -442,13 +615,22 @@ async def run_async(blocks: list[Stage3Block]) -> tuple[dict, list[ReviewFlag]]:
             by_target.get(TargetHeading.ROUTING_AND_TERMINATION), questions
         )
 
-    (questions, q_flags), (routing, r_flags), (scenarios, s_flags), (messages, m_flags) = (
-        await asyncio.gather(
-            questionnaire_task,
-            routing_after_questionnaire(),
-            parse_scenarios(by_target.get(TargetHeading.ACCEPTANCE_TEST_SCENARIOS)),
-            parse_messages(by_target.get(TargetHeading.COMPLETION_MESSAGES)),
-        )
+    (
+        (questions, q_flags),
+        (routing, r_flags),
+        (scenarios, s_flags),
+        (messages, m_flags),
+        (quotas, quota_flags),
+        (study, study_flags),
+        (programming, programming_flags),
+    ) = await asyncio.gather(
+        questionnaire_task,
+        routing_after_questionnaire(),
+        parse_scenarios(by_target.get(TargetHeading.ACCEPTANCE_TEST_SCENARIOS)),
+        parse_messages(by_target.get(TargetHeading.COMPLETION_MESSAGES)),
+        parse_statements(by_target.get(TargetHeading.QUOTA_CONTROLS)),
+        parse_statements(by_target.get(TargetHeading.STUDY_SPECIFICATION)),
+        parse_statements(by_target.get(TargetHeading.PROGRAMMING_AND_QA)),
     )
 
     return (
@@ -457,8 +639,19 @@ async def run_async(blocks: list[Stage3Block]) -> tuple[dict, list[ReviewFlag]]:
             "routing": routing,
             "scenarios": scenarios,
             "messages": messages,
+            "quotas": quotas,
+            "study": study,
+            "programming": programming,
         },
-        [*q_flags, *r_flags, *s_flags, *m_flags],
+        [
+            *q_flags,
+            *r_flags,
+            *s_flags,
+            *m_flags,
+            *quota_flags,
+            *study_flags,
+            *programming_flags,
+        ],
     )
 
 
