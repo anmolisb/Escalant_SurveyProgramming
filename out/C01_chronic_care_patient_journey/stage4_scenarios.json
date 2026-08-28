@@ -1,0 +1,301 @@
+{
+  "schema_version": "1.0.0",
+  "artifact": "stage4_scenarios",
+  "stage": 4,
+  "survey_id": "C01_chronic_care_patient_journey",
+  "source_document": {
+    "filename": "C01_chronic_care_patient_journey.docx",
+    "sha256": "319e6b78a2a1e36ef712ce421e6d2c1db3325a087a07d8d0e93ec38b39207e4b",
+    "bytes": 43612
+  },
+  "generated_at": "2026-08-28T14:46:20+00:00",
+  "item_count": 7,
+  "content": [
+    {
+      "id": "T1",
+      "purpose": "age screenout",
+      "key_inputs": {
+        "S1": "No"
+      },
+      "expected_outcome": {
+        "expected_end": "TERM_AGE"
+      },
+      "input_question_ids": [
+        "S1"
+      ],
+      "referenced_ids": [
+        "TERM_AGE"
+      ],
+      "parse_errors": [],
+      "source_reference": {
+        "document": "C01_chronic_care_patient_journey.docx",
+        "section": "Acceptance test scenarios",
+        "heading_text": "Acceptance test scenarios",
+        "block_order": 25,
+        "row_index": 0,
+        "source_kind": "table",
+        "text": "T1 | age screenout | {\"S1\": \"No\"} | {\"expected_end\": \"TERM_AGE\"}"
+      }
+    },
+    {
+      "id": "T2",
+      "purpose": "conflict screenout",
+      "key_inputs": {
+        "S1": "Yes",
+        "S2": "Personally manage an ongoing chronic health condition",
+        "S3": "No",
+        "S4": "Yes"
+      },
+      "expected_outcome": {
+        "expected_end": "TERM_CONFLICT"
+      },
+      "input_question_ids": [
+        "S1",
+        "S2",
+        "S3",
+        "S4"
+      ],
+      "referenced_ids": [
+        "TERM_CONFLICT"
+      ],
+      "parse_errors": [],
+      "source_reference": {
+        "document": "C01_chronic_care_patient_journey.docx",
+        "section": "Acceptance test scenarios",
+        "heading_text": "Acceptance test scenarios",
+        "block_order": 25,
+        "row_index": 1,
+        "source_kind": "table",
+        "text": "T2 | conflict screenout | {\"S1\": \"Yes\", \"S2\": \"Personally manage an ongoing chronic health condition\", \"S3\": \"No\", \"S4\": \"Yes\"} | {\"expected_end\": \"TERM_CONFLICT\"}"
+      }
+    },
+    {
+      "id": "T3",
+      "purpose": "brand unaware journey",
+      "key_inputs": {
+        "S1": "Yes",
+        "S2": "Personally manage an ongoing chronic health condition",
+        "S3": "No",
+        "S4": "No",
+        "Q1": [
+          "None of these"
+        ]
+      },
+      "expected_outcome": {
+        "expected_hidden": [
+          "Q2",
+          "Q3",
+          "Q7",
+          "Q8",
+          "Q9"
+        ],
+        "expected_end": "COMPLETE"
+      },
+      "input_question_ids": [
+        "S1",
+        "S2",
+        "S3",
+        "S4",
+        "Q1"
+      ],
+      "referenced_ids": [
+        "Q2",
+        "Q3",
+        "Q7",
+        "Q8",
+        "Q9",
+        "COMPLETE"
+      ],
+      "parse_errors": [],
+      "source_reference": {
+        "document": "C01_chronic_care_patient_journey.docx",
+        "section": "Acceptance test scenarios",
+        "heading_text": "Acceptance test scenarios",
+        "block_order": 25,
+        "row_index": 2,
+        "source_kind": "table",
+        "text": "T3 | brand unaware journey | {\"S1\": \"Yes\", \"S2\": \"Personally manage an ongoing chronic health condition\", \"S3\": \"No\", \"S4\": \"No\", \"Q1\": [\"None of these\"]} | {\"expected_hidden\": [\"Q2\", \"Q3\", \"Q7\", \"Q8\", \"Q9\"], \"expected_end\": \"COMPLETE\"}"
+      }
+    },
+    {
+      "id": "T4",
+      "purpose": "user, no support, no switch",
+      "key_inputs": {
+        "S1": "Yes",
+        "S2": "Personally manage an ongoing chronic health condition",
+        "S3": "No",
+        "S4": "No",
+        "Q1": [
+          "Care Network A"
+        ],
+        "Q3": "Care Network A",
+        "Q10": "No",
+        "Q15": "No"
+      },
+      "expected_outcome": {
+        "expected_hidden": [
+          "Q11",
+          "Q12",
+          "Q13",
+          "Q14",
+          "Q16",
+          "Q17"
+        ],
+        "expected_end": "COMPLETE"
+      },
+      "input_question_ids": [
+        "S1",
+        "S2",
+        "S3",
+        "S4",
+        "Q1",
+        "Q3",
+        "Q10",
+        "Q15"
+      ],
+      "referenced_ids": [
+        "Q11",
+        "Q12",
+        "Q13",
+        "Q14",
+        "Q16",
+        "Q17",
+        "COMPLETE"
+      ],
+      "parse_errors": [],
+      "source_reference": {
+        "document": "C01_chronic_care_patient_journey.docx",
+        "section": "Acceptance test scenarios",
+        "heading_text": "Acceptance test scenarios",
+        "block_order": 25,
+        "row_index": 3,
+        "source_kind": "table",
+        "text": "T4 | user, no support, no switch | {\"S1\": \"Yes\", \"S2\": \"Personally manage an ongoing chronic health condition\", \"S3\": \"No\", \"S4\": \"No\", \"Q1\": [\"Care Network A\"], \"Q3\": \"Care Network A\", \"Q10\": \"No\", \"Q15\": \"No\"} | {\"expected_hidden\": [\"Q11\", \"Q12\", \"Q13\", \"Q14\", \"Q16\", \"Q17\"], \"expected_end\": \"COMPL"
+      }
+    },
+    {
+      "id": "T5",
+      "purpose": "unresolved support and other switch reason",
+      "key_inputs": {
+        "S1": "Yes",
+        "S2": "Personally manage an ongoing chronic health condition",
+        "S3": "No",
+        "S4": "No",
+        "Q1": [
+          "Care Network B"
+        ],
+        "Q3": "Care Network B",
+        "Q10": "Yes",
+        "Q12": "Not resolved",
+        "Q15": "Yes",
+        "Q16": "Other"
+      },
+      "expected_outcome": {
+        "expected_visible": [
+          "Q11",
+          "Q12",
+          "Q14",
+          "Q16",
+          "Q17"
+        ],
+        "expected_hidden": [
+          "Q13"
+        ],
+        "expected_end": "COMPLETE"
+      },
+      "input_question_ids": [
+        "S1",
+        "S2",
+        "S3",
+        "S4",
+        "Q1",
+        "Q3",
+        "Q10",
+        "Q12",
+        "Q15",
+        "Q16"
+      ],
+      "referenced_ids": [
+        "Q11",
+        "Q12",
+        "Q14",
+        "Q16",
+        "Q17",
+        "Q13",
+        "COMPLETE"
+      ],
+      "parse_errors": [],
+      "source_reference": {
+        "document": "C01_chronic_care_patient_journey.docx",
+        "section": "Acceptance test scenarios",
+        "heading_text": "Acceptance test scenarios",
+        "block_order": 25,
+        "row_index": 4,
+        "source_kind": "table",
+        "text": "T5 | unresolved support and other switch reason | {\"S1\": \"Yes\", \"S2\": \"Personally manage an ongoing chronic health condition\", \"S3\": \"No\", \"S4\": \"No\", \"Q1\": [\"Care Network B\"], \"Q3\": \"Care Network B\", \"Q10\": \"Yes\", \"Q12\": \"Not resolved\", \"Q15\": \"Yes\", \"Q16\": \"Other\"} | {\"expected_visible\": [\"Q11\", \""
+      }
+    },
+    {
+      "id": "T6",
+      "purpose": "constant-sum under 100",
+      "key_inputs": {
+        "Q18": {
+          "Price": 30,
+          "Quality": 30,
+          "Convenience": 10,
+          "Trust": 10,
+          "Support": 10
+        }
+      },
+      "expected_outcome": {
+        "expected_validation_error": "Q18"
+      },
+      "input_question_ids": [
+        "Q18"
+      ],
+      "referenced_ids": [
+        "Q18"
+      ],
+      "parse_errors": [],
+      "source_reference": {
+        "document": "C01_chronic_care_patient_journey.docx",
+        "section": "Acceptance test scenarios",
+        "heading_text": "Acceptance test scenarios",
+        "block_order": 25,
+        "row_index": 5,
+        "source_kind": "table",
+        "text": "T6 | constant-sum under 100 | {\"Q18\": {\"Price\": 30, \"Quality\": 30, \"Convenience\": 10, \"Trust\": 10, \"Support\": 10}} | {\"expected_validation_error\": \"Q18\"}"
+      }
+    },
+    {
+      "id": "T7",
+      "purpose": "piped option violation",
+      "key_inputs": {
+        "Q5": [
+          "Primary-care physician"
+        ],
+        "Q6": "Support programme"
+      },
+      "expected_outcome": {
+        "expected_validation_error": "Q6"
+      },
+      "input_question_ids": [
+        "Q5",
+        "Q6"
+      ],
+      "referenced_ids": [
+        "Q6"
+      ],
+      "parse_errors": [],
+      "source_reference": {
+        "document": "C01_chronic_care_patient_journey.docx",
+        "section": "Acceptance test scenarios",
+        "heading_text": "Acceptance test scenarios",
+        "block_order": 25,
+        "row_index": 6,
+        "source_kind": "table",
+        "text": "T7 | piped option violation | {\"Q5\": [\"Primary-care physician\"], \"Q6\": \"Support programme\"} | {\"expected_validation_error\": \"Q6\"}"
+      }
+    }
+  ]
+}

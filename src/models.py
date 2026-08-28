@@ -587,6 +587,71 @@ class LLMTextPipes(BaseModel):
     pipes: list[LLMTextPipe] = Field(default_factory=list)
 
 
+class QuotaCell(BaseModel):
+    """One group a quota counts, and how much of the sample it may take."""
+
+    option_label: str
+    #: Filled in from the question's own options once the label is matched, so
+    #: downstream can refer to the option without matching on text again.
+    option_id: str | None = None
+    target_percent: float | None = None
+    target_count: int | None = None
+
+
+class Quota(BaseModel):
+    """A sampling quota, structured enough to build and to test.
+
+    Part 1 keeps the sentence the QRE wrote. This is the reading of it: which
+    question it counts, which answers it groups by, how much each may take, and
+    what happens to somebody whose group is already full.
+    """
+
+    quota_id: str
+    #: hard - the respondent is turned away. soft - the target is a preference.
+    enforcement: str
+    variable_question_id: str
+    cells: list[QuotaCell] = Field(default_factory=list)
+    #: The ending a respondent reaches when their group is full.
+    on_full: str | None = None
+    #: The question after which the quota is checked.
+    evaluation_point: str | None = None
+    origin: Origin = Origin.INFERRED
+    confidence: float | None = None
+    #: The sentence this was read from, so the reading can always be checked.
+    source_text: str = ""
+
+
+class LLMQuota(BaseModel):
+    """LLM response: one quota statement read into parts.
+
+    Deliberately flat, with the cells as two matching lists rather than a list
+    of objects. A list of objects needs far more room to express, and running
+    out of room arrives as an empty answer rather than as an error.
+    """
+
+    is_quota: bool = Field(
+        description="False when the sentence sets no quota, e.g. it only says what happens when one is full"
+    )
+    quota_id: str | None = None
+    enforcement: str | None = Field(
+        default=None, description="hard or soft, exactly as the sentence says"
+    )
+    variable_question_id: str | None = Field(
+        default=None, description="The question the quota counts"
+    )
+    cell_labels: list[str] = Field(
+        default_factory=list, description="The answer labels, copied exactly"
+    )
+    cell_percents: list[float] = Field(
+        default_factory=list, description="One percentage per label, same order"
+    )
+    on_full: str | None = Field(
+        default=None, description="The ending code for a respondent whose group is full"
+    )
+    confidence: float = Field(ge=0.0, le=1.0)
+    reasoning: str
+
+
 class AuditFinding(BaseModel):
     """One thing Stage 5 noticed while comparing Stage 4 against its inputs.
 
@@ -807,6 +872,7 @@ class CanonicalSurvey(BaseModel):
     rules: list[CanonicalRule] = Field(default_factory=list)
     dependencies: list[Dependency] = Field(default_factory=list)
     randomization: list[Randomization] = Field(default_factory=list)
+    quotas: list[Quota] = Field(default_factory=list)
     #: Things a person needs to decide. Reuses the audit's finding shape so the
     #: two queues can be read together.
     review: list[AuditFinding] = Field(default_factory=list)

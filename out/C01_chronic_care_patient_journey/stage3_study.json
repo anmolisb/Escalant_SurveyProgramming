@@ -1,0 +1,91 @@
+{
+  "schema_version": "1.0.0",
+  "artifact": "stage3_study",
+  "stage": 3,
+  "survey_id": "C01_chronic_care_patient_journey",
+  "source_document": {
+    "filename": "C01_chronic_care_patient_journey.docx",
+    "sha256": "319e6b78a2a1e36ef712ce421e6d2c1db3325a087a07d8d0e93ec38b39207e4b",
+    "bytes": 43612
+  },
+  "generated_at": "2026-08-28T14:43:32+00:00",
+  "item_count": null,
+  "content": {
+    "target": "Study specification",
+    "source_kind": "prose",
+    "rows": [
+      {
+        "raw_text": "Business objective: Map the care journey, service experience, unmet needs and support interactions.",
+        "label": "Business objective",
+        "text": "Map the care journey, service experience, unmet needs and support interactions."
+      },
+      {
+        "raw_text": "Target population: Personally manage an ongoing chronic health condition",
+        "label": "Target population",
+        "text": "Personally manage an ongoing chronic health condition"
+      },
+      {
+        "raw_text": "Mode: Self-completion web survey",
+        "label": "Mode",
+        "text": "Self-completion web survey"
+      },
+      {
+        "raw_text": "Estimated length: 12 minutes",
+        "label": "Estimated length",
+        "text": "12 minutes"
+      },
+      {
+        "raw_text": "General instruction: All questions are mandatory unless explicitly marked optional. Do not infer unstated routing.",
+        "label": "General instruction",
+        "text": "All questions are mandatory unless explicitly marked optional. Do not infer unstated routing."
+      }
+    ],
+    "row_sources": [
+      {
+        "document": "C01_chronic_care_patient_journey.docx",
+        "section": "Study specification",
+        "heading_text": "Study specification",
+        "block_order": 4,
+        "row_index": null,
+        "source_kind": "prose",
+        "text": "Business objective: Map the care journey, service experience, unmet needs and support interactions."
+      },
+      {
+        "document": "C01_chronic_care_patient_journey.docx",
+        "section": "Study specification",
+        "heading_text": "Study specification",
+        "block_order": 5,
+        "row_index": null,
+        "source_kind": "prose",
+        "text": "Target population: Personally manage an ongoing chronic health condition"
+      },
+      {
+        "document": "C01_chronic_care_patient_journey.docx",
+        "section": "Study specification",
+        "heading_text": "Study specification",
+        "block_order": 6,
+        "row_index": null,
+        "source_kind": "prose",
+        "text": "Mode: Self-completion web survey"
+      },
+      {
+        "document": "C01_chronic_care_patient_journey.docx",
+        "section": "Study specification",
+        "heading_text": "Study specification",
+        "block_order": 7,
+        "row_index": null,
+        "source_kind": "prose",
+        "text": "Estimated length: 12 minutes"
+      },
+      {
+        "document": "C01_chronic_care_patient_journey.docx",
+        "section": "Study specification",
+        "heading_text": "Study specification",
+        "block_order": 8,
+        "row_index": null,
+        "source_kind": "prose",
+        "text": "General instruction: All questions are mandatory unless explicitly marked optional. Do not infer unstated routing."
+      }
+    ]
+  }
+}

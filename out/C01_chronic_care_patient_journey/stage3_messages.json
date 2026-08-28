@@ -1,0 +1,86 @@
+{
+  "schema_version": "1.0.0",
+  "artifact": "stage3_messages",
+  "stage": 3,
+  "survey_id": "C01_chronic_care_patient_journey",
+  "source_document": {
+    "filename": "C01_chronic_care_patient_journey.docx",
+    "sha256": "319e6b78a2a1e36ef712ce421e6d2c1db3325a087a07d8d0e93ec38b39207e4b",
+    "bytes": 43612
+  },
+  "generated_at": "2026-08-28T14:43:32+00:00",
+  "item_count": null,
+  "content": {
+    "target": "Completion messages",
+    "source_kind": "prose",
+    "rows": [
+      {
+        "code": "TERM_AGE",
+        "message": "Thank you for your interest. You do not qualify for this survey."
+      },
+      {
+        "code": "TERM_CONFLICT",
+        "message": "Thank you for your interest. You do not qualify for this survey."
+      },
+      {
+        "code": "TERM_INVOLVEMENT",
+        "message": "Thank you for your interest. You do not qualify for this survey."
+      },
+      {
+        "code": "TERM_RECENT_RESEARCH",
+        "message": "Thank you for your interest. You do not qualify for this survey."
+      },
+      {
+        "code": "COMPLETE",
+        "message": "Thank you. Your response has been recorded."
+      }
+    ],
+    "row_sources": [
+      {
+        "document": "C01_chronic_care_patient_journey.docx",
+        "section": "Completion messages",
+        "heading_text": "Completion messages",
+        "block_order": 27,
+        "row_index": null,
+        "source_kind": "prose",
+        "text": "TERM_AGE: Thank you for your interest. You do not qualify for this survey."
+      },
+      {
+        "document": "C01_chronic_care_patient_journey.docx",
+        "section": "Completion messages",
+        "heading_text": "Completion messages",
+        "block_order": 28,
+        "row_index": null,
+        "source_kind": "prose",
+        "text": "TERM_CONFLICT: Thank you for your interest. You do not qualify for this survey."
+      },
+      {
+        "document": "C01_chronic_care_patient_journey.docx",
+        "section": "Completion messages",
+        "heading_text": "Completion messages",
+        "block_order": 29,
+        "row_index": null,
+        "source_kind": "prose",
+        "text": "TERM_INVOLVEMENT: Thank you for your interest. You do not qualify for this survey."
+      },
+      {
+        "document": "C01_chronic_care_patient_journey.docx",
+        "section": "Completion messages",
+        "heading_text": "Completion messages",
+        "block_order": 30,
+        "row_index": null,
+        "source_kind": "prose",
+        "text": "TERM_RECENT_RESEARCH: Thank you for your interest. You do not qualify for this survey."
+      },
+      {
+        "document": "C01_chronic_care_patient_journey.docx",
+        "section": "Completion messages",
+        "heading_text": "Completion messages",
+        "block_order": 31,
+        "row_index": null,
+        "source_kind": "prose",
+        "text": "COMPLETE: Thank you. Your response has been recorded."
+      }
+    ]
+  }
+}

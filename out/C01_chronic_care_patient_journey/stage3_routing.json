@@ -1,0 +1,321 @@
+{
+  "schema_version": "1.0.0",
+  "artifact": "stage3_routing",
+  "stage": 3,
+  "survey_id": "C01_chronic_care_patient_journey",
+  "source_document": {
+    "filename": "C01_chronic_care_patient_journey.docx",
+    "sha256": "319e6b78a2a1e36ef712ce421e6d2c1db3325a087a07d8d0e93ec38b39207e4b",
+    "bytes": 43612
+  },
+  "generated_at": "2026-08-28T14:43:32+00:00",
+  "item_count": null,
+  "content": {
+    "target": "Routing and termination",
+    "source_kind": "table",
+    "rows": [
+      {
+        "Rule": "R1",
+        "Condition": "S1 == 'No'",
+        "Action": "terminate",
+        "Destination": "TERM_AGE"
+      },
+      {
+        "Rule": "R2",
+        "Condition": "S2 != 'Personally manage an ongoing chronic health condition'",
+        "Action": "terminate",
+        "Destination": "TERM_INVOLVEMENT"
+      },
+      {
+        "Rule": "R3",
+        "Condition": "S3 == 'Yes'",
+        "Action": "terminate",
+        "Destination": "TERM_RECENT_RESEARCH"
+      },
+      {
+        "Rule": "R4",
+        "Condition": "S4 == 'Yes'",
+        "Action": "terminate",
+        "Destination": "TERM_CONFLICT"
+      },
+      {
+        "Rule": "R5",
+        "Condition": "Q1 == ['None of these']",
+        "Action": "skip",
+        "Destination": "Q4"
+      },
+      {
+        "Rule": "R6",
+        "Condition": "Q1 contains at least one brand",
+        "Action": "show",
+        "Destination": "Q2"
+      },
+      {
+        "Rule": "R7",
+        "Condition": "Q1 contains at least one brand",
+        "Action": "show",
+        "Destination": "Q3"
+      },
+      {
+        "Rule": "R8",
+        "Condition": "Q5 contains any touchpoint",
+        "Action": "show",
+        "Destination": "Q6"
+      },
+      {
+        "Rule": "R9",
+        "Condition": "Q3 != 'None/currently not using'",
+        "Action": "show",
+        "Destination": "Q7"
+      },
+      {
+        "Rule": "R10",
+        "Condition": "Q3 != 'None/currently not using'",
+        "Action": "show",
+        "Destination": "Q8"
+      },
+      {
+        "Rule": "R11",
+        "Condition": "Q3 != 'None/currently not using'",
+        "Action": "show",
+        "Destination": "Q9"
+      },
+      {
+        "Rule": "R12",
+        "Condition": "Q10 == 'Yes'",
+        "Action": "show",
+        "Destination": "Q11"
+      },
+      {
+        "Rule": "R13",
+        "Condition": "Q10 == 'Yes'",
+        "Action": "show",
+        "Destination": "Q12"
+      },
+      {
+        "Rule": "R14",
+        "Condition": "Q12 in ['Fully','Partly']",
+        "Action": "show",
+        "Destination": "Q13"
+      },
+      {
+        "Rule": "R15",
+        "Condition": "Q12 == 'Not resolved'",
+        "Action": "show",
+        "Destination": "Q14"
+      },
+      {
+        "Rule": "R16",
+        "Condition": "Q15 == 'Yes'",
+        "Action": "show",
+        "Destination": "Q16"
+      },
+      {
+        "Rule": "R17",
+        "Condition": "Q16 == 'Other'",
+        "Action": "show",
+        "Destination": "Q17"
+      },
+      {
+        "Rule": "R18",
+        "Condition": "sum(Q18) != 100",
+        "Action": "reject",
+        "Destination": "Q18"
+      },
+      {
+        "Rule": "R19",
+        "Condition": "exclusive option selected with another response at Q1 or Q5",
+        "Action": "reject",
+        "Destination": "CURRENT_QUESTION"
+      },
+      {
+        "Rule": "R20",
+        "Condition": "selected option at Q6 was not selected at Q5",
+        "Action": "reject",
+        "Destination": "Q6"
+      }
+    ],
+    "row_sources": [
+      {
+        "document": "C01_chronic_care_patient_journey.docx",
+        "section": "Routing and termination",
+        "heading_text": "Routing and termination",
+        "block_order": 12,
+        "row_index": 0,
+        "source_kind": "table",
+        "text": "R1 | S1 == 'No' | terminate | TERM_AGE"
+      },
+      {
+        "document": "C01_chronic_care_patient_journey.docx",
+        "section": "Routing and termination",
+        "heading_text": "Routing and termination",
+        "block_order": 12,
+        "row_index": 1,
+        "source_kind": "table",
+        "text": "R2 | S2 != 'Personally manage an ongoing chronic health condition' | terminate | TERM_INVOLVEMENT"
+      },
+      {
+        "document": "C01_chronic_care_patient_journey.docx",
+        "section": "Routing and termination",
+        "heading_text": "Routing and termination",
+        "block_order": 12,
+        "row_index": 2,
+        "source_kind": "table",
+        "text": "R3 | S3 == 'Yes' | terminate | TERM_RECENT_RESEARCH"
+      },
+      {
+        "document": "C01_chronic_care_patient_journey.docx",
+        "section": "Routing and termination",
+        "heading_text": "Routing and termination",
+        "block_order": 12,
+        "row_index": 3,
+        "source_kind": "table",
+        "text": "R4 | S4 == 'Yes' | terminate | TERM_CONFLICT"
+      },
+      {
+        "document": "C01_chronic_care_patient_journey.docx",
+        "section": "Routing and termination",
+        "heading_text": "Routing and termination",
+        "block_order": 12,
+        "row_index": 4,
+        "source_kind": "table",
+        "text": "R5 | Q1 == ['None of these'] | skip | Q4"
+      },
+      {
+        "document": "C01_chronic_care_patient_journey.docx",
+        "section": "Routing and termination",
+        "heading_text": "Routing and termination",
+        "block_order": 12,
+        "row_index": 5,
+        "source_kind": "table",
+        "text": "R6 | Q1 contains at least one brand | show | Q2"
+      },
+      {
+        "document": "C01_chronic_care_patient_journey.docx",
+        "section": "Routing and termination",
+        "heading_text": "Routing and termination",
+        "block_order": 12,
+        "row_index": 6,
+        "source_kind": "table",
+        "text": "R7 | Q1 contains at least one brand | show | Q3"
+      },
+      {
+        "document": "C01_chronic_care_patient_journey.docx",
+        "section": "Routing and termination",
+        "heading_text": "Routing and termination",
+        "block_order": 12,
+        "row_index": 7,
+        "source_kind": "table",
+        "text": "R8 | Q5 contains any touchpoint | show | Q6"
+      },
+      {
+        "document": "C01_chronic_care_patient_journey.docx",
+        "section": "Routing and termination",
+        "heading_text": "Routing and termination",
+        "block_order": 12,
+        "row_index": 8,
+        "source_kind": "table",
+        "text": "R9 | Q3 != 'None/currently not using' | show | Q7"
+      },
+      {
+        "document": "C01_chronic_care_patient_journey.docx",
+        "section": "Routing and termination",
+        "heading_text": "Routing and termination",
+        "block_order": 12,
+        "row_index": 9,
+        "source_kind": "table",
+        "text": "R10 | Q3 != 'None/currently not using' | show | Q8"
+      },
+      {
+        "document": "C01_chronic_care_patient_journey.docx",
+        "section": "Routing and termination",
+        "heading_text": "Routing and termination",
+        "block_order": 12,
+        "row_index": 10,
+        "source_kind": "table",
+        "text": "R11 | Q3 != 'None/currently not using' | show | Q9"
+      },
+      {
+        "document": "C01_chronic_care_patient_journey.docx",
+        "section": "Routing and termination",
+        "heading_text": "Routing and termination",
+        "block_order": 12,
+        "row_index": 11,
+        "source_kind": "table",
+        "text": "R12 | Q10 == 'Yes' | show | Q11"
+      },
+      {
+        "document": "C01_chronic_care_patient_journey.docx",
+        "section": "Routing and termination",
+        "heading_text": "Routing and termination",
+        "block_order": 12,
+        "row_index": 12,
+        "source_kind": "table",
+        "text": "R13 | Q10 == 'Yes' | show | Q12"
+      },
+      {
+        "document": "C01_chronic_care_patient_journey.docx",
+        "section": "Routing and termination",
+        "heading_text": "Routing and termination",
+        "block_order": 12,
+        "row_index": 13,
+        "source_kind": "table",
+        "text": "R14 | Q12 in ['Fully','Partly'] | show | Q13"
+      },
+      {
+        "document": "C01_chronic_care_patient_journey.docx",
+        "section": "Routing and termination",
+        "heading_text": "Routing and termination",
+        "block_order": 12,
+        "row_index": 14,
+        "source_kind": "table",
+        "text": "R15 | Q12 == 'Not resolved' | show | Q14"
+      },
+      {
+        "document": "C01_chronic_care_patient_journey.docx",
+        "section": "Routing and termination",
+        "heading_text": "Routing and termination",
+        "block_order": 12,
+        "row_index": 15,
+        "source_kind": "table",
+        "text": "R16 | Q15 == 'Yes' | show | Q16"
+      },
+      {
+        "document": "C01_chronic_care_patient_journey.docx",
+        "section": "Routing and termination",
+        "heading_text": "Routing and termination",
+        "block_order": 12,
+        "row_index": 16,
+        "source_kind": "table",
+        "text": "R17 | Q16 == 'Other' | show | Q17"
+      },
+      {
+        "document": "C01_chronic_care_patient_journey.docx",
+        "section": "Routing and termination",
+        "heading_text": "Routing and termination",
+        "block_order": 12,
+        "row_index": 17,
+        "source_kind": "table",
+        "text": "R18 | sum(Q18) != 100 | reject | Q18"
+      },
+      {
+        "document": "C01_chronic_care_patient_journey.docx",
+        "section": "Routing and termination",
+        "heading_text": "Routing and termination",
+        "block_order": 12,
+        "row_index": 18,
+        "source_kind": "table",
+        "text": "R19 | exclusive option selected with another response at Q1 or Q5 | reject | CURRENT_QUESTION"
+      },
+      {
+        "document": "C01_chronic_care_patient_journey.docx",
+        "section": "Routing and termination",
+        "heading_text": "Routing and termination",
+        "block_order": 12,
+        "row_index": 19,
+        "source_kind": "table",
+        "text": "R20 | selected option at Q6 was not selected at Q5 | reject | Q6"
+      }
+    ]
+  }
+}

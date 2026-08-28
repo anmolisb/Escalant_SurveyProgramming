@@ -35,7 +35,10 @@ from models import (
     FlagTarget,
     Guard,
     GuardAgreement,
+    LLMQuota,
     LLMTextPipes,
+    Quota,
+    QuotaCell,
     Origin,
     Randomization,
     RandomizationScope,
@@ -436,6 +439,189 @@ def _build_randomization(
     return entries
 
 
+_QUOTA_SYSTEM = """\
+You read one sentence from a questionnaire's quota section into parts.
+
+A quota limits how much of the sample may come from each group of respondents.
+A sentence sets a quota when it says which question decides the group, and how
+much each group may take.
+
+Give: an id for the quota, whether it is hard or soft exactly as the sentence
+says, the id of the question it counts, the answer labels it groups by copied
+exactly, one percentage per label in the same order, and the ending code for a
+respondent whose group is already full.
+
+The ending is often stated in a DIFFERENT sentence from the one defining the
+groups - you are given the whole section so you can find it there. Use it for
+every quota in the section unless a quota states its own, different ending.
+
+Some sentences in that section set no quota at all - they only say what happens
+when one is full, or that quota status must be recorded. Return is_quota false
+for those rather than inventing a quota to fit.
+
+Copy labels exactly from the option list you are given. A label you cannot find
+there is a label you should not use.
+"""
+
+
+def _build_quotas(
+    parsed: dict, options_by_question: dict, review: list[AuditFinding]
+) -> list[Quota]:
+    """Read the quota sentences into something that can be built and tested.
+
+    Part 1 captures the sentence whole, which is right - splitting it is
+    interpretation. But left as a sentence it is unusable: LimeSurvey cannot
+    create a quota without a variable, its values and a limit, the test designer
+    cannot write a quota test, and the ending a full quota leads to exists as no
+    node at all.
+
+    The model proposes the split and deterministic checks decide. The checks are
+    unusually strong here, because the quota names answers that either are or are
+    not in the question's own option list, and percentages either total 100 or
+    do not.
+    """
+    statements = parsed.get("quotas", [])
+    if not statements:
+        return []
+
+    catalogue = "\n".join(
+        f"{qid}: " + ", ".join(repr(label) for label in labels)
+        for qid, labels in options_by_question.items()
+        if labels
+    )
+    known_dispositions = {m.code for m in parsed.get("messages", []) if m.code}
+
+    # The whole section, so a sentence that only names the full-quota ending -
+    # C02 and C01 both put it in a sentence separate from the quota
+    # definitions - is visible while a *different* statement in the loop below
+    # is being read. Without this, the ending was there in the document and
+    # simply never reached the reading that needed it.
+    section_text = "\n".join(s.raw_text for s in statements)
+
+    quotas: list[Quota] = []
+    for statement in statements:
+        try:
+            proposal = complete(
+                _QUOTA_SYSTEM,
+                (
+                    f"Whole quota section, for context:\n{section_text}\n\n"
+                    f"Sentence to read now: {statement.raw_text}\n\n"
+                    f"Answer options:\n{catalogue}"
+                ),
+                LLMQuota,
+                max_tokens=1200,
+            )
+        except LLMUnavailable as exc:
+            review.append(
+                _review(
+                    "quota_unread",
+                    FlagSeverity.BLOCKING,
+                    f"A quota sentence could not be read: {exc}",
+                    target=FlagTarget(kind="statement", id=statement.code or "quota"),
+                    evidence=statement.raw_text,
+                )
+            )
+            continue
+
+        if not proposal.is_quota:
+            # Not every sentence in the section sets a quota. C02's third says
+            # only what happens when one is full, which is behaviour the rules
+            # need but is not a quota in itself.
+            continue
+
+        problem = None
+        variable = (proposal.variable_question_id or "").strip()
+        labels = proposal.cell_labels
+        percents = proposal.cell_percents
+        available = options_by_question.get(variable) or []
+
+        if variable not in options_by_question:
+            problem = f"names {variable!r}, which is not a question in this QRE"
+        elif not labels:
+            problem = "lists no groups"
+        elif len(labels) != len(percents):
+            problem = f"gives {len(labels)} groups but {len(percents)} percentages"
+        else:
+            unknown = [lab for lab in labels if lab not in available]
+            if unknown:
+                problem = (
+                    f"groups by {unknown!r}, which are not answers offered at "
+                    f"{variable}"
+                )
+            elif abs(sum(percents) - 100.0) > 1.0:
+                problem = f"percentages total {sum(percents):.0f}, not 100"
+
+        if problem:
+            review.append(
+                _review(
+                    "quota_rejected",
+                    FlagSeverity.BLOCKING,
+                    (
+                        "A quota was proposed but not accepted: it "
+                        + problem
+                        + ". The sentence is kept as written."
+                    ),
+                    target=FlagTarget(kind="statement", id=statement.code or variable),
+                    evidence=statement.raw_text,
+                )
+            )
+            continue
+
+        option_ids = {}
+        for question in parsed.get("questions", []):
+            if question.id == variable:
+                option_ids = {o.label: o.option_id for o in question.options}
+
+        on_full = (proposal.on_full or "").strip() or None
+        if on_full and on_full not in known_dispositions:
+            review.append(
+                _review(
+                    "quota_ending_missing",
+                    FlagSeverity.WARNING,
+                    (
+                        f"Quota {proposal.quota_id or variable} sends a full "
+                        f"group to {on_full!r}, which no completion message "
+                        "defines. Nothing can show that respondent anything."
+                    ),
+                    target=FlagTarget(kind="disposition", id=on_full),
+                    evidence=statement.raw_text,
+                )
+            )
+
+        quotas.append(
+            Quota(
+                quota_id=proposal.quota_id or statement.code or variable,
+                enforcement=(proposal.enforcement or "unknown").strip().lower(),
+                variable_question_id=variable,
+                cells=[
+                    QuotaCell(
+                        option_label=label,
+                        option_id=option_ids.get(label),
+                        target_percent=percent,
+                    )
+                    for label, percent in zip(labels, percents)
+                ],
+                on_full=on_full,
+                evaluation_point=variable,
+                confidence=proposal.confidence,
+                source_text=statement.raw_text,
+            )
+        )
+        review.append(
+            _review(
+                "quota_inferred",
+                FlagSeverity.WARNING,
+                (
+                    f"Quota {proposal.quota_id or variable} was read out of a "
+                    "sentence by a model and passed the checks. Worth a human eye."
+                ),
+                target=FlagTarget(kind="statement", id=statement.code or variable),
+                evidence=f"{statement.raw_text[:70]} -> {variable}, {len(labels)} groups",
+            )
+        )
+    return quotas
+
+
 # ---------------------------------------------------------------------------
 # P3-02 — a scale coded only at its ends
 # ---------------------------------------------------------------------------
@@ -600,6 +786,7 @@ def run(source: str, parsed: dict) -> CanonicalSurvey:
         dependencies=_build_dependencies(parsed, review)
         + _build_text_pipes(parsed, review),
         randomization=_build_randomization(parsed, review),
+        quotas=_build_quotas(parsed, options_by_question, review),
         review=review,
     )
 

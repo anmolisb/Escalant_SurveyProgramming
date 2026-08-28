@@ -1,0 +1,62 @@
+{
+  "schema_version": "1.0.0",
+  "artifact": "stage3_quotas",
+  "stage": 3,
+  "survey_id": "C01_chronic_care_patient_journey",
+  "source_document": {
+    "filename": "C01_chronic_care_patient_journey.docx",
+    "sha256": "319e6b78a2a1e36ef712ce421e6d2c1db3325a087a07d8d0e93ec38b39207e4b",
+    "bytes": 43612
+  },
+  "generated_at": "2026-08-28T14:43:32+00:00",
+  "item_count": null,
+  "content": {
+    "target": "Quota controls",
+    "source_kind": "prose",
+    "rows": [
+      {
+        "raw_text": "QUOTA_REGION: hard quota on D1: North=20%, South=20%, East=20%, West=20%, Central=20%",
+        "code": "QUOTA_REGION",
+        "text": "hard quota on D1: North=20%, South=20%, East=20%, West=20%, Central=20%"
+      },
+      {
+        "raw_text": "QUOTA_AGE: soft quota on D2: 21-29=20%, 30-39=25%, 40-49=25%, 50-59=20%, 60+=10%",
+        "code": "QUOTA_AGE",
+        "text": "soft quota on D2: 21-29=20%, 30-39=25%, 40-49=25%, 50-59=20%, 60+=10%"
+      },
+      {
+        "raw_text": "Quota-full respondents terminate at TERM_QUOTA_FULL before the next substantive question. Quota status must be logged.",
+        "text": "Quota-full respondents terminate at TERM_QUOTA_FULL before the next substantive question. Quota status must be logged."
+      }
+    ],
+    "row_sources": [
+      {
+        "document": "C01_chronic_care_patient_journey.docx",
+        "section": "Quota controls",
+        "heading_text": "Quota controls",
+        "block_order": 14,
+        "row_index": null,
+        "source_kind": "prose",
+        "text": "QUOTA_REGION: hard quota on D1: North=20%, South=20%, East=20%, West=20%, Central=20%"
+      },
+      {
+        "document": "C01_chronic_care_patient_journey.docx",
+        "section": "Quota controls",
+        "heading_text": "Quota controls",
+        "block_order": 15,
+        "row_index": null,
+        "source_kind": "prose",
+        "text": "QUOTA_AGE: soft quota on D2: 21-29=20%, 30-39=25%, 40-49=25%, 50-59=20%, 60+=10%"
+      },
+      {
+        "document": "C01_chronic_care_patient_journey.docx",
+        "section": "Quota controls",
+        "heading_text": "Quota controls",
+        "block_order": 16,
+        "row_index": null,
+        "source_kind": "prose",
+        "text": "Quota-full respondents terminate at TERM_QUOTA_FULL before the next substantive question. Quota status must be logged."
+      }
+    ]
+  }
+}
