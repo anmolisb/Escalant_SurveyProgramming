@@ -1,30 +1,81 @@
 {
-  "target": "Routing and termination",
-  "source_kind": "table",
-  "rows": [
-    {
-      "Rule": "R1",
-      "Condition": "S1 == 'No'",
-      "Action": "terminate",
-      "Destination": "TERM_INELIGIBLE"
-    },
-    {
-      "Rule": "R2",
-      "Condition": "S2 == 'No'",
-      "Action": "terminate",
-      "Destination": "TERM_INELIGIBLE"
-    },
-    {
-      "Rule": "R3",
-      "Condition": "Q5 == 'Yes'",
-      "Action": "show",
-      "Destination": "Q6"
-    },
-    {
-      "Rule": "R4",
-      "Condition": "Q5 == 'No'",
-      "Action": "skip",
-      "Destination": "Q7"
-    }
-  ]
+  "schema_version": "1.0.0",
+  "artifact": "stage3_routing",
+  "stage": 3,
+  "survey_id": "S01_campus_cafeteria_experience",
+  "source_document": {
+    "filename": "S01_campus_cafeteria_experience.docx",
+    "sha256": "2756cb3b6dc3f21cdc7c1d35b7cfb0e2270af2a918ba6fe682e72ae8e121a804",
+    "bytes": 40578
+  },
+  "generated_at": "2026-08-28T14:48:34+00:00",
+  "item_count": null,
+  "content": {
+    "target": "Routing and termination",
+    "source_kind": "table",
+    "rows": [
+      {
+        "Rule": "R1",
+        "Condition": "S1 == 'No'",
+        "Action": "terminate",
+        "Destination": "TERM_INELIGIBLE"
+      },
+      {
+        "Rule": "R2",
+        "Condition": "S2 == 'No'",
+        "Action": "terminate",
+        "Destination": "TERM_INELIGIBLE"
+      },
+      {
+        "Rule": "R3",
+        "Condition": "Q5 == 'Yes'",
+        "Action": "show",
+        "Destination": "Q6"
+      },
+      {
+        "Rule": "R4",
+        "Condition": "Q5 == 'No'",
+        "Action": "skip",
+        "Destination": "Q7"
+      }
+    ],
+    "row_sources": [
+      {
+        "document": "S01_campus_cafeteria_experience.docx",
+        "section": "Routing and termination",
+        "heading_text": "Routing and termination",
+        "block_order": 12,
+        "row_index": 0,
+        "source_kind": "table",
+        "text": "R1 | S1 == 'No' | terminate | TERM_INELIGIBLE"
+      },
+      {
+        "document": "S01_campus_cafeteria_experience.docx",
+        "section": "Routing and termination",
+        "heading_text": "Routing and termination",
+        "block_order": 12,
+        "row_index": 1,
+        "source_kind": "table",
+        "text": "R2 | S2 == 'No' | terminate | TERM_INELIGIBLE"
+      },
+      {
+        "document": "S01_campus_cafeteria_experience.docx",
+        "section": "Routing and termination",
+        "heading_text": "Routing and termination",
+        "block_order": 12,
+        "row_index": 2,
+        "source_kind": "table",
+        "text": "R3 | Q5 == 'Yes' | show | Q6"
+      },
+      {
+        "document": "S01_campus_cafeteria_experience.docx",
+        "section": "Routing and termination",
+        "heading_text": "Routing and termination",
+        "block_order": 12,
+        "row_index": 3,
+        "source_kind": "table",
+        "text": "R4 | Q5 == 'No' | skip | Q7"
+      }
+    ]
+  }
 }

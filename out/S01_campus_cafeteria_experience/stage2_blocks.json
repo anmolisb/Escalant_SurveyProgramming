@@ -1,207 +1,340 @@
 {
-  "source": "S01_campus_cafeteria_experience.docx",
-  "blocks": [
-    {
-      "target": "Questionnaire",
-      "heading_text": "Questionnaire",
-      "heading_order": 9,
-      "heading_level": 1,
-      "matched_by": "direct",
-      "blocks": [
-        {
-          "kind": "table",
-          "order": 10,
-          "rows": [
-            [
-              "ID",
-              "Wording / instruction",
-              "Type",
-              "Options / scale",
-              "Display / validation"
-            ],
-            [
-              "S1",
-              "Have you purchased food or a beverage from the campus cafeteria in the past 30 days?",
-              "single",
-              "Yes; No",
-              "Always show"
-            ],
-            [
-              "S2",
-              "Are you 18 years of age or older?",
-              "single",
-              "Yes; No",
-              "Always show"
-            ],
-            [
-              "Q1",
-              "Which channel did you primarily use for this cafeteria visit?",
-              "single",
-              "Counter; Mobile pre-order; Vending kiosk",
-              "Always show"
-            ],
-            [
-              "Q2",
-              "Overall, how satisfied were you with the cafeteria visit?",
-              "single",
-              "1 - Very poor; 2 - Poor; 3 - Fair; 4 - Good; 5 - Excellent",
-              "Always show"
-            ],
-            [
-              "Q3",
-              "How easy was it to complete what you wanted to do?",
-              "single",
-              "1 - Very poor; 2 - Poor; 3 - Fair; 4 - Good; 5 - Excellent",
-              "Always show"
-            ],
-            [
-              "Q4",
-              "Which aspects influenced your rating? Select all that apply.",
-              "multi",
-              "Food quality; Menu variety; Waiting time; Cleanliness; Staff behaviour; Price",
-              "Validate: {\"min_selections\": 1}"
-            ],
-            [
-              "Q5",
-              "Did you encounter a problem?",
-              "single",
-              "Yes; No",
-              "Always show"
-            ],
-            [
-              "Q6",
-              "Please describe the main problem.",
-              "text",
-              "—",
-              "Show if: Q5 == 'Yes'\nValidate: {\"min_length\": 10, \"max_length\": 500}"
-            ],
-            [
-              "Q7",
-              "How likely are you to recommend this service?",
-              "single",
-              "0; 1; 2; 3; 4; 5; 6; 7; 8; 9; 10",
-              "Always show"
-            ],
-            [
-              "Q8",
-              "What is the single most important improvement you would suggest?",
-              "text",
-              "—",
-              "Validate: {\"max_length\": 500}\nOptional"
+  "schema_version": "1.0.0",
+  "artifact": "stage2_blocks",
+  "stage": 2,
+  "survey_id": "S01_campus_cafeteria_experience",
+  "source_document": {
+    "filename": "S01_campus_cafeteria_experience.docx",
+    "sha256": "2756cb3b6dc3f21cdc7c1d35b7cfb0e2270af2a918ba6fe682e72ae8e121a804",
+    "bytes": 40578
+  },
+  "generated_at": "2026-08-28T14:48:30+00:00",
+  "item_count": null,
+  "content": {
+    "source": "S01_campus_cafeteria_experience.docx",
+    "blocks": [
+      {
+        "target": "Questionnaire",
+        "heading_text": "Questionnaire",
+        "heading_order": 9,
+        "heading_level": 1,
+        "matched_by": "direct",
+        "blocks": [
+          {
+            "kind": "table",
+            "order": 10,
+            "rows": [
+              [
+                "ID",
+                "Wording / instruction",
+                "Type",
+                "Options / scale",
+                "Display / validation"
+              ],
+              [
+                "S1",
+                "Have you purchased food or a beverage from the campus cafeteria in the past 30 days?",
+                "single",
+                "Yes; No",
+                "Always show"
+              ],
+              [
+                "S2",
+                "Are you 18 years of age or older?",
+                "single",
+                "Yes; No",
+                "Always show"
+              ],
+              [
+                "Q1",
+                "Which channel did you primarily use for this cafeteria visit?",
+                "single",
+                "Counter; Mobile pre-order; Vending kiosk",
+                "Always show"
+              ],
+              [
+                "Q2",
+                "Overall, how satisfied were you with the cafeteria visit?",
+                "single",
+                "1 - Very poor; 2 - Poor; 3 - Fair; 4 - Good; 5 - Excellent",
+                "Always show"
+              ],
+              [
+                "Q3",
+                "How easy was it to complete what you wanted to do?",
+                "single",
+                "1 - Very poor; 2 - Poor; 3 - Fair; 4 - Good; 5 - Excellent",
+                "Always show"
+              ],
+              [
+                "Q4",
+                "Which aspects influenced your rating? Select all that apply.",
+                "multi",
+                "Food quality; Menu variety; Waiting time; Cleanliness; Staff behaviour; Price",
+                "Validate: {\"min_selections\": 1}"
+              ],
+              [
+                "Q5",
+                "Did you encounter a problem?",
+                "single",
+                "Yes; No",
+                "Always show"
+              ],
+              [
+                "Q6",
+                "Please describe the main problem.",
+                "text",
+                "\u2014",
+                "Show if: Q5 == 'Yes'\nValidate: {\"min_length\": 10, \"max_length\": 500}"
+              ],
+              [
+                "Q7",
+                "How likely are you to recommend this service?",
+                "single",
+                "0; 1; 2; 3; 4; 5; 6; 7; 8; 9; 10",
+                "Always show"
+              ],
+              [
+                "Q8",
+                "What is the single most important improvement you would suggest?",
+                "text",
+                "\u2014",
+                "Validate: {\"max_length\": 500}\nOptional"
+              ]
             ]
-          ]
-        }
-      ]
-    },
-    {
-      "target": "Routing and termination",
-      "heading_text": "Routing and termination",
-      "heading_order": 11,
-      "heading_level": 1,
-      "matched_by": "direct",
-      "blocks": [
-        {
-          "kind": "table",
-          "order": 12,
-          "rows": [
-            [
-              "Rule",
-              "Condition",
-              "Action",
-              "Destination"
-            ],
-            [
-              "R1",
-              "S1 == 'No'",
-              "terminate",
-              "TERM_INELIGIBLE"
-            ],
-            [
-              "R2",
-              "S2 == 'No'",
-              "terminate",
-              "TERM_INELIGIBLE"
-            ],
-            [
-              "R3",
-              "Q5 == 'Yes'",
-              "show",
-              "Q6"
-            ],
-            [
-              "R4",
-              "Q5 == 'No'",
-              "skip",
-              "Q7"
+          }
+        ]
+      },
+      {
+        "target": "Routing and termination",
+        "heading_text": "Routing and termination",
+        "heading_order": 11,
+        "heading_level": 1,
+        "matched_by": "direct",
+        "blocks": [
+          {
+            "kind": "table",
+            "order": 12,
+            "rows": [
+              [
+                "Rule",
+                "Condition",
+                "Action",
+                "Destination"
+              ],
+              [
+                "R1",
+                "S1 == 'No'",
+                "terminate",
+                "TERM_INELIGIBLE"
+              ],
+              [
+                "R2",
+                "S2 == 'No'",
+                "terminate",
+                "TERM_INELIGIBLE"
+              ],
+              [
+                "R3",
+                "Q5 == 'Yes'",
+                "show",
+                "Q6"
+              ],
+              [
+                "R4",
+                "Q5 == 'No'",
+                "skip",
+                "Q7"
+              ]
             ]
-          ]
-        }
-      ]
-    },
-    {
-      "target": "Acceptance test scenarios",
-      "heading_text": "Acceptance test scenarios",
-      "heading_order": 20,
-      "heading_level": 1,
-      "matched_by": "direct",
-      "blocks": [
-        {
-          "kind": "table",
-          "order": 21,
-          "rows": [
-            [
-              "ID",
-              "Purpose",
-              "Key inputs",
-              "Expected outcome"
-            ],
-            [
-              "T1",
-              "recent-use screenout",
-              "{\"S1\": \"No\"}",
-              "{\"expected_end\": \"TERM_INELIGIBLE\"}"
-            ],
-            [
-              "T2",
-              "eligible with problem",
-              "{\"S1\": \"Yes\", \"S2\": \"Yes\", \"Q5\": \"Yes\"}",
-              "{\"expected_visible\": [\"Q6\"], \"expected_end\": \"COMPLETE\"}"
-            ],
-            [
-              "T3",
-              "eligible without problem",
-              "{\"S1\": \"Yes\", \"S2\": \"Yes\", \"Q5\": \"No\"}",
-              "{\"expected_hidden\": [\"Q6\"], \"expected_end\": \"COMPLETE\"}"
+          }
+        ]
+      },
+      {
+        "target": "Acceptance test scenarios",
+        "heading_text": "Acceptance test scenarios",
+        "heading_order": 20,
+        "heading_level": 1,
+        "matched_by": "direct",
+        "blocks": [
+          {
+            "kind": "table",
+            "order": 21,
+            "rows": [
+              [
+                "ID",
+                "Purpose",
+                "Key inputs",
+                "Expected outcome"
+              ],
+              [
+                "T1",
+                "recent-use screenout",
+                "{\"S1\": \"No\"}",
+                "{\"expected_end\": \"TERM_INELIGIBLE\"}"
+              ],
+              [
+                "T2",
+                "eligible with problem",
+                "{\"S1\": \"Yes\", \"S2\": \"Yes\", \"Q5\": \"Yes\"}",
+                "{\"expected_visible\": [\"Q6\"], \"expected_end\": \"COMPLETE\"}"
+              ],
+              [
+                "T3",
+                "eligible without problem",
+                "{\"S1\": \"Yes\", \"S2\": \"Yes\", \"Q5\": \"No\"}",
+                "{\"expected_hidden\": [\"Q6\"], \"expected_end\": \"COMPLETE\"}"
+              ]
             ]
-          ]
+          }
+        ]
+      },
+      {
+        "target": "Completion messages",
+        "heading_text": "Completion messages",
+        "heading_order": 22,
+        "heading_level": 1,
+        "matched_by": "direct",
+        "blocks": [
+          {
+            "kind": "paragraph",
+            "order": 23,
+            "text": "TERM_INELIGIBLE: Thank you for your interest. You do not qualify for this survey.",
+            "style": "Normal",
+            "is_bold": true,
+            "heading_level": null
+          },
+          {
+            "kind": "paragraph",
+            "order": 24,
+            "text": "COMPLETE: Thank you. Your response has been recorded.",
+            "style": "Normal",
+            "is_bold": true,
+            "heading_level": null
+          }
+        ]
+      },
+      {
+        "target": "Study specification",
+        "heading_text": "Study specification",
+        "heading_order": 3,
+        "heading_level": 1,
+        "matched_by": "direct",
+        "blocks": [
+          {
+            "kind": "paragraph",
+            "order": 4,
+            "text": "Business objective: Measure satisfaction and identify operational improvements in a campus cafeteria.",
+            "style": "Normal",
+            "is_bold": true,
+            "heading_level": null
+          },
+          {
+            "kind": "paragraph",
+            "order": 5,
+            "text": "Target population: Adults with a relevant experience in the last 30 days",
+            "style": "Normal",
+            "is_bold": true,
+            "heading_level": null
+          },
+          {
+            "kind": "paragraph",
+            "order": 6,
+            "text": "Mode: Self-completion web survey",
+            "style": "Normal",
+            "is_bold": true,
+            "heading_level": null
+          },
+          {
+            "kind": "paragraph",
+            "order": 7,
+            "text": "Estimated length: 4 minutes",
+            "style": "Normal",
+            "is_bold": true,
+            "heading_level": null
+          },
+          {
+            "kind": "paragraph",
+            "order": 8,
+            "text": "General instruction: All questions are mandatory unless explicitly marked optional. Do not infer unstated routing.",
+            "style": "Normal",
+            "is_bold": true,
+            "heading_level": null
+          }
+        ]
+      },
+      {
+        "target": "Programming and QA requirements",
+        "heading_text": "Programming and QA requirements",
+        "heading_order": 13,
+        "heading_level": 1,
+        "matched_by": "direct",
+        "blocks": [
+          {
+            "kind": "paragraph",
+            "order": 14,
+            "text": "Store stable question, option, route and test-run identifiers.",
+            "style": "List Bullet",
+            "is_bold": false,
+            "heading_level": null
+          },
+          {
+            "kind": "paragraph",
+            "order": 15,
+            "text": "Capture displayed random order for every randomized item.",
+            "style": "List Bullet",
+            "is_bold": false,
+            "heading_level": null
+          },
+          {
+            "kind": "paragraph",
+            "order": 16,
+            "text": "Record expected and observed destination for every routing transition.",
+            "style": "List Bullet",
+            "is_bold": false,
+            "heading_level": null
+          },
+          {
+            "kind": "paragraph",
+            "order": 17,
+            "text": "Reject mutually exclusive selections and invalid numeric/text responses before progression.",
+            "style": "List Bullet",
+            "is_bold": false,
+            "heading_level": null
+          },
+          {
+            "kind": "paragraph",
+            "order": 18,
+            "text": "Produce an audit record containing inputs, timestamps, route, assertions, screenshots on failure and final disposition.",
+            "style": "List Bullet",
+            "is_bold": false,
+            "heading_level": null
+          },
+          {
+            "kind": "paragraph",
+            "order": 19,
+            "text": "Do not send synthetic test responses into live operational reporting.",
+            "style": "List Bullet",
+            "is_bold": false,
+            "heading_level": null
+          }
+        ]
+      }
+    ],
+    "flags": [
+      {
+        "target_heading": "Quota controls",
+        "status": "NOT_PRESENT",
+        "candidate_heading": null,
+        "confidence": null,
+        "reasoning": "No heading matched by name, and no unmatched heading's content had this section's shape.",
+        "severity": "WARNING",
+        "target": {
+          "kind": "section",
+          "id": "Quota controls"
         }
-      ]
-    },
-    {
-      "target": "Completion messages",
-      "heading_text": "Completion messages",
-      "heading_order": 22,
-      "heading_level": 1,
-      "matched_by": "direct",
-      "blocks": [
-        {
-          "kind": "paragraph",
-          "order": 23,
-          "text": "TERM_INELIGIBLE: Thank you for your interest. You do not qualify for this survey.",
-          "style": "Normal",
-          "is_bold": true,
-          "heading_level": null
-        },
-        {
-          "kind": "paragraph",
-          "order": 24,
-          "text": "COMPLETE: Thank you. Your response has been recorded.",
-          "style": "Normal",
-          "is_bold": true,
-          "heading_level": null
-        }
-      ]
-    }
-  ],
-  "flags": []
+      }
+    ],
+    "unclassified": []
+  }
 }

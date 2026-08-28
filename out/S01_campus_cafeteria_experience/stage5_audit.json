@@ -1,0 +1,94 @@
+{
+  "schema_version": "1.0.0",
+  "artifact": "stage5_audit",
+  "stage": 5,
+  "survey_id": "S01_campus_cafeteria_experience",
+  "source_document": {
+    "filename": "S01_campus_cafeteria_experience.docx",
+    "sha256": "2756cb3b6dc3f21cdc7c1d35b7cfb0e2270af2a918ba6fe682e72ae8e121a804",
+    "bytes": 40578
+  },
+  "generated_at": "2026-08-28T14:48:50+00:00",
+  "item_count": null,
+  "content": {
+    "source": "S01_campus_cafeteria_experience.docx",
+    "checks_run": [
+      "source_coverage",
+      "row_accounting",
+      "reference_integrity",
+      "condition_consistency",
+      "piping_symmetry"
+    ],
+    "sections": [
+      {
+        "target": "Questionnaire",
+        "rows_in": 10,
+        "objects_out": 10,
+        "identified": 10,
+        "score": 1.0,
+        "threshold": 0.95,
+        "passed": true
+      },
+      {
+        "target": "Routing and termination",
+        "rows_in": 4,
+        "objects_out": 4,
+        "identified": 4,
+        "score": 1.0,
+        "threshold": 0.95,
+        "passed": true
+      },
+      {
+        "target": "Acceptance test scenarios",
+        "rows_in": 3,
+        "objects_out": 3,
+        "identified": 3,
+        "score": 1.0,
+        "threshold": 1.0,
+        "passed": true
+      },
+      {
+        "target": "Completion messages",
+        "rows_in": 2,
+        "objects_out": 2,
+        "identified": 2,
+        "score": 1.0,
+        "threshold": 1.0,
+        "passed": true
+      },
+      {
+        "target": "Study specification",
+        "rows_in": 5,
+        "objects_out": 5,
+        "identified": 5,
+        "score": 1.0,
+        "threshold": 1.0,
+        "passed": true
+      },
+      {
+        "target": "Programming and QA requirements",
+        "rows_in": 6,
+        "objects_out": 6,
+        "identified": 6,
+        "score": 1.0,
+        "threshold": 1.0,
+        "passed": true
+      }
+    ],
+    "findings": [
+      {
+        "check": "source_coverage",
+        "severity": "WARNING",
+        "finding": "3 block(s) sit outside every heading and reached no stage. Content before the first heading is not captured by any target.",
+        "target": {
+          "kind": "document",
+          "id": "S01_campus_cafeteria_experience.docx"
+        },
+        "evidence": "S01 \u2022 SIMPLE; Campus Cafeteria Experience; Questionnaire Requirement Document (QRE)",
+        "source_reference": null
+      }
+    ],
+    "blocking": 0,
+    "passed": true
+  }
+}

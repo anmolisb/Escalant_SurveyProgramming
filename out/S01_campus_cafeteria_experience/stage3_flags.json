@@ -1,1 +1,27 @@
-[]
+{
+  "schema_version": "1.0.0",
+  "artifact": "stage3_flags",
+  "stage": 3,
+  "survey_id": "S01_campus_cafeteria_experience",
+  "source_document": {
+    "filename": "S01_campus_cafeteria_experience.docx",
+    "sha256": "2756cb3b6dc3f21cdc7c1d35b7cfb0e2270af2a918ba6fe682e72ae8e121a804",
+    "bytes": 40578
+  },
+  "generated_at": "2026-08-28T14:48:34+00:00",
+  "item_count": 1,
+  "content": [
+    {
+      "target_heading": "Quota controls",
+      "status": "NOT_PRESENT",
+      "candidate_heading": null,
+      "confidence": null,
+      "reasoning": "No block reached Stage 3 for this target.",
+      "severity": "WARNING",
+      "target": {
+        "kind": "section",
+        "id": "Quota controls"
+      }
+    }
+  ]
+}

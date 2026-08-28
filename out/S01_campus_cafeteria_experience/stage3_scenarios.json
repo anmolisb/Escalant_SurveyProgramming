@@ -1,24 +1,66 @@
 {
-  "target": "Acceptance test scenarios",
-  "source_kind": "table",
-  "rows": [
-    {
-      "ID": "T1",
-      "Purpose": "recent-use screenout",
-      "Key inputs": "{\"S1\": \"No\"}",
-      "Expected outcome": "{\"expected_end\": \"TERM_INELIGIBLE\"}"
-    },
-    {
-      "ID": "T2",
-      "Purpose": "eligible with problem",
-      "Key inputs": "{\"S1\": \"Yes\", \"S2\": \"Yes\", \"Q5\": \"Yes\"}",
-      "Expected outcome": "{\"expected_visible\": [\"Q6\"], \"expected_end\": \"COMPLETE\"}"
-    },
-    {
-      "ID": "T3",
-      "Purpose": "eligible without problem",
-      "Key inputs": "{\"S1\": \"Yes\", \"S2\": \"Yes\", \"Q5\": \"No\"}",
-      "Expected outcome": "{\"expected_hidden\": [\"Q6\"], \"expected_end\": \"COMPLETE\"}"
-    }
-  ]
+  "schema_version": "1.0.0",
+  "artifact": "stage3_scenarios",
+  "stage": 3,
+  "survey_id": "S01_campus_cafeteria_experience",
+  "source_document": {
+    "filename": "S01_campus_cafeteria_experience.docx",
+    "sha256": "2756cb3b6dc3f21cdc7c1d35b7cfb0e2270af2a918ba6fe682e72ae8e121a804",
+    "bytes": 40578
+  },
+  "generated_at": "2026-08-28T14:48:34+00:00",
+  "item_count": null,
+  "content": {
+    "target": "Acceptance test scenarios",
+    "source_kind": "table",
+    "rows": [
+      {
+        "ID": "T1",
+        "Purpose": "recent-use screenout",
+        "Key inputs": "{\"S1\": \"No\"}",
+        "Expected outcome": "{\"expected_end\": \"TERM_INELIGIBLE\"}"
+      },
+      {
+        "ID": "T2",
+        "Purpose": "eligible with problem",
+        "Key inputs": "{\"S1\": \"Yes\", \"S2\": \"Yes\", \"Q5\": \"Yes\"}",
+        "Expected outcome": "{\"expected_visible\": [\"Q6\"], \"expected_end\": \"COMPLETE\"}"
+      },
+      {
+        "ID": "T3",
+        "Purpose": "eligible without problem",
+        "Key inputs": "{\"S1\": \"Yes\", \"S2\": \"Yes\", \"Q5\": \"No\"}",
+        "Expected outcome": "{\"expected_hidden\": [\"Q6\"], \"expected_end\": \"COMPLETE\"}"
+      }
+    ],
+    "row_sources": [
+      {
+        "document": "S01_campus_cafeteria_experience.docx",
+        "section": "Acceptance test scenarios",
+        "heading_text": "Acceptance test scenarios",
+        "block_order": 21,
+        "row_index": 0,
+        "source_kind": "table",
+        "text": "T1 | recent-use screenout | {\"S1\": \"No\"} | {\"expected_end\": \"TERM_INELIGIBLE\"}"
+      },
+      {
+        "document": "S01_campus_cafeteria_experience.docx",
+        "section": "Acceptance test scenarios",
+        "heading_text": "Acceptance test scenarios",
+        "block_order": 21,
+        "row_index": 1,
+        "source_kind": "table",
+        "text": "T2 | eligible with problem | {\"S1\": \"Yes\", \"S2\": \"Yes\", \"Q5\": \"Yes\"} | {\"expected_visible\": [\"Q6\"], \"expected_end\": \"COMPLETE\"}"
+      },
+      {
+        "document": "S01_campus_cafeteria_experience.docx",
+        "section": "Acceptance test scenarios",
+        "heading_text": "Acceptance test scenarios",
+        "block_order": 21,
+        "row_index": 2,
+        "source_kind": "table",
+        "text": "T3 | eligible without problem | {\"S1\": \"Yes\", \"S2\": \"Yes\", \"Q5\": \"No\"} | {\"expected_hidden\": [\"Q6\"], \"expected_end\": \"COMPLETE\"}"
+      }
+    ]
+  }
 }

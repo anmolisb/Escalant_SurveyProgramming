@@ -1,344 +1,529 @@
-[
-  {
-    "id": "S1",
-    "wording": "Have you purchased food or a beverage from the campus cafeteria in the past 30 days?",
-    "type": "single",
-    "options": [
-      {
-        "code": null,
-        "label": "Yes"
-      },
-      {
-        "code": null,
-        "label": "No"
+{
+  "schema_version": "1.0.0",
+  "artifact": "stage4_questionnaire",
+  "stage": 4,
+  "survey_id": "S01_campus_cafeteria_experience",
+  "source_document": {
+    "filename": "S01_campus_cafeteria_experience.docx",
+    "sha256": "2756cb3b6dc3f21cdc7c1d35b7cfb0e2270af2a918ba6fe682e72ae8e121a804",
+    "bytes": 40578
+  },
+  "generated_at": "2026-08-28T14:48:50+00:00",
+  "item_count": 10,
+  "content": [
+    {
+      "id": "S1",
+      "seq": 1,
+      "wording": "Have you purchased food or a beverage from the campus cafeteria in the past 30 days?",
+      "type": "single",
+      "options": [
+        {
+          "option_id": "S1-O1",
+          "code": null,
+          "label": "Yes",
+          "numeric_value": null
+        },
+        {
+          "option_id": "S1-O2",
+          "code": null,
+          "label": "No",
+          "numeric_value": null
+        }
+      ],
+      "matrix_rows": [],
+      "display_condition": null,
+      "min_length": null,
+      "max_length": null,
+      "min_value": null,
+      "max_value": null,
+      "min_selections": null,
+      "exclusive_option": null,
+      "sum_to": null,
+      "randomize": false,
+      "optional": false,
+      "dynamic_option_source": null,
+      "other_attributes": {},
+      "source_reference": {
+        "document": "S01_campus_cafeteria_experience.docx",
+        "section": "Questionnaire",
+        "heading_text": "Questionnaire",
+        "block_order": 10,
+        "row_index": 0,
+        "source_kind": "table",
+        "text": "S1 | Have you purchased food or a beverage from the campus cafeteria in the past 30 days? | single | Yes; No | Always show"
       }
-    ],
-    "matrix_rows": [],
-    "display_condition": null,
-    "min_length": null,
-    "max_length": null,
-    "min_value": null,
-    "max_value": null,
-    "min_selections": null,
-    "exclusive_option": null,
-    "sum_to": null,
-    "randomize": false,
-    "optional": false,
-    "dynamic_option_source": null,
-    "other_attributes": {}
-  },
-  {
-    "id": "S2",
-    "wording": "Are you 18 years of age or older?",
-    "type": "single",
-    "options": [
-      {
-        "code": null,
-        "label": "Yes"
-      },
-      {
-        "code": null,
-        "label": "No"
+    },
+    {
+      "id": "S2",
+      "seq": 2,
+      "wording": "Are you 18 years of age or older?",
+      "type": "single",
+      "options": [
+        {
+          "option_id": "S2-O1",
+          "code": null,
+          "label": "Yes",
+          "numeric_value": null
+        },
+        {
+          "option_id": "S2-O2",
+          "code": null,
+          "label": "No",
+          "numeric_value": null
+        }
+      ],
+      "matrix_rows": [],
+      "display_condition": null,
+      "min_length": null,
+      "max_length": null,
+      "min_value": null,
+      "max_value": null,
+      "min_selections": null,
+      "exclusive_option": null,
+      "sum_to": null,
+      "randomize": false,
+      "optional": false,
+      "dynamic_option_source": null,
+      "other_attributes": {},
+      "source_reference": {
+        "document": "S01_campus_cafeteria_experience.docx",
+        "section": "Questionnaire",
+        "heading_text": "Questionnaire",
+        "block_order": 10,
+        "row_index": 1,
+        "source_kind": "table",
+        "text": "S2 | Are you 18 years of age or older? | single | Yes; No | Always show"
       }
-    ],
-    "matrix_rows": [],
-    "display_condition": null,
-    "min_length": null,
-    "max_length": null,
-    "min_value": null,
-    "max_value": null,
-    "min_selections": null,
-    "exclusive_option": null,
-    "sum_to": null,
-    "randomize": false,
-    "optional": false,
-    "dynamic_option_source": null,
-    "other_attributes": {}
-  },
-  {
-    "id": "Q1",
-    "wording": "Which channel did you primarily use for this cafeteria visit?",
-    "type": "single",
-    "options": [
-      {
-        "code": null,
-        "label": "Counter"
-      },
-      {
-        "code": null,
-        "label": "Mobile pre-order"
-      },
-      {
-        "code": null,
-        "label": "Vending kiosk"
+    },
+    {
+      "id": "Q1",
+      "seq": 3,
+      "wording": "Which channel did you primarily use for this cafeteria visit?",
+      "type": "single",
+      "options": [
+        {
+          "option_id": "Q1-O1",
+          "code": null,
+          "label": "Counter",
+          "numeric_value": null
+        },
+        {
+          "option_id": "Q1-O2",
+          "code": null,
+          "label": "Mobile pre-order",
+          "numeric_value": null
+        },
+        {
+          "option_id": "Q1-O3",
+          "code": null,
+          "label": "Vending kiosk",
+          "numeric_value": null
+        }
+      ],
+      "matrix_rows": [],
+      "display_condition": null,
+      "min_length": null,
+      "max_length": null,
+      "min_value": null,
+      "max_value": null,
+      "min_selections": null,
+      "exclusive_option": null,
+      "sum_to": null,
+      "randomize": false,
+      "optional": false,
+      "dynamic_option_source": null,
+      "other_attributes": {},
+      "source_reference": {
+        "document": "S01_campus_cafeteria_experience.docx",
+        "section": "Questionnaire",
+        "heading_text": "Questionnaire",
+        "block_order": 10,
+        "row_index": 2,
+        "source_kind": "table",
+        "text": "Q1 | Which channel did you primarily use for this cafeteria visit? | single | Counter; Mobile pre-order; Vending kiosk | Always show"
       }
-    ],
-    "matrix_rows": [],
-    "display_condition": null,
-    "min_length": null,
-    "max_length": null,
-    "min_value": null,
-    "max_value": null,
-    "min_selections": null,
-    "exclusive_option": null,
-    "sum_to": null,
-    "randomize": false,
-    "optional": false,
-    "dynamic_option_source": null,
-    "other_attributes": {}
-  },
-  {
-    "id": "Q2",
-    "wording": "Overall, how satisfied were you with the cafeteria visit?",
-    "type": "single",
-    "options": [
-      {
-        "code": "1",
-        "label": "Very poor"
-      },
-      {
-        "code": "2",
-        "label": "Poor"
-      },
-      {
-        "code": "3",
-        "label": "Fair"
-      },
-      {
-        "code": "4",
-        "label": "Good"
-      },
-      {
-        "code": "5",
-        "label": "Excellent"
+    },
+    {
+      "id": "Q2",
+      "seq": 4,
+      "wording": "Overall, how satisfied were you with the cafeteria visit?",
+      "type": "single",
+      "options": [
+        {
+          "option_id": "Q2-O1",
+          "code": "1",
+          "label": "Very poor",
+          "numeric_value": 1.0
+        },
+        {
+          "option_id": "Q2-O2",
+          "code": "2",
+          "label": "Poor",
+          "numeric_value": 2.0
+        },
+        {
+          "option_id": "Q2-O3",
+          "code": "3",
+          "label": "Fair",
+          "numeric_value": 3.0
+        },
+        {
+          "option_id": "Q2-O4",
+          "code": "4",
+          "label": "Good",
+          "numeric_value": 4.0
+        },
+        {
+          "option_id": "Q2-O5",
+          "code": "5",
+          "label": "Excellent",
+          "numeric_value": 5.0
+        }
+      ],
+      "matrix_rows": [],
+      "display_condition": null,
+      "min_length": null,
+      "max_length": null,
+      "min_value": null,
+      "max_value": null,
+      "min_selections": null,
+      "exclusive_option": null,
+      "sum_to": null,
+      "randomize": false,
+      "optional": false,
+      "dynamic_option_source": null,
+      "other_attributes": {},
+      "source_reference": {
+        "document": "S01_campus_cafeteria_experience.docx",
+        "section": "Questionnaire",
+        "heading_text": "Questionnaire",
+        "block_order": 10,
+        "row_index": 3,
+        "source_kind": "table",
+        "text": "Q2 | Overall, how satisfied were you with the cafeteria visit? | single | 1 - Very poor; 2 - Poor; 3 - Fair; 4 - Good; 5 - Excellent | Always show"
       }
-    ],
-    "matrix_rows": [],
-    "display_condition": null,
-    "min_length": null,
-    "max_length": null,
-    "min_value": null,
-    "max_value": null,
-    "min_selections": null,
-    "exclusive_option": null,
-    "sum_to": null,
-    "randomize": false,
-    "optional": false,
-    "dynamic_option_source": null,
-    "other_attributes": {}
-  },
-  {
-    "id": "Q3",
-    "wording": "How easy was it to complete what you wanted to do?",
-    "type": "single",
-    "options": [
-      {
-        "code": "1",
-        "label": "Very poor"
-      },
-      {
-        "code": "2",
-        "label": "Poor"
-      },
-      {
-        "code": "3",
-        "label": "Fair"
-      },
-      {
-        "code": "4",
-        "label": "Good"
-      },
-      {
-        "code": "5",
-        "label": "Excellent"
+    },
+    {
+      "id": "Q3",
+      "seq": 5,
+      "wording": "How easy was it to complete what you wanted to do?",
+      "type": "single",
+      "options": [
+        {
+          "option_id": "Q3-O1",
+          "code": "1",
+          "label": "Very poor",
+          "numeric_value": 1.0
+        },
+        {
+          "option_id": "Q3-O2",
+          "code": "2",
+          "label": "Poor",
+          "numeric_value": 2.0
+        },
+        {
+          "option_id": "Q3-O3",
+          "code": "3",
+          "label": "Fair",
+          "numeric_value": 3.0
+        },
+        {
+          "option_id": "Q3-O4",
+          "code": "4",
+          "label": "Good",
+          "numeric_value": 4.0
+        },
+        {
+          "option_id": "Q3-O5",
+          "code": "5",
+          "label": "Excellent",
+          "numeric_value": 5.0
+        }
+      ],
+      "matrix_rows": [],
+      "display_condition": null,
+      "min_length": null,
+      "max_length": null,
+      "min_value": null,
+      "max_value": null,
+      "min_selections": null,
+      "exclusive_option": null,
+      "sum_to": null,
+      "randomize": false,
+      "optional": false,
+      "dynamic_option_source": null,
+      "other_attributes": {},
+      "source_reference": {
+        "document": "S01_campus_cafeteria_experience.docx",
+        "section": "Questionnaire",
+        "heading_text": "Questionnaire",
+        "block_order": 10,
+        "row_index": 4,
+        "source_kind": "table",
+        "text": "Q3 | How easy was it to complete what you wanted to do? | single | 1 - Very poor; 2 - Poor; 3 - Fair; 4 - Good; 5 - Excellent | Always show"
       }
-    ],
-    "matrix_rows": [],
-    "display_condition": null,
-    "min_length": null,
-    "max_length": null,
-    "min_value": null,
-    "max_value": null,
-    "min_selections": null,
-    "exclusive_option": null,
-    "sum_to": null,
-    "randomize": false,
-    "optional": false,
-    "dynamic_option_source": null,
-    "other_attributes": {}
-  },
-  {
-    "id": "Q4",
-    "wording": "Which aspects influenced your rating? Select all that apply.",
-    "type": "multi",
-    "options": [
-      {
-        "code": null,
-        "label": "Food quality"
-      },
-      {
-        "code": null,
-        "label": "Menu variety"
-      },
-      {
-        "code": null,
-        "label": "Waiting time"
-      },
-      {
-        "code": null,
-        "label": "Cleanliness"
-      },
-      {
-        "code": null,
-        "label": "Staff behaviour"
-      },
-      {
-        "code": null,
-        "label": "Price"
+    },
+    {
+      "id": "Q4",
+      "seq": 6,
+      "wording": "Which aspects influenced your rating? Select all that apply.",
+      "type": "multi",
+      "options": [
+        {
+          "option_id": "Q4-O1",
+          "code": null,
+          "label": "Food quality",
+          "numeric_value": null
+        },
+        {
+          "option_id": "Q4-O2",
+          "code": null,
+          "label": "Menu variety",
+          "numeric_value": null
+        },
+        {
+          "option_id": "Q4-O3",
+          "code": null,
+          "label": "Waiting time",
+          "numeric_value": null
+        },
+        {
+          "option_id": "Q4-O4",
+          "code": null,
+          "label": "Cleanliness",
+          "numeric_value": null
+        },
+        {
+          "option_id": "Q4-O5",
+          "code": null,
+          "label": "Staff behaviour",
+          "numeric_value": null
+        },
+        {
+          "option_id": "Q4-O6",
+          "code": null,
+          "label": "Price",
+          "numeric_value": null
+        }
+      ],
+      "matrix_rows": [],
+      "display_condition": null,
+      "min_length": null,
+      "max_length": null,
+      "min_value": null,
+      "max_value": null,
+      "min_selections": 1,
+      "exclusive_option": null,
+      "sum_to": null,
+      "randomize": false,
+      "optional": false,
+      "dynamic_option_source": null,
+      "other_attributes": {},
+      "source_reference": {
+        "document": "S01_campus_cafeteria_experience.docx",
+        "section": "Questionnaire",
+        "heading_text": "Questionnaire",
+        "block_order": 10,
+        "row_index": 5,
+        "source_kind": "table",
+        "text": "Q4 | Which aspects influenced your rating? Select all that apply. | multi | Food quality; Menu variety; Waiting time; Cleanliness; Staff behaviour; Price | Validate: {\"min_selections\": 1}"
       }
-    ],
-    "matrix_rows": [],
-    "display_condition": null,
-    "min_length": null,
-    "max_length": null,
-    "min_value": null,
-    "max_value": null,
-    "min_selections": 1,
-    "exclusive_option": null,
-    "sum_to": null,
-    "randomize": false,
-    "optional": false,
-    "dynamic_option_source": null,
-    "other_attributes": {}
-  },
-  {
-    "id": "Q5",
-    "wording": "Did you encounter a problem?",
-    "type": "single",
-    "options": [
-      {
-        "code": null,
-        "label": "Yes"
-      },
-      {
-        "code": null,
-        "label": "No"
+    },
+    {
+      "id": "Q5",
+      "seq": 7,
+      "wording": "Did you encounter a problem?",
+      "type": "single",
+      "options": [
+        {
+          "option_id": "Q5-O1",
+          "code": null,
+          "label": "Yes",
+          "numeric_value": null
+        },
+        {
+          "option_id": "Q5-O2",
+          "code": null,
+          "label": "No",
+          "numeric_value": null
+        }
+      ],
+      "matrix_rows": [],
+      "display_condition": null,
+      "min_length": null,
+      "max_length": null,
+      "min_value": null,
+      "max_value": null,
+      "min_selections": null,
+      "exclusive_option": null,
+      "sum_to": null,
+      "randomize": false,
+      "optional": false,
+      "dynamic_option_source": null,
+      "other_attributes": {},
+      "source_reference": {
+        "document": "S01_campus_cafeteria_experience.docx",
+        "section": "Questionnaire",
+        "heading_text": "Questionnaire",
+        "block_order": 10,
+        "row_index": 6,
+        "source_kind": "table",
+        "text": "Q5 | Did you encounter a problem? | single | Yes; No | Always show"
       }
-    ],
-    "matrix_rows": [],
-    "display_condition": null,
-    "min_length": null,
-    "max_length": null,
-    "min_value": null,
-    "max_value": null,
-    "min_selections": null,
-    "exclusive_option": null,
-    "sum_to": null,
-    "randomize": false,
-    "optional": false,
-    "dynamic_option_source": null,
-    "other_attributes": {}
-  },
-  {
-    "id": "Q6",
-    "wording": "Please describe the main problem.",
-    "type": "text",
-    "options": [],
-    "matrix_rows": [],
-    "display_condition": "Q5 == 'Yes'",
-    "min_length": 10,
-    "max_length": 500,
-    "min_value": null,
-    "max_value": null,
-    "min_selections": null,
-    "exclusive_option": null,
-    "sum_to": null,
-    "randomize": false,
-    "optional": false,
-    "dynamic_option_source": null,
-    "other_attributes": {}
-  },
-  {
-    "id": "Q7",
-    "wording": "How likely are you to recommend this service?",
-    "type": "single",
-    "options": [
-      {
-        "code": null,
-        "label": "0"
-      },
-      {
-        "code": null,
-        "label": "1"
-      },
-      {
-        "code": null,
-        "label": "2"
-      },
-      {
-        "code": null,
-        "label": "3"
-      },
-      {
-        "code": null,
-        "label": "4"
-      },
-      {
-        "code": null,
-        "label": "5"
-      },
-      {
-        "code": null,
-        "label": "6"
-      },
-      {
-        "code": null,
-        "label": "7"
-      },
-      {
-        "code": null,
-        "label": "8"
-      },
-      {
-        "code": null,
-        "label": "9"
-      },
-      {
-        "code": null,
-        "label": "10"
+    },
+    {
+      "id": "Q6",
+      "seq": 8,
+      "wording": "Please describe the main problem.",
+      "type": "text",
+      "options": [],
+      "matrix_rows": [],
+      "display_condition": "Q5 == 'Yes'",
+      "min_length": 10,
+      "max_length": 500,
+      "min_value": null,
+      "max_value": null,
+      "min_selections": null,
+      "exclusive_option": null,
+      "sum_to": null,
+      "randomize": false,
+      "optional": false,
+      "dynamic_option_source": null,
+      "other_attributes": {},
+      "source_reference": {
+        "document": "S01_campus_cafeteria_experience.docx",
+        "section": "Questionnaire",
+        "heading_text": "Questionnaire",
+        "block_order": 10,
+        "row_index": 7,
+        "source_kind": "table",
+        "text": "Q6 | Please describe the main problem. | text | \u2014 | Show if: Q5 == 'Yes'\nValidate: {\"min_length\": 10, \"max_length\": 500}"
       }
-    ],
-    "matrix_rows": [],
-    "display_condition": null,
-    "min_length": null,
-    "max_length": null,
-    "min_value": null,
-    "max_value": null,
-    "min_selections": null,
-    "exclusive_option": null,
-    "sum_to": null,
-    "randomize": false,
-    "optional": false,
-    "dynamic_option_source": null,
-    "other_attributes": {}
-  },
-  {
-    "id": "Q8",
-    "wording": "What is the single most important improvement you would suggest?",
-    "type": "text",
-    "options": [],
-    "matrix_rows": [],
-    "display_condition": null,
-    "min_length": null,
-    "max_length": 500,
-    "min_value": null,
-    "max_value": null,
-    "min_selections": null,
-    "exclusive_option": null,
-    "sum_to": null,
-    "randomize": false,
-    "optional": true,
-    "dynamic_option_source": null,
-    "other_attributes": {}
-  }
-]
+    },
+    {
+      "id": "Q7",
+      "seq": 9,
+      "wording": "How likely are you to recommend this service?",
+      "type": "single",
+      "options": [
+        {
+          "option_id": "Q7-O1",
+          "code": null,
+          "label": "0",
+          "numeric_value": 0.0
+        },
+        {
+          "option_id": "Q7-O2",
+          "code": null,
+          "label": "1",
+          "numeric_value": 1.0
+        },
+        {
+          "option_id": "Q7-O3",
+          "code": null,
+          "label": "2",
+          "numeric_value": 2.0
+        },
+        {
+          "option_id": "Q7-O4",
+          "code": null,
+          "label": "3",
+          "numeric_value": 3.0
+        },
+        {
+          "option_id": "Q7-O5",
+          "code": null,
+          "label": "4",
+          "numeric_value": 4.0
+        },
+        {
+          "option_id": "Q7-O6",
+          "code": null,
+          "label": "5",
+          "numeric_value": 5.0
+        },
+        {
+          "option_id": "Q7-O7",
+          "code": null,
+          "label": "6",
+          "numeric_value": 6.0
+        },
+        {
+          "option_id": "Q7-O8",
+          "code": null,
+          "label": "7",
+          "numeric_value": 7.0
+        },
+        {
+          "option_id": "Q7-O9",
+          "code": null,
+          "label": "8",
+          "numeric_value": 8.0
+        },
+        {
+          "option_id": "Q7-O10",
+          "code": null,
+          "label": "9",
+          "numeric_value": 9.0
+        },
+        {
+          "option_id": "Q7-O11",
+          "code": null,
+          "label": "10",
+          "numeric_value": 10.0
+        }
+      ],
+      "matrix_rows": [],
+      "display_condition": null,
+      "min_length": null,
+      "max_length": null,
+      "min_value": null,
+      "max_value": null,
+      "min_selections": null,
+      "exclusive_option": null,
+      "sum_to": null,
+      "randomize": false,
+      "optional": false,
+      "dynamic_option_source": null,
+      "other_attributes": {},
+      "source_reference": {
+        "document": "S01_campus_cafeteria_experience.docx",
+        "section": "Questionnaire",
+        "heading_text": "Questionnaire",
+        "block_order": 10,
+        "row_index": 8,
+        "source_kind": "table",
+        "text": "Q7 | How likely are you to recommend this service? | single | 0; 1; 2; 3; 4; 5; 6; 7; 8; 9; 10 | Always show"
+      }
+    },
+    {
+      "id": "Q8",
+      "seq": 10,
+      "wording": "What is the single most important improvement you would suggest?",
+      "type": "text",
+      "options": [],
+      "matrix_rows": [],
+      "display_condition": null,
+      "min_length": null,
+      "max_length": 500,
+      "min_value": null,
+      "max_value": null,
+      "min_selections": null,
+      "exclusive_option": null,
+      "sum_to": null,
+      "randomize": false,
+      "optional": true,
+      "dynamic_option_source": null,
+      "other_attributes": {},
+      "source_reference": {
+        "document": "S01_campus_cafeteria_experience.docx",
+        "section": "Questionnaire",
+        "heading_text": "Questionnaire",
+        "block_order": 10,
+        "row_index": 9,
+        "source_kind": "table",
+        "text": "Q8 | What is the single most important improvement you would suggest? | text | \u2014 | Validate: {\"max_length\": 500}\nOptional"
+      }
+    }
+  ]
+}

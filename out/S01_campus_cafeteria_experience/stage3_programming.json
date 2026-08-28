@@ -1,0 +1,99 @@
+{
+  "schema_version": "1.0.0",
+  "artifact": "stage3_programming",
+  "stage": 3,
+  "survey_id": "S01_campus_cafeteria_experience",
+  "source_document": {
+    "filename": "S01_campus_cafeteria_experience.docx",
+    "sha256": "2756cb3b6dc3f21cdc7c1d35b7cfb0e2270af2a918ba6fe682e72ae8e121a804",
+    "bytes": 40578
+  },
+  "generated_at": "2026-08-28T14:48:34+00:00",
+  "item_count": null,
+  "content": {
+    "target": "Programming and QA requirements",
+    "source_kind": "prose",
+    "rows": [
+      {
+        "raw_text": "Store stable question, option, route and test-run identifiers.",
+        "text": "Store stable question, option, route and test-run identifiers."
+      },
+      {
+        "raw_text": "Capture displayed random order for every randomized item.",
+        "text": "Capture displayed random order for every randomized item."
+      },
+      {
+        "raw_text": "Record expected and observed destination for every routing transition.",
+        "text": "Record expected and observed destination for every routing transition."
+      },
+      {
+        "raw_text": "Reject mutually exclusive selections and invalid numeric/text responses before progression.",
+        "text": "Reject mutually exclusive selections and invalid numeric/text responses before progression."
+      },
+      {
+        "raw_text": "Produce an audit record containing inputs, timestamps, route, assertions, screenshots on failure and final disposition.",
+        "text": "Produce an audit record containing inputs, timestamps, route, assertions, screenshots on failure and final disposition."
+      },
+      {
+        "raw_text": "Do not send synthetic test responses into live operational reporting.",
+        "text": "Do not send synthetic test responses into live operational reporting."
+      }
+    ],
+    "row_sources": [
+      {
+        "document": "S01_campus_cafeteria_experience.docx",
+        "section": "Programming and QA requirements",
+        "heading_text": "Programming and QA requirements",
+        "block_order": 14,
+        "row_index": null,
+        "source_kind": "prose",
+        "text": "Store stable question, option, route and test-run identifiers."
+      },
+      {
+        "document": "S01_campus_cafeteria_experience.docx",
+        "section": "Programming and QA requirements",
+        "heading_text": "Programming and QA requirements",
+        "block_order": 15,
+        "row_index": null,
+        "source_kind": "prose",
+        "text": "Capture displayed random order for every randomized item."
+      },
+      {
+        "document": "S01_campus_cafeteria_experience.docx",
+        "section": "Programming and QA requirements",
+        "heading_text": "Programming and QA requirements",
+        "block_order": 16,
+        "row_index": null,
+        "source_kind": "prose",
+        "text": "Record expected and observed destination for every routing transition."
+      },
+      {
+        "document": "S01_campus_cafeteria_experience.docx",
+        "section": "Programming and QA requirements",
+        "heading_text": "Programming and QA requirements",
+        "block_order": 17,
+        "row_index": null,
+        "source_kind": "prose",
+        "text": "Reject mutually exclusive selections and invalid numeric/text responses before progression."
+      },
+      {
+        "document": "S01_campus_cafeteria_experience.docx",
+        "section": "Programming and QA requirements",
+        "heading_text": "Programming and QA requirements",
+        "block_order": 18,
+        "row_index": null,
+        "source_kind": "prose",
+        "text": "Produce an audit record containing inputs, timestamps, route, assertions, screenshots on failure and final disposition."
+      },
+      {
+        "document": "S01_campus_cafeteria_experience.docx",
+        "section": "Programming and QA requirements",
+        "heading_text": "Programming and QA requirements",
+        "block_order": 19,
+        "row_index": null,
+        "source_kind": "prose",
+        "text": "Do not send synthetic test responses into live operational reporting."
+      }
+    ]
+  }
+}
