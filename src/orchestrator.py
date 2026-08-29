@@ -10,44 +10,53 @@ on its own:
 re-runs the deep parse against the existing stage3 files without re-reading the
 DOCX or re-calling the model for stages 2 and 3.
 
-Artifacts, under out/<document stem>/:
+Artifacts, under out/<document stem>/, in the order the pipeline actually
+produces them:
     stage1_document.json
     stage2_blocks.json      stage2_flags.json
     stage3_<target>.json    (one per matched target)
     stage4_<target>.json    stage4_flags.json
     stage5_audit.json
-    part2_canonical.json     (Part 2 — what the QRE means)
-    part2_route_graph.json   part2_graph_report.json
-    agent1_evaluation_tests.json    (Stage 8 — validation, always run)
+    part2_canonical.json             (Part 2 — what the QRE means)
+    agent1_evaluation_tests.json     (Stage 7 — validation, always run)
     agent1_evaluation_results.json
     part2_validation.json
-    agent1_decisions.json           (the human decision register)
-    agent1_decision_register.md     (its human-readable form)
+    agent1_decisions.json            (the human decision register)
+    agent1_decision_register.md      (its human-readable form)
+    part2_route_graph.json           (Stage 8 — the graph builder, always run)
+    part2_graph_report.json
 
 Targets: questionnaire, routing, scenarios, messages, quotas, study,
 programming. A target absent from the document is flagged, not fatal.
 
-Stage 8 runs on every call, right after the canonical specification and its
-graphs are built - not as a separate command a person has to remember to run.
-It checks the canonical output against the raw document independently, and
-writes `part2_validation.json` next to `part2_canonical.json`. Its verdict is
-the gate: `main` exits 0 only when that verdict is not FAILED. A caller that
-ignores the exit code and reads `part2_route_graph.json` anyway is reading it
-with the gate having told it not to, in writing, in the same output folder -
-this cannot force a consumer to check, but it cannot be skipped either, since
+Stage 7 runs on every call, right after the canonical specification exists -
+not as a separate command a person has to remember to run. It checks the
+canonical output against the raw document independently, and writes
+`part2_validation.json` next to `part2_canonical.json`. Its verdict is a gate:
+`main` exits 0 only when `canonical_status` is not FAILED.
 
-Part of Stage 8 is a persistent decision register. Anything Part 2 could only
+Part of Stage 7 is a persistent decision register. Anything Part 2 could only
 infer, derive or guess at - not what the document plainly states - is written
 to `agent1_decisions.json`, one entry per decision, and reused unchanged on
 the next run as long as the document and the reading it depends on have not
 moved. A project owner resolves one by hand-editing its entry (`status`,
 `decision`, `decision_provenance`) and re-running; nothing in this pipeline
 resolves a decision on its own. `human_decision_gate` in the validation
-verdict is CLEAR only once every BLOCKING decision has been resolved this
-way - separate from `graph_ready`, which only asks whether the structure is
-sound, because a graph can build correctly out of a specification that still
-has a real, unconfirmed assumption in it.
-it runs unconditionally and cannot be silently absent.
+verdict is CLEAR only once every BLOCKING decision has been resolved this way.
+
+Stage 8, the graph builder, runs last and always - it needs no model, and
+nothing about how it builds depends on Stage 7's verdict. What does depend on
+that verdict is what `part2_graph_report.json` is allowed to say about the
+result: `structurally_buildable` is a fact about the graph alone, true the
+moment it builds and passes its own fidelity checks; `behaviorally_approved`
+additionally requires `canonical_status` not FAILED and `human_decision_gate`
+CLEAR, and is `null` rather than a guess when nobody supplied a verdict to
+judge it against. A caller that reads `part2_route_graph.json` without
+checking `behaviorally_approved` first is reading it with the gate having
+told it not to, in writing, in the same output folder - this cannot force a
+consumer to check, but the graph cannot be built without the verdict existing
+right beside it either, since Stage 7 always runs first and cannot be
+skipped.
 """
 
 from __future__ import annotations
@@ -305,38 +314,55 @@ def run_part2(source: str, parsed: dict) -> CanonicalSurvey:
     return survey
 
 
-def run_graphs(source: str, survey: CanonicalSurvey) -> tuple[RouteGraphs, GraphReport]:
-    """Build the route and dependency graphs from the canonical specification.
+def run_graphs(
+    source: str, survey: CanonicalSurvey, validation_report: dict | None = None,
+) -> tuple[RouteGraphs, GraphReport]:
+    """Stage 8 - build the route and dependency graphs, last, and say plainly
+    whether this one may be trusted for downstream use.
 
-    Needs no model, so this always runs even when the day's token budget is
-    gone - it is pure structure, read from a file that already exists.
+    Runs after Stage 7's validation and human-decision gate, not before -
+    the graph builder needs no model and nothing about it depends on the
+    verdict, but the verdict is what decides `behaviorally_approved`, and a
+    graph that has not been told the verdict can only ever say it does not
+    know. `main` always has one to pass by the time it calls this; a caller
+    building a graph on its own, without running Stage 7 first, gets a graph
+    that says exactly that - `behaviorally_approved: null` - rather than a
+    guess dressed up as an answer.
     """
-    graphs, report = part2_graph.run(survey)
+    canonical_status = human_decision_gate = None
+    if validation_report is not None:
+        verdict = validation_report["verdict"]
+        canonical_status = verdict["canonical_status"]
+        human_decision_gate = verdict["human_decision_gate"]
+
+    graphs, report = part2_graph.run(
+        survey, canonical_status=canonical_status, human_decision_gate=human_decision_gate,
+    )
     out = _out_dir(source)
     _write(
         out / "part2_route_graph.json",
         graphs,
         artifact="part2_route_graph",
-        stage=7,
+        stage=8,
         source=source,
     )
     _write(
         out / "part2_graph_report.json",
         report,
         artifact="part2_graph_report",
-        stage=7,
+        stage=8,
         source=source,
     )
     return graphs, report
 
 
 def run_agent1_validation(docx_path: Path, source: str, survey: CanonicalSurvey) -> dict:
-    """Stage 8 - check the canonical output against the raw document, always.
+    """Stage 7 - check the canonical output against the raw document, always.
 
-    Not a separate command. Every call to `main` reaches this after the
-    canonical specification and its graphs exist, so a validation report is
-    never more than one run of the pipeline out of date, and there is no
-    occasion on which it was simply not run.
+    Not a separate command. Every call to `main` reaches this right after the
+    canonical specification exists and before the graph is built, so a
+    validation report is never more than one run of the pipeline out of date,
+    and the graph builder that follows always has a fresh verdict to consult.
 
     Rebuilds an oracle reading of the document and re-derives the reproducibility
     comparison, both of which cost model calls only the first time a document is
@@ -453,7 +479,7 @@ def _summarise_part2(survey: CanonicalSurvey) -> None:
 
 
 def _summarise_graphs(report: GraphReport) -> None:
-    print("\nROUTE GRAPH")
+    print("\nSTAGE 8 — GRAPH BUILDER")
     print(f"  nodes            {report.nodes} ({report.questions} questions, {report.dispositions} endings)")
     print(f"  edges            {report.edges}")
     print(f"  rules mapped     {report.rules_mapped}/{report.rules_total}")
@@ -462,6 +488,15 @@ def _summarise_graphs(report: GraphReport) -> None:
     print(f"  check            {'PASS' if report.passed else 'FAIL'} ({report.blocking} blocking, {len(report.findings)} findings)")
     for f in report.findings:
         print(f"    [{f.severity.value:<8}] {f.check}: {f.finding}")
+    print("  coverage by category:")
+    for name, metric in report.coverage.items():
+        shown = "n/a" if metric["result"] is None else f"{metric['numerator']}/{metric['denominator']}"
+        print(f"    {name:<32} {shown}")
+    print(f"  GRAPH_STRUCTURALLY_BUILDABLE  {'YES' if report.structurally_buildable else 'NO'}")
+    approved = report.behaviorally_approved
+    print(f"  GRAPH_BEHAVIORALLY_APPROVED   {'YES' if approved else ('NO' if approved is False else 'UNKNOWN')}")
+    if report.approval_blocked_by:
+        print(f"    blocked by: {', '.join(report.approval_blocked_by)}")
 
 
 def _summarise_validation(report: dict) -> bool:
@@ -476,7 +511,7 @@ def _summarise_validation(report: dict) -> bool:
     verdict = report["verdict"]
     counts = report["counts"]
     status = verdict["canonical_status"]
-    print("\nSTAGE 8 — AGENT 1 VALIDATION")
+    print("\nSTAGE 7 — AGENT 1 VALIDATION")
     print(f"  tests            {sum(counts.values())} "
           f"(pass {counts['PASS']}, fail {counts['FAIL']}, "
           f"unverified {counts['UNVERIFIED']}, blocked {counts['BLOCKED']})")
@@ -529,14 +564,18 @@ def main(argv: list[str]) -> int:
     parsed, stage4_flags = run_stage4(source, stage3)
     audit = run_stage5(document, blocks, stage3, parsed)
     survey = run_part2(source, parsed)
-    _graphs, graph_report = run_graphs(source, survey)
+    # Validation and the human decision gate run before the graph is built,
+    # not after: the graph builder needs no model and nothing about how it
+    # builds depends on the verdict, but the verdict is what the report it
+    # writes needs to say whether this graph may be trusted downstream.
     validation_report = run_agent1_validation(docx_path, source, survey)
+    _graphs, graph_report = run_graphs(source, survey, validation_report)
 
     _summarise(blocks, stage3, parsed, [*stage3_flags, *stage4_flags])
     _summarise_audit(audit)
     _summarise_part2(survey)
-    _summarise_graphs(graph_report)
     passed = _summarise_validation(validation_report)
+    _summarise_graphs(graph_report)
     print(f"\nArtifacts: {_out_dir(source)}")
     return 0 if passed else 2
 

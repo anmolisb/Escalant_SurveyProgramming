@@ -22,10 +22,22 @@ Three things are deliberately NOT edges:
     show rules      already the target node's guard; an edge as well would
                     state the same fact twice, in two places that can disagree
     reject rules    a gate on progressing, not a change of destination
-    randomisation   changes what a question looks like, never where it leads
+    randomisation   changes what a question looks like, never where it leads,
+                    and is carried as metadata on the question's own node
 
 Wording, option labels and message text stay out of the graphs entirely. Nodes
 carry ids and structure; anything needing the text reads the specification.
+
+This is a permanent pipeline stage, not a developer utility: `run()` is called
+on every canonicalisation, after the validation layer and the human decision
+gate have already run, and its report says two separate things a caller must
+not conflate. `structurally_buildable` is a fact about the graph alone - it
+building at all, and passing its own fidelity checks - true or false the
+moment the graph exists. `behaviorally_approved` is a fact about whether this
+graph may be trusted for downstream use, and depends on the validation verdict
+and the decision register too; a graph can be perfectly, structurally sound
+and still not be approved, because a person has not yet confirmed what one of
+its rules means.
 """
 
 from __future__ import annotations
@@ -87,8 +99,10 @@ def build_route_graph(survey: CanonicalSurvey) -> nx.MultiDiGraph:
     ordered = sorted(
         [q for q in survey.questions if q.seq is not None], key=lambda q: q.seq
     )
+    randomized = {r.question_id: r for r in survey.randomization}
     for question in ordered:
         guard = question.guard
+        entry = randomized.get(question.question_id)
         graph.add_node(
             question.question_id,
             kind="question",
@@ -99,6 +113,11 @@ def build_route_graph(survey: CanonicalSurvey) -> nx.MultiDiGraph:
             has_guard=guard is not None and guard.condition is not None,
             guard=_condition_summary(guard.condition) if guard else None,
             guard_agreement=guard.agreement.value if guard else None,
+            # Metadata, never an edge (see module docstring): shuffling
+            # changes what this question looks like, never where it leads.
+            randomized=entry is not None,
+            randomization_scope=entry.scope.value if entry else None,
+            randomization_anchored=list(entry.anchored) if entry else [],
         )
 
     for disposition in survey.dispositions:
@@ -391,15 +410,123 @@ def check(
 
 
 # ---------------------------------------------------------------------------
+# Coverage by category
+# ---------------------------------------------------------------------------
+#
+# One ratio per kind of survey behaviour, never blended into the single
+# `passed` flag above - the same reasoning Stage 5's per-section scores and
+# Stage 8's per-category test coverage already follow. A category with a
+# zero denominator (no quotas in this survey, say) reports `result: None`
+# rather than a misleading 100%, so "nothing to cover" stays visibly
+# different from "everything covered".
+
+
+def _ratio(numerator: int, denominator: int) -> dict:
+    return {
+        "numerator": numerator,
+        "denominator": denominator,
+        "result": None if denominator == 0 else round(numerator / denominator, 4),
+    }
+
+
+def coverage_by_category(
+    survey: CanonicalSurvey,
+    route: nx.MultiDiGraph,
+    dependency: nx.DiGraph,
+    rule_map: dict[str, list[str]],
+) -> dict[str, dict]:
+    """How much of each kind of survey behaviour actually reached the graph.
+
+    Built entirely from `RuleKind` and the models' own structure - never from
+    a rule id, a question id, or a label - so it reads the same way for any
+    future QRE this pipeline sees.
+    """
+    node_ids = set(route.nodes)
+    canonical_nodes = {q.question_id for q in survey.questions} | {
+        d.disposition_id for d in survey.dispositions
+    }
+
+    by_kind: dict[RuleKind, list] = {}
+    for rule in survey.rules:
+        by_kind.setdefault(rule.kind, []).append(rule)
+
+    def mapped(rules) -> int:
+        return sum(1 for r in rules if r.rule_id in rule_map)
+
+    route_kinds = (RuleKind.SHOW, RuleKind.SKIP, RuleKind.TERMINATE)
+    routing_rules = [r for kind in route_kinds for r in by_kind.get(kind, [])]
+    termination_rules = by_kind.get(RuleKind.TERMINATE, [])
+    skip_display_rules = by_kind.get(RuleKind.SHOW, []) + by_kind.get(RuleKind.SKIP, [])
+    reject_rules = by_kind.get(RuleKind.REJECT, [])
+
+    randomized = list(survey.randomization)
+    quotas = list(survey.quotas)
+    dependencies = list(survey.dependencies)
+
+    return {
+        "node_coverage": _ratio(
+            len(canonical_nodes & node_ids), len(canonical_nodes)
+        ),
+        "routing_rule_coverage": _ratio(mapped(routing_rules), len(routing_rules)),
+        "termination_coverage": _ratio(mapped(termination_rules), len(termination_rules)),
+        "skip_display_representation": _ratio(
+            mapped(skip_display_rules), len(skip_display_rules)
+        ),
+        "validation_reject_representation": _ratio(mapped(reject_rules), len(reject_rules)),
+        "dependency_coverage": _ratio(
+            sum(
+                1 for d in dependencies
+                if dependency.has_edge(d.from_question, d.to_question)
+            ),
+            len(dependencies),
+        ),
+        "quota_coverage": _ratio(
+            sum(1 for q in quotas if q.quota_id in rule_map), len(quotas)
+        ),
+        "randomization_coverage": _ratio(
+            sum(
+                1 for r in randomized
+                if r.question_id in node_ids
+                and route.nodes[r.question_id].get("randomized")
+            ),
+            len(randomized),
+        ),
+        # Every rule and quota this survey has, whether it became an edge, a
+        # guard, or a constraint - the single number that answers "can a
+        # failing test still point back at the sentence that asked for this".
+        "traceability_coverage": _ratio(
+            sum(1 for r in survey.rules if r.rule_id in rule_map)
+            + sum(1 for q in quotas if q.quota_id in rule_map),
+            len(survey.rules) + len(quotas),
+        ),
+    }
+
+
+# ---------------------------------------------------------------------------
 # Entry point
 # ---------------------------------------------------------------------------
 
 
-def run(survey: CanonicalSurvey) -> tuple[RouteGraphs, GraphReport]:
+def run(
+    survey: CanonicalSurvey,
+    *,
+    canonical_status: str | None = None,
+    human_decision_gate: str | None = None,
+) -> tuple[RouteGraphs, GraphReport]:
+    """Build both graphs and report on them.
+
+    `canonical_status` and `human_decision_gate` are optional and change
+    nothing about how the graphs are built - they only decide what
+    `behaviorally_approved` says. Passed by the orchestrator, which knows the
+    validation verdict before it calls this; left `None` by the validation
+    layer's own internal build, which uses this function only to grade the
+    specification and is not asking whether the result may be trusted yet.
+    """
     route = build_route_graph(survey)
     dependency = build_dependency_graph(survey)
     rule_map = build_rule_edge_map(survey, route)
     findings = check(survey, route, dependency, rule_map)
+    passed = not any(f.severity is FlagSeverity.BLOCKING for f in findings)
 
     graphs = RouteGraphs(
         source=survey.source,
@@ -407,6 +534,19 @@ def run(survey: CanonicalSurvey) -> tuple[RouteGraphs, GraphReport]:
         dependency_graph=nx.node_link_data(dependency, edges="edges"),
         rule_edge_map=rule_map,
     )
+
+    blocked_by = []
+    if not passed:
+        blocked_by.append("graph_fidelity_failed")
+    if canonical_status == "FAILED":
+        blocked_by.append("canonical_status=FAILED")
+    if human_decision_gate == "PENDING_BLOCKING_DECISIONS":
+        blocked_by.append("human_decision_gate=PENDING_BLOCKING_DECISIONS")
+    # None, not False, when nobody told this function whether the document
+    # was cleared - "not yet assessed" must never read the same as "assessed
+    # and rejected".
+    approved = None if (canonical_status is None and human_decision_gate is None) else not blocked_by
+
     report = GraphReport(
         source=survey.source,
         nodes=route.number_of_nodes(),
@@ -427,6 +567,10 @@ def run(survey: CanonicalSurvey) -> tuple[RouteGraphs, GraphReport]:
         dependency_edges=dependency.number_of_edges(),
         findings=findings,
         blocking=sum(1 for f in findings if f.severity is FlagSeverity.BLOCKING),
-        passed=not any(f.severity is FlagSeverity.BLOCKING for f in findings),
+        passed=passed,
+        coverage=coverage_by_category(survey, route, dependency, rule_map),
+        structurally_buildable=passed,
+        behaviorally_approved=approved,
+        approval_blocked_by=blocked_by,
     )
     return graphs, report

@@ -1,14 +1,14 @@
 {
   "schema_version": "1.0.0",
   "artifact": "part2_validation",
-  "stage": 8,
+  "stage": 7,
   "survey_id": "C01_chronic_care_patient_journey",
   "source_document": {
     "filename": "C01_chronic_care_patient_journey.docx",
     "sha256": "319e6b78a2a1e36ef712ce421e6d2c1db3325a087a07d8d0e93ec38b39207e4b",
     "bytes": 43612
   },
-  "generated_at": "2026-08-29T11:54:49+00:00",
+  "generated_at": "2026-08-29T12:12:27+00:00",
   "item_count": null,
   "content": {
     "cross_source": [],
@@ -159,7 +159,7 @@
       "human_readable": "agent1_decision_register.md",
       "summary": {
         "total": 18,
-        "raised_this_run": 18,
+        "raised_this_run": 0,
         "resolved_reused": 0,
         "pending": 18,
         "resolved": 0,

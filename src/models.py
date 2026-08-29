@@ -1162,7 +1162,10 @@ class GraphReport(BaseModel):
     """Whether the graph faithfully represents the specification.
 
     A different question from whether the specification is right, which is what
-    the Stage 5 audit asks.
+    the Stage 5 audit asks - and a different question again from whether this
+    graph may be treated as behaviourally approved, which is not the graph
+    builder's to decide (see `structurally_buildable` / `behaviorally_approved`
+    below).
     """
 
     source: str
@@ -1178,6 +1181,28 @@ class GraphReport(BaseModel):
     findings: list[AuditFinding] = Field(default_factory=list)
     blocking: int = 0
     passed: bool = True
+    #: Per-category coverage: node, routing-rule, termination, skip/display,
+    #: validation/reject, dependency, quota, randomization and traceability.
+    #: Kept separate on purpose - the same reasoning as Stage 5's per-section
+    #: scores and Stage 8's per-category test coverage: one missed termination
+    #: rule must not disappear inside a single blended percentage.
+    coverage: dict[str, dict] = Field(default_factory=dict)
+    #: True when the graph itself builds and passes its own fidelity checks -
+    #: a purely structural fact, unaffected by anything a person has or has not
+    #: yet confirmed. Always known; computed the moment the graph is built.
+    structurally_buildable: bool = True
+    #: Whether this graph may be treated as behaviourally approved for
+    #: downstream use - Agent 3 test design, ultimately Agent 4 execution.
+    #: None when no canonical-validation verdict was supplied to judge it
+    #: against (the validation layer builds a graph purely to grade the
+    #: specification, and that build is not asking this question). Never
+    #: inferred from `passed` alone: a structurally sound graph built from a
+    #: specification with a pending BLOCKING human decision is not approved.
+    behaviorally_approved: bool | None = None
+    #: Why `behaviorally_approved` is false, in the vocabulary the validation
+    #: layer already uses - "canonical_status=FAILED",
+    #: "human_decision_gate=PENDING_BLOCKING_DECISIONS", "graph_fidelity_failed".
+    approval_blocked_by: list[str] = Field(default_factory=list)
 
 
 Condition.model_rebuild()

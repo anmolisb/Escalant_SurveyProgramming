@@ -154,10 +154,10 @@ def validate(stem: str, docx_path: Path | None = None,
               for status in ("PASS", "FAIL", "UNVERIFIED", "BLOCKED")}
 
     _write(out / "agent1_evaluation_tests.json", agent1_eval.to_json(tests),
-           artifact="agent1_evaluation_tests", stage=8, source=docx.name)
+           artifact="agent1_evaluation_tests", stage=7, source=docx.name)
     _write(out / "agent1_evaluation_results.json",
            {"counts": counts, "coverage": coverage, "results": agent1_eval.to_json(results)},
-           artifact="agent1_evaluation_results", stage=8, source=docx.name)
+           artifact="agent1_evaluation_results", stage=7, source=docx.name)
     _write(out / "part2_validation.json",
            {"cross_source": cross, "reproducibility": repro, "graph": graph,
             "confirmation_required": gate,
@@ -167,7 +167,7 @@ def validate(stem: str, docx_path: Path | None = None,
                 "summary": decisions_summary,
             },
             "verdict": decision},
-           artifact="part2_validation", stage=8, source=docx.name)
+           artifact="part2_validation", stage=7, source=docx.name)
 
     return {"stem": stem, "counts": counts, "coverage": coverage, "cross": cross,
             "repro": repro, "gate": gate, "verdict": decision, "graph": graph,

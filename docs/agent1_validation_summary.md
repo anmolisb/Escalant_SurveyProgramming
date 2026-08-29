@@ -71,7 +71,7 @@ No missing, contradictory, unsupported or invented content found.
 ### Human decision register
 
 - 4 total: 4 pending, 0 resolved, 0 not required
-- raised this run: 4 · resolved decisions reused: 0 · moved to not-required: 0 · invalidated by a changed context: 0
+- raised this run: 0 · resolved decisions reused: 0 · moved to not-required: 0 · invalidated by a changed context: 0
 - blocking and still pending: 134511cac21dfa7d, 376a146526ee8c10, 3c988435446a4710, d4839c48687f65bd
 - full register: `out/S01_campus_cafeteria_experience/agent1_decisions.json` · human-readable: `out/S01_campus_cafeteria_experience/agent1_decision_register.md`
 
@@ -182,7 +182,7 @@ No missing, contradictory, unsupported or invented content found.
 ### Human decision register
 
 - 18 total: 18 pending, 0 resolved, 0 not required
-- raised this run: 18 · resolved decisions reused: 0 · moved to not-required: 0 · invalidated by a changed context: 0
+- raised this run: 0 · resolved decisions reused: 0 · moved to not-required: 0 · invalidated by a changed context: 0
 - blocking and still pending: 00db7d74442cb17d, 0430c3303a173c36, 5c5b9104ff079c25, 70e04d836cb40d1b, 71002f0c34af1fbc, 756d035e6abbdf43, 8009e053dcf0c019, 8c69b2c506c9955a, ae7f9449c4271f16, b90d8580babbddab, c417f67cdc3ab8cb, d04e54c7a70f655f, d1c767adabb142b1, e4c971197a4cd683, f6de93712798f5f5
 - full register: `out/C01_chronic_care_patient_journey/agent1_decisions.json` · human-readable: `out/C01_chronic_care_patient_journey/agent1_decision_register.md`
 
