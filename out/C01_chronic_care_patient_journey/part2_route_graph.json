@@ -1,0 +1,911 @@
+{
+  "schema_version": "1.0.0",
+  "artifact": "part2_route_graph",
+  "stage": 7,
+  "survey_id": "C01_chronic_care_patient_journey",
+  "source_document": {
+    "filename": "C01_chronic_care_patient_journey.docx",
+    "sha256": "319e6b78a2a1e36ef712ce421e6d2c1db3325a087a07d8d0e93ec38b39207e4b",
+    "bytes": 43612
+  },
+  "generated_at": "2026-08-29T06:01:13+00:00",
+  "item_count": null,
+  "content": {
+    "source": "C01_chronic_care_patient_journey.docx",
+    "route_graph": {
+      "directed": true,
+      "multigraph": true,
+      "graph": {},
+      "nodes": [
+        {
+          "kind": "start",
+          "id": "__START__"
+        },
+        {
+          "kind": "question",
+          "seq": 1,
+          "has_guard": false,
+          "guard": null,
+          "guard_agreement": null,
+          "id": "S1"
+        },
+        {
+          "kind": "question",
+          "seq": 2,
+          "has_guard": false,
+          "guard": null,
+          "guard_agreement": null,
+          "id": "S2"
+        },
+        {
+          "kind": "question",
+          "seq": 3,
+          "has_guard": false,
+          "guard": null,
+          "guard_agreement": null,
+          "id": "S3"
+        },
+        {
+          "kind": "question",
+          "seq": 4,
+          "has_guard": false,
+          "guard": null,
+          "guard_agreement": null,
+          "id": "S4"
+        },
+        {
+          "kind": "question",
+          "seq": 5,
+          "has_guard": false,
+          "guard": null,
+          "guard_agreement": null,
+          "id": "Q1"
+        },
+        {
+          "kind": "question",
+          "seq": 6,
+          "has_guard": true,
+          "guard": "Q1 contains_any ['Care Network A', 'Care Network B', 'Care Network C']",
+          "guard_agreement": "agree",
+          "id": "Q2"
+        },
+        {
+          "kind": "question",
+          "seq": 7,
+          "has_guard": true,
+          "guard": "Q1 contains_any ['Care Network A', 'Care Network B', 'Care Network C']",
+          "guard_agreement": "agree",
+          "id": "Q3"
+        },
+        {
+          "kind": "question",
+          "seq": 8,
+          "has_guard": false,
+          "guard": null,
+          "guard_agreement": null,
+          "id": "Q4"
+        },
+        {
+          "kind": "question",
+          "seq": 9,
+          "has_guard": false,
+          "guard": null,
+          "guard_agreement": null,
+          "id": "Q5"
+        },
+        {
+          "kind": "question",
+          "seq": 10,
+          "has_guard": true,
+          "guard": "Q5 contains_any ['Primary-care physician', 'Specialist', 'Hospital', 'Pharmacy', 'Patient portal', 'Support programme']",
+          "guard_agreement": "agree",
+          "id": "Q6"
+        },
+        {
+          "kind": "question",
+          "seq": 11,
+          "has_guard": true,
+          "guard": "Q3 ne 'None/currently not using'",
+          "guard_agreement": "agree",
+          "id": "Q7"
+        },
+        {
+          "kind": "question",
+          "seq": 12,
+          "has_guard": true,
+          "guard": "Q3 ne 'None/currently not using'",
+          "guard_agreement": "agree",
+          "id": "Q8"
+        },
+        {
+          "kind": "question",
+          "seq": 13,
+          "has_guard": true,
+          "guard": "Q3 ne 'None/currently not using'",
+          "guard_agreement": "agree",
+          "id": "Q9"
+        },
+        {
+          "kind": "question",
+          "seq": 14,
+          "has_guard": false,
+          "guard": null,
+          "guard_agreement": null,
+          "id": "Q10"
+        },
+        {
+          "kind": "question",
+          "seq": 15,
+          "has_guard": true,
+          "guard": "Q10 eq 'Yes'",
+          "guard_agreement": "agree",
+          "id": "Q11"
+        },
+        {
+          "kind": "question",
+          "seq": 16,
+          "has_guard": true,
+          "guard": "Q10 eq 'Yes'",
+          "guard_agreement": "agree",
+          "id": "Q12"
+        },
+        {
+          "kind": "question",
+          "seq": 17,
+          "has_guard": true,
+          "guard": "Q12 in ['Fully', 'Partly']",
+          "guard_agreement": "agree",
+          "id": "Q13"
+        },
+        {
+          "kind": "question",
+          "seq": 18,
+          "has_guard": true,
+          "guard": "Q12 eq 'Not resolved'",
+          "guard_agreement": "agree",
+          "id": "Q14"
+        },
+        {
+          "kind": "question",
+          "seq": 19,
+          "has_guard": true,
+          "guard": "Q3 ne 'None/currently not using'",
+          "guard_agreement": "single_source",
+          "id": "Q15"
+        },
+        {
+          "kind": "question",
+          "seq": 20,
+          "has_guard": true,
+          "guard": "Q15 eq 'Yes'",
+          "guard_agreement": "agree",
+          "id": "Q16"
+        },
+        {
+          "kind": "question",
+          "seq": 21,
+          "has_guard": true,
+          "guard": "Q16 eq 'Other'",
+          "guard_agreement": "agree",
+          "id": "Q17"
+        },
+        {
+          "kind": "question",
+          "seq": 22,
+          "has_guard": false,
+          "guard": null,
+          "guard_agreement": null,
+          "id": "Q18"
+        },
+        {
+          "kind": "question",
+          "seq": 23,
+          "has_guard": false,
+          "guard": null,
+          "guard_agreement": null,
+          "id": "Q19"
+        },
+        {
+          "kind": "question",
+          "seq": 24,
+          "has_guard": false,
+          "guard": null,
+          "guard_agreement": null,
+          "id": "Q20"
+        },
+        {
+          "kind": "question",
+          "seq": 25,
+          "has_guard": false,
+          "guard": null,
+          "guard_agreement": null,
+          "id": "Q21"
+        },
+        {
+          "kind": "question",
+          "seq": 26,
+          "has_guard": false,
+          "guard": null,
+          "guard_agreement": null,
+          "id": "D1"
+        },
+        {
+          "kind": "question",
+          "seq": 27,
+          "has_guard": false,
+          "guard": null,
+          "guard_agreement": null,
+          "id": "D2"
+        },
+        {
+          "kind": "question",
+          "seq": 28,
+          "has_guard": false,
+          "guard": null,
+          "guard_agreement": null,
+          "id": "D3"
+        },
+        {
+          "kind": "question",
+          "seq": 29,
+          "has_guard": false,
+          "guard": null,
+          "guard_agreement": null,
+          "id": "D4"
+        },
+        {
+          "kind": "question",
+          "seq": 30,
+          "has_guard": false,
+          "guard": null,
+          "guard_agreement": null,
+          "id": "Q22"
+        },
+        {
+          "kind": "question",
+          "seq": 31,
+          "has_guard": false,
+          "guard": null,
+          "guard_agreement": null,
+          "id": "Q23"
+        },
+        {
+          "kind": "disposition",
+          "terminal": true,
+          "disposition_kind": "complete",
+          "defined_in_source": true,
+          "id": "COMPLETE"
+        },
+        {
+          "kind": "disposition",
+          "terminal": true,
+          "disposition_kind": "screenout",
+          "defined_in_source": true,
+          "id": "TERM_AGE"
+        },
+        {
+          "kind": "disposition",
+          "terminal": true,
+          "disposition_kind": "screenout",
+          "defined_in_source": true,
+          "id": "TERM_CONFLICT"
+        },
+        {
+          "kind": "disposition",
+          "terminal": true,
+          "disposition_kind": "screenout",
+          "defined_in_source": true,
+          "id": "TERM_INVOLVEMENT"
+        },
+        {
+          "kind": "disposition",
+          "terminal": true,
+          "disposition_kind": "quota_full",
+          "defined_in_source": false,
+          "id": "TERM_QUOTA_FULL"
+        },
+        {
+          "kind": "disposition",
+          "terminal": true,
+          "disposition_kind": "screenout",
+          "defined_in_source": true,
+          "id": "TERM_RECENT_RESEARCH"
+        }
+      ],
+      "edges": [
+        {
+          "kind": "advance",
+          "rule_id": null,
+          "source": "__START__",
+          "target": "S1",
+          "key": 0
+        },
+        {
+          "kind": "advance",
+          "rule_id": null,
+          "source": "S1",
+          "target": "S2",
+          "key": 0
+        },
+        {
+          "kind": "terminate",
+          "rule_id": "R1",
+          "condition": "S1 eq 'No'",
+          "precedence": 1,
+          "source": "S1",
+          "target": "TERM_AGE",
+          "key": 0
+        },
+        {
+          "kind": "advance",
+          "rule_id": null,
+          "source": "S2",
+          "target": "S3",
+          "key": 0
+        },
+        {
+          "kind": "terminate",
+          "rule_id": "R2",
+          "condition": "S2 ne 'Personally manage an ongoing chronic health condition'",
+          "precedence": 2,
+          "source": "S2",
+          "target": "TERM_INVOLVEMENT",
+          "key": 0
+        },
+        {
+          "kind": "advance",
+          "rule_id": null,
+          "source": "S3",
+          "target": "S4",
+          "key": 0
+        },
+        {
+          "kind": "terminate",
+          "rule_id": "R3",
+          "condition": "S3 eq 'Yes'",
+          "precedence": 3,
+          "source": "S3",
+          "target": "TERM_RECENT_RESEARCH",
+          "key": 0
+        },
+        {
+          "kind": "advance",
+          "rule_id": null,
+          "source": "S4",
+          "target": "Q1",
+          "key": 0
+        },
+        {
+          "kind": "terminate",
+          "rule_id": "R4",
+          "condition": "S4 eq 'Yes'",
+          "precedence": 4,
+          "source": "S4",
+          "target": "TERM_CONFLICT",
+          "key": 0
+        },
+        {
+          "kind": "advance",
+          "rule_id": null,
+          "source": "Q1",
+          "target": "Q2",
+          "key": 0
+        },
+        {
+          "kind": "jump",
+          "rule_id": "R5",
+          "condition": "Q1 set_eq ['None of these']",
+          "precedence": 5,
+          "source": "Q1",
+          "target": "Q4",
+          "key": 0
+        },
+        {
+          "kind": "advance",
+          "rule_id": null,
+          "source": "Q2",
+          "target": "Q3",
+          "key": 0
+        },
+        {
+          "kind": "advance",
+          "rule_id": null,
+          "source": "Q3",
+          "target": "Q4",
+          "key": 0
+        },
+        {
+          "kind": "advance",
+          "rule_id": null,
+          "source": "Q4",
+          "target": "Q5",
+          "key": 0
+        },
+        {
+          "kind": "advance",
+          "rule_id": null,
+          "source": "Q5",
+          "target": "Q6",
+          "key": 0
+        },
+        {
+          "kind": "advance",
+          "rule_id": null,
+          "source": "Q6",
+          "target": "Q7",
+          "key": 0
+        },
+        {
+          "kind": "advance",
+          "rule_id": null,
+          "source": "Q7",
+          "target": "Q8",
+          "key": 0
+        },
+        {
+          "kind": "advance",
+          "rule_id": null,
+          "source": "Q8",
+          "target": "Q9",
+          "key": 0
+        },
+        {
+          "kind": "advance",
+          "rule_id": null,
+          "source": "Q9",
+          "target": "Q10",
+          "key": 0
+        },
+        {
+          "kind": "advance",
+          "rule_id": null,
+          "source": "Q10",
+          "target": "Q11",
+          "key": 0
+        },
+        {
+          "kind": "advance",
+          "rule_id": null,
+          "source": "Q11",
+          "target": "Q12",
+          "key": 0
+        },
+        {
+          "kind": "advance",
+          "rule_id": null,
+          "source": "Q12",
+          "target": "Q13",
+          "key": 0
+        },
+        {
+          "kind": "advance",
+          "rule_id": null,
+          "source": "Q13",
+          "target": "Q14",
+          "key": 0
+        },
+        {
+          "kind": "advance",
+          "rule_id": null,
+          "source": "Q14",
+          "target": "Q15",
+          "key": 0
+        },
+        {
+          "kind": "advance",
+          "rule_id": null,
+          "source": "Q15",
+          "target": "Q16",
+          "key": 0
+        },
+        {
+          "kind": "advance",
+          "rule_id": null,
+          "source": "Q16",
+          "target": "Q17",
+          "key": 0
+        },
+        {
+          "kind": "advance",
+          "rule_id": null,
+          "source": "Q17",
+          "target": "Q18",
+          "key": 0
+        },
+        {
+          "kind": "advance",
+          "rule_id": null,
+          "source": "Q18",
+          "target": "Q19",
+          "key": 0
+        },
+        {
+          "kind": "advance",
+          "rule_id": null,
+          "source": "Q19",
+          "target": "Q20",
+          "key": 0
+        },
+        {
+          "kind": "advance",
+          "rule_id": null,
+          "source": "Q20",
+          "target": "Q21",
+          "key": 0
+        },
+        {
+          "kind": "advance",
+          "rule_id": null,
+          "source": "Q21",
+          "target": "D1",
+          "key": 0
+        },
+        {
+          "kind": "advance",
+          "rule_id": null,
+          "source": "D1",
+          "target": "D2",
+          "key": 0
+        },
+        {
+          "kind": "quota_terminate",
+          "rule_id": "QUOTA_REGION",
+          "stateful": true,
+          "source": "D1",
+          "target": "TERM_QUOTA_FULL",
+          "key": 0
+        },
+        {
+          "kind": "advance",
+          "rule_id": null,
+          "source": "D2",
+          "target": "D3",
+          "key": 0
+        },
+        {
+          "kind": "quota_terminate",
+          "rule_id": "QUOTA_AGE",
+          "stateful": true,
+          "source": "D2",
+          "target": "TERM_QUOTA_FULL",
+          "key": 0
+        },
+        {
+          "kind": "advance",
+          "rule_id": null,
+          "source": "D3",
+          "target": "D4",
+          "key": 0
+        },
+        {
+          "kind": "advance",
+          "rule_id": null,
+          "source": "D4",
+          "target": "Q22",
+          "key": 0
+        },
+        {
+          "kind": "advance",
+          "rule_id": null,
+          "source": "Q22",
+          "target": "Q23",
+          "key": 0
+        },
+        {
+          "kind": "advance",
+          "rule_id": null,
+          "source": "Q23",
+          "target": "COMPLETE",
+          "key": 0
+        }
+      ]
+    },
+    "dependency_graph": {
+      "directed": true,
+      "multigraph": false,
+      "graph": {},
+      "nodes": [
+        {
+          "kind": "question",
+          "seq": 1,
+          "id": "S1"
+        },
+        {
+          "kind": "question",
+          "seq": 2,
+          "id": "S2"
+        },
+        {
+          "kind": "question",
+          "seq": 3,
+          "id": "S3"
+        },
+        {
+          "kind": "question",
+          "seq": 4,
+          "id": "S4"
+        },
+        {
+          "kind": "question",
+          "seq": 5,
+          "id": "Q1"
+        },
+        {
+          "kind": "question",
+          "seq": 6,
+          "id": "Q2"
+        },
+        {
+          "kind": "question",
+          "seq": 7,
+          "id": "Q3"
+        },
+        {
+          "kind": "question",
+          "seq": 8,
+          "id": "Q4"
+        },
+        {
+          "kind": "question",
+          "seq": 9,
+          "id": "Q5"
+        },
+        {
+          "kind": "question",
+          "seq": 10,
+          "id": "Q6"
+        },
+        {
+          "kind": "question",
+          "seq": 11,
+          "id": "Q7"
+        },
+        {
+          "kind": "question",
+          "seq": 12,
+          "id": "Q8"
+        },
+        {
+          "kind": "question",
+          "seq": 13,
+          "id": "Q9"
+        },
+        {
+          "kind": "question",
+          "seq": 14,
+          "id": "Q10"
+        },
+        {
+          "kind": "question",
+          "seq": 15,
+          "id": "Q11"
+        },
+        {
+          "kind": "question",
+          "seq": 16,
+          "id": "Q12"
+        },
+        {
+          "kind": "question",
+          "seq": 17,
+          "id": "Q13"
+        },
+        {
+          "kind": "question",
+          "seq": 18,
+          "id": "Q14"
+        },
+        {
+          "kind": "question",
+          "seq": 19,
+          "id": "Q15"
+        },
+        {
+          "kind": "question",
+          "seq": 20,
+          "id": "Q16"
+        },
+        {
+          "kind": "question",
+          "seq": 21,
+          "id": "Q17"
+        },
+        {
+          "kind": "question",
+          "seq": 22,
+          "id": "Q18"
+        },
+        {
+          "kind": "question",
+          "seq": 23,
+          "id": "Q19"
+        },
+        {
+          "kind": "question",
+          "seq": 24,
+          "id": "Q20"
+        },
+        {
+          "kind": "question",
+          "seq": 25,
+          "id": "Q21"
+        },
+        {
+          "kind": "question",
+          "seq": 26,
+          "id": "D1"
+        },
+        {
+          "kind": "question",
+          "seq": 27,
+          "id": "D2"
+        },
+        {
+          "kind": "question",
+          "seq": 28,
+          "id": "D3"
+        },
+        {
+          "kind": "question",
+          "seq": 29,
+          "id": "D4"
+        },
+        {
+          "kind": "question",
+          "seq": 30,
+          "id": "Q22"
+        },
+        {
+          "kind": "question",
+          "seq": 31,
+          "id": "Q23"
+        }
+      ],
+      "edges": [
+        {
+          "kind": "option_source",
+          "origin": "derived",
+          "source": "Q1",
+          "target": "Q2"
+        },
+        {
+          "kind": "guard",
+          "source": "Q1",
+          "target": "Q3"
+        },
+        {
+          "kind": "text_pipe",
+          "origin": "inferred",
+          "source": "Q3",
+          "target": "Q8"
+        },
+        {
+          "kind": "text_pipe",
+          "origin": "inferred",
+          "source": "Q3",
+          "target": "Q9"
+        },
+        {
+          "kind": "guard",
+          "source": "Q3",
+          "target": "Q7"
+        },
+        {
+          "kind": "guard",
+          "source": "Q3",
+          "target": "Q15"
+        },
+        {
+          "kind": "option_source",
+          "origin": "derived",
+          "source": "Q5",
+          "target": "Q6"
+        },
+        {
+          "kind": "guard",
+          "source": "Q10",
+          "target": "Q11"
+        },
+        {
+          "kind": "guard",
+          "source": "Q10",
+          "target": "Q12"
+        },
+        {
+          "kind": "guard",
+          "source": "Q12",
+          "target": "Q13"
+        },
+        {
+          "kind": "guard",
+          "source": "Q12",
+          "target": "Q14"
+        },
+        {
+          "kind": "guard",
+          "source": "Q15",
+          "target": "Q16"
+        },
+        {
+          "kind": "guard",
+          "source": "Q16",
+          "target": "Q17"
+        },
+        {
+          "kind": "text_pipe",
+          "origin": "inferred",
+          "source": "Q19",
+          "target": "Q20"
+        }
+      ]
+    },
+    "rule_edge_map": {
+      "R1": [
+        "S1->TERM_AGE"
+      ],
+      "R2": [
+        "S2->TERM_INVOLVEMENT"
+      ],
+      "R3": [
+        "S3->TERM_RECENT_RESEARCH"
+      ],
+      "R4": [
+        "S4->TERM_CONFLICT"
+      ],
+      "R5": [
+        "Q1->Q4"
+      ],
+      "QUOTA_REGION": [
+        "D1->TERM_QUOTA_FULL"
+      ],
+      "QUOTA_AGE": [
+        "D2->TERM_QUOTA_FULL"
+      ],
+      "R6": [
+        "guard:Q2"
+      ],
+      "R7": [
+        "guard:Q3"
+      ],
+      "R8": [
+        "guard:Q6"
+      ],
+      "R9": [
+        "guard:Q7"
+      ],
+      "R10": [
+        "guard:Q8"
+      ],
+      "R11": [
+        "guard:Q9"
+      ],
+      "R12": [
+        "guard:Q11"
+      ],
+      "R13": [
+        "guard:Q12"
+      ],
+      "R14": [
+        "guard:Q13"
+      ],
+      "R15": [
+        "guard:Q14"
+      ],
+      "R16": [
+        "guard:Q16"
+      ],
+      "R17": [
+        "guard:Q17"
+      ],
+      "R18": [
+        "constraint"
+      ],
+      "R19": [
+        "constraint"
+      ],
+      "R20": [
+        "constraint"
+      ]
+    }
+  }
+}

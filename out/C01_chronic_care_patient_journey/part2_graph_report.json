@@ -1,0 +1,40 @@
+{
+  "schema_version": "1.0.0",
+  "artifact": "part2_graph_report",
+  "stage": 7,
+  "survey_id": "C01_chronic_care_patient_journey",
+  "source_document": {
+    "filename": "C01_chronic_care_patient_journey.docx",
+    "sha256": "319e6b78a2a1e36ef712ce421e6d2c1db3325a087a07d8d0e93ec38b39207e4b",
+    "bytes": 43612
+  },
+  "generated_at": "2026-08-29T06:01:13+00:00",
+  "item_count": null,
+  "content": {
+    "source": "C01_chronic_care_patient_journey.docx",
+    "nodes": 38,
+    "edges": 39,
+    "questions": 31,
+    "dispositions": 6,
+    "rules_mapped": 20,
+    "rules_total": 20,
+    "quotas_mapped": 2,
+    "quotas_total": 2,
+    "dependency_edges": 14,
+    "findings": [
+      {
+        "check": "termination",
+        "severity": "WARNING",
+        "finding": "Ending TERM_QUOTA_FULL is reachable but the QRE never says what it shows the respondent.",
+        "target": {
+          "kind": "disposition",
+          "id": "TERM_QUOTA_FULL"
+        },
+        "evidence": null,
+        "source_reference": null
+      }
+    ],
+    "blocking": 0,
+    "passed": true
+  }
+}

@@ -8,7 +8,7 @@
     "sha256": "319e6b78a2a1e36ef712ce421e6d2c1db3325a087a07d8d0e93ec38b39207e4b",
     "bytes": 43612
   },
-  "generated_at": "2026-08-28T14:47:59+00:00",
+  "generated_at": "2026-08-29T06:01:13+00:00",
   "item_count": null,
   "content": {
     "source": "C01_chronic_care_patient_journey.docx",
@@ -24,31 +24,203 @@
       {
         "question_id": "S1",
         "seq": 1,
+        "kind": "single",
+        "wording": "Are you 21 years of age or older?",
+        "options": [
+          {
+            "option_id": "S1-O1",
+            "code": null,
+            "label": "Yes",
+            "numeric_value": null,
+            "is_exclusive": false
+          },
+          {
+            "option_id": "S1-O2",
+            "code": null,
+            "label": "No",
+            "numeric_value": null,
+            "is_exclusive": false
+          }
+        ],
+        "matrix_rows": [],
+        "validation": null,
         "guard": null
       },
       {
         "question_id": "S2",
         "seq": 2,
+        "kind": "single",
+        "wording": "Which statement best describes your involvement?",
+        "options": [
+          {
+            "option_id": "S2-O1",
+            "code": null,
+            "label": "Personally manage an ongoing chronic health condition",
+            "numeric_value": null,
+            "is_exclusive": false
+          },
+          {
+            "option_id": "S2-O2",
+            "code": null,
+            "label": "Aware but not involved",
+            "numeric_value": null,
+            "is_exclusive": false
+          },
+          {
+            "option_id": "S2-O3",
+            "code": null,
+            "label": "Not aware of this category",
+            "numeric_value": null,
+            "is_exclusive": false
+          }
+        ],
+        "matrix_rows": [],
+        "validation": null,
         "guard": null
       },
       {
         "question_id": "S3",
         "seq": 3,
+        "kind": "single",
+        "wording": "Have you participated in market research in the past 3 months?",
+        "options": [
+          {
+            "option_id": "S3-O1",
+            "code": null,
+            "label": "Yes",
+            "numeric_value": null,
+            "is_exclusive": false
+          },
+          {
+            "option_id": "S3-O2",
+            "code": null,
+            "label": "No",
+            "numeric_value": null,
+            "is_exclusive": false
+          }
+        ],
+        "matrix_rows": [],
+        "validation": null,
         "guard": null
       },
       {
         "question_id": "S4",
         "seq": 4,
+        "kind": "single",
+        "wording": "Do you or an immediate family member work in market research, advertising, or the category being studied?",
+        "options": [
+          {
+            "option_id": "S4-O1",
+            "code": null,
+            "label": "Yes",
+            "numeric_value": null,
+            "is_exclusive": false
+          },
+          {
+            "option_id": "S4-O2",
+            "code": null,
+            "label": "No",
+            "numeric_value": null,
+            "is_exclusive": false
+          }
+        ],
+        "matrix_rows": [],
+        "validation": null,
         "guard": null
       },
       {
         "question_id": "Q1",
         "seq": 5,
+        "kind": "multi",
+        "wording": "Which of these brands have you heard of?",
+        "options": [
+          {
+            "option_id": "Q1-O1",
+            "code": null,
+            "label": "Care Network A",
+            "numeric_value": null,
+            "is_exclusive": false
+          },
+          {
+            "option_id": "Q1-O2",
+            "code": null,
+            "label": "Care Network B",
+            "numeric_value": null,
+            "is_exclusive": false
+          },
+          {
+            "option_id": "Q1-O3",
+            "code": null,
+            "label": "Care Network C",
+            "numeric_value": null,
+            "is_exclusive": false
+          },
+          {
+            "option_id": "Q1-O4",
+            "code": null,
+            "label": "Independent provider",
+            "numeric_value": null,
+            "is_exclusive": false
+          },
+          {
+            "option_id": "Q1-O5",
+            "code": null,
+            "label": "None of these",
+            "numeric_value": null,
+            "is_exclusive": true
+          }
+        ],
+        "matrix_rows": [],
+        "validation": {
+          "min_length": null,
+          "max_length": null,
+          "min_value": null,
+          "max_value": null,
+          "min_selections": null,
+          "sum_to": null,
+          "exclusive_option_id": "Q1-O5",
+          "exclusive_option_label": "None of these",
+          "mandatory": true
+        },
         "guard": null
       },
       {
         "question_id": "Q2",
         "seq": 6,
+        "kind": "multi",
+        "wording": "Which brands would you consider?",
+        "options": [
+          {
+            "option_id": "Q2-O1",
+            "code": null,
+            "label": "Care Network A",
+            "numeric_value": null,
+            "is_exclusive": false
+          },
+          {
+            "option_id": "Q2-O2",
+            "code": null,
+            "label": "Care Network B",
+            "numeric_value": null,
+            "is_exclusive": false
+          },
+          {
+            "option_id": "Q2-O3",
+            "code": null,
+            "label": "Care Network C",
+            "numeric_value": null,
+            "is_exclusive": false
+          },
+          {
+            "option_id": "Q2-O4",
+            "code": null,
+            "label": "Independent provider",
+            "numeric_value": null,
+            "is_exclusive": false
+          }
+        ],
+        "matrix_rows": [],
+        "validation": null,
         "guard": {
           "condition": {
             "op": "contains_any",
@@ -57,7 +229,8 @@
               "aggregate": null,
               "text": null,
               "number": null,
-              "values": null
+              "values": null,
+              "option_ids": null
             },
             "right": {
               "question_id": null,
@@ -68,6 +241,11 @@
                 "Care Network A",
                 "Care Network B",
                 "Care Network C"
+              ],
+              "option_ids": [
+                "Q1-O1",
+                "Q1-O2",
+                "Q1-O3"
               ]
             },
             "operands": [],
@@ -89,6 +267,47 @@
       {
         "question_id": "Q3",
         "seq": 7,
+        "kind": "single",
+        "wording": "Which brand is your current or most recent provider?",
+        "options": [
+          {
+            "option_id": "Q3-O1",
+            "code": null,
+            "label": "Care Network A",
+            "numeric_value": null,
+            "is_exclusive": false
+          },
+          {
+            "option_id": "Q3-O2",
+            "code": null,
+            "label": "Care Network B",
+            "numeric_value": null,
+            "is_exclusive": false
+          },
+          {
+            "option_id": "Q3-O3",
+            "code": null,
+            "label": "Care Network C",
+            "numeric_value": null,
+            "is_exclusive": false
+          },
+          {
+            "option_id": "Q3-O4",
+            "code": null,
+            "label": "Independent provider",
+            "numeric_value": null,
+            "is_exclusive": false
+          },
+          {
+            "option_id": "Q3-O5",
+            "code": null,
+            "label": "None/currently not using",
+            "numeric_value": null,
+            "is_exclusive": false
+          }
+        ],
+        "matrix_rows": [],
+        "validation": null,
         "guard": {
           "condition": {
             "op": "contains_any",
@@ -97,7 +316,8 @@
               "aggregate": null,
               "text": null,
               "number": null,
-              "values": null
+              "values": null,
+              "option_ids": null
             },
             "right": {
               "question_id": null,
@@ -108,6 +328,11 @@
                 "Care Network A",
                 "Care Network B",
                 "Care Network C"
+              ],
+              "option_ids": [
+                "Q1-O1",
+                "Q1-O2",
+                "Q1-O3"
               ]
             },
             "operands": [],
@@ -129,19 +354,209 @@
       {
         "question_id": "Q4",
         "seq": 8,
+        "kind": "single",
+        "wording": "Which stage best describes your current position?",
+        "options": [
+          {
+            "option_id": "Q4-O1",
+            "code": null,
+            "label": "Recently diagnosed",
+            "numeric_value": null,
+            "is_exclusive": false
+          },
+          {
+            "option_id": "Q4-O2",
+            "code": null,
+            "label": "Treatment initiation",
+            "numeric_value": null,
+            "is_exclusive": false
+          },
+          {
+            "option_id": "Q4-O3",
+            "code": null,
+            "label": "Ongoing management",
+            "numeric_value": null,
+            "is_exclusive": false
+          },
+          {
+            "option_id": "Q4-O4",
+            "code": null,
+            "label": "Treatment change",
+            "numeric_value": null,
+            "is_exclusive": false
+          },
+          {
+            "option_id": "Q4-O5",
+            "code": null,
+            "label": "Monitoring only",
+            "numeric_value": null,
+            "is_exclusive": false
+          }
+        ],
+        "matrix_rows": [],
+        "validation": null,
         "guard": null
       },
       {
         "question_id": "Q5",
         "seq": 9,
+        "kind": "multi",
+        "wording": "Which touchpoints did you use?",
+        "options": [
+          {
+            "option_id": "Q5-O1",
+            "code": null,
+            "label": "Primary-care physician",
+            "numeric_value": null,
+            "is_exclusive": false
+          },
+          {
+            "option_id": "Q5-O2",
+            "code": null,
+            "label": "Specialist",
+            "numeric_value": null,
+            "is_exclusive": false
+          },
+          {
+            "option_id": "Q5-O3",
+            "code": null,
+            "label": "Hospital",
+            "numeric_value": null,
+            "is_exclusive": false
+          },
+          {
+            "option_id": "Q5-O4",
+            "code": null,
+            "label": "Pharmacy",
+            "numeric_value": null,
+            "is_exclusive": false
+          },
+          {
+            "option_id": "Q5-O5",
+            "code": null,
+            "label": "Patient portal",
+            "numeric_value": null,
+            "is_exclusive": false
+          },
+          {
+            "option_id": "Q5-O6",
+            "code": null,
+            "label": "Support programme",
+            "numeric_value": null,
+            "is_exclusive": false
+          },
+          {
+            "option_id": "Q5-O7",
+            "code": null,
+            "label": "None of these",
+            "numeric_value": null,
+            "is_exclusive": true
+          }
+        ],
+        "matrix_rows": [],
+        "validation": {
+          "min_length": null,
+          "max_length": null,
+          "min_value": null,
+          "max_value": null,
+          "min_selections": null,
+          "sum_to": null,
+          "exclusive_option_id": "Q5-O7",
+          "exclusive_option_label": "None of these",
+          "mandatory": true
+        },
         "guard": null
       },
       {
         "question_id": "Q6",
         "seq": 10,
+        "kind": "single",
+        "wording": "Which touchpoint was most influential?",
+        "options": [
+          {
+            "option_id": "Q6-O1",
+            "code": null,
+            "label": "Primary-care physician",
+            "numeric_value": null,
+            "is_exclusive": false
+          },
+          {
+            "option_id": "Q6-O2",
+            "code": null,
+            "label": "Specialist",
+            "numeric_value": null,
+            "is_exclusive": false
+          },
+          {
+            "option_id": "Q6-O3",
+            "code": null,
+            "label": "Hospital",
+            "numeric_value": null,
+            "is_exclusive": false
+          },
+          {
+            "option_id": "Q6-O4",
+            "code": null,
+            "label": "Pharmacy",
+            "numeric_value": null,
+            "is_exclusive": false
+          },
+          {
+            "option_id": "Q6-O5",
+            "code": null,
+            "label": "Patient portal",
+            "numeric_value": null,
+            "is_exclusive": false
+          },
+          {
+            "option_id": "Q6-O6",
+            "code": null,
+            "label": "Support programme",
+            "numeric_value": null,
+            "is_exclusive": false
+          }
+        ],
+        "matrix_rows": [],
+        "validation": null,
         "guard": {
-          "condition": null,
-          "agreement": "unread",
+          "condition": {
+            "op": "contains_any",
+            "left": {
+              "question_id": "Q5",
+              "aggregate": null,
+              "text": null,
+              "number": null,
+              "values": null,
+              "option_ids": null
+            },
+            "right": {
+              "question_id": null,
+              "aggregate": null,
+              "text": null,
+              "number": null,
+              "values": [
+                "Primary-care physician",
+                "Specialist",
+                "Hospital",
+                "Pharmacy",
+                "Patient portal",
+                "Support programme"
+              ],
+              "option_ids": [
+                "Q5-O1",
+                "Q5-O2",
+                "Q5-O3",
+                "Q5-O4",
+                "Q5-O5",
+                "Q5-O6"
+              ]
+            },
+            "operands": [],
+            "source_text": "Q5 contains any touchpoint",
+            "origin": "inferred",
+            "confidence": 0.95
+          },
+          "agreement": "agree",
           "sources": [
             "questionnaire",
             "R8"
@@ -155,6 +570,47 @@
       {
         "question_id": "Q7",
         "seq": 11,
+        "kind": "single",
+        "wording": "How satisfied are you with the overall experience?",
+        "options": [
+          {
+            "option_id": "Q7-O1",
+            "code": "1",
+            "label": "Very poor",
+            "numeric_value": 1.0,
+            "is_exclusive": false
+          },
+          {
+            "option_id": "Q7-O2",
+            "code": "2",
+            "label": "Poor",
+            "numeric_value": 2.0,
+            "is_exclusive": false
+          },
+          {
+            "option_id": "Q7-O3",
+            "code": "3",
+            "label": "Fair",
+            "numeric_value": 3.0,
+            "is_exclusive": false
+          },
+          {
+            "option_id": "Q7-O4",
+            "code": "4",
+            "label": "Good",
+            "numeric_value": 4.0,
+            "is_exclusive": false
+          },
+          {
+            "option_id": "Q7-O5",
+            "code": "5",
+            "label": "Excellent",
+            "numeric_value": 5.0,
+            "is_exclusive": false
+          }
+        ],
+        "matrix_rows": [],
+        "validation": null,
         "guard": {
           "condition": {
             "op": "ne",
@@ -163,14 +619,18 @@
               "aggregate": null,
               "text": null,
               "number": null,
-              "values": null
+              "values": null,
+              "option_ids": null
             },
             "right": {
               "question_id": null,
               "aggregate": null,
               "text": "None/currently not using",
               "number": null,
-              "values": null
+              "values": null,
+              "option_ids": [
+                "Q3-O5"
+              ]
             },
             "operands": [],
             "source_text": "Q3 != 'None/currently not using'",
@@ -191,6 +651,89 @@
       {
         "question_id": "Q8",
         "seq": 12,
+        "kind": "single",
+        "wording": "How likely are you to recommend the current provider?",
+        "options": [
+          {
+            "option_id": "Q8-O1",
+            "code": null,
+            "label": "0",
+            "numeric_value": 0.0,
+            "is_exclusive": false
+          },
+          {
+            "option_id": "Q8-O2",
+            "code": null,
+            "label": "1",
+            "numeric_value": 1.0,
+            "is_exclusive": false
+          },
+          {
+            "option_id": "Q8-O3",
+            "code": null,
+            "label": "2",
+            "numeric_value": 2.0,
+            "is_exclusive": false
+          },
+          {
+            "option_id": "Q8-O4",
+            "code": null,
+            "label": "3",
+            "numeric_value": 3.0,
+            "is_exclusive": false
+          },
+          {
+            "option_id": "Q8-O5",
+            "code": null,
+            "label": "4",
+            "numeric_value": 4.0,
+            "is_exclusive": false
+          },
+          {
+            "option_id": "Q8-O6",
+            "code": null,
+            "label": "5",
+            "numeric_value": 5.0,
+            "is_exclusive": false
+          },
+          {
+            "option_id": "Q8-O7",
+            "code": null,
+            "label": "6",
+            "numeric_value": 6.0,
+            "is_exclusive": false
+          },
+          {
+            "option_id": "Q8-O8",
+            "code": null,
+            "label": "7",
+            "numeric_value": 7.0,
+            "is_exclusive": false
+          },
+          {
+            "option_id": "Q8-O9",
+            "code": null,
+            "label": "8",
+            "numeric_value": 8.0,
+            "is_exclusive": false
+          },
+          {
+            "option_id": "Q8-O10",
+            "code": null,
+            "label": "9",
+            "numeric_value": 9.0,
+            "is_exclusive": false
+          },
+          {
+            "option_id": "Q8-O11",
+            "code": null,
+            "label": "10",
+            "numeric_value": 10.0,
+            "is_exclusive": false
+          }
+        ],
+        "matrix_rows": [],
+        "validation": null,
         "guard": {
           "condition": {
             "op": "ne",
@@ -199,14 +742,18 @@
               "aggregate": null,
               "text": null,
               "number": null,
-              "values": null
+              "values": null,
+              "option_ids": null
             },
             "right": {
               "question_id": null,
               "aggregate": null,
               "text": "None/currently not using",
               "number": null,
-              "values": null
+              "values": null,
+              "option_ids": [
+                "Q3-O5"
+              ]
             },
             "operands": [],
             "source_text": "Q3 != 'None/currently not using'",
@@ -227,6 +774,90 @@
       {
         "question_id": "Q9",
         "seq": 13,
+        "kind": "matrix",
+        "wording": "Please rate each attribute for your current provider.",
+        "options": [
+          {
+            "option_id": "Q9-O1",
+            "code": "1",
+            "label": "Very poor",
+            "numeric_value": 1.0,
+            "is_exclusive": false
+          },
+          {
+            "option_id": "Q9-O2",
+            "code": "2",
+            "label": "Poor",
+            "numeric_value": 2.0,
+            "is_exclusive": false
+          },
+          {
+            "option_id": "Q9-O3",
+            "code": "3",
+            "label": "Fair",
+            "numeric_value": 3.0,
+            "is_exclusive": false
+          },
+          {
+            "option_id": "Q9-O4",
+            "code": "4",
+            "label": "Good",
+            "numeric_value": 4.0,
+            "is_exclusive": false
+          },
+          {
+            "option_id": "Q9-O5",
+            "code": "5",
+            "label": "Excellent",
+            "numeric_value": 5.0,
+            "is_exclusive": false
+          }
+        ],
+        "matrix_rows": [
+          {
+            "option_id": "Q9-R1",
+            "code": null,
+            "label": "Access",
+            "numeric_value": null,
+            "is_exclusive": false
+          },
+          {
+            "option_id": "Q9-R2",
+            "code": null,
+            "label": "Communication",
+            "numeric_value": null,
+            "is_exclusive": false
+          },
+          {
+            "option_id": "Q9-R3",
+            "code": null,
+            "label": "Coordination",
+            "numeric_value": null,
+            "is_exclusive": false
+          },
+          {
+            "option_id": "Q9-R4",
+            "code": null,
+            "label": "Treatment information",
+            "numeric_value": null,
+            "is_exclusive": false
+          },
+          {
+            "option_id": "Q9-R5",
+            "code": null,
+            "label": "Emotional support",
+            "numeric_value": null,
+            "is_exclusive": false
+          },
+          {
+            "option_id": "Q9-R6",
+            "code": null,
+            "label": "Digital tools",
+            "numeric_value": null,
+            "is_exclusive": false
+          }
+        ],
+        "validation": null,
         "guard": {
           "condition": {
             "op": "ne",
@@ -235,14 +866,18 @@
               "aggregate": null,
               "text": null,
               "number": null,
-              "values": null
+              "values": null,
+              "option_ids": null
             },
             "right": {
               "question_id": null,
               "aggregate": null,
               "text": "None/currently not using",
               "number": null,
-              "values": null
+              "values": null,
+              "option_ids": [
+                "Q3-O5"
+              ]
             },
             "operands": [],
             "source_text": "Q3 != 'None/currently not using'",
@@ -263,11 +898,82 @@
       {
         "question_id": "Q10",
         "seq": 14,
+        "kind": "single",
+        "wording": "Did you contact support during the experience?",
+        "options": [
+          {
+            "option_id": "Q10-O1",
+            "code": null,
+            "label": "Yes",
+            "numeric_value": null,
+            "is_exclusive": false
+          },
+          {
+            "option_id": "Q10-O2",
+            "code": null,
+            "label": "No",
+            "numeric_value": null,
+            "is_exclusive": false
+          }
+        ],
+        "matrix_rows": [],
+        "validation": null,
         "guard": null
       },
       {
         "question_id": "Q11",
         "seq": 15,
+        "kind": "multi",
+        "wording": "Which support channels did you use?",
+        "options": [
+          {
+            "option_id": "Q11-O1",
+            "code": null,
+            "label": "Phone",
+            "numeric_value": null,
+            "is_exclusive": false
+          },
+          {
+            "option_id": "Q11-O2",
+            "code": null,
+            "label": "Email",
+            "numeric_value": null,
+            "is_exclusive": false
+          },
+          {
+            "option_id": "Q11-O3",
+            "code": null,
+            "label": "Chat",
+            "numeric_value": null,
+            "is_exclusive": false
+          },
+          {
+            "option_id": "Q11-O4",
+            "code": null,
+            "label": "In person",
+            "numeric_value": null,
+            "is_exclusive": false
+          },
+          {
+            "option_id": "Q11-O5",
+            "code": null,
+            "label": "Self-service",
+            "numeric_value": null,
+            "is_exclusive": false
+          }
+        ],
+        "matrix_rows": [],
+        "validation": {
+          "min_length": null,
+          "max_length": null,
+          "min_value": null,
+          "max_value": null,
+          "min_selections": 1,
+          "sum_to": null,
+          "exclusive_option_id": null,
+          "exclusive_option_label": null,
+          "mandatory": true
+        },
         "guard": {
           "condition": {
             "op": "eq",
@@ -276,14 +982,18 @@
               "aggregate": null,
               "text": null,
               "number": null,
-              "values": null
+              "values": null,
+              "option_ids": null
             },
             "right": {
               "question_id": null,
               "aggregate": null,
               "text": "Yes",
               "number": null,
-              "values": null
+              "values": null,
+              "option_ids": [
+                "Q10-O1"
+              ]
             },
             "operands": [],
             "source_text": "Q10 == 'Yes'",
@@ -304,6 +1014,33 @@
       {
         "question_id": "Q12",
         "seq": 16,
+        "kind": "single",
+        "wording": "Was your issue resolved?",
+        "options": [
+          {
+            "option_id": "Q12-O1",
+            "code": null,
+            "label": "Fully",
+            "numeric_value": null,
+            "is_exclusive": false
+          },
+          {
+            "option_id": "Q12-O2",
+            "code": null,
+            "label": "Partly",
+            "numeric_value": null,
+            "is_exclusive": false
+          },
+          {
+            "option_id": "Q12-O3",
+            "code": null,
+            "label": "Not resolved",
+            "numeric_value": null,
+            "is_exclusive": false
+          }
+        ],
+        "matrix_rows": [],
+        "validation": null,
         "guard": {
           "condition": {
             "op": "eq",
@@ -312,14 +1049,18 @@
               "aggregate": null,
               "text": null,
               "number": null,
-              "values": null
+              "values": null,
+              "option_ids": null
             },
             "right": {
               "question_id": null,
               "aggregate": null,
               "text": "Yes",
               "number": null,
-              "values": null
+              "values": null,
+              "option_ids": [
+                "Q10-O1"
+              ]
             },
             "operands": [],
             "source_text": "Q10 == 'Yes'",
@@ -340,6 +1081,47 @@
       {
         "question_id": "Q13",
         "seq": 17,
+        "kind": "single",
+        "wording": "How much effort did resolution require?",
+        "options": [
+          {
+            "option_id": "Q13-O1",
+            "code": "1",
+            "label": "Very low",
+            "numeric_value": 1.0,
+            "is_exclusive": false
+          },
+          {
+            "option_id": "Q13-O2",
+            "code": null,
+            "label": "2",
+            "numeric_value": 2.0,
+            "is_exclusive": false
+          },
+          {
+            "option_id": "Q13-O3",
+            "code": null,
+            "label": "3",
+            "numeric_value": 3.0,
+            "is_exclusive": false
+          },
+          {
+            "option_id": "Q13-O4",
+            "code": null,
+            "label": "4",
+            "numeric_value": 4.0,
+            "is_exclusive": false
+          },
+          {
+            "option_id": "Q13-O5",
+            "code": "5",
+            "label": "Very high",
+            "numeric_value": 5.0,
+            "is_exclusive": false
+          }
+        ],
+        "matrix_rows": [],
+        "validation": null,
         "guard": {
           "condition": {
             "op": "in",
@@ -348,7 +1130,8 @@
               "aggregate": null,
               "text": null,
               "number": null,
-              "values": null
+              "values": null,
+              "option_ids": null
             },
             "right": {
               "question_id": null,
@@ -358,6 +1141,10 @@
               "values": [
                 "Fully",
                 "Partly"
+              ],
+              "option_ids": [
+                "Q12-O1",
+                "Q12-O2"
               ]
             },
             "operands": [],
@@ -379,6 +1166,21 @@
       {
         "question_id": "Q14",
         "seq": 18,
+        "kind": "text",
+        "wording": "Why was the issue not resolved?",
+        "options": [],
+        "matrix_rows": [],
+        "validation": {
+          "min_length": 10,
+          "max_length": 500,
+          "min_value": null,
+          "max_value": null,
+          "min_selections": null,
+          "sum_to": null,
+          "exclusive_option_id": null,
+          "exclusive_option_label": null,
+          "mandatory": true
+        },
         "guard": {
           "condition": {
             "op": "eq",
@@ -387,14 +1189,18 @@
               "aggregate": null,
               "text": null,
               "number": null,
-              "values": null
+              "values": null,
+              "option_ids": null
             },
             "right": {
               "question_id": null,
               "aggregate": null,
               "text": "Not resolved",
               "number": null,
-              "values": null
+              "values": null,
+              "option_ids": [
+                "Q12-O3"
+              ]
             },
             "operands": [],
             "source_text": "Q12 == 'Not resolved'",
@@ -415,6 +1221,26 @@
       {
         "question_id": "Q15",
         "seq": 19,
+        "kind": "single",
+        "wording": "Have you considered switching providers?",
+        "options": [
+          {
+            "option_id": "Q15-O1",
+            "code": null,
+            "label": "Yes",
+            "numeric_value": null,
+            "is_exclusive": false
+          },
+          {
+            "option_id": "Q15-O2",
+            "code": null,
+            "label": "No",
+            "numeric_value": null,
+            "is_exclusive": false
+          }
+        ],
+        "matrix_rows": [],
+        "validation": null,
         "guard": {
           "condition": {
             "op": "ne",
@@ -423,14 +1249,18 @@
               "aggregate": null,
               "text": null,
               "number": null,
-              "values": null
+              "values": null,
+              "option_ids": null
             },
             "right": {
               "question_id": null,
               "aggregate": null,
               "text": "None/currently not using",
               "number": null,
-              "values": null
+              "values": null,
+              "option_ids": [
+                "Q3-O5"
+              ]
             },
             "operands": [],
             "source_text": "Q3 != 'None/currently not using'",
@@ -449,6 +1279,54 @@
       {
         "question_id": "Q16",
         "seq": 20,
+        "kind": "single",
+        "wording": "What is the main reason for considering a switch?",
+        "options": [
+          {
+            "option_id": "Q16-O1",
+            "code": null,
+            "label": "Price",
+            "numeric_value": null,
+            "is_exclusive": false
+          },
+          {
+            "option_id": "Q16-O2",
+            "code": null,
+            "label": "Service quality",
+            "numeric_value": null,
+            "is_exclusive": false
+          },
+          {
+            "option_id": "Q16-O3",
+            "code": null,
+            "label": "Features",
+            "numeric_value": null,
+            "is_exclusive": false
+          },
+          {
+            "option_id": "Q16-O4",
+            "code": null,
+            "label": "Poor support",
+            "numeric_value": null,
+            "is_exclusive": false
+          },
+          {
+            "option_id": "Q16-O5",
+            "code": null,
+            "label": "Competitor offer",
+            "numeric_value": null,
+            "is_exclusive": false
+          },
+          {
+            "option_id": "Q16-O6",
+            "code": null,
+            "label": "Other",
+            "numeric_value": null,
+            "is_exclusive": false
+          }
+        ],
+        "matrix_rows": [],
+        "validation": null,
         "guard": {
           "condition": {
             "op": "eq",
@@ -457,14 +1335,18 @@
               "aggregate": null,
               "text": null,
               "number": null,
-              "values": null
+              "values": null,
+              "option_ids": null
             },
             "right": {
               "question_id": null,
               "aggregate": null,
               "text": "Yes",
               "number": null,
-              "values": null
+              "values": null,
+              "option_ids": [
+                "Q15-O1"
+              ]
             },
             "operands": [],
             "source_text": "Q15 == 'Yes'",
@@ -485,6 +1367,21 @@
       {
         "question_id": "Q17",
         "seq": 21,
+        "kind": "text",
+        "wording": "Please specify the other switching reason.",
+        "options": [],
+        "matrix_rows": [],
+        "validation": {
+          "min_length": 3,
+          "max_length": 200,
+          "min_value": null,
+          "max_value": null,
+          "min_selections": null,
+          "sum_to": null,
+          "exclusive_option_id": null,
+          "exclusive_option_label": null,
+          "mandatory": true
+        },
         "guard": {
           "condition": {
             "op": "eq",
@@ -493,14 +1390,18 @@
               "aggregate": null,
               "text": null,
               "number": null,
-              "values": null
+              "values": null,
+              "option_ids": null
             },
             "right": {
               "question_id": null,
               "aggregate": null,
               "text": "Other",
               "number": null,
-              "values": null
+              "values": null,
+              "option_ids": [
+                "Q16-O6"
+              ]
             },
             "operands": [],
             "source_text": "Q16 == 'Other'",
@@ -521,52 +1422,429 @@
       {
         "question_id": "Q18",
         "seq": 22,
+        "kind": "constant_sum",
+        "wording": "Allocate 100 points across the factors that drive your decision.",
+        "options": [
+          {
+            "option_id": "Q18-O1",
+            "code": null,
+            "label": "Price",
+            "numeric_value": null,
+            "is_exclusive": false
+          },
+          {
+            "option_id": "Q18-O2",
+            "code": null,
+            "label": "Quality",
+            "numeric_value": null,
+            "is_exclusive": false
+          },
+          {
+            "option_id": "Q18-O3",
+            "code": null,
+            "label": "Convenience",
+            "numeric_value": null,
+            "is_exclusive": false
+          },
+          {
+            "option_id": "Q18-O4",
+            "code": null,
+            "label": "Trust",
+            "numeric_value": null,
+            "is_exclusive": false
+          },
+          {
+            "option_id": "Q18-O5",
+            "code": null,
+            "label": "Support",
+            "numeric_value": null,
+            "is_exclusive": false
+          }
+        ],
+        "matrix_rows": [],
+        "validation": {
+          "min_length": null,
+          "max_length": null,
+          "min_value": null,
+          "max_value": null,
+          "min_selections": null,
+          "sum_to": 100,
+          "exclusive_option_id": null,
+          "exclusive_option_label": null,
+          "mandatory": true
+        },
         "guard": null
       },
       {
         "question_id": "Q19",
         "seq": 23,
+        "kind": "single",
+        "wording": "Which new proposition do you prefer?",
+        "options": [
+          {
+            "option_id": "Q19-O1",
+            "code": null,
+            "label": "Concept A",
+            "numeric_value": null,
+            "is_exclusive": false
+          },
+          {
+            "option_id": "Q19-O2",
+            "code": null,
+            "label": "Concept B",
+            "numeric_value": null,
+            "is_exclusive": false
+          },
+          {
+            "option_id": "Q19-O3",
+            "code": null,
+            "label": "Concept C",
+            "numeric_value": null,
+            "is_exclusive": false
+          }
+        ],
+        "matrix_rows": [],
+        "validation": null,
         "guard": null
       },
       {
         "question_id": "Q20",
         "seq": 24,
+        "kind": "single",
+        "wording": "How appealing is the selected proposition?",
+        "options": [
+          {
+            "option_id": "Q20-O1",
+            "code": "1",
+            "label": "Very poor",
+            "numeric_value": 1.0,
+            "is_exclusive": false
+          },
+          {
+            "option_id": "Q20-O2",
+            "code": "2",
+            "label": "Poor",
+            "numeric_value": 2.0,
+            "is_exclusive": false
+          },
+          {
+            "option_id": "Q20-O3",
+            "code": "3",
+            "label": "Fair",
+            "numeric_value": 3.0,
+            "is_exclusive": false
+          },
+          {
+            "option_id": "Q20-O4",
+            "code": "4",
+            "label": "Good",
+            "numeric_value": 4.0,
+            "is_exclusive": false
+          },
+          {
+            "option_id": "Q20-O5",
+            "code": "5",
+            "label": "Excellent",
+            "numeric_value": 5.0,
+            "is_exclusive": false
+          }
+        ],
+        "matrix_rows": [],
+        "validation": null,
         "guard": null
       },
       {
         "question_id": "Q21",
         "seq": 25,
+        "kind": "text",
+        "wording": "What most influenced your choice?",
+        "options": [],
+        "matrix_rows": [],
+        "validation": {
+          "min_length": 5,
+          "max_length": 500,
+          "min_value": null,
+          "max_value": null,
+          "min_selections": null,
+          "sum_to": null,
+          "exclusive_option_id": null,
+          "exclusive_option_label": null,
+          "mandatory": true
+        },
         "guard": null
       },
       {
         "question_id": "D1",
         "seq": 26,
+        "kind": "single",
+        "wording": "Which region do you live in?",
+        "options": [
+          {
+            "option_id": "D1-O1",
+            "code": null,
+            "label": "North",
+            "numeric_value": null,
+            "is_exclusive": false
+          },
+          {
+            "option_id": "D1-O2",
+            "code": null,
+            "label": "South",
+            "numeric_value": null,
+            "is_exclusive": false
+          },
+          {
+            "option_id": "D1-O3",
+            "code": null,
+            "label": "East",
+            "numeric_value": null,
+            "is_exclusive": false
+          },
+          {
+            "option_id": "D1-O4",
+            "code": null,
+            "label": "West",
+            "numeric_value": null,
+            "is_exclusive": false
+          },
+          {
+            "option_id": "D1-O5",
+            "code": null,
+            "label": "Central",
+            "numeric_value": null,
+            "is_exclusive": false
+          }
+        ],
+        "matrix_rows": [],
+        "validation": null,
         "guard": null
       },
       {
         "question_id": "D2",
         "seq": 27,
+        "kind": "single",
+        "wording": "Which age group describes you?",
+        "options": [
+          {
+            "option_id": "D2-O1",
+            "code": null,
+            "label": "21-29",
+            "numeric_value": null,
+            "is_exclusive": false
+          },
+          {
+            "option_id": "D2-O2",
+            "code": null,
+            "label": "30-39",
+            "numeric_value": null,
+            "is_exclusive": false
+          },
+          {
+            "option_id": "D2-O3",
+            "code": null,
+            "label": "40-49",
+            "numeric_value": null,
+            "is_exclusive": false
+          },
+          {
+            "option_id": "D2-O4",
+            "code": null,
+            "label": "50-59",
+            "numeric_value": null,
+            "is_exclusive": false
+          },
+          {
+            "option_id": "D2-O5",
+            "code": null,
+            "label": "60+",
+            "numeric_value": null,
+            "is_exclusive": false
+          }
+        ],
+        "matrix_rows": [],
+        "validation": null,
         "guard": null
       },
       {
         "question_id": "D3",
         "seq": 28,
+        "kind": "single",
+        "wording": "How do you describe your gender?",
+        "options": [
+          {
+            "option_id": "D3-O1",
+            "code": null,
+            "label": "Woman",
+            "numeric_value": null,
+            "is_exclusive": false
+          },
+          {
+            "option_id": "D3-O2",
+            "code": null,
+            "label": "Man",
+            "numeric_value": null,
+            "is_exclusive": false
+          },
+          {
+            "option_id": "D3-O3",
+            "code": null,
+            "label": "Non-binary",
+            "numeric_value": null,
+            "is_exclusive": false
+          },
+          {
+            "option_id": "D3-O4",
+            "code": null,
+            "label": "Prefer to self-describe",
+            "numeric_value": null,
+            "is_exclusive": false
+          },
+          {
+            "option_id": "D3-O5",
+            "code": null,
+            "label": "Prefer not to say",
+            "numeric_value": null,
+            "is_exclusive": false
+          }
+        ],
+        "matrix_rows": [],
+        "validation": null,
         "guard": null
       },
       {
         "question_id": "D4",
         "seq": 29,
+        "kind": "single",
+        "wording": "What is your household or organizational decision band?",
+        "options": [
+          {
+            "option_id": "D4-O1",
+            "code": null,
+            "label": "Band 1",
+            "numeric_value": null,
+            "is_exclusive": false
+          },
+          {
+            "option_id": "D4-O2",
+            "code": null,
+            "label": "Band 2",
+            "numeric_value": null,
+            "is_exclusive": false
+          },
+          {
+            "option_id": "D4-O3",
+            "code": null,
+            "label": "Band 3",
+            "numeric_value": null,
+            "is_exclusive": false
+          },
+          {
+            "option_id": "D4-O4",
+            "code": null,
+            "label": "Band 4",
+            "numeric_value": null,
+            "is_exclusive": false
+          },
+          {
+            "option_id": "D4-O5",
+            "code": null,
+            "label": "Prefer not to say",
+            "numeric_value": null,
+            "is_exclusive": false
+          }
+        ],
+        "matrix_rows": [],
+        "validation": null,
         "guard": null
       },
       {
         "question_id": "Q22",
         "seq": 30,
+        "kind": "single",
+        "wording": "May we use your anonymized comments in internal reporting?",
+        "options": [
+          {
+            "option_id": "Q22-O1",
+            "code": null,
+            "label": "Yes",
+            "numeric_value": null,
+            "is_exclusive": false
+          },
+          {
+            "option_id": "Q22-O2",
+            "code": null,
+            "label": "No",
+            "numeric_value": null,
+            "is_exclusive": false
+          }
+        ],
+        "matrix_rows": [],
+        "validation": null,
         "guard": null
       },
       {
         "question_id": "Q23",
         "seq": 31,
+        "kind": "text",
+        "wording": "Any final comments?",
+        "options": [],
+        "matrix_rows": [],
+        "validation": {
+          "min_length": null,
+          "max_length": 1000,
+          "min_value": null,
+          "max_value": null,
+          "min_selections": null,
+          "sum_to": null,
+          "exclusive_option_id": null,
+          "exclusive_option_label": null,
+          "mandatory": false
+        },
         "guard": null
+      }
+    ],
+    "dispositions": [
+      {
+        "disposition_id": "COMPLETE",
+        "kind": "complete",
+        "message": "Thank you. Your response has been recorded.",
+        "terminal": true,
+        "defined_in_source": true
+      },
+      {
+        "disposition_id": "TERM_AGE",
+        "kind": "screenout",
+        "message": "Thank you for your interest. You do not qualify for this survey.",
+        "terminal": true,
+        "defined_in_source": true
+      },
+      {
+        "disposition_id": "TERM_CONFLICT",
+        "kind": "screenout",
+        "message": "Thank you for your interest. You do not qualify for this survey.",
+        "terminal": true,
+        "defined_in_source": true
+      },
+      {
+        "disposition_id": "TERM_INVOLVEMENT",
+        "kind": "screenout",
+        "message": "Thank you for your interest. You do not qualify for this survey.",
+        "terminal": true,
+        "defined_in_source": true
+      },
+      {
+        "disposition_id": "TERM_QUOTA_FULL",
+        "kind": "quota_full",
+        "message": null,
+        "terminal": true,
+        "defined_in_source": false
+      },
+      {
+        "disposition_id": "TERM_RECENT_RESEARCH",
+        "kind": "screenout",
+        "message": "Thank you for your interest. You do not qualify for this survey.",
+        "terminal": true,
+        "defined_in_source": true
       }
     ],
     "rules": [
@@ -580,14 +1858,18 @@
             "aggregate": null,
             "text": null,
             "number": null,
-            "values": null
+            "values": null,
+            "option_ids": null
           },
           "right": {
             "question_id": null,
             "aggregate": null,
             "text": "No",
             "number": null,
-            "values": null
+            "values": null,
+            "option_ids": [
+              "S1-O2"
+            ]
           },
           "operands": [],
           "source_text": "S1 == 'No'",
@@ -623,14 +1905,18 @@
             "aggregate": null,
             "text": null,
             "number": null,
-            "values": null
+            "values": null,
+            "option_ids": null
           },
           "right": {
             "question_id": null,
             "aggregate": null,
             "text": "Personally manage an ongoing chronic health condition",
             "number": null,
-            "values": null
+            "values": null,
+            "option_ids": [
+              "S2-O1"
+            ]
           },
           "operands": [],
           "source_text": "S2 != 'Personally manage an ongoing chronic health condition'",
@@ -666,14 +1952,18 @@
             "aggregate": null,
             "text": null,
             "number": null,
-            "values": null
+            "values": null,
+            "option_ids": null
           },
           "right": {
             "question_id": null,
             "aggregate": null,
             "text": "Yes",
             "number": null,
-            "values": null
+            "values": null,
+            "option_ids": [
+              "S3-O1"
+            ]
           },
           "operands": [],
           "source_text": "S3 == 'Yes'",
@@ -709,14 +1999,18 @@
             "aggregate": null,
             "text": null,
             "number": null,
-            "values": null
+            "values": null,
+            "option_ids": null
           },
           "right": {
             "question_id": null,
             "aggregate": null,
             "text": "Yes",
             "number": null,
-            "values": null
+            "values": null,
+            "option_ids": [
+              "S4-O1"
+            ]
           },
           "operands": [],
           "source_text": "S4 == 'Yes'",
@@ -752,7 +2046,8 @@
             "aggregate": null,
             "text": null,
             "number": null,
-            "values": null
+            "values": null,
+            "option_ids": null
           },
           "right": {
             "question_id": null,
@@ -761,6 +2056,9 @@
             "number": null,
             "values": [
               "None of these"
+            ],
+            "option_ids": [
+              "Q1-O5"
             ]
           },
           "operands": [],
@@ -797,7 +2095,8 @@
             "aggregate": null,
             "text": null,
             "number": null,
-            "values": null
+            "values": null,
+            "option_ids": null
           },
           "right": {
             "question_id": null,
@@ -808,6 +2107,11 @@
               "Care Network A",
               "Care Network B",
               "Care Network C"
+            ],
+            "option_ids": [
+              "Q1-O1",
+              "Q1-O2",
+              "Q1-O3"
             ]
           },
           "operands": [],
@@ -844,7 +2148,8 @@
             "aggregate": null,
             "text": null,
             "number": null,
-            "values": null
+            "values": null,
+            "option_ids": null
           },
           "right": {
             "question_id": null,
@@ -855,6 +2160,11 @@
               "Care Network A",
               "Care Network B",
               "Care Network C"
+            ],
+            "option_ids": [
+              "Q1-O1",
+              "Q1-O2",
+              "Q1-O3"
             ]
           },
           "operands": [],
@@ -884,8 +2194,44 @@
       {
         "rule_id": "R8",
         "kind": "show",
-        "when": null,
-        "when_unread": "Q5 contains any touchpoint",
+        "when": {
+          "op": "contains_any",
+          "left": {
+            "question_id": "Q5",
+            "aggregate": null,
+            "text": null,
+            "number": null,
+            "values": null,
+            "option_ids": null
+          },
+          "right": {
+            "question_id": null,
+            "aggregate": null,
+            "text": null,
+            "number": null,
+            "values": [
+              "Primary-care physician",
+              "Specialist",
+              "Hospital",
+              "Pharmacy",
+              "Patient portal",
+              "Support programme"
+            ],
+            "option_ids": [
+              "Q5-O1",
+              "Q5-O2",
+              "Q5-O3",
+              "Q5-O4",
+              "Q5-O5",
+              "Q5-O6"
+            ]
+          },
+          "operands": [],
+          "source_text": "Q5 contains any touchpoint",
+          "origin": "inferred",
+          "confidence": 0.95
+        },
+        "when_unread": null,
         "destination": {
           "kind": "question",
           "id": "Q6",
@@ -914,14 +2260,18 @@
             "aggregate": null,
             "text": null,
             "number": null,
-            "values": null
+            "values": null,
+            "option_ids": null
           },
           "right": {
             "question_id": null,
             "aggregate": null,
             "text": "None/currently not using",
             "number": null,
-            "values": null
+            "values": null,
+            "option_ids": [
+              "Q3-O5"
+            ]
           },
           "operands": [],
           "source_text": "Q3 != 'None/currently not using'",
@@ -957,14 +2307,18 @@
             "aggregate": null,
             "text": null,
             "number": null,
-            "values": null
+            "values": null,
+            "option_ids": null
           },
           "right": {
             "question_id": null,
             "aggregate": null,
             "text": "None/currently not using",
             "number": null,
-            "values": null
+            "values": null,
+            "option_ids": [
+              "Q3-O5"
+            ]
           },
           "operands": [],
           "source_text": "Q3 != 'None/currently not using'",
@@ -1000,14 +2354,18 @@
             "aggregate": null,
             "text": null,
             "number": null,
-            "values": null
+            "values": null,
+            "option_ids": null
           },
           "right": {
             "question_id": null,
             "aggregate": null,
             "text": "None/currently not using",
             "number": null,
-            "values": null
+            "values": null,
+            "option_ids": [
+              "Q3-O5"
+            ]
           },
           "operands": [],
           "source_text": "Q3 != 'None/currently not using'",
@@ -1043,14 +2401,18 @@
             "aggregate": null,
             "text": null,
             "number": null,
-            "values": null
+            "values": null,
+            "option_ids": null
           },
           "right": {
             "question_id": null,
             "aggregate": null,
             "text": "Yes",
             "number": null,
-            "values": null
+            "values": null,
+            "option_ids": [
+              "Q10-O1"
+            ]
           },
           "operands": [],
           "source_text": "Q10 == 'Yes'",
@@ -1086,14 +2448,18 @@
             "aggregate": null,
             "text": null,
             "number": null,
-            "values": null
+            "values": null,
+            "option_ids": null
           },
           "right": {
             "question_id": null,
             "aggregate": null,
             "text": "Yes",
             "number": null,
-            "values": null
+            "values": null,
+            "option_ids": [
+              "Q10-O1"
+            ]
           },
           "operands": [],
           "source_text": "Q10 == 'Yes'",
@@ -1129,7 +2495,8 @@
             "aggregate": null,
             "text": null,
             "number": null,
-            "values": null
+            "values": null,
+            "option_ids": null
           },
           "right": {
             "question_id": null,
@@ -1139,6 +2506,10 @@
             "values": [
               "Fully",
               "Partly"
+            ],
+            "option_ids": [
+              "Q12-O1",
+              "Q12-O2"
             ]
           },
           "operands": [],
@@ -1175,14 +2546,18 @@
             "aggregate": null,
             "text": null,
             "number": null,
-            "values": null
+            "values": null,
+            "option_ids": null
           },
           "right": {
             "question_id": null,
             "aggregate": null,
             "text": "Not resolved",
             "number": null,
-            "values": null
+            "values": null,
+            "option_ids": [
+              "Q12-O3"
+            ]
           },
           "operands": [],
           "source_text": "Q12 == 'Not resolved'",
@@ -1218,14 +2593,18 @@
             "aggregate": null,
             "text": null,
             "number": null,
-            "values": null
+            "values": null,
+            "option_ids": null
           },
           "right": {
             "question_id": null,
             "aggregate": null,
             "text": "Yes",
             "number": null,
-            "values": null
+            "values": null,
+            "option_ids": [
+              "Q15-O1"
+            ]
           },
           "operands": [],
           "source_text": "Q15 == 'Yes'",
@@ -1261,14 +2640,18 @@
             "aggregate": null,
             "text": null,
             "number": null,
-            "values": null
+            "values": null,
+            "option_ids": null
           },
           "right": {
             "question_id": null,
             "aggregate": null,
             "text": "Other",
             "number": null,
-            "values": null
+            "values": null,
+            "option_ids": [
+              "Q16-O6"
+            ]
           },
           "operands": [],
           "source_text": "Q16 == 'Other'",
@@ -1304,14 +2687,16 @@
             "aggregate": "sum",
             "text": null,
             "number": null,
-            "values": null
+            "values": null,
+            "option_ids": null
           },
           "right": {
             "question_id": null,
             "aggregate": null,
             "text": null,
             "number": 100.0,
-            "values": null
+            "values": null,
+            "option_ids": null
           },
           "operands": [],
           "source_text": "sum(Q18) != 100",
@@ -1357,14 +2742,18 @@
                     "aggregate": null,
                     "text": null,
                     "number": null,
-                    "values": null
+                    "values": null,
+                    "option_ids": null
                   },
                   "right": {
                     "question_id": null,
                     "aggregate": null,
                     "text": "None of these",
                     "number": null,
-                    "values": null
+                    "values": null,
+                    "option_ids": [
+                      "Q1-O5"
+                    ]
                   },
                   "operands": [],
                   "source_text": "contains(Q1, 'None of these')",
@@ -1372,33 +2761,44 @@
                   "confidence": null
                 },
                 {
-                  "op": "contains_any",
-                  "left": {
-                    "question_id": "Q1",
-                    "aggregate": null,
-                    "text": null,
-                    "number": null,
-                    "values": null
-                  },
-                  "right": {
-                    "question_id": null,
-                    "aggregate": null,
-                    "text": null,
-                    "number": null,
-                    "values": [
-                      "Care Network A",
-                      "Care Network B",
-                      "Care Network C",
-                      "Independent provider"
-                    ]
-                  },
-                  "operands": [],
-                  "source_text": "contains_any(Q1, ['Care Network A','Care Network B','Care Network C','Independent provider'])",
+                  "op": "not",
+                  "left": null,
+                  "right": null,
+                  "operands": [
+                    {
+                      "op": "set_eq",
+                      "left": {
+                        "question_id": "Q1",
+                        "aggregate": null,
+                        "text": null,
+                        "number": null,
+                        "values": null,
+                        "option_ids": null
+                      },
+                      "right": {
+                        "question_id": null,
+                        "aggregate": null,
+                        "text": null,
+                        "number": null,
+                        "values": [
+                          "None of these"
+                        ],
+                        "option_ids": [
+                          "Q1-O5"
+                        ]
+                      },
+                      "operands": [],
+                      "source_text": "Q1 == ['None of these']",
+                      "origin": "derived",
+                      "confidence": null
+                    }
+                  ],
+                  "source_text": "not (Q1 == ['None of these'])",
                   "origin": "derived",
                   "confidence": null
                 }
               ],
-              "source_text": "contains(Q1, 'None of these') and contains_any(Q1, ['Care Network A','Care Network B','Care Network C','Independent provider'])",
+              "source_text": "contains(Q1, 'None of these') and not (Q1 == ['None of these'])",
               "origin": "derived",
               "confidence": null
             },
@@ -1414,14 +2814,18 @@
                     "aggregate": null,
                     "text": null,
                     "number": null,
-                    "values": null
+                    "values": null,
+                    "option_ids": null
                   },
                   "right": {
                     "question_id": null,
                     "aggregate": null,
                     "text": "None of these",
                     "number": null,
-                    "values": null
+                    "values": null,
+                    "option_ids": [
+                      "Q5-O7"
+                    ]
                   },
                   "operands": [],
                   "source_text": "contains(Q5, 'None of these')",
@@ -1429,42 +2833,51 @@
                   "confidence": null
                 },
                 {
-                  "op": "contains_any",
-                  "left": {
-                    "question_id": "Q5",
-                    "aggregate": null,
-                    "text": null,
-                    "number": null,
-                    "values": null
-                  },
-                  "right": {
-                    "question_id": null,
-                    "aggregate": null,
-                    "text": null,
-                    "number": null,
-                    "values": [
-                      "Primary-care physician",
-                      "Specialist",
-                      "Hospital",
-                      "Pharmacy",
-                      "Patient portal",
-                      "Support programme"
-                    ]
-                  },
-                  "operands": [],
-                  "source_text": "contains_any(Q5, ['Primary-care physician','Specialist','Hospital','Pharmacy','Patient portal','Support programme'])",
+                  "op": "not",
+                  "left": null,
+                  "right": null,
+                  "operands": [
+                    {
+                      "op": "set_eq",
+                      "left": {
+                        "question_id": "Q5",
+                        "aggregate": null,
+                        "text": null,
+                        "number": null,
+                        "values": null,
+                        "option_ids": null
+                      },
+                      "right": {
+                        "question_id": null,
+                        "aggregate": null,
+                        "text": null,
+                        "number": null,
+                        "values": [
+                          "None of these"
+                        ],
+                        "option_ids": [
+                          "Q5-O7"
+                        ]
+                      },
+                      "operands": [],
+                      "source_text": "Q5 == ['None of these']",
+                      "origin": "derived",
+                      "confidence": null
+                    }
+                  ],
+                  "source_text": "not (Q5 == ['None of these'])",
                   "origin": "derived",
                   "confidence": null
                 }
               ],
-              "source_text": "contains(Q5, 'None of these') and contains_any(Q5, ['Primary-care physician','Specialist','Hospital','Pharmacy','Patient portal','Support programme'])",
+              "source_text": "contains(Q5, 'None of these') and not (Q5 == ['None of these'])",
               "origin": "derived",
               "confidence": null
             }
           ],
           "source_text": "exclusive option selected with another response at Q1 or Q5",
           "origin": "inferred",
-          "confidence": 0.97
+          "confidence": 0.95
         },
         "when_unread": null,
         "destination": {
@@ -1500,14 +2913,16 @@
                 "aggregate": null,
                 "text": null,
                 "number": null,
-                "values": null
+                "values": null,
+                "option_ids": null
               },
               "right": {
                 "question_id": "Q6",
                 "aggregate": null,
                 "text": null,
                 "number": null,
-                "values": null
+                "values": null,
+                "option_ids": null
               },
               "operands": [],
               "source_text": "contains(Q5, Q6)",
@@ -1517,7 +2932,7 @@
           ],
           "source_text": "selected option at Q6 was not selected at Q5",
           "origin": "inferred",
-          "confidence": 0.99
+          "confidence": 0.96
         },
         "when_unread": null,
         "destination": {
@@ -1555,17 +2970,24 @@
         "origin": "derived"
       },
       {
-        "from_question": "Q19",
-        "to_question": "Q20",
+        "from_question": "Q3",
+        "to_question": "Q8",
         "kind": "text_pipe",
-        "detail": "the selected proposition",
+        "detail": "the current provider",
+        "origin": "inferred"
+      },
+      {
+        "from_question": "Q3",
+        "to_question": "Q9",
+        "kind": "text_pipe",
+        "detail": "your current provider",
         "origin": "inferred"
       },
       {
         "from_question": "Q19",
-        "to_question": "Q21",
+        "to_question": "Q20",
         "kind": "text_pipe",
-        "detail": "your choice",
+        "detail": "the selected proposition",
         "origin": "inferred"
       }
     ],
@@ -1710,25 +3132,14 @@
         "source_reference": null
       },
       {
-        "check": "condition_unread",
+        "check": "condition_inferred",
         "severity": "WARNING",
-        "finding": "Q6's display condition could not be read as a condition: model declined: The phrase \"Q5 contains any touchpoint\" is ambiguous: it does not specify which answer labels constitute a \"touchpoint\". The answer list includes several specific touchpoints and a \"None of these\" option, but the original wording does not clarify whether \"any touchpoint\" refers to all listed options, only the first six, or excludes \"None of these\". Because the required grammar needs explicit label lists, and we cannot infer the intended subset with certainty, we return null.",
+        "finding": "Q6's display condition was prose, so a model proposed a reading which the parser then accepted. Worth a human eye.",
         "target": {
           "kind": "question",
           "id": "Q6"
         },
-        "evidence": "Q5 contains any touchpoint",
-        "source_reference": null
-      },
-      {
-        "check": "guard_unread",
-        "severity": "WARNING",
-        "finding": "Q6's display condition is prose and could not be read as a condition.",
-        "target": {
-          "kind": "question",
-          "id": "Q6"
-        },
-        "evidence": "Q5 contains any touchpoint",
+        "evidence": "Q5 contains any touchpoint  ->  Q5 contains_any ['Primary-care physician', 'Specialist', 'Hospital', 'Pharmacy', 'Patient portal', 'Support programme']",
         "source_reference": null
       },
       {
@@ -1761,7 +3172,7 @@
           "kind": "rule",
           "id": "R19"
         },
-        "evidence": "exclusive option selected with another response at Q1 or Q5  ->  ((Q1 contains 'None of these' and Q1 contains_any ['Care Network A', 'Care Network B', 'Care Network C', 'Independent provider']) or (Q5 contains 'None of these' and Q5 contains_any ['Primary-care physician', 'Specialist', 'Hospital', 'Pharmacy', 'Patient portal', 'Support programme']))",
+        "evidence": "exclusive option selected with another response at Q1 or Q5  ->  ((Q1 contains 'None of these' and not Q1 set_eq ['None of these']) or (Q5 contains 'None of these' and not Q5 set_eq ['None of these']))",
         "source_reference": null
       },
       {
@@ -1773,50 +3184,6 @@
           "id": "R20"
         },
         "evidence": "selected option at Q6 was not selected at Q5  ->  not Q5 contains Q6",
-        "source_reference": null
-      },
-      {
-        "check": "text_pipe_inferred",
-        "severity": "WARNING",
-        "finding": "Q20's wording appears to quote the answer given at Q19. No table states this; it was read out of the sentence, so it is worth confirming.",
-        "target": {
-          "kind": "question",
-          "id": "Q20"
-        },
-        "evidence": "'the selected proposition' (confidence 0.99)",
-        "source_reference": null
-      },
-      {
-        "check": "text_pipe_inferred",
-        "severity": "WARNING",
-        "finding": "Q21's wording appears to quote the answer given at Q19. No table states this; it was read out of the sentence, so it is worth confirming.",
-        "target": {
-          "kind": "question",
-          "id": "Q21"
-        },
-        "evidence": "'your choice' (confidence 0.98)",
-        "source_reference": null
-      },
-      {
-        "check": "randomization_anchoring",
-        "severity": "WARNING",
-        "finding": "Q1 shuffles its options and has 'None of these' as an exclusive option. Convention keeps such an option at the bottom, but the QRE does not say so.",
-        "target": {
-          "kind": "question",
-          "id": "Q1"
-        },
-        "evidence": "randomize=true, exclusive_option='None of these'",
-        "source_reference": null
-      },
-      {
-        "check": "randomization_anchoring",
-        "severity": "WARNING",
-        "finding": "Q5 shuffles its options and has 'None of these' as an exclusive option. Convention keeps such an option at the bottom, but the QRE does not say so.",
-        "target": {
-          "kind": "question",
-          "id": "Q5"
-        },
-        "evidence": "randomize=true, exclusive_option='None of these'",
         "source_reference": null
       },
       {
@@ -1861,6 +3228,61 @@
           "id": "QUOTA_AGE"
         },
         "evidence": "QUOTA_AGE: soft quota on D2: 21-29=20%, 30-39=25%, 40-49=25%, 50-59=20 -> D2, 5 groups",
+        "source_reference": null
+      },
+      {
+        "check": "text_pipe_inferred",
+        "severity": "WARNING",
+        "finding": "Q8's wording appears to quote the answer given at Q3. No table states this; it was read out of the sentence, so it is worth confirming.",
+        "target": {
+          "kind": "question",
+          "id": "Q8"
+        },
+        "evidence": "'the current provider' (confidence 0.99)",
+        "source_reference": null
+      },
+      {
+        "check": "text_pipe_inferred",
+        "severity": "WARNING",
+        "finding": "Q9's wording appears to quote the answer given at Q3. No table states this; it was read out of the sentence, so it is worth confirming.",
+        "target": {
+          "kind": "question",
+          "id": "Q9"
+        },
+        "evidence": "'your current provider' (confidence 0.99)",
+        "source_reference": null
+      },
+      {
+        "check": "text_pipe_inferred",
+        "severity": "WARNING",
+        "finding": "Q20's wording appears to quote the answer given at Q19. No table states this; it was read out of the sentence, so it is worth confirming.",
+        "target": {
+          "kind": "question",
+          "id": "Q20"
+        },
+        "evidence": "'the selected proposition' (confidence 0.99)",
+        "source_reference": null
+      },
+      {
+        "check": "randomization_anchoring",
+        "severity": "WARNING",
+        "finding": "Q1 shuffles its options and has 'None of these' as an exclusive option. Convention keeps such an option at the bottom, but the QRE does not say so.",
+        "target": {
+          "kind": "question",
+          "id": "Q1"
+        },
+        "evidence": "randomize=true, exclusive_option='None of these'",
+        "source_reference": null
+      },
+      {
+        "check": "randomization_anchoring",
+        "severity": "WARNING",
+        "finding": "Q5 shuffles its options and has 'None of these' as an exclusive option. Convention keeps such an option at the bottom, but the QRE does not say so.",
+        "target": {
+          "kind": "question",
+          "id": "Q5"
+        },
+        "evidence": "randomize=true, exclusive_option='None of these'",
         "source_reference": null
       },
       {
