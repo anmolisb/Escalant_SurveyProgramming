@@ -23,7 +23,9 @@ import re
 from models import (
     AuditFinding,
     CanonicalDisposition,
+    CanonicalOption,
     CanonicalQuestion,
+    CanonicalValidation,
     CanonicalRule,
     CanonicalSurvey,
     Condition,
@@ -781,6 +783,142 @@ def _build_dispositions(
     return sorted(dispositions.values(), key=lambda d: d.disposition_id)
 
 
+def _canonical_options(options, exclusive_label: str | None) -> list:
+    """Carry Part 1's options across, marking the exclusive one.
+
+    The QRE names its exclusive option by label. Matching it here means nothing
+    downstream has to compare loose text to work out which option cannot be
+    combined with the others.
+    """
+    carried = []
+    for option in options:
+        carried.append(
+            CanonicalOption(
+                option_id=option.option_id,
+                code=option.code,
+                label=option.label,
+                numeric_value=option.numeric_value,
+                is_exclusive=bool(exclusive_label)
+                and option.label == exclusive_label,
+            )
+        )
+    return carried
+
+
+def _canonical_validation(question) -> CanonicalValidation | None:
+    """What counts as an acceptable answer, with the exclusive option resolved.
+
+    Returns None when the QRE states no constraint at all, so an absent
+    validation means "nothing was stated" rather than "everything defaulted".
+    """
+    exclusive_id = None
+    if question.exclusive_option:
+        exclusive_id = next(
+            (
+                o.option_id
+                for o in question.options
+                if o.label == question.exclusive_option
+            ),
+            None,
+        )
+
+    stated = (
+        question.min_length,
+        question.max_length,
+        question.min_value,
+        question.max_value,
+        question.min_selections,
+        question.sum_to,
+        question.exclusive_option,
+    )
+    if not any(v is not None for v in stated) and not question.optional:
+        return None
+
+    return CanonicalValidation(
+        min_length=question.min_length,
+        max_length=question.max_length,
+        min_value=question.min_value,
+        max_value=question.max_value,
+        min_selections=question.min_selections,
+        sum_to=question.sum_to,
+        exclusive_option_id=exclusive_id,
+        exclusive_option_label=question.exclusive_option,
+        mandatory=not question.optional,
+    )
+
+
+def _resolve_option_references(
+    survey, questions_by_id: dict, review: list
+) -> None:
+    """Point every value in a condition at the option it names.
+
+    A condition arrives comparing against text - "No", "None of these" - because
+    that is how the QRE writes it. Every option already carries a stable id, and
+    this is what joins the two, so a consumer can act on the id and never on the
+    label. Text that changes with any rewording is exactly the fragility the ids
+    were introduced to remove, and leaving conditions matching on text would
+    have kept it in the one place it matters most.
+
+    A value naming no option is reported. It means the condition refers to an
+    answer the question does not offer, which is a broken reference in the QRE
+    or a misreading of it - either way somebody needs to know.
+    """
+
+    def resolve(condition, where: str) -> None:
+        if condition is None:
+            return
+        left, right = condition.left, condition.right
+        if left is not None and left.question_id and right is not None:
+            question = questions_by_id.get(left.question_id)
+            # Only options can be resolved. A numeric comparison such as
+            # "S3 < 18", or a comparison against another question, names none.
+            if question and right.question_id is None:
+                wanted = None
+                if right.values:
+                    wanted = list(right.values)
+                elif right.text is not None:
+                    wanted = [right.text]
+                if wanted:
+                    by_label = {o.label: o.option_id for o in question.options}
+                    by_label.update(
+                        {o.label: o.option_id for o in question.matrix_rows}
+                    )
+                    if by_label:
+                        found = [by_label.get(value) for value in wanted]
+                        if all(found):
+                            right.option_ids = [f for f in found if f]
+                        else:
+                            missing = [
+                                value
+                                for value, hit in zip(wanted, found)
+                                if not hit
+                            ]
+                            review.append(
+                                _review(
+                                    "condition_option_unresolved",
+                                    FlagSeverity.BLOCKING,
+                                    (
+                                        f"{where} compares "
+                                        f"{left.question_id} against "
+                                        f"{missing!r}, which {left.question_id} "
+                                        "does not offer as an answer."
+                                    ),
+                                    target=FlagTarget(
+                                        kind="question", id=left.question_id
+                                    ),
+                                    evidence=condition.source_text,
+                                )
+                            )
+        for child in condition.operands:
+            resolve(child, where)
+
+    for rule in survey.rules:
+        resolve(rule.when, f"Rule {rule.rule_id}")
+    for question in survey.questions:
+        if question.guard is not None:
+            resolve(question.guard.condition, f"{question.question_id}'s guard")
+
+
 def run(source: str, parsed: dict) -> CanonicalSurvey:
     review: list[AuditFinding] = []
     question_ids = {q.id for q in parsed.get("questions", []) if q.id}
@@ -846,7 +984,14 @@ def run(source: str, parsed: dict) -> CanonicalSurvey:
 
     questions = [
         CanonicalQuestion(
-            question_id=q.id, seq=q.seq, guard=guards.get(q.id)
+            question_id=q.id,
+            seq=q.seq,
+            kind=q.type,
+            wording=q.wording,
+            options=_canonical_options(q.options, q.exclusive_option),
+            matrix_rows=_canonical_options(q.matrix_rows, None),
+            validation=_canonical_validation(q),
+            guard=guards.get(q.id),
         )
         for q in parsed.get("questions", [])
     ]
@@ -864,6 +1009,10 @@ def run(source: str, parsed: dict) -> CanonicalSurvey:
         randomization=_build_randomization(parsed, review),
         quotas=quotas,
         review=review,
+    )
+
+    _resolve_option_references(
+        survey, {q.id: q for q in parsed.get("questions", []) if q.id}, review
     )
 
     # P3-08: the semantics block holds decisions, not readings. Say so once,

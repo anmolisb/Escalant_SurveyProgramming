@@ -516,6 +516,15 @@ class Operand(BaseModel):
     number: float | None = None
     #: Set when this side is a list, as in "in ['Fully','Partly']".
     values: list[str] | None = None
+    #: The options `text` or `values` actually name, resolved against the
+    #: question on the other side of the comparison.
+    #:
+    #: Conditions are written by the QRE in terms of answer labels, and matching
+    #: on a label breaks the moment a word or a space changes. Every option
+    #: already carries a stable id; this is what connects the two, so a consumer
+    #: can act on the id and never on the text. Null where the comparison is not
+    #: about options at all, as in "S3 < 18".
+    option_ids: list[str] | None = None
 
 
 class Condition(BaseModel):
@@ -852,9 +861,60 @@ class Semantics(BaseModel):
     multi_equality_origin: Origin = Origin.DERIVED
 
 
+class CanonicalOption(BaseModel):
+    """One answer a question offers, as the specification carries it."""
+
+    option_id: str | None = None
+    #: Exactly what the QRE gave, still null where it gave nothing.
+    code: str | None = None
+    label: str
+    numeric_value: float | None = None
+    #: True for an option that cannot be chosen alongside any other, such as
+    #: "None of these". Resolved from the question's own exclusive_option.
+    is_exclusive: bool = False
+
+
+class CanonicalValidation(BaseModel):
+    """What counts as an acceptable answer.
+
+    Needed to generate a test at all: without the bounds there is no way to
+    produce a value that should be accepted, or one that should be refused.
+    """
+
+    min_length: int | None = None
+    max_length: int | None = None
+    min_value: int | float | None = None
+    max_value: int | float | None = None
+    min_selections: int | None = None
+    sum_to: int | float | None = None
+    #: The exclusive option, resolved to an id rather than left as loose text.
+    exclusive_option_id: str | None = None
+    exclusive_option_label: str | None = None
+    mandatory: bool = True
+
+
 class CanonicalQuestion(BaseModel):
+    """A question, with everything needed to ask it and to answer it.
+
+    Originally this held only an id, a position and a guard - enough to draw a
+    route graph, and not enough to walk one. A test designer reading it could
+    see that a rule fired on `S1 == 'No'` and still had no way to learn that S1
+    is a single-choice question whose answers are Yes and No, because that lived
+    only in Part 1's questionnaire file. Carrying it here makes the
+    specification answerable on its own.
+    """
+
     question_id: str
     seq: int | None = None
+    #: The QRE's own word for the type - single, multi, grid, verbatim. Kept as
+    #: written rather than mapped to a fixed vocabulary, since the word is the
+    #: document's convention and Z02 alone writes four this pipeline had not
+    #: seen before.
+    kind: str = ""
+    wording: str = ""
+    options: list[CanonicalOption] = Field(default_factory=list)
+    matrix_rows: list[CanonicalOption] = Field(default_factory=list)
+    validation: CanonicalValidation | None = None
     guard: Guard | None = None
 
 

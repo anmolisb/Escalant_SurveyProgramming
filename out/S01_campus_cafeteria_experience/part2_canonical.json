@@ -8,7 +8,7 @@
     "sha256": "2756cb3b6dc3f21cdc7c1d35b7cfb0e2270af2a918ba6fe682e72ae8e121a804",
     "bytes": 40578
   },
-  "generated_at": "2026-08-29T05:06:34+00:00",
+  "generated_at": "2026-08-29T05:28:39+00:00",
   "item_count": null,
   "content": {
     "source": "S01_campus_cafeteria_experience.docx",
@@ -24,41 +24,283 @@
       {
         "question_id": "S1",
         "seq": 1,
+        "kind": "single",
+        "wording": "Have you purchased food or a beverage from the campus cafeteria in the past 30 days?",
+        "options": [
+          {
+            "option_id": "S1-O1",
+            "code": null,
+            "label": "Yes",
+            "numeric_value": null,
+            "is_exclusive": false
+          },
+          {
+            "option_id": "S1-O2",
+            "code": null,
+            "label": "No",
+            "numeric_value": null,
+            "is_exclusive": false
+          }
+        ],
+        "matrix_rows": [],
+        "validation": null,
         "guard": null
       },
       {
         "question_id": "S2",
         "seq": 2,
+        "kind": "single",
+        "wording": "Are you 18 years of age or older?",
+        "options": [
+          {
+            "option_id": "S2-O1",
+            "code": null,
+            "label": "Yes",
+            "numeric_value": null,
+            "is_exclusive": false
+          },
+          {
+            "option_id": "S2-O2",
+            "code": null,
+            "label": "No",
+            "numeric_value": null,
+            "is_exclusive": false
+          }
+        ],
+        "matrix_rows": [],
+        "validation": null,
         "guard": null
       },
       {
         "question_id": "Q1",
         "seq": 3,
+        "kind": "single",
+        "wording": "Which channel did you primarily use for this cafeteria visit?",
+        "options": [
+          {
+            "option_id": "Q1-O1",
+            "code": null,
+            "label": "Counter",
+            "numeric_value": null,
+            "is_exclusive": false
+          },
+          {
+            "option_id": "Q1-O2",
+            "code": null,
+            "label": "Mobile pre-order",
+            "numeric_value": null,
+            "is_exclusive": false
+          },
+          {
+            "option_id": "Q1-O3",
+            "code": null,
+            "label": "Vending kiosk",
+            "numeric_value": null,
+            "is_exclusive": false
+          }
+        ],
+        "matrix_rows": [],
+        "validation": null,
         "guard": null
       },
       {
         "question_id": "Q2",
         "seq": 4,
+        "kind": "single",
+        "wording": "Overall, how satisfied were you with the cafeteria visit?",
+        "options": [
+          {
+            "option_id": "Q2-O1",
+            "code": "1",
+            "label": "Very poor",
+            "numeric_value": 1.0,
+            "is_exclusive": false
+          },
+          {
+            "option_id": "Q2-O2",
+            "code": "2",
+            "label": "Poor",
+            "numeric_value": 2.0,
+            "is_exclusive": false
+          },
+          {
+            "option_id": "Q2-O3",
+            "code": "3",
+            "label": "Fair",
+            "numeric_value": 3.0,
+            "is_exclusive": false
+          },
+          {
+            "option_id": "Q2-O4",
+            "code": "4",
+            "label": "Good",
+            "numeric_value": 4.0,
+            "is_exclusive": false
+          },
+          {
+            "option_id": "Q2-O5",
+            "code": "5",
+            "label": "Excellent",
+            "numeric_value": 5.0,
+            "is_exclusive": false
+          }
+        ],
+        "matrix_rows": [],
+        "validation": null,
         "guard": null
       },
       {
         "question_id": "Q3",
         "seq": 5,
+        "kind": "single",
+        "wording": "How easy was it to complete what you wanted to do?",
+        "options": [
+          {
+            "option_id": "Q3-O1",
+            "code": "1",
+            "label": "Very poor",
+            "numeric_value": 1.0,
+            "is_exclusive": false
+          },
+          {
+            "option_id": "Q3-O2",
+            "code": "2",
+            "label": "Poor",
+            "numeric_value": 2.0,
+            "is_exclusive": false
+          },
+          {
+            "option_id": "Q3-O3",
+            "code": "3",
+            "label": "Fair",
+            "numeric_value": 3.0,
+            "is_exclusive": false
+          },
+          {
+            "option_id": "Q3-O4",
+            "code": "4",
+            "label": "Good",
+            "numeric_value": 4.0,
+            "is_exclusive": false
+          },
+          {
+            "option_id": "Q3-O5",
+            "code": "5",
+            "label": "Excellent",
+            "numeric_value": 5.0,
+            "is_exclusive": false
+          }
+        ],
+        "matrix_rows": [],
+        "validation": null,
         "guard": null
       },
       {
         "question_id": "Q4",
         "seq": 6,
+        "kind": "multi",
+        "wording": "Which aspects influenced your rating? Select all that apply.",
+        "options": [
+          {
+            "option_id": "Q4-O1",
+            "code": null,
+            "label": "Food quality",
+            "numeric_value": null,
+            "is_exclusive": false
+          },
+          {
+            "option_id": "Q4-O2",
+            "code": null,
+            "label": "Menu variety",
+            "numeric_value": null,
+            "is_exclusive": false
+          },
+          {
+            "option_id": "Q4-O3",
+            "code": null,
+            "label": "Waiting time",
+            "numeric_value": null,
+            "is_exclusive": false
+          },
+          {
+            "option_id": "Q4-O4",
+            "code": null,
+            "label": "Cleanliness",
+            "numeric_value": null,
+            "is_exclusive": false
+          },
+          {
+            "option_id": "Q4-O5",
+            "code": null,
+            "label": "Staff behaviour",
+            "numeric_value": null,
+            "is_exclusive": false
+          },
+          {
+            "option_id": "Q4-O6",
+            "code": null,
+            "label": "Price",
+            "numeric_value": null,
+            "is_exclusive": false
+          }
+        ],
+        "matrix_rows": [],
+        "validation": {
+          "min_length": null,
+          "max_length": null,
+          "min_value": null,
+          "max_value": null,
+          "min_selections": 1,
+          "sum_to": null,
+          "exclusive_option_id": null,
+          "exclusive_option_label": null,
+          "mandatory": true
+        },
         "guard": null
       },
       {
         "question_id": "Q5",
         "seq": 7,
+        "kind": "single",
+        "wording": "Did you encounter a problem?",
+        "options": [
+          {
+            "option_id": "Q5-O1",
+            "code": null,
+            "label": "Yes",
+            "numeric_value": null,
+            "is_exclusive": false
+          },
+          {
+            "option_id": "Q5-O2",
+            "code": null,
+            "label": "No",
+            "numeric_value": null,
+            "is_exclusive": false
+          }
+        ],
+        "matrix_rows": [],
+        "validation": null,
         "guard": null
       },
       {
         "question_id": "Q6",
         "seq": 8,
+        "kind": "text",
+        "wording": "Please describe the main problem.",
+        "options": [],
+        "matrix_rows": [],
+        "validation": {
+          "min_length": 10,
+          "max_length": 500,
+          "min_value": null,
+          "max_value": null,
+          "min_selections": null,
+          "sum_to": null,
+          "exclusive_option_id": null,
+          "exclusive_option_label": null,
+          "mandatory": true
+        },
         "guard": {
           "condition": {
             "op": "eq",
@@ -67,14 +309,18 @@
               "aggregate": null,
               "text": null,
               "number": null,
-              "values": null
+              "values": null,
+              "option_ids": null
             },
             "right": {
               "question_id": null,
               "aggregate": null,
               "text": "Yes",
               "number": null,
-              "values": null
+              "values": null,
+              "option_ids": [
+                "Q5-O1"
+              ]
             },
             "operands": [],
             "source_text": "Q5 == 'Yes'",
@@ -95,11 +341,109 @@
       {
         "question_id": "Q7",
         "seq": 9,
+        "kind": "single",
+        "wording": "How likely are you to recommend this service?",
+        "options": [
+          {
+            "option_id": "Q7-O1",
+            "code": null,
+            "label": "0",
+            "numeric_value": 0.0,
+            "is_exclusive": false
+          },
+          {
+            "option_id": "Q7-O2",
+            "code": null,
+            "label": "1",
+            "numeric_value": 1.0,
+            "is_exclusive": false
+          },
+          {
+            "option_id": "Q7-O3",
+            "code": null,
+            "label": "2",
+            "numeric_value": 2.0,
+            "is_exclusive": false
+          },
+          {
+            "option_id": "Q7-O4",
+            "code": null,
+            "label": "3",
+            "numeric_value": 3.0,
+            "is_exclusive": false
+          },
+          {
+            "option_id": "Q7-O5",
+            "code": null,
+            "label": "4",
+            "numeric_value": 4.0,
+            "is_exclusive": false
+          },
+          {
+            "option_id": "Q7-O6",
+            "code": null,
+            "label": "5",
+            "numeric_value": 5.0,
+            "is_exclusive": false
+          },
+          {
+            "option_id": "Q7-O7",
+            "code": null,
+            "label": "6",
+            "numeric_value": 6.0,
+            "is_exclusive": false
+          },
+          {
+            "option_id": "Q7-O8",
+            "code": null,
+            "label": "7",
+            "numeric_value": 7.0,
+            "is_exclusive": false
+          },
+          {
+            "option_id": "Q7-O9",
+            "code": null,
+            "label": "8",
+            "numeric_value": 8.0,
+            "is_exclusive": false
+          },
+          {
+            "option_id": "Q7-O10",
+            "code": null,
+            "label": "9",
+            "numeric_value": 9.0,
+            "is_exclusive": false
+          },
+          {
+            "option_id": "Q7-O11",
+            "code": null,
+            "label": "10",
+            "numeric_value": 10.0,
+            "is_exclusive": false
+          }
+        ],
+        "matrix_rows": [],
+        "validation": null,
         "guard": null
       },
       {
         "question_id": "Q8",
         "seq": 10,
+        "kind": "text",
+        "wording": "What is the single most important improvement you would suggest?",
+        "options": [],
+        "matrix_rows": [],
+        "validation": {
+          "min_length": null,
+          "max_length": 500,
+          "min_value": null,
+          "max_value": null,
+          "min_selections": null,
+          "sum_to": null,
+          "exclusive_option_id": null,
+          "exclusive_option_label": null,
+          "mandatory": false
+        },
         "guard": null
       }
     ],
@@ -130,14 +474,18 @@
             "aggregate": null,
             "text": null,
             "number": null,
-            "values": null
+            "values": null,
+            "option_ids": null
           },
           "right": {
             "question_id": null,
             "aggregate": null,
             "text": "No",
             "number": null,
-            "values": null
+            "values": null,
+            "option_ids": [
+              "S1-O2"
+            ]
           },
           "operands": [],
           "source_text": "S1 == 'No'",
@@ -173,14 +521,18 @@
             "aggregate": null,
             "text": null,
             "number": null,
-            "values": null
+            "values": null,
+            "option_ids": null
           },
           "right": {
             "question_id": null,
             "aggregate": null,
             "text": "No",
             "number": null,
-            "values": null
+            "values": null,
+            "option_ids": [
+              "S2-O2"
+            ]
           },
           "operands": [],
           "source_text": "S2 == 'No'",
@@ -216,14 +568,18 @@
             "aggregate": null,
             "text": null,
             "number": null,
-            "values": null
+            "values": null,
+            "option_ids": null
           },
           "right": {
             "question_id": null,
             "aggregate": null,
             "text": "Yes",
             "number": null,
-            "values": null
+            "values": null,
+            "option_ids": [
+              "Q5-O1"
+            ]
           },
           "operands": [],
           "source_text": "Q5 == 'Yes'",
@@ -259,14 +615,18 @@
             "aggregate": null,
             "text": null,
             "number": null,
-            "values": null
+            "values": null,
+            "option_ids": null
           },
           "right": {
             "question_id": null,
             "aggregate": null,
             "text": "No",
             "number": null,
-            "values": null
+            "values": null,
+            "option_ids": [
+              "Q5-O2"
+            ]
           },
           "operands": [],
           "source_text": "Q5 == 'No'",
