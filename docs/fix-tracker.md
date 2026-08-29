@@ -1,7 +1,12 @@
 # Agent 1 fix tracker
 
-One row per issue found in the C02 output review. Each row is ticked off as the
-fix lands, with a short note on what changed and why it was needed.
+One row per issue, ticked off as the fix lands, with a short note on what
+changed and why it was needed.
+
+Phases 1 to 3 came out of the C02 output review. Phase 4 came out of a later
+question asked on C01 and S01 — not "is the specification complete?" but "could
+the graph builder and Agent 3 actually work from it?" — so the tracker is no
+longer C02-only.
 
 **How to read this.** `[ ]` not started, `[~]` in progress, `[x]` done,
 `[-]` deliberately deferred (with a reason). Nothing is ticked until the change
@@ -79,7 +84,8 @@ Stage 2 rather than re-extracting. These checks live there.
 ## Phase 3 — Part 2, the semantic interpreter
 
 Interpretation work. CLAUDE.md puts all of this after Part 1 has a stable
-extraction contract, so none of it is started yet.
+extraction contract, which it now has. All eight items have landed; Phase 4
+below covers what came after them.
 
 | ✓ | ID | Issue in plain language | Why it waits for Part 2 |
 |---|---|---|---|
@@ -88,9 +94,30 @@ extraction contract, so none of it is started yet.
 | [x] | P3-03 | The destination column mixes questions, endings and a special word (C4). | Done. Destination now carries a kind: question, disposition, position or unknown. C02 resolves to 15 questions, 4 endings and one position - CURRENT_QUESTION, correctly reported as naming a place in the flow rather than as a broken reference. |
 | [x] | P3-04 | Show-conditions live in two places in two formats and must be combined (D3, D4). | Done. _build_guards combines the questionnaire display conditions with the routing table show rules rather than choosing between them, and records whether the two agree. On C02: 9 agree, 3 are prose that could not be read, and Q15 is single_source - stated only in the questionnaire, exactly as the QRE has it. Anyone reading only the routing table would lose it. |
 | [x] | P3-05 | Nothing says when a rule is checked or which rule wins (D5). | Done. Each rule gets an evaluation_point, the last question its condition depends on, and a precedence from its position in the table. Both are marked inferred because the QRE states neither - and it says plainly not to infer unstated routing, so they are surfaced for review rather than buried. C02 derives R1 after S1, R5 after Q1, and so on. |
-| [x] | P3-06 | Piping is a sentence, and the Q19 to Q20 link is missed entirely (D6, D7). | Partly done. Piping instructions become typed links: Q1 to Q2 and Q5 to Q6 on C02, read from the source question named in the sentence. Now done: one call over the whole questionnaire finds every wording that refers back to an earlier answer. On C02 it finds three, repeatably. Q20 asks about "the selected proposition", meaning the answer to Q19; Q8 and Q9 both refer to the current provider, meaning whatever was answered at Q3. The original review by hand had spotted only the first of the three. Each is reported with the exact phrase and marked inferred, and the model must name two questions that exist in the right order, which is checked. |
+| [x] | P3-06 | Piping is a sentence, and the Q19 to Q20 link is missed entirely (D6, D7). | Partly done. Piping instructions become typed links: Q1 to Q2 and Q5 to Q6 on C02, read from the source question named in the sentence. Now done: one call over the whole questionnaire finds every wording that refers back to an earlier answer. Q20 asks about "the selected proposition", meaning the answer to Q19; Q8 and Q9 both refer to the current provider, meaning whatever was answered at Q3. The original review by hand had spotted only the first of the three. Each is reported with the exact phrase and marked inferred, and the model must name two questions that exist in the right order, which is checked. **"Repeatably" was wrong** — see X-03. Three runs of C01 gave three different sets, and it is the decision record from P4-08, not the call itself, that makes the answer stable. |
 | [x] | P3-07 | Randomize is only true or false, with no scope or anchoring (D8). | Done. Randomization records what is shuffled and what is anchored. C02 gives Q9 rows (it is a matrix) and the rest options, both marked inferred. Q1 and Q5 shuffle while carrying an exclusive option, so their anchoring is marked ambiguous and raised for the client rather than silently defaulted to convention. |
 | [x] | P3-08 | Nothing says what happens when a question was never asked (E4). | Done, pending confirmation. A semantics block states the three decisions the QRE never makes: an unasked question makes a condition false, the first matching rule wins, and == against a multi-select compares the whole answer set. It is the single blocking review item on every fixture, because each of the three changes which questions appear on many routes. |
+
+---
+
+## Phase 4 — the graph, and the specification as an input to it
+
+Phases 1 to 3 came out of the C02 review. This phase came out of a different
+question, asked on C01 and S01: not "is the specification complete?" but "could
+a graph builder and a test designer actually work from it?" Several things
+looked complete and were not.
+
+| ✓ | ID | Issue in plain language | What changed | Why it was needed |
+|---|---|---|---|---|
+| [x] | P4-01 | The specification had no structural view, so nothing could ask where a route goes. | `part2_graph.py` builds a `RouteGraph` and a `DependencyGraph` from the specification, plus a `rule_edge_map` recording which rule produced which edge or guard, and a report checking the graph against the specification it came from. | The specification stays the source of truth; these are a view of it. Two graphs rather than one because "how does a respondent move" and "which answers does this question need" are different questions, and one graph answers neither well. Show rules, reject rules and randomisation are deliberately not edges — see the README for why each. |
+| [x] | P4-02 | A question was `{id, seq, guard}` — enough to draw a route graph, not enough to walk one. | Questions now carry type, wording, options, matrix rows and validation. Condition values resolve to option ids alongside their original text, checked rather than assumed. | A reader could see a rule fire on `S1 == 'No'` and had no way to learn that S1 is single-choice answered Yes or No, because that lived only in Part 1's questionnaire file. A bot handed the specification could not execute the simplest route, because nothing told it what to click. Without the bounds there is also no way to generate a value that *should* be refused, so this is what makes a negative test possible at all. |
+| [x] | P4-03 | Quota statements were prose, and the ending they name reached nothing. | Quotas become structured cells with targets, resolved to option ids, with an evaluation point and an `on_full` ending. `TERM_QUOTA_FULL` becomes a real disposition node marked `defined_in_source=false`. | Quota-full screenout is real survey behaviour. An ending a rule sends people to but the QRE never defines still needs a node, or a hole in the survey looks like a tidy graph. |
+| [x] | P4-04 | Three sections Part 1 extracted never reached Part 2 at all. | Acceptance scenarios, study metadata and programming requirements are now carried. Scenarios have their answers resolved to option ids and their expectations resolved to questions or endings. | The scenarios are the document's own statement of correct behaviour — seven on C01, three on S01, inputs and expected outcome already machine-readable. They are the closest thing to ground truth in the pipeline and were being dropped on the floor. The programming section holds six requirements addressed squarely at Agents 3 and 4. |
+| [x] | P4-05 | `mandatory` was asserted from nothing. | Tri-state with an origin. The survey-wide default is read from the document's own sentence by a fixed rule and recorded in the semantics block with that sentence as evidence; null where no document states one. Every question now carries a validation object, so an all-null validation means "the QRE stated no constraint". | It was `not question.optional`, which quietly claimed every question carrying any validation required an answer — true of both documents and asserted from nothing in them, which is exactly what CLAUDE.md §14 forbids. Returning `None` for validation was the same problem one level up: "nothing was stated" looked identical to "this was never populated". |
+| [x] | P4-06 | A piped question advertised a list nobody would see. | `OptionSource` on the question names the earlier answer that narrows the list. The printed list is kept as the QRE wrote it. | C01's Q2 lists four brands and shows only those chosen at Q1, and nothing on the question said so. A bot reading the specification would pick an option that is not on screen — which is precisely what the QRE's own scenario T7 exists to catch. Editing the list down to a guess would hide the difference; saying nothing lets the failure happen. |
+| [x] | P4-07 | Provenance stopped at rules. | `source_reference` added to questions, dispositions, dependencies, randomization and scenarios; `confidence` carried on inferred dependencies. | CLAUDE.md §15 requires it, and without it a failing test on a question cannot point back at the line of the QRE that asked for the behaviour. |
+| [x] | P4-08 | The same document read differently on every run. | Every model answer is recorded to `out/<stem>/llm_decisions.json` and reused, keyed by model, system prompt, user prompt, schema and token cap. `QRE_LLM_CACHE=off` re-asks everything. Dependencies are sorted into question order so agreeing runs produce identical files. | See X-03. This is the difference between a specification and an opinion: a test built on one reading could not be told apart from a test built on another. The file is also a deliverable — it says what was inferred, from what text, by which model and when, which makes the inferred half reviewable in a way a fresh call is not. |
+| [x] | P4-09 | A model reading a prose condition silently chose which answers count. | A set-valued condition proposed by a model that names only some of a question's selectable answers now has the omitted ones named in the review queue. | On C01, "Q1 contains at least one brand" was read as three of Q1's four selectable answers, leaving out "Independent provider" — while the skip rule directly above it implies the opposite reading. The QRE does not settle it. The reading is kept, because the parser accepted it and refusing would lose a condition that is probably right; what is added is the fact that it was a choice. |
 
 ---
 
@@ -100,6 +127,15 @@ Filled in as work lands. Newest first.
 
 | Date | ID | Change | Files touched |
 |---|---|---|---|
+| 29 Aug 2026 | P4-04..09, X-02 | Acceptance scenarios, study metadata and programming requirements carried into the specification. Mandatory made tri-state and read from the document. Piped option lists marked. Provenance completed. Model answers recorded so a document reads the same way twice. | `src/llm.py`, `src/models.py`, `src/part2_canonical.py`, `src/orchestrator.py` |
+| 29 Aug 2026 | — | Regenerated C01's specification and graph against the current pipeline, from the Stage 4 artifacts already on disk. | `out/C01_chronic_care_patient_journey/*` |
+| 29 Aug 2026 | P4-02 | Questions carry their type, wording, options, matrix rows and validation; condition values resolve to option ids, checked rather than assumed. | `src/models.py`, `src/part2_canonical.py` |
+| 29 Aug 2026 | P4-01 | Route and dependency graphs built from the specification, with a rule-to-edge map and a fidelity report. | `src/part2_graph.py` (new), `src/models.py`, `src/orchestrator.py`, `requirements.txt` |
+| 28 Aug 2026 | — | Regenerated S01 with the current pipeline. | `out/S01_campus_cafeteria_experience/*` |
+| 28 Aug 2026 | P4-03 | Quotas structured into cells with targets and an evaluation point; the full-quota ending becomes a reachable disposition. | `src/part2_canonical.py`, `src/models.py` |
+| 24 Aug 2026 | X-04 | Column matching and matrix splitting fixed for tables not shaped like C02's. | `src/stage4_deep_parse.py` |
+| 23 Aug 2026 | X-05 | A daily token limit is told apart from a per-minute one, and fails fast instead of sleeping through retries that cannot succeed. | `src/llm.py` |
+| 23 Aug 2026 | P3-01, P3-06 | Prose conditions go to a model that rewrites them into the parser's grammar; question wording is read for references to earlier answers. | `src/part2_conditions.py`, `src/part2_canonical.py`, `src/models.py` |
 | 23 Aug 2026 | P3-02..08 | Canonical survey specification: typed destinations, combined guards, derived evaluation points and precedence, structured piping, scoped randomisation, and a stated semantics block. Written to part2_canonical.json. | src/part2_canonical.py (new), src/models.py, src/orchestrator.py |
 | 23 Aug 2026 | P3-01 | Typed condition tree and a deterministic parser for it. 75% of routing rules parse with no model; R5 and R18 fixed. | `src/part2_conditions.py` (new), `src/models.py` |
 | 23 Aug 2026 | P2-01..05 | Stage 5 built: five deterministic checks, written to `stage5_audit.json`. Catches the T3 defect mechanically. | `src/stage5_audit.py` (new), `src/models.py`, `src/orchestrator.py`, `README.md` |
@@ -115,13 +151,14 @@ Filled in as work lands. Newest first.
 | 23 Aug 2026 | P1-07 | Provenance carried end to end. Added `SourceReference`; added `row_sources` to `Stage3Block` and `source_reference` to the four Stage 4 output models, all defaulted so existing artifacts still load. | `src/models.py`, `src/stage3_raw_json.py`, `src/stage4_deep_parse.py` |
 | 23 Aug 2026 | P1-01 | Stage 2 keeps unmatched sections instead of discarding them. Added `UnclassifiedSection`; added `unclassified` field to `Stage2Blocks`, defaulted to empty so existing artifacts still load. | `src/models.py`, `src/stage2_headings.py` |
 
-### Verification status
+### Verification status — Part 1, on C02
 
-Stages 1 to 4 all run offline. Stage 3's prose path and Stage 4's two LLM
-calls need a `GROQ_API_KEY`, which this environment does not have; those paths
-degrade to a review flag rather than failing, so the rest still executes.
+Written while this environment had no `GROQ_API_KEY`. Stages 1 to 4 all run
+offline; Stage 3's prose path and Stage 4's two LLM calls degrade to a review
+flag rather than failing, so the rest still executes. The end-to-end run with a
+real key follows below.
 
-Checked so far, on the real C02 document:
+Checked on the real C02 document:
 
 - Stage 2 keeps unmatched sections. Verified on C02, S01, Z01 and Z02.
 - Stage 3 emits one source reference per row, and `rows` and `row_sources` stay
@@ -139,10 +176,29 @@ Checked so far, on the real C02 document:
   headings match no target by name, so they need shape-matching. Their content
   is preserved as unclassified either way.
 
-Not yet done: **the pipeline has not been run end to end with a real API key**,
-and `out/` has deliberately not been regenerated. Regenerating it without a key
-would overwrite the committed worked example with an empty completion-messages
-section.
+### Verification status — Part 2, on C01 and S01
+
+Both documents were regenerated and validated field by field against their raw
+QREs on 29 August 2026: question order and types, option sets, every display
+condition, every rule's condition, action and destination, completion messages,
+quota statements and acceptance scenarios.
+
+- **29 invariants hold on each.** They cover the specification (contiguous
+  order, provenance on every element kind, every condition literal resolved to
+  option ids, every scenario reference resolving) and the graph's fidelity to it
+  (every rule edge matching the rule it came from, node guards matching the
+  specification, no ending with a way out, every question reaching an ending).
+- **Both graphs pass** with no blocking findings. C01 maps 20 of 20 rules and
+  2 of 2 quotas across 38 nodes; S01 maps 4 of 4 across 13.
+- **Reproducible.** C01 rebuilt byte-identically three times, S01 twice. Before
+  the decision record, three C01 runs gave three different specifications.
+- One blocking review item remains on each, and it is the same one:
+  `semantics_unconfirmed`. It is deliberate — see P3-08.
+
+Seeding S01's decision record from a cold run froze two wording pipes an earlier
+run had missed: Q4's "your rating" and Q6's "the main problem", both referring
+back. Both are defensible, both marked inferred and raised for review, and both
+now stable — which is the point of recording them.
 
 ---
 
@@ -169,15 +225,28 @@ messages, and splitting a question's inline instructions - all ran successfully.
 | # | Problem | Status |
 |---|---|---|
 | X-01 | `src/llm.py` kept one asyncio semaphore in a module variable. Asyncio semaphores attach to the event loop they are first used on, so calling Stage 4 a second time in the same process failed with "bound to a different event loop". Pre-existing, from commit `8b4d2c0`; it never showed up because the orchestrator runs Stage 4 once. | **Fixed** 23 Aug 2026, on request. Semaphores are now held in a weak-keyed map per event loop, which is what the function's own docstring already claimed it did. Verified by running Stage 4 three times in one process. |
+| X-02 | Review findings appended after the `CanonicalSurvey` object was built were silently discarded. Pydantic copies a list when it validates one onto a model, so `review` and `survey.review` stop being the same object. `condition_option_unresolved` — a BLOCKING check — had never once been able to write into an artifact. It read as clean because it was reporting into a list nobody kept. | **Fixed** 29 Aug 2026. Post-construction checks append to `survey.review`. Found only because a new check that should have fired on C01's R6 and R7 produced nothing. |
+| X-03 | Temperature 0 is not determinism. Three runs of C01 on identical code gave three different specifications: Q21's wording was read as quoting Q19 twice and not the third time, and R8's prose condition was declined once and accepted twice. Each changes which questions a respondent sees. | **Fixed** 29 Aug 2026 — P4-08. Model answers are recorded per document and reused. Verified: C01 byte-identical three runs, S01 twice. |
+| X-04 | Column matching and matrix splitting assumed C02's table shape. | **Fixed** 24 Aug 2026. |
+| X-05 | A per-day token cap was treated as a per-minute one, so the retry loop burned six attempts on calls that could not succeed and then reported a generic failure. | **Fixed** 23 Aug 2026. |
+| X-06 | `build_route_graph` connects the last question to `completions[0]`. A QRE with two `complete` dispositions would wire it to only one of them. | **Open.** Latent — neither committed fixture has two. Found by reading, not by failing. |
+| X-07 | Nothing checks that a survey can end at all. The disposition checks iterate the dispositions that exist, so a document with none passes them vacuously — as C01 did while its specification was stale and carried none. | **Open.** |
+| X-08 | `--from-stage` skips stages 1 to 3 only; Stage 4 always re-runs. Iterating on Part 2 therefore costs a full Stage 4 — roughly fifty model calls. | **Open.** The decision record removes most of the cost; a `load_stage4` would remove the rest. |
 
 ---
 
 ## Open questions still needing an answer
 
-| # | Question | Blocks |
-|---|---|---|
-| 1 | Is scenario T3 wrong, or is Q15 genuinely meant to show when Q3 was never asked? | P2-03, P3-08 |
-| 2 | When shuffling Q1 and Q5, should "None of these" stay at the bottom? | P3-07 |
-| 3 | What message should `TERM_QUOTA_FULL` display? | P1-03 |
-| 4 | If S3 and S4 are both "Yes", which ending applies? | P3-05 |
-| 5 | Does Q20 really refer to the answer given at Q19? | P3-06 |
+These are questions for the client, not work items. Each is preserved in the
+specification's `review` list rather than answered by a default.
+
+| # | Question | Blocks | QRE |
+|---|---|---|---|
+| 1 | Is scenario T3 wrong, or is Q15 genuinely meant to show when Q3 was never asked? | P2-03, P3-08 | C02 |
+| 2 | When shuffling a question with an exclusive option, should that option stay at the bottom? | P3-07 | C01, C02 |
+| 3 | What message should `TERM_QUOTA_FULL` display? The document names the ending and never says what it shows. | P1-03, P4-03 | C01, C02 |
+| 4 | If S3 and S4 are both "Yes", which ending applies? | P3-05 | C01, C02 |
+| 5 | Does Q20 really refer to the answer given at Q19? | P3-06 | C01, C02 |
+| 6 | Does "Independent provider" count as a brand for "Q1 contains at least one brand"? A model read it as three of Q1's four selectable answers; the skip rule directly above implies the opposite. | P4-09 | C01 |
+| 7 | What sample size are the quota percentages proportions of? Without a total, when a cell fills cannot be computed. | P4-03 | C01, C02 |
+| 8 | Confirm the three semantics decisions. Still the only blocking finding on either survey. | P3-08 | all |
