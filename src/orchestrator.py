@@ -25,6 +25,10 @@ produces them:
     agent1_decision_register.md      (its human-readable form)
     part2_route_graph.json           (Stage 8 — the graph builder, always run)
     part2_graph_report.json
+    part2_graph_validation.json      (Stage 9 — graph validation, always run)
+    route_graph.graphml  route_graph.gexf
+    dependency_graph.graphml  dependency_graph.gexf
+    agent1_stage9_gate.json          (Agent 3 execution approval, computed last)
 
 Targets: questionnaire, routing, scenarios, messages, quotas, study,
 programming. A target absent from the document is flagged, not fatal.
@@ -44,19 +48,31 @@ moved. A project owner resolves one by hand-editing its entry (`status`,
 resolves a decision on its own. `human_decision_gate` in the validation
 verdict is CLEAR only once every BLOCKING decision has been resolved this way.
 
-Stage 8, the graph builder, runs last and always - it needs no model, and
-nothing about how it builds depends on Stage 7's verdict. What does depend on
-that verdict is what `part2_graph_report.json` is allowed to say about the
-result: `structurally_buildable` is a fact about the graph alone, true the
-moment it builds and passes its own fidelity checks; `behaviorally_approved`
-additionally requires `canonical_status` not FAILED and `human_decision_gate`
-CLEAR, and is `null` rather than a guess when nobody supplied a verdict to
-judge it against. A caller that reads `part2_route_graph.json` without
-checking `behaviorally_approved` first is reading it with the gate having
-told it not to, in writing, in the same output folder - this cannot force a
-consumer to check, but the graph cannot be built without the verdict existing
-right beside it either, since Stage 7 always runs first and cannot be
-skipped.
+Stage 8, the graph builder, runs after Stage 7 and always - it needs no
+model, and nothing about how it builds depends on Stage 7's verdict. What
+does depend on that verdict is what `part2_graph_report.json` is allowed to
+say about the result: `structurally_buildable` is a fact about the graph
+alone, true the moment it builds and passes its own fidelity checks;
+`behaviorally_approved` additionally requires `canonical_status` not FAILED
+and `human_decision_gate` CLEAR, and is `null` rather than a guess when
+nobody supplied a verdict to judge it against.
+
+Stage 9, graph validation, runs after Stage 8 and always - proving the
+persisted graph is faithful to the specification and, where a condition is
+formally readable, behaves correctly when walked. It writes
+`part2_graph_validation.json` and the GraphML/GEXF exports, reusing exactly
+what Stages 6 and 8 already wrote - no Stage 4 rerun, no model call, nothing
+regenerated. Its own verdict answers one question only:
+`GRAPH_INPUT_SUFFICIENCY` - is the graph, together with the canonical
+specification, structurally and behaviourally enough for Agent 3 to build
+tests from. It does not, and structurally cannot, answer the separate
+question of whether Agent 3 may actually proceed: `AGENT3_EXECUTION_APPROVAL`
+is computed by `main` afterward, as the plain conjunction of Stage 7's two
+verdicts and Stage 9's one - never by Stage 9 alone, and never in a way that
+lets a sufficient graph stand in for a human decision nobody has made yet.
+`agent1_stage9_gate.json` records that conjunction; it is additive, sits
+beside the other two artifacts, and changes nothing about how either of them
+is written.
 """
 
 from __future__ import annotations
@@ -356,6 +372,102 @@ def run_graphs(
     return graphs, report
 
 
+def run_graph_validation(docx_path: Path, source: str) -> dict:
+    """Stage 9 - prove the persisted graph is faithful to the specification,
+    and that walking it behaves the way the QRE says it should. Always run,
+    right after Stage 8.
+
+    Reads `part2_canonical.json` and `part2_route_graph.json` straight off
+    disk - exactly what Stages 6 and 8 just wrote - and calls no model. The
+    graph-validation implementation itself (`graph_validate.py`,
+    `run_graph_validation.py`) is untouched by this wiring; this only calls
+    it on every run instead of leaving it as a script someone has to
+    remember to invoke.
+
+    Returns Stage 9's own report, which answers exactly one question -
+    `GRAPH_INPUT_SUFFICIENCY`, is the graph plus the specification enough for
+    Agent 3 to build tests from. It does not, and must not, answer whether
+    Agent 3 may actually proceed; that needs Stage 7's verdict too, and is
+    computed by `agent3_execution_approval` below, never inside this stage.
+    """
+    import run_graph_validation  # deferred: it imports this module too
+
+    return run_graph_validation.validate(Path(source).stem, docx_path=docx_path)
+
+
+def agent3_execution_approval(validation_report: dict, graph_validation_report: dict) -> dict:
+    """AGENT3_EXECUTION_APPROVAL - the plain conjunction of Stage 7's two
+    verdicts and Stage 9's one, computed here and nowhere inside either
+    stage's own code.
+
+    Three conditions, all required, none of them able to stand in for
+    another:
+
+        canonical validation has no blocking defect   (Stage 7)
+        human decision gate has no pending BLOCKING    (Stage 7)
+        graph validation passes sufficiently            (Stage 9)
+
+    A structurally sound, behaviourally correct, input-sufficient graph is
+    still not an approval by itself - it is one of three conditions, and the
+    other two belong to a human, not to this function. Nothing here resolves
+    a decision or reruns anything; it only reads what the two stages already
+    decided and reports whether every gate stands open at once.
+    """
+    verdict = validation_report["verdict"]
+    canonical_ok = verdict["canonical_status"] != "FAILED"
+    decisions_clear = verdict["human_decision_gate"] == "CLEAR"
+    # "Passes sufficiently": structurally and behaviourally not NOT_READY, and
+    # the graph judged input-sufficient for Agent 3 to build tests from at
+    # all. A FAIL anywhere in Stage 9 - a real defect, not an open question -
+    # blocks this exactly the way a canonical defect does.
+    graph_ok = (
+        graph_validation_report["overall"] in ("READY", "READY_WITH_WARNINGS")
+        and graph_validation_report["agent3_input_status"] == "READY"
+    )
+
+    blocked_by = []
+    if not canonical_ok:
+        blocked_by.append("canonical_status=%s" % verdict["canonical_status"])
+    if not decisions_clear:
+        blocked_by.append("human_decision_gate=PENDING_BLOCKING_DECISIONS")
+    if not graph_ok:
+        blocked_by.append(
+            "graph_validation=%s" % graph_validation_report["overall"]
+            if graph_validation_report["overall"] not in ("READY", "READY_WITH_WARNINGS")
+            else "agent3_input_status=NOT_READY"
+        )
+
+    return {
+        "graph_input_sufficiency": graph_validation_report["agent3_input_status"],
+        "status": "APPROVED" if (canonical_ok and decisions_clear and graph_ok) else "BLOCKED",
+        "canonical_validation_clear": canonical_ok,
+        "human_decision_gate_clear": decisions_clear,
+        "graph_validation_passed": graph_ok,
+        "blocked_by": blocked_by,
+    }
+
+
+def write_stage9_gate(source: str, survey_id: str, gate: dict) -> Path:
+    """Persist AGENT3_EXECUTION_APPROVAL beside the artifacts it was computed
+    from, without touching either of them.
+
+    A dict payload, not a model, so this uses its own small envelope rather
+    than `_write` - the same reason `run_validation.py` and
+    `run_graph_validation.py` each keep their own: `_write` below treats
+    anything without `model_dump` as a list of records, which would turn this
+    single object into a list of its own keys.
+    """
+    path = _out_dir(source) / "agent1_stage9_gate.json"
+    envelope = ArtifactEnvelope(
+        schema_version=SCHEMA_VERSION, artifact="agent1_stage9_gate", stage=9,
+        survey_id=survey_id, source_document=_source_for(source),
+        generated_at=datetime.now(timezone.utc).isoformat(timespec="seconds"),
+        item_count=None, content=gate,
+    )
+    path.write_text(json.dumps(envelope.model_dump(mode="json"), indent=2, default=str), encoding="utf-8")
+    return path
+
+
 def run_agent1_validation(docx_path: Path, source: str, survey: CanonicalSurvey) -> dict:
     """Stage 7 - check the canonical output against the raw document, always.
 
@@ -531,6 +643,33 @@ def _summarise_validation(report: dict) -> bool:
     return status != "FAILED"
 
 
+def _summarise_graph_validation(report: dict) -> None:
+    print("\nSTAGE 9 — GRAPH VALIDATION")
+    counts = report["counts"]
+    print(f"  behavioural tests {counts['total']} "
+          f"(pass {counts['PASS']}, fail {counts['FAIL']}, "
+          f"unverified {counts['UNVERIFIED']}, blocked {counts['BLOCKED']})")
+    print(f"  structural status {report['structural_status']}")
+    print(f"  behavioural status {report['behavioural_status']}")
+    print(f"  GRAPH_INPUT_SUFFICIENCY  {report['agent3_input_status']}")
+    for f in report["findings"]:
+        print(f"    [{f.status:<18}] {f.category}: {f.finding}")
+    for r in report["results"]:
+        if r.status == "FAIL":
+            print(f"    [FAIL] {r.category} {r.rule_or_question}: {r.explanation}")
+
+
+def _summarise_stage9_gate(gate: dict) -> None:
+    print("\nAGENT 3 EXECUTION APPROVAL")
+    print(f"  GRAPH_INPUT_SUFFICIENCY   {gate['graph_input_sufficiency']}")
+    print(f"  AGENT3_EXECUTION_APPROVAL {gate['status']}")
+    print(f"    canonical validation clear   {gate['canonical_validation_clear']}")
+    print(f"    human decision gate clear    {gate['human_decision_gate_clear']}")
+    print(f"    graph validation passed      {gate['graph_validation_passed']}")
+    if gate["blocked_by"]:
+        print(f"    blocked by: {', '.join(gate['blocked_by'])}")
+
+
 def main(argv: list[str]) -> int:
     args = [a for a in argv[1:] if not a.startswith("--")]
     if not args:
@@ -570,12 +709,19 @@ def main(argv: list[str]) -> int:
     # writes needs to say whether this graph may be trusted downstream.
     validation_report = run_agent1_validation(docx_path, source, survey)
     _graphs, graph_report = run_graphs(source, survey, validation_report)
+    # Stage 9 reuses exactly what Stages 6 and 8 just wrote to disk - no
+    # model call, nothing upstream rerun.
+    graph_validation_report = run_graph_validation(docx_path, source)
+    gate = agent3_execution_approval(validation_report, graph_validation_report)
+    write_stage9_gate(source, Path(source).stem, gate)
 
     _summarise(blocks, stage3, parsed, [*stage3_flags, *stage4_flags])
     _summarise_audit(audit)
     _summarise_part2(survey)
     passed = _summarise_validation(validation_report)
     _summarise_graphs(graph_report)
+    _summarise_graph_validation(graph_validation_report)
+    _summarise_stage9_gate(gate)
     print(f"\nArtifacts: {_out_dir(source)}")
     return 0 if passed else 2
 

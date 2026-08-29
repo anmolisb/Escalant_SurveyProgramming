@@ -14,13 +14,13 @@ QRE
  → Canonical validation / Agent 1 evaluation (Stage 7)
  → Human decision gate (Stage 7)
  → Graph builder (Stage 8: RouteGraph, DependencyGraph, rule_edge_map)
- → Graph validation (this entry)
+ → Graph validation (Stage 9)
  → Agent 3 (not built)
 ```
 
-Stages 1–8 run automatically on every `python3 src/orchestrator.py <file.docx>`
-call. Graph validation, described below, does not - see "Not wired into the
-automatic pipeline" at the end of this entry for why and how to run it.
+Stages 1–9 all run automatically on every `python3 src/orchestrator.py
+<file.docx>` call. Graph validation - previously a standalone script a person
+had to remember to run - became Stage 9 on 29 Aug 2026; see that entry below.
 
 ## Graph validation layer — 29 Aug 2026
 
@@ -85,10 +85,61 @@ stateful); and the human decision register's resolutions - a graph edge
 exists whether or not its condition has been confirmed, and the graph alone
 cannot say which of its own transitions are still provisional.
 
-**Not wired into the automatic pipeline.** Unlike Stages 7 and 8, this layer
-is a standalone, on-demand script (`python3 src/run_graph_validation.py`),
-matching how the task that built it framed the shareable exports - "for THIS
-RUN ONLY... not a new persistent database architecture." It reads whatever
-`part2_canonical.json` and `part2_route_graph.json` already say, so it is
-always safe to re-run after any upstream change; it just is not triggered by
-`orchestrator.py` automatically the way Stages 7 and 8 are.
+**Standalone script preserved.** `python3 src/run_graph_validation.py` still
+works exactly as before - reads whatever `part2_canonical.json` and
+`part2_route_graph.json` already say, calls no model, safe to re-run any time.
+Nothing in `graph_validate.py`, `run_graph_validation.py` or
+`tests/test_part2_graph.py` changed when it was wired in below.
+
+## Stage 9 in the automatic pipeline — 29 Aug 2026
+
+Graph validation now runs on every `orchestrator.py` call, right after Stage
+8, calling `run_graph_validation.validate()` exactly as the standalone script
+does - same function, same artifacts, no model, no Stage 4 rerun. What's new
+is `orchestrator.agent3_execution_approval()`, a small function that lives in
+`orchestrator.py` alone and touches neither Stage 7's nor Stage 9's own code.
+
+It exists because Stage 9's own verdict answers one question -
+**`GRAPH_INPUT_SUFFICIENCY`**: is the graph, together with the canonical
+specification, structurally and behaviourally enough for Agent 3 to build
+tests from - and that is a *different* question from **whether Agent 3 may
+actually proceed**. A graph can be structurally sound, behaviourally correct,
+and input-sufficient, while a human decision from Stage 7 is still pending -
+and in that case Agent 3 must stay blocked regardless of how clean the graph
+is. `agent3_execution_approval()` is the plain AND of three things, computed
+after Stage 9 finishes and never inside it:
+
+```
+canonical_validation_clear   Stage 7's canonical_status != FAILED
+human_decision_gate_clear    Stage 7's human_decision_gate == CLEAR
+graph_validation_passed      Stage 9's overall in (READY, READY_WITH_WARNINGS)
+                              and agent3_input_status == READY
+```
+
+All three required; `APPROVED` only when every one holds. Written to a new,
+additive artifact - `agent1_stage9_gate.json` - that sits beside Stage 7's and
+Stage 9's own files without editing either of them.
+
+**Verified on both fixtures**, reusing the exact committed Stage 6/7/8/9
+content (confirmed byte-identical to what was already on disk, save for
+timestamps) - no Stage 4 call, no LLM call:
+
+| | S01 | C01 |
+|---|---|---|
+| `GRAPH_INPUT_SUFFICIENCY` | READY | READY |
+| `AGENT3_EXECUTION_APPROVAL` | **BLOCKED** | **BLOCKED** |
+| canonical validation clear | true | true |
+| human decision gate clear | **false** | **false** |
+| graph validation passed | true | true |
+| blocked by | `human_decision_gate=PENDING_BLOCKING_DECISIONS` | same |
+
+Both graphs are sufficient input for Agent 3. Neither is approved to run it
+against, because both surveys still have BLOCKING decisions in
+`agent1_decisions.json` nobody has resolved - exactly the distinction this
+change exists to keep visible rather than let a clean graph quietly paper
+over. The 16 tests in `tests/test_part2_graph.py` and all of Stage 9's
+existing behavioural/structural results (13 PASS on S01; 46 PASS + 5
+UNVERIFIED on C01, none silently turned into a PASS) are unchanged.
+
+**Artifacts added:** `agent1_stage9_gate.json`, per survey under
+`out/<stem>/`, alongside the Stage 9 files already listed above.

@@ -1,0 +1,23 @@
+{
+  "schema_version": "1.0.0",
+  "artifact": "agent1_stage9_gate",
+  "stage": 9,
+  "survey_id": "C01_chronic_care_patient_journey",
+  "source_document": {
+    "filename": "C01_chronic_care_patient_journey.docx",
+    "sha256": "319e6b78a2a1e36ef712ce421e6d2c1db3325a087a07d8d0e93ec38b39207e4b",
+    "bytes": 43612
+  },
+  "generated_at": "2026-08-29T17:05:50+00:00",
+  "item_count": null,
+  "content": {
+    "graph_input_sufficiency": "READY",
+    "status": "BLOCKED",
+    "canonical_validation_clear": true,
+    "human_decision_gate_clear": false,
+    "graph_validation_passed": true,
+    "blocked_by": [
+      "human_decision_gate=PENDING_BLOCKING_DECISIONS"
+    ]
+  }
+}
