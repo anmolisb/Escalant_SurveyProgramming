@@ -18,9 +18,36 @@ Artifacts, under out/<document stem>/:
     stage5_audit.json
     part2_canonical.json     (Part 2 — what the QRE means)
     part2_route_graph.json   part2_graph_report.json
+    agent1_evaluation_tests.json    (Stage 8 — validation, always run)
+    agent1_evaluation_results.json
+    part2_validation.json
+    agent1_decisions.json           (the human decision register)
+    agent1_decision_register.md     (its human-readable form)
 
 Targets: questionnaire, routing, scenarios, messages, quotas, study,
 programming. A target absent from the document is flagged, not fatal.
+
+Stage 8 runs on every call, right after the canonical specification and its
+graphs are built - not as a separate command a person has to remember to run.
+It checks the canonical output against the raw document independently, and
+writes `part2_validation.json` next to `part2_canonical.json`. Its verdict is
+the gate: `main` exits 0 only when that verdict is not FAILED. A caller that
+ignores the exit code and reads `part2_route_graph.json` anyway is reading it
+with the gate having told it not to, in writing, in the same output folder -
+this cannot force a consumer to check, but it cannot be skipped either, since
+
+Part of Stage 8 is a persistent decision register. Anything Part 2 could only
+infer, derive or guess at - not what the document plainly states - is written
+to `agent1_decisions.json`, one entry per decision, and reused unchanged on
+the next run as long as the document and the reading it depends on have not
+moved. A project owner resolves one by hand-editing its entry (`status`,
+`decision`, `decision_provenance`) and re-running; nothing in this pipeline
+resolves a decision on its own. `human_decision_gate` in the validation
+verdict is CLEAR only once every BLOCKING decision has been resolved this
+way - separate from `graph_ready`, which only asks whether the structure is
+sound, because a graph can build correctly out of a specification that still
+has a real, unconfirmed assumption in it.
+it runs unconditionally and cannot be silently absent.
 """
 
 from __future__ import annotations
@@ -41,6 +68,10 @@ import stage4_deep_parse
 import stage5_audit
 import part2_canonical
 import part2_graph
+# Not imported at module level: run_validation imports this module to reuse
+# _set_source, so importing it up here would be a cycle. Imported inside
+# run_agent1_validation instead, by which point this module has finished
+# loading.
 from models import (
     SCHEMA_VERSION,
     ArtifactEnvelope,
@@ -299,6 +330,25 @@ def run_graphs(source: str, survey: CanonicalSurvey) -> tuple[RouteGraphs, Graph
     return graphs, report
 
 
+def run_agent1_validation(docx_path: Path, source: str, survey: CanonicalSurvey) -> dict:
+    """Stage 8 - check the canonical output against the raw document, always.
+
+    Not a separate command. Every call to `main` reaches this after the
+    canonical specification and its graphs exist, so a validation report is
+    never more than one run of the pipeline out of date, and there is no
+    occasion on which it was simply not run.
+
+    Rebuilds an oracle reading of the document and re-derives the reproducibility
+    comparison, both of which cost model calls only the first time a document is
+    seen - after that, `llm.py`'s decision record answers every prompt this
+    needs, so validating on every call is not validating for free but it is
+    validating for nearly free.
+    """
+    import run_validation  # deferred: see the note where this module is imported
+
+    return run_validation.validate(Path(source).stem, docx_path=docx_path, survey=survey)
+
+
 # ---------------------------------------------------------------------------
 # Re-entry: load a previous stage's artifact instead of recomputing it
 # ---------------------------------------------------------------------------
@@ -414,6 +464,38 @@ def _summarise_graphs(report: GraphReport) -> None:
         print(f"    [{f.severity.value:<8}] {f.check}: {f.finding}")
 
 
+def _summarise_validation(report: dict) -> bool:
+    """Print the gate's verdict plainly, and say whether the run may exit 0.
+
+    Returns False on anything but a clean pass, which `main` turns into a
+    non-zero exit code - the mechanical half of "do not silently pass a
+    blocking canonical output to the graph builder". The graph artifacts are
+    still written either way, same as Stage 5's audit never withheld Stage 4's
+    output; what changes is whether the run that produced them reports success.
+    """
+    verdict = report["verdict"]
+    counts = report["counts"]
+    status = verdict["canonical_status"]
+    print("\nSTAGE 8 — AGENT 1 VALIDATION")
+    print(f"  tests            {sum(counts.values())} "
+          f"(pass {counts['PASS']}, fail {counts['FAIL']}, "
+          f"unverified {counts['UNVERIFIED']}, blocked {counts['BLOCKED']})")
+    print(f"  canonical status {status}")
+    print(f"  human decisions  {verdict['human_decision_gate']}")
+    print(f"  graph ready      {verdict['graph_ready']}")
+    print(f"  agent 3 ready    {verdict['agent3_ready']}")
+    if verdict["pending_blocking_decisions"]:
+        print(f"  pending blocking decisions: {len(verdict['pending_blocking_decisions'])} "
+              f"(see agent1_decision_register.md)")
+    if verdict["agent3_blocked_by"]:
+        print(f"  agent 3 blocked by: {', '.join(verdict['agent3_blocked_by'])}")
+    if status == "FAILED":
+        print("  BLOCKING — this canonical output must not be treated as ready.")
+        for line in verdict["what_must_change"]:
+            print(f"    - {line}")
+    return status != "FAILED"
+
+
 def main(argv: list[str]) -> int:
     args = [a for a in argv[1:] if not a.startswith("--")]
     if not args:
@@ -448,13 +530,15 @@ def main(argv: list[str]) -> int:
     audit = run_stage5(document, blocks, stage3, parsed)
     survey = run_part2(source, parsed)
     _graphs, graph_report = run_graphs(source, survey)
+    validation_report = run_agent1_validation(docx_path, source, survey)
 
     _summarise(blocks, stage3, parsed, [*stage3_flags, *stage4_flags])
     _summarise_audit(audit)
     _summarise_part2(survey)
     _summarise_graphs(graph_report)
+    passed = _summarise_validation(validation_report)
     print(f"\nArtifacts: {_out_dir(source)}")
-    return 0
+    return 0 if passed else 2
 
 
 if __name__ == "__main__":

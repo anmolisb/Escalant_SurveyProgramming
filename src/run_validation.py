@@ -10,6 +10,8 @@ Writes, per document:
     out/<stem>/agent1_evaluation_tests.json
     out/<stem>/agent1_evaluation_results.json
     out/<stem>/part2_validation.json
+    out/<stem>/agent1_decisions.json           (the decision register)
+    out/<stem>/agent1_decision_register.md     (its human-readable form)
 and one shared docs/agent1_validation_summary.md
 """
 
@@ -22,7 +24,9 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
+import agent1_decisions
 import agent1_eval
+import llm
 import orchestrator
 import part2_canonical
 import part2_graph
@@ -86,16 +90,27 @@ def _write(path: Path, payload, *, artifact: str, stage: int, source: str) -> No
     )
 
 
-def validate(stem: str) -> dict:
-    docx = FIXTURES / (stem + ".docx")
+def validate(stem: str, docx_path: Path | None = None,
+             survey: CanonicalSurvey | None = None) -> dict:
+    """Validate one document's canonical output.
+
+    `docx_path` defaults to the fixtures corpus, which is what the standalone
+    CLI below needs. The orchestrator, validating whatever document it was
+    just given rather than a fixture, passes the real path. `survey` lets a
+    caller that already has the object in memory - the orchestrator, again -
+    skip a redundant read of the file it just wrote; the standalone CLI has no
+    such object yet and reads it from disk.
+    """
+    docx = docx_path if docx_path is not None else FIXTURES / (stem + ".docx")
     out = ROOT / "out" / stem
     # Points the decision record at this document, so the rebuild below reuses
     # the answers already on record instead of asking again.
-    orchestrator._set_source(docx)
+    source_document = orchestrator._set_source(docx)
 
     oracle = qre_oracle.read(docx)
     stage4 = _stage4(out)
-    survey = CanonicalSurvey.model_validate(_load(out, "part2_canonical.json"))
+    if survey is None:
+        survey = CanonicalSurvey.model_validate(_load(out, "part2_canonical.json"))
 
     tests = agent1_eval.build_tests(oracle)
     results = agent1_eval.run_tests(tests, survey, oracle)
@@ -105,6 +120,21 @@ def validate(stem: str) -> dict:
     repro = part2_validate.reproducibility(
         lambda: part2_canonical.run(docx.name, stage4), runs=2)
     gate = part2_validate.confirmation_gate(survey, results)
+
+    # The human decision register. Detected fresh every run from the
+    # specification alone, then reconciled against whatever this document
+    # already has on record - reusing a prior resolution when nothing that
+    # could invalidate it has changed, and demoting it back to pending, loudly,
+    # the moment the document or the model has.
+    decisions_path = out / agent1_decisions.REGISTER_ARTIFACT
+    existing_decisions = agent1_decisions.load_register(decisions_path)
+    raw_decisions = agent1_decisions.detect(survey)
+    decisions, decisions_summary = agent1_decisions.reconcile(
+        existing_decisions, raw_decisions, stem, source_document, model=llm.get_model())
+    agent1_decisions.save_register(decisions_path, decisions, stem, source_document)
+    (out / agent1_decisions.REGISTER_MARKDOWN).write_text(
+        agent1_decisions.to_markdown(decisions, stem, source_document), encoding="utf-8")
+    gate = part2_validate.attach_decision_ids(gate, decisions)
 
     # Build the graph rather than reasoning about whether it would build. Held
     # in memory: this is a check, and it must not overwrite the committed
@@ -118,7 +148,7 @@ def validate(stem: str) -> dict:
         "passed": graph_report.passed, "blocking": graph_report.blocking,
         "findings": [f.model_dump(mode="json") for f in graph_report.findings],
     }
-    decision = part2_validate.verdict(results, coverage, cross, repro, gate, graph)
+    decision = part2_validate.verdict(results, coverage, cross, repro, gate, graph, decisions)
 
     counts = {status: sum(1 for r in results if r.status == status)
               for status in ("PASS", "FAIL", "UNVERIFIED", "BLOCKED")}
@@ -130,11 +160,18 @@ def validate(stem: str) -> dict:
            artifact="agent1_evaluation_results", stage=8, source=docx.name)
     _write(out / "part2_validation.json",
            {"cross_source": cross, "reproducibility": repro, "graph": graph,
-            "confirmation_required": gate, "verdict": decision},
+            "confirmation_required": gate,
+            "decisions": {
+                "register": agent1_decisions.REGISTER_ARTIFACT,
+                "human_readable": agent1_decisions.REGISTER_MARKDOWN,
+                "summary": decisions_summary,
+            },
+            "verdict": decision},
            artifact="part2_validation", stage=8, source=docx.name)
 
     return {"stem": stem, "counts": counts, "coverage": coverage, "cross": cross,
             "repro": repro, "gate": gate, "verdict": decision, "graph": graph,
+            "decisions": decisions, "decisions_summary": decisions_summary,
             "tests": len(tests), "results": results}
 
 
@@ -174,14 +211,15 @@ def summary(reports: list[dict]) -> str:
              "UNVERIFIED rather than passed.", ""]
 
     lines += ["## Verdict", "",
-              "| Survey | Canonical | Graph ready | Agent 3 ready | Tests | Pass | Fail | Unverified | Blocked |",
-              "|---|---|---|---|---|---|---|---|---|"]
+              "| Survey | Canonical | Human decision gate | Graph | Agent 3 | Tests | Pass | Fail | Unverified | Blocked |",
+              "|---|---|---|---|---|---|---|---|---|---|"]
     for report in reports:
         counts, decision = report["counts"], report["verdict"]
-        lines.append("| %s | %s | %s | %s | %d | %d | %d | %d | %d |" % (
+        lines.append("| %s | %s | %s | %s | %s | %d | %d | %d | %d | %d |" % (
             report["stem"].split("_")[0], decision["canonical_status"],
-            decision["graph_ready"], decision["agent3_ready"], report["tests"],
-            counts["PASS"], counts["FAIL"], counts["UNVERIFIED"], counts["BLOCKED"]))
+            decision["human_decision_gate"], decision["graph_ready"], decision["agent3_ready"],
+            report["tests"], counts["PASS"], counts["FAIL"],
+            counts["UNVERIFIED"], counts["BLOCKED"]))
     lines.append("")
 
     for report in reports:
@@ -234,7 +272,22 @@ def summary(reports: list[dict]) -> str:
         for entry in gate:
             lines += ["**%s** — affects %s" % (entry["issue"], ", ".join(entry["affected"]) or "the survey"),
                       "", "- Why it matters: %s" % entry["why_it_matters"],
-                      "- Changes downstream: %s" % entry["changes_downstream"], ""]
+                      "- Changes downstream: %s" % entry["changes_downstream"],
+                      "- Decision IDs: %s" % (", ".join(entry.get("decision_ids", [])) or "—"), ""]
+
+        ds = report["decisions_summary"]
+        lines += ["### Human decision register", "",
+                  "- %d total: %d pending, %d resolved, %d not required"
+                  % (ds["total"], ds["pending"], ds["resolved"], ds["not_required"]),
+                  "- raised this run: %d · resolved decisions reused: %d · "
+                  "moved to not-required: %d · invalidated by a changed context: %d"
+                  % (ds["raised_this_run"], ds["resolved_reused"],
+                     ds["newly_transitioned_not_required"], ds["context_changed"]),
+                  "- blocking and still pending: %s" % (", ".join(ds["blocking_pending"]) or "none"),
+                  "- full register: `out/%s/%s` · human-readable: `out/%s/%s`"
+                  % (report["stem"], agent1_decisions.REGISTER_ARTIFACT,
+                     report["stem"], agent1_decisions.REGISTER_MARKDOWN),
+                  ""]
 
         lines += ["### Top issues", ""]
         issues = (decision["what_is_incorrect"] + decision["what_is_missing"])[:8]
@@ -260,11 +313,15 @@ def main(argv: list[str]) -> int:
     for stem in stems:
         report = validate(stem)
         reports.append(report)
-        decision, counts = report["verdict"], report["counts"]
-        print("%-40s %-22s graph=%-3s agent3=%-3s  pass=%d fail=%d unverified=%d blocked=%d" % (
-            stem, decision["canonical_status"], decision["graph_ready"],
-            decision["agent3_ready"], counts["PASS"], counts["FAIL"],
+        decision, counts, ds = report["verdict"], report["counts"], report["decisions_summary"]
+        print("%-40s %-22s gate=%-25s graph=%-3s agent3=%-3s  pass=%d fail=%d unverified=%d blocked=%d" % (
+            stem, decision["canonical_status"], decision["human_decision_gate"],
+            decision["graph_ready"], decision["agent3_ready"], counts["PASS"], counts["FAIL"],
             counts["UNVERIFIED"], counts["BLOCKED"]), flush=True)
+        print("    decisions: %d total (%d pending, %d resolved, %d not required) — "
+              "raised %d, reused %d, context-changed %d"
+              % (ds["total"], ds["pending"], ds["resolved"], ds["not_required"],
+                 ds["raised_this_run"], ds["resolved_reused"], ds["context_changed"]), flush=True)
         for failure in [r for r in report["results"] if r.status == "FAIL"][:10]:
             print("    FAIL %-6s %-22s %s" % (failure.test_id, failure.category,
                                               failure.explanation), flush=True)

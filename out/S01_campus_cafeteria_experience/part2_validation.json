@@ -8,7 +8,7 @@
     "sha256": "2756cb3b6dc3f21cdc7c1d35b7cfb0e2270af2a918ba6fe682e72ae8e121a804",
     "bytes": 40578
   },
-  "generated_at": "2026-08-29T11:14:51+00:00",
+  "generated_at": "2026-08-29T11:54:49+00:00",
   "item_count": null,
   "content": {
     "cross_source": [],
@@ -38,7 +38,8 @@
           "S01_campus_cafeteria_experience.docx",
           "semantics"
         ],
-        "changes_downstream": "Which questions appear on many routes, which rule wins when two apply, and whether an 'is exactly' test passes on a multi-select answer."
+        "changes_downstream": "Which questions appear on many routes, which rule wins when two apply, and whether an 'is exactly' test passes on a multi-select answer.",
+        "decision_ids": []
       },
       {
         "status": "CONFIRMATION_REQUIRED",
@@ -48,9 +49,30 @@
           "Q4",
           "Q6"
         ],
-        "changes_downstream": "Whether this question's wording depends on an earlier answer, which decides the order a bot must answer in and what text it should expect on screen."
+        "changes_downstream": "Whether this question's wording depends on an earlier answer, which decides the order a bot must answer in and what text it should expect on screen.",
+        "decision_ids": []
       }
     ],
+    "decisions": {
+      "register": "agent1_decisions.json",
+      "human_readable": "agent1_decision_register.md",
+      "summary": {
+        "total": 4,
+        "raised_this_run": 4,
+        "resolved_reused": 0,
+        "pending": 4,
+        "resolved": 0,
+        "not_required": 0,
+        "newly_transitioned_not_required": 0,
+        "context_changed": 0,
+        "blocking_pending": [
+          "134511cac21dfa7d",
+          "376a146526ee8c10",
+          "3c988435446a4710",
+          "d4839c48687f65bd"
+        ]
+      }
+    },
     "verdict": {
       "canonical_status": "PASSED_WITH_WARNINGS",
       "graph_ready": "YES",
@@ -64,9 +86,18 @@
         "blocking": 0,
         "findings": []
       },
+      "human_decision_gate": "PENDING_BLOCKING_DECISIONS",
+      "pending_blocking_decisions": [
+        "134511cac21dfa7d",
+        "376a146526ee8c10",
+        "3c988435446a4710",
+        "d4839c48687f65bd"
+      ],
       "agent3_ready": "NO",
       "agent3_blocked_by": [
-        "semantics_unconfirmed"
+        "ambiguous_piping",
+        "rule_precedence",
+        "unasked_question_semantics"
       ],
       "what_is_incorrect": [],
       "what_is_missing": [],
@@ -86,7 +117,8 @@
         "other_failures": 0,
         "blocked": 0,
         "cross_source_blocking": 0,
-        "confirmation_required": 2
+        "confirmation_required": 2,
+        "decisions_pending_blocking": 4
       }
     }
   }

@@ -375,8 +375,27 @@ def confirmation_gate(survey: CanonicalSurvey, results) -> list[dict]:
 # ---------------------------------------------------------------------------
 
 
+def attach_decision_ids(gate: list[dict], decisions: dict[str, dict]) -> list[dict]:
+    """Point each confirmation-gate entry at the persisted decisions behind it.
+
+    `gate` groups by issue name for the prose summary; the register groups by
+    exact evidence, which can split one issue into more than one persisted
+    decision (C01's `ambiguous_piping` is four decisions, one per distinct
+    wording). Naming them here is what "the validation output must reference
+    relevant decision IDs" means in practice: a reader goes from one line of
+    prose to the exact register entries carrying its resolution.
+    """
+    by_issue: dict[str, list[str]] = {}
+    for did, entry in decisions.items():
+        by_issue.setdefault(entry["issue"], []).append(did)
+    for item in gate:
+        item["decision_ids"] = sorted(by_issue.get(item["issue"], []))
+    return gate
+
+
 def verdict(results, coverage_report: dict, cross: list[dict],
-            repro: dict, gate: list[dict], graph: dict | None = None) -> dict:
+            repro: dict, gate: list[dict], graph: dict | None = None,
+            decisions: dict[str, dict] | None = None) -> dict:
     critical_failures = [r for r in results
                          if r.status == agent1_eval.FAIL and r.criticality == agent1_eval.CRITICAL]
     other_failures = [r for r in results
@@ -414,7 +433,7 @@ def verdict(results, coverage_report: dict, cross: list[dict],
     else:
         status = PASSED
 
-    # Two different questions, so two different answers.
+    # Three different questions, so three different answers.
     #
     # `graph_ready` asks whether the next stage can run: does the graph build,
     # does it faithfully represent the specification, and does the specification
@@ -424,22 +443,38 @@ def verdict(results, coverage_report: dict, cross: list[dict],
     # saying otherwise would send someone looking for a structural fault that
     # is not there.
     #
-    # `agent3_ready` asks whether a test designer can trust what it says the
-    # survey does. An open question about what a rule means still changes that,
-    # even when every structure is in place.
+    # `human_decision_gate` asks whether every BLOCKING decision the survey has
+    # raised has actually been resolved by a person - not inferred from any
+    # issue's name (a hardcoded list of "these four issues count" would silently
+    # miss the next kind of ambiguity a future document raises), but read
+    # straight off the severity a decision was persisted with. `agent1_decisions`
+    # decides severity once, per kind of issue; this only asks whether it is
+    # still pending.
+    #
+    # `agent3_ready` needs both: the graph must build, and nothing blocking may
+    # still be waiting on a person.
     graph_built = graph is None or (graph.get("passed") and not graph.get("blocking"))
     graph_ready = bool(graph_built) and not blocking_cross and repro["semantic_reproducible"]
-    behaviour_changing = [g for g in gate if g["issue"] in (
-        "semantics_unconfirmed", "condition_unread", "guard_unread",
-        "inferred_condition_partial_options")]
-    agent3_ready = graph_ready and status != FAILED and not behaviour_changing
+
+    decisions = decisions or {}
+    pending_blocking = sorted(
+        e["decision_id"] for e in decisions.values()
+        if e.get("status") == "PENDING_CONFIRMATION" and e.get("severity") == "BLOCKING"
+    )
+    decision_gate = "PENDING_BLOCKING_DECISIONS" if pending_blocking else "CLEAR"
+    blocked_by_issues = sorted({
+        decisions[did]["issue"] for did in pending_blocking
+    })
+    agent3_ready = graph_ready and status != FAILED and decision_gate == "CLEAR"
 
     return {
         "canonical_status": status,
         "graph_ready": "YES" if graph_ready else "NO",
         "graph_evidence": graph,
+        "human_decision_gate": decision_gate,
+        "pending_blocking_decisions": pending_blocking,
         "agent3_ready": "YES" if agent3_ready else "NO",
-        "agent3_blocked_by": [g["issue"] for g in behaviour_changing],
+        "agent3_blocked_by": blocked_by_issues,
         "what_is_incorrect": incorrect,
         "what_is_missing": missing,
         "what_is_ambiguous": ambiguous,
@@ -451,5 +486,6 @@ def verdict(results, coverage_report: dict, cross: list[dict],
             "blocked": len(blocked),
             "cross_source_blocking": len(blocking_cross),
             "confirmation_required": len(gate),
+            "decisions_pending_blocking": len(pending_blocking),
         },
     }

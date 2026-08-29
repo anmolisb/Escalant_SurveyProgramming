@@ -1,0 +1,554 @@
+{
+  "schema_version": "1.0.0",
+  "artifact": "agent1_decisions",
+  "survey_id": "C01_chronic_care_patient_journey",
+  "source_document": {
+    "filename": "C01_chronic_care_patient_journey.docx",
+    "sha256": "319e6b78a2a1e36ef712ce421e6d2c1db3325a087a07d8d0e93ec38b39207e4b",
+    "bytes": 43612
+  },
+  "generated_at": "2026-08-29T11:54:49+00:00",
+  "entries": {
+    "f6de93712798f5f5": {
+      "decision_id": "f6de93712798f5f5",
+      "survey_id": "C01_chronic_care_patient_journey",
+      "source_document": {
+        "filename": "C01_chronic_care_patient_journey.docx",
+        "sha256": "319e6b78a2a1e36ef712ce421e6d2c1db3325a087a07d8d0e93ec38b39207e4b"
+      },
+      "affected": [
+        "semantics"
+      ],
+      "category": "semantic_assumption",
+      "issue": "unasked_question_semantics",
+      "source_evidence": "unasked_reference='condition_false', origin=inferred",
+      "current_interpretation": "A condition naming a question the respondent was never asked is treated as false, so the rule or guard does not fire.",
+      "alternative_interpretations": [
+        "Treat it as true instead, so the rule fires.",
+        "Treat it as an error state needing its own handling."
+      ],
+      "downstream_impact": "Changes which questions are shown and which ending is reached whenever a condition names a question that was skipped.",
+      "recommendation": "Confirm the intended reading with the project owner. Once recorded here it applies to every rule in this survey and does not need asking again unless the document changes.",
+      "severity": "BLOCKING",
+      "context_key": "450036bdd1d10606",
+      "last_seen_at": "2026-08-29T11:54:49+00:00",
+      "status": "PENDING_CONFIRMATION",
+      "created_at": "2026-08-29T11:54:49+00:00",
+      "resolved_at": null,
+      "decision": null,
+      "decision_provenance": null,
+      "previous_decision": null,
+      "context_changed": false
+    },
+    "00db7d74442cb17d": {
+      "decision_id": "00db7d74442cb17d",
+      "survey_id": "C01_chronic_care_patient_journey",
+      "source_document": {
+        "filename": "C01_chronic_care_patient_journey.docx",
+        "sha256": "319e6b78a2a1e36ef712ce421e6d2c1db3325a087a07d8d0e93ec38b39207e4b"
+      },
+      "affected": [
+        "semantics"
+      ],
+      "category": "semantic_assumption",
+      "issue": "rule_precedence",
+      "source_evidence": "rule_precedence='document_order_first_match', origin=inferred",
+      "current_interpretation": "The first rule in document order whose condition is true is the one that applies.",
+      "alternative_interpretations": [
+        "The most specific matching condition wins.",
+        "Every matching rule applies, and a later one can override an earlier one."
+      ],
+      "downstream_impact": "Changes which destination is used whenever more than one rule's condition can be true for the same respondent.",
+      "recommendation": "Confirm the intended precedence with the project owner.",
+      "severity": "BLOCKING",
+      "context_key": "450036bdd1d10606",
+      "last_seen_at": "2026-08-29T11:54:49+00:00",
+      "status": "PENDING_CONFIRMATION",
+      "created_at": "2026-08-29T11:54:49+00:00",
+      "resolved_at": null,
+      "decision": null,
+      "decision_provenance": null,
+      "previous_decision": null,
+      "context_changed": false
+    },
+    "5c5b9104ff079c25": {
+      "decision_id": "5c5b9104ff079c25",
+      "survey_id": "C01_chronic_care_patient_journey",
+      "source_document": {
+        "filename": "C01_chronic_care_patient_journey.docx",
+        "sha256": "319e6b78a2a1e36ef712ce421e6d2c1db3325a087a07d8d0e93ec38b39207e4b"
+      },
+      "affected": [
+        "semantics"
+      ],
+      "category": "semantic_assumption",
+      "issue": "multi_select_equality",
+      "source_evidence": "multi_equality='set_equality', origin=derived",
+      "current_interpretation": "'==' against a multi-select question's answer means the whole answer set is exactly that value - chosen, and nothing else.",
+      "alternative_interpretations": [
+        "'==' means the value is among those chosen, alongside others.",
+        "'==' against a multi-select is a document error and should be read as a different operator."
+      ],
+      "downstream_impact": "Changes the outcome of every equality condition written against a multi-select question.",
+      "recommendation": "Confirm the intended reading with the project owner.",
+      "severity": "BLOCKING",
+      "context_key": "450036bdd1d10606",
+      "last_seen_at": "2026-08-29T11:54:49+00:00",
+      "status": "PENDING_CONFIRMATION",
+      "created_at": "2026-08-29T11:54:49+00:00",
+      "resolved_at": null,
+      "decision": null,
+      "decision_provenance": null,
+      "previous_decision": null,
+      "context_changed": false
+    },
+    "8009e053dcf0c019": {
+      "decision_id": "8009e053dcf0c019",
+      "survey_id": "C01_chronic_care_patient_journey",
+      "source_document": {
+        "filename": "C01_chronic_care_patient_journey.docx",
+        "sha256": "319e6b78a2a1e36ef712ce421e6d2c1db3325a087a07d8d0e93ec38b39207e4b"
+      },
+      "affected": [
+        "Q2"
+      ],
+      "category": "routing",
+      "issue": "ambiguous_routing_condition",
+      "source_evidence": "Q1 contains at least one brand  ->  Q1 contains_any ['Care Network A', 'Care Network B', 'Care Network C']",
+      "current_interpretation": "A prose condition was rewritten into a formal one by a model, and the parser accepted the rewrite.",
+      "alternative_interpretations": [
+        "A different formal reading of the same sentence is possible."
+      ],
+      "downstream_impact": "Whether this rule or guard fires for a given respondent, so which questions they see and which ending they reach.",
+      "recommendation": "A person familiar with the survey should confirm the reading recorded here matches what the sentence intends.",
+      "severity": "BLOCKING",
+      "context_key": "450036bdd1d10606",
+      "last_seen_at": "2026-08-29T11:54:49+00:00",
+      "status": "PENDING_CONFIRMATION",
+      "created_at": "2026-08-29T11:54:49+00:00",
+      "resolved_at": null,
+      "decision": null,
+      "decision_provenance": null,
+      "previous_decision": null,
+      "context_changed": false
+    },
+    "b90d8580babbddab": {
+      "decision_id": "b90d8580babbddab",
+      "survey_id": "C01_chronic_care_patient_journey",
+      "source_document": {
+        "filename": "C01_chronic_care_patient_journey.docx",
+        "sha256": "319e6b78a2a1e36ef712ce421e6d2c1db3325a087a07d8d0e93ec38b39207e4b"
+      },
+      "affected": [
+        "Q6"
+      ],
+      "category": "routing",
+      "issue": "ambiguous_routing_condition",
+      "source_evidence": "Q5 contains any touchpoint  ->  Q5 contains_any ['Primary-care physician', 'Specialist', 'Hospital', 'Pharmacy', 'Patient portal', 'Support programme']",
+      "current_interpretation": "A prose condition was rewritten into a formal one by a model, and the parser accepted the rewrite.",
+      "alternative_interpretations": [
+        "A different formal reading of the same sentence is possible."
+      ],
+      "downstream_impact": "Whether this rule or guard fires for a given respondent, so which questions they see and which ending they reach.",
+      "recommendation": "A person familiar with the survey should confirm the reading recorded here matches what the sentence intends.",
+      "severity": "BLOCKING",
+      "context_key": "450036bdd1d10606",
+      "last_seen_at": "2026-08-29T11:54:49+00:00",
+      "status": "PENDING_CONFIRMATION",
+      "created_at": "2026-08-29T11:54:49+00:00",
+      "resolved_at": null,
+      "decision": null,
+      "decision_provenance": null,
+      "previous_decision": null,
+      "context_changed": false
+    },
+    "74f6f819e190cab4": {
+      "decision_id": "74f6f819e190cab4",
+      "survey_id": "C01_chronic_care_patient_journey",
+      "source_document": {
+        "filename": "C01_chronic_care_patient_journey.docx",
+        "sha256": "319e6b78a2a1e36ef712ce421e6d2c1db3325a087a07d8d0e93ec38b39207e4b"
+      },
+      "affected": [
+        "Q15"
+      ],
+      "category": "routing",
+      "issue": "guard_single_source",
+      "source_evidence": "Q3 != 'None/currently not using'",
+      "current_interpretation": "The display condition is stated only in the questionnaire table, not in the routing table, and is carried from the one place that states it.",
+      "alternative_interpretations": [],
+      "downstream_impact": "None to this specification, which already combines both sources. Worth flagging back to whoever maintains the QRE, since a reader of only the routing table would miss it.",
+      "recommendation": "No action needed here; consider noting the asymmetry to the QRE author.",
+      "severity": "NON_BLOCKING",
+      "context_key": "450036bdd1d10606",
+      "last_seen_at": "2026-08-29T11:54:49+00:00",
+      "status": "PENDING_CONFIRMATION",
+      "created_at": "2026-08-29T11:54:49+00:00",
+      "resolved_at": null,
+      "decision": null,
+      "decision_provenance": null,
+      "previous_decision": null,
+      "context_changed": false
+    },
+    "70e04d836cb40d1b": {
+      "decision_id": "70e04d836cb40d1b",
+      "survey_id": "C01_chronic_care_patient_journey",
+      "source_document": {
+        "filename": "C01_chronic_care_patient_journey.docx",
+        "sha256": "319e6b78a2a1e36ef712ce421e6d2c1db3325a087a07d8d0e93ec38b39207e4b"
+      },
+      "affected": [
+        "Q13"
+      ],
+      "category": "validation",
+      "issue": "missing_option_codes",
+      "source_evidence": "1=Very low; -=2; -=3; -=4; 5=Very high",
+      "current_interpretation": "Some but not all of this question's options carry an answer code; the rest are left null rather than invented.",
+      "alternative_interpretations": [],
+      "downstream_impact": "A respondent bot told to answer by code cannot resolve the uncoded options.",
+      "recommendation": "Ask the project owner for the missing codes.",
+      "severity": "BLOCKING",
+      "context_key": "450036bdd1d10606",
+      "last_seen_at": "2026-08-29T11:54:49+00:00",
+      "status": "PENDING_CONFIRMATION",
+      "created_at": "2026-08-29T11:54:49+00:00",
+      "resolved_at": null,
+      "decision": null,
+      "decision_provenance": null,
+      "previous_decision": null,
+      "context_changed": false
+    },
+    "71002f0c34af1fbc": {
+      "decision_id": "71002f0c34af1fbc",
+      "survey_id": "C01_chronic_care_patient_journey",
+      "source_document": {
+        "filename": "C01_chronic_care_patient_journey.docx",
+        "sha256": "319e6b78a2a1e36ef712ce421e6d2c1db3325a087a07d8d0e93ec38b39207e4b"
+      },
+      "affected": [
+        "R19"
+      ],
+      "category": "routing",
+      "issue": "ambiguous_routing_condition",
+      "source_evidence": "exclusive option selected with another response at Q1 or Q5  ->  ((Q1 contains 'None of these' and not Q1 set_eq ['None of these']) or (Q5 contains 'None of these' and not Q5 set_eq ['None of these']))",
+      "current_interpretation": "A prose condition was rewritten into a formal one by a model, and the parser accepted the rewrite.",
+      "alternative_interpretations": [
+        "A different formal reading of the same sentence is possible."
+      ],
+      "downstream_impact": "Whether this rule or guard fires for a given respondent, so which questions they see and which ending they reach.",
+      "recommendation": "A person familiar with the survey should confirm the reading recorded here matches what the sentence intends.",
+      "severity": "BLOCKING",
+      "context_key": "450036bdd1d10606",
+      "last_seen_at": "2026-08-29T11:54:49+00:00",
+      "status": "PENDING_CONFIRMATION",
+      "created_at": "2026-08-29T11:54:49+00:00",
+      "resolved_at": null,
+      "decision": null,
+      "decision_provenance": null,
+      "previous_decision": null,
+      "context_changed": false
+    },
+    "c417f67cdc3ab8cb": {
+      "decision_id": "c417f67cdc3ab8cb",
+      "survey_id": "C01_chronic_care_patient_journey",
+      "source_document": {
+        "filename": "C01_chronic_care_patient_journey.docx",
+        "sha256": "319e6b78a2a1e36ef712ce421e6d2c1db3325a087a07d8d0e93ec38b39207e4b"
+      },
+      "affected": [
+        "R20"
+      ],
+      "category": "routing",
+      "issue": "ambiguous_routing_condition",
+      "source_evidence": "selected option at Q6 was not selected at Q5  ->  not Q5 contains Q6",
+      "current_interpretation": "A prose condition was rewritten into a formal one by a model, and the parser accepted the rewrite.",
+      "alternative_interpretations": [
+        "A different formal reading of the same sentence is possible."
+      ],
+      "downstream_impact": "Whether this rule or guard fires for a given respondent, so which questions they see and which ending they reach.",
+      "recommendation": "A person familiar with the survey should confirm the reading recorded here matches what the sentence intends.",
+      "severity": "BLOCKING",
+      "context_key": "450036bdd1d10606",
+      "last_seen_at": "2026-08-29T11:54:49+00:00",
+      "status": "PENDING_CONFIRMATION",
+      "created_at": "2026-08-29T11:54:49+00:00",
+      "resolved_at": null,
+      "decision": null,
+      "decision_provenance": null,
+      "previous_decision": null,
+      "context_changed": false
+    },
+    "0430c3303a173c36": {
+      "decision_id": "0430c3303a173c36",
+      "survey_id": "C01_chronic_care_patient_journey",
+      "source_document": {
+        "filename": "C01_chronic_care_patient_journey.docx",
+        "sha256": "319e6b78a2a1e36ef712ce421e6d2c1db3325a087a07d8d0e93ec38b39207e4b"
+      },
+      "affected": [
+        "QUOTA_REGION"
+      ],
+      "category": "quota",
+      "issue": "quota_behaviour",
+      "source_evidence": "QUOTA_REGION: hard quota on D1: North=20%, South=20%, East=20%, West=2 -> D1, 5 groups",
+      "current_interpretation": "A quota's variable, groups and targets were read out of a prose sentence by a model and passed the structural checks.",
+      "alternative_interpretations": [
+        "The sentence intends a different variable, grouping, or split."
+      ],
+      "downstream_impact": "Which respondents are counted against which quota, and when they are turned away.",
+      "recommendation": "Confirm the quota reading with the project owner.",
+      "severity": "BLOCKING",
+      "context_key": "450036bdd1d10606",
+      "last_seen_at": "2026-08-29T11:54:49+00:00",
+      "status": "PENDING_CONFIRMATION",
+      "created_at": "2026-08-29T11:54:49+00:00",
+      "resolved_at": null,
+      "decision": null,
+      "decision_provenance": null,
+      "previous_decision": null,
+      "context_changed": false
+    },
+    "d1c767adabb142b1": {
+      "decision_id": "d1c767adabb142b1",
+      "survey_id": "C01_chronic_care_patient_journey",
+      "source_document": {
+        "filename": "C01_chronic_care_patient_journey.docx",
+        "sha256": "319e6b78a2a1e36ef712ce421e6d2c1db3325a087a07d8d0e93ec38b39207e4b"
+      },
+      "affected": [
+        "QUOTA_AGE"
+      ],
+      "category": "quota",
+      "issue": "quota_behaviour",
+      "source_evidence": "QUOTA_AGE: soft quota on D2: 21-29=20%, 30-39=25%, 40-49=25%, 50-59=20 -> D2, 5 groups",
+      "current_interpretation": "A quota's variable, groups and targets were read out of a prose sentence by a model and passed the structural checks.",
+      "alternative_interpretations": [
+        "The sentence intends a different variable, grouping, or split."
+      ],
+      "downstream_impact": "Which respondents are counted against which quota, and when they are turned away.",
+      "recommendation": "Confirm the quota reading with the project owner.",
+      "severity": "BLOCKING",
+      "context_key": "450036bdd1d10606",
+      "last_seen_at": "2026-08-29T11:54:49+00:00",
+      "status": "PENDING_CONFIRMATION",
+      "created_at": "2026-08-29T11:54:49+00:00",
+      "resolved_at": null,
+      "decision": null,
+      "decision_provenance": null,
+      "previous_decision": null,
+      "context_changed": false
+    },
+    "ae7f9449c4271f16": {
+      "decision_id": "ae7f9449c4271f16",
+      "survey_id": "C01_chronic_care_patient_journey",
+      "source_document": {
+        "filename": "C01_chronic_care_patient_journey.docx",
+        "sha256": "319e6b78a2a1e36ef712ce421e6d2c1db3325a087a07d8d0e93ec38b39207e4b"
+      },
+      "affected": [
+        "Q8"
+      ],
+      "category": "dependency",
+      "issue": "ambiguous_piping",
+      "source_evidence": "'the current provider' (confidence 1.00)",
+      "current_interpretation": "A question's wording was read as quoting an earlier answer, from the phrasing alone; no table states the link.",
+      "alternative_interpretations": [
+        "The wording is generic and does not actually depend on the earlier answer."
+      ],
+      "downstream_impact": "Whether this question's wording depends on an earlier answer, which decides the order a respondent bot must answer in and what text it should expect on screen.",
+      "recommendation": "Confirm the dependency with the project owner.",
+      "severity": "BLOCKING",
+      "context_key": "450036bdd1d10606",
+      "last_seen_at": "2026-08-29T11:54:49+00:00",
+      "status": "PENDING_CONFIRMATION",
+      "created_at": "2026-08-29T11:54:49+00:00",
+      "resolved_at": null,
+      "decision": null,
+      "decision_provenance": null,
+      "previous_decision": null,
+      "context_changed": false
+    },
+    "8c69b2c506c9955a": {
+      "decision_id": "8c69b2c506c9955a",
+      "survey_id": "C01_chronic_care_patient_journey",
+      "source_document": {
+        "filename": "C01_chronic_care_patient_journey.docx",
+        "sha256": "319e6b78a2a1e36ef712ce421e6d2c1db3325a087a07d8d0e93ec38b39207e4b"
+      },
+      "affected": [
+        "Q9"
+      ],
+      "category": "dependency",
+      "issue": "ambiguous_piping",
+      "source_evidence": "'your current provider' (confidence 1.00)",
+      "current_interpretation": "A question's wording was read as quoting an earlier answer, from the phrasing alone; no table states the link.",
+      "alternative_interpretations": [
+        "The wording is generic and does not actually depend on the earlier answer."
+      ],
+      "downstream_impact": "Whether this question's wording depends on an earlier answer, which decides the order a respondent bot must answer in and what text it should expect on screen.",
+      "recommendation": "Confirm the dependency with the project owner.",
+      "severity": "BLOCKING",
+      "context_key": "450036bdd1d10606",
+      "last_seen_at": "2026-08-29T11:54:49+00:00",
+      "status": "PENDING_CONFIRMATION",
+      "created_at": "2026-08-29T11:54:49+00:00",
+      "resolved_at": null,
+      "decision": null,
+      "decision_provenance": null,
+      "previous_decision": null,
+      "context_changed": false
+    },
+    "e4c971197a4cd683": {
+      "decision_id": "e4c971197a4cd683",
+      "survey_id": "C01_chronic_care_patient_journey",
+      "source_document": {
+        "filename": "C01_chronic_care_patient_journey.docx",
+        "sha256": "319e6b78a2a1e36ef712ce421e6d2c1db3325a087a07d8d0e93ec38b39207e4b"
+      },
+      "affected": [
+        "Q20"
+      ],
+      "category": "dependency",
+      "issue": "ambiguous_piping",
+      "source_evidence": "'the selected proposition' (confidence 1.00)",
+      "current_interpretation": "A question's wording was read as quoting an earlier answer, from the phrasing alone; no table states the link.",
+      "alternative_interpretations": [
+        "The wording is generic and does not actually depend on the earlier answer."
+      ],
+      "downstream_impact": "Whether this question's wording depends on an earlier answer, which decides the order a respondent bot must answer in and what text it should expect on screen.",
+      "recommendation": "Confirm the dependency with the project owner.",
+      "severity": "BLOCKING",
+      "context_key": "450036bdd1d10606",
+      "last_seen_at": "2026-08-29T11:54:49+00:00",
+      "status": "PENDING_CONFIRMATION",
+      "created_at": "2026-08-29T11:54:49+00:00",
+      "resolved_at": null,
+      "decision": null,
+      "decision_provenance": null,
+      "previous_decision": null,
+      "context_changed": false
+    },
+    "d04e54c7a70f655f": {
+      "decision_id": "d04e54c7a70f655f",
+      "survey_id": "C01_chronic_care_patient_journey",
+      "source_document": {
+        "filename": "C01_chronic_care_patient_journey.docx",
+        "sha256": "319e6b78a2a1e36ef712ce421e6d2c1db3325a087a07d8d0e93ec38b39207e4b"
+      },
+      "affected": [
+        "Q21"
+      ],
+      "category": "dependency",
+      "issue": "ambiguous_piping",
+      "source_evidence": "'your choice' (confidence 1.00)",
+      "current_interpretation": "A question's wording was read as quoting an earlier answer, from the phrasing alone; no table states the link.",
+      "alternative_interpretations": [
+        "The wording is generic and does not actually depend on the earlier answer."
+      ],
+      "downstream_impact": "Whether this question's wording depends on an earlier answer, which decides the order a respondent bot must answer in and what text it should expect on screen.",
+      "recommendation": "Confirm the dependency with the project owner.",
+      "severity": "BLOCKING",
+      "context_key": "450036bdd1d10606",
+      "last_seen_at": "2026-08-29T11:54:49+00:00",
+      "status": "PENDING_CONFIRMATION",
+      "created_at": "2026-08-29T11:54:49+00:00",
+      "resolved_at": null,
+      "decision": null,
+      "decision_provenance": null,
+      "previous_decision": null,
+      "context_changed": false
+    },
+    "95eaab2b4ebfe62e": {
+      "decision_id": "95eaab2b4ebfe62e",
+      "survey_id": "C01_chronic_care_patient_journey",
+      "source_document": {
+        "filename": "C01_chronic_care_patient_journey.docx",
+        "sha256": "319e6b78a2a1e36ef712ce421e6d2c1db3325a087a07d8d0e93ec38b39207e4b"
+      },
+      "affected": [
+        "Q1",
+        "Q5"
+      ],
+      "category": "randomization",
+      "issue": "randomization_anchoring",
+      "source_evidence": "randomize=true, exclusive_option='None of these'",
+      "current_interpretation": "No option is anchored; every option in the list is free to move.",
+      "alternative_interpretations": [
+        "An exclusive option (such as \"None of these\") stays anchored at the bottom, by convention."
+      ],
+      "downstream_impact": "Where an exclusive option appears when the list is shuffled, which decides whether a displayed-order assertion is correct. Does not change which questions are asked or how they route.",
+      "recommendation": "Confirm anchoring convention with the project owner.",
+      "severity": "NON_BLOCKING",
+      "context_key": "450036bdd1d10606",
+      "last_seen_at": "2026-08-29T11:54:49+00:00",
+      "status": "PENDING_CONFIRMATION",
+      "created_at": "2026-08-29T11:54:49+00:00",
+      "resolved_at": null,
+      "decision": null,
+      "decision_provenance": null,
+      "previous_decision": null,
+      "context_changed": false
+    },
+    "756d035e6abbdf43": {
+      "decision_id": "756d035e6abbdf43",
+      "survey_id": "C01_chronic_care_patient_journey",
+      "source_document": {
+        "filename": "C01_chronic_care_patient_journey.docx",
+        "sha256": "319e6b78a2a1e36ef712ce421e6d2c1db3325a087a07d8d0e93ec38b39207e4b"
+      },
+      "affected": [
+        "Q2",
+        "Q3",
+        "R6",
+        "R7"
+      ],
+      "category": "routing",
+      "issue": "inferred_condition_partial_options",
+      "source_evidence": "Q1 contains at least one brand",
+      "current_interpretation": "A model reading a set-valued condition named only some of a question's selectable answers as satisfying it.",
+      "alternative_interpretations": [
+        "The omitted answer(s) should also satisfy the condition."
+      ],
+      "downstream_impact": "Which answers satisfy the rule; a respondent choosing an omitted answer takes a different path than intended.",
+      "recommendation": "Confirm whether the omitted answer(s) should count.",
+      "severity": "BLOCKING",
+      "context_key": "450036bdd1d10606",
+      "last_seen_at": "2026-08-29T11:54:49+00:00",
+      "status": "PENDING_CONFIRMATION",
+      "created_at": "2026-08-29T11:54:49+00:00",
+      "resolved_at": null,
+      "decision": null,
+      "decision_provenance": null,
+      "previous_decision": null,
+      "context_changed": false
+    },
+    "7a5bd08ade146ea4": {
+      "decision_id": "7a5bd08ade146ea4",
+      "survey_id": "C01_chronic_care_patient_journey",
+      "source_document": {
+        "filename": "C01_chronic_care_patient_journey.docx",
+        "sha256": "319e6b78a2a1e36ef712ce421e6d2c1db3325a087a07d8d0e93ec38b39207e4b"
+      },
+      "affected": [
+        "TERM_QUOTA_FULL"
+      ],
+      "category": "disposition",
+      "issue": "missing_disposition_message",
+      "source_evidence": "TERM_QUOTA_FULL is referenced but has no message.",
+      "current_interpretation": "This ending is reachable and the document never states what it shows the respondent who reaches it.",
+      "alternative_interpretations": [],
+      "downstream_impact": "Nothing can be asserted about what this respondent is shown. Does not change routing: the destination itself is correct.",
+      "recommendation": "Ask the project owner for the missing message text.",
+      "severity": "NON_BLOCKING",
+      "context_key": "450036bdd1d10606",
+      "last_seen_at": "2026-08-29T11:54:49+00:00",
+      "status": "PENDING_CONFIRMATION",
+      "created_at": "2026-08-29T11:54:49+00:00",
+      "resolved_at": null,
+      "decision": null,
+      "decision_provenance": null,
+      "previous_decision": null,
+      "context_changed": false
+    }
+  }
+}

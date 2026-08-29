@@ -8,7 +8,7 @@
     "sha256": "319e6b78a2a1e36ef712ce421e6d2c1db3325a087a07d8d0e93ec38b39207e4b",
     "bytes": 43612
   },
-  "generated_at": "2026-08-29T11:14:51+00:00",
+  "generated_at": "2026-08-29T11:54:49+00:00",
   "item_count": null,
   "content": {
     "cross_source": [],
@@ -53,7 +53,10 @@
           "Q5",
           "Q9"
         ],
-        "changes_downstream": "Where an exclusive option appears when the list is shuffled, which decides whether a displayed-order assertion is right."
+        "changes_downstream": "Where an exclusive option appears when the list is shuffled, which decides whether a displayed-order assertion is right.",
+        "decision_ids": [
+          "95eaab2b4ebfe62e"
+        ]
       },
       {
         "status": "CONFIRMATION_REQUIRED",
@@ -65,7 +68,8 @@
           "R19",
           "R20"
         ],
-        "changes_downstream": "Whether this rule fires for a given respondent, so which questions they see and which ending they reach."
+        "changes_downstream": "Whether this rule fires for a given respondent, so which questions they see and which ending they reach.",
+        "decision_ids": []
       },
       {
         "status": "CONFIRMATION_REQUIRED",
@@ -77,7 +81,10 @@
           "R6",
           "R7"
         ],
-        "changes_downstream": "Which answers satisfy the rule. Respondents choosing an omitted answer take a different path than they should."
+        "changes_downstream": "Which answers satisfy the rule. Respondents choosing an omitted answer take a different path than they should.",
+        "decision_ids": [
+          "756d035e6abbdf43"
+        ]
       },
       {
         "status": "CONFIRMATION_REQUIRED",
@@ -89,7 +96,8 @@
           "Q8",
           "Q9"
         ],
-        "changes_downstream": "Whether this question's wording depends on an earlier answer, which decides the order a bot must answer in and what text it should expect on screen."
+        "changes_downstream": "Whether this question's wording depends on an earlier answer, which decides the order a bot must answer in and what text it should expect on screen.",
+        "decision_ids": []
       },
       {
         "status": "CONFIRMATION_REQUIRED",
@@ -99,7 +107,8 @@
           "QUOTA_AGE",
           "QUOTA_REGION"
         ],
-        "changes_downstream": "Which respondents are counted against which quota, and when they are turned away."
+        "changes_downstream": "Which respondents are counted against which quota, and when they are turned away.",
+        "decision_ids": []
       },
       {
         "status": "CONFIRMATION_REQUIRED",
@@ -109,7 +118,8 @@
           "C01_chronic_care_patient_journey.docx",
           "semantics"
         ],
-        "changes_downstream": "Which questions appear on many routes, which rule wins when two apply, and whether an 'is exactly' test passes on a multi-select answer."
+        "changes_downstream": "Which questions appear on many routes, which rule wins when two apply, and whether an 'is exactly' test passes on a multi-select answer.",
+        "decision_ids": []
       },
       {
         "status": "CONFIRMATION_REQUIRED",
@@ -118,7 +128,10 @@
         "affected": [
           "Q15"
         ],
-        "changes_downstream": "A display condition stated in only one place. Anyone reading the other place builds a survey without it."
+        "changes_downstream": "A display condition stated in only one place. Anyone reading the other place builds a survey without it.",
+        "decision_ids": [
+          "74f6f819e190cab4"
+        ]
       },
       {
         "status": "CONFIRMATION_REQUIRED",
@@ -127,7 +140,8 @@
         "affected": [
           "Q13"
         ],
-        "changes_downstream": "A bot told to answer by code cannot resolve the uncoded options."
+        "changes_downstream": "A bot told to answer by code cannot resolve the uncoded options.",
+        "decision_ids": []
       },
       {
         "status": "CONFIRMATION_REQUIRED",
@@ -136,9 +150,41 @@
         "affected": [
           "TERM_QUOTA_FULL"
         ],
-        "changes_downstream": "Nothing can be asserted about what a quota-full respondent is shown."
+        "changes_downstream": "Nothing can be asserted about what a quota-full respondent is shown.",
+        "decision_ids": []
       }
     ],
+    "decisions": {
+      "register": "agent1_decisions.json",
+      "human_readable": "agent1_decision_register.md",
+      "summary": {
+        "total": 18,
+        "raised_this_run": 18,
+        "resolved_reused": 0,
+        "pending": 18,
+        "resolved": 0,
+        "not_required": 0,
+        "newly_transitioned_not_required": 0,
+        "context_changed": 0,
+        "blocking_pending": [
+          "00db7d74442cb17d",
+          "0430c3303a173c36",
+          "5c5b9104ff079c25",
+          "70e04d836cb40d1b",
+          "71002f0c34af1fbc",
+          "756d035e6abbdf43",
+          "8009e053dcf0c019",
+          "8c69b2c506c9955a",
+          "ae7f9449c4271f16",
+          "b90d8580babbddab",
+          "c417f67cdc3ab8cb",
+          "d04e54c7a70f655f",
+          "d1c767adabb142b1",
+          "e4c971197a4cd683",
+          "f6de93712798f5f5"
+        ]
+      }
+    },
     "verdict": {
       "canonical_status": "PASSED_WITH_WARNINGS",
       "graph_ready": "YES",
@@ -164,10 +210,34 @@
           }
         ]
       },
+      "human_decision_gate": "PENDING_BLOCKING_DECISIONS",
+      "pending_blocking_decisions": [
+        "00db7d74442cb17d",
+        "0430c3303a173c36",
+        "5c5b9104ff079c25",
+        "70e04d836cb40d1b",
+        "71002f0c34af1fbc",
+        "756d035e6abbdf43",
+        "8009e053dcf0c019",
+        "8c69b2c506c9955a",
+        "ae7f9449c4271f16",
+        "b90d8580babbddab",
+        "c417f67cdc3ab8cb",
+        "d04e54c7a70f655f",
+        "d1c767adabb142b1",
+        "e4c971197a4cd683",
+        "f6de93712798f5f5"
+      ],
       "agent3_ready": "NO",
       "agent3_blocked_by": [
+        "ambiguous_piping",
+        "ambiguous_routing_condition",
         "inferred_condition_partial_options",
-        "semantics_unconfirmed"
+        "missing_option_codes",
+        "multi_select_equality",
+        "quota_behaviour",
+        "rule_precedence",
+        "unasked_question_semantics"
       ],
       "what_is_incorrect": [],
       "what_is_missing": [],
@@ -212,7 +282,8 @@
         "other_failures": 0,
         "blocked": 0,
         "cross_source_blocking": 0,
-        "confirmation_required": 9
+        "confirmation_required": 9,
+        "decisions_pending_blocking": 15
       }
     }
   }
