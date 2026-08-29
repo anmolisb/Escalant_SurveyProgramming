@@ -8,11 +8,15 @@ condition translation).
 from __future__ import annotations
 
 import asyncio
+import hashlib
+import json
 import logging
 import os
 import re
+import threading
 import time
 import weakref
+from datetime import datetime, timezone
 from functools import lru_cache
 from pathlib import Path
 from typing import TypeVar
@@ -129,6 +133,110 @@ def _rate_limit_delay(error: Exception) -> float | None:
     return seconds + 0.5
 
 
+# ---------------------------------------------------------------------------
+# The decision record
+# ---------------------------------------------------------------------------
+
+#: Where this run records what the model answered, or None to call every time.
+_CACHE_PATH: Path | None = None
+_CACHE: dict | None = None
+#: Stage 4 runs its calls on worker threads, so two of them can finish at once.
+#: Without this the dict is written and the file rewritten from two threads at
+#: the same time, which loses an entry or truncates the file.
+_CACHE_LOCK = threading.Lock()
+
+CACHE_ARTIFACT = "llm_decisions.json"
+
+
+def use_cache(directory: Path | None) -> Path | None:
+    """Record every model answer for one document, and reuse it on a re-run.
+
+    Temperature 0 is not determinism. The same prompt on the same model returned
+    a different answer on three consecutive runs of C01: the wording of Q21 was
+    read as quoting Q19 twice and not the third time, and the prose condition on
+    R8 was declined once and accepted twice. Each of those changes which
+    questions a respondent sees, so a specification built from them is not
+    stable, and a test built on top of it cannot be told from a test built on
+    top of a different reading of the same document.
+
+    So the answers are written down. A question that has been decided once stays
+    decided, and the file says what was decided and from what - which makes the
+    inferred parts of a specification reviewable in a way a fresh call never is.
+
+    The key covers the model, the prompt and the schema, so changing any of them
+    asks again rather than reusing an answer to a different question. Editing
+    the QRE changes the prompt and so re-asks by itself.
+
+    Set `QRE_LLM_CACHE=off` to bypass, for deliberately re-asking everything.
+    """
+    global _CACHE_PATH, _CACHE
+    _load_env()
+    if directory is None or os.environ.get("QRE_LLM_CACHE", "").lower() == "off":
+        _CACHE_PATH, _CACHE = None, None
+        return None
+
+    _CACHE_PATH = Path(directory) / CACHE_ARTIFACT
+    _CACHE = {"entries": {}}
+    if _CACHE_PATH.exists():
+        try:
+            loaded = json.loads(_CACHE_PATH.read_text(encoding="utf-8"))
+            if isinstance(loaded.get("entries"), dict):
+                _CACHE = loaded
+        except (ValueError, OSError) as exc:
+            # A damaged record is not a reason to stop. Say so and re-ask.
+            logger.warning("Ignoring unreadable decision record: %s", exc)
+    return _CACHE_PATH
+
+
+def _cache_key(system: str, user: str, response_model: type[T], max_tokens) -> str:
+    digest = hashlib.sha256()
+    for part in (
+        get_model(),
+        response_model.__name__,
+        str(max_tokens or MAX_TOKENS),
+        system,
+        user,
+    ):
+        digest.update(part.encode("utf-8"))
+        digest.update(b"\x00")
+    return digest.hexdigest()
+
+
+def _cache_read(key: str, response_model: type[T]) -> T | None:
+    if _CACHE is None:
+        return None
+    with _CACHE_LOCK:
+        entry = _CACHE["entries"].get(key)
+    if not entry:
+        return None
+    try:
+        return response_model.model_validate(entry["response"])
+    except Exception as exc:
+        # The schema has moved on since this was recorded. Ask again rather than
+        # forcing an old shape into a new model.
+        logger.info("Recorded answer no longer fits %s: %s", response_model.__name__, exc)
+        return None
+
+
+def _cache_write(key: str, user: str, response_model: type[T], value: T) -> None:
+    if _CACHE is None or _CACHE_PATH is None:
+        return
+    with _CACHE_LOCK:
+        _CACHE["entries"][key] = {
+            # Enough context to read the file and see what was decided about
+            # what, without having to re-run anything to find out.
+            "response_model": response_model.__name__,
+            "model": get_model(),
+            "recorded_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
+            "asked": user if len(user) <= 400 else user[:400] + " ...",
+            "response": value.model_dump(mode="json"),
+        }
+        _CACHE_PATH.parent.mkdir(parents=True, exist_ok=True)
+        _CACHE_PATH.write_text(
+            json.dumps(_CACHE, indent=2, default=str), encoding="utf-8"
+        )
+
+
 def complete(
     system: str, user: str, response_model: type[T], max_tokens: int | None = None
 ) -> T:
@@ -144,10 +252,15 @@ def complete(
     exception - it can legitimately need more room than a handful of fields, and
     running out shows up as an empty completion rather than as a clear error.
     """
+    key = _cache_key(system, user, response_model, max_tokens)
+    recorded = _cache_read(key, response_model)
+    if recorded is not None:
+        return recorded
+
     last: Exception | None = None
     for _attempt in range(MAX_RATE_LIMIT_RETRIES + 1):
         try:
-            return get_client().chat.completions.create(
+            answer = get_client().chat.completions.create(
                 model=get_model(),
                 response_model=response_model,
                 temperature=0,
@@ -157,6 +270,8 @@ def complete(
                     {"role": "user", "content": user},
                 ],
             )
+            _cache_write(key, user, response_model, answer)
+            return answer
         except Exception as exc:
             if _is_daily_quota(str(exc)):
                 # Fail now rather than sleeping through five more attempts that

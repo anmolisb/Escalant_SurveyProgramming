@@ -1,0 +1,165 @@
+{
+  "entries": {
+    "567eae280535c0e2631c37cd8a3d509c57f22c4b0249065091bf8c705010ba8e": {
+      "response_model": "LLMConditionProposal",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-08-29T07:15:01+00:00",
+      "asked": "Condition as written: Q1 contains at least one brand\n\nAnswer options:\nQ1: 'Care Network A', 'Care Network B', 'Care Network C', 'Independent provider', 'None of these'",
+      "response": {
+        "expression": "contains_any(Q1, ['Care Network A','Care Network B','Care Network C'])",
+        "confidence": 1.0,
+        "reasoning": "The phrase 'contains at least one brand' maps to checking if Q1 includes any of the brand answer options. Using the provided grammar, this is expressed with the contains_any operator listing the brand labels."
+      }
+    },
+    "285d1f5ca5d1f0fab63115765db066a1ebd726ed8ffe39d1c1dedc0719a318d0": {
+      "response_model": "LLMConditionProposal",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-08-29T07:15:02+00:00",
+      "asked": "Condition as written: Q5 contains any touchpoint\n\nAnswer options:\nQ5: 'Primary-care physician', 'Specialist', 'Hospital', 'Pharmacy', 'Patient portal', 'Support programme', 'None of these'",
+      "response": {
+        "expression": "contains_any(Q5, ['Primary-care physician','Specialist','Hospital','Pharmacy','Patient portal','Support programme'])",
+        "confidence": 0.97,
+        "reasoning": "The original wording 'Q5 contains any touchpoint' implies that the respondent selected at least one of the listed touchpoint options. Using the grammar, this is expressed with the contains_any operator, listing all touchpoint answer labels from Q5."
+      }
+    },
+    "24ebc34e48b218a2feffdbf30c2601db722839702d67cb5cead83b674f842e38": {
+      "response_model": "LLMConditionProposal",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-08-29T07:15:04+00:00",
+      "asked": "Condition as written: exclusive option selected with another response at Q1 or Q5\n\nAnswer options:\nQ1: 'Care Network A', 'Care Network B', 'Care Network C', 'Independent provider', 'None of these'\nQ5: 'Primary-care physician', 'Specialist', 'Hospital', 'Pharmacy', 'Patient portal', 'Support programme', 'None of these'",
+      "response": {
+        "expression": "(contains(Q1, 'None of these') and not Q1 == ['None of these']) or (contains(Q5, 'None of these') and not Q5 == ['None of these'])",
+        "confidence": 0.9,
+        "reasoning": "The wording suggests detecting when the exclusive option 'None of these' is selected together with any other answer in the same question. This is expressed as the presence of 'None of these' (contains) combined with the condition that the answer set is not exactly only that option (not Q == ['None of these']). Applied to Q1 and Q5 with an OR."
+      }
+    },
+    "cf27e6e87d419b64e74bdd026dbe5aad678ed0a29e7ccd09a83b10b7aa6001b8": {
+      "response_model": "LLMConditionProposal",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-08-29T07:15:05+00:00",
+      "asked": "Condition as written: selected option at Q6 was not selected at Q5\n\nAnswer options:\nQ6: 'Primary-care physician', 'Specialist', 'Hospital', 'Pharmacy', 'Patient portal', 'Support programme'\nQ5: 'Primary-care physician', 'Specialist', 'Hospital', 'Pharmacy', 'Patient portal', 'Support programme', 'None of these'",
+      "response": {
+        "expression": "not contains(Q5, Q6)",
+        "confidence": 0.99,
+        "reasoning": "The condition states that the option chosen in Q6 must not be among those selected in Q5. This maps directly to the membership check 'contains(Q5, Q6)' negated, which fits the allowed grammar as 'not contains(Q5, Q6)'."
+      }
+    },
+    "ba959bdf13ad4f6971ffa70bee46aeb01e171e0deb2cf1c9696371c476b2e550": {
+      "response_model": "LLMQuota",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-08-29T07:15:15+00:00",
+      "asked": "Whole quota section, for context:\nQUOTA_REGION: hard quota on D1: North=20%, South=20%, East=20%, West=20%, Central=20%\nQUOTA_AGE: soft quota on D2: 21-29=20%, 30-39=25%, 40-49=25%, 50-59=20%, 60+=10%\nQuota-full respondents terminate at TERM_QUOTA_FULL before the next substantive question. Quota status must be logged.\n\nSentence to read now: QUOTA_REGION: hard quota on D1: North=20%, South=20%, Eas ...",
+      "response": {
+        "is_quota": true,
+        "quota_id": "QUOTA_REGION",
+        "enforcement": "hard",
+        "variable_question_id": "D1",
+        "cell_labels": [
+          "North",
+          "South",
+          "East",
+          "West",
+          "Central"
+        ],
+        "cell_percents": [
+          20.0,
+          20.0,
+          20.0,
+          20.0,
+          20.0
+        ],
+        "on_full": "TERM_QUOTA_FULL",
+        "confidence": 0.99,
+        "reasoning": "The sentence explicitly defines a quota named QUOTA_REGION, states it is a hard quota, and ties it to question D1. It lists the answer labels (North, South, East, West, Central) with their respective percentages (each 20%). The surrounding section provides the default termination code for full quotas: TERM_QUOTA_FULL, which applies here because no other ending is specified for this quota."
+      }
+    },
+    "3510d1ff345d25f6d13d5c4fdb156c3163e6c8c01097544d017a4be5e677350a": {
+      "response_model": "LLMQuota",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-08-29T07:15:31+00:00",
+      "asked": "Whole quota section, for context:\nQUOTA_REGION: hard quota on D1: North=20%, South=20%, East=20%, West=20%, Central=20%\nQUOTA_AGE: soft quota on D2: 21-29=20%, 30-39=25%, 40-49=25%, 50-59=20%, 60+=10%\nQuota-full respondents terminate at TERM_QUOTA_FULL before the next substantive question. Quota status must be logged.\n\nSentence to read now: QUOTA_AGE: soft quota on D2: 21-29=20%, 30-39=25%, 40-49= ...",
+      "response": {
+        "is_quota": true,
+        "quota_id": "QUOTA_AGE",
+        "enforcement": "soft",
+        "variable_question_id": "D2",
+        "cell_labels": [
+          "21-29",
+          "30-39",
+          "40-49",
+          "50-59",
+          "60+"
+        ],
+        "cell_percents": [
+          20.0,
+          25.0,
+          25.0,
+          20.0,
+          10.0
+        ],
+        "on_full": "TERM_QUOTA_FULL",
+        "confidence": 0.99,
+        "reasoning": "The sentence defines a quota (QUOTA_AGE) with a soft enforcement on question D2. The answer options for D2 are listed in the provided options, matching the labels in the quota definition. Percentages are extracted directly from the clause after each label. The section states that quota\u2011full respondents terminate at TERM_QUOTA_FULL, which applies here as no other ending is specified."
+      }
+    },
+    "5f4b9c6f49137522059c57ae579c6cb301a4e0e18737803c8ce9b007074e151c": {
+      "response_model": "LLMQuota",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-08-29T07:15:49+00:00",
+      "asked": "Whole quota section, for context:\nQUOTA_REGION: hard quota on D1: North=20%, South=20%, East=20%, West=20%, Central=20%\nQUOTA_AGE: soft quota on D2: 21-29=20%, 30-39=25%, 40-49=25%, 50-59=20%, 60+=10%\nQuota-full respondents terminate at TERM_QUOTA_FULL before the next substantive question. Quota status must be logged.\n\nSentence to read now: Quota-full respondents terminate at TERM_QUOTA_FULL befor ...",
+      "response": {
+        "is_quota": false,
+        "quota_id": null,
+        "enforcement": null,
+        "variable_question_id": null,
+        "cell_labels": [],
+        "cell_percents": [],
+        "on_full": null,
+        "confidence": 1.0,
+        "reasoning": "The sentence only states what happens to respondents when a quota is already full (termination at TERM_QUOTA_FULL) and that quota status must be logged. It does not specify a quota definition such as which question defines the groups, the group labels, percentages, or whether the quota is hard or soft. Therefore it is not a quota statement."
+      }
+    },
+    "e176c72bbf93ce3876b49f29e546d948879d7dafd83aeff87c586eee6a3e954a": {
+      "response_model": "LLMTextPipes",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-08-29T07:16:04+00:00",
+      "asked": "S1: Are you 21 years of age or older?\nS2: Which statement best describes your involvement?\nS3: Have you participated in market research in the past 3 months?\nS4: Do you or an immediate family member work in market research, advertising, or the category being studied?\nQ1: Which of these brands have you heard of?\nQ2: Which brands would you consider?\nQ3: Which brand is your current or most recent pro ...",
+      "response": {
+        "pipes": [
+          {
+            "is_pipe": true,
+            "source_question_id": "Q3",
+            "target_question_id": "Q8",
+            "phrase": "the current provider",
+            "confidence": 1.0,
+            "reasoning": "The wording of Q8 uses the definite phrase \"the current provider\", which can only be resolved after the respondent answers Q3 (which asks for the current or most recent provider). Without that earlier answer the phrase has no referent."
+          },
+          {
+            "is_pipe": true,
+            "source_question_id": "Q3",
+            "target_question_id": "Q9",
+            "phrase": "your current provider",
+            "confidence": 1.0,
+            "reasoning": "Q9 asks the respondent to rate attributes for \"your current provider\". The identity of \"your current provider\" is supplied by the answer to Q3, so the wording depends on that earlier response."
+          },
+          {
+            "is_pipe": true,
+            "source_question_id": "Q19",
+            "target_question_id": "Q20",
+            "phrase": "the selected proposition",
+            "confidence": 1.0,
+            "reasoning": "Q20 evaluates \"the selected proposition\", which is the proposition the respondent chose in Q19. The phrase cannot be displayed meaningfully without knowing the earlier answer."
+          },
+          {
+            "is_pipe": true,
+            "source_question_id": "Q19",
+            "target_question_id": "Q21",
+            "phrase": "your choice",
+            "confidence": 1.0,
+            "reasoning": "Q21 asks \"What most influenced your choice?\" The term \"your choice\" refers to the proposition selected in Q19, making the wording dependent on that prior answer."
+          }
+        ]
+      }
+    }
+  }
+}

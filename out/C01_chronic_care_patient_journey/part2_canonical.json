@@ -8,7 +8,7 @@
     "sha256": "319e6b78a2a1e36ef712ce421e6d2c1db3325a087a07d8d0e93ec38b39207e4b",
     "bytes": 43612
   },
-  "generated_at": "2026-08-29T06:01:13+00:00",
+  "generated_at": "2026-08-29T07:16:13+00:00",
   "item_count": null,
   "content": {
     "source": "C01_chronic_care_patient_journey.docx",
@@ -18,8 +18,88 @@
       "rule_precedence": "document_order_first_match",
       "rule_precedence_origin": "inferred",
       "multi_equality": "set_equality",
-      "multi_equality_origin": "derived"
+      "multi_equality_origin": "derived",
+      "default_mandatory": true,
+      "default_mandatory_origin": "derived",
+      "default_mandatory_source": "All questions are mandatory unless explicitly marked optional. Do not infer unstated routing."
     },
+    "metadata": [
+      {
+        "code": null,
+        "label": "Business objective",
+        "text": "Map the care journey, service experience, unmet needs and support interactions.",
+        "raw_text": "Business objective: Map the care journey, service experience, unmet needs and support interactions.",
+        "source_reference": {
+          "document": "C01_chronic_care_patient_journey.docx",
+          "section": "Study specification",
+          "heading_text": "Study specification",
+          "block_order": 4,
+          "row_index": null,
+          "source_kind": "prose",
+          "text": "Business objective: Map the care journey, service experience, unmet needs and support interactions."
+        }
+      },
+      {
+        "code": null,
+        "label": "Target population",
+        "text": "Personally manage an ongoing chronic health condition",
+        "raw_text": "Target population: Personally manage an ongoing chronic health condition",
+        "source_reference": {
+          "document": "C01_chronic_care_patient_journey.docx",
+          "section": "Study specification",
+          "heading_text": "Study specification",
+          "block_order": 5,
+          "row_index": null,
+          "source_kind": "prose",
+          "text": "Target population: Personally manage an ongoing chronic health condition"
+        }
+      },
+      {
+        "code": null,
+        "label": "Mode",
+        "text": "Self-completion web survey",
+        "raw_text": "Mode: Self-completion web survey",
+        "source_reference": {
+          "document": "C01_chronic_care_patient_journey.docx",
+          "section": "Study specification",
+          "heading_text": "Study specification",
+          "block_order": 6,
+          "row_index": null,
+          "source_kind": "prose",
+          "text": "Mode: Self-completion web survey"
+        }
+      },
+      {
+        "code": null,
+        "label": "Estimated length",
+        "text": "12 minutes",
+        "raw_text": "Estimated length: 12 minutes",
+        "source_reference": {
+          "document": "C01_chronic_care_patient_journey.docx",
+          "section": "Study specification",
+          "heading_text": "Study specification",
+          "block_order": 7,
+          "row_index": null,
+          "source_kind": "prose",
+          "text": "Estimated length: 12 minutes"
+        }
+      },
+      {
+        "code": null,
+        "label": "General instruction",
+        "text": "All questions are mandatory unless explicitly marked optional. Do not infer unstated routing.",
+        "raw_text": "General instruction: All questions are mandatory unless explicitly marked optional. Do not infer unstated routing.",
+        "source_reference": {
+          "document": "C01_chronic_care_patient_journey.docx",
+          "section": "Study specification",
+          "heading_text": "Study specification",
+          "block_order": 8,
+          "row_index": null,
+          "source_kind": "prose",
+          "text": "General instruction: All questions are mandatory unless explicitly marked optional. Do not infer unstated routing."
+        }
+      }
+    ],
     "questions": [
       {
         "question_id": "S1",
@@ -43,8 +123,31 @@
           }
         ],
         "matrix_rows": [],
-        "validation": null,
-        "guard": null
+        "validation": {
+          "min_length": null,
+          "max_length": null,
+          "min_value": null,
+          "max_value": null,
+          "min_selections": null,
+          "sum_to": null,
+          "require_each_row": null,
+          "exclusive_option_id": null,
+          "exclusive_option_label": null,
+          "mandatory": true,
+          "mandatory_origin": "derived"
+        },
+        "guard": null,
+        "option_source": null,
+        "extra": {},
+        "source_reference": {
+          "document": "C01_chronic_care_patient_journey.docx",
+          "section": "Questionnaire",
+          "heading_text": "Questionnaire",
+          "block_order": 10,
+          "row_index": 0,
+          "source_kind": "table",
+          "text": "S1 | Are you 21 years of age or older? | single | Yes; No | Always show"
+        }
       },
       {
         "question_id": "S2",
@@ -75,8 +178,31 @@
           }
         ],
         "matrix_rows": [],
-        "validation": null,
-        "guard": null
+        "validation": {
+          "min_length": null,
+          "max_length": null,
+          "min_value": null,
+          "max_value": null,
+          "min_selections": null,
+          "sum_to": null,
+          "require_each_row": null,
+          "exclusive_option_id": null,
+          "exclusive_option_label": null,
+          "mandatory": true,
+          "mandatory_origin": "derived"
+        },
+        "guard": null,
+        "option_source": null,
+        "extra": {},
+        "source_reference": {
+          "document": "C01_chronic_care_patient_journey.docx",
+          "section": "Questionnaire",
+          "heading_text": "Questionnaire",
+          "block_order": 10,
+          "row_index": 1,
+          "source_kind": "table",
+          "text": "S2 | Which statement best describes your involvement? | single | Personally manage an ongoing chronic health condition; Aware but not involved; Not aware of this category | Always show"
+        }
       },
       {
         "question_id": "S3",
@@ -100,8 +226,31 @@
           }
         ],
         "matrix_rows": [],
-        "validation": null,
-        "guard": null
+        "validation": {
+          "min_length": null,
+          "max_length": null,
+          "min_value": null,
+          "max_value": null,
+          "min_selections": null,
+          "sum_to": null,
+          "require_each_row": null,
+          "exclusive_option_id": null,
+          "exclusive_option_label": null,
+          "mandatory": true,
+          "mandatory_origin": "derived"
+        },
+        "guard": null,
+        "option_source": null,
+        "extra": {},
+        "source_reference": {
+          "document": "C01_chronic_care_patient_journey.docx",
+          "section": "Questionnaire",
+          "heading_text": "Questionnaire",
+          "block_order": 10,
+          "row_index": 2,
+          "source_kind": "table",
+          "text": "S3 | Have you participated in market research in the past 3 months? | single | Yes; No | Always show"
+        }
       },
       {
         "question_id": "S4",
@@ -125,8 +274,31 @@
           }
         ],
         "matrix_rows": [],
-        "validation": null,
-        "guard": null
+        "validation": {
+          "min_length": null,
+          "max_length": null,
+          "min_value": null,
+          "max_value": null,
+          "min_selections": null,
+          "sum_to": null,
+          "require_each_row": null,
+          "exclusive_option_id": null,
+          "exclusive_option_label": null,
+          "mandatory": true,
+          "mandatory_origin": "derived"
+        },
+        "guard": null,
+        "option_source": null,
+        "extra": {},
+        "source_reference": {
+          "document": "C01_chronic_care_patient_journey.docx",
+          "section": "Questionnaire",
+          "heading_text": "Questionnaire",
+          "block_order": 10,
+          "row_index": 3,
+          "source_kind": "table",
+          "text": "S4 | Do you or an immediate family member work in market research, advertising, or the category being studied? | single | Yes; No | Always show"
+        }
       },
       {
         "question_id": "Q1",
@@ -178,11 +350,24 @@
           "max_value": null,
           "min_selections": null,
           "sum_to": null,
+          "require_each_row": null,
           "exclusive_option_id": "Q1-O5",
           "exclusive_option_label": "None of these",
-          "mandatory": true
+          "mandatory": true,
+          "mandatory_origin": "derived"
         },
-        "guard": null
+        "guard": null,
+        "option_source": null,
+        "extra": {},
+        "source_reference": {
+          "document": "C01_chronic_care_patient_journey.docx",
+          "section": "Questionnaire",
+          "heading_text": "Questionnaire",
+          "block_order": 10,
+          "row_index": 4,
+          "source_kind": "table",
+          "text": "Q1 | Which of these brands have you heard of? | multi | Care Network A; Care Network B; Care Network C; Independent provider; None of these | Validate: {\"exclusive_option\": \"None of these\"}\nRandomize"
+        }
       },
       {
         "question_id": "Q2",
@@ -220,7 +405,19 @@
           }
         ],
         "matrix_rows": [],
-        "validation": null,
+        "validation": {
+          "min_length": null,
+          "max_length": null,
+          "min_value": null,
+          "max_value": null,
+          "min_selections": null,
+          "sum_to": null,
+          "require_each_row": null,
+          "exclusive_option_id": null,
+          "exclusive_option_label": null,
+          "mandatory": true,
+          "mandatory_origin": "derived"
+        },
         "guard": {
           "condition": {
             "op": "contains_any",
@@ -251,7 +448,7 @@
             "operands": [],
             "source_text": "Q1 contains at least one brand",
             "origin": "inferred",
-            "confidence": 0.99
+            "confidence": 1.0
           },
           "agreement": "agree",
           "sources": [
@@ -262,6 +459,30 @@
             "Q1 contains at least one brand",
             "Q1 contains at least one brand"
           ]
+        },
+        "option_source": {
+          "from_question": "Q1",
+          "instruction": "Show only brands selected at Q1.",
+          "origin": "derived",
+          "source_reference": {
+            "document": "C01_chronic_care_patient_journey.docx",
+            "section": "Questionnaire",
+            "heading_text": "Questionnaire",
+            "block_order": 10,
+            "row_index": 5,
+            "source_kind": "table",
+            "text": "Q2 | Which brands would you consider? | multi | Care Network A; Care Network B; Care Network C; Independent provider | Show if: Q1 contains at least one brand\nShow only brands selected at Q1."
+          }
+        },
+        "extra": {},
+        "source_reference": {
+          "document": "C01_chronic_care_patient_journey.docx",
+          "section": "Questionnaire",
+          "heading_text": "Questionnaire",
+          "block_order": 10,
+          "row_index": 5,
+          "source_kind": "table",
+          "text": "Q2 | Which brands would you consider? | multi | Care Network A; Care Network B; Care Network C; Independent provider | Show if: Q1 contains at least one brand\nShow only brands selected at Q1."
         }
       },
       {
@@ -307,7 +528,19 @@
           }
         ],
         "matrix_rows": [],
-        "validation": null,
+        "validation": {
+          "min_length": null,
+          "max_length": null,
+          "min_value": null,
+          "max_value": null,
+          "min_selections": null,
+          "sum_to": null,
+          "require_each_row": null,
+          "exclusive_option_id": null,
+          "exclusive_option_label": null,
+          "mandatory": true,
+          "mandatory_origin": "derived"
+        },
         "guard": {
           "condition": {
             "op": "contains_any",
@@ -338,7 +571,7 @@
             "operands": [],
             "source_text": "Q1 contains at least one brand",
             "origin": "inferred",
-            "confidence": 0.99
+            "confidence": 1.0
           },
           "agreement": "agree",
           "sources": [
@@ -349,6 +582,17 @@
             "Q1 contains at least one brand",
             "Q1 contains at least one brand"
           ]
+        },
+        "option_source": null,
+        "extra": {},
+        "source_reference": {
+          "document": "C01_chronic_care_patient_journey.docx",
+          "section": "Questionnaire",
+          "heading_text": "Questionnaire",
+          "block_order": 10,
+          "row_index": 6,
+          "source_kind": "table",
+          "text": "Q3 | Which brand is your current or most recent provider? | single | Care Network A; Care Network B; Care Network C; Independent provider; None/currently not using | Show if: Q1 contains at least one brand"
         }
       },
       {
@@ -394,8 +638,31 @@
           }
         ],
         "matrix_rows": [],
-        "validation": null,
-        "guard": null
+        "validation": {
+          "min_length": null,
+          "max_length": null,
+          "min_value": null,
+          "max_value": null,
+          "min_selections": null,
+          "sum_to": null,
+          "require_each_row": null,
+          "exclusive_option_id": null,
+          "exclusive_option_label": null,
+          "mandatory": true,
+          "mandatory_origin": "derived"
+        },
+        "guard": null,
+        "option_source": null,
+        "extra": {},
+        "source_reference": {
+          "document": "C01_chronic_care_patient_journey.docx",
+          "section": "Questionnaire",
+          "heading_text": "Questionnaire",
+          "block_order": 10,
+          "row_index": 7,
+          "source_kind": "table",
+          "text": "Q4 | Which stage best describes your current position? | single | Recently diagnosed; Treatment initiation; Ongoing management; Treatment change; Monitoring only | Always show"
+        }
       },
       {
         "question_id": "Q5",
@@ -461,11 +728,24 @@
           "max_value": null,
           "min_selections": null,
           "sum_to": null,
+          "require_each_row": null,
           "exclusive_option_id": "Q5-O7",
           "exclusive_option_label": "None of these",
-          "mandatory": true
+          "mandatory": true,
+          "mandatory_origin": "derived"
         },
-        "guard": null
+        "guard": null,
+        "option_source": null,
+        "extra": {},
+        "source_reference": {
+          "document": "C01_chronic_care_patient_journey.docx",
+          "section": "Questionnaire",
+          "heading_text": "Questionnaire",
+          "block_order": 10,
+          "row_index": 8,
+          "source_kind": "table",
+          "text": "Q5 | Which touchpoints did you use? | multi | Primary-care physician; Specialist; Hospital; Pharmacy; Patient portal; Support programme; None of these | Validate: {\"exclusive_option\": \"None of these\"}\nRandomize"
+        }
       },
       {
         "question_id": "Q6",
@@ -517,7 +797,19 @@
           }
         ],
         "matrix_rows": [],
-        "validation": null,
+        "validation": {
+          "min_length": null,
+          "max_length": null,
+          "min_value": null,
+          "max_value": null,
+          "min_selections": null,
+          "sum_to": null,
+          "require_each_row": null,
+          "exclusive_option_id": null,
+          "exclusive_option_label": null,
+          "mandatory": true,
+          "mandatory_origin": "derived"
+        },
         "guard": {
           "condition": {
             "op": "contains_any",
@@ -554,7 +846,7 @@
             "operands": [],
             "source_text": "Q5 contains any touchpoint",
             "origin": "inferred",
-            "confidence": 0.95
+            "confidence": 0.97
           },
           "agreement": "agree",
           "sources": [
@@ -565,6 +857,30 @@
             "Q5 contains any touchpoint",
             "Q5 contains any touchpoint"
           ]
+        },
+        "option_source": {
+          "from_question": "Q5",
+          "instruction": "Show only touchpoints selected at Q5.",
+          "origin": "derived",
+          "source_reference": {
+            "document": "C01_chronic_care_patient_journey.docx",
+            "section": "Questionnaire",
+            "heading_text": "Questionnaire",
+            "block_order": 10,
+            "row_index": 9,
+            "source_kind": "table",
+            "text": "Q6 | Which touchpoint was most influential? | single | Primary-care physician; Specialist; Hospital; Pharmacy; Patient portal; Support programme | Show if: Q5 contains any touchpoint\nShow only touchpoints selected at Q5."
+          }
+        },
+        "extra": {},
+        "source_reference": {
+          "document": "C01_chronic_care_patient_journey.docx",
+          "section": "Questionnaire",
+          "heading_text": "Questionnaire",
+          "block_order": 10,
+          "row_index": 9,
+          "source_kind": "table",
+          "text": "Q6 | Which touchpoint was most influential? | single | Primary-care physician; Specialist; Hospital; Pharmacy; Patient portal; Support programme | Show if: Q5 contains any touchpoint\nShow only touchpoints selected at Q5."
         }
       },
       {
@@ -610,7 +926,19 @@
           }
         ],
         "matrix_rows": [],
-        "validation": null,
+        "validation": {
+          "min_length": null,
+          "max_length": null,
+          "min_value": null,
+          "max_value": null,
+          "min_selections": null,
+          "sum_to": null,
+          "require_each_row": null,
+          "exclusive_option_id": null,
+          "exclusive_option_label": null,
+          "mandatory": true,
+          "mandatory_origin": "derived"
+        },
         "guard": {
           "condition": {
             "op": "ne",
@@ -646,6 +974,17 @@
             "Q3 != 'None/currently not using'",
             "Q3 != 'None/currently not using'"
           ]
+        },
+        "option_source": null,
+        "extra": {},
+        "source_reference": {
+          "document": "C01_chronic_care_patient_journey.docx",
+          "section": "Questionnaire",
+          "heading_text": "Questionnaire",
+          "block_order": 10,
+          "row_index": 10,
+          "source_kind": "table",
+          "text": "Q7 | How satisfied are you with the overall experience? | single | 1 - Very poor; 2 - Poor; 3 - Fair; 4 - Good; 5 - Excellent | Show if: Q3 != 'None/currently not using'"
         }
       },
       {
@@ -733,7 +1072,19 @@
           }
         ],
         "matrix_rows": [],
-        "validation": null,
+        "validation": {
+          "min_length": null,
+          "max_length": null,
+          "min_value": null,
+          "max_value": null,
+          "min_selections": null,
+          "sum_to": null,
+          "require_each_row": null,
+          "exclusive_option_id": null,
+          "exclusive_option_label": null,
+          "mandatory": true,
+          "mandatory_origin": "derived"
+        },
         "guard": {
           "condition": {
             "op": "ne",
@@ -769,6 +1120,17 @@
             "Q3 != 'None/currently not using'",
             "Q3 != 'None/currently not using'"
           ]
+        },
+        "option_source": null,
+        "extra": {},
+        "source_reference": {
+          "document": "C01_chronic_care_patient_journey.docx",
+          "section": "Questionnaire",
+          "heading_text": "Questionnaire",
+          "block_order": 10,
+          "row_index": 11,
+          "source_kind": "table",
+          "text": "Q8 | How likely are you to recommend the current provider? | single | 0; 1; 2; 3; 4; 5; 6; 7; 8; 9; 10 | Show if: Q3 != 'None/currently not using'"
         }
       },
       {
@@ -857,7 +1219,19 @@
             "is_exclusive": false
           }
         ],
-        "validation": null,
+        "validation": {
+          "min_length": null,
+          "max_length": null,
+          "min_value": null,
+          "max_value": null,
+          "min_selections": null,
+          "sum_to": null,
+          "require_each_row": true,
+          "exclusive_option_id": null,
+          "exclusive_option_label": null,
+          "mandatory": true,
+          "mandatory_origin": "derived"
+        },
         "guard": {
           "condition": {
             "op": "ne",
@@ -893,6 +1267,25 @@
             "Q3 != 'None/currently not using'",
             "Q3 != 'None/currently not using'"
           ]
+        },
+        "option_source": null,
+        "extra": {
+          "scale": [
+            "1 - Very poor",
+            "2 - Poor",
+            "3 - Fair",
+            "4 - Good",
+            "5 - Excellent"
+          ]
+        },
+        "source_reference": {
+          "document": "C01_chronic_care_patient_journey.docx",
+          "section": "Questionnaire",
+          "heading_text": "Questionnaire",
+          "block_order": 10,
+          "row_index": 12,
+          "source_kind": "table",
+          "text": "Q9 | Please rate each attribute for your current provider. | matrix | Rows: Access; Communication; Coordination; Treatment information; Emotional support; Digital tools\nScale: 1 - Very poor; 2 - Poor; 3 - Fair; 4 - Good; 5 - Excellent | Show if: Q3 != 'None/currently not using'\nValidate: {\"scale\": ["
         }
       },
       {
@@ -917,8 +1310,31 @@
           }
         ],
         "matrix_rows": [],
-        "validation": null,
-        "guard": null
+        "validation": {
+          "min_length": null,
+          "max_length": null,
+          "min_value": null,
+          "max_value": null,
+          "min_selections": null,
+          "sum_to": null,
+          "require_each_row": null,
+          "exclusive_option_id": null,
+          "exclusive_option_label": null,
+          "mandatory": true,
+          "mandatory_origin": "derived"
+        },
+        "guard": null,
+        "option_source": null,
+        "extra": {},
+        "source_reference": {
+          "document": "C01_chronic_care_patient_journey.docx",
+          "section": "Questionnaire",
+          "heading_text": "Questionnaire",
+          "block_order": 10,
+          "row_index": 13,
+          "source_kind": "table",
+          "text": "Q10 | Did you contact support during the experience? | single | Yes; No | Always show"
+        }
       },
       {
         "question_id": "Q11",
@@ -970,9 +1386,11 @@
           "max_value": null,
           "min_selections": 1,
           "sum_to": null,
+          "require_each_row": null,
           "exclusive_option_id": null,
           "exclusive_option_label": null,
-          "mandatory": true
+          "mandatory": true,
+          "mandatory_origin": "derived"
         },
         "guard": {
           "condition": {
@@ -1009,6 +1427,17 @@
             "Q10 == 'Yes'",
             "Q10 == 'Yes'"
           ]
+        },
+        "option_source": null,
+        "extra": {},
+        "source_reference": {
+          "document": "C01_chronic_care_patient_journey.docx",
+          "section": "Questionnaire",
+          "heading_text": "Questionnaire",
+          "block_order": 10,
+          "row_index": 14,
+          "source_kind": "table",
+          "text": "Q11 | Which support channels did you use? | multi | Phone; Email; Chat; In person; Self-service | Show if: Q10 == 'Yes'\nValidate: {\"min_selections\": 1}"
         }
       },
       {
@@ -1040,7 +1469,19 @@
           }
         ],
         "matrix_rows": [],
-        "validation": null,
+        "validation": {
+          "min_length": null,
+          "max_length": null,
+          "min_value": null,
+          "max_value": null,
+          "min_selections": null,
+          "sum_to": null,
+          "require_each_row": null,
+          "exclusive_option_id": null,
+          "exclusive_option_label": null,
+          "mandatory": true,
+          "mandatory_origin": "derived"
+        },
         "guard": {
           "condition": {
             "op": "eq",
@@ -1076,6 +1517,17 @@
             "Q10 == 'Yes'",
             "Q10 == 'Yes'"
           ]
+        },
+        "option_source": null,
+        "extra": {},
+        "source_reference": {
+          "document": "C01_chronic_care_patient_journey.docx",
+          "section": "Questionnaire",
+          "heading_text": "Questionnaire",
+          "block_order": 10,
+          "row_index": 15,
+          "source_kind": "table",
+          "text": "Q12 | Was your issue resolved? | single | Fully; Partly; Not resolved | Show if: Q10 == 'Yes'"
         }
       },
       {
@@ -1121,7 +1573,19 @@
           }
         ],
         "matrix_rows": [],
-        "validation": null,
+        "validation": {
+          "min_length": null,
+          "max_length": null,
+          "min_value": null,
+          "max_value": null,
+          "min_selections": null,
+          "sum_to": null,
+          "require_each_row": null,
+          "exclusive_option_id": null,
+          "exclusive_option_label": null,
+          "mandatory": true,
+          "mandatory_origin": "derived"
+        },
         "guard": {
           "condition": {
             "op": "in",
@@ -1161,6 +1625,17 @@
             "Q12 in ['Fully','Partly']",
             "Q12 in ['Fully','Partly']"
           ]
+        },
+        "option_source": null,
+        "extra": {},
+        "source_reference": {
+          "document": "C01_chronic_care_patient_journey.docx",
+          "section": "Questionnaire",
+          "heading_text": "Questionnaire",
+          "block_order": 10,
+          "row_index": 16,
+          "source_kind": "table",
+          "text": "Q13 | How much effort did resolution require? | single | 1 - Very low; 2; 3; 4; 5 - Very high | Show if: Q12 in ['Fully','Partly']"
         }
       },
       {
@@ -1177,9 +1652,11 @@
           "max_value": null,
           "min_selections": null,
           "sum_to": null,
+          "require_each_row": null,
           "exclusive_option_id": null,
           "exclusive_option_label": null,
-          "mandatory": true
+          "mandatory": true,
+          "mandatory_origin": "derived"
         },
         "guard": {
           "condition": {
@@ -1216,6 +1693,17 @@
             "Q12 == 'Not resolved'",
             "Q12 == 'Not resolved'"
           ]
+        },
+        "option_source": null,
+        "extra": {},
+        "source_reference": {
+          "document": "C01_chronic_care_patient_journey.docx",
+          "section": "Questionnaire",
+          "heading_text": "Questionnaire",
+          "block_order": 10,
+          "row_index": 17,
+          "source_kind": "table",
+          "text": "Q14 | Why was the issue not resolved? | text | \u2014 | Show if: Q12 == 'Not resolved'\nValidate: {\"min_length\": 10, \"max_length\": 500}"
         }
       },
       {
@@ -1240,7 +1728,19 @@
           }
         ],
         "matrix_rows": [],
-        "validation": null,
+        "validation": {
+          "min_length": null,
+          "max_length": null,
+          "min_value": null,
+          "max_value": null,
+          "min_selections": null,
+          "sum_to": null,
+          "require_each_row": null,
+          "exclusive_option_id": null,
+          "exclusive_option_label": null,
+          "mandatory": true,
+          "mandatory_origin": "derived"
+        },
         "guard": {
           "condition": {
             "op": "ne",
@@ -1274,6 +1774,17 @@
           "raw_texts": [
             "Q3 != 'None/currently not using'"
           ]
+        },
+        "option_source": null,
+        "extra": {},
+        "source_reference": {
+          "document": "C01_chronic_care_patient_journey.docx",
+          "section": "Questionnaire",
+          "heading_text": "Questionnaire",
+          "block_order": 10,
+          "row_index": 18,
+          "source_kind": "table",
+          "text": "Q15 | Have you considered switching providers? | single | Yes; No | Show if: Q3 != 'None/currently not using'"
         }
       },
       {
@@ -1326,7 +1837,19 @@
           }
         ],
         "matrix_rows": [],
-        "validation": null,
+        "validation": {
+          "min_length": null,
+          "max_length": null,
+          "min_value": null,
+          "max_value": null,
+          "min_selections": null,
+          "sum_to": null,
+          "require_each_row": null,
+          "exclusive_option_id": null,
+          "exclusive_option_label": null,
+          "mandatory": true,
+          "mandatory_origin": "derived"
+        },
         "guard": {
           "condition": {
             "op": "eq",
@@ -1362,6 +1885,17 @@
             "Q15 == 'Yes'",
             "Q15 == 'Yes'"
           ]
+        },
+        "option_source": null,
+        "extra": {},
+        "source_reference": {
+          "document": "C01_chronic_care_patient_journey.docx",
+          "section": "Questionnaire",
+          "heading_text": "Questionnaire",
+          "block_order": 10,
+          "row_index": 19,
+          "source_kind": "table",
+          "text": "Q16 | What is the main reason for considering a switch? | single | Price; Service quality; Features; Poor support; Competitor offer; Other | Show if: Q15 == 'Yes'\nRandomize"
         }
       },
       {
@@ -1378,9 +1912,11 @@
           "max_value": null,
           "min_selections": null,
           "sum_to": null,
+          "require_each_row": null,
           "exclusive_option_id": null,
           "exclusive_option_label": null,
-          "mandatory": true
+          "mandatory": true,
+          "mandatory_origin": "derived"
         },
         "guard": {
           "condition": {
@@ -1417,6 +1953,17 @@
             "Q16 == 'Other'",
             "Q16 == 'Other'"
           ]
+        },
+        "option_source": null,
+        "extra": {},
+        "source_reference": {
+          "document": "C01_chronic_care_patient_journey.docx",
+          "section": "Questionnaire",
+          "heading_text": "Questionnaire",
+          "block_order": 10,
+          "row_index": 20,
+          "source_kind": "table",
+          "text": "Q17 | Please specify the other switching reason. | text | \u2014 | Show if: Q16 == 'Other'\nValidate: {\"min_length\": 3, \"max_length\": 200}"
         }
       },
       {
@@ -1469,11 +2016,24 @@
           "max_value": null,
           "min_selections": null,
           "sum_to": 100,
+          "require_each_row": null,
           "exclusive_option_id": null,
           "exclusive_option_label": null,
-          "mandatory": true
+          "mandatory": true,
+          "mandatory_origin": "derived"
         },
-        "guard": null
+        "guard": null,
+        "option_source": null,
+        "extra": {},
+        "source_reference": {
+          "document": "C01_chronic_care_patient_journey.docx",
+          "section": "Questionnaire",
+          "heading_text": "Questionnaire",
+          "block_order": 10,
+          "row_index": 21,
+          "source_kind": "table",
+          "text": "Q18 | Allocate 100 points across the factors that drive your decision. | constant_sum | Price; Quality; Convenience; Trust; Support | Validate: {\"sum\": 100}"
+        }
       },
       {
         "question_id": "Q19",
@@ -1504,8 +2064,33 @@
           }
         ],
         "matrix_rows": [],
-        "validation": null,
-        "guard": null
+        "validation": {
+          "min_length": null,
+          "max_length": null,
+          "min_value": null,
+          "max_value": null,
+          "min_selections": null,
+          "sum_to": null,
+          "require_each_row": null,
+          "exclusive_option_id": null,
+          "exclusive_option_label": null,
+          "mandatory": true,
+          "mandatory_origin": "derived"
+        },
+        "guard": null,
+        "option_source": null,
+        "extra": {
+          "info": "Concept descriptions are displayed in randomized order; store display order."
+        },
+        "source_reference": {
+          "document": "C01_chronic_care_patient_journey.docx",
+          "section": "Questionnaire",
+          "heading_text": "Questionnaire",
+          "block_order": 10,
+          "row_index": 22,
+          "source_kind": "table",
+          "text": "Q19 | Which new proposition do you prefer? | single | Concept A; Concept B; Concept C | Randomize\nConcept descriptions are displayed in randomized order; store display order."
+        }
       },
       {
         "question_id": "Q20",
@@ -1550,8 +2135,31 @@
           }
         ],
         "matrix_rows": [],
-        "validation": null,
-        "guard": null
+        "validation": {
+          "min_length": null,
+          "max_length": null,
+          "min_value": null,
+          "max_value": null,
+          "min_selections": null,
+          "sum_to": null,
+          "require_each_row": null,
+          "exclusive_option_id": null,
+          "exclusive_option_label": null,
+          "mandatory": true,
+          "mandatory_origin": "derived"
+        },
+        "guard": null,
+        "option_source": null,
+        "extra": {},
+        "source_reference": {
+          "document": "C01_chronic_care_patient_journey.docx",
+          "section": "Questionnaire",
+          "heading_text": "Questionnaire",
+          "block_order": 10,
+          "row_index": 23,
+          "source_kind": "table",
+          "text": "Q20 | How appealing is the selected proposition? | single | 1 - Very poor; 2 - Poor; 3 - Fair; 4 - Good; 5 - Excellent | Always show"
+        }
       },
       {
         "question_id": "Q21",
@@ -1567,11 +2175,24 @@
           "max_value": null,
           "min_selections": null,
           "sum_to": null,
+          "require_each_row": null,
           "exclusive_option_id": null,
           "exclusive_option_label": null,
-          "mandatory": true
+          "mandatory": true,
+          "mandatory_origin": "derived"
         },
-        "guard": null
+        "guard": null,
+        "option_source": null,
+        "extra": {},
+        "source_reference": {
+          "document": "C01_chronic_care_patient_journey.docx",
+          "section": "Questionnaire",
+          "heading_text": "Questionnaire",
+          "block_order": 10,
+          "row_index": 24,
+          "source_kind": "table",
+          "text": "Q21 | What most influenced your choice? | text | \u2014 | Validate: {\"min_length\": 5, \"max_length\": 500}"
+        }
       },
       {
         "question_id": "D1",
@@ -1616,8 +2237,31 @@
           }
         ],
         "matrix_rows": [],
-        "validation": null,
-        "guard": null
+        "validation": {
+          "min_length": null,
+          "max_length": null,
+          "min_value": null,
+          "max_value": null,
+          "min_selections": null,
+          "sum_to": null,
+          "require_each_row": null,
+          "exclusive_option_id": null,
+          "exclusive_option_label": null,
+          "mandatory": true,
+          "mandatory_origin": "derived"
+        },
+        "guard": null,
+        "option_source": null,
+        "extra": {},
+        "source_reference": {
+          "document": "C01_chronic_care_patient_journey.docx",
+          "section": "Questionnaire",
+          "heading_text": "Questionnaire",
+          "block_order": 10,
+          "row_index": 25,
+          "source_kind": "table",
+          "text": "D1 | Which region do you live in? | single | North; South; East; West; Central | Always show"
+        }
       },
       {
         "question_id": "D2",
@@ -1662,8 +2306,31 @@
           }
         ],
         "matrix_rows": [],
-        "validation": null,
-        "guard": null
+        "validation": {
+          "min_length": null,
+          "max_length": null,
+          "min_value": null,
+          "max_value": null,
+          "min_selections": null,
+          "sum_to": null,
+          "require_each_row": null,
+          "exclusive_option_id": null,
+          "exclusive_option_label": null,
+          "mandatory": true,
+          "mandatory_origin": "derived"
+        },
+        "guard": null,
+        "option_source": null,
+        "extra": {},
+        "source_reference": {
+          "document": "C01_chronic_care_patient_journey.docx",
+          "section": "Questionnaire",
+          "heading_text": "Questionnaire",
+          "block_order": 10,
+          "row_index": 26,
+          "source_kind": "table",
+          "text": "D2 | Which age group describes you? | single | 21-29; 30-39; 40-49; 50-59; 60+ | Always show"
+        }
       },
       {
         "question_id": "D3",
@@ -1708,8 +2375,31 @@
           }
         ],
         "matrix_rows": [],
-        "validation": null,
-        "guard": null
+        "validation": {
+          "min_length": null,
+          "max_length": null,
+          "min_value": null,
+          "max_value": null,
+          "min_selections": null,
+          "sum_to": null,
+          "require_each_row": null,
+          "exclusive_option_id": null,
+          "exclusive_option_label": null,
+          "mandatory": true,
+          "mandatory_origin": "derived"
+        },
+        "guard": null,
+        "option_source": null,
+        "extra": {},
+        "source_reference": {
+          "document": "C01_chronic_care_patient_journey.docx",
+          "section": "Questionnaire",
+          "heading_text": "Questionnaire",
+          "block_order": 10,
+          "row_index": 27,
+          "source_kind": "table",
+          "text": "D3 | How do you describe your gender? | single | Woman; Man; Non-binary; Prefer to self-describe; Prefer not to say | Always show"
+        }
       },
       {
         "question_id": "D4",
@@ -1754,8 +2444,31 @@
           }
         ],
         "matrix_rows": [],
-        "validation": null,
-        "guard": null
+        "validation": {
+          "min_length": null,
+          "max_length": null,
+          "min_value": null,
+          "max_value": null,
+          "min_selections": null,
+          "sum_to": null,
+          "require_each_row": null,
+          "exclusive_option_id": null,
+          "exclusive_option_label": null,
+          "mandatory": true,
+          "mandatory_origin": "derived"
+        },
+        "guard": null,
+        "option_source": null,
+        "extra": {},
+        "source_reference": {
+          "document": "C01_chronic_care_patient_journey.docx",
+          "section": "Questionnaire",
+          "heading_text": "Questionnaire",
+          "block_order": 10,
+          "row_index": 28,
+          "source_kind": "table",
+          "text": "D4 | What is your household or organizational decision band? | single | Band 1; Band 2; Band 3; Band 4; Prefer not to say | Always show"
+        }
       },
       {
         "question_id": "Q22",
@@ -1779,8 +2492,31 @@
           }
         ],
         "matrix_rows": [],
-        "validation": null,
-        "guard": null
+        "validation": {
+          "min_length": null,
+          "max_length": null,
+          "min_value": null,
+          "max_value": null,
+          "min_selections": null,
+          "sum_to": null,
+          "require_each_row": null,
+          "exclusive_option_id": null,
+          "exclusive_option_label": null,
+          "mandatory": true,
+          "mandatory_origin": "derived"
+        },
+        "guard": null,
+        "option_source": null,
+        "extra": {},
+        "source_reference": {
+          "document": "C01_chronic_care_patient_journey.docx",
+          "section": "Questionnaire",
+          "heading_text": "Questionnaire",
+          "block_order": 10,
+          "row_index": 29,
+          "source_kind": "table",
+          "text": "Q22 | May we use your anonymized comments in internal reporting? | single | Yes; No | Always show"
+        }
       },
       {
         "question_id": "Q23",
@@ -1796,11 +2532,24 @@
           "max_value": null,
           "min_selections": null,
           "sum_to": null,
+          "require_each_row": null,
           "exclusive_option_id": null,
           "exclusive_option_label": null,
-          "mandatory": false
+          "mandatory": false,
+          "mandatory_origin": "extracted"
         },
-        "guard": null
+        "guard": null,
+        "option_source": null,
+        "extra": {},
+        "source_reference": {
+          "document": "C01_chronic_care_patient_journey.docx",
+          "section": "Questionnaire",
+          "heading_text": "Questionnaire",
+          "block_order": 10,
+          "row_index": 30,
+          "source_kind": "table",
+          "text": "Q23 | Any final comments? | text | \u2014 | Validate: {\"max_length\": 1000}\nOptional"
+        }
       }
     ],
     "dispositions": [
@@ -1809,42 +2558,88 @@
         "kind": "complete",
         "message": "Thank you. Your response has been recorded.",
         "terminal": true,
-        "defined_in_source": true
+        "defined_in_source": true,
+        "source_reference": {
+          "document": "C01_chronic_care_patient_journey.docx",
+          "section": "Completion messages",
+          "heading_text": "Completion messages",
+          "block_order": 31,
+          "row_index": null,
+          "source_kind": "prose",
+          "text": "COMPLETE: Thank you. Your response has been recorded."
+        }
       },
       {
         "disposition_id": "TERM_AGE",
         "kind": "screenout",
         "message": "Thank you for your interest. You do not qualify for this survey.",
         "terminal": true,
-        "defined_in_source": true
+        "defined_in_source": true,
+        "source_reference": {
+          "document": "C01_chronic_care_patient_journey.docx",
+          "section": "Completion messages",
+          "heading_text": "Completion messages",
+          "block_order": 27,
+          "row_index": null,
+          "source_kind": "prose",
+          "text": "TERM_AGE: Thank you for your interest. You do not qualify for this survey."
+        }
       },
       {
         "disposition_id": "TERM_CONFLICT",
         "kind": "screenout",
         "message": "Thank you for your interest. You do not qualify for this survey.",
         "terminal": true,
-        "defined_in_source": true
+        "defined_in_source": true,
+        "source_reference": {
+          "document": "C01_chronic_care_patient_journey.docx",
+          "section": "Completion messages",
+          "heading_text": "Completion messages",
+          "block_order": 28,
+          "row_index": null,
+          "source_kind": "prose",
+          "text": "TERM_CONFLICT: Thank you for your interest. You do not qualify for this survey."
+        }
       },
       {
         "disposition_id": "TERM_INVOLVEMENT",
         "kind": "screenout",
         "message": "Thank you for your interest. You do not qualify for this survey.",
         "terminal": true,
-        "defined_in_source": true
+        "defined_in_source": true,
+        "source_reference": {
+          "document": "C01_chronic_care_patient_journey.docx",
+          "section": "Completion messages",
+          "heading_text": "Completion messages",
+          "block_order": 29,
+          "row_index": null,
+          "source_kind": "prose",
+          "text": "TERM_INVOLVEMENT: Thank you for your interest. You do not qualify for this survey."
+        }
       },
       {
         "disposition_id": "TERM_QUOTA_FULL",
         "kind": "quota_full",
         "message": null,
         "terminal": true,
-        "defined_in_source": false
+        "defined_in_source": false,
+        "source_reference": null
       },
       {
         "disposition_id": "TERM_RECENT_RESEARCH",
         "kind": "screenout",
         "message": "Thank you for your interest. You do not qualify for this survey.",
         "terminal": true,
-        "defined_in_source": true
+        "defined_in_source": true,
+        "source_reference": {
+          "document": "C01_chronic_care_patient_journey.docx",
+          "section": "Completion messages",
+          "heading_text": "Completion messages",
+          "block_order": 30,
+          "row_index": null,
+          "source_kind": "prose",
+          "text": "TERM_RECENT_RESEARCH: Thank you for your interest. You do not qualify for this survey."
+        }
       }
     ],
     "rules": [
@@ -2117,7 +2912,7 @@
           "operands": [],
           "source_text": "Q1 contains at least one brand",
           "origin": "inferred",
-          "confidence": 0.99
+          "confidence": 1.0
         },
         "when_unread": null,
         "destination": {
@@ -2170,7 +2965,7 @@
           "operands": [],
           "source_text": "Q1 contains at least one brand",
           "origin": "inferred",
-          "confidence": 0.99
+          "confidence": 1.0
         },
         "when_unread": null,
         "destination": {
@@ -2229,7 +3024,7 @@
           "operands": [],
           "source_text": "Q5 contains any touchpoint",
           "origin": "inferred",
-          "confidence": 0.95
+          "confidence": 0.97
         },
         "when_unread": null,
         "destination": {
@@ -2793,12 +3588,12 @@
                       "confidence": null
                     }
                   ],
-                  "source_text": "not (Q1 == ['None of these'])",
+                  "source_text": "not Q1 == ['None of these']",
                   "origin": "derived",
                   "confidence": null
                 }
               ],
-              "source_text": "contains(Q1, 'None of these') and not (Q1 == ['None of these'])",
+              "source_text": "contains(Q1, 'None of these') and not Q1 == ['None of these']",
               "origin": "derived",
               "confidence": null
             },
@@ -2865,19 +3660,19 @@
                       "confidence": null
                     }
                   ],
-                  "source_text": "not (Q5 == ['None of these'])",
+                  "source_text": "not Q5 == ['None of these']",
                   "origin": "derived",
                   "confidence": null
                 }
               ],
-              "source_text": "contains(Q5, 'None of these') and not (Q5 == ['None of these'])",
+              "source_text": "contains(Q5, 'None of these') and not Q5 == ['None of these']",
               "origin": "derived",
               "confidence": null
             }
           ],
           "source_text": "exclusive option selected with another response at Q1 or Q5",
           "origin": "inferred",
-          "confidence": 0.95
+          "confidence": 0.9
         },
         "when_unread": null,
         "destination": {
@@ -2932,7 +3727,7 @@
           ],
           "source_text": "selected option at Q6 was not selected at Q5",
           "origin": "inferred",
-          "confidence": 0.96
+          "confidence": 0.99
         },
         "when_unread": null,
         "destination": {
@@ -2960,35 +3755,102 @@
         "to_question": "Q2",
         "kind": "option_source",
         "detail": "Show only brands selected at Q1.",
-        "origin": "derived"
+        "origin": "derived",
+        "confidence": null,
+        "source_reference": {
+          "document": "C01_chronic_care_patient_journey.docx",
+          "section": "Questionnaire",
+          "heading_text": "Questionnaire",
+          "block_order": 10,
+          "row_index": 5,
+          "source_kind": "table",
+          "text": "Q2 | Which brands would you consider? | multi | Care Network A; Care Network B; Care Network C; Independent provider | Show if: Q1 contains at least one brand\nShow only brands selected at Q1."
+        }
       },
       {
         "from_question": "Q5",
         "to_question": "Q6",
         "kind": "option_source",
         "detail": "Show only touchpoints selected at Q5.",
-        "origin": "derived"
+        "origin": "derived",
+        "confidence": null,
+        "source_reference": {
+          "document": "C01_chronic_care_patient_journey.docx",
+          "section": "Questionnaire",
+          "heading_text": "Questionnaire",
+          "block_order": 10,
+          "row_index": 9,
+          "source_kind": "table",
+          "text": "Q6 | Which touchpoint was most influential? | single | Primary-care physician; Specialist; Hospital; Pharmacy; Patient portal; Support programme | Show if: Q5 contains any touchpoint\nShow only touchpoints selected at Q5."
+        }
       },
       {
         "from_question": "Q3",
         "to_question": "Q8",
         "kind": "text_pipe",
         "detail": "the current provider",
-        "origin": "inferred"
+        "origin": "inferred",
+        "confidence": 1.0,
+        "source_reference": {
+          "document": "C01_chronic_care_patient_journey.docx",
+          "section": "Questionnaire",
+          "heading_text": "Questionnaire",
+          "block_order": 10,
+          "row_index": 11,
+          "source_kind": "table",
+          "text": "Q8 | How likely are you to recommend the current provider? | single | 0; 1; 2; 3; 4; 5; 6; 7; 8; 9; 10 | Show if: Q3 != 'None/currently not using'"
+        }
       },
       {
         "from_question": "Q3",
         "to_question": "Q9",
         "kind": "text_pipe",
         "detail": "your current provider",
-        "origin": "inferred"
+        "origin": "inferred",
+        "confidence": 1.0,
+        "source_reference": {
+          "document": "C01_chronic_care_patient_journey.docx",
+          "section": "Questionnaire",
+          "heading_text": "Questionnaire",
+          "block_order": 10,
+          "row_index": 12,
+          "source_kind": "table",
+          "text": "Q9 | Please rate each attribute for your current provider. | matrix | Rows: Access; Communication; Coordination; Treatment information; Emotional support; Digital tools\nScale: 1 - Very poor; 2 - Poor; 3 - Fair; 4 - Good; 5 - Excellent | Show if: Q3 != 'None/currently not using'\nValidate: {\"scale\": ["
+        }
       },
       {
         "from_question": "Q19",
         "to_question": "Q20",
         "kind": "text_pipe",
         "detail": "the selected proposition",
-        "origin": "inferred"
+        "origin": "inferred",
+        "confidence": 1.0,
+        "source_reference": {
+          "document": "C01_chronic_care_patient_journey.docx",
+          "section": "Questionnaire",
+          "heading_text": "Questionnaire",
+          "block_order": 10,
+          "row_index": 23,
+          "source_kind": "table",
+          "text": "Q20 | How appealing is the selected proposition? | single | 1 - Very poor; 2 - Poor; 3 - Fair; 4 - Good; 5 - Excellent | Always show"
+        }
+      },
+      {
+        "from_question": "Q19",
+        "to_question": "Q21",
+        "kind": "text_pipe",
+        "detail": "your choice",
+        "origin": "inferred",
+        "confidence": 1.0,
+        "source_reference": {
+          "document": "C01_chronic_care_patient_journey.docx",
+          "section": "Questionnaire",
+          "heading_text": "Questionnaire",
+          "block_order": 10,
+          "row_index": 24,
+          "source_kind": "table",
+          "text": "Q21 | What most influenced your choice? | text | \u2014 | Validate: {\"min_length\": 5, \"max_length\": 500}"
+        }
       }
     ],
     "randomization": [
@@ -2998,7 +3860,16 @@
         "scope_origin": "inferred",
         "anchored": [],
         "anchored_origin": "ambiguous",
-        "capture_display_order": true
+        "capture_display_order": true,
+        "source_reference": {
+          "document": "C01_chronic_care_patient_journey.docx",
+          "section": "Questionnaire",
+          "heading_text": "Questionnaire",
+          "block_order": 10,
+          "row_index": 4,
+          "source_kind": "table",
+          "text": "Q1 | Which of these brands have you heard of? | multi | Care Network A; Care Network B; Care Network C; Independent provider; None of these | Validate: {\"exclusive_option\": \"None of these\"}\nRandomize"
+        }
       },
       {
         "question_id": "Q5",
@@ -3006,7 +3877,16 @@
         "scope_origin": "inferred",
         "anchored": [],
         "anchored_origin": "ambiguous",
-        "capture_display_order": true
+        "capture_display_order": true,
+        "source_reference": {
+          "document": "C01_chronic_care_patient_journey.docx",
+          "section": "Questionnaire",
+          "heading_text": "Questionnaire",
+          "block_order": 10,
+          "row_index": 8,
+          "source_kind": "table",
+          "text": "Q5 | Which touchpoints did you use? | multi | Primary-care physician; Specialist; Hospital; Pharmacy; Patient portal; Support programme; None of these | Validate: {\"exclusive_option\": \"None of these\"}\nRandomize"
+        }
       },
       {
         "question_id": "Q9",
@@ -3014,7 +3894,16 @@
         "scope_origin": "inferred",
         "anchored": [],
         "anchored_origin": "unknown",
-        "capture_display_order": true
+        "capture_display_order": true,
+        "source_reference": {
+          "document": "C01_chronic_care_patient_journey.docx",
+          "section": "Questionnaire",
+          "heading_text": "Questionnaire",
+          "block_order": 10,
+          "row_index": 12,
+          "source_kind": "table",
+          "text": "Q9 | Please rate each attribute for your current provider. | matrix | Rows: Access; Communication; Coordination; Treatment information; Emotional support; Digital tools\nScale: 1 - Very poor; 2 - Poor; 3 - Fair; 4 - Good; 5 - Excellent | Show if: Q3 != 'None/currently not using'\nValidate: {\"scale\": ["
+        }
       },
       {
         "question_id": "Q16",
@@ -3022,7 +3911,16 @@
         "scope_origin": "inferred",
         "anchored": [],
         "anchored_origin": "unknown",
-        "capture_display_order": true
+        "capture_display_order": true,
+        "source_reference": {
+          "document": "C01_chronic_care_patient_journey.docx",
+          "section": "Questionnaire",
+          "heading_text": "Questionnaire",
+          "block_order": 10,
+          "row_index": 19,
+          "source_kind": "table",
+          "text": "Q16 | What is the main reason for considering a switch? | single | Price; Service quality; Features; Poor support; Competitor offer; Other | Show if: Q15 == 'Yes'\nRandomize"
+        }
       },
       {
         "question_id": "Q19",
@@ -3030,7 +3928,16 @@
         "scope_origin": "inferred",
         "anchored": [],
         "anchored_origin": "unknown",
-        "capture_display_order": true
+        "capture_display_order": true,
+        "source_reference": {
+          "document": "C01_chronic_care_patient_journey.docx",
+          "section": "Questionnaire",
+          "heading_text": "Questionnaire",
+          "block_order": 10,
+          "row_index": 22,
+          "source_kind": "table",
+          "text": "Q19 | Which new proposition do you prefer? | single | Concept A; Concept B; Concept C | Randomize\nConcept descriptions are displayed in randomized order; store display order."
+        }
       }
     ],
     "quotas": [
@@ -3117,6 +4024,754 @@
         "origin": "inferred",
         "confidence": 0.99,
         "source_text": "QUOTA_AGE: soft quota on D2: 21-29=20%, 30-39=25%, 40-49=25%, 50-59=20%, 60+=10%"
+      }
+    ],
+    "scenarios": [
+      {
+        "scenario_id": "T1",
+        "purpose": "age screenout",
+        "inputs": [
+          {
+            "question_id": "S1",
+            "value": "No",
+            "option_ids": [
+              "S1-O2"
+            ],
+            "unknown_question": false
+          }
+        ],
+        "expectations": [
+          {
+            "kind": "expected_end",
+            "targets": [
+              "TERM_AGE"
+            ],
+            "target_kinds": [
+              "disposition"
+            ],
+            "value": "TERM_AGE"
+          }
+        ],
+        "inputs_raw": {
+          "S1": "No"
+        },
+        "expected_raw": {
+          "expected_end": "TERM_AGE"
+        },
+        "parse_errors": [],
+        "source_reference": {
+          "document": "C01_chronic_care_patient_journey.docx",
+          "section": "Acceptance test scenarios",
+          "heading_text": "Acceptance test scenarios",
+          "block_order": 25,
+          "row_index": 0,
+          "source_kind": "table",
+          "text": "T1 | age screenout | {\"S1\": \"No\"} | {\"expected_end\": \"TERM_AGE\"}"
+        }
+      },
+      {
+        "scenario_id": "T2",
+        "purpose": "conflict screenout",
+        "inputs": [
+          {
+            "question_id": "S1",
+            "value": "Yes",
+            "option_ids": [
+              "S1-O1"
+            ],
+            "unknown_question": false
+          },
+          {
+            "question_id": "S2",
+            "value": "Personally manage an ongoing chronic health condition",
+            "option_ids": [
+              "S2-O1"
+            ],
+            "unknown_question": false
+          },
+          {
+            "question_id": "S3",
+            "value": "No",
+            "option_ids": [
+              "S3-O2"
+            ],
+            "unknown_question": false
+          },
+          {
+            "question_id": "S4",
+            "value": "Yes",
+            "option_ids": [
+              "S4-O1"
+            ],
+            "unknown_question": false
+          }
+        ],
+        "expectations": [
+          {
+            "kind": "expected_end",
+            "targets": [
+              "TERM_CONFLICT"
+            ],
+            "target_kinds": [
+              "disposition"
+            ],
+            "value": "TERM_CONFLICT"
+          }
+        ],
+        "inputs_raw": {
+          "S1": "Yes",
+          "S2": "Personally manage an ongoing chronic health condition",
+          "S3": "No",
+          "S4": "Yes"
+        },
+        "expected_raw": {
+          "expected_end": "TERM_CONFLICT"
+        },
+        "parse_errors": [],
+        "source_reference": {
+          "document": "C01_chronic_care_patient_journey.docx",
+          "section": "Acceptance test scenarios",
+          "heading_text": "Acceptance test scenarios",
+          "block_order": 25,
+          "row_index": 1,
+          "source_kind": "table",
+          "text": "T2 | conflict screenout | {\"S1\": \"Yes\", \"S2\": \"Personally manage an ongoing chronic health condition\", \"S3\": \"No\", \"S4\": \"Yes\"} | {\"expected_end\": \"TERM_CONFLICT\"}"
+        }
+      },
+      {
+        "scenario_id": "T3",
+        "purpose": "brand unaware journey",
+        "inputs": [
+          {
+            "question_id": "S1",
+            "value": "Yes",
+            "option_ids": [
+              "S1-O1"
+            ],
+            "unknown_question": false
+          },
+          {
+            "question_id": "S2",
+            "value": "Personally manage an ongoing chronic health condition",
+            "option_ids": [
+              "S2-O1"
+            ],
+            "unknown_question": false
+          },
+          {
+            "question_id": "S3",
+            "value": "No",
+            "option_ids": [
+              "S3-O2"
+            ],
+            "unknown_question": false
+          },
+          {
+            "question_id": "S4",
+            "value": "No",
+            "option_ids": [
+              "S4-O2"
+            ],
+            "unknown_question": false
+          },
+          {
+            "question_id": "Q1",
+            "value": [
+              "None of these"
+            ],
+            "option_ids": [
+              "Q1-O5"
+            ],
+            "unknown_question": false
+          }
+        ],
+        "expectations": [
+          {
+            "kind": "expected_hidden",
+            "targets": [
+              "Q2",
+              "Q3",
+              "Q7",
+              "Q8",
+              "Q9"
+            ],
+            "target_kinds": [
+              "question",
+              "question",
+              "question",
+              "question",
+              "question"
+            ],
+            "value": [
+              "Q2",
+              "Q3",
+              "Q7",
+              "Q8",
+              "Q9"
+            ]
+          },
+          {
+            "kind": "expected_end",
+            "targets": [
+              "COMPLETE"
+            ],
+            "target_kinds": [
+              "disposition"
+            ],
+            "value": "COMPLETE"
+          }
+        ],
+        "inputs_raw": {
+          "S1": "Yes",
+          "S2": "Personally manage an ongoing chronic health condition",
+          "S3": "No",
+          "S4": "No",
+          "Q1": [
+            "None of these"
+          ]
+        },
+        "expected_raw": {
+          "expected_hidden": [
+            "Q2",
+            "Q3",
+            "Q7",
+            "Q8",
+            "Q9"
+          ],
+          "expected_end": "COMPLETE"
+        },
+        "parse_errors": [],
+        "source_reference": {
+          "document": "C01_chronic_care_patient_journey.docx",
+          "section": "Acceptance test scenarios",
+          "heading_text": "Acceptance test scenarios",
+          "block_order": 25,
+          "row_index": 2,
+          "source_kind": "table",
+          "text": "T3 | brand unaware journey | {\"S1\": \"Yes\", \"S2\": \"Personally manage an ongoing chronic health condition\", \"S3\": \"No\", \"S4\": \"No\", \"Q1\": [\"None of these\"]} | {\"expected_hidden\": [\"Q2\", \"Q3\", \"Q7\", \"Q8\", \"Q9\"], \"expected_end\": \"COMPLETE\"}"
+        }
+      },
+      {
+        "scenario_id": "T4",
+        "purpose": "user, no support, no switch",
+        "inputs": [
+          {
+            "question_id": "S1",
+            "value": "Yes",
+            "option_ids": [
+              "S1-O1"
+            ],
+            "unknown_question": false
+          },
+          {
+            "question_id": "S2",
+            "value": "Personally manage an ongoing chronic health condition",
+            "option_ids": [
+              "S2-O1"
+            ],
+            "unknown_question": false
+          },
+          {
+            "question_id": "S3",
+            "value": "No",
+            "option_ids": [
+              "S3-O2"
+            ],
+            "unknown_question": false
+          },
+          {
+            "question_id": "S4",
+            "value": "No",
+            "option_ids": [
+              "S4-O2"
+            ],
+            "unknown_question": false
+          },
+          {
+            "question_id": "Q1",
+            "value": [
+              "Care Network A"
+            ],
+            "option_ids": [
+              "Q1-O1"
+            ],
+            "unknown_question": false
+          },
+          {
+            "question_id": "Q3",
+            "value": "Care Network A",
+            "option_ids": [
+              "Q3-O1"
+            ],
+            "unknown_question": false
+          },
+          {
+            "question_id": "Q10",
+            "value": "No",
+            "option_ids": [
+              "Q10-O2"
+            ],
+            "unknown_question": false
+          },
+          {
+            "question_id": "Q15",
+            "value": "No",
+            "option_ids": [
+              "Q15-O2"
+            ],
+            "unknown_question": false
+          }
+        ],
+        "expectations": [
+          {
+            "kind": "expected_hidden",
+            "targets": [
+              "Q11",
+              "Q12",
+              "Q13",
+              "Q14",
+              "Q16",
+              "Q17"
+            ],
+            "target_kinds": [
+              "question",
+              "question",
+              "question",
+              "question",
+              "question",
+              "question"
+            ],
+            "value": [
+              "Q11",
+              "Q12",
+              "Q13",
+              "Q14",
+              "Q16",
+              "Q17"
+            ]
+          },
+          {
+            "kind": "expected_end",
+            "targets": [
+              "COMPLETE"
+            ],
+            "target_kinds": [
+              "disposition"
+            ],
+            "value": "COMPLETE"
+          }
+        ],
+        "inputs_raw": {
+          "S1": "Yes",
+          "S2": "Personally manage an ongoing chronic health condition",
+          "S3": "No",
+          "S4": "No",
+          "Q1": [
+            "Care Network A"
+          ],
+          "Q3": "Care Network A",
+          "Q10": "No",
+          "Q15": "No"
+        },
+        "expected_raw": {
+          "expected_hidden": [
+            "Q11",
+            "Q12",
+            "Q13",
+            "Q14",
+            "Q16",
+            "Q17"
+          ],
+          "expected_end": "COMPLETE"
+        },
+        "parse_errors": [],
+        "source_reference": {
+          "document": "C01_chronic_care_patient_journey.docx",
+          "section": "Acceptance test scenarios",
+          "heading_text": "Acceptance test scenarios",
+          "block_order": 25,
+          "row_index": 3,
+          "source_kind": "table",
+          "text": "T4 | user, no support, no switch | {\"S1\": \"Yes\", \"S2\": \"Personally manage an ongoing chronic health condition\", \"S3\": \"No\", \"S4\": \"No\", \"Q1\": [\"Care Network A\"], \"Q3\": \"Care Network A\", \"Q10\": \"No\", \"Q15\": \"No\"} | {\"expected_hidden\": [\"Q11\", \"Q12\", \"Q13\", \"Q14\", \"Q16\", \"Q17\"], \"expected_end\": \"COMPL"
+        }
+      },
+      {
+        "scenario_id": "T5",
+        "purpose": "unresolved support and other switch reason",
+        "inputs": [
+          {
+            "question_id": "S1",
+            "value": "Yes",
+            "option_ids": [
+              "S1-O1"
+            ],
+            "unknown_question": false
+          },
+          {
+            "question_id": "S2",
+            "value": "Personally manage an ongoing chronic health condition",
+            "option_ids": [
+              "S2-O1"
+            ],
+            "unknown_question": false
+          },
+          {
+            "question_id": "S3",
+            "value": "No",
+            "option_ids": [
+              "S3-O2"
+            ],
+            "unknown_question": false
+          },
+          {
+            "question_id": "S4",
+            "value": "No",
+            "option_ids": [
+              "S4-O2"
+            ],
+            "unknown_question": false
+          },
+          {
+            "question_id": "Q1",
+            "value": [
+              "Care Network B"
+            ],
+            "option_ids": [
+              "Q1-O2"
+            ],
+            "unknown_question": false
+          },
+          {
+            "question_id": "Q3",
+            "value": "Care Network B",
+            "option_ids": [
+              "Q3-O2"
+            ],
+            "unknown_question": false
+          },
+          {
+            "question_id": "Q10",
+            "value": "Yes",
+            "option_ids": [
+              "Q10-O1"
+            ],
+            "unknown_question": false
+          },
+          {
+            "question_id": "Q12",
+            "value": "Not resolved",
+            "option_ids": [
+              "Q12-O3"
+            ],
+            "unknown_question": false
+          },
+          {
+            "question_id": "Q15",
+            "value": "Yes",
+            "option_ids": [
+              "Q15-O1"
+            ],
+            "unknown_question": false
+          },
+          {
+            "question_id": "Q16",
+            "value": "Other",
+            "option_ids": [
+              "Q16-O6"
+            ],
+            "unknown_question": false
+          }
+        ],
+        "expectations": [
+          {
+            "kind": "expected_visible",
+            "targets": [
+              "Q11",
+              "Q12",
+              "Q14",
+              "Q16",
+              "Q17"
+            ],
+            "target_kinds": [
+              "question",
+              "question",
+              "question",
+              "question",
+              "question"
+            ],
+            "value": [
+              "Q11",
+              "Q12",
+              "Q14",
+              "Q16",
+              "Q17"
+            ]
+          },
+          {
+            "kind": "expected_hidden",
+            "targets": [
+              "Q13"
+            ],
+            "target_kinds": [
+              "question"
+            ],
+            "value": [
+              "Q13"
+            ]
+          },
+          {
+            "kind": "expected_end",
+            "targets": [
+              "COMPLETE"
+            ],
+            "target_kinds": [
+              "disposition"
+            ],
+            "value": "COMPLETE"
+          }
+        ],
+        "inputs_raw": {
+          "S1": "Yes",
+          "S2": "Personally manage an ongoing chronic health condition",
+          "S3": "No",
+          "S4": "No",
+          "Q1": [
+            "Care Network B"
+          ],
+          "Q3": "Care Network B",
+          "Q10": "Yes",
+          "Q12": "Not resolved",
+          "Q15": "Yes",
+          "Q16": "Other"
+        },
+        "expected_raw": {
+          "expected_visible": [
+            "Q11",
+            "Q12",
+            "Q14",
+            "Q16",
+            "Q17"
+          ],
+          "expected_hidden": [
+            "Q13"
+          ],
+          "expected_end": "COMPLETE"
+        },
+        "parse_errors": [],
+        "source_reference": {
+          "document": "C01_chronic_care_patient_journey.docx",
+          "section": "Acceptance test scenarios",
+          "heading_text": "Acceptance test scenarios",
+          "block_order": 25,
+          "row_index": 4,
+          "source_kind": "table",
+          "text": "T5 | unresolved support and other switch reason | {\"S1\": \"Yes\", \"S2\": \"Personally manage an ongoing chronic health condition\", \"S3\": \"No\", \"S4\": \"No\", \"Q1\": [\"Care Network B\"], \"Q3\": \"Care Network B\", \"Q10\": \"Yes\", \"Q12\": \"Not resolved\", \"Q15\": \"Yes\", \"Q16\": \"Other\"} | {\"expected_visible\": [\"Q11\", \""
+        }
+      },
+      {
+        "scenario_id": "T6",
+        "purpose": "constant-sum under 100",
+        "inputs": [
+          {
+            "question_id": "Q18",
+            "value": {
+              "Price": 30,
+              "Quality": 30,
+              "Convenience": 10,
+              "Trust": 10,
+              "Support": 10
+            },
+            "option_ids": [
+              "Q18-O1",
+              "Q18-O2",
+              "Q18-O3",
+              "Q18-O4",
+              "Q18-O5"
+            ],
+            "unknown_question": false
+          }
+        ],
+        "expectations": [
+          {
+            "kind": "expected_validation_error",
+            "targets": [
+              "Q18"
+            ],
+            "target_kinds": [
+              "question"
+            ],
+            "value": "Q18"
+          }
+        ],
+        "inputs_raw": {
+          "Q18": {
+            "Price": 30,
+            "Quality": 30,
+            "Convenience": 10,
+            "Trust": 10,
+            "Support": 10
+          }
+        },
+        "expected_raw": {
+          "expected_validation_error": "Q18"
+        },
+        "parse_errors": [],
+        "source_reference": {
+          "document": "C01_chronic_care_patient_journey.docx",
+          "section": "Acceptance test scenarios",
+          "heading_text": "Acceptance test scenarios",
+          "block_order": 25,
+          "row_index": 5,
+          "source_kind": "table",
+          "text": "T6 | constant-sum under 100 | {\"Q18\": {\"Price\": 30, \"Quality\": 30, \"Convenience\": 10, \"Trust\": 10, \"Support\": 10}} | {\"expected_validation_error\": \"Q18\"}"
+        }
+      },
+      {
+        "scenario_id": "T7",
+        "purpose": "piped option violation",
+        "inputs": [
+          {
+            "question_id": "Q5",
+            "value": [
+              "Primary-care physician"
+            ],
+            "option_ids": [
+              "Q5-O1"
+            ],
+            "unknown_question": false
+          },
+          {
+            "question_id": "Q6",
+            "value": "Support programme",
+            "option_ids": [
+              "Q6-O6"
+            ],
+            "unknown_question": false
+          }
+        ],
+        "expectations": [
+          {
+            "kind": "expected_validation_error",
+            "targets": [
+              "Q6"
+            ],
+            "target_kinds": [
+              "question"
+            ],
+            "value": "Q6"
+          }
+        ],
+        "inputs_raw": {
+          "Q5": [
+            "Primary-care physician"
+          ],
+          "Q6": "Support programme"
+        },
+        "expected_raw": {
+          "expected_validation_error": "Q6"
+        },
+        "parse_errors": [],
+        "source_reference": {
+          "document": "C01_chronic_care_patient_journey.docx",
+          "section": "Acceptance test scenarios",
+          "heading_text": "Acceptance test scenarios",
+          "block_order": 25,
+          "row_index": 6,
+          "source_kind": "table",
+          "text": "T7 | piped option violation | {\"Q5\": [\"Primary-care physician\"], \"Q6\": \"Support programme\"} | {\"expected_validation_error\": \"Q6\"}"
+        }
+      }
+    ],
+    "requirements": [
+      {
+        "code": null,
+        "label": null,
+        "text": "Store stable question, option, route and test-run identifiers.",
+        "raw_text": "Store stable question, option, route and test-run identifiers.",
+        "source_reference": {
+          "document": "C01_chronic_care_patient_journey.docx",
+          "section": "Programming and QA requirements",
+          "heading_text": "Programming and QA requirements",
+          "block_order": 18,
+          "row_index": null,
+          "source_kind": "prose",
+          "text": "Store stable question, option, route and test-run identifiers."
+        }
+      },
+      {
+        "code": null,
+        "label": null,
+        "text": "Capture displayed random order for every randomized item.",
+        "raw_text": "Capture displayed random order for every randomized item.",
+        "source_reference": {
+          "document": "C01_chronic_care_patient_journey.docx",
+          "section": "Programming and QA requirements",
+          "heading_text": "Programming and QA requirements",
+          "block_order": 19,
+          "row_index": null,
+          "source_kind": "prose",
+          "text": "Capture displayed random order for every randomized item."
+        }
+      },
+      {
+        "code": null,
+        "label": null,
+        "text": "Record expected and observed destination for every routing transition.",
+        "raw_text": "Record expected and observed destination for every routing transition.",
+        "source_reference": {
+          "document": "C01_chronic_care_patient_journey.docx",
+          "section": "Programming and QA requirements",
+          "heading_text": "Programming and QA requirements",
+          "block_order": 20,
+          "row_index": null,
+          "source_kind": "prose",
+          "text": "Record expected and observed destination for every routing transition."
+        }
+      },
+      {
+        "code": null,
+        "label": null,
+        "text": "Reject mutually exclusive selections and invalid numeric/text responses before progression.",
+        "raw_text": "Reject mutually exclusive selections and invalid numeric/text responses before progression.",
+        "source_reference": {
+          "document": "C01_chronic_care_patient_journey.docx",
+          "section": "Programming and QA requirements",
+          "heading_text": "Programming and QA requirements",
+          "block_order": 21,
+          "row_index": null,
+          "source_kind": "prose",
+          "text": "Reject mutually exclusive selections and invalid numeric/text responses before progression."
+        }
+      },
+      {
+        "code": null,
+        "label": null,
+        "text": "Produce an audit record containing inputs, timestamps, route, assertions, screenshots on failure and final disposition.",
+        "raw_text": "Produce an audit record containing inputs, timestamps, route, assertions, screenshots on failure and final disposition.",
+        "source_reference": {
+          "document": "C01_chronic_care_patient_journey.docx",
+          "section": "Programming and QA requirements",
+          "heading_text": "Programming and QA requirements",
+          "block_order": 22,
+          "row_index": null,
+          "source_kind": "prose",
+          "text": "Produce an audit record containing inputs, timestamps, route, assertions, screenshots on failure and final disposition."
+        }
+      },
+      {
+        "code": null,
+        "label": null,
+        "text": "Do not send synthetic test responses into live operational reporting.",
+        "raw_text": "Do not send synthetic test responses into live operational reporting.",
+        "source_reference": {
+          "document": "C01_chronic_care_patient_journey.docx",
+          "section": "Programming and QA requirements",
+          "heading_text": "Programming and QA requirements",
+          "block_order": 23,
+          "row_index": null,
+          "source_kind": "prose",
+          "text": "Do not send synthetic test responses into live operational reporting."
+        }
       }
     ],
     "review": [
@@ -3238,7 +4893,7 @@
           "kind": "question",
           "id": "Q8"
         },
-        "evidence": "'the current provider' (confidence 0.99)",
+        "evidence": "'the current provider' (confidence 1.00)",
         "source_reference": null
       },
       {
@@ -3249,7 +4904,7 @@
           "kind": "question",
           "id": "Q9"
         },
-        "evidence": "'your current provider' (confidence 0.99)",
+        "evidence": "'your current provider' (confidence 1.00)",
         "source_reference": null
       },
       {
@@ -3260,7 +4915,18 @@
           "kind": "question",
           "id": "Q20"
         },
-        "evidence": "'the selected proposition' (confidence 0.99)",
+        "evidence": "'the selected proposition' (confidence 1.00)",
+        "source_reference": null
+      },
+      {
+        "check": "text_pipe_inferred",
+        "severity": "WARNING",
+        "finding": "Q21's wording appears to quote the answer given at Q19. No table states this; it was read out of the sentence, so it is worth confirming.",
+        "target": {
+          "kind": "question",
+          "id": "Q21"
+        },
+        "evidence": "'your choice' (confidence 1.00)",
         "source_reference": null
       },
       {
@@ -3286,6 +4952,50 @@
         "source_reference": null
       },
       {
+        "check": "inferred_condition_partial_options",
+        "severity": "WARNING",
+        "finding": "Rule R6 was read as naming 3 of Q1's 4 selectable answers, leaving out ['Independent provider']. A model chose which ones count and the QRE does not say.",
+        "target": {
+          "kind": "rule",
+          "id": "R6"
+        },
+        "evidence": "Q1 contains at least one brand",
+        "source_reference": null
+      },
+      {
+        "check": "inferred_condition_partial_options",
+        "severity": "WARNING",
+        "finding": "Rule R7 was read as naming 3 of Q1's 4 selectable answers, leaving out ['Independent provider']. A model chose which ones count and the QRE does not say.",
+        "target": {
+          "kind": "rule",
+          "id": "R7"
+        },
+        "evidence": "Q1 contains at least one brand",
+        "source_reference": null
+      },
+      {
+        "check": "inferred_condition_partial_options",
+        "severity": "WARNING",
+        "finding": "Q2's display condition was read as naming 3 of Q1's 4 selectable answers, leaving out ['Independent provider']. A model chose which ones count and the QRE does not say.",
+        "target": {
+          "kind": "question",
+          "id": "Q2"
+        },
+        "evidence": "Q1 contains at least one brand",
+        "source_reference": null
+      },
+      {
+        "check": "inferred_condition_partial_options",
+        "severity": "WARNING",
+        "finding": "Q3's display condition was read as naming 3 of Q1's 4 selectable answers, leaving out ['Independent provider']. A model chose which ones count and the QRE does not say.",
+        "target": {
+          "kind": "question",
+          "id": "Q3"
+        },
+        "evidence": "Q1 contains at least one brand",
+        "source_reference": null
+      },
+      {
         "check": "semantics_unconfirmed",
         "severity": "BLOCKING",
         "finding": "The semantics block records three decisions the QRE never states: that a condition naming an unasked question is false, that the first matching rule wins, and that '==' against a multi-select compares the whole answer set. Each changes which questions appear on many routes and needs confirming.",
@@ -3293,7 +5003,7 @@
           "kind": "survey",
           "id": "C01_chronic_care_patient_journey.docx"
         },
-        "evidence": "{\"unasked_reference\":\"condition_false\",\"unasked_reference_origin\":\"inferred\",\"rule_precedence\":\"document_order_first_match\",\"rule_precedence_origin\":\"inferred\",\"multi_equality\":\"set_equality\",\"multi_equality_origin\":\"derived\"}",
+        "evidence": "{\"unasked_reference\":\"condition_false\",\"unasked_reference_origin\":\"inferred\",\"rule_precedence\":\"document_order_first_match\",\"rule_precedence_origin\":\"inferred\",\"multi_equality\":\"set_equality\",\"multi_equality_origin\":\"derived\",\"default_mandatory\":true,\"default_mandatory_origin\":\"derived\",\"default_mandatory_source\":\"All questions are mandatory unless explicitly marked optional. Do not infer unstated routing.\"}",
         "source_reference": null
       }
     ]

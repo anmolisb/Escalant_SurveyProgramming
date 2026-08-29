@@ -25,6 +25,8 @@ from models import (
     CanonicalDisposition,
     CanonicalOption,
     CanonicalQuestion,
+    CanonicalScenario,
+    CanonicalStatement,
     CanonicalValidation,
     CanonicalRule,
     CanonicalSurvey,
@@ -40,12 +42,15 @@ from models import (
     GuardAgreement,
     LLMQuota,
     LLMTextPipes,
+    OptionSource,
     Quota,
     QuotaCell,
     Origin,
     Randomization,
     RandomizationScope,
     RuleKind,
+    ScenarioExpectation,
+    ScenarioInput,
     Semantics,
 )
 from llm import LLMUnavailable, complete
@@ -66,13 +71,16 @@ _RULE_KINDS = {
 }
 
 
-def _review(check, severity, finding, *, target=None, evidence=None) -> AuditFinding:
+def _review(
+    check, severity, finding, *, target=None, evidence=None, source=None
+) -> AuditFinding:
     return AuditFinding(
         check=check,
         severity=severity,
         finding=finding,
         target=target,
         evidence=evidence,
+        source_reference=source,
     )
 
 
@@ -230,14 +238,20 @@ def _build_guards(
 # ---------------------------------------------------------------------------
 
 
-def _build_dependencies(parsed: dict, review: list[AuditFinding]) -> list[Dependency]:
-    """Turn a piping sentence into a link.
+def _option_sources(
+    parsed: dict, review: list[AuditFinding]
+) -> dict[str, OptionSource]:
+    """Read each piping sentence once, keyed by the question it narrows.
 
     "Show only brands selected at Q1." names its source question, so the link is
     read rather than guessed. Where the sentence names no question, that is
     reported instead.
+
+    One reading serves two purposes - the link between the two questions, and
+    the note on the narrowed question itself - because two readings of the same
+    sentence are two things that can disagree.
     """
-    dependencies: list[Dependency] = []
+    found: dict[str, OptionSource] = {}
     for question in parsed.get("questions", []):
         instruction = (question.dynamic_option_source or "").strip()
         if not instruction:
@@ -257,17 +271,28 @@ def _build_dependencies(parsed: dict, review: list[AuditFinding]) -> list[Depend
                 )
             )
             continue
-        dependencies.append(
-            Dependency(
-                from_question=sources[0],
-                to_question=question.id,
-                kind=DependencyKind.OPTION_SOURCE,
-                detail=instruction,
-            )
+        found[question.id] = OptionSource(
+            from_question=sources[0],
+            instruction=instruction,
+            source_reference=question.source_reference,
         )
+    return found
 
+
+def _build_dependencies(option_sources: dict[str, OptionSource]) -> list[Dependency]:
+    """Turn each piping sentence into a link between two questions."""
     # A guard is a dependency too: Q7 cannot be decided before Q3 is answered.
-    return dependencies
+    # That one is drawn by the graph builder, which already walks every guard.
+    return [
+        Dependency(
+            from_question=source.from_question,
+            to_question=question_id,
+            kind=DependencyKind.OPTION_SOURCE,
+            detail=source.instruction,
+            source_reference=source.source_reference,
+        )
+        for question_id, source in option_sources.items()
+    ]
 
 
 _PIPE_SYSTEM = """You are given the questions of a survey, in the order they are asked.
@@ -384,6 +409,11 @@ def _build_text_pipes(
                 kind=DependencyKind.TEXT_PIPE,
                 detail=pipe.phrase or "",
                 origin=Origin.INFERRED,
+                confidence=pipe.confidence,
+                source_reference=next(
+                    (q.source_reference for q in questions if q.id == target_id),
+                    None,
+                ),
             )
         )
         review.append(
@@ -418,6 +448,7 @@ def _build_randomization(
         entry = Randomization(
             question_id=question.id,
             scope=RandomizationScope.ROWS if is_matrix else RandomizationScope.OPTIONS,
+            source_reference=question.source_reference,
         )
         if question.exclusive_option:
             # Convention anchors an exclusive option at the bottom. The QRE does
@@ -654,6 +685,297 @@ def _check_partial_codes(parsed: dict, review: list[AuditFinding]) -> None:
 
 
 # ---------------------------------------------------------------------------
+# What the document says about itself, and about how to build it
+# ---------------------------------------------------------------------------
+
+
+def _build_statements(rows) -> list[CanonicalStatement]:
+    """Carry a prose section across as statements, unchanged."""
+    return [
+        CanonicalStatement(
+            code=row.code,
+            label=row.label,
+            text=row.text,
+            raw_text=row.raw_text,
+            source_reference=row.source_reference,
+        )
+        for row in rows or []
+    ]
+
+
+def _read_default_mandatory(
+    statements: list[CanonicalStatement],
+) -> tuple[bool | None, Origin, str]:
+    """Find a sentence setting whether an unmarked question must be answered.
+
+    Both fixtures write "All questions are mandatory unless explicitly marked
+    optional", and nothing read it, so `mandatory` was defaulted to true on no
+    evidence. Read by a fixed rule rather than by a model: a statement naming
+    both states sets the default to whichever it names first, since that is the
+    one the sentence is about and the other is its exception. A document naming
+    neither leaves the default unknown, which is the honest answer.
+    """
+    for statement in statements:
+        lowered = (statement.text or "").lower()
+        at_mandatory = lowered.find("mandator")
+        at_optional = lowered.find("optional")
+        if at_mandatory < 0 or at_optional < 0:
+            continue
+        return (at_mandatory < at_optional, Origin.DERIVED, statement.text)
+    return (None, Origin.UNKNOWN, "")
+
+
+# ---------------------------------------------------------------------------
+# The QRE's own acceptance tests
+# ---------------------------------------------------------------------------
+
+#: Operators whose right-hand side is a set of answers rather than a single one.
+#: Only these can be under-inclusive in the way `_check_inferred_subsets` looks
+#: for; flagging `eq` against one option would flag every ordinary condition.
+_SET_OPERATORS = frozenset(
+    {
+        ConditionOp.IN,
+        ConditionOp.NOT_IN,
+        ConditionOp.CONTAINS_ANY,
+        ConditionOp.CONTAINS_ALL,
+        ConditionOp.SET_EQ,
+    }
+)
+
+
+def _labels_in(value) -> list[str]:
+    """The answer labels a scenario cell names, whatever shape the cell has.
+
+    A cell holds a label, a list of them, or a mapping from label to amount as a
+    constant sum does. Numbers and free text name no option and yield nothing.
+    """
+    if isinstance(value, str):
+        return [value]
+    if isinstance(value, dict):
+        return [str(k) for k in value]
+    if isinstance(value, (list, tuple)):
+        return [v for v in value if isinstance(v, str)]
+    return []
+
+
+def _build_scenarios(
+    parsed: dict,
+    questions_by_id: dict,
+    disposition_ids: set[str],
+    review: list[AuditFinding],
+) -> list[CanonicalScenario]:
+    """Carry the document's own acceptance tests across, with references resolved.
+
+    Kept as statements of expected behaviour, never executed here: deciding
+    whether a scenario holds means evaluating conditions against an answer set,
+    which is the test designer's job and not this layer's.
+
+    What this does add is resolution. A scenario names answers and questions by
+    label and id; both are checked against the survey that was actually read, so
+    a scenario naming something the questionnaire does not offer is reported
+    rather than passed downstream to fail confusingly much later.
+    """
+    scenarios: list[CanonicalScenario] = []
+    for row in parsed.get("scenarios", []):
+        inputs: list[ScenarioInput] = []
+        for question_id, value in (row.key_inputs or {}).items():
+            question = questions_by_id.get(question_id)
+            if question is None:
+                inputs.append(
+                    ScenarioInput(
+                        question_id=question_id, value=value, unknown_question=True
+                    )
+                )
+                review.append(
+                    _review(
+                        "scenario_unknown_question",
+                        FlagSeverity.BLOCKING,
+                        (
+                            f"Scenario {row.id} supplies an answer for "
+                            f"{question_id}, which this questionnaire does not "
+                            "ask."
+                        ),
+                        target=FlagTarget(kind="scenario", id=row.id),
+                        evidence=f"{question_id}: {value!r}",
+                        source=row.source_reference,
+                    )
+                )
+                continue
+
+            wanted = _labels_in(value)
+            by_label = {o.label: o.option_id for o in question.options}
+            by_label.update({o.label: o.option_id for o in question.matrix_rows})
+            option_ids = None
+            if wanted and by_label:
+                found = [by_label.get(label) for label in wanted]
+                if all(found):
+                    option_ids = [f for f in found if f]
+                else:
+                    missing = [
+                        label for label, hit in zip(wanted, found) if not hit
+                    ]
+                    review.append(
+                        _review(
+                            "scenario_option_unresolved",
+                            FlagSeverity.WARNING,
+                            (
+                                f"Scenario {row.id} answers {question_id} with "
+                                f"{missing!r}, which {question_id} does not "
+                                "offer."
+                            ),
+                            target=FlagTarget(kind="scenario", id=row.id),
+                            evidence=f"{question_id}: {value!r}",
+                            source=row.source_reference,
+                        )
+                    )
+            inputs.append(
+                ScenarioInput(
+                    question_id=question_id, value=value, option_ids=option_ids
+                )
+            )
+
+        expectations: list[ScenarioExpectation] = []
+        for kind, value in (row.expected_outcome or {}).items():
+            targets = [t for t in _labels_in(value)]
+            kinds = []
+            for target in targets:
+                if target in questions_by_id:
+                    kinds.append("question")
+                elif target in disposition_ids:
+                    kinds.append("disposition")
+                else:
+                    kinds.append("unknown")
+                    review.append(
+                        _review(
+                            "scenario_reference_unresolved",
+                            FlagSeverity.WARNING,
+                            (
+                                f"Scenario {row.id} expects {target!r}, which is "
+                                "neither a question nor an ending in this QRE."
+                            ),
+                            target=FlagTarget(kind="scenario", id=row.id),
+                            evidence=f"{kind}: {value!r}",
+                            source=row.source_reference,
+                        )
+                    )
+            expectations.append(
+                ScenarioExpectation(
+                    kind=kind, targets=targets, target_kinds=kinds, value=value
+                )
+            )
+
+        if row.parse_errors:
+            review.append(
+                _review(
+                    "scenario_parse_errors",
+                    FlagSeverity.WARNING,
+                    (
+                        f"Scenario {row.id} was not fully read out of its row, "
+                        "so what it asks for is incomplete."
+                    ),
+                    target=FlagTarget(kind="scenario", id=row.id),
+                    evidence="; ".join(row.parse_errors),
+                    source=row.source_reference,
+                )
+            )
+
+        scenarios.append(
+            CanonicalScenario(
+                scenario_id=row.id,
+                purpose=row.purpose or "",
+                inputs=inputs,
+                expectations=expectations,
+                inputs_raw=row.key_inputs or {},
+                expected_raw=row.expected_outcome or {},
+                parse_errors=list(row.parse_errors or []),
+                source_reference=row.source_reference,
+            )
+        )
+    return scenarios
+
+
+def _check_inferred_subsets(
+    survey: CanonicalSurvey, questions_by_id: dict, review: list[AuditFinding]
+) -> None:
+    """Say so when a model's reading of a condition leaves answers out.
+
+    A prose condition such as "Q1 contains at least one brand" has to be turned
+    into a list of options, and the model decides which ones count. On C01 it
+    reads that as three of Q1's four brands, leaving out "Independent provider"
+    - which may be right, and may be a respondent wrongly sent down a different
+    path. Nothing in the QRE settles it.
+
+    The reading is kept, because the parser accepted it and a refusal here would
+    lose a condition that is probably correct. What is added is the fact that it
+    is a choice: a set-valued condition that a model proposed, naming only some
+    of the answers the question offers, gets the omitted ones named in the
+    review queue so a person decides rather than nobody.
+    """
+
+    def walk(condition, where: str, target: FlagTarget) -> None:
+        if condition is None:
+            return
+        left, right = condition.left, condition.right
+        if (
+            condition.origin is Origin.INFERRED
+            and condition.op in _SET_OPERATORS
+            and left is not None
+            and right is not None
+            and right.option_ids
+        ):
+            question = questions_by_id.get(left.question_id or "")
+            if question is not None:
+                # An exclusive option is excluded by construction - "at least
+                # one brand" cannot mean "None of these" - so leaving it out is
+                # not a choice anyone needs to review.
+                offered = [
+                    o.option_id
+                    for o in question.options
+                    if o.option_id and o.label != question.exclusive_option
+                ]
+                omitted = [
+                    o.label
+                    for o in question.options
+                    if o.option_id
+                    and o.option_id in offered
+                    and o.option_id not in right.option_ids
+                ]
+                if omitted and len(right.option_ids) < len(offered):
+                    review.append(
+                        _review(
+                            "inferred_condition_partial_options",
+                            FlagSeverity.WARNING,
+                            (
+                                f"{where} was read as naming "
+                                f"{len(right.option_ids)} of "
+                                f"{left.question_id}'s {len(offered)} "
+                                f"selectable answers, leaving out {omitted!r}. "
+                                "A model chose which ones count and the QRE "
+                                "does not say."
+                            ),
+                            target=target,
+                            evidence=condition.source_text,
+                        )
+                    )
+        for child in condition.operands:
+            walk(child, where, target)
+
+    for rule in survey.rules:
+        walk(
+            rule.when,
+            f"Rule {rule.rule_id}",
+            FlagTarget(kind="rule", id=rule.rule_id),
+        )
+    for question in survey.questions:
+        if question.guard is not None:
+            walk(
+                question.guard.condition,
+                f"{question.question_id}'s display condition",
+                FlagTarget(kind="question", id=question.question_id),
+            )
+
+
+# ---------------------------------------------------------------------------
 # Entry point
 # ---------------------------------------------------------------------------
 
@@ -762,6 +1084,7 @@ def _build_dispositions(
             kind=_disposition_kind(message.code),
             message=message.message,
             defined_in_source=True,
+            source_reference=message.source_reference,
         )
 
     referenced = [
@@ -805,11 +1128,26 @@ def _canonical_options(options, exclusive_label: str | None) -> list:
     return carried
 
 
-def _canonical_validation(question) -> CanonicalValidation | None:
+#: The key Stage 4 uses for a matrix that must be answered on every row. Named
+#: here rather than left in the leftovers because it decides whether a
+#: part-filled grid is refused, which is a validation rule and a test.
+_REQUIRE_EACH_ROW = "require_each_row"
+
+
+def _canonical_validation(question, semantics: Semantics) -> CanonicalValidation:
     """What counts as an acceptable answer, with the exclusive option resolved.
 
-    Returns None when the QRE states no constraint at all, so an absent
-    validation means "nothing was stated" rather than "everything defaulted".
+    Every question gets one. An all-null validation says the QRE stated no
+    constraint on this answer; it used to be returned as None, which made
+    "nothing was stated" look the same as "this field was never populated" and
+    left every consumer handling two shapes for one fact.
+
+    `mandatory` is the part that had to change. It was `not question.optional`,
+    which quietly asserted that every question carrying any validation at all
+    was required - true for these two documents, but asserted from nothing in
+    them. Now: a question the QRE marks optional is not required and says so was
+    extracted; otherwise the survey-wide default applies if the document states
+    one, and where it states none the answer is null, not true.
     """
     exclusive_id = None
     if question.exclusive_option:
@@ -822,17 +1160,14 @@ def _canonical_validation(question) -> CanonicalValidation | None:
             None,
         )
 
-    stated = (
-        question.min_length,
-        question.max_length,
-        question.min_value,
-        question.max_value,
-        question.min_selections,
-        question.sum_to,
-        question.exclusive_option,
-    )
-    if not any(v is not None for v in stated) and not question.optional:
-        return None
+    if question.optional:
+        mandatory, mandatory_origin = False, Origin.EXTRACTED
+    elif semantics.default_mandatory is not None:
+        mandatory, mandatory_origin = semantics.default_mandatory, Origin.DERIVED
+    else:
+        mandatory, mandatory_origin = None, Origin.UNKNOWN
+
+    require_each_row = question.other_attributes.get(_REQUIRE_EACH_ROW)
 
     return CanonicalValidation(
         min_length=question.min_length,
@@ -841,9 +1176,13 @@ def _canonical_validation(question) -> CanonicalValidation | None:
         max_value=question.max_value,
         min_selections=question.min_selections,
         sum_to=question.sum_to,
+        require_each_row=(
+            bool(require_each_row) if require_each_row is not None else None
+        ),
         exclusive_option_id=exclusive_id,
         exclusive_option_label=question.exclusive_option,
-        mandatory=not question.optional,
+        mandatory=mandatory,
+        mandatory_origin=mandatory_origin,
     )
 
 
@@ -925,6 +1264,19 @@ def run(source: str, parsed: dict) -> CanonicalSurvey:
     codes = {m.code for m in parsed.get("messages", []) if m.code}
     seq_of = {q.id: q.seq for q in parsed.get("questions", []) if q.id}
 
+    # The study section can set whether an unmarked question must be answered,
+    # so it is read before any question is built.
+    metadata = _build_statements(parsed.get("study", []))
+    requirements = _build_statements(parsed.get("programming", []))
+    default_mandatory, default_origin, default_source = _read_default_mandatory(
+        metadata
+    )
+    semantics = Semantics(
+        default_mandatory=default_mandatory,
+        default_mandatory_origin=default_origin,
+        default_mandatory_source=default_source,
+    )
+
     options_by_question = {
         q.id: [o.label for o in q.options] for q in parsed.get("questions", []) if q.id
     }
@@ -982,6 +1334,7 @@ def run(source: str, parsed: dict) -> CanonicalSurvey:
             )
         )
 
+    option_sources = _option_sources(parsed, review)
     questions = [
         CanonicalQuestion(
             question_id=q.id,
@@ -990,30 +1343,87 @@ def run(source: str, parsed: dict) -> CanonicalSurvey:
             wording=q.wording,
             options=_canonical_options(q.options, q.exclusive_option),
             matrix_rows=_canonical_options(q.matrix_rows, None),
-            validation=_canonical_validation(q),
+            validation=_canonical_validation(q, semantics),
             guard=guards.get(q.id),
+            option_source=option_sources.get(q.id),
+            # Whatever Stage 4 read but no field here names. Q9's answer scale
+            # and Q19's note about showing concepts in a random order both land
+            # here rather than being dropped.
+            extra={
+                k: v
+                for k, v in q.other_attributes.items()
+                if k != _REQUIRE_EACH_ROW
+            },
+            source_reference=q.source_reference,
         )
         for q in parsed.get("questions", [])
     ]
 
     quotas = _build_quotas(parsed, options_by_question, review)
+    dispositions = _build_dispositions(parsed, rules, quotas)
+    questions_by_id = {q.id: q for q in parsed.get("questions", []) if q.id}
 
     survey = CanonicalSurvey(
         source=source,
-        semantics=Semantics(),
+        semantics=semantics,
+        metadata=metadata,
         questions=questions,
-        dispositions=_build_dispositions(parsed, rules, quotas),
+        dispositions=dispositions,
         rules=rules,
-        dependencies=_build_dependencies(parsed, review)
-        + _build_text_pipes(parsed, review),
+        # Sorted into the order the questions are asked. The model returns its
+        # findings in whatever order it found them, and two runs that agree on
+        # every link would still write two different files, which makes a real
+        # change and a reshuffle look the same in a diff.
+        dependencies=sorted(
+            _build_dependencies(option_sources) + _build_text_pipes(parsed, review),
+            key=lambda d: (
+                seq_of.get(d.to_question) or 0,
+                seq_of.get(d.from_question) or 0,
+                d.kind.value,
+            ),
+        ),
         randomization=_build_randomization(parsed, review),
         quotas=quotas,
+        scenarios=_build_scenarios(
+            parsed,
+            questions_by_id,
+            {d.disposition_id for d in dispositions},
+            review,
+        ),
+        requirements=requirements,
         review=review,
     )
 
-    _resolve_option_references(
-        survey, {q.id: q for q in parsed.get("questions", []) if q.id}, review
-    )
+    # Everything from here on appends to `survey.review`, not to `review`.
+    # Pydantic copies a list when it validates one onto a model, so the two stop
+    # being the same object the moment the survey above is constructed - and a
+    # finding added to the wrong one is discarded without a word. That had
+    # already silenced `condition_option_unresolved`, a blocking check, which
+    # was reporting nothing on every document because nothing it wrote could
+    # reach the artifact.
+    _resolve_option_references(survey, questions_by_id, survey.review)
+    _check_inferred_subsets(survey, questions_by_id, survey.review)
+
+    unknown_mandatory = [
+        q.question_id
+        for q in survey.questions
+        if q.validation is not None and q.validation.mandatory is None
+    ]
+    if unknown_mandatory:
+        survey.review.append(
+            _review(
+                "mandatory_unknown",
+                FlagSeverity.WARNING,
+                (
+                    f"{len(unknown_mandatory)} questions say nothing about "
+                    "whether an answer is required, and no statement in the "
+                    "document sets a default, so it is left unknown rather "
+                    "than assumed."
+                ),
+                target=FlagTarget(kind="survey", id=source),
+                evidence=", ".join(unknown_mandatory),
+            )
+        )
 
     # P3-08: the semantics block holds decisions, not readings. Say so once,
     # loudly, rather than letting later stages each assume their own.

@@ -1,0 +1,30 @@
+{
+  "entries": {
+    "06e9d9f7f30a596ec36d6c9717cbca545d1678172e45e5d8af7a006a2b7bbc3f": {
+      "response_model": "LLMTextPipes",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-08-29T07:16:39+00:00",
+      "asked": "S1: Have you purchased food or a beverage from the campus cafeteria in the past 30 days?\nS2: Are you 18 years of age or older?\nQ1: Which channel did you primarily use for this cafeteria visit?\nQ2: Overall, how satisfied were you with the cafeteria visit?\nQ3: How easy was it to complete what you wanted to do?\nQ4: Which aspects influenced your rating? Select all that apply.\nQ5: Did you encounter a p ...",
+      "response": {
+        "pipes": [
+          {
+            "is_pipe": true,
+            "source_question_id": "Q2",
+            "target_question_id": "Q4",
+            "phrase": "your rating",
+            "confidence": 0.99,
+            "reasoning": "The wording \"your rating\" in Q4 depends on the answer given earlier in Q2 (overall satisfaction rating). Without that answer the phrase would lack a referent."
+          },
+          {
+            "is_pipe": true,
+            "source_question_id": "Q5",
+            "target_question_id": "Q6",
+            "phrase": "the main problem",
+            "confidence": 0.99,
+            "reasoning": "The wording \"the main problem\" in Q6 presupposes that the respondent answered \"yes\" to Q5 (encountered a problem). The phrase cannot be displayed meaningfully without that prior answer."
+          }
+        ]
+      }
+    }
+  }
+}

@@ -822,6 +822,8 @@ class Randomization(BaseModel):
     anchored_origin: Origin = Origin.UNKNOWN
     #: The QRE asks for the shown order to be recorded for every randomised item.
     capture_display_order: bool = True
+    #: Where the randomisation instruction was stated.
+    source_reference: SourceReference | None = None
 
 
 class DependencyKind(str, Enum):
@@ -837,6 +839,10 @@ class Dependency(BaseModel):
     kind: DependencyKind
     detail: str = ""
     origin: Origin = Origin.DERIVED
+    #: Set where a model proposed the link rather than a table stating it.
+    confidence: float | None = None
+    #: Where the sentence carrying this link was written.
+    source_reference: SourceReference | None = None
 
 
 class Semantics(BaseModel):
@@ -859,6 +865,16 @@ class Semantics(BaseModel):
     #: What "==" means against a multi-select answer.
     multi_equality: str = "set_equality"
     multi_equality_origin: Origin = Origin.DERIVED
+    #: Whether an answer is required where the question itself says nothing.
+    #: Both fixtures state this in prose - "All questions are mandatory unless
+    #: explicitly marked optional" - and until now nothing read that sentence,
+    #: so `mandatory` was defaulted to true on no evidence at all. Null when no
+    #: statement in the document sets a default, in which case the questions
+    #: that say nothing are left unknown rather than assumed.
+    default_mandatory: bool | None = None
+    default_mandatory_origin: Origin = Origin.UNKNOWN
+    #: The sentence the default was read from, so the reading can be checked.
+    default_mandatory_source: str = ""
 
 
 class CanonicalOption(BaseModel):
@@ -879,6 +895,11 @@ class CanonicalValidation(BaseModel):
 
     Needed to generate a test at all: without the bounds there is no way to
     produce a value that should be accepted, or one that should be refused.
+
+    Every question carries one, and an all-null validation means the QRE stated
+    no constraint on that answer. Previously this was null in that case, which
+    forced every consumer to handle two shapes for the same fact and made
+    "nothing was stated" indistinguishable from "this question was not reached".
     """
 
     min_length: int | None = None
@@ -887,10 +908,44 @@ class CanonicalValidation(BaseModel):
     max_value: int | float | None = None
     min_selections: int | None = None
     sum_to: int | float | None = None
+    #: Every row of a matrix must be answered. Promoted out of the question's
+    #: leftover attributes because it is a validation rule like any other: it
+    #: decides whether a part-filled grid is refused, which is a test.
+    require_each_row: bool | None = None
     #: The exclusive option, resolved to an id rather than left as loose text.
     exclusive_option_id: str | None = None
     exclusive_option_label: str | None = None
-    mandatory: bool = True
+    #: Whether an answer is required. Tri-state on purpose: null means the QRE
+    #: neither marked this question optional nor stated a survey-wide default,
+    #: and a bot must not be told an answer is required on no evidence. It was
+    #: previously `bool = True`, which asserted mandatory for every question
+    #: that carried any validation at all — an inference presented as a reading,
+    #: which CLAUDE.md §14 forbids.
+    mandatory: bool | None = None
+    mandatory_origin: Origin = Origin.UNKNOWN
+
+
+class OptionSource(BaseModel):
+    """Where a question's answer list actually comes from when it is shown.
+
+    A piped question prints one list in the QRE and shows a different one to the
+    respondent: C01's Q2 lists four brands, but shows only those chosen at Q1.
+    Nothing said so on the question itself, so a bot reading the specification
+    would pick an option that is not on screen — which is exactly the failure
+    the QRE's own scenario T7 is written to catch.
+
+    The full printed list stays on the question. This narrows it, and says what
+    narrows it, rather than editing the list down to a guess.
+    """
+
+    #: The earlier question whose answer decides the list.
+    from_question: str
+    #: The QRE's own sentence, kept so the reading can be checked against it.
+    instruction: str = ""
+    #: The subset is stated by the QRE; which question supplies it is read out
+    #: of that sentence, so the link is derived rather than invented.
+    origin: Origin = Origin.DERIVED
+    source_reference: SourceReference | None = None
 
 
 class CanonicalQuestion(BaseModel):
@@ -916,6 +971,17 @@ class CanonicalQuestion(BaseModel):
     matrix_rows: list[CanonicalOption] = Field(default_factory=list)
     validation: CanonicalValidation | None = None
     guard: Guard | None = None
+    #: Set when the answer list shown at runtime is not the list above. See
+    #: `OptionSource`: `options` stays the full set the QRE printed, and this
+    #: says which earlier answer narrows it.
+    option_source: OptionSource | None = None
+    #: Attributes Stage 4 read but this model does not name, kept with their
+    #: original JSON type rather than dropped. A QRE is free to state something
+    #: no schema anticipated, and losing it silently is worse than carrying it
+    #: somewhere a reader can find it (CLAUDE.md §16).
+    extra: dict[str, Any] = Field(default_factory=dict)
+    #: Where this question came from in the QRE.
+    source_reference: SourceReference | None = None
 
 
 class CanonicalDisposition(BaseModel):
@@ -936,6 +1002,97 @@ class CanonicalDisposition(BaseModel):
     terminal: bool = True
     #: False when the id is referred to but never given a message of its own.
     defined_in_source: bool = True
+    #: Where the message was stated. Null for an ending that is only referred
+    #: to, which is itself the evidence that nothing defines it.
+    source_reference: SourceReference | None = None
+
+
+class CanonicalStatement(BaseModel):
+    """One thing the QRE states about the study, or about how to program it.
+
+    Carried across as written. These sections were being dropped between Part 1
+    and Part 2 even though Part 1 had extracted them: the study specification
+    holds the mandatory default and "Do not infer unstated routing", and the
+    programming section holds six requirements addressed squarely at the agents
+    downstream - store stable identifiers, capture the displayed random order,
+    record expected against observed destination for every transition.
+
+    Kept as statements, not turned into behaviour. Where one of them does decide
+    behaviour it is read into the semantics block, which is the one place
+    decisions are allowed to live, with this sentence as its evidence.
+    """
+
+    #: Leading identifier where the line supplies one.
+    code: str | None = None
+    #: Leading label where the line reads "Label: value".
+    label: str | None = None
+    text: str
+    raw_text: str = ""
+    source_reference: SourceReference | None = None
+
+
+class ScenarioInput(BaseModel):
+    """One answer a scenario supplies, with its options resolved where it can be.
+
+    The raw value is always kept. `option_ids` is filled in only when every
+    part of the value names an option the question actually offers, so a bot can
+    act on ids; where it cannot, the value stands unresolved and is reported
+    rather than half-matched.
+    """
+
+    question_id: str
+    #: Exactly what the scenario's table cell said: a label, a list of labels,
+    #: or a mapping such as a constant sum's allocation.
+    value: Any = None
+    option_ids: list[str] | None = None
+    #: True where the question is not one this survey asks.
+    unknown_question: bool = False
+
+
+class ScenarioExpectation(BaseModel):
+    """One thing a scenario expects to happen.
+
+    `kind` is the QRE's own key, copied rather than mapped to a fixed
+    vocabulary: the four seen so far are about the ending reached, questions
+    shown, questions hidden and a validation error, but a document is free to
+    write others and a closed list would silently drop them.
+    """
+
+    kind: str
+    #: The identifiers the expectation names, in the order written.
+    targets: list[str] = Field(default_factory=list)
+    #: What each target turned out to be - question, disposition or unknown -
+    #: resolved against this survey rather than guessed from the name.
+    target_kinds: list[str] = Field(default_factory=list)
+    #: The value as written, for expectations that are not a list of ids.
+    value: Any = None
+
+
+class CanonicalScenario(BaseModel):
+    """An acceptance test the QRE itself wrote.
+
+    These are the document's own statement of what correct behaviour looks like,
+    given as inputs and an expected outcome, and Part 2 was dropping all of them
+    - seven on C01, three on S01. They are the closest thing to ground truth
+    that exists anywhere in the pipeline: a test designer that agrees with them
+    is very likely right, and one that contradicts them has found either a bug
+    or a defect in the QRE. Either way somebody needs to see it.
+
+    Carried, not executed. Deciding whether a scenario passes means evaluating
+    conditions against an answer set, which is the test designer's job.
+    """
+
+    scenario_id: str
+    purpose: str = ""
+    inputs: list[ScenarioInput] = Field(default_factory=list)
+    expectations: list[ScenarioExpectation] = Field(default_factory=list)
+    #: The two cells exactly as the QRE wrote them, so the reading above can
+    #: always be checked against the source.
+    inputs_raw: dict = Field(default_factory=dict)
+    expected_raw: dict = Field(default_factory=dict)
+    #: Anything Part 1 could not read out of the row.
+    parse_errors: list[str] = Field(default_factory=list)
+    source_reference: SourceReference | None = None
 
 
 class CanonicalSurvey(BaseModel):
@@ -948,12 +1105,19 @@ class CanonicalSurvey(BaseModel):
 
     source: str
     semantics: Semantics = Field(default_factory=Semantics)
+    #: What the document says about the study itself - objective, population,
+    #: mode, length, and any general instruction.
+    metadata: list[CanonicalStatement] = Field(default_factory=list)
     questions: list[CanonicalQuestion] = Field(default_factory=list)
     dispositions: list[CanonicalDisposition] = Field(default_factory=list)
     rules: list[CanonicalRule] = Field(default_factory=list)
     dependencies: list[Dependency] = Field(default_factory=list)
     randomization: list[Randomization] = Field(default_factory=list)
     quotas: list[Quota] = Field(default_factory=list)
+    #: The QRE's own acceptance tests.
+    scenarios: list[CanonicalScenario] = Field(default_factory=list)
+    #: What the document requires of whoever programs and tests the survey.
+    requirements: list[CanonicalStatement] = Field(default_factory=list)
     #: Things a person needs to decide. Reuses the audit's finding shape so the
     #: two queues can be read together.
     review: list[AuditFinding] = Field(default_factory=list)

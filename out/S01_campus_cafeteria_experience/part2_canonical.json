@@ -8,7 +8,7 @@
     "sha256": "2756cb3b6dc3f21cdc7c1d35b7cfb0e2270af2a918ba6fe682e72ae8e121a804",
     "bytes": 40578
   },
-  "generated_at": "2026-08-29T05:28:39+00:00",
+  "generated_at": "2026-08-29T07:16:40+00:00",
   "item_count": null,
   "content": {
     "source": "S01_campus_cafeteria_experience.docx",
@@ -18,8 +18,88 @@
       "rule_precedence": "document_order_first_match",
       "rule_precedence_origin": "inferred",
       "multi_equality": "set_equality",
-      "multi_equality_origin": "derived"
+      "multi_equality_origin": "derived",
+      "default_mandatory": true,
+      "default_mandatory_origin": "derived",
+      "default_mandatory_source": "All questions are mandatory unless explicitly marked optional. Do not infer unstated routing."
     },
+    "metadata": [
+      {
+        "code": null,
+        "label": "Business objective",
+        "text": "Measure satisfaction and identify operational improvements in a campus cafeteria.",
+        "raw_text": "Business objective: Measure satisfaction and identify operational improvements in a campus cafeteria.",
+        "source_reference": {
+          "document": "S01_campus_cafeteria_experience.docx",
+          "section": "Study specification",
+          "heading_text": "Study specification",
+          "block_order": 4,
+          "row_index": null,
+          "source_kind": "prose",
+          "text": "Business objective: Measure satisfaction and identify operational improvements in a campus cafeteria."
+        }
+      },
+      {
+        "code": null,
+        "label": "Target population",
+        "text": "Adults with a relevant experience in the last 30 days",
+        "raw_text": "Target population: Adults with a relevant experience in the last 30 days",
+        "source_reference": {
+          "document": "S01_campus_cafeteria_experience.docx",
+          "section": "Study specification",
+          "heading_text": "Study specification",
+          "block_order": 5,
+          "row_index": null,
+          "source_kind": "prose",
+          "text": "Target population: Adults with a relevant experience in the last 30 days"
+        }
+      },
+      {
+        "code": null,
+        "label": "Mode",
+        "text": "Self-completion web survey",
+        "raw_text": "Mode: Self-completion web survey",
+        "source_reference": {
+          "document": "S01_campus_cafeteria_experience.docx",
+          "section": "Study specification",
+          "heading_text": "Study specification",
+          "block_order": 6,
+          "row_index": null,
+          "source_kind": "prose",
+          "text": "Mode: Self-completion web survey"
+        }
+      },
+      {
+        "code": null,
+        "label": "Estimated length",
+        "text": "4 minutes",
+        "raw_text": "Estimated length: 4 minutes",
+        "source_reference": {
+          "document": "S01_campus_cafeteria_experience.docx",
+          "section": "Study specification",
+          "heading_text": "Study specification",
+          "block_order": 7,
+          "row_index": null,
+          "source_kind": "prose",
+          "text": "Estimated length: 4 minutes"
+        }
+      },
+      {
+        "code": null,
+        "label": "General instruction",
+        "text": "All questions are mandatory unless explicitly marked optional. Do not infer unstated routing.",
+        "raw_text": "General instruction: All questions are mandatory unless explicitly marked optional. Do not infer unstated routing.",
+        "source_reference": {
+          "document": "S01_campus_cafeteria_experience.docx",
+          "section": "Study specification",
+          "heading_text": "Study specification",
+          "block_order": 8,
+          "row_index": null,
+          "source_kind": "prose",
+          "text": "General instruction: All questions are mandatory unless explicitly marked optional. Do not infer unstated routing."
+        }
+      }
+    ],
     "questions": [
       {
         "question_id": "S1",
@@ -43,8 +123,31 @@
           }
         ],
         "matrix_rows": [],
-        "validation": null,
-        "guard": null
+        "validation": {
+          "min_length": null,
+          "max_length": null,
+          "min_value": null,
+          "max_value": null,
+          "min_selections": null,
+          "sum_to": null,
+          "require_each_row": null,
+          "exclusive_option_id": null,
+          "exclusive_option_label": null,
+          "mandatory": true,
+          "mandatory_origin": "derived"
+        },
+        "guard": null,
+        "option_source": null,
+        "extra": {},
+        "source_reference": {
+          "document": "S01_campus_cafeteria_experience.docx",
+          "section": "Questionnaire",
+          "heading_text": "Questionnaire",
+          "block_order": 10,
+          "row_index": 0,
+          "source_kind": "table",
+          "text": "S1 | Have you purchased food or a beverage from the campus cafeteria in the past 30 days? | single | Yes; No | Always show"
+        }
       },
       {
         "question_id": "S2",
@@ -68,8 +171,31 @@
           }
         ],
         "matrix_rows": [],
-        "validation": null,
-        "guard": null
+        "validation": {
+          "min_length": null,
+          "max_length": null,
+          "min_value": null,
+          "max_value": null,
+          "min_selections": null,
+          "sum_to": null,
+          "require_each_row": null,
+          "exclusive_option_id": null,
+          "exclusive_option_label": null,
+          "mandatory": true,
+          "mandatory_origin": "derived"
+        },
+        "guard": null,
+        "option_source": null,
+        "extra": {},
+        "source_reference": {
+          "document": "S01_campus_cafeteria_experience.docx",
+          "section": "Questionnaire",
+          "heading_text": "Questionnaire",
+          "block_order": 10,
+          "row_index": 1,
+          "source_kind": "table",
+          "text": "S2 | Are you 18 years of age or older? | single | Yes; No | Always show"
+        }
       },
       {
         "question_id": "Q1",
@@ -100,8 +226,31 @@
           }
         ],
         "matrix_rows": [],
-        "validation": null,
-        "guard": null
+        "validation": {
+          "min_length": null,
+          "max_length": null,
+          "min_value": null,
+          "max_value": null,
+          "min_selections": null,
+          "sum_to": null,
+          "require_each_row": null,
+          "exclusive_option_id": null,
+          "exclusive_option_label": null,
+          "mandatory": true,
+          "mandatory_origin": "derived"
+        },
+        "guard": null,
+        "option_source": null,
+        "extra": {},
+        "source_reference": {
+          "document": "S01_campus_cafeteria_experience.docx",
+          "section": "Questionnaire",
+          "heading_text": "Questionnaire",
+          "block_order": 10,
+          "row_index": 2,
+          "source_kind": "table",
+          "text": "Q1 | Which channel did you primarily use for this cafeteria visit? | single | Counter; Mobile pre-order; Vending kiosk | Always show"
+        }
       },
       {
         "question_id": "Q2",
@@ -146,8 +295,31 @@
           }
         ],
         "matrix_rows": [],
-        "validation": null,
-        "guard": null
+        "validation": {
+          "min_length": null,
+          "max_length": null,
+          "min_value": null,
+          "max_value": null,
+          "min_selections": null,
+          "sum_to": null,
+          "require_each_row": null,
+          "exclusive_option_id": null,
+          "exclusive_option_label": null,
+          "mandatory": true,
+          "mandatory_origin": "derived"
+        },
+        "guard": null,
+        "option_source": null,
+        "extra": {},
+        "source_reference": {
+          "document": "S01_campus_cafeteria_experience.docx",
+          "section": "Questionnaire",
+          "heading_text": "Questionnaire",
+          "block_order": 10,
+          "row_index": 3,
+          "source_kind": "table",
+          "text": "Q2 | Overall, how satisfied were you with the cafeteria visit? | single | 1 - Very poor; 2 - Poor; 3 - Fair; 4 - Good; 5 - Excellent | Always show"
+        }
       },
       {
         "question_id": "Q3",
@@ -192,8 +364,31 @@
           }
         ],
         "matrix_rows": [],
-        "validation": null,
-        "guard": null
+        "validation": {
+          "min_length": null,
+          "max_length": null,
+          "min_value": null,
+          "max_value": null,
+          "min_selections": null,
+          "sum_to": null,
+          "require_each_row": null,
+          "exclusive_option_id": null,
+          "exclusive_option_label": null,
+          "mandatory": true,
+          "mandatory_origin": "derived"
+        },
+        "guard": null,
+        "option_source": null,
+        "extra": {},
+        "source_reference": {
+          "document": "S01_campus_cafeteria_experience.docx",
+          "section": "Questionnaire",
+          "heading_text": "Questionnaire",
+          "block_order": 10,
+          "row_index": 4,
+          "source_kind": "table",
+          "text": "Q3 | How easy was it to complete what you wanted to do? | single | 1 - Very poor; 2 - Poor; 3 - Fair; 4 - Good; 5 - Excellent | Always show"
+        }
       },
       {
         "question_id": "Q4",
@@ -252,11 +447,24 @@
           "max_value": null,
           "min_selections": 1,
           "sum_to": null,
+          "require_each_row": null,
           "exclusive_option_id": null,
           "exclusive_option_label": null,
-          "mandatory": true
+          "mandatory": true,
+          "mandatory_origin": "derived"
         },
-        "guard": null
+        "guard": null,
+        "option_source": null,
+        "extra": {},
+        "source_reference": {
+          "document": "S01_campus_cafeteria_experience.docx",
+          "section": "Questionnaire",
+          "heading_text": "Questionnaire",
+          "block_order": 10,
+          "row_index": 5,
+          "source_kind": "table",
+          "text": "Q4 | Which aspects influenced your rating? Select all that apply. | multi | Food quality; Menu variety; Waiting time; Cleanliness; Staff behaviour; Price | Validate: {\"min_selections\": 1}"
+        }
       },
       {
         "question_id": "Q5",
@@ -280,8 +488,31 @@
           }
         ],
         "matrix_rows": [],
-        "validation": null,
-        "guard": null
+        "validation": {
+          "min_length": null,
+          "max_length": null,
+          "min_value": null,
+          "max_value": null,
+          "min_selections": null,
+          "sum_to": null,
+          "require_each_row": null,
+          "exclusive_option_id": null,
+          "exclusive_option_label": null,
+          "mandatory": true,
+          "mandatory_origin": "derived"
+        },
+        "guard": null,
+        "option_source": null,
+        "extra": {},
+        "source_reference": {
+          "document": "S01_campus_cafeteria_experience.docx",
+          "section": "Questionnaire",
+          "heading_text": "Questionnaire",
+          "block_order": 10,
+          "row_index": 6,
+          "source_kind": "table",
+          "text": "Q5 | Did you encounter a problem? | single | Yes; No | Always show"
+        }
       },
       {
         "question_id": "Q6",
@@ -297,9 +528,11 @@
           "max_value": null,
           "min_selections": null,
           "sum_to": null,
+          "require_each_row": null,
           "exclusive_option_id": null,
           "exclusive_option_label": null,
-          "mandatory": true
+          "mandatory": true,
+          "mandatory_origin": "derived"
         },
         "guard": {
           "condition": {
@@ -336,6 +569,17 @@
             "Q5 == 'Yes'",
             "Q5 == 'Yes'"
           ]
+        },
+        "option_source": null,
+        "extra": {},
+        "source_reference": {
+          "document": "S01_campus_cafeteria_experience.docx",
+          "section": "Questionnaire",
+          "heading_text": "Questionnaire",
+          "block_order": 10,
+          "row_index": 7,
+          "source_kind": "table",
+          "text": "Q6 | Please describe the main problem. | text | \u2014 | Show if: Q5 == 'Yes'\nValidate: {\"min_length\": 10, \"max_length\": 500}"
         }
       },
       {
@@ -423,8 +667,31 @@
           }
         ],
         "matrix_rows": [],
-        "validation": null,
-        "guard": null
+        "validation": {
+          "min_length": null,
+          "max_length": null,
+          "min_value": null,
+          "max_value": null,
+          "min_selections": null,
+          "sum_to": null,
+          "require_each_row": null,
+          "exclusive_option_id": null,
+          "exclusive_option_label": null,
+          "mandatory": true,
+          "mandatory_origin": "derived"
+        },
+        "guard": null,
+        "option_source": null,
+        "extra": {},
+        "source_reference": {
+          "document": "S01_campus_cafeteria_experience.docx",
+          "section": "Questionnaire",
+          "heading_text": "Questionnaire",
+          "block_order": 10,
+          "row_index": 8,
+          "source_kind": "table",
+          "text": "Q7 | How likely are you to recommend this service? | single | 0; 1; 2; 3; 4; 5; 6; 7; 8; 9; 10 | Always show"
+        }
       },
       {
         "question_id": "Q8",
@@ -440,11 +707,24 @@
           "max_value": null,
           "min_selections": null,
           "sum_to": null,
+          "require_each_row": null,
           "exclusive_option_id": null,
           "exclusive_option_label": null,
-          "mandatory": false
+          "mandatory": false,
+          "mandatory_origin": "extracted"
         },
-        "guard": null
+        "guard": null,
+        "option_source": null,
+        "extra": {},
+        "source_reference": {
+          "document": "S01_campus_cafeteria_experience.docx",
+          "section": "Questionnaire",
+          "heading_text": "Questionnaire",
+          "block_order": 10,
+          "row_index": 9,
+          "source_kind": "table",
+          "text": "Q8 | What is the single most important improvement you would suggest? | text | \u2014 | Validate: {\"max_length\": 500}\nOptional"
+        }
       }
     ],
     "dispositions": [
@@ -453,14 +733,32 @@
         "kind": "complete",
         "message": "Thank you. Your response has been recorded.",
         "terminal": true,
-        "defined_in_source": true
+        "defined_in_source": true,
+        "source_reference": {
+          "document": "S01_campus_cafeteria_experience.docx",
+          "section": "Completion messages",
+          "heading_text": "Completion messages",
+          "block_order": 24,
+          "row_index": null,
+          "source_kind": "prose",
+          "text": "COMPLETE: Thank you. Your response has been recorded."
+        }
       },
       {
         "disposition_id": "TERM_INELIGIBLE",
         "kind": "screenout",
         "message": "Thank you for your interest. You do not qualify for this survey.",
         "terminal": true,
-        "defined_in_source": true
+        "defined_in_source": true,
+        "source_reference": {
+          "document": "S01_campus_cafeteria_experience.docx",
+          "section": "Completion messages",
+          "heading_text": "Completion messages",
+          "block_order": 23,
+          "row_index": null,
+          "source_kind": "prose",
+          "text": "TERM_INELIGIBLE: Thank you for your interest. You do not qualify for this survey."
+        }
       }
     ],
     "rules": [
@@ -653,10 +951,353 @@
         }
       }
     ],
-    "dependencies": [],
+    "dependencies": [
+      {
+        "from_question": "Q2",
+        "to_question": "Q4",
+        "kind": "text_pipe",
+        "detail": "your rating",
+        "origin": "inferred",
+        "confidence": 0.99,
+        "source_reference": {
+          "document": "S01_campus_cafeteria_experience.docx",
+          "section": "Questionnaire",
+          "heading_text": "Questionnaire",
+          "block_order": 10,
+          "row_index": 5,
+          "source_kind": "table",
+          "text": "Q4 | Which aspects influenced your rating? Select all that apply. | multi | Food quality; Menu variety; Waiting time; Cleanliness; Staff behaviour; Price | Validate: {\"min_selections\": 1}"
+        }
+      },
+      {
+        "from_question": "Q5",
+        "to_question": "Q6",
+        "kind": "text_pipe",
+        "detail": "the main problem",
+        "origin": "inferred",
+        "confidence": 0.99,
+        "source_reference": {
+          "document": "S01_campus_cafeteria_experience.docx",
+          "section": "Questionnaire",
+          "heading_text": "Questionnaire",
+          "block_order": 10,
+          "row_index": 7,
+          "source_kind": "table",
+          "text": "Q6 | Please describe the main problem. | text | \u2014 | Show if: Q5 == 'Yes'\nValidate: {\"min_length\": 10, \"max_length\": 500}"
+        }
+      }
+    ],
     "randomization": [],
     "quotas": [],
+    "scenarios": [
+      {
+        "scenario_id": "T1",
+        "purpose": "recent-use screenout",
+        "inputs": [
+          {
+            "question_id": "S1",
+            "value": "No",
+            "option_ids": [
+              "S1-O2"
+            ],
+            "unknown_question": false
+          }
+        ],
+        "expectations": [
+          {
+            "kind": "expected_end",
+            "targets": [
+              "TERM_INELIGIBLE"
+            ],
+            "target_kinds": [
+              "disposition"
+            ],
+            "value": "TERM_INELIGIBLE"
+          }
+        ],
+        "inputs_raw": {
+          "S1": "No"
+        },
+        "expected_raw": {
+          "expected_end": "TERM_INELIGIBLE"
+        },
+        "parse_errors": [],
+        "source_reference": {
+          "document": "S01_campus_cafeteria_experience.docx",
+          "section": "Acceptance test scenarios",
+          "heading_text": "Acceptance test scenarios",
+          "block_order": 21,
+          "row_index": 0,
+          "source_kind": "table",
+          "text": "T1 | recent-use screenout | {\"S1\": \"No\"} | {\"expected_end\": \"TERM_INELIGIBLE\"}"
+        }
+      },
+      {
+        "scenario_id": "T2",
+        "purpose": "eligible with problem",
+        "inputs": [
+          {
+            "question_id": "S1",
+            "value": "Yes",
+            "option_ids": [
+              "S1-O1"
+            ],
+            "unknown_question": false
+          },
+          {
+            "question_id": "S2",
+            "value": "Yes",
+            "option_ids": [
+              "S2-O1"
+            ],
+            "unknown_question": false
+          },
+          {
+            "question_id": "Q5",
+            "value": "Yes",
+            "option_ids": [
+              "Q5-O1"
+            ],
+            "unknown_question": false
+          }
+        ],
+        "expectations": [
+          {
+            "kind": "expected_visible",
+            "targets": [
+              "Q6"
+            ],
+            "target_kinds": [
+              "question"
+            ],
+            "value": [
+              "Q6"
+            ]
+          },
+          {
+            "kind": "expected_end",
+            "targets": [
+              "COMPLETE"
+            ],
+            "target_kinds": [
+              "disposition"
+            ],
+            "value": "COMPLETE"
+          }
+        ],
+        "inputs_raw": {
+          "S1": "Yes",
+          "S2": "Yes",
+          "Q5": "Yes"
+        },
+        "expected_raw": {
+          "expected_visible": [
+            "Q6"
+          ],
+          "expected_end": "COMPLETE"
+        },
+        "parse_errors": [],
+        "source_reference": {
+          "document": "S01_campus_cafeteria_experience.docx",
+          "section": "Acceptance test scenarios",
+          "heading_text": "Acceptance test scenarios",
+          "block_order": 21,
+          "row_index": 1,
+          "source_kind": "table",
+          "text": "T2 | eligible with problem | {\"S1\": \"Yes\", \"S2\": \"Yes\", \"Q5\": \"Yes\"} | {\"expected_visible\": [\"Q6\"], \"expected_end\": \"COMPLETE\"}"
+        }
+      },
+      {
+        "scenario_id": "T3",
+        "purpose": "eligible without problem",
+        "inputs": [
+          {
+            "question_id": "S1",
+            "value": "Yes",
+            "option_ids": [
+              "S1-O1"
+            ],
+            "unknown_question": false
+          },
+          {
+            "question_id": "S2",
+            "value": "Yes",
+            "option_ids": [
+              "S2-O1"
+            ],
+            "unknown_question": false
+          },
+          {
+            "question_id": "Q5",
+            "value": "No",
+            "option_ids": [
+              "Q5-O2"
+            ],
+            "unknown_question": false
+          }
+        ],
+        "expectations": [
+          {
+            "kind": "expected_hidden",
+            "targets": [
+              "Q6"
+            ],
+            "target_kinds": [
+              "question"
+            ],
+            "value": [
+              "Q6"
+            ]
+          },
+          {
+            "kind": "expected_end",
+            "targets": [
+              "COMPLETE"
+            ],
+            "target_kinds": [
+              "disposition"
+            ],
+            "value": "COMPLETE"
+          }
+        ],
+        "inputs_raw": {
+          "S1": "Yes",
+          "S2": "Yes",
+          "Q5": "No"
+        },
+        "expected_raw": {
+          "expected_hidden": [
+            "Q6"
+          ],
+          "expected_end": "COMPLETE"
+        },
+        "parse_errors": [],
+        "source_reference": {
+          "document": "S01_campus_cafeteria_experience.docx",
+          "section": "Acceptance test scenarios",
+          "heading_text": "Acceptance test scenarios",
+          "block_order": 21,
+          "row_index": 2,
+          "source_kind": "table",
+          "text": "T3 | eligible without problem | {\"S1\": \"Yes\", \"S2\": \"Yes\", \"Q5\": \"No\"} | {\"expected_hidden\": [\"Q6\"], \"expected_end\": \"COMPLETE\"}"
+        }
+      }
+    ],
+    "requirements": [
+      {
+        "code": null,
+        "label": null,
+        "text": "Store stable question, option, route and test-run identifiers.",
+        "raw_text": "Store stable question, option, route and test-run identifiers.",
+        "source_reference": {
+          "document": "S01_campus_cafeteria_experience.docx",
+          "section": "Programming and QA requirements",
+          "heading_text": "Programming and QA requirements",
+          "block_order": 14,
+          "row_index": null,
+          "source_kind": "prose",
+          "text": "Store stable question, option, route and test-run identifiers."
+        }
+      },
+      {
+        "code": null,
+        "label": null,
+        "text": "Capture displayed random order for every randomized item.",
+        "raw_text": "Capture displayed random order for every randomized item.",
+        "source_reference": {
+          "document": "S01_campus_cafeteria_experience.docx",
+          "section": "Programming and QA requirements",
+          "heading_text": "Programming and QA requirements",
+          "block_order": 15,
+          "row_index": null,
+          "source_kind": "prose",
+          "text": "Capture displayed random order for every randomized item."
+        }
+      },
+      {
+        "code": null,
+        "label": null,
+        "text": "Record expected and observed destination for every routing transition.",
+        "raw_text": "Record expected and observed destination for every routing transition.",
+        "source_reference": {
+          "document": "S01_campus_cafeteria_experience.docx",
+          "section": "Programming and QA requirements",
+          "heading_text": "Programming and QA requirements",
+          "block_order": 16,
+          "row_index": null,
+          "source_kind": "prose",
+          "text": "Record expected and observed destination for every routing transition."
+        }
+      },
+      {
+        "code": null,
+        "label": null,
+        "text": "Reject mutually exclusive selections and invalid numeric/text responses before progression.",
+        "raw_text": "Reject mutually exclusive selections and invalid numeric/text responses before progression.",
+        "source_reference": {
+          "document": "S01_campus_cafeteria_experience.docx",
+          "section": "Programming and QA requirements",
+          "heading_text": "Programming and QA requirements",
+          "block_order": 17,
+          "row_index": null,
+          "source_kind": "prose",
+          "text": "Reject mutually exclusive selections and invalid numeric/text responses before progression."
+        }
+      },
+      {
+        "code": null,
+        "label": null,
+        "text": "Produce an audit record containing inputs, timestamps, route, assertions, screenshots on failure and final disposition.",
+        "raw_text": "Produce an audit record containing inputs, timestamps, route, assertions, screenshots on failure and final disposition.",
+        "source_reference": {
+          "document": "S01_campus_cafeteria_experience.docx",
+          "section": "Programming and QA requirements",
+          "heading_text": "Programming and QA requirements",
+          "block_order": 18,
+          "row_index": null,
+          "source_kind": "prose",
+          "text": "Produce an audit record containing inputs, timestamps, route, assertions, screenshots on failure and final disposition."
+        }
+      },
+      {
+        "code": null,
+        "label": null,
+        "text": "Do not send synthetic test responses into live operational reporting.",
+        "raw_text": "Do not send synthetic test responses into live operational reporting.",
+        "source_reference": {
+          "document": "S01_campus_cafeteria_experience.docx",
+          "section": "Programming and QA requirements",
+          "heading_text": "Programming and QA requirements",
+          "block_order": 19,
+          "row_index": null,
+          "source_kind": "prose",
+          "text": "Do not send synthetic test responses into live operational reporting."
+        }
+      }
+    ],
     "review": [
+      {
+        "check": "text_pipe_inferred",
+        "severity": "WARNING",
+        "finding": "Q4's wording appears to quote the answer given at Q2. No table states this; it was read out of the sentence, so it is worth confirming.",
+        "target": {
+          "kind": "question",
+          "id": "Q4"
+        },
+        "evidence": "'your rating' (confidence 0.99)",
+        "source_reference": null
+      },
+      {
+        "check": "text_pipe_inferred",
+        "severity": "WARNING",
+        "finding": "Q6's wording appears to quote the answer given at Q5. No table states this; it was read out of the sentence, so it is worth confirming.",
+        "target": {
+          "kind": "question",
+          "id": "Q6"
+        },
+        "evidence": "'the main problem' (confidence 0.99)",
+        "source_reference": null
+      },
       {
         "check": "semantics_unconfirmed",
         "severity": "BLOCKING",
@@ -665,7 +1306,7 @@
           "kind": "survey",
           "id": "S01_campus_cafeteria_experience.docx"
         },
-        "evidence": "{\"unasked_reference\":\"condition_false\",\"unasked_reference_origin\":\"inferred\",\"rule_precedence\":\"document_order_first_match\",\"rule_precedence_origin\":\"inferred\",\"multi_equality\":\"set_equality\",\"multi_equality_origin\":\"derived\"}",
+        "evidence": "{\"unasked_reference\":\"condition_false\",\"unasked_reference_origin\":\"inferred\",\"rule_precedence\":\"document_order_first_match\",\"rule_precedence_origin\":\"inferred\",\"multi_equality\":\"set_equality\",\"multi_equality_origin\":\"derived\",\"default_mandatory\":true,\"default_mandatory_origin\":\"derived\",\"default_mandatory_source\":\"All questions are mandatory unless explicitly marked optional. Do not infer unstated routing.\"}",
         "source_reference": null
       }
     ]

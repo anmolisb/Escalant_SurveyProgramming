@@ -33,6 +33,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
+import llm
 import stage1_ingestion
 import stage2_headings
 import stage3_raw_json
@@ -78,8 +79,15 @@ _SOURCE: SourceDocument | None = None
 
 
 def _set_source(docx_path: Path) -> SourceDocument:
-    """Record which document this run is reading, and its digest."""
+    """Record which document this run is reading, and its digest.
+
+    Also points the model's decision record at this document's output folder, so
+    a reading the model gave once is reused rather than asked again. Every stage
+    that calls a model goes through `llm.complete`, so one hook here covers all
+    of them.
+    """
     global _SOURCE
+    llm.use_cache(_out_dir(docx_path.name))
     if docx_path.exists():
         raw = docx_path.read_bytes()
         _SOURCE = SourceDocument(
