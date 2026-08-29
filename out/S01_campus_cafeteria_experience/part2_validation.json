@@ -1,0 +1,93 @@
+{
+  "schema_version": "1.0.0",
+  "artifact": "part2_validation",
+  "stage": 8,
+  "survey_id": "S01_campus_cafeteria_experience",
+  "source_document": {
+    "filename": "S01_campus_cafeteria_experience.docx",
+    "sha256": "2756cb3b6dc3f21cdc7c1d35b7cfb0e2270af2a918ba6fe682e72ae8e121a804",
+    "bytes": 40578
+  },
+  "generated_at": "2026-08-29T11:14:51+00:00",
+  "item_count": null,
+  "content": {
+    "cross_source": [],
+    "reproducibility": {
+      "runs": 2,
+      "exact_reproducible": true,
+      "semantic_reproducible": true,
+      "meaningful_differences": [],
+      "note": "Formatting and ordering are excluded from the semantic comparison; routing, destinations, conditions, validation, termination, dependencies, quotas and randomization are not."
+    },
+    "graph": {
+      "nodes": 13,
+      "edges": 14,
+      "rules_mapped": "4/4",
+      "quotas_mapped": "0/0",
+      "dependency_edges": 2,
+      "passed": true,
+      "blocking": 0,
+      "findings": []
+    },
+    "confirmation_required": [
+      {
+        "status": "CONFIRMATION_REQUIRED",
+        "issue": "semantics_unconfirmed",
+        "why_it_matters": "The semantics block records three decisions the QRE never states: that a condition naming an unasked question is false, that the first matching rule wins, and that '==' against a multi-select compares the whole answer set. Each changes which questions appear on many routes and needs confirming.",
+        "affected": [
+          "S01_campus_cafeteria_experience.docx",
+          "semantics"
+        ],
+        "changes_downstream": "Which questions appear on many routes, which rule wins when two apply, and whether an 'is exactly' test passes on a multi-select answer."
+      },
+      {
+        "status": "CONFIRMATION_REQUIRED",
+        "issue": "text_pipe_inferred",
+        "why_it_matters": "Q4's wording appears to quote the answer given at Q2. No table states this; it was read out of the sentence, so it is worth confirming.",
+        "affected": [
+          "Q4",
+          "Q6"
+        ],
+        "changes_downstream": "Whether this question's wording depends on an earlier answer, which decides the order a bot must answer in and what text it should expect on screen."
+      }
+    ],
+    "verdict": {
+      "canonical_status": "PASSED_WITH_WARNINGS",
+      "graph_ready": "YES",
+      "graph_evidence": {
+        "nodes": 13,
+        "edges": 14,
+        "rules_mapped": "4/4",
+        "quotas_mapped": "0/0",
+        "dependency_edges": 2,
+        "passed": true,
+        "blocking": 0,
+        "findings": []
+      },
+      "agent3_ready": "NO",
+      "agent3_blocked_by": [
+        "semantics_unconfirmed"
+      ],
+      "what_is_incorrect": [],
+      "what_is_missing": [],
+      "what_is_ambiguous": [
+        "semantics_unconfirmed \u2014 Which questions appear on many routes, which rule wins when two apply, and whether an 'is exactly' test passes on a multi-select answer.",
+        "text_pipe_inferred \u2014 Whether this question's wording depends on an earlier answer, which decides the order a bot must answer in and what text it should expect on screen."
+      ],
+      "what_must_change": [],
+      "affected_ids": [
+        "Q4",
+        "Q6",
+        "S01_campus_cafeteria_experience.docx",
+        "semantics"
+      ],
+      "counts": {
+        "critical_failures": 0,
+        "other_failures": 0,
+        "blocked": 0,
+        "cross_source_blocking": 0,
+        "confirmation_required": 2
+      }
+    }
+  }
+}

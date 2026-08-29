@@ -1114,6 +1114,18 @@ class CanonicalSurvey(BaseModel):
     dependencies: list[Dependency] = Field(default_factory=list)
     randomization: list[Randomization] = Field(default_factory=list)
     quotas: list[Quota] = Field(default_factory=list)
+    #: Statements from the quota section that are not themselves a quota
+    #: definition - what happens when a group is full, that status must be
+    #: logged, and anything else a document says about quota *behaviour*
+    #: rather than a quota's groups and targets. `_build_quotas` already reads
+    #: every sentence in the section to decide whether it sets a quota; a
+    #: sentence it decides does not was previously read and then discarded,
+    #: which is why "Quota-full respondents terminate at TERM_QUOTA_FULL
+    #: before the next substantive question" existed in Stage 4 and nowhere
+    #: after it. Carried verbatim, never parsed into a rule: "before the next
+    #: substantive question" names no question, and turning it into one would
+    #: be exactly the invented precision CLAUDE.md §13 forbids.
+    quota_requirements: list[CanonicalStatement] = Field(default_factory=list)
     #: The QRE's own acceptance tests.
     scenarios: list[CanonicalScenario] = Field(default_factory=list)
     #: What the document requires of whoever programs and tests the survey.

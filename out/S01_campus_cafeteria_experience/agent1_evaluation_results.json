@@ -1,0 +1,1906 @@
+{
+  "schema_version": "1.0.0",
+  "artifact": "agent1_evaluation_results",
+  "stage": 8,
+  "survey_id": "S01_campus_cafeteria_experience",
+  "source_document": {
+    "filename": "S01_campus_cafeteria_experience.docx",
+    "sha256": "2756cb3b6dc3f21cdc7c1d35b7cfb0e2270af2a918ba6fe682e72ae8e121a804",
+    "bytes": 40578
+  },
+  "generated_at": "2026-08-29T11:14:51+00:00",
+  "item_count": null,
+  "content": {
+    "counts": {
+      "PASS": 123,
+      "FAIL": 0,
+      "UNVERIFIED": 7,
+      "BLOCKED": 0
+    },
+    "coverage": {
+      "question_coverage": {
+        "definition": "questions the QRE asks that the specification carries, in the right order",
+        "numerator": 21,
+        "denominator": 21,
+        "unverified_excluded": 0,
+        "result": 1.0,
+        "target": 1.0,
+        "meets_target": true
+      },
+      "question_type_coverage": {
+        "definition": "questions whose type is carried as the QRE wrote it",
+        "numerator": 10,
+        "denominator": 10,
+        "unverified_excluded": 0,
+        "result": 1.0,
+        "target": 1.0,
+        "meets_target": true
+      },
+      "option_coverage": {
+        "definition": "answer lists, codes and matrix rows carried exactly",
+        "numerator": 10,
+        "denominator": 10,
+        "unverified_excluded": 0,
+        "result": 1.0,
+        "target": 1.0,
+        "meets_target": true
+      },
+      "display_rule_coverage": {
+        "definition": "display conditions carried, and behaving as the QRE's own condition does",
+        "numerator": 10,
+        "denominator": 10,
+        "unverified_excluded": 0,
+        "result": 1.0,
+        "target": 1.0,
+        "meets_target": true
+      },
+      "skip_rule_coverage": {
+        "definition": "skip rules carried with their condition, action and destination",
+        "numerator": 7,
+        "denominator": 7,
+        "unverified_excluded": 1,
+        "result": 1.0,
+        "target": 1.0,
+        "meets_target": true
+      },
+      "routing_rule_coverage": {
+        "definition": "routing rules carried with their condition, action and destination",
+        "numerator": 8,
+        "denominator": 8,
+        "unverified_excluded": 1,
+        "result": 1.0,
+        "target": 1.0,
+        "meets_target": true
+      },
+      "termination_coverage": {
+        "definition": "terminate rules carried, and their endings accounted for",
+        "numerator": 16,
+        "denominator": 16,
+        "unverified_excluded": 2,
+        "result": 1.0,
+        "target": 1.0,
+        "meets_target": true
+      },
+      "validation_coverage": {
+        "definition": "validation instructions carried, including whether an answer is required",
+        "numerator": 14,
+        "denominator": 14,
+        "unverified_excluded": 0,
+        "result": 1.0,
+        "target": 1.0,
+        "meets_target": true
+      },
+      "dependency_piping_coverage": {
+        "definition": "piped option lists recorded on the question and as a dependency",
+        "numerator": 0,
+        "denominator": 0,
+        "unverified_excluded": 0,
+        "result": null,
+        "target": 1.0,
+        "meets_target": null
+      },
+      "randomization_coverage": {
+        "definition": "questions the QRE randomises that the specification records",
+        "numerator": 0,
+        "denominator": 0,
+        "unverified_excluded": 0,
+        "result": null,
+        "target": 1.0,
+        "meets_target": null
+      },
+      "quota_coverage": {
+        "definition": "quotas carried with their question, enforcement and cells",
+        "numerator": 0,
+        "denominator": 0,
+        "unverified_excluded": 0,
+        "result": null,
+        "target": 1.0,
+        "meets_target": null
+      },
+      "disposition_coverage": {
+        "definition": "endings carried with the message the document gives them",
+        "numerator": 2,
+        "denominator": 2,
+        "unverified_excluded": 0,
+        "result": 1.0,
+        "target": 1.0,
+        "meets_target": true
+      },
+      "acceptance_scenario_coverage": {
+        "definition": "the QRE's own tests carried with inputs and expected outcome intact",
+        "numerator": 9,
+        "denominator": 9,
+        "unverified_excluded": 0,
+        "result": 1.0,
+        "target": 1.0,
+        "meets_target": true
+      },
+      "programming_requirement_coverage": {
+        "definition": "programming and QA requirements carried",
+        "numerator": 6,
+        "denominator": 6,
+        "unverified_excluded": 0,
+        "result": 1.0,
+        "target": 1.0,
+        "meets_target": true
+      },
+      "study_metadata_coverage": {
+        "definition": "study statements carried",
+        "numerator": 5,
+        "denominator": 5,
+        "unverified_excluded": 0,
+        "result": 1.0,
+        "target": 1.0,
+        "meets_target": true
+      },
+      "provenance_coverage": {
+        "definition": "element kinds where every member points back at the document",
+        "numerator": 4,
+        "denominator": 4,
+        "unverified_excluded": 0,
+        "result": 1.0,
+        "target": 1.0,
+        "meets_target": true
+      },
+      "critical_rule_recall": {
+        "definition": "executable logic - display, skip, routing, termination, validation, dependencies, quotas, randomization - carried correctly",
+        "numerator": 52,
+        "denominator": 52,
+        "unverified_excluded": 7,
+        "result": 1.0,
+        "target": 1.0,
+        "meets_target": true
+      }
+    },
+    "results": [
+      {
+        "test_id": "T001",
+        "category": "question_extraction",
+        "criticality": "HIGH",
+        "status": "PASS",
+        "expected": "S1",
+        "actual": "S1",
+        "evidence": "Have you purchased food or a beverage from the campus cafeteria in the past 30 days?",
+        "canonical_reference": "questions[S1]",
+        "explanation": "present",
+        "severity": "none"
+      },
+      {
+        "test_id": "T002",
+        "category": "question_extraction",
+        "criticality": "HIGH",
+        "status": "PASS",
+        "expected": 1,
+        "actual": 1,
+        "evidence": "row 0",
+        "canonical_reference": "questions[S1].seq",
+        "explanation": "asked in document order",
+        "severity": "none"
+      },
+      {
+        "test_id": "T003",
+        "category": "question_type",
+        "criticality": "HIGH",
+        "status": "PASS",
+        "expected": "single",
+        "actual": "single",
+        "evidence": "single",
+        "canonical_reference": "questions[S1].kind",
+        "explanation": "type carried as written",
+        "severity": "none"
+      },
+      {
+        "test_id": "T004",
+        "category": "options",
+        "criticality": "HIGH",
+        "status": "PASS",
+        "expected": [
+          "Yes",
+          "No"
+        ],
+        "actual": [
+          "Yes",
+          "No"
+        ],
+        "evidence": "Yes; No",
+        "canonical_reference": "questions[S1].options",
+        "explanation": "every option carried in order",
+        "severity": "none"
+      },
+      {
+        "test_id": "T005",
+        "category": "display_logic",
+        "criticality": "CRITICAL",
+        "status": "PASS",
+        "expected": null,
+        "actual": null,
+        "evidence": "Always show",
+        "canonical_reference": "questions[S1].guard",
+        "explanation": "always shown, and unguarded",
+        "severity": "none"
+      },
+      {
+        "test_id": "T006",
+        "category": "validation_rules",
+        "criticality": "CRITICAL",
+        "status": "PASS",
+        "expected": true,
+        "actual": true,
+        "evidence": "not marked optional",
+        "canonical_reference": "questions[S1].validation.mandatory",
+        "explanation": "matches what the document says",
+        "severity": "none"
+      },
+      {
+        "test_id": "T007",
+        "category": "question_extraction",
+        "criticality": "HIGH",
+        "status": "PASS",
+        "expected": "S2",
+        "actual": "S2",
+        "evidence": "Are you 18 years of age or older?",
+        "canonical_reference": "questions[S2]",
+        "explanation": "present",
+        "severity": "none"
+      },
+      {
+        "test_id": "T008",
+        "category": "question_extraction",
+        "criticality": "HIGH",
+        "status": "PASS",
+        "expected": 2,
+        "actual": 2,
+        "evidence": "row 1",
+        "canonical_reference": "questions[S2].seq",
+        "explanation": "asked in document order",
+        "severity": "none"
+      },
+      {
+        "test_id": "T009",
+        "category": "question_type",
+        "criticality": "HIGH",
+        "status": "PASS",
+        "expected": "single",
+        "actual": "single",
+        "evidence": "single",
+        "canonical_reference": "questions[S2].kind",
+        "explanation": "type carried as written",
+        "severity": "none"
+      },
+      {
+        "test_id": "T010",
+        "category": "options",
+        "criticality": "HIGH",
+        "status": "PASS",
+        "expected": [
+          "Yes",
+          "No"
+        ],
+        "actual": [
+          "Yes",
+          "No"
+        ],
+        "evidence": "Yes; No",
+        "canonical_reference": "questions[S2].options",
+        "explanation": "every option carried in order",
+        "severity": "none"
+      },
+      {
+        "test_id": "T011",
+        "category": "display_logic",
+        "criticality": "CRITICAL",
+        "status": "PASS",
+        "expected": null,
+        "actual": null,
+        "evidence": "Always show",
+        "canonical_reference": "questions[S2].guard",
+        "explanation": "always shown, and unguarded",
+        "severity": "none"
+      },
+      {
+        "test_id": "T012",
+        "category": "validation_rules",
+        "criticality": "CRITICAL",
+        "status": "PASS",
+        "expected": true,
+        "actual": true,
+        "evidence": "not marked optional",
+        "canonical_reference": "questions[S2].validation.mandatory",
+        "explanation": "matches what the document says",
+        "severity": "none"
+      },
+      {
+        "test_id": "T013",
+        "category": "question_extraction",
+        "criticality": "HIGH",
+        "status": "PASS",
+        "expected": "Q1",
+        "actual": "Q1",
+        "evidence": "Which channel did you primarily use for this cafeteria visit?",
+        "canonical_reference": "questions[Q1]",
+        "explanation": "present",
+        "severity": "none"
+      },
+      {
+        "test_id": "T014",
+        "category": "question_extraction",
+        "criticality": "HIGH",
+        "status": "PASS",
+        "expected": 3,
+        "actual": 3,
+        "evidence": "row 2",
+        "canonical_reference": "questions[Q1].seq",
+        "explanation": "asked in document order",
+        "severity": "none"
+      },
+      {
+        "test_id": "T015",
+        "category": "question_type",
+        "criticality": "HIGH",
+        "status": "PASS",
+        "expected": "single",
+        "actual": "single",
+        "evidence": "single",
+        "canonical_reference": "questions[Q1].kind",
+        "explanation": "type carried as written",
+        "severity": "none"
+      },
+      {
+        "test_id": "T016",
+        "category": "options",
+        "criticality": "HIGH",
+        "status": "PASS",
+        "expected": [
+          "Counter",
+          "Mobile pre-order",
+          "Vending kiosk"
+        ],
+        "actual": [
+          "Counter",
+          "Mobile pre-order",
+          "Vending kiosk"
+        ],
+        "evidence": "Counter; Mobile pre-order; Vending kiosk",
+        "canonical_reference": "questions[Q1].options",
+        "explanation": "every option carried in order",
+        "severity": "none"
+      },
+      {
+        "test_id": "T017",
+        "category": "display_logic",
+        "criticality": "CRITICAL",
+        "status": "PASS",
+        "expected": null,
+        "actual": null,
+        "evidence": "Always show",
+        "canonical_reference": "questions[Q1].guard",
+        "explanation": "always shown, and unguarded",
+        "severity": "none"
+      },
+      {
+        "test_id": "T018",
+        "category": "validation_rules",
+        "criticality": "CRITICAL",
+        "status": "PASS",
+        "expected": true,
+        "actual": true,
+        "evidence": "not marked optional",
+        "canonical_reference": "questions[Q1].validation.mandatory",
+        "explanation": "matches what the document says",
+        "severity": "none"
+      },
+      {
+        "test_id": "T019",
+        "category": "question_extraction",
+        "criticality": "HIGH",
+        "status": "PASS",
+        "expected": "Q2",
+        "actual": "Q2",
+        "evidence": "Overall, how satisfied were you with the cafeteria visit?",
+        "canonical_reference": "questions[Q2]",
+        "explanation": "present",
+        "severity": "none"
+      },
+      {
+        "test_id": "T020",
+        "category": "question_extraction",
+        "criticality": "HIGH",
+        "status": "PASS",
+        "expected": 4,
+        "actual": 4,
+        "evidence": "row 3",
+        "canonical_reference": "questions[Q2].seq",
+        "explanation": "asked in document order",
+        "severity": "none"
+      },
+      {
+        "test_id": "T021",
+        "category": "question_type",
+        "criticality": "HIGH",
+        "status": "PASS",
+        "expected": "single",
+        "actual": "single",
+        "evidence": "single",
+        "canonical_reference": "questions[Q2].kind",
+        "explanation": "type carried as written",
+        "severity": "none"
+      },
+      {
+        "test_id": "T022",
+        "category": "options",
+        "criticality": "HIGH",
+        "status": "PASS",
+        "expected": [
+          "Very poor",
+          "Poor",
+          "Fair",
+          "Good",
+          "Excellent"
+        ],
+        "actual": [
+          "Very poor",
+          "Poor",
+          "Fair",
+          "Good",
+          "Excellent"
+        ],
+        "evidence": "Very poor; Poor; Fair; Good; Excellent",
+        "canonical_reference": "questions[Q2].options",
+        "explanation": "every option carried in order",
+        "severity": "none"
+      },
+      {
+        "test_id": "T023",
+        "category": "options",
+        "criticality": "HIGH",
+        "status": "PASS",
+        "expected": {
+          "Very poor": "1",
+          "Poor": "2",
+          "Fair": "3",
+          "Good": "4",
+          "Excellent": "5"
+        },
+        "actual": {
+          "Very poor": "1",
+          "Poor": "2",
+          "Fair": "3",
+          "Good": "4",
+          "Excellent": "5"
+        },
+        "evidence": "1=Very poor; 2=Poor; 3=Fair; 4=Good; 5=Excellent",
+        "canonical_reference": "questions[Q2].options[].code",
+        "explanation": "codes match",
+        "severity": "none"
+      },
+      {
+        "test_id": "T024",
+        "category": "display_logic",
+        "criticality": "CRITICAL",
+        "status": "PASS",
+        "expected": null,
+        "actual": null,
+        "evidence": "Always show",
+        "canonical_reference": "questions[Q2].guard",
+        "explanation": "always shown, and unguarded",
+        "severity": "none"
+      },
+      {
+        "test_id": "T025",
+        "category": "validation_rules",
+        "criticality": "CRITICAL",
+        "status": "PASS",
+        "expected": true,
+        "actual": true,
+        "evidence": "not marked optional",
+        "canonical_reference": "questions[Q2].validation.mandatory",
+        "explanation": "matches what the document says",
+        "severity": "none"
+      },
+      {
+        "test_id": "T026",
+        "category": "question_extraction",
+        "criticality": "HIGH",
+        "status": "PASS",
+        "expected": "Q3",
+        "actual": "Q3",
+        "evidence": "How easy was it to complete what you wanted to do?",
+        "canonical_reference": "questions[Q3]",
+        "explanation": "present",
+        "severity": "none"
+      },
+      {
+        "test_id": "T027",
+        "category": "question_extraction",
+        "criticality": "HIGH",
+        "status": "PASS",
+        "expected": 5,
+        "actual": 5,
+        "evidence": "row 4",
+        "canonical_reference": "questions[Q3].seq",
+        "explanation": "asked in document order",
+        "severity": "none"
+      },
+      {
+        "test_id": "T028",
+        "category": "question_type",
+        "criticality": "HIGH",
+        "status": "PASS",
+        "expected": "single",
+        "actual": "single",
+        "evidence": "single",
+        "canonical_reference": "questions[Q3].kind",
+        "explanation": "type carried as written",
+        "severity": "none"
+      },
+      {
+        "test_id": "T029",
+        "category": "options",
+        "criticality": "HIGH",
+        "status": "PASS",
+        "expected": [
+          "Very poor",
+          "Poor",
+          "Fair",
+          "Good",
+          "Excellent"
+        ],
+        "actual": [
+          "Very poor",
+          "Poor",
+          "Fair",
+          "Good",
+          "Excellent"
+        ],
+        "evidence": "Very poor; Poor; Fair; Good; Excellent",
+        "canonical_reference": "questions[Q3].options",
+        "explanation": "every option carried in order",
+        "severity": "none"
+      },
+      {
+        "test_id": "T030",
+        "category": "options",
+        "criticality": "HIGH",
+        "status": "PASS",
+        "expected": {
+          "Very poor": "1",
+          "Poor": "2",
+          "Fair": "3",
+          "Good": "4",
+          "Excellent": "5"
+        },
+        "actual": {
+          "Very poor": "1",
+          "Poor": "2",
+          "Fair": "3",
+          "Good": "4",
+          "Excellent": "5"
+        },
+        "evidence": "1=Very poor; 2=Poor; 3=Fair; 4=Good; 5=Excellent",
+        "canonical_reference": "questions[Q3].options[].code",
+        "explanation": "codes match",
+        "severity": "none"
+      },
+      {
+        "test_id": "T031",
+        "category": "display_logic",
+        "criticality": "CRITICAL",
+        "status": "PASS",
+        "expected": null,
+        "actual": null,
+        "evidence": "Always show",
+        "canonical_reference": "questions[Q3].guard",
+        "explanation": "always shown, and unguarded",
+        "severity": "none"
+      },
+      {
+        "test_id": "T032",
+        "category": "validation_rules",
+        "criticality": "CRITICAL",
+        "status": "PASS",
+        "expected": true,
+        "actual": true,
+        "evidence": "not marked optional",
+        "canonical_reference": "questions[Q3].validation.mandatory",
+        "explanation": "matches what the document says",
+        "severity": "none"
+      },
+      {
+        "test_id": "T033",
+        "category": "question_extraction",
+        "criticality": "HIGH",
+        "status": "PASS",
+        "expected": "Q4",
+        "actual": "Q4",
+        "evidence": "Which aspects influenced your rating? Select all that apply.",
+        "canonical_reference": "questions[Q4]",
+        "explanation": "present",
+        "severity": "none"
+      },
+      {
+        "test_id": "T034",
+        "category": "question_extraction",
+        "criticality": "HIGH",
+        "status": "PASS",
+        "expected": 6,
+        "actual": 6,
+        "evidence": "row 5",
+        "canonical_reference": "questions[Q4].seq",
+        "explanation": "asked in document order",
+        "severity": "none"
+      },
+      {
+        "test_id": "T035",
+        "category": "question_type",
+        "criticality": "HIGH",
+        "status": "PASS",
+        "expected": "multi",
+        "actual": "multi",
+        "evidence": "multi",
+        "canonical_reference": "questions[Q4].kind",
+        "explanation": "type carried as written",
+        "severity": "none"
+      },
+      {
+        "test_id": "T036",
+        "category": "options",
+        "criticality": "HIGH",
+        "status": "PASS",
+        "expected": [
+          "Food quality",
+          "Menu variety",
+          "Waiting time",
+          "Cleanliness",
+          "Staff behaviour",
+          "Price"
+        ],
+        "actual": [
+          "Food quality",
+          "Menu variety",
+          "Waiting time",
+          "Cleanliness",
+          "Staff behaviour",
+          "Price"
+        ],
+        "evidence": "Food quality; Menu variety; Waiting time; Cleanliness; Staff behaviour; Price",
+        "canonical_reference": "questions[Q4].options",
+        "explanation": "every option carried in order",
+        "severity": "none"
+      },
+      {
+        "test_id": "T037",
+        "category": "validation_rules",
+        "criticality": "CRITICAL",
+        "status": "PASS",
+        "expected": 1,
+        "actual": 1,
+        "evidence": "min_selections: 1",
+        "canonical_reference": "questions[Q4].validation.min_selections",
+        "explanation": "validation rule carried",
+        "severity": "none"
+      },
+      {
+        "test_id": "T038",
+        "category": "validation_rules",
+        "criticality": "CRITICAL",
+        "status": "PASS",
+        "expected": true,
+        "actual": true,
+        "evidence": "not marked optional",
+        "canonical_reference": "questions[Q4].validation.mandatory",
+        "explanation": "matches what the document says",
+        "severity": "none"
+      },
+      {
+        "test_id": "T039",
+        "category": "question_extraction",
+        "criticality": "HIGH",
+        "status": "PASS",
+        "expected": "Q5",
+        "actual": "Q5",
+        "evidence": "Did you encounter a problem?",
+        "canonical_reference": "questions[Q5]",
+        "explanation": "present",
+        "severity": "none"
+      },
+      {
+        "test_id": "T040",
+        "category": "question_extraction",
+        "criticality": "HIGH",
+        "status": "PASS",
+        "expected": 7,
+        "actual": 7,
+        "evidence": "row 6",
+        "canonical_reference": "questions[Q5].seq",
+        "explanation": "asked in document order",
+        "severity": "none"
+      },
+      {
+        "test_id": "T041",
+        "category": "question_type",
+        "criticality": "HIGH",
+        "status": "PASS",
+        "expected": "single",
+        "actual": "single",
+        "evidence": "single",
+        "canonical_reference": "questions[Q5].kind",
+        "explanation": "type carried as written",
+        "severity": "none"
+      },
+      {
+        "test_id": "T042",
+        "category": "options",
+        "criticality": "HIGH",
+        "status": "PASS",
+        "expected": [
+          "Yes",
+          "No"
+        ],
+        "actual": [
+          "Yes",
+          "No"
+        ],
+        "evidence": "Yes; No",
+        "canonical_reference": "questions[Q5].options",
+        "explanation": "every option carried in order",
+        "severity": "none"
+      },
+      {
+        "test_id": "T043",
+        "category": "display_logic",
+        "criticality": "CRITICAL",
+        "status": "PASS",
+        "expected": null,
+        "actual": null,
+        "evidence": "Always show",
+        "canonical_reference": "questions[Q5].guard",
+        "explanation": "always shown, and unguarded",
+        "severity": "none"
+      },
+      {
+        "test_id": "T044",
+        "category": "validation_rules",
+        "criticality": "CRITICAL",
+        "status": "PASS",
+        "expected": true,
+        "actual": true,
+        "evidence": "not marked optional",
+        "canonical_reference": "questions[Q5].validation.mandatory",
+        "explanation": "matches what the document says",
+        "severity": "none"
+      },
+      {
+        "test_id": "T045",
+        "category": "question_extraction",
+        "criticality": "HIGH",
+        "status": "PASS",
+        "expected": "Q6",
+        "actual": "Q6",
+        "evidence": "Please describe the main problem.",
+        "canonical_reference": "questions[Q6]",
+        "explanation": "present",
+        "severity": "none"
+      },
+      {
+        "test_id": "T046",
+        "category": "question_extraction",
+        "criticality": "HIGH",
+        "status": "PASS",
+        "expected": 8,
+        "actual": 8,
+        "evidence": "row 7",
+        "canonical_reference": "questions[Q6].seq",
+        "explanation": "asked in document order",
+        "severity": "none"
+      },
+      {
+        "test_id": "T047",
+        "category": "question_type",
+        "criticality": "HIGH",
+        "status": "PASS",
+        "expected": "text",
+        "actual": "text",
+        "evidence": "text",
+        "canonical_reference": "questions[Q6].kind",
+        "explanation": "type carried as written",
+        "severity": "none"
+      },
+      {
+        "test_id": "T048",
+        "category": "display_logic",
+        "criticality": "CRITICAL",
+        "status": "PASS",
+        "expected": "Q5 == 'Yes'",
+        "actual": "Q5 == 'Yes' | Q5 == 'Yes'",
+        "evidence": "Q5 == 'Yes'",
+        "canonical_reference": "questions[Q6].guard",
+        "explanation": "display condition carried verbatim",
+        "severity": "none"
+      },
+      {
+        "test_id": "T049",
+        "category": "display_logic",
+        "criticality": "CRITICAL",
+        "status": "PASS",
+        "expected": true,
+        "actual": true,
+        "evidence": "Q5 == 'Yes' with {\"Q5\": \"Yes\"}",
+        "canonical_reference": "questions[Q6]",
+        "explanation": "fires exactly when the QRE's own condition does",
+        "severity": "none"
+      },
+      {
+        "test_id": "T050",
+        "category": "display_logic",
+        "criticality": "CRITICAL",
+        "status": "PASS",
+        "expected": false,
+        "actual": false,
+        "evidence": "Q5 == 'Yes' with {\"Q5\": \"No\"}",
+        "canonical_reference": "questions[Q6]",
+        "explanation": "fires exactly when the QRE's own condition does",
+        "severity": "none"
+      },
+      {
+        "test_id": "T051",
+        "category": "validation_rules",
+        "criticality": "CRITICAL",
+        "status": "PASS",
+        "expected": 10,
+        "actual": 10,
+        "evidence": "min_length: 10",
+        "canonical_reference": "questions[Q6].validation.min_length",
+        "explanation": "validation rule carried",
+        "severity": "none"
+      },
+      {
+        "test_id": "T052",
+        "category": "validation_rules",
+        "criticality": "CRITICAL",
+        "status": "PASS",
+        "expected": 500,
+        "actual": 500,
+        "evidence": "max_length: 500",
+        "canonical_reference": "questions[Q6].validation.max_length",
+        "explanation": "validation rule carried",
+        "severity": "none"
+      },
+      {
+        "test_id": "T053",
+        "category": "validation_rules",
+        "criticality": "CRITICAL",
+        "status": "PASS",
+        "expected": true,
+        "actual": true,
+        "evidence": "not marked optional",
+        "canonical_reference": "questions[Q6].validation.mandatory",
+        "explanation": "matches what the document says",
+        "severity": "none"
+      },
+      {
+        "test_id": "T054",
+        "category": "question_extraction",
+        "criticality": "HIGH",
+        "status": "PASS",
+        "expected": "Q7",
+        "actual": "Q7",
+        "evidence": "How likely are you to recommend this service?",
+        "canonical_reference": "questions[Q7]",
+        "explanation": "present",
+        "severity": "none"
+      },
+      {
+        "test_id": "T055",
+        "category": "question_extraction",
+        "criticality": "HIGH",
+        "status": "PASS",
+        "expected": 9,
+        "actual": 9,
+        "evidence": "row 8",
+        "canonical_reference": "questions[Q7].seq",
+        "explanation": "asked in document order",
+        "severity": "none"
+      },
+      {
+        "test_id": "T056",
+        "category": "question_type",
+        "criticality": "HIGH",
+        "status": "PASS",
+        "expected": "single",
+        "actual": "single",
+        "evidence": "single",
+        "canonical_reference": "questions[Q7].kind",
+        "explanation": "type carried as written",
+        "severity": "none"
+      },
+      {
+        "test_id": "T057",
+        "category": "options",
+        "criticality": "HIGH",
+        "status": "PASS",
+        "expected": [
+          "0",
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10"
+        ],
+        "actual": [
+          "0",
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10"
+        ],
+        "evidence": "0; 1; 2; 3; 4; 5; 6; 7; 8; 9; 10",
+        "canonical_reference": "questions[Q7].options",
+        "explanation": "every option carried in order",
+        "severity": "none"
+      },
+      {
+        "test_id": "T058",
+        "category": "display_logic",
+        "criticality": "CRITICAL",
+        "status": "PASS",
+        "expected": null,
+        "actual": null,
+        "evidence": "Always show",
+        "canonical_reference": "questions[Q7].guard",
+        "explanation": "always shown, and unguarded",
+        "severity": "none"
+      },
+      {
+        "test_id": "T059",
+        "category": "validation_rules",
+        "criticality": "CRITICAL",
+        "status": "PASS",
+        "expected": true,
+        "actual": true,
+        "evidence": "not marked optional",
+        "canonical_reference": "questions[Q7].validation.mandatory",
+        "explanation": "matches what the document says",
+        "severity": "none"
+      },
+      {
+        "test_id": "T060",
+        "category": "question_extraction",
+        "criticality": "HIGH",
+        "status": "PASS",
+        "expected": "Q8",
+        "actual": "Q8",
+        "evidence": "What is the single most important improvement you would suggest?",
+        "canonical_reference": "questions[Q8]",
+        "explanation": "present",
+        "severity": "none"
+      },
+      {
+        "test_id": "T061",
+        "category": "question_extraction",
+        "criticality": "HIGH",
+        "status": "PASS",
+        "expected": 10,
+        "actual": 10,
+        "evidence": "row 9",
+        "canonical_reference": "questions[Q8].seq",
+        "explanation": "asked in document order",
+        "severity": "none"
+      },
+      {
+        "test_id": "T062",
+        "category": "question_type",
+        "criticality": "HIGH",
+        "status": "PASS",
+        "expected": "text",
+        "actual": "text",
+        "evidence": "text",
+        "canonical_reference": "questions[Q8].kind",
+        "explanation": "type carried as written",
+        "severity": "none"
+      },
+      {
+        "test_id": "T063",
+        "category": "validation_rules",
+        "criticality": "CRITICAL",
+        "status": "PASS",
+        "expected": 500,
+        "actual": 500,
+        "evidence": "max_length: 500",
+        "canonical_reference": "questions[Q8].validation.max_length",
+        "explanation": "validation rule carried",
+        "severity": "none"
+      },
+      {
+        "test_id": "T064",
+        "category": "validation_rules",
+        "criticality": "CRITICAL",
+        "status": "PASS",
+        "expected": false,
+        "actual": false,
+        "evidence": "Optional",
+        "canonical_reference": "questions[Q8].validation.mandatory",
+        "explanation": "matches what the document says",
+        "severity": "none"
+      },
+      {
+        "test_id": "T065",
+        "category": "question_extraction",
+        "criticality": "HIGH",
+        "status": "PASS",
+        "expected": 10,
+        "actual": 10,
+        "evidence": "10 rows in the questionnaire table",
+        "canonical_reference": "questions[]",
+        "explanation": "counts agree",
+        "severity": "none"
+      },
+      {
+        "test_id": "T066",
+        "category": "termination_logic",
+        "criticality": "CRITICAL",
+        "status": "PASS",
+        "expected": "R1",
+        "actual": "R1",
+        "evidence": "S1 == 'No'",
+        "canonical_reference": "rules[R1]",
+        "explanation": "present",
+        "severity": "none"
+      },
+      {
+        "test_id": "T067",
+        "category": "termination_logic",
+        "criticality": "CRITICAL",
+        "status": "PASS",
+        "expected": "terminate",
+        "actual": "terminate",
+        "evidence": "terminate",
+        "canonical_reference": "rules[R1].kind",
+        "explanation": "action carried",
+        "severity": "none"
+      },
+      {
+        "test_id": "T068",
+        "category": "termination_logic",
+        "criticality": "CRITICAL",
+        "status": "PASS",
+        "expected": "TERM_INELIGIBLE",
+        "actual": "TERM_INELIGIBLE",
+        "evidence": "TERM_INELIGIBLE",
+        "canonical_reference": "rules[R1].destination",
+        "explanation": "destination carried",
+        "severity": "none"
+      },
+      {
+        "test_id": "T069",
+        "category": "termination_logic",
+        "criticality": "CRITICAL",
+        "status": "PASS",
+        "expected": "S1 == 'No'",
+        "actual": "S1 == 'No'",
+        "evidence": "S1 == 'No'",
+        "canonical_reference": "rules[R1].when.source_text",
+        "explanation": "condition kept verbatim",
+        "severity": "none"
+      },
+      {
+        "test_id": "T070",
+        "category": "termination_logic",
+        "criticality": "CRITICAL",
+        "status": "PASS",
+        "expected": "defined",
+        "actual": "defined",
+        "evidence": "TERM_INELIGIBLE",
+        "canonical_reference": "dispositions[TERM_INELIGIBLE]",
+        "explanation": "matches what the document defines",
+        "severity": "none"
+      },
+      {
+        "test_id": "T071",
+        "category": "termination_logic",
+        "criticality": "CRITICAL",
+        "status": "PASS",
+        "expected": true,
+        "actual": true,
+        "evidence": "S1 == 'No' with {\"S1\": \"No\"}",
+        "canonical_reference": "rules[R1]",
+        "explanation": "fires exactly when the QRE's own condition does",
+        "severity": "none"
+      },
+      {
+        "test_id": "T072",
+        "category": "termination_logic",
+        "criticality": "CRITICAL",
+        "status": "PASS",
+        "expected": false,
+        "actual": false,
+        "evidence": "S1 == 'No' with {\"S1\": \"Yes\"}",
+        "canonical_reference": "rules[R1]",
+        "explanation": "fires exactly when the QRE's own condition does",
+        "severity": "none"
+      },
+      {
+        "test_id": "T073",
+        "category": "termination_logic",
+        "criticality": "NORMAL",
+        "status": "PASS",
+        "expected": 0,
+        "actual": 0,
+        "evidence": "row 0",
+        "canonical_reference": "rules[R1].source_reference",
+        "explanation": "points at the row it came from",
+        "severity": "none"
+      },
+      {
+        "test_id": "T074",
+        "category": "termination_logic",
+        "criticality": "CRITICAL",
+        "status": "UNVERIFIED",
+        "expected": "the QRE states no evaluation point",
+        "actual": "S1",
+        "evidence": "S1 == 'No'",
+        "canonical_reference": "rules[R1]",
+        "explanation": "derived from the questions the condition names; the QRE never states when a rule is checked",
+        "severity": "review"
+      },
+      {
+        "test_id": "T075",
+        "category": "termination_logic",
+        "criticality": "CRITICAL",
+        "status": "PASS",
+        "expected": "R2",
+        "actual": "R2",
+        "evidence": "S2 == 'No'",
+        "canonical_reference": "rules[R2]",
+        "explanation": "present",
+        "severity": "none"
+      },
+      {
+        "test_id": "T076",
+        "category": "termination_logic",
+        "criticality": "CRITICAL",
+        "status": "PASS",
+        "expected": "terminate",
+        "actual": "terminate",
+        "evidence": "terminate",
+        "canonical_reference": "rules[R2].kind",
+        "explanation": "action carried",
+        "severity": "none"
+      },
+      {
+        "test_id": "T077",
+        "category": "termination_logic",
+        "criticality": "CRITICAL",
+        "status": "PASS",
+        "expected": "TERM_INELIGIBLE",
+        "actual": "TERM_INELIGIBLE",
+        "evidence": "TERM_INELIGIBLE",
+        "canonical_reference": "rules[R2].destination",
+        "explanation": "destination carried",
+        "severity": "none"
+      },
+      {
+        "test_id": "T078",
+        "category": "termination_logic",
+        "criticality": "CRITICAL",
+        "status": "PASS",
+        "expected": "S2 == 'No'",
+        "actual": "S2 == 'No'",
+        "evidence": "S2 == 'No'",
+        "canonical_reference": "rules[R2].when.source_text",
+        "explanation": "condition kept verbatim",
+        "severity": "none"
+      },
+      {
+        "test_id": "T079",
+        "category": "termination_logic",
+        "criticality": "CRITICAL",
+        "status": "PASS",
+        "expected": "defined",
+        "actual": "defined",
+        "evidence": "TERM_INELIGIBLE",
+        "canonical_reference": "dispositions[TERM_INELIGIBLE]",
+        "explanation": "matches what the document defines",
+        "severity": "none"
+      },
+      {
+        "test_id": "T080",
+        "category": "termination_logic",
+        "criticality": "CRITICAL",
+        "status": "PASS",
+        "expected": true,
+        "actual": true,
+        "evidence": "S2 == 'No' with {\"S2\": \"No\"}",
+        "canonical_reference": "rules[R2]",
+        "explanation": "fires exactly when the QRE's own condition does",
+        "severity": "none"
+      },
+      {
+        "test_id": "T081",
+        "category": "termination_logic",
+        "criticality": "CRITICAL",
+        "status": "PASS",
+        "expected": false,
+        "actual": false,
+        "evidence": "S2 == 'No' with {\"S2\": \"Yes\"}",
+        "canonical_reference": "rules[R2]",
+        "explanation": "fires exactly when the QRE's own condition does",
+        "severity": "none"
+      },
+      {
+        "test_id": "T082",
+        "category": "termination_logic",
+        "criticality": "NORMAL",
+        "status": "PASS",
+        "expected": 1,
+        "actual": 1,
+        "evidence": "row 1",
+        "canonical_reference": "rules[R2].source_reference",
+        "explanation": "points at the row it came from",
+        "severity": "none"
+      },
+      {
+        "test_id": "T083",
+        "category": "termination_logic",
+        "criticality": "CRITICAL",
+        "status": "UNVERIFIED",
+        "expected": "the QRE states no evaluation point",
+        "actual": "S2",
+        "evidence": "S2 == 'No'",
+        "canonical_reference": "rules[R2]",
+        "explanation": "derived from the questions the condition names; the QRE never states when a rule is checked",
+        "severity": "review"
+      },
+      {
+        "test_id": "T084",
+        "category": "routing_logic",
+        "criticality": "CRITICAL",
+        "status": "PASS",
+        "expected": "R3",
+        "actual": "R3",
+        "evidence": "Q5 == 'Yes'",
+        "canonical_reference": "rules[R3]",
+        "explanation": "present",
+        "severity": "none"
+      },
+      {
+        "test_id": "T085",
+        "category": "routing_logic",
+        "criticality": "CRITICAL",
+        "status": "PASS",
+        "expected": "show",
+        "actual": "show",
+        "evidence": "show",
+        "canonical_reference": "rules[R3].kind",
+        "explanation": "action carried",
+        "severity": "none"
+      },
+      {
+        "test_id": "T086",
+        "category": "routing_logic",
+        "criticality": "CRITICAL",
+        "status": "PASS",
+        "expected": "Q6",
+        "actual": "Q6",
+        "evidence": "Q6",
+        "canonical_reference": "rules[R3].destination",
+        "explanation": "destination carried",
+        "severity": "none"
+      },
+      {
+        "test_id": "T087",
+        "category": "routing_logic",
+        "criticality": "CRITICAL",
+        "status": "PASS",
+        "expected": "Q5 == 'Yes'",
+        "actual": "Q5 == 'Yes'",
+        "evidence": "Q5 == 'Yes'",
+        "canonical_reference": "rules[R3].when.source_text",
+        "explanation": "condition kept verbatim",
+        "severity": "none"
+      },
+      {
+        "test_id": "T088",
+        "category": "routing_logic",
+        "criticality": "CRITICAL",
+        "status": "PASS",
+        "expected": true,
+        "actual": true,
+        "evidence": "Q5 == 'Yes' with {\"Q5\": \"Yes\"}",
+        "canonical_reference": "rules[R3]",
+        "explanation": "fires exactly when the QRE's own condition does",
+        "severity": "none"
+      },
+      {
+        "test_id": "T089",
+        "category": "routing_logic",
+        "criticality": "CRITICAL",
+        "status": "PASS",
+        "expected": false,
+        "actual": false,
+        "evidence": "Q5 == 'Yes' with {\"Q5\": \"No\"}",
+        "canonical_reference": "rules[R3]",
+        "explanation": "fires exactly when the QRE's own condition does",
+        "severity": "none"
+      },
+      {
+        "test_id": "T090",
+        "category": "routing_logic",
+        "criticality": "NORMAL",
+        "status": "PASS",
+        "expected": 2,
+        "actual": 2,
+        "evidence": "row 2",
+        "canonical_reference": "rules[R3].source_reference",
+        "explanation": "points at the row it came from",
+        "severity": "none"
+      },
+      {
+        "test_id": "T091",
+        "category": "routing_logic",
+        "criticality": "CRITICAL",
+        "status": "UNVERIFIED",
+        "expected": "the QRE states no evaluation point",
+        "actual": "Q5",
+        "evidence": "Q5 == 'Yes'",
+        "canonical_reference": "rules[R3]",
+        "explanation": "derived from the questions the condition names; the QRE never states when a rule is checked",
+        "severity": "review"
+      },
+      {
+        "test_id": "T092",
+        "category": "skip_logic",
+        "criticality": "CRITICAL",
+        "status": "PASS",
+        "expected": "R4",
+        "actual": "R4",
+        "evidence": "Q5 == 'No'",
+        "canonical_reference": "rules[R4]",
+        "explanation": "present",
+        "severity": "none"
+      },
+      {
+        "test_id": "T093",
+        "category": "skip_logic",
+        "criticality": "CRITICAL",
+        "status": "PASS",
+        "expected": "skip",
+        "actual": "skip",
+        "evidence": "skip",
+        "canonical_reference": "rules[R4].kind",
+        "explanation": "action carried",
+        "severity": "none"
+      },
+      {
+        "test_id": "T094",
+        "category": "skip_logic",
+        "criticality": "CRITICAL",
+        "status": "PASS",
+        "expected": "Q7",
+        "actual": "Q7",
+        "evidence": "Q7",
+        "canonical_reference": "rules[R4].destination",
+        "explanation": "destination carried",
+        "severity": "none"
+      },
+      {
+        "test_id": "T095",
+        "category": "skip_logic",
+        "criticality": "CRITICAL",
+        "status": "PASS",
+        "expected": "Q5 == 'No'",
+        "actual": "Q5 == 'No'",
+        "evidence": "Q5 == 'No'",
+        "canonical_reference": "rules[R4].when.source_text",
+        "explanation": "condition kept verbatim",
+        "severity": "none"
+      },
+      {
+        "test_id": "T096",
+        "category": "skip_logic",
+        "criticality": "CRITICAL",
+        "status": "PASS",
+        "expected": true,
+        "actual": true,
+        "evidence": "Q5 == 'No' with {\"Q5\": \"No\"}",
+        "canonical_reference": "rules[R4]",
+        "explanation": "fires exactly when the QRE's own condition does",
+        "severity": "none"
+      },
+      {
+        "test_id": "T097",
+        "category": "skip_logic",
+        "criticality": "CRITICAL",
+        "status": "PASS",
+        "expected": false,
+        "actual": false,
+        "evidence": "Q5 == 'No' with {\"Q5\": \"Yes\"}",
+        "canonical_reference": "rules[R4]",
+        "explanation": "fires exactly when the QRE's own condition does",
+        "severity": "none"
+      },
+      {
+        "test_id": "T098",
+        "category": "skip_logic",
+        "criticality": "NORMAL",
+        "status": "PASS",
+        "expected": 3,
+        "actual": 3,
+        "evidence": "row 3",
+        "canonical_reference": "rules[R4].source_reference",
+        "explanation": "points at the row it came from",
+        "severity": "none"
+      },
+      {
+        "test_id": "T099",
+        "category": "skip_logic",
+        "criticality": "CRITICAL",
+        "status": "UNVERIFIED",
+        "expected": "the QRE states no evaluation point",
+        "actual": "Q5",
+        "evidence": "Q5 == 'No'",
+        "canonical_reference": "rules[R4]",
+        "explanation": "derived from the questions the condition names; the QRE never states when a rule is checked",
+        "severity": "review"
+      },
+      {
+        "test_id": "T100",
+        "category": "routing_logic",
+        "criticality": "CRITICAL",
+        "status": "PASS",
+        "expected": 4,
+        "actual": 4,
+        "evidence": "4 rows in the routing table",
+        "canonical_reference": "rules[]",
+        "explanation": "counts agree",
+        "severity": "none"
+      },
+      {
+        "test_id": "T101",
+        "category": "dispositions_messages",
+        "criticality": "HIGH",
+        "status": "PASS",
+        "expected": "Thank you for your interest. You do not qualify for this survey.",
+        "actual": "Thank you for your interest. You do not qualify for this survey.",
+        "evidence": "Thank you for your interest. You do not qualify for this survey.",
+        "canonical_reference": "dispositions[TERM_INELIGIBLE].message",
+        "explanation": "message carried verbatim",
+        "severity": "none"
+      },
+      {
+        "test_id": "T102",
+        "category": "dispositions_messages",
+        "criticality": "HIGH",
+        "status": "PASS",
+        "expected": "Thank you. Your response has been recorded.",
+        "actual": "Thank you. Your response has been recorded.",
+        "evidence": "Thank you. Your response has been recorded.",
+        "canonical_reference": "dispositions[COMPLETE].message",
+        "explanation": "message carried verbatim",
+        "severity": "none"
+      },
+      {
+        "test_id": "T103",
+        "category": "acceptance_scenarios",
+        "criticality": "HIGH",
+        "status": "PASS",
+        "expected": "T1",
+        "actual": "T1",
+        "evidence": "recent-use screenout",
+        "canonical_reference": "scenarios[T1]",
+        "explanation": "present",
+        "severity": "none"
+      },
+      {
+        "test_id": "T104",
+        "category": "acceptance_scenarios",
+        "criticality": "HIGH",
+        "status": "PASS",
+        "expected": {
+          "S1": "No"
+        },
+        "actual": {
+          "S1": "No"
+        },
+        "evidence": "{\"S1\": \"No\"}",
+        "canonical_reference": "scenarios[T1].inputs_raw",
+        "explanation": "inputs carried exactly",
+        "severity": "none"
+      },
+      {
+        "test_id": "T105",
+        "category": "acceptance_scenarios",
+        "criticality": "HIGH",
+        "status": "PASS",
+        "expected": {
+          "expected_end": "TERM_INELIGIBLE"
+        },
+        "actual": {
+          "expected_end": "TERM_INELIGIBLE"
+        },
+        "evidence": "{\"expected_end\": \"TERM_INELIGIBLE\"}",
+        "canonical_reference": "scenarios[T1].expected_raw",
+        "explanation": "expected outcome carried exactly",
+        "severity": "none"
+      },
+      {
+        "test_id": "T106",
+        "category": "acceptance_scenarios",
+        "criticality": "HIGH",
+        "status": "PASS",
+        "expected": "T2",
+        "actual": "T2",
+        "evidence": "eligible with problem",
+        "canonical_reference": "scenarios[T2]",
+        "explanation": "present",
+        "severity": "none"
+      },
+      {
+        "test_id": "T107",
+        "category": "acceptance_scenarios",
+        "criticality": "HIGH",
+        "status": "PASS",
+        "expected": {
+          "S1": "Yes",
+          "S2": "Yes",
+          "Q5": "Yes"
+        },
+        "actual": {
+          "S1": "Yes",
+          "S2": "Yes",
+          "Q5": "Yes"
+        },
+        "evidence": "{\"S1\": \"Yes\", \"S2\": \"Yes\", \"Q5\": \"Yes\"}",
+        "canonical_reference": "scenarios[T2].inputs_raw",
+        "explanation": "inputs carried exactly",
+        "severity": "none"
+      },
+      {
+        "test_id": "T108",
+        "category": "acceptance_scenarios",
+        "criticality": "HIGH",
+        "status": "PASS",
+        "expected": {
+          "expected_visible": [
+            "Q6"
+          ],
+          "expected_end": "COMPLETE"
+        },
+        "actual": {
+          "expected_visible": [
+            "Q6"
+          ],
+          "expected_end": "COMPLETE"
+        },
+        "evidence": "{\"expected_visible\": [\"Q6\"], \"expected_end\": \"COMPLETE\"}",
+        "canonical_reference": "scenarios[T2].expected_raw",
+        "explanation": "expected outcome carried exactly",
+        "severity": "none"
+      },
+      {
+        "test_id": "T109",
+        "category": "acceptance_scenarios",
+        "criticality": "HIGH",
+        "status": "PASS",
+        "expected": "T3",
+        "actual": "T3",
+        "evidence": "eligible without problem",
+        "canonical_reference": "scenarios[T3]",
+        "explanation": "present",
+        "severity": "none"
+      },
+      {
+        "test_id": "T110",
+        "category": "acceptance_scenarios",
+        "criticality": "HIGH",
+        "status": "PASS",
+        "expected": {
+          "S1": "Yes",
+          "S2": "Yes",
+          "Q5": "No"
+        },
+        "actual": {
+          "S1": "Yes",
+          "S2": "Yes",
+          "Q5": "No"
+        },
+        "evidence": "{\"S1\": \"Yes\", \"S2\": \"Yes\", \"Q5\": \"No\"}",
+        "canonical_reference": "scenarios[T3].inputs_raw",
+        "explanation": "inputs carried exactly",
+        "severity": "none"
+      },
+      {
+        "test_id": "T111",
+        "category": "acceptance_scenarios",
+        "criticality": "HIGH",
+        "status": "PASS",
+        "expected": {
+          "expected_hidden": [
+            "Q6"
+          ],
+          "expected_end": "COMPLETE"
+        },
+        "actual": {
+          "expected_hidden": [
+            "Q6"
+          ],
+          "expected_end": "COMPLETE"
+        },
+        "evidence": "{\"expected_hidden\": [\"Q6\"], \"expected_end\": \"COMPLETE\"}",
+        "canonical_reference": "scenarios[T3].expected_raw",
+        "explanation": "expected outcome carried exactly",
+        "severity": "none"
+      },
+      {
+        "test_id": "T112",
+        "category": "programming_qa",
+        "criticality": "NORMAL",
+        "status": "PASS",
+        "expected": "Store stable question, option, route and test-run identifiers.",
+        "actual": true,
+        "evidence": "Store stable question, option, route and test-run identifiers.",
+        "canonical_reference": "requirements[]",
+        "explanation": "carried",
+        "severity": "none"
+      },
+      {
+        "test_id": "T113",
+        "category": "programming_qa",
+        "criticality": "NORMAL",
+        "status": "PASS",
+        "expected": "Capture displayed random order for every randomized item.",
+        "actual": true,
+        "evidence": "Capture displayed random order for every randomized item.",
+        "canonical_reference": "requirements[]",
+        "explanation": "carried",
+        "severity": "none"
+      },
+      {
+        "test_id": "T114",
+        "category": "programming_qa",
+        "criticality": "NORMAL",
+        "status": "PASS",
+        "expected": "Record expected and observed destination for every routing transition.",
+        "actual": true,
+        "evidence": "Record expected and observed destination for every routing transition.",
+        "canonical_reference": "requirements[]",
+        "explanation": "carried",
+        "severity": "none"
+      },
+      {
+        "test_id": "T115",
+        "category": "programming_qa",
+        "criticality": "NORMAL",
+        "status": "PASS",
+        "expected": "Reject mutually exclusive selections and invalid numeric/text responses before progression.",
+        "actual": true,
+        "evidence": "Reject mutually exclusive selections and invalid numeric/text responses before progression.",
+        "canonical_reference": "requirements[]",
+        "explanation": "carried",
+        "severity": "none"
+      },
+      {
+        "test_id": "T116",
+        "category": "programming_qa",
+        "criticality": "NORMAL",
+        "status": "PASS",
+        "expected": "Produce an audit record containing inputs, timestamps, route, assertions, screenshots on failure and final disposition.",
+        "actual": true,
+        "evidence": "Produce an audit record containing inputs, timestamps, route, assertions, screenshots on failure and final disposition.",
+        "canonical_reference": "requirements[]",
+        "explanation": "carried",
+        "severity": "none"
+      },
+      {
+        "test_id": "T117",
+        "category": "programming_qa",
+        "criticality": "NORMAL",
+        "status": "PASS",
+        "expected": "Do not send synthetic test responses into live operational reporting.",
+        "actual": true,
+        "evidence": "Do not send synthetic test responses into live operational reporting.",
+        "canonical_reference": "requirements[]",
+        "explanation": "carried",
+        "severity": "none"
+      },
+      {
+        "test_id": "T118",
+        "category": "study_metadata",
+        "criticality": "NORMAL",
+        "status": "PASS",
+        "expected": "Measure satisfaction and identify operational improvements in a campus cafeteria.",
+        "actual": true,
+        "evidence": "Measure satisfaction and identify operational improvements in a campus cafeteria.",
+        "canonical_reference": "metadata[]",
+        "explanation": "carried",
+        "severity": "none"
+      },
+      {
+        "test_id": "T119",
+        "category": "study_metadata",
+        "criticality": "NORMAL",
+        "status": "PASS",
+        "expected": "Adults with a relevant experience in the last 30 days",
+        "actual": true,
+        "evidence": "Adults with a relevant experience in the last 30 days",
+        "canonical_reference": "metadata[]",
+        "explanation": "carried",
+        "severity": "none"
+      },
+      {
+        "test_id": "T120",
+        "category": "study_metadata",
+        "criticality": "NORMAL",
+        "status": "PASS",
+        "expected": "Self-completion web survey",
+        "actual": true,
+        "evidence": "Self-completion web survey",
+        "canonical_reference": "metadata[]",
+        "explanation": "carried",
+        "severity": "none"
+      },
+      {
+        "test_id": "T121",
+        "category": "study_metadata",
+        "criticality": "NORMAL",
+        "status": "PASS",
+        "expected": "4 minutes",
+        "actual": true,
+        "evidence": "4 minutes",
+        "canonical_reference": "metadata[]",
+        "explanation": "carried",
+        "severity": "none"
+      },
+      {
+        "test_id": "T122",
+        "category": "study_metadata",
+        "criticality": "NORMAL",
+        "status": "PASS",
+        "expected": "All questions are mandatory unless explicitly marked optional. Do not infer unstated routing.",
+        "actual": true,
+        "evidence": "All questions are mandatory unless explicitly marked optional. Do not infer unstated routing.",
+        "canonical_reference": "metadata[]",
+        "explanation": "carried",
+        "severity": "none"
+      },
+      {
+        "test_id": "T123",
+        "category": "provenance",
+        "criticality": "NORMAL",
+        "status": "PASS",
+        "expected": "every element carries a source reference",
+        "actual": "all present",
+        "evidence": "CLAUDE.md \u00a715",
+        "canonical_reference": "questions[].source_reference",
+        "explanation": "every element points back at the document",
+        "severity": "none"
+      },
+      {
+        "test_id": "T124",
+        "category": "provenance",
+        "criticality": "NORMAL",
+        "status": "PASS",
+        "expected": "every element carries a source reference",
+        "actual": "all present",
+        "evidence": "CLAUDE.md \u00a715",
+        "canonical_reference": "rules[].source_reference",
+        "explanation": "every element points back at the document",
+        "severity": "none"
+      },
+      {
+        "test_id": "T125",
+        "category": "provenance",
+        "criticality": "NORMAL",
+        "status": "PASS",
+        "expected": "every element carries a source reference",
+        "actual": "all present",
+        "evidence": "CLAUDE.md \u00a715",
+        "canonical_reference": "dispositions[].source_reference",
+        "explanation": "every element points back at the document",
+        "severity": "none"
+      },
+      {
+        "test_id": "T126",
+        "category": "provenance",
+        "criticality": "NORMAL",
+        "status": "PASS",
+        "expected": "every element carries a source reference",
+        "actual": "all present",
+        "evidence": "CLAUDE.md \u00a715",
+        "canonical_reference": "scenarios[].source_reference",
+        "explanation": "every element points back at the document",
+        "severity": "none"
+      },
+      {
+        "test_id": "T127",
+        "category": "semantic_assumptions",
+        "criticality": "CRITICAL",
+        "status": "UNVERIFIED",
+        "expected": "marked inferred or derived, never extracted",
+        "actual": {
+          "value": "condition_false",
+          "origin": "inferred"
+        },
+        "evidence": "the QRE states nothing about this",
+        "canonical_reference": "semantics",
+        "explanation": "the QRE states nothing here; the specification records a decision, marked inferred, which a person has to confirm",
+        "severity": "review"
+      },
+      {
+        "test_id": "T128",
+        "category": "semantic_assumptions",
+        "criticality": "CRITICAL",
+        "status": "UNVERIFIED",
+        "expected": "marked inferred or derived, never extracted",
+        "actual": {
+          "value": "document_order_first_match",
+          "origin": "inferred"
+        },
+        "evidence": "the QRE states nothing about this",
+        "canonical_reference": "semantics",
+        "explanation": "the QRE states nothing here; the specification records a decision, marked inferred, which a person has to confirm",
+        "severity": "review"
+      },
+      {
+        "test_id": "T129",
+        "category": "semantic_assumptions",
+        "criticality": "CRITICAL",
+        "status": "UNVERIFIED",
+        "expected": "marked inferred or derived, never extracted",
+        "actual": {
+          "value": "set_equality",
+          "origin": "derived"
+        },
+        "evidence": "the QRE states nothing about this",
+        "canonical_reference": "semantics",
+        "explanation": "the QRE states nothing here; the specification records a decision, marked derived, which a person has to confirm",
+        "severity": "review"
+      },
+      {
+        "test_id": "T130",
+        "category": "semantic_assumptions",
+        "criticality": "CRITICAL",
+        "status": "PASS",
+        "expected": "traceable to a statement in the document",
+        "actual": {
+          "value": true,
+          "origin": "derived"
+        },
+        "evidence": "All questions are mandatory unless explicitly marked optional. Do not infer unstated routing.",
+        "canonical_reference": "semantics.default_mandatory",
+        "explanation": "read from a statement the document makes",
+        "severity": "none"
+      }
+    ]
+  }
+}

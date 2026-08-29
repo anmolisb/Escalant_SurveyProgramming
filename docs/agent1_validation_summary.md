@@ -1,0 +1,168 @@
+# Agent 1 validation summary
+
+Canonical specification checked against the raw QRE, independently of the
+pipeline that produced it. Tests are derived from the document; where the
+document does not establish what the right answer is, the test is reported
+UNVERIFIED rather than passed.
+
+## Verdict
+
+| Survey | Canonical | Graph ready | Agent 3 ready | Tests | Pass | Fail | Unverified | Blocked |
+|---|---|---|---|---|---|---|---|---|
+| S01 | PASSED_WITH_WARNINGS | YES | NO | 130 | 123 | 0 | 7 | 0 |
+| C01 | PASSED_WITH_WARNINGS | YES | NO | 445 | 409 | 0 | 36 | 0 |
+
+## S01 — S01_campus_cafeteria_experience
+
+### Logic coverage
+
+| Metric | Result | Target | Unverified (excluded) |
+|---|---|---|---|
+| Questions | 21/21 (100%) | 100% | 0 |
+| Question types | 10/10 (100%) | 100% | 0 |
+| Options | 10/10 (100%) | 100% | 0 |
+| Display rules | 10/10 (100%) | 100% | 0 |
+| Skip rules | 7/7 (100%) | 100% | 1 |
+| Routing rules | 8/8 (100%) | 100% | 1 |
+| Termination | 16/16 (100%) | 100% | 2 |
+| Validation | 14/14 (100%) | 100% | 0 |
+| Dependencies / piping | n/a | 100% | 0 |
+| Randomization | n/a | 100% | 0 |
+| Quotas | n/a | 100% | 0 |
+| Dispositions | 2/2 (100%) | 100% | 0 |
+| Acceptance scenarios | 9/9 (100%) | 100% | 0 |
+| Programming requirements | 6/6 (100%) | 100% | 0 |
+| Study metadata | 5/5 (100%) | 100% | 0 |
+| Provenance | 4/4 (100%) | 100% | 0 |
+| **Critical-rule recall** | 52/52 (100%) | 100% | 7 |
+
+_Critical-rule recall covers executable logic only — display, skip,
+routing, termination, validation, dependencies, quotas and randomization._
+
+### Graph build (measured, not assumed)
+
+- 13 nodes, 14 edges; rules mapped 4/4; quotas mapped 0/0; 2 dependency edges
+- Fidelity check: **passed** (0 blocking)
+
+### Reproducibility
+
+- Exact: **identical**
+- Semantic: **identical**
+- Meaningful differences: none
+
+### Cross-source checks
+
+No missing, contradictory, unsupported or invented content found.
+
+### CONFIRMATION_REQUIRED (2)
+
+**semantics_unconfirmed** — affects S01_campus_cafeteria_experience.docx, semantics
+
+- Why it matters: The semantics block records three decisions the QRE never states: that a condition naming an unasked question is false, that the first matching rule wins, and that '==' against a multi-select compares the whole answer set. Each changes which questions appear on many routes and needs confirming.
+- Changes downstream: Which questions appear on many routes, which rule wins when two apply, and whether an 'is exactly' test passes on a multi-select answer.
+
+**text_pipe_inferred** — affects Q4, Q6
+
+- Why it matters: Q4's wording appears to quote the answer given at Q2. No table states this; it was read out of the sentence, so it is worth confirming.
+- Changes downstream: Whether this question's wording depends on an earlier answer, which decides the order a bot must answer in and what text it should expect on screen.
+
+### Top issues
+
+- No incorrect or missing content. Everything outstanding is a decision, above.
+
+Agent 3 is blocked by: semantics_unconfirmed
+
+## C01 — C01_chronic_care_patient_journey
+
+### Logic coverage
+
+| Metric | Result | Target | Unverified (excluded) |
+|---|---|---|---|
+| Questions | 64/64 (100%) | 100% | 0 |
+| Question types | 31/31 (100%) | 100% | 0 |
+| Options | 32/32 (100%) | 100% | 0 |
+| Display rules | 45/45 (100%) | 100% | 3 |
+| Skip rules | 7/7 (100%) | 100% | 1 |
+| Routing rules | 96/96 (100%) | 100% | 20 |
+| Termination | 32/32 (100%) | 100% | 4 |
+| Validation | 44/44 (100%) | 100% | 0 |
+| Dependencies / piping | 2/2 (100%) | 100% | 0 |
+| Randomization | 5/5 (100%) | 100% | 5 |
+| Quotas | 9/9 (100%) | 100% | 0 |
+| Dispositions | 5/5 (100%) | 100% | 0 |
+| Acceptance scenarios | 21/21 (100%) | 100% | 0 |
+| Programming requirements | 6/6 (100%) | 100% | 0 |
+| Study metadata | 5/5 (100%) | 100% | 0 |
+| Provenance | 4/4 (100%) | 100% | 0 |
+| **Critical-rule recall** | 220/220 (100%) | 100% | 36 |
+
+_Critical-rule recall covers executable logic only — display, skip,
+routing, termination, validation, dependencies, quotas and randomization._
+
+### Graph build (measured, not assumed)
+
+- 38 nodes, 39 edges; rules mapped 20/20; quotas mapped 2/2; 15 dependency edges
+- Fidelity check: **passed** (0 blocking)
+
+### Reproducibility
+
+- Exact: **identical**
+- Semantic: **identical**
+- Meaningful differences: none
+
+### Cross-source checks
+
+No missing, contradictory, unsupported or invented content found.
+
+### CONFIRMATION_REQUIRED (9)
+
+**randomization_anchoring** — affects Q1, Q16, Q19, Q5, Q9
+
+- Why it matters: Q1 shuffles its options and has 'None of these' as an exclusive option. Convention keeps such an option at the bottom, but the QRE does not say so.
+- Changes downstream: Where an exclusive option appears when the list is shuffled, which decides whether a displayed-order assertion is right.
+
+**condition_inferred** — affects Q2, Q6, R19, R20
+
+- Why it matters: Q2's display condition was prose, so a model proposed a reading which the parser then accepted. Worth a human eye.
+- Changes downstream: Whether this rule fires for a given respondent, so which questions they see and which ending they reach.
+
+**inferred_condition_partial_options** — affects Q2, Q3, R6, R7
+
+- Why it matters: Rule R6 was read as naming 3 of Q1's 4 selectable answers, leaving out ['Independent provider']. A model chose which ones count and the QRE does not say.
+- Changes downstream: Which answers satisfy the rule. Respondents choosing an omitted answer take a different path than they should.
+
+**text_pipe_inferred** — affects Q20, Q21, Q8, Q9
+
+- Why it matters: Q8's wording appears to quote the answer given at Q3. No table states this; it was read out of the sentence, so it is worth confirming.
+- Changes downstream: Whether this question's wording depends on an earlier answer, which decides the order a bot must answer in and what text it should expect on screen.
+
+**quota_inferred** — affects QUOTA_AGE, QUOTA_REGION
+
+- Why it matters: Quota QUOTA_REGION was read out of a sentence by a model and passed the checks. Worth a human eye.
+- Changes downstream: Which respondents are counted against which quota, and when they are turned away.
+
+**semantics_unconfirmed** — affects C01_chronic_care_patient_journey.docx, semantics
+
+- Why it matters: The semantics block records three decisions the QRE never states: that a condition naming an unasked question is false, that the first matching rule wins, and that '==' against a multi-select compares the whole answer set. Each changes which questions appear on many routes and needs confirming.
+- Changes downstream: Which questions appear on many routes, which rule wins when two apply, and whether an 'is exactly' test passes on a multi-select answer.
+
+**guard_single_source** — affects Q15
+
+- Why it matters: Q15 has a display condition in the questionnaire but no matching rule in the routing table, so reading only the routing table would miss it.
+- Changes downstream: A display condition stated in only one place. Anyone reading the other place builds a survey without it.
+
+**partial_option_codes** — affects Q13
+
+- Why it matters: Q13 has codes on 2 of 5 options. A bot told to answer by code cannot resolve the rest, and inventing the missing codes is not allowed.
+- Changes downstream: A bot told to answer by code cannot resolve the uncoded options.
+
+**quota_ending_missing** — affects TERM_QUOTA_FULL
+
+- Why it matters: Quota QUOTA_REGION sends a full group to 'TERM_QUOTA_FULL', which no completion message defines. Nothing can show that respondent anything.
+- Changes downstream: Nothing can be asserted about what a quota-full respondent is shown.
+
+### Top issues
+
+- No incorrect or missing content. Everything outstanding is a decision, above.
+
+Agent 3 is blocked by: inferred_condition_partial_options, semantics_unconfirmed

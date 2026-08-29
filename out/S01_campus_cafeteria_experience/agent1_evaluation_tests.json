@@ -1,0 +1,2307 @@
+{
+  "schema_version": "1.0.0",
+  "artifact": "agent1_evaluation_tests",
+  "stage": 8,
+  "survey_id": "S01_campus_cafeteria_experience",
+  "source_document": {
+    "filename": "S01_campus_cafeteria_experience.docx",
+    "sha256": "2756cb3b6dc3f21cdc7c1d35b7cfb0e2270af2a918ba6fe682e72ae8e121a804",
+    "bytes": 40578
+  },
+  "generated_at": "2026-08-29T11:14:51+00:00",
+  "item_count": 130,
+  "content": [
+    {
+      "test_id": "T001",
+      "category": "question_extraction",
+      "check": "question_present",
+      "source_reference": {
+        "section": "questionnaire",
+        "block_order": 10,
+        "row_index": 0
+      },
+      "source_text": "Have you purchased food or a beverage from the campus cafeteria in the past 30 days?",
+      "target": "S1",
+      "input_state": null,
+      "expected": "S1",
+      "criticality": "HIGH",
+      "ground_truth_status": "VERIFIED",
+      "params": {}
+    },
+    {
+      "test_id": "T002",
+      "category": "question_extraction",
+      "check": "question_seq",
+      "source_reference": {
+        "section": "questionnaire",
+        "block_order": 10,
+        "row_index": 0
+      },
+      "source_text": "row 0",
+      "target": "S1",
+      "input_state": null,
+      "expected": 1,
+      "criticality": "HIGH",
+      "ground_truth_status": "VERIFIED",
+      "params": {}
+    },
+    {
+      "test_id": "T003",
+      "category": "question_type",
+      "check": "question_type",
+      "source_reference": {
+        "section": "questionnaire",
+        "block_order": 10,
+        "row_index": 0
+      },
+      "source_text": "single",
+      "target": "S1",
+      "input_state": null,
+      "expected": "single",
+      "criticality": "HIGH",
+      "ground_truth_status": "VERIFIED",
+      "params": {}
+    },
+    {
+      "test_id": "T004",
+      "category": "options",
+      "check": "option_labels",
+      "source_reference": {
+        "section": "questionnaire",
+        "block_order": 10,
+        "row_index": 0
+      },
+      "source_text": "Yes; No",
+      "target": "S1",
+      "input_state": null,
+      "expected": [
+        "Yes",
+        "No"
+      ],
+      "criticality": "HIGH",
+      "ground_truth_status": "VERIFIED",
+      "params": {}
+    },
+    {
+      "test_id": "T005",
+      "category": "display_logic",
+      "check": "guard_absent",
+      "source_reference": {
+        "section": "questionnaire",
+        "block_order": 10,
+        "row_index": 0
+      },
+      "source_text": "Always show",
+      "target": "S1",
+      "input_state": null,
+      "expected": null,
+      "criticality": "CRITICAL",
+      "ground_truth_status": "VERIFIED",
+      "params": {}
+    },
+    {
+      "test_id": "T006",
+      "category": "validation_rules",
+      "check": "mandatory",
+      "source_reference": {
+        "section": "questionnaire",
+        "block_order": 10,
+        "row_index": 0
+      },
+      "source_text": "not marked optional",
+      "target": "S1",
+      "input_state": null,
+      "expected": true,
+      "criticality": "CRITICAL",
+      "ground_truth_status": "VERIFIED",
+      "params": {}
+    },
+    {
+      "test_id": "T007",
+      "category": "question_extraction",
+      "check": "question_present",
+      "source_reference": {
+        "section": "questionnaire",
+        "block_order": 10,
+        "row_index": 1
+      },
+      "source_text": "Are you 18 years of age or older?",
+      "target": "S2",
+      "input_state": null,
+      "expected": "S2",
+      "criticality": "HIGH",
+      "ground_truth_status": "VERIFIED",
+      "params": {}
+    },
+    {
+      "test_id": "T008",
+      "category": "question_extraction",
+      "check": "question_seq",
+      "source_reference": {
+        "section": "questionnaire",
+        "block_order": 10,
+        "row_index": 1
+      },
+      "source_text": "row 1",
+      "target": "S2",
+      "input_state": null,
+      "expected": 2,
+      "criticality": "HIGH",
+      "ground_truth_status": "VERIFIED",
+      "params": {}
+    },
+    {
+      "test_id": "T009",
+      "category": "question_type",
+      "check": "question_type",
+      "source_reference": {
+        "section": "questionnaire",
+        "block_order": 10,
+        "row_index": 1
+      },
+      "source_text": "single",
+      "target": "S2",
+      "input_state": null,
+      "expected": "single",
+      "criticality": "HIGH",
+      "ground_truth_status": "VERIFIED",
+      "params": {}
+    },
+    {
+      "test_id": "T010",
+      "category": "options",
+      "check": "option_labels",
+      "source_reference": {
+        "section": "questionnaire",
+        "block_order": 10,
+        "row_index": 1
+      },
+      "source_text": "Yes; No",
+      "target": "S2",
+      "input_state": null,
+      "expected": [
+        "Yes",
+        "No"
+      ],
+      "criticality": "HIGH",
+      "ground_truth_status": "VERIFIED",
+      "params": {}
+    },
+    {
+      "test_id": "T011",
+      "category": "display_logic",
+      "check": "guard_absent",
+      "source_reference": {
+        "section": "questionnaire",
+        "block_order": 10,
+        "row_index": 1
+      },
+      "source_text": "Always show",
+      "target": "S2",
+      "input_state": null,
+      "expected": null,
+      "criticality": "CRITICAL",
+      "ground_truth_status": "VERIFIED",
+      "params": {}
+    },
+    {
+      "test_id": "T012",
+      "category": "validation_rules",
+      "check": "mandatory",
+      "source_reference": {
+        "section": "questionnaire",
+        "block_order": 10,
+        "row_index": 1
+      },
+      "source_text": "not marked optional",
+      "target": "S2",
+      "input_state": null,
+      "expected": true,
+      "criticality": "CRITICAL",
+      "ground_truth_status": "VERIFIED",
+      "params": {}
+    },
+    {
+      "test_id": "T013",
+      "category": "question_extraction",
+      "check": "question_present",
+      "source_reference": {
+        "section": "questionnaire",
+        "block_order": 10,
+        "row_index": 2
+      },
+      "source_text": "Which channel did you primarily use for this cafeteria visit?",
+      "target": "Q1",
+      "input_state": null,
+      "expected": "Q1",
+      "criticality": "HIGH",
+      "ground_truth_status": "VERIFIED",
+      "params": {}
+    },
+    {
+      "test_id": "T014",
+      "category": "question_extraction",
+      "check": "question_seq",
+      "source_reference": {
+        "section": "questionnaire",
+        "block_order": 10,
+        "row_index": 2
+      },
+      "source_text": "row 2",
+      "target": "Q1",
+      "input_state": null,
+      "expected": 3,
+      "criticality": "HIGH",
+      "ground_truth_status": "VERIFIED",
+      "params": {}
+    },
+    {
+      "test_id": "T015",
+      "category": "question_type",
+      "check": "question_type",
+      "source_reference": {
+        "section": "questionnaire",
+        "block_order": 10,
+        "row_index": 2
+      },
+      "source_text": "single",
+      "target": "Q1",
+      "input_state": null,
+      "expected": "single",
+      "criticality": "HIGH",
+      "ground_truth_status": "VERIFIED",
+      "params": {}
+    },
+    {
+      "test_id": "T016",
+      "category": "options",
+      "check": "option_labels",
+      "source_reference": {
+        "section": "questionnaire",
+        "block_order": 10,
+        "row_index": 2
+      },
+      "source_text": "Counter; Mobile pre-order; Vending kiosk",
+      "target": "Q1",
+      "input_state": null,
+      "expected": [
+        "Counter",
+        "Mobile pre-order",
+        "Vending kiosk"
+      ],
+      "criticality": "HIGH",
+      "ground_truth_status": "VERIFIED",
+      "params": {}
+    },
+    {
+      "test_id": "T017",
+      "category": "display_logic",
+      "check": "guard_absent",
+      "source_reference": {
+        "section": "questionnaire",
+        "block_order": 10,
+        "row_index": 2
+      },
+      "source_text": "Always show",
+      "target": "Q1",
+      "input_state": null,
+      "expected": null,
+      "criticality": "CRITICAL",
+      "ground_truth_status": "VERIFIED",
+      "params": {}
+    },
+    {
+      "test_id": "T018",
+      "category": "validation_rules",
+      "check": "mandatory",
+      "source_reference": {
+        "section": "questionnaire",
+        "block_order": 10,
+        "row_index": 2
+      },
+      "source_text": "not marked optional",
+      "target": "Q1",
+      "input_state": null,
+      "expected": true,
+      "criticality": "CRITICAL",
+      "ground_truth_status": "VERIFIED",
+      "params": {}
+    },
+    {
+      "test_id": "T019",
+      "category": "question_extraction",
+      "check": "question_present",
+      "source_reference": {
+        "section": "questionnaire",
+        "block_order": 10,
+        "row_index": 3
+      },
+      "source_text": "Overall, how satisfied were you with the cafeteria visit?",
+      "target": "Q2",
+      "input_state": null,
+      "expected": "Q2",
+      "criticality": "HIGH",
+      "ground_truth_status": "VERIFIED",
+      "params": {}
+    },
+    {
+      "test_id": "T020",
+      "category": "question_extraction",
+      "check": "question_seq",
+      "source_reference": {
+        "section": "questionnaire",
+        "block_order": 10,
+        "row_index": 3
+      },
+      "source_text": "row 3",
+      "target": "Q2",
+      "input_state": null,
+      "expected": 4,
+      "criticality": "HIGH",
+      "ground_truth_status": "VERIFIED",
+      "params": {}
+    },
+    {
+      "test_id": "T021",
+      "category": "question_type",
+      "check": "question_type",
+      "source_reference": {
+        "section": "questionnaire",
+        "block_order": 10,
+        "row_index": 3
+      },
+      "source_text": "single",
+      "target": "Q2",
+      "input_state": null,
+      "expected": "single",
+      "criticality": "HIGH",
+      "ground_truth_status": "VERIFIED",
+      "params": {}
+    },
+    {
+      "test_id": "T022",
+      "category": "options",
+      "check": "option_labels",
+      "source_reference": {
+        "section": "questionnaire",
+        "block_order": 10,
+        "row_index": 3
+      },
+      "source_text": "Very poor; Poor; Fair; Good; Excellent",
+      "target": "Q2",
+      "input_state": null,
+      "expected": [
+        "Very poor",
+        "Poor",
+        "Fair",
+        "Good",
+        "Excellent"
+      ],
+      "criticality": "HIGH",
+      "ground_truth_status": "VERIFIED",
+      "params": {}
+    },
+    {
+      "test_id": "T023",
+      "category": "options",
+      "check": "option_codes",
+      "source_reference": {
+        "section": "questionnaire",
+        "block_order": 10,
+        "row_index": 3
+      },
+      "source_text": "1=Very poor; 2=Poor; 3=Fair; 4=Good; 5=Excellent",
+      "target": "Q2",
+      "input_state": null,
+      "expected": {
+        "Very poor": "1",
+        "Poor": "2",
+        "Fair": "3",
+        "Good": "4",
+        "Excellent": "5"
+      },
+      "criticality": "HIGH",
+      "ground_truth_status": "VERIFIED",
+      "params": {}
+    },
+    {
+      "test_id": "T024",
+      "category": "display_logic",
+      "check": "guard_absent",
+      "source_reference": {
+        "section": "questionnaire",
+        "block_order": 10,
+        "row_index": 3
+      },
+      "source_text": "Always show",
+      "target": "Q2",
+      "input_state": null,
+      "expected": null,
+      "criticality": "CRITICAL",
+      "ground_truth_status": "VERIFIED",
+      "params": {}
+    },
+    {
+      "test_id": "T025",
+      "category": "validation_rules",
+      "check": "mandatory",
+      "source_reference": {
+        "section": "questionnaire",
+        "block_order": 10,
+        "row_index": 3
+      },
+      "source_text": "not marked optional",
+      "target": "Q2",
+      "input_state": null,
+      "expected": true,
+      "criticality": "CRITICAL",
+      "ground_truth_status": "VERIFIED",
+      "params": {}
+    },
+    {
+      "test_id": "T026",
+      "category": "question_extraction",
+      "check": "question_present",
+      "source_reference": {
+        "section": "questionnaire",
+        "block_order": 10,
+        "row_index": 4
+      },
+      "source_text": "How easy was it to complete what you wanted to do?",
+      "target": "Q3",
+      "input_state": null,
+      "expected": "Q3",
+      "criticality": "HIGH",
+      "ground_truth_status": "VERIFIED",
+      "params": {}
+    },
+    {
+      "test_id": "T027",
+      "category": "question_extraction",
+      "check": "question_seq",
+      "source_reference": {
+        "section": "questionnaire",
+        "block_order": 10,
+        "row_index": 4
+      },
+      "source_text": "row 4",
+      "target": "Q3",
+      "input_state": null,
+      "expected": 5,
+      "criticality": "HIGH",
+      "ground_truth_status": "VERIFIED",
+      "params": {}
+    },
+    {
+      "test_id": "T028",
+      "category": "question_type",
+      "check": "question_type",
+      "source_reference": {
+        "section": "questionnaire",
+        "block_order": 10,
+        "row_index": 4
+      },
+      "source_text": "single",
+      "target": "Q3",
+      "input_state": null,
+      "expected": "single",
+      "criticality": "HIGH",
+      "ground_truth_status": "VERIFIED",
+      "params": {}
+    },
+    {
+      "test_id": "T029",
+      "category": "options",
+      "check": "option_labels",
+      "source_reference": {
+        "section": "questionnaire",
+        "block_order": 10,
+        "row_index": 4
+      },
+      "source_text": "Very poor; Poor; Fair; Good; Excellent",
+      "target": "Q3",
+      "input_state": null,
+      "expected": [
+        "Very poor",
+        "Poor",
+        "Fair",
+        "Good",
+        "Excellent"
+      ],
+      "criticality": "HIGH",
+      "ground_truth_status": "VERIFIED",
+      "params": {}
+    },
+    {
+      "test_id": "T030",
+      "category": "options",
+      "check": "option_codes",
+      "source_reference": {
+        "section": "questionnaire",
+        "block_order": 10,
+        "row_index": 4
+      },
+      "source_text": "1=Very poor; 2=Poor; 3=Fair; 4=Good; 5=Excellent",
+      "target": "Q3",
+      "input_state": null,
+      "expected": {
+        "Very poor": "1",
+        "Poor": "2",
+        "Fair": "3",
+        "Good": "4",
+        "Excellent": "5"
+      },
+      "criticality": "HIGH",
+      "ground_truth_status": "VERIFIED",
+      "params": {}
+    },
+    {
+      "test_id": "T031",
+      "category": "display_logic",
+      "check": "guard_absent",
+      "source_reference": {
+        "section": "questionnaire",
+        "block_order": 10,
+        "row_index": 4
+      },
+      "source_text": "Always show",
+      "target": "Q3",
+      "input_state": null,
+      "expected": null,
+      "criticality": "CRITICAL",
+      "ground_truth_status": "VERIFIED",
+      "params": {}
+    },
+    {
+      "test_id": "T032",
+      "category": "validation_rules",
+      "check": "mandatory",
+      "source_reference": {
+        "section": "questionnaire",
+        "block_order": 10,
+        "row_index": 4
+      },
+      "source_text": "not marked optional",
+      "target": "Q3",
+      "input_state": null,
+      "expected": true,
+      "criticality": "CRITICAL",
+      "ground_truth_status": "VERIFIED",
+      "params": {}
+    },
+    {
+      "test_id": "T033",
+      "category": "question_extraction",
+      "check": "question_present",
+      "source_reference": {
+        "section": "questionnaire",
+        "block_order": 10,
+        "row_index": 5
+      },
+      "source_text": "Which aspects influenced your rating? Select all that apply.",
+      "target": "Q4",
+      "input_state": null,
+      "expected": "Q4",
+      "criticality": "HIGH",
+      "ground_truth_status": "VERIFIED",
+      "params": {}
+    },
+    {
+      "test_id": "T034",
+      "category": "question_extraction",
+      "check": "question_seq",
+      "source_reference": {
+        "section": "questionnaire",
+        "block_order": 10,
+        "row_index": 5
+      },
+      "source_text": "row 5",
+      "target": "Q4",
+      "input_state": null,
+      "expected": 6,
+      "criticality": "HIGH",
+      "ground_truth_status": "VERIFIED",
+      "params": {}
+    },
+    {
+      "test_id": "T035",
+      "category": "question_type",
+      "check": "question_type",
+      "source_reference": {
+        "section": "questionnaire",
+        "block_order": 10,
+        "row_index": 5
+      },
+      "source_text": "multi",
+      "target": "Q4",
+      "input_state": null,
+      "expected": "multi",
+      "criticality": "HIGH",
+      "ground_truth_status": "VERIFIED",
+      "params": {}
+    },
+    {
+      "test_id": "T036",
+      "category": "options",
+      "check": "option_labels",
+      "source_reference": {
+        "section": "questionnaire",
+        "block_order": 10,
+        "row_index": 5
+      },
+      "source_text": "Food quality; Menu variety; Waiting time; Cleanliness; Staff behaviour; Price",
+      "target": "Q4",
+      "input_state": null,
+      "expected": [
+        "Food quality",
+        "Menu variety",
+        "Waiting time",
+        "Cleanliness",
+        "Staff behaviour",
+        "Price"
+      ],
+      "criticality": "HIGH",
+      "ground_truth_status": "VERIFIED",
+      "params": {}
+    },
+    {
+      "test_id": "T037",
+      "category": "validation_rules",
+      "check": "validation_field",
+      "source_reference": {
+        "section": "questionnaire",
+        "block_order": 10,
+        "row_index": 5
+      },
+      "source_text": "min_selections: 1",
+      "target": "Q4",
+      "input_state": null,
+      "expected": 1,
+      "criticality": "CRITICAL",
+      "ground_truth_status": "VERIFIED",
+      "params": {
+        "field": "min_selections"
+      }
+    },
+    {
+      "test_id": "T038",
+      "category": "validation_rules",
+      "check": "mandatory",
+      "source_reference": {
+        "section": "questionnaire",
+        "block_order": 10,
+        "row_index": 5
+      },
+      "source_text": "not marked optional",
+      "target": "Q4",
+      "input_state": null,
+      "expected": true,
+      "criticality": "CRITICAL",
+      "ground_truth_status": "VERIFIED",
+      "params": {}
+    },
+    {
+      "test_id": "T039",
+      "category": "question_extraction",
+      "check": "question_present",
+      "source_reference": {
+        "section": "questionnaire",
+        "block_order": 10,
+        "row_index": 6
+      },
+      "source_text": "Did you encounter a problem?",
+      "target": "Q5",
+      "input_state": null,
+      "expected": "Q5",
+      "criticality": "HIGH",
+      "ground_truth_status": "VERIFIED",
+      "params": {}
+    },
+    {
+      "test_id": "T040",
+      "category": "question_extraction",
+      "check": "question_seq",
+      "source_reference": {
+        "section": "questionnaire",
+        "block_order": 10,
+        "row_index": 6
+      },
+      "source_text": "row 6",
+      "target": "Q5",
+      "input_state": null,
+      "expected": 7,
+      "criticality": "HIGH",
+      "ground_truth_status": "VERIFIED",
+      "params": {}
+    },
+    {
+      "test_id": "T041",
+      "category": "question_type",
+      "check": "question_type",
+      "source_reference": {
+        "section": "questionnaire",
+        "block_order": 10,
+        "row_index": 6
+      },
+      "source_text": "single",
+      "target": "Q5",
+      "input_state": null,
+      "expected": "single",
+      "criticality": "HIGH",
+      "ground_truth_status": "VERIFIED",
+      "params": {}
+    },
+    {
+      "test_id": "T042",
+      "category": "options",
+      "check": "option_labels",
+      "source_reference": {
+        "section": "questionnaire",
+        "block_order": 10,
+        "row_index": 6
+      },
+      "source_text": "Yes; No",
+      "target": "Q5",
+      "input_state": null,
+      "expected": [
+        "Yes",
+        "No"
+      ],
+      "criticality": "HIGH",
+      "ground_truth_status": "VERIFIED",
+      "params": {}
+    },
+    {
+      "test_id": "T043",
+      "category": "display_logic",
+      "check": "guard_absent",
+      "source_reference": {
+        "section": "questionnaire",
+        "block_order": 10,
+        "row_index": 6
+      },
+      "source_text": "Always show",
+      "target": "Q5",
+      "input_state": null,
+      "expected": null,
+      "criticality": "CRITICAL",
+      "ground_truth_status": "VERIFIED",
+      "params": {}
+    },
+    {
+      "test_id": "T044",
+      "category": "validation_rules",
+      "check": "mandatory",
+      "source_reference": {
+        "section": "questionnaire",
+        "block_order": 10,
+        "row_index": 6
+      },
+      "source_text": "not marked optional",
+      "target": "Q5",
+      "input_state": null,
+      "expected": true,
+      "criticality": "CRITICAL",
+      "ground_truth_status": "VERIFIED",
+      "params": {}
+    },
+    {
+      "test_id": "T045",
+      "category": "question_extraction",
+      "check": "question_present",
+      "source_reference": {
+        "section": "questionnaire",
+        "block_order": 10,
+        "row_index": 7
+      },
+      "source_text": "Please describe the main problem.",
+      "target": "Q6",
+      "input_state": null,
+      "expected": "Q6",
+      "criticality": "HIGH",
+      "ground_truth_status": "VERIFIED",
+      "params": {}
+    },
+    {
+      "test_id": "T046",
+      "category": "question_extraction",
+      "check": "question_seq",
+      "source_reference": {
+        "section": "questionnaire",
+        "block_order": 10,
+        "row_index": 7
+      },
+      "source_text": "row 7",
+      "target": "Q6",
+      "input_state": null,
+      "expected": 8,
+      "criticality": "HIGH",
+      "ground_truth_status": "VERIFIED",
+      "params": {}
+    },
+    {
+      "test_id": "T047",
+      "category": "question_type",
+      "check": "question_type",
+      "source_reference": {
+        "section": "questionnaire",
+        "block_order": 10,
+        "row_index": 7
+      },
+      "source_text": "text",
+      "target": "Q6",
+      "input_state": null,
+      "expected": "text",
+      "criticality": "HIGH",
+      "ground_truth_status": "VERIFIED",
+      "params": {}
+    },
+    {
+      "test_id": "T048",
+      "category": "display_logic",
+      "check": "guard_present",
+      "source_reference": {
+        "section": "questionnaire",
+        "block_order": 10,
+        "row_index": 7
+      },
+      "source_text": "Q5 == 'Yes'",
+      "target": "Q6",
+      "input_state": null,
+      "expected": "Q5 == 'Yes'",
+      "criticality": "CRITICAL",
+      "ground_truth_status": "VERIFIED",
+      "params": {}
+    },
+    {
+      "test_id": "T049",
+      "category": "display_logic",
+      "check": "condition_eval",
+      "source_reference": {
+        "section": "questionnaire",
+        "block_order": 10,
+        "row_index": 7
+      },
+      "source_text": "Q5 == 'Yes'",
+      "target": "Q6",
+      "input_state": {
+        "Q5": "Yes"
+      },
+      "expected": true,
+      "criticality": "CRITICAL",
+      "ground_truth_status": "VERIFIED",
+      "params": {
+        "subject": "question"
+      }
+    },
+    {
+      "test_id": "T050",
+      "category": "display_logic",
+      "check": "condition_eval",
+      "source_reference": {
+        "section": "questionnaire",
+        "block_order": 10,
+        "row_index": 7
+      },
+      "source_text": "Q5 == 'Yes'",
+      "target": "Q6",
+      "input_state": {
+        "Q5": "No"
+      },
+      "expected": false,
+      "criticality": "CRITICAL",
+      "ground_truth_status": "VERIFIED",
+      "params": {
+        "subject": "question"
+      }
+    },
+    {
+      "test_id": "T051",
+      "category": "validation_rules",
+      "check": "validation_field",
+      "source_reference": {
+        "section": "questionnaire",
+        "block_order": 10,
+        "row_index": 7
+      },
+      "source_text": "min_length: 10",
+      "target": "Q6",
+      "input_state": null,
+      "expected": 10,
+      "criticality": "CRITICAL",
+      "ground_truth_status": "VERIFIED",
+      "params": {
+        "field": "min_length"
+      }
+    },
+    {
+      "test_id": "T052",
+      "category": "validation_rules",
+      "check": "validation_field",
+      "source_reference": {
+        "section": "questionnaire",
+        "block_order": 10,
+        "row_index": 7
+      },
+      "source_text": "max_length: 500",
+      "target": "Q6",
+      "input_state": null,
+      "expected": 500,
+      "criticality": "CRITICAL",
+      "ground_truth_status": "VERIFIED",
+      "params": {
+        "field": "max_length"
+      }
+    },
+    {
+      "test_id": "T053",
+      "category": "validation_rules",
+      "check": "mandatory",
+      "source_reference": {
+        "section": "questionnaire",
+        "block_order": 10,
+        "row_index": 7
+      },
+      "source_text": "not marked optional",
+      "target": "Q6",
+      "input_state": null,
+      "expected": true,
+      "criticality": "CRITICAL",
+      "ground_truth_status": "VERIFIED",
+      "params": {}
+    },
+    {
+      "test_id": "T054",
+      "category": "question_extraction",
+      "check": "question_present",
+      "source_reference": {
+        "section": "questionnaire",
+        "block_order": 10,
+        "row_index": 8
+      },
+      "source_text": "How likely are you to recommend this service?",
+      "target": "Q7",
+      "input_state": null,
+      "expected": "Q7",
+      "criticality": "HIGH",
+      "ground_truth_status": "VERIFIED",
+      "params": {}
+    },
+    {
+      "test_id": "T055",
+      "category": "question_extraction",
+      "check": "question_seq",
+      "source_reference": {
+        "section": "questionnaire",
+        "block_order": 10,
+        "row_index": 8
+      },
+      "source_text": "row 8",
+      "target": "Q7",
+      "input_state": null,
+      "expected": 9,
+      "criticality": "HIGH",
+      "ground_truth_status": "VERIFIED",
+      "params": {}
+    },
+    {
+      "test_id": "T056",
+      "category": "question_type",
+      "check": "question_type",
+      "source_reference": {
+        "section": "questionnaire",
+        "block_order": 10,
+        "row_index": 8
+      },
+      "source_text": "single",
+      "target": "Q7",
+      "input_state": null,
+      "expected": "single",
+      "criticality": "HIGH",
+      "ground_truth_status": "VERIFIED",
+      "params": {}
+    },
+    {
+      "test_id": "T057",
+      "category": "options",
+      "check": "option_labels",
+      "source_reference": {
+        "section": "questionnaire",
+        "block_order": 10,
+        "row_index": 8
+      },
+      "source_text": "0; 1; 2; 3; 4; 5; 6; 7; 8; 9; 10",
+      "target": "Q7",
+      "input_state": null,
+      "expected": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10"
+      ],
+      "criticality": "HIGH",
+      "ground_truth_status": "VERIFIED",
+      "params": {}
+    },
+    {
+      "test_id": "T058",
+      "category": "display_logic",
+      "check": "guard_absent",
+      "source_reference": {
+        "section": "questionnaire",
+        "block_order": 10,
+        "row_index": 8
+      },
+      "source_text": "Always show",
+      "target": "Q7",
+      "input_state": null,
+      "expected": null,
+      "criticality": "CRITICAL",
+      "ground_truth_status": "VERIFIED",
+      "params": {}
+    },
+    {
+      "test_id": "T059",
+      "category": "validation_rules",
+      "check": "mandatory",
+      "source_reference": {
+        "section": "questionnaire",
+        "block_order": 10,
+        "row_index": 8
+      },
+      "source_text": "not marked optional",
+      "target": "Q7",
+      "input_state": null,
+      "expected": true,
+      "criticality": "CRITICAL",
+      "ground_truth_status": "VERIFIED",
+      "params": {}
+    },
+    {
+      "test_id": "T060",
+      "category": "question_extraction",
+      "check": "question_present",
+      "source_reference": {
+        "section": "questionnaire",
+        "block_order": 10,
+        "row_index": 9
+      },
+      "source_text": "What is the single most important improvement you would suggest?",
+      "target": "Q8",
+      "input_state": null,
+      "expected": "Q8",
+      "criticality": "HIGH",
+      "ground_truth_status": "VERIFIED",
+      "params": {}
+    },
+    {
+      "test_id": "T061",
+      "category": "question_extraction",
+      "check": "question_seq",
+      "source_reference": {
+        "section": "questionnaire",
+        "block_order": 10,
+        "row_index": 9
+      },
+      "source_text": "row 9",
+      "target": "Q8",
+      "input_state": null,
+      "expected": 10,
+      "criticality": "HIGH",
+      "ground_truth_status": "VERIFIED",
+      "params": {}
+    },
+    {
+      "test_id": "T062",
+      "category": "question_type",
+      "check": "question_type",
+      "source_reference": {
+        "section": "questionnaire",
+        "block_order": 10,
+        "row_index": 9
+      },
+      "source_text": "text",
+      "target": "Q8",
+      "input_state": null,
+      "expected": "text",
+      "criticality": "HIGH",
+      "ground_truth_status": "VERIFIED",
+      "params": {}
+    },
+    {
+      "test_id": "T063",
+      "category": "validation_rules",
+      "check": "validation_field",
+      "source_reference": {
+        "section": "questionnaire",
+        "block_order": 10,
+        "row_index": 9
+      },
+      "source_text": "max_length: 500",
+      "target": "Q8",
+      "input_state": null,
+      "expected": 500,
+      "criticality": "CRITICAL",
+      "ground_truth_status": "VERIFIED",
+      "params": {
+        "field": "max_length"
+      }
+    },
+    {
+      "test_id": "T064",
+      "category": "validation_rules",
+      "check": "mandatory",
+      "source_reference": {
+        "section": "questionnaire",
+        "block_order": 10,
+        "row_index": 9
+      },
+      "source_text": "Optional",
+      "target": "Q8",
+      "input_state": null,
+      "expected": false,
+      "criticality": "CRITICAL",
+      "ground_truth_status": "VERIFIED",
+      "params": {}
+    },
+    {
+      "test_id": "T065",
+      "category": "question_extraction",
+      "check": "question_count",
+      "source_reference": {},
+      "source_text": "questionnaire table",
+      "target": "survey",
+      "input_state": null,
+      "expected": 10,
+      "criticality": "HIGH",
+      "ground_truth_status": "VERIFIED",
+      "params": {}
+    },
+    {
+      "test_id": "T066",
+      "category": "termination_logic",
+      "check": "rule_present",
+      "source_reference": {
+        "section": "routing",
+        "block_order": 12,
+        "row_index": 0
+      },
+      "source_text": "S1 == 'No'",
+      "target": "R1",
+      "input_state": null,
+      "expected": "R1",
+      "criticality": "CRITICAL",
+      "ground_truth_status": "VERIFIED",
+      "params": {}
+    },
+    {
+      "test_id": "T067",
+      "category": "termination_logic",
+      "check": "rule_action",
+      "source_reference": {
+        "section": "routing",
+        "block_order": 12,
+        "row_index": 0
+      },
+      "source_text": "terminate",
+      "target": "R1",
+      "input_state": null,
+      "expected": "terminate",
+      "criticality": "CRITICAL",
+      "ground_truth_status": "VERIFIED",
+      "params": {}
+    },
+    {
+      "test_id": "T068",
+      "category": "termination_logic",
+      "check": "rule_destination",
+      "source_reference": {
+        "section": "routing",
+        "block_order": 12,
+        "row_index": 0
+      },
+      "source_text": "TERM_INELIGIBLE",
+      "target": "R1",
+      "input_state": null,
+      "expected": "TERM_INELIGIBLE",
+      "criticality": "CRITICAL",
+      "ground_truth_status": "VERIFIED",
+      "params": {}
+    },
+    {
+      "test_id": "T069",
+      "category": "termination_logic",
+      "check": "rule_condition_text",
+      "source_reference": {
+        "section": "routing",
+        "block_order": 12,
+        "row_index": 0
+      },
+      "source_text": "S1 == 'No'",
+      "target": "R1",
+      "input_state": null,
+      "expected": "S1 == 'No'",
+      "criticality": "CRITICAL",
+      "ground_truth_status": "VERIFIED",
+      "params": {}
+    },
+    {
+      "test_id": "T070",
+      "category": "termination_logic",
+      "check": "termination_defined",
+      "source_reference": {
+        "section": "routing",
+        "block_order": 12,
+        "row_index": 0
+      },
+      "source_text": "TERM_INELIGIBLE",
+      "target": "R1",
+      "input_state": null,
+      "expected": "defined",
+      "criticality": "CRITICAL",
+      "ground_truth_status": "VERIFIED",
+      "params": {
+        "disposition": "TERM_INELIGIBLE"
+      }
+    },
+    {
+      "test_id": "T071",
+      "category": "termination_logic",
+      "check": "condition_eval",
+      "source_reference": {
+        "section": "routing",
+        "block_order": 12,
+        "row_index": 0
+      },
+      "source_text": "S1 == 'No'",
+      "target": "R1",
+      "input_state": {
+        "S1": "No"
+      },
+      "expected": true,
+      "criticality": "CRITICAL",
+      "ground_truth_status": "VERIFIED",
+      "params": {
+        "subject": "rule"
+      }
+    },
+    {
+      "test_id": "T072",
+      "category": "termination_logic",
+      "check": "condition_eval",
+      "source_reference": {
+        "section": "routing",
+        "block_order": 12,
+        "row_index": 0
+      },
+      "source_text": "S1 == 'No'",
+      "target": "R1",
+      "input_state": {
+        "S1": "Yes"
+      },
+      "expected": false,
+      "criticality": "CRITICAL",
+      "ground_truth_status": "VERIFIED",
+      "params": {
+        "subject": "rule"
+      }
+    },
+    {
+      "test_id": "T073",
+      "category": "termination_logic",
+      "check": "rule_provenance",
+      "source_reference": {
+        "section": "routing",
+        "block_order": 12,
+        "row_index": 0
+      },
+      "source_text": "row 0",
+      "target": "R1",
+      "input_state": null,
+      "expected": 0,
+      "criticality": "NORMAL",
+      "ground_truth_status": "VERIFIED",
+      "params": {}
+    },
+    {
+      "test_id": "T074",
+      "category": "termination_logic",
+      "check": "rule_evaluation_point",
+      "source_reference": {
+        "section": "routing",
+        "block_order": 12,
+        "row_index": 0
+      },
+      "source_text": "S1 == 'No'",
+      "target": "R1",
+      "input_state": null,
+      "expected": "the QRE states no evaluation point",
+      "criticality": "CRITICAL",
+      "ground_truth_status": "UNVERIFIED",
+      "params": {}
+    },
+    {
+      "test_id": "T075",
+      "category": "termination_logic",
+      "check": "rule_present",
+      "source_reference": {
+        "section": "routing",
+        "block_order": 12,
+        "row_index": 1
+      },
+      "source_text": "S2 == 'No'",
+      "target": "R2",
+      "input_state": null,
+      "expected": "R2",
+      "criticality": "CRITICAL",
+      "ground_truth_status": "VERIFIED",
+      "params": {}
+    },
+    {
+      "test_id": "T076",
+      "category": "termination_logic",
+      "check": "rule_action",
+      "source_reference": {
+        "section": "routing",
+        "block_order": 12,
+        "row_index": 1
+      },
+      "source_text": "terminate",
+      "target": "R2",
+      "input_state": null,
+      "expected": "terminate",
+      "criticality": "CRITICAL",
+      "ground_truth_status": "VERIFIED",
+      "params": {}
+    },
+    {
+      "test_id": "T077",
+      "category": "termination_logic",
+      "check": "rule_destination",
+      "source_reference": {
+        "section": "routing",
+        "block_order": 12,
+        "row_index": 1
+      },
+      "source_text": "TERM_INELIGIBLE",
+      "target": "R2",
+      "input_state": null,
+      "expected": "TERM_INELIGIBLE",
+      "criticality": "CRITICAL",
+      "ground_truth_status": "VERIFIED",
+      "params": {}
+    },
+    {
+      "test_id": "T078",
+      "category": "termination_logic",
+      "check": "rule_condition_text",
+      "source_reference": {
+        "section": "routing",
+        "block_order": 12,
+        "row_index": 1
+      },
+      "source_text": "S2 == 'No'",
+      "target": "R2",
+      "input_state": null,
+      "expected": "S2 == 'No'",
+      "criticality": "CRITICAL",
+      "ground_truth_status": "VERIFIED",
+      "params": {}
+    },
+    {
+      "test_id": "T079",
+      "category": "termination_logic",
+      "check": "termination_defined",
+      "source_reference": {
+        "section": "routing",
+        "block_order": 12,
+        "row_index": 1
+      },
+      "source_text": "TERM_INELIGIBLE",
+      "target": "R2",
+      "input_state": null,
+      "expected": "defined",
+      "criticality": "CRITICAL",
+      "ground_truth_status": "VERIFIED",
+      "params": {
+        "disposition": "TERM_INELIGIBLE"
+      }
+    },
+    {
+      "test_id": "T080",
+      "category": "termination_logic",
+      "check": "condition_eval",
+      "source_reference": {
+        "section": "routing",
+        "block_order": 12,
+        "row_index": 1
+      },
+      "source_text": "S2 == 'No'",
+      "target": "R2",
+      "input_state": {
+        "S2": "No"
+      },
+      "expected": true,
+      "criticality": "CRITICAL",
+      "ground_truth_status": "VERIFIED",
+      "params": {
+        "subject": "rule"
+      }
+    },
+    {
+      "test_id": "T081",
+      "category": "termination_logic",
+      "check": "condition_eval",
+      "source_reference": {
+        "section": "routing",
+        "block_order": 12,
+        "row_index": 1
+      },
+      "source_text": "S2 == 'No'",
+      "target": "R2",
+      "input_state": {
+        "S2": "Yes"
+      },
+      "expected": false,
+      "criticality": "CRITICAL",
+      "ground_truth_status": "VERIFIED",
+      "params": {
+        "subject": "rule"
+      }
+    },
+    {
+      "test_id": "T082",
+      "category": "termination_logic",
+      "check": "rule_provenance",
+      "source_reference": {
+        "section": "routing",
+        "block_order": 12,
+        "row_index": 1
+      },
+      "source_text": "row 1",
+      "target": "R2",
+      "input_state": null,
+      "expected": 1,
+      "criticality": "NORMAL",
+      "ground_truth_status": "VERIFIED",
+      "params": {}
+    },
+    {
+      "test_id": "T083",
+      "category": "termination_logic",
+      "check": "rule_evaluation_point",
+      "source_reference": {
+        "section": "routing",
+        "block_order": 12,
+        "row_index": 1
+      },
+      "source_text": "S2 == 'No'",
+      "target": "R2",
+      "input_state": null,
+      "expected": "the QRE states no evaluation point",
+      "criticality": "CRITICAL",
+      "ground_truth_status": "UNVERIFIED",
+      "params": {}
+    },
+    {
+      "test_id": "T084",
+      "category": "routing_logic",
+      "check": "rule_present",
+      "source_reference": {
+        "section": "routing",
+        "block_order": 12,
+        "row_index": 2
+      },
+      "source_text": "Q5 == 'Yes'",
+      "target": "R3",
+      "input_state": null,
+      "expected": "R3",
+      "criticality": "CRITICAL",
+      "ground_truth_status": "VERIFIED",
+      "params": {}
+    },
+    {
+      "test_id": "T085",
+      "category": "routing_logic",
+      "check": "rule_action",
+      "source_reference": {
+        "section": "routing",
+        "block_order": 12,
+        "row_index": 2
+      },
+      "source_text": "show",
+      "target": "R3",
+      "input_state": null,
+      "expected": "show",
+      "criticality": "CRITICAL",
+      "ground_truth_status": "VERIFIED",
+      "params": {}
+    },
+    {
+      "test_id": "T086",
+      "category": "routing_logic",
+      "check": "rule_destination",
+      "source_reference": {
+        "section": "routing",
+        "block_order": 12,
+        "row_index": 2
+      },
+      "source_text": "Q6",
+      "target": "R3",
+      "input_state": null,
+      "expected": "Q6",
+      "criticality": "CRITICAL",
+      "ground_truth_status": "VERIFIED",
+      "params": {}
+    },
+    {
+      "test_id": "T087",
+      "category": "routing_logic",
+      "check": "rule_condition_text",
+      "source_reference": {
+        "section": "routing",
+        "block_order": 12,
+        "row_index": 2
+      },
+      "source_text": "Q5 == 'Yes'",
+      "target": "R3",
+      "input_state": null,
+      "expected": "Q5 == 'Yes'",
+      "criticality": "CRITICAL",
+      "ground_truth_status": "VERIFIED",
+      "params": {}
+    },
+    {
+      "test_id": "T088",
+      "category": "routing_logic",
+      "check": "condition_eval",
+      "source_reference": {
+        "section": "routing",
+        "block_order": 12,
+        "row_index": 2
+      },
+      "source_text": "Q5 == 'Yes'",
+      "target": "R3",
+      "input_state": {
+        "Q5": "Yes"
+      },
+      "expected": true,
+      "criticality": "CRITICAL",
+      "ground_truth_status": "VERIFIED",
+      "params": {
+        "subject": "rule"
+      }
+    },
+    {
+      "test_id": "T089",
+      "category": "routing_logic",
+      "check": "condition_eval",
+      "source_reference": {
+        "section": "routing",
+        "block_order": 12,
+        "row_index": 2
+      },
+      "source_text": "Q5 == 'Yes'",
+      "target": "R3",
+      "input_state": {
+        "Q5": "No"
+      },
+      "expected": false,
+      "criticality": "CRITICAL",
+      "ground_truth_status": "VERIFIED",
+      "params": {
+        "subject": "rule"
+      }
+    },
+    {
+      "test_id": "T090",
+      "category": "routing_logic",
+      "check": "rule_provenance",
+      "source_reference": {
+        "section": "routing",
+        "block_order": 12,
+        "row_index": 2
+      },
+      "source_text": "row 2",
+      "target": "R3",
+      "input_state": null,
+      "expected": 2,
+      "criticality": "NORMAL",
+      "ground_truth_status": "VERIFIED",
+      "params": {}
+    },
+    {
+      "test_id": "T091",
+      "category": "routing_logic",
+      "check": "rule_evaluation_point",
+      "source_reference": {
+        "section": "routing",
+        "block_order": 12,
+        "row_index": 2
+      },
+      "source_text": "Q5 == 'Yes'",
+      "target": "R3",
+      "input_state": null,
+      "expected": "the QRE states no evaluation point",
+      "criticality": "CRITICAL",
+      "ground_truth_status": "UNVERIFIED",
+      "params": {}
+    },
+    {
+      "test_id": "T092",
+      "category": "skip_logic",
+      "check": "rule_present",
+      "source_reference": {
+        "section": "routing",
+        "block_order": 12,
+        "row_index": 3
+      },
+      "source_text": "Q5 == 'No'",
+      "target": "R4",
+      "input_state": null,
+      "expected": "R4",
+      "criticality": "CRITICAL",
+      "ground_truth_status": "VERIFIED",
+      "params": {}
+    },
+    {
+      "test_id": "T093",
+      "category": "skip_logic",
+      "check": "rule_action",
+      "source_reference": {
+        "section": "routing",
+        "block_order": 12,
+        "row_index": 3
+      },
+      "source_text": "skip",
+      "target": "R4",
+      "input_state": null,
+      "expected": "skip",
+      "criticality": "CRITICAL",
+      "ground_truth_status": "VERIFIED",
+      "params": {}
+    },
+    {
+      "test_id": "T094",
+      "category": "skip_logic",
+      "check": "rule_destination",
+      "source_reference": {
+        "section": "routing",
+        "block_order": 12,
+        "row_index": 3
+      },
+      "source_text": "Q7",
+      "target": "R4",
+      "input_state": null,
+      "expected": "Q7",
+      "criticality": "CRITICAL",
+      "ground_truth_status": "VERIFIED",
+      "params": {}
+    },
+    {
+      "test_id": "T095",
+      "category": "skip_logic",
+      "check": "rule_condition_text",
+      "source_reference": {
+        "section": "routing",
+        "block_order": 12,
+        "row_index": 3
+      },
+      "source_text": "Q5 == 'No'",
+      "target": "R4",
+      "input_state": null,
+      "expected": "Q5 == 'No'",
+      "criticality": "CRITICAL",
+      "ground_truth_status": "VERIFIED",
+      "params": {}
+    },
+    {
+      "test_id": "T096",
+      "category": "skip_logic",
+      "check": "condition_eval",
+      "source_reference": {
+        "section": "routing",
+        "block_order": 12,
+        "row_index": 3
+      },
+      "source_text": "Q5 == 'No'",
+      "target": "R4",
+      "input_state": {
+        "Q5": "No"
+      },
+      "expected": true,
+      "criticality": "CRITICAL",
+      "ground_truth_status": "VERIFIED",
+      "params": {
+        "subject": "rule"
+      }
+    },
+    {
+      "test_id": "T097",
+      "category": "skip_logic",
+      "check": "condition_eval",
+      "source_reference": {
+        "section": "routing",
+        "block_order": 12,
+        "row_index": 3
+      },
+      "source_text": "Q5 == 'No'",
+      "target": "R4",
+      "input_state": {
+        "Q5": "Yes"
+      },
+      "expected": false,
+      "criticality": "CRITICAL",
+      "ground_truth_status": "VERIFIED",
+      "params": {
+        "subject": "rule"
+      }
+    },
+    {
+      "test_id": "T098",
+      "category": "skip_logic",
+      "check": "rule_provenance",
+      "source_reference": {
+        "section": "routing",
+        "block_order": 12,
+        "row_index": 3
+      },
+      "source_text": "row 3",
+      "target": "R4",
+      "input_state": null,
+      "expected": 3,
+      "criticality": "NORMAL",
+      "ground_truth_status": "VERIFIED",
+      "params": {}
+    },
+    {
+      "test_id": "T099",
+      "category": "skip_logic",
+      "check": "rule_evaluation_point",
+      "source_reference": {
+        "section": "routing",
+        "block_order": 12,
+        "row_index": 3
+      },
+      "source_text": "Q5 == 'No'",
+      "target": "R4",
+      "input_state": null,
+      "expected": "the QRE states no evaluation point",
+      "criticality": "CRITICAL",
+      "ground_truth_status": "UNVERIFIED",
+      "params": {}
+    },
+    {
+      "test_id": "T100",
+      "category": "routing_logic",
+      "check": "rule_count",
+      "source_reference": {},
+      "source_text": "routing table",
+      "target": "survey",
+      "input_state": null,
+      "expected": 4,
+      "criticality": "CRITICAL",
+      "ground_truth_status": "VERIFIED",
+      "params": {}
+    },
+    {
+      "test_id": "T101",
+      "category": "dispositions_messages",
+      "check": "disposition_message",
+      "source_reference": {
+        "section": "messages",
+        "block_order": 23
+      },
+      "source_text": "Thank you for your interest. You do not qualify for this survey.",
+      "target": "TERM_INELIGIBLE",
+      "input_state": null,
+      "expected": "Thank you for your interest. You do not qualify for this survey.",
+      "criticality": "HIGH",
+      "ground_truth_status": "VERIFIED",
+      "params": {}
+    },
+    {
+      "test_id": "T102",
+      "category": "dispositions_messages",
+      "check": "disposition_message",
+      "source_reference": {
+        "section": "messages",
+        "block_order": 24
+      },
+      "source_text": "Thank you. Your response has been recorded.",
+      "target": "COMPLETE",
+      "input_state": null,
+      "expected": "Thank you. Your response has been recorded.",
+      "criticality": "HIGH",
+      "ground_truth_status": "VERIFIED",
+      "params": {}
+    },
+    {
+      "test_id": "T103",
+      "category": "acceptance_scenarios",
+      "check": "scenario_present",
+      "source_reference": {
+        "section": "scenarios",
+        "row_index": 0
+      },
+      "source_text": "recent-use screenout",
+      "target": "T1",
+      "input_state": null,
+      "expected": "T1",
+      "criticality": "HIGH",
+      "ground_truth_status": "VERIFIED",
+      "params": {}
+    },
+    {
+      "test_id": "T104",
+      "category": "acceptance_scenarios",
+      "check": "scenario_inputs",
+      "source_reference": {
+        "section": "scenarios",
+        "row_index": 0
+      },
+      "source_text": "{\"S1\": \"No\"}",
+      "target": "T1",
+      "input_state": null,
+      "expected": {
+        "S1": "No"
+      },
+      "criticality": "HIGH",
+      "ground_truth_status": "VERIFIED",
+      "params": {}
+    },
+    {
+      "test_id": "T105",
+      "category": "acceptance_scenarios",
+      "check": "scenario_expected",
+      "source_reference": {
+        "section": "scenarios",
+        "row_index": 0
+      },
+      "source_text": "{\"expected_end\": \"TERM_INELIGIBLE\"}",
+      "target": "T1",
+      "input_state": null,
+      "expected": {
+        "expected_end": "TERM_INELIGIBLE"
+      },
+      "criticality": "HIGH",
+      "ground_truth_status": "VERIFIED",
+      "params": {}
+    },
+    {
+      "test_id": "T106",
+      "category": "acceptance_scenarios",
+      "check": "scenario_present",
+      "source_reference": {
+        "section": "scenarios",
+        "row_index": 1
+      },
+      "source_text": "eligible with problem",
+      "target": "T2",
+      "input_state": null,
+      "expected": "T2",
+      "criticality": "HIGH",
+      "ground_truth_status": "VERIFIED",
+      "params": {}
+    },
+    {
+      "test_id": "T107",
+      "category": "acceptance_scenarios",
+      "check": "scenario_inputs",
+      "source_reference": {
+        "section": "scenarios",
+        "row_index": 1
+      },
+      "source_text": "{\"S1\": \"Yes\", \"S2\": \"Yes\", \"Q5\": \"Yes\"}",
+      "target": "T2",
+      "input_state": null,
+      "expected": {
+        "S1": "Yes",
+        "S2": "Yes",
+        "Q5": "Yes"
+      },
+      "criticality": "HIGH",
+      "ground_truth_status": "VERIFIED",
+      "params": {}
+    },
+    {
+      "test_id": "T108",
+      "category": "acceptance_scenarios",
+      "check": "scenario_expected",
+      "source_reference": {
+        "section": "scenarios",
+        "row_index": 1
+      },
+      "source_text": "{\"expected_visible\": [\"Q6\"], \"expected_end\": \"COMPLETE\"}",
+      "target": "T2",
+      "input_state": null,
+      "expected": {
+        "expected_visible": [
+          "Q6"
+        ],
+        "expected_end": "COMPLETE"
+      },
+      "criticality": "HIGH",
+      "ground_truth_status": "VERIFIED",
+      "params": {}
+    },
+    {
+      "test_id": "T109",
+      "category": "acceptance_scenarios",
+      "check": "scenario_present",
+      "source_reference": {
+        "section": "scenarios",
+        "row_index": 2
+      },
+      "source_text": "eligible without problem",
+      "target": "T3",
+      "input_state": null,
+      "expected": "T3",
+      "criticality": "HIGH",
+      "ground_truth_status": "VERIFIED",
+      "params": {}
+    },
+    {
+      "test_id": "T110",
+      "category": "acceptance_scenarios",
+      "check": "scenario_inputs",
+      "source_reference": {
+        "section": "scenarios",
+        "row_index": 2
+      },
+      "source_text": "{\"S1\": \"Yes\", \"S2\": \"Yes\", \"Q5\": \"No\"}",
+      "target": "T3",
+      "input_state": null,
+      "expected": {
+        "S1": "Yes",
+        "S2": "Yes",
+        "Q5": "No"
+      },
+      "criticality": "HIGH",
+      "ground_truth_status": "VERIFIED",
+      "params": {}
+    },
+    {
+      "test_id": "T111",
+      "category": "acceptance_scenarios",
+      "check": "scenario_expected",
+      "source_reference": {
+        "section": "scenarios",
+        "row_index": 2
+      },
+      "source_text": "{\"expected_hidden\": [\"Q6\"], \"expected_end\": \"COMPLETE\"}",
+      "target": "T3",
+      "input_state": null,
+      "expected": {
+        "expected_hidden": [
+          "Q6"
+        ],
+        "expected_end": "COMPLETE"
+      },
+      "criticality": "HIGH",
+      "ground_truth_status": "VERIFIED",
+      "params": {}
+    },
+    {
+      "test_id": "T112",
+      "category": "programming_qa",
+      "check": "requirement_present",
+      "source_reference": {
+        "section": "programming",
+        "block_order": 14
+      },
+      "source_text": "Store stable question, option, route and test-run identifiers.",
+      "target": "requirements",
+      "input_state": null,
+      "expected": "Store stable question, option, route and test-run identifiers.",
+      "criticality": "NORMAL",
+      "ground_truth_status": "VERIFIED",
+      "params": {}
+    },
+    {
+      "test_id": "T113",
+      "category": "programming_qa",
+      "check": "requirement_present",
+      "source_reference": {
+        "section": "programming",
+        "block_order": 15
+      },
+      "source_text": "Capture displayed random order for every randomized item.",
+      "target": "requirements",
+      "input_state": null,
+      "expected": "Capture displayed random order for every randomized item.",
+      "criticality": "NORMAL",
+      "ground_truth_status": "VERIFIED",
+      "params": {}
+    },
+    {
+      "test_id": "T114",
+      "category": "programming_qa",
+      "check": "requirement_present",
+      "source_reference": {
+        "section": "programming",
+        "block_order": 16
+      },
+      "source_text": "Record expected and observed destination for every routing transition.",
+      "target": "requirements",
+      "input_state": null,
+      "expected": "Record expected and observed destination for every routing transition.",
+      "criticality": "NORMAL",
+      "ground_truth_status": "VERIFIED",
+      "params": {}
+    },
+    {
+      "test_id": "T115",
+      "category": "programming_qa",
+      "check": "requirement_present",
+      "source_reference": {
+        "section": "programming",
+        "block_order": 17
+      },
+      "source_text": "Reject mutually exclusive selections and invalid numeric/text responses before progression.",
+      "target": "requirements",
+      "input_state": null,
+      "expected": "Reject mutually exclusive selections and invalid numeric/text responses before progression.",
+      "criticality": "NORMAL",
+      "ground_truth_status": "VERIFIED",
+      "params": {}
+    },
+    {
+      "test_id": "T116",
+      "category": "programming_qa",
+      "check": "requirement_present",
+      "source_reference": {
+        "section": "programming",
+        "block_order": 18
+      },
+      "source_text": "Produce an audit record containing inputs, timestamps, route, assertions, screenshots on failure and final disposition.",
+      "target": "requirements",
+      "input_state": null,
+      "expected": "Produce an audit record containing inputs, timestamps, route, assertions, screenshots on failure and final disposition.",
+      "criticality": "NORMAL",
+      "ground_truth_status": "VERIFIED",
+      "params": {}
+    },
+    {
+      "test_id": "T117",
+      "category": "programming_qa",
+      "check": "requirement_present",
+      "source_reference": {
+        "section": "programming",
+        "block_order": 19
+      },
+      "source_text": "Do not send synthetic test responses into live operational reporting.",
+      "target": "requirements",
+      "input_state": null,
+      "expected": "Do not send synthetic test responses into live operational reporting.",
+      "criticality": "NORMAL",
+      "ground_truth_status": "VERIFIED",
+      "params": {}
+    },
+    {
+      "test_id": "T118",
+      "category": "study_metadata",
+      "check": "metadata_present",
+      "source_reference": {
+        "section": "study",
+        "block_order": 4
+      },
+      "source_text": "Measure satisfaction and identify operational improvements in a campus cafeteria.",
+      "target": "Business objective",
+      "input_state": null,
+      "expected": "Measure satisfaction and identify operational improvements in a campus cafeteria.",
+      "criticality": "NORMAL",
+      "ground_truth_status": "VERIFIED",
+      "params": {}
+    },
+    {
+      "test_id": "T119",
+      "category": "study_metadata",
+      "check": "metadata_present",
+      "source_reference": {
+        "section": "study",
+        "block_order": 5
+      },
+      "source_text": "Adults with a relevant experience in the last 30 days",
+      "target": "Target population",
+      "input_state": null,
+      "expected": "Adults with a relevant experience in the last 30 days",
+      "criticality": "NORMAL",
+      "ground_truth_status": "VERIFIED",
+      "params": {}
+    },
+    {
+      "test_id": "T120",
+      "category": "study_metadata",
+      "check": "metadata_present",
+      "source_reference": {
+        "section": "study",
+        "block_order": 6
+      },
+      "source_text": "Self-completion web survey",
+      "target": "Mode",
+      "input_state": null,
+      "expected": "Self-completion web survey",
+      "criticality": "NORMAL",
+      "ground_truth_status": "VERIFIED",
+      "params": {}
+    },
+    {
+      "test_id": "T121",
+      "category": "study_metadata",
+      "check": "metadata_present",
+      "source_reference": {
+        "section": "study",
+        "block_order": 7
+      },
+      "source_text": "4 minutes",
+      "target": "Estimated length",
+      "input_state": null,
+      "expected": "4 minutes",
+      "criticality": "NORMAL",
+      "ground_truth_status": "VERIFIED",
+      "params": {}
+    },
+    {
+      "test_id": "T122",
+      "category": "study_metadata",
+      "check": "metadata_present",
+      "source_reference": {
+        "section": "study",
+        "block_order": 8
+      },
+      "source_text": "All questions are mandatory unless explicitly marked optional. Do not infer unstated routing.",
+      "target": "General instruction",
+      "input_state": null,
+      "expected": "All questions are mandatory unless explicitly marked optional. Do not infer unstated routing.",
+      "criticality": "NORMAL",
+      "ground_truth_status": "VERIFIED",
+      "params": {}
+    },
+    {
+      "test_id": "T123",
+      "category": "provenance",
+      "check": "provenance_complete",
+      "source_reference": {},
+      "source_text": "CLAUDE.md \u00a715",
+      "target": "questions",
+      "input_state": null,
+      "expected": "every element carries a source reference",
+      "criticality": "NORMAL",
+      "ground_truth_status": "VERIFIED",
+      "params": {
+        "collection": "questions"
+      }
+    },
+    {
+      "test_id": "T124",
+      "category": "provenance",
+      "check": "provenance_complete",
+      "source_reference": {},
+      "source_text": "CLAUDE.md \u00a715",
+      "target": "rules",
+      "input_state": null,
+      "expected": "every element carries a source reference",
+      "criticality": "NORMAL",
+      "ground_truth_status": "VERIFIED",
+      "params": {
+        "collection": "rules"
+      }
+    },
+    {
+      "test_id": "T125",
+      "category": "provenance",
+      "check": "provenance_complete",
+      "source_reference": {},
+      "source_text": "CLAUDE.md \u00a715",
+      "target": "dispositions",
+      "input_state": null,
+      "expected": "every element carries a source reference",
+      "criticality": "NORMAL",
+      "ground_truth_status": "VERIFIED",
+      "params": {
+        "collection": "dispositions"
+      }
+    },
+    {
+      "test_id": "T126",
+      "category": "provenance",
+      "check": "provenance_complete",
+      "source_reference": {},
+      "source_text": "CLAUDE.md \u00a715",
+      "target": "scenarios",
+      "input_state": null,
+      "expected": "every element carries a source reference",
+      "criticality": "NORMAL",
+      "ground_truth_status": "VERIFIED",
+      "params": {
+        "collection": "scenarios"
+      }
+    },
+    {
+      "test_id": "T127",
+      "category": "semantic_assumptions",
+      "check": "assumption_not_claimed_as_extracted",
+      "source_reference": {},
+      "source_text": "the QRE states nothing about this",
+      "target": "unasked_reference",
+      "input_state": null,
+      "expected": "marked inferred or derived, never extracted",
+      "criticality": "CRITICAL",
+      "ground_truth_status": "UNVERIFIED",
+      "params": {
+        "name": "unasked_reference"
+      }
+    },
+    {
+      "test_id": "T128",
+      "category": "semantic_assumptions",
+      "check": "assumption_not_claimed_as_extracted",
+      "source_reference": {},
+      "source_text": "the QRE states nothing about this",
+      "target": "rule_precedence",
+      "input_state": null,
+      "expected": "marked inferred or derived, never extracted",
+      "criticality": "CRITICAL",
+      "ground_truth_status": "UNVERIFIED",
+      "params": {
+        "name": "rule_precedence"
+      }
+    },
+    {
+      "test_id": "T129",
+      "category": "semantic_assumptions",
+      "check": "assumption_not_claimed_as_extracted",
+      "source_reference": {},
+      "source_text": "the QRE states nothing about this",
+      "target": "multi_equality",
+      "input_state": null,
+      "expected": "marked inferred or derived, never extracted",
+      "criticality": "CRITICAL",
+      "ground_truth_status": "UNVERIFIED",
+      "params": {
+        "name": "multi_equality"
+      }
+    },
+    {
+      "test_id": "T130",
+      "category": "semantic_assumptions",
+      "check": "default_mandatory_traceable",
+      "source_reference": {},
+      "source_text": "a general instruction in the study section, if there is one",
+      "target": "default_mandatory",
+      "input_state": null,
+      "expected": "traceable to a statement in the document",
+      "criticality": "CRITICAL",
+      "ground_truth_status": "VERIFIED",
+      "params": {}
+    }
+  ]
+}

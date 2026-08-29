@@ -500,7 +500,7 @@ there is a label you should not use.
 
 def _build_quotas(
     parsed: dict, options_by_question: dict, review: list[AuditFinding]
-) -> list[Quota]:
+) -> tuple[list[Quota], list[CanonicalStatement]]:
     """Read the quota sentences into something that can be built and tested.
 
     Part 1 captures the sentence whole, which is right - splitting it is
@@ -513,10 +513,17 @@ def _build_quotas(
     unusually strong here, because the quota names answers that either are or are
     not in the question's own option list, and percentages either total 100 or
     do not.
+
+    Not every sentence in the section sets a quota - one might say only what
+    happens when a group is full, or that quota status must be logged. Those are
+    real requirements and were previously discarded once the model correctly
+    said they define no quota; they are now returned alongside the quotas as
+    `requirements`, verbatim, rather than folded into a `Quota` that would claim
+    a variable and cells the sentence does not give.
     """
     statements = parsed.get("quotas", [])
     if not statements:
-        return []
+        return [], []
 
     catalogue = "\n".join(
         f"{qid}: " + ", ".join(repr(label) for label in labels)
@@ -533,6 +540,7 @@ def _build_quotas(
     section_text = "\n".join(s.raw_text for s in statements)
 
     quotas: list[Quota] = []
+    requirements: list[CanonicalStatement] = []
     for statement in statements:
         try:
             proposal = complete(
@@ -558,9 +566,19 @@ def _build_quotas(
             continue
 
         if not proposal.is_quota:
-            # Not every sentence in the section sets a quota. C02's third says
-            # only what happens when one is full, which is behaviour the rules
-            # need but is not a quota in itself.
+            # Not every sentence in the section sets a quota - some say only
+            # what happens when one is full, or that status must be logged.
+            # Real requirements, not quota definitions, so they are carried as
+            # statements rather than dropped or forced into a Quota shape.
+            requirements.append(
+                CanonicalStatement(
+                    code=statement.code,
+                    label=statement.label,
+                    text=statement.text,
+                    raw_text=statement.raw_text,
+                    source_reference=statement.source_reference,
+                )
+            )
             continue
 
         problem = None
@@ -653,7 +671,7 @@ def _build_quotas(
                 evidence=f"{statement.raw_text[:70]} -> {variable}, {len(labels)} groups",
             )
         )
-    return quotas
+    return quotas, requirements
 
 
 # ---------------------------------------------------------------------------
@@ -1359,7 +1377,7 @@ def run(source: str, parsed: dict) -> CanonicalSurvey:
         for q in parsed.get("questions", [])
     ]
 
-    quotas = _build_quotas(parsed, options_by_question, review)
+    quotas, quota_requirements = _build_quotas(parsed, options_by_question, review)
     dispositions = _build_dispositions(parsed, rules, quotas)
     questions_by_id = {q.id: q for q in parsed.get("questions", []) if q.id}
 
@@ -1384,6 +1402,7 @@ def run(source: str, parsed: dict) -> CanonicalSurvey:
         ),
         randomization=_build_randomization(parsed, review),
         quotas=quotas,
+        quota_requirements=quota_requirements,
         scenarios=_build_scenarios(
             parsed,
             questions_by_id,
