@@ -1,0 +1,535 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d15" for="edge" attr.name="stateful" attr.type="boolean"/>
+<key id="d14" for="edge" attr.name="precedence" attr.type="long"/>
+<key id="d13" for="edge" attr.name="condition" attr.type="string"/>
+<key id="d12" for="edge" attr.name="rule_id" attr.type="string"/>
+<key id="d11" for="edge" attr.name="kind" attr.type="string"/>
+<key id="d10" for="node" attr.name="defined_in_source" attr.type="boolean"/>
+<key id="d9" for="node" attr.name="disposition_kind" attr.type="string"/>
+<key id="d8" for="node" attr.name="terminal" attr.type="boolean"/>
+<key id="d7" for="node" attr.name="randomization_anchored" attr.type="string"/>
+<key id="d6" for="node" attr.name="randomization_scope" attr.type="string"/>
+<key id="d5" for="node" attr.name="randomized" attr.type="boolean"/>
+<key id="d4" for="node" attr.name="guard_agreement" attr.type="string"/>
+<key id="d3" for="node" attr.name="guard" attr.type="string"/>
+<key id="d2" for="node" attr.name="has_guard" attr.type="boolean"/>
+<key id="d1" for="node" attr.name="seq" attr.type="long"/>
+<key id="d0" for="node" attr.name="kind" attr.type="string"/>
+<graph edgedefault="directed"><node id="__START__">
+  <data key="d0">start</data>
+</node>
+<node id="S1">
+  <data key="d0">question</data>
+  <data key="d1">1</data>
+  <data key="d2">False</data>
+  <data key="d3"></data>
+  <data key="d4"></data>
+  <data key="d5">False</data>
+  <data key="d6"></data>
+  <data key="d7"></data>
+</node>
+<node id="S2">
+  <data key="d0">question</data>
+  <data key="d1">2</data>
+  <data key="d2">False</data>
+  <data key="d3"></data>
+  <data key="d4"></data>
+  <data key="d5">False</data>
+  <data key="d6"></data>
+  <data key="d7"></data>
+</node>
+<node id="S3">
+  <data key="d0">question</data>
+  <data key="d1">3</data>
+  <data key="d2">False</data>
+  <data key="d3"></data>
+  <data key="d4"></data>
+  <data key="d5">False</data>
+  <data key="d6"></data>
+  <data key="d7"></data>
+</node>
+<node id="S4">
+  <data key="d0">question</data>
+  <data key="d1">4</data>
+  <data key="d2">False</data>
+  <data key="d3"></data>
+  <data key="d4"></data>
+  <data key="d5">False</data>
+  <data key="d6"></data>
+  <data key="d7"></data>
+</node>
+<node id="Q1">
+  <data key="d0">question</data>
+  <data key="d1">5</data>
+  <data key="d2">False</data>
+  <data key="d3"></data>
+  <data key="d4"></data>
+  <data key="d5">True</data>
+  <data key="d6">options</data>
+  <data key="d7"></data>
+</node>
+<node id="Q2">
+  <data key="d0">question</data>
+  <data key="d1">6</data>
+  <data key="d2">True</data>
+  <data key="d3">Q1 contains_any ['Care Network A', 'Care Network B', 'Care Network C']</data>
+  <data key="d4">agree</data>
+  <data key="d5">False</data>
+  <data key="d6"></data>
+  <data key="d7"></data>
+</node>
+<node id="Q3">
+  <data key="d0">question</data>
+  <data key="d1">7</data>
+  <data key="d2">True</data>
+  <data key="d3">Q1 contains_any ['Care Network A', 'Care Network B', 'Care Network C']</data>
+  <data key="d4">agree</data>
+  <data key="d5">False</data>
+  <data key="d6"></data>
+  <data key="d7"></data>
+</node>
+<node id="Q4">
+  <data key="d0">question</data>
+  <data key="d1">8</data>
+  <data key="d2">False</data>
+  <data key="d3"></data>
+  <data key="d4"></data>
+  <data key="d5">False</data>
+  <data key="d6"></data>
+  <data key="d7"></data>
+</node>
+<node id="Q5">
+  <data key="d0">question</data>
+  <data key="d1">9</data>
+  <data key="d2">False</data>
+  <data key="d3"></data>
+  <data key="d4"></data>
+  <data key="d5">True</data>
+  <data key="d6">options</data>
+  <data key="d7"></data>
+</node>
+<node id="Q6">
+  <data key="d0">question</data>
+  <data key="d1">10</data>
+  <data key="d2">True</data>
+  <data key="d3">Q5 contains_any ['Primary-care physician', 'Specialist', 'Hospital', 'Pharmacy', 'Patient portal', 'Support programme']</data>
+  <data key="d4">agree</data>
+  <data key="d5">False</data>
+  <data key="d6"></data>
+  <data key="d7"></data>
+</node>
+<node id="Q7">
+  <data key="d0">question</data>
+  <data key="d1">11</data>
+  <data key="d2">True</data>
+  <data key="d3">Q3 ne 'None/currently not using'</data>
+  <data key="d4">agree</data>
+  <data key="d5">False</data>
+  <data key="d6"></data>
+  <data key="d7"></data>
+</node>
+<node id="Q8">
+  <data key="d0">question</data>
+  <data key="d1">12</data>
+  <data key="d2">True</data>
+  <data key="d3">Q3 ne 'None/currently not using'</data>
+  <data key="d4">agree</data>
+  <data key="d5">False</data>
+  <data key="d6"></data>
+  <data key="d7"></data>
+</node>
+<node id="Q9">
+  <data key="d0">question</data>
+  <data key="d1">13</data>
+  <data key="d2">True</data>
+  <data key="d3">Q3 ne 'None/currently not using'</data>
+  <data key="d4">agree</data>
+  <data key="d5">True</data>
+  <data key="d6">rows</data>
+  <data key="d7"></data>
+</node>
+<node id="Q10">
+  <data key="d0">question</data>
+  <data key="d1">14</data>
+  <data key="d2">False</data>
+  <data key="d3"></data>
+  <data key="d4"></data>
+  <data key="d5">False</data>
+  <data key="d6"></data>
+  <data key="d7"></data>
+</node>
+<node id="Q11">
+  <data key="d0">question</data>
+  <data key="d1">15</data>
+  <data key="d2">True</data>
+  <data key="d3">Q10 eq 'Yes'</data>
+  <data key="d4">agree</data>
+  <data key="d5">False</data>
+  <data key="d6"></data>
+  <data key="d7"></data>
+</node>
+<node id="Q12">
+  <data key="d0">question</data>
+  <data key="d1">16</data>
+  <data key="d2">True</data>
+  <data key="d3">Q10 eq 'Yes'</data>
+  <data key="d4">agree</data>
+  <data key="d5">False</data>
+  <data key="d6"></data>
+  <data key="d7"></data>
+</node>
+<node id="Q13">
+  <data key="d0">question</data>
+  <data key="d1">17</data>
+  <data key="d2">True</data>
+  <data key="d3">Q12 in ['Fully', 'Partly']</data>
+  <data key="d4">agree</data>
+  <data key="d5">False</data>
+  <data key="d6"></data>
+  <data key="d7"></data>
+</node>
+<node id="Q14">
+  <data key="d0">question</data>
+  <data key="d1">18</data>
+  <data key="d2">True</data>
+  <data key="d3">Q12 eq 'Not resolved'</data>
+  <data key="d4">agree</data>
+  <data key="d5">False</data>
+  <data key="d6"></data>
+  <data key="d7"></data>
+</node>
+<node id="Q15">
+  <data key="d0">question</data>
+  <data key="d1">19</data>
+  <data key="d2">True</data>
+  <data key="d3">Q3 ne 'None/currently not using'</data>
+  <data key="d4">single_source</data>
+  <data key="d5">False</data>
+  <data key="d6"></data>
+  <data key="d7"></data>
+</node>
+<node id="Q16">
+  <data key="d0">question</data>
+  <data key="d1">20</data>
+  <data key="d2">True</data>
+  <data key="d3">Q15 eq 'Yes'</data>
+  <data key="d4">agree</data>
+  <data key="d5">True</data>
+  <data key="d6">options</data>
+  <data key="d7"></data>
+</node>
+<node id="Q17">
+  <data key="d0">question</data>
+  <data key="d1">21</data>
+  <data key="d2">True</data>
+  <data key="d3">Q16 eq 'Other'</data>
+  <data key="d4">agree</data>
+  <data key="d5">False</data>
+  <data key="d6"></data>
+  <data key="d7"></data>
+</node>
+<node id="Q18">
+  <data key="d0">question</data>
+  <data key="d1">22</data>
+  <data key="d2">False</data>
+  <data key="d3"></data>
+  <data key="d4"></data>
+  <data key="d5">False</data>
+  <data key="d6"></data>
+  <data key="d7"></data>
+</node>
+<node id="Q19">
+  <data key="d0">question</data>
+  <data key="d1">23</data>
+  <data key="d2">False</data>
+  <data key="d3"></data>
+  <data key="d4"></data>
+  <data key="d5">True</data>
+  <data key="d6">options</data>
+  <data key="d7"></data>
+</node>
+<node id="Q20">
+  <data key="d0">question</data>
+  <data key="d1">24</data>
+  <data key="d2">False</data>
+  <data key="d3"></data>
+  <data key="d4"></data>
+  <data key="d5">False</data>
+  <data key="d6"></data>
+  <data key="d7"></data>
+</node>
+<node id="Q21">
+  <data key="d0">question</data>
+  <data key="d1">25</data>
+  <data key="d2">False</data>
+  <data key="d3"></data>
+  <data key="d4"></data>
+  <data key="d5">False</data>
+  <data key="d6"></data>
+  <data key="d7"></data>
+</node>
+<node id="D1">
+  <data key="d0">question</data>
+  <data key="d1">26</data>
+  <data key="d2">False</data>
+  <data key="d3"></data>
+  <data key="d4"></data>
+  <data key="d5">False</data>
+  <data key="d6"></data>
+  <data key="d7"></data>
+</node>
+<node id="D2">
+  <data key="d0">question</data>
+  <data key="d1">27</data>
+  <data key="d2">False</data>
+  <data key="d3"></data>
+  <data key="d4"></data>
+  <data key="d5">False</data>
+  <data key="d6"></data>
+  <data key="d7"></data>
+</node>
+<node id="D3">
+  <data key="d0">question</data>
+  <data key="d1">28</data>
+  <data key="d2">False</data>
+  <data key="d3"></data>
+  <data key="d4"></data>
+  <data key="d5">False</data>
+  <data key="d6"></data>
+  <data key="d7"></data>
+</node>
+<node id="D4">
+  <data key="d0">question</data>
+  <data key="d1">29</data>
+  <data key="d2">False</data>
+  <data key="d3"></data>
+  <data key="d4"></data>
+  <data key="d5">False</data>
+  <data key="d6"></data>
+  <data key="d7"></data>
+</node>
+<node id="Q22">
+  <data key="d0">question</data>
+  <data key="d1">30</data>
+  <data key="d2">False</data>
+  <data key="d3"></data>
+  <data key="d4"></data>
+  <data key="d5">False</data>
+  <data key="d6"></data>
+  <data key="d7"></data>
+</node>
+<node id="Q23">
+  <data key="d0">question</data>
+  <data key="d1">31</data>
+  <data key="d2">False</data>
+  <data key="d3"></data>
+  <data key="d4"></data>
+  <data key="d5">False</data>
+  <data key="d6"></data>
+  <data key="d7"></data>
+</node>
+<node id="COMPLETE">
+  <data key="d0">disposition</data>
+  <data key="d8">True</data>
+  <data key="d9">complete</data>
+  <data key="d10">True</data>
+</node>
+<node id="TERM_AGE">
+  <data key="d0">disposition</data>
+  <data key="d8">True</data>
+  <data key="d9">screenout</data>
+  <data key="d10">True</data>
+</node>
+<node id="TERM_CONFLICT">
+  <data key="d0">disposition</data>
+  <data key="d8">True</data>
+  <data key="d9">screenout</data>
+  <data key="d10">True</data>
+</node>
+<node id="TERM_INVOLVEMENT">
+  <data key="d0">disposition</data>
+  <data key="d8">True</data>
+  <data key="d9">screenout</data>
+  <data key="d10">True</data>
+</node>
+<node id="TERM_QUOTA_FULL">
+  <data key="d0">disposition</data>
+  <data key="d8">True</data>
+  <data key="d9">quota_full</data>
+  <data key="d10">False</data>
+</node>
+<node id="TERM_RECENT_RESEARCH">
+  <data key="d0">disposition</data>
+  <data key="d8">True</data>
+  <data key="d9">screenout</data>
+  <data key="d10">True</data>
+</node>
+<edge source="__START__" target="S1" id="0">
+  <data key="d11">advance</data>
+  <data key="d12"></data>
+</edge>
+<edge source="S1" target="S2" id="0">
+  <data key="d11">advance</data>
+  <data key="d12"></data>
+</edge>
+<edge source="S1" target="TERM_AGE" id="0">
+  <data key="d11">terminate</data>
+  <data key="d12">R1</data>
+  <data key="d13">S1 eq 'No'</data>
+  <data key="d14">1</data>
+</edge>
+<edge source="S2" target="S3" id="0">
+  <data key="d11">advance</data>
+  <data key="d12"></data>
+</edge>
+<edge source="S2" target="TERM_INVOLVEMENT" id="0">
+  <data key="d11">terminate</data>
+  <data key="d12">R2</data>
+  <data key="d13">S2 ne 'Personally manage an ongoing chronic health condition'</data>
+  <data key="d14">2</data>
+</edge>
+<edge source="S3" target="S4" id="0">
+  <data key="d11">advance</data>
+  <data key="d12"></data>
+</edge>
+<edge source="S3" target="TERM_RECENT_RESEARCH" id="0">
+  <data key="d11">terminate</data>
+  <data key="d12">R3</data>
+  <data key="d13">S3 eq 'Yes'</data>
+  <data key="d14">3</data>
+</edge>
+<edge source="S4" target="Q1" id="0">
+  <data key="d11">advance</data>
+  <data key="d12"></data>
+</edge>
+<edge source="S4" target="TERM_CONFLICT" id="0">
+  <data key="d11">terminate</data>
+  <data key="d12">R4</data>
+  <data key="d13">S4 eq 'Yes'</data>
+  <data key="d14">4</data>
+</edge>
+<edge source="Q1" target="Q2" id="0">
+  <data key="d11">advance</data>
+  <data key="d12"></data>
+</edge>
+<edge source="Q1" target="Q4" id="0">
+  <data key="d11">jump</data>
+  <data key="d12">R5</data>
+  <data key="d13">Q1 set_eq ['None of these']</data>
+  <data key="d14">5</data>
+</edge>
+<edge source="Q2" target="Q3" id="0">
+  <data key="d11">advance</data>
+  <data key="d12"></data>
+</edge>
+<edge source="Q3" target="Q4" id="0">
+  <data key="d11">advance</data>
+  <data key="d12"></data>
+</edge>
+<edge source="Q4" target="Q5" id="0">
+  <data key="d11">advance</data>
+  <data key="d12"></data>
+</edge>
+<edge source="Q5" target="Q6" id="0">
+  <data key="d11">advance</data>
+  <data key="d12"></data>
+</edge>
+<edge source="Q6" target="Q7" id="0">
+  <data key="d11">advance</data>
+  <data key="d12"></data>
+</edge>
+<edge source="Q7" target="Q8" id="0">
+  <data key="d11">advance</data>
+  <data key="d12"></data>
+</edge>
+<edge source="Q8" target="Q9" id="0">
+  <data key="d11">advance</data>
+  <data key="d12"></data>
+</edge>
+<edge source="Q9" target="Q10" id="0">
+  <data key="d11">advance</data>
+  <data key="d12"></data>
+</edge>
+<edge source="Q10" target="Q11" id="0">
+  <data key="d11">advance</data>
+  <data key="d12"></data>
+</edge>
+<edge source="Q11" target="Q12" id="0">
+  <data key="d11">advance</data>
+  <data key="d12"></data>
+</edge>
+<edge source="Q12" target="Q13" id="0">
+  <data key="d11">advance</data>
+  <data key="d12"></data>
+</edge>
+<edge source="Q13" target="Q14" id="0">
+  <data key="d11">advance</data>
+  <data key="d12"></data>
+</edge>
+<edge source="Q14" target="Q15" id="0">
+  <data key="d11">advance</data>
+  <data key="d12"></data>
+</edge>
+<edge source="Q15" target="Q16" id="0">
+  <data key="d11">advance</data>
+  <data key="d12"></data>
+</edge>
+<edge source="Q16" target="Q17" id="0">
+  <data key="d11">advance</data>
+  <data key="d12"></data>
+</edge>
+<edge source="Q17" target="Q18" id="0">
+  <data key="d11">advance</data>
+  <data key="d12"></data>
+</edge>
+<edge source="Q18" target="Q19" id="0">
+  <data key="d11">advance</data>
+  <data key="d12"></data>
+</edge>
+<edge source="Q19" target="Q20" id="0">
+  <data key="d11">advance</data>
+  <data key="d12"></data>
+</edge>
+<edge source="Q20" target="Q21" id="0">
+  <data key="d11">advance</data>
+  <data key="d12"></data>
+</edge>
+<edge source="Q21" target="D1" id="0">
+  <data key="d11">advance</data>
+  <data key="d12"></data>
+</edge>
+<edge source="D1" target="D2" id="0">
+  <data key="d11">advance</data>
+  <data key="d12"></data>
+</edge>
+<edge source="D1" target="TERM_QUOTA_FULL" id="0">
+  <data key="d11">quota_terminate</data>
+  <data key="d12">QUOTA_REGION</data>
+  <data key="d15">True</data>
+</edge>
+<edge source="D2" target="D3" id="0">
+  <data key="d11">advance</data>
+  <data key="d12"></data>
+</edge>
+<edge source="D2" target="TERM_QUOTA_FULL" id="0">
+  <data key="d11">quota_terminate</data>
+  <data key="d12">QUOTA_AGE</data>
+  <data key="d15">True</data>
+</edge>
+<edge source="D3" target="D4" id="0">
+  <data key="d11">advance</data>
+  <data key="d12"></data>
+</edge>
+<edge source="D4" target="Q22" id="0">
+  <data key="d11">advance</data>
+  <data key="d12"></data>
+</edge>
+<edge source="Q22" target="Q23" id="0">
+  <data key="d11">advance</data>
+  <data key="d12"></data>
+</edge>
+<edge source="Q23" target="COMPLETE" id="0">
+  <data key="d11">advance</data>
+  <data key="d12"></data>
+</edge>
+</graph></graphml>

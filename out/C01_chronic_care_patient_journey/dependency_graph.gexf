@@ -1,0 +1,287 @@
+<?xml version='1.0' encoding='utf-8'?>
+<gexf xmlns="http://www.gexf.net/1.2draft" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.gexf.net/1.2draft http://www.gexf.net/1.2draft/gexf.xsd" version="1.2">
+  <meta lastmodifieddate="2026-08-29">
+    <creator>NetworkX 3.6.1</creator>
+  </meta>
+  <graph defaultedgetype="directed" mode="static" name="">
+    <attributes mode="static" class="edge">
+      <attribute id="2" title="kind" type="string" />
+      <attribute id="3" title="origin" type="string" />
+    </attributes>
+    <attributes mode="static" class="node">
+      <attribute id="0" title="kind" type="string" />
+      <attribute id="1" title="seq" type="long" />
+    </attributes>
+    <nodes>
+      <node id="S1" label="S1">
+        <attvalues>
+          <attvalue for="0" value="question" />
+          <attvalue for="1" value="1" />
+        </attvalues>
+      </node>
+      <node id="S2" label="S2">
+        <attvalues>
+          <attvalue for="0" value="question" />
+          <attvalue for="1" value="2" />
+        </attvalues>
+      </node>
+      <node id="S3" label="S3">
+        <attvalues>
+          <attvalue for="0" value="question" />
+          <attvalue for="1" value="3" />
+        </attvalues>
+      </node>
+      <node id="S4" label="S4">
+        <attvalues>
+          <attvalue for="0" value="question" />
+          <attvalue for="1" value="4" />
+        </attvalues>
+      </node>
+      <node id="Q1" label="Q1">
+        <attvalues>
+          <attvalue for="0" value="question" />
+          <attvalue for="1" value="5" />
+        </attvalues>
+      </node>
+      <node id="Q2" label="Q2">
+        <attvalues>
+          <attvalue for="0" value="question" />
+          <attvalue for="1" value="6" />
+        </attvalues>
+      </node>
+      <node id="Q3" label="Q3">
+        <attvalues>
+          <attvalue for="0" value="question" />
+          <attvalue for="1" value="7" />
+        </attvalues>
+      </node>
+      <node id="Q4" label="Q4">
+        <attvalues>
+          <attvalue for="0" value="question" />
+          <attvalue for="1" value="8" />
+        </attvalues>
+      </node>
+      <node id="Q5" label="Q5">
+        <attvalues>
+          <attvalue for="0" value="question" />
+          <attvalue for="1" value="9" />
+        </attvalues>
+      </node>
+      <node id="Q6" label="Q6">
+        <attvalues>
+          <attvalue for="0" value="question" />
+          <attvalue for="1" value="10" />
+        </attvalues>
+      </node>
+      <node id="Q7" label="Q7">
+        <attvalues>
+          <attvalue for="0" value="question" />
+          <attvalue for="1" value="11" />
+        </attvalues>
+      </node>
+      <node id="Q8" label="Q8">
+        <attvalues>
+          <attvalue for="0" value="question" />
+          <attvalue for="1" value="12" />
+        </attvalues>
+      </node>
+      <node id="Q9" label="Q9">
+        <attvalues>
+          <attvalue for="0" value="question" />
+          <attvalue for="1" value="13" />
+        </attvalues>
+      </node>
+      <node id="Q10" label="Q10">
+        <attvalues>
+          <attvalue for="0" value="question" />
+          <attvalue for="1" value="14" />
+        </attvalues>
+      </node>
+      <node id="Q11" label="Q11">
+        <attvalues>
+          <attvalue for="0" value="question" />
+          <attvalue for="1" value="15" />
+        </attvalues>
+      </node>
+      <node id="Q12" label="Q12">
+        <attvalues>
+          <attvalue for="0" value="question" />
+          <attvalue for="1" value="16" />
+        </attvalues>
+      </node>
+      <node id="Q13" label="Q13">
+        <attvalues>
+          <attvalue for="0" value="question" />
+          <attvalue for="1" value="17" />
+        </attvalues>
+      </node>
+      <node id="Q14" label="Q14">
+        <attvalues>
+          <attvalue for="0" value="question" />
+          <attvalue for="1" value="18" />
+        </attvalues>
+      </node>
+      <node id="Q15" label="Q15">
+        <attvalues>
+          <attvalue for="0" value="question" />
+          <attvalue for="1" value="19" />
+        </attvalues>
+      </node>
+      <node id="Q16" label="Q16">
+        <attvalues>
+          <attvalue for="0" value="question" />
+          <attvalue for="1" value="20" />
+        </attvalues>
+      </node>
+      <node id="Q17" label="Q17">
+        <attvalues>
+          <attvalue for="0" value="question" />
+          <attvalue for="1" value="21" />
+        </attvalues>
+      </node>
+      <node id="Q18" label="Q18">
+        <attvalues>
+          <attvalue for="0" value="question" />
+          <attvalue for="1" value="22" />
+        </attvalues>
+      </node>
+      <node id="Q19" label="Q19">
+        <attvalues>
+          <attvalue for="0" value="question" />
+          <attvalue for="1" value="23" />
+        </attvalues>
+      </node>
+      <node id="Q20" label="Q20">
+        <attvalues>
+          <attvalue for="0" value="question" />
+          <attvalue for="1" value="24" />
+        </attvalues>
+      </node>
+      <node id="Q21" label="Q21">
+        <attvalues>
+          <attvalue for="0" value="question" />
+          <attvalue for="1" value="25" />
+        </attvalues>
+      </node>
+      <node id="D1" label="D1">
+        <attvalues>
+          <attvalue for="0" value="question" />
+          <attvalue for="1" value="26" />
+        </attvalues>
+      </node>
+      <node id="D2" label="D2">
+        <attvalues>
+          <attvalue for="0" value="question" />
+          <attvalue for="1" value="27" />
+        </attvalues>
+      </node>
+      <node id="D3" label="D3">
+        <attvalues>
+          <attvalue for="0" value="question" />
+          <attvalue for="1" value="28" />
+        </attvalues>
+      </node>
+      <node id="D4" label="D4">
+        <attvalues>
+          <attvalue for="0" value="question" />
+          <attvalue for="1" value="29" />
+        </attvalues>
+      </node>
+      <node id="Q22" label="Q22">
+        <attvalues>
+          <attvalue for="0" value="question" />
+          <attvalue for="1" value="30" />
+        </attvalues>
+      </node>
+      <node id="Q23" label="Q23">
+        <attvalues>
+          <attvalue for="0" value="question" />
+          <attvalue for="1" value="31" />
+        </attvalues>
+      </node>
+    </nodes>
+    <edges>
+      <edge source="Q1" target="Q2" id="0">
+        <attvalues>
+          <attvalue for="2" value="option_source" />
+          <attvalue for="3" value="derived" />
+        </attvalues>
+      </edge>
+      <edge source="Q1" target="Q3" id="1">
+        <attvalues>
+          <attvalue for="2" value="guard" />
+        </attvalues>
+      </edge>
+      <edge source="Q3" target="Q8" id="2">
+        <attvalues>
+          <attvalue for="2" value="text_pipe" />
+          <attvalue for="3" value="inferred" />
+        </attvalues>
+      </edge>
+      <edge source="Q3" target="Q9" id="3">
+        <attvalues>
+          <attvalue for="2" value="text_pipe" />
+          <attvalue for="3" value="inferred" />
+        </attvalues>
+      </edge>
+      <edge source="Q3" target="Q7" id="4">
+        <attvalues>
+          <attvalue for="2" value="guard" />
+        </attvalues>
+      </edge>
+      <edge source="Q3" target="Q15" id="5">
+        <attvalues>
+          <attvalue for="2" value="guard" />
+        </attvalues>
+      </edge>
+      <edge source="Q5" target="Q6" id="6">
+        <attvalues>
+          <attvalue for="2" value="option_source" />
+          <attvalue for="3" value="derived" />
+        </attvalues>
+      </edge>
+      <edge source="Q10" target="Q11" id="7">
+        <attvalues>
+          <attvalue for="2" value="guard" />
+        </attvalues>
+      </edge>
+      <edge source="Q10" target="Q12" id="8">
+        <attvalues>
+          <attvalue for="2" value="guard" />
+        </attvalues>
+      </edge>
+      <edge source="Q12" target="Q13" id="9">
+        <attvalues>
+          <attvalue for="2" value="guard" />
+        </attvalues>
+      </edge>
+      <edge source="Q12" target="Q14" id="10">
+        <attvalues>
+          <attvalue for="2" value="guard" />
+        </attvalues>
+      </edge>
+      <edge source="Q15" target="Q16" id="11">
+        <attvalues>
+          <attvalue for="2" value="guard" />
+        </attvalues>
+      </edge>
+      <edge source="Q16" target="Q17" id="12">
+        <attvalues>
+          <attvalue for="2" value="guard" />
+        </attvalues>
+      </edge>
+      <edge source="Q19" target="Q20" id="13">
+        <attvalues>
+          <attvalue for="2" value="text_pipe" />
+          <attvalue for="3" value="inferred" />
+        </attvalues>
+      </edge>
+      <edge source="Q19" target="Q21" id="14">
+        <attvalues>
+          <attvalue for="2" value="text_pipe" />
+          <attvalue for="3" value="inferred" />
+        </attvalues>
+      </edge>
+    </edges>
+  </graph>
+</gexf>

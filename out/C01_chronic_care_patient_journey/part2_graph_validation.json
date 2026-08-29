@@ -1,0 +1,1499 @@
+{
+  "schema_version": "1.0.0",
+  "artifact": "part2_graph_validation",
+  "stage": 9,
+  "survey_id": "C01_chronic_care_patient_journey",
+  "source_document": {
+    "filename": "C01_chronic_care_patient_journey.docx",
+    "sha256": "319e6b78a2a1e36ef712ce421e6d2c1db3325a087a07d8d0e93ec38b39207e4b",
+    "bytes": 43612
+  },
+  "generated_at": "2026-08-29T12:37:51+00:00",
+  "item_count": null,
+  "content": {
+    "survey_id": "C01_chronic_care_patient_journey",
+    "source_document": {
+      "filename": "C01_chronic_care_patient_journey.docx",
+      "sha256": "319e6b78a2a1e36ef712ce421e6d2c1db3325a087a07d8d0e93ec38b39207e4b"
+    },
+    "graph_artifact": {
+      "route_graph": "part2_route_graph.json",
+      "graph_report": "part2_graph_report.json",
+      "schema_version": "1.0.0",
+      "generated_at": "2026-08-29T12:12:27+00:00"
+    },
+    "validation_status": "READY",
+    "graph_readiness": "READY_WITH_WARNINGS",
+    "node_coverage": {
+      "numerator": 37,
+      "denominator": 37,
+      "result": 1.0
+    },
+    "edge_rule_coverage": {
+      "routing_transition_preservation": {
+        "numerator": 12,
+        "denominator": 12,
+        "result": 1.0
+      },
+      "skip_preservation": {
+        "numerator": 1,
+        "denominator": 1,
+        "result": 1.0
+      },
+      "termination_preservation": {
+        "numerator": 4,
+        "denominator": 4,
+        "result": 1.0
+      }
+    },
+    "coverage_by_category": {
+      "node_preservation": {
+        "numerator": 37,
+        "denominator": 37,
+        "result": 1.0
+      },
+      "routing_transition_preservation": {
+        "numerator": 12,
+        "denominator": 12,
+        "result": 1.0
+      },
+      "skip_preservation": {
+        "numerator": 1,
+        "denominator": 1,
+        "result": 1.0
+      },
+      "termination_preservation": {
+        "numerator": 4,
+        "denominator": 4,
+        "result": 1.0
+      },
+      "guard_preservation": {
+        "numerator": 13,
+        "denominator": 13,
+        "result": 1.0
+      },
+      "validation_reject_preservation": {
+        "numerator": 3,
+        "denominator": 3,
+        "result": 1.0
+      },
+      "dependency_preservation": {
+        "numerator": 6,
+        "denominator": 6,
+        "result": 1.0
+      },
+      "randomization_preservation": {
+        "numerator": 5,
+        "denominator": 5,
+        "result": 1.0
+      },
+      "quota_preservation": {
+        "numerator": 2,
+        "denominator": 2,
+        "result": 1.0
+      },
+      "traceability": {
+        "numerator": 22,
+        "denominator": 22,
+        "result": 1.0
+      }
+    },
+    "behavioural_test_cases": [
+      {
+        "test_id": "G001",
+        "category": "termination",
+        "check": "graph_edge_condition",
+        "rule_or_question": "R1",
+        "source_reference": {
+          "rule_id": "R1"
+        },
+        "input_state": {
+          "S1": "No"
+        },
+        "expected": true,
+        "criticality": "CRITICAL",
+        "ground_truth_status": "VERIFIED"
+      },
+      {
+        "test_id": "G002",
+        "category": "termination",
+        "check": "graph_edge_condition",
+        "rule_or_question": "R1",
+        "source_reference": {
+          "rule_id": "R1"
+        },
+        "input_state": {
+          "S1": "Yes"
+        },
+        "expected": false,
+        "criticality": "CRITICAL",
+        "ground_truth_status": "VERIFIED"
+      },
+      {
+        "test_id": "G003",
+        "category": "termination",
+        "check": "graph_edge_condition",
+        "rule_or_question": "R2",
+        "source_reference": {
+          "rule_id": "R2"
+        },
+        "input_state": {
+          "S2": "Personally manage an ongoing chronic health condition"
+        },
+        "expected": false,
+        "criticality": "CRITICAL",
+        "ground_truth_status": "VERIFIED"
+      },
+      {
+        "test_id": "G004",
+        "category": "termination",
+        "check": "graph_edge_condition",
+        "rule_or_question": "R2",
+        "source_reference": {
+          "rule_id": "R2"
+        },
+        "input_state": {
+          "S2": "Aware but not involved"
+        },
+        "expected": true,
+        "criticality": "CRITICAL",
+        "ground_truth_status": "VERIFIED"
+      },
+      {
+        "test_id": "G005",
+        "category": "termination",
+        "check": "graph_edge_condition",
+        "rule_or_question": "R3",
+        "source_reference": {
+          "rule_id": "R3"
+        },
+        "input_state": {
+          "S3": "Yes"
+        },
+        "expected": true,
+        "criticality": "CRITICAL",
+        "ground_truth_status": "VERIFIED"
+      },
+      {
+        "test_id": "G006",
+        "category": "termination",
+        "check": "graph_edge_condition",
+        "rule_or_question": "R3",
+        "source_reference": {
+          "rule_id": "R3"
+        },
+        "input_state": {
+          "S3": "No"
+        },
+        "expected": false,
+        "criticality": "CRITICAL",
+        "ground_truth_status": "VERIFIED"
+      },
+      {
+        "test_id": "G007",
+        "category": "termination",
+        "check": "graph_edge_condition",
+        "rule_or_question": "R4",
+        "source_reference": {
+          "rule_id": "R4"
+        },
+        "input_state": {
+          "S4": "Yes"
+        },
+        "expected": true,
+        "criticality": "CRITICAL",
+        "ground_truth_status": "VERIFIED"
+      },
+      {
+        "test_id": "G008",
+        "category": "termination",
+        "check": "graph_edge_condition",
+        "rule_or_question": "R4",
+        "source_reference": {
+          "rule_id": "R4"
+        },
+        "input_state": {
+          "S4": "No"
+        },
+        "expected": false,
+        "criticality": "CRITICAL",
+        "ground_truth_status": "VERIFIED"
+      },
+      {
+        "test_id": "G009",
+        "category": "skip",
+        "check": "graph_edge_condition",
+        "rule_or_question": "R5",
+        "source_reference": {
+          "rule_id": "R5"
+        },
+        "input_state": {
+          "Q1": [
+            "None of these"
+          ]
+        },
+        "expected": true,
+        "criticality": "CRITICAL",
+        "ground_truth_status": "VERIFIED"
+      },
+      {
+        "test_id": "G010",
+        "category": "skip",
+        "check": "graph_edge_condition",
+        "rule_or_question": "R5",
+        "source_reference": {
+          "rule_id": "R5"
+        },
+        "input_state": {
+          "Q1": [
+            "None of these",
+            "Care Network A"
+          ]
+        },
+        "expected": false,
+        "criticality": "CRITICAL",
+        "ground_truth_status": "VERIFIED"
+      },
+      {
+        "test_id": "G011",
+        "category": "display",
+        "check": "graph_guard_condition",
+        "rule_or_question": "Q2",
+        "source_reference": {
+          "question_id": "Q2"
+        },
+        "input_state": null,
+        "expected": "a reading a person must confirm",
+        "criticality": "CRITICAL",
+        "ground_truth_status": "UNVERIFIED"
+      },
+      {
+        "test_id": "G012",
+        "category": "display",
+        "check": "graph_guard_condition",
+        "rule_or_question": "Q3",
+        "source_reference": {
+          "question_id": "Q3"
+        },
+        "input_state": null,
+        "expected": "a reading a person must confirm",
+        "criticality": "CRITICAL",
+        "ground_truth_status": "UNVERIFIED"
+      },
+      {
+        "test_id": "G013",
+        "category": "display",
+        "check": "graph_guard_condition",
+        "rule_or_question": "Q6",
+        "source_reference": {
+          "question_id": "Q6"
+        },
+        "input_state": null,
+        "expected": "a reading a person must confirm",
+        "criticality": "CRITICAL",
+        "ground_truth_status": "UNVERIFIED"
+      },
+      {
+        "test_id": "G014",
+        "category": "display",
+        "check": "graph_guard_condition",
+        "rule_or_question": "Q7",
+        "source_reference": {
+          "question_id": "Q7"
+        },
+        "input_state": {
+          "Q3": "None/currently not using"
+        },
+        "expected": false,
+        "criticality": "CRITICAL",
+        "ground_truth_status": "VERIFIED"
+      },
+      {
+        "test_id": "G015",
+        "category": "display",
+        "check": "graph_guard_condition",
+        "rule_or_question": "Q7",
+        "source_reference": {
+          "question_id": "Q7"
+        },
+        "input_state": {
+          "Q3": "Care Network A"
+        },
+        "expected": true,
+        "criticality": "CRITICAL",
+        "ground_truth_status": "VERIFIED"
+      },
+      {
+        "test_id": "G016",
+        "category": "display",
+        "check": "graph_guard_condition",
+        "rule_or_question": "Q8",
+        "source_reference": {
+          "question_id": "Q8"
+        },
+        "input_state": {
+          "Q3": "None/currently not using"
+        },
+        "expected": false,
+        "criticality": "CRITICAL",
+        "ground_truth_status": "VERIFIED"
+      },
+      {
+        "test_id": "G017",
+        "category": "display",
+        "check": "graph_guard_condition",
+        "rule_or_question": "Q8",
+        "source_reference": {
+          "question_id": "Q8"
+        },
+        "input_state": {
+          "Q3": "Care Network A"
+        },
+        "expected": true,
+        "criticality": "CRITICAL",
+        "ground_truth_status": "VERIFIED"
+      },
+      {
+        "test_id": "G018",
+        "category": "display",
+        "check": "graph_guard_condition",
+        "rule_or_question": "Q9",
+        "source_reference": {
+          "question_id": "Q9"
+        },
+        "input_state": {
+          "Q3": "None/currently not using"
+        },
+        "expected": false,
+        "criticality": "CRITICAL",
+        "ground_truth_status": "VERIFIED"
+      },
+      {
+        "test_id": "G019",
+        "category": "display",
+        "check": "graph_guard_condition",
+        "rule_or_question": "Q9",
+        "source_reference": {
+          "question_id": "Q9"
+        },
+        "input_state": {
+          "Q3": "Care Network A"
+        },
+        "expected": true,
+        "criticality": "CRITICAL",
+        "ground_truth_status": "VERIFIED"
+      },
+      {
+        "test_id": "G020",
+        "category": "display",
+        "check": "graph_guard_condition",
+        "rule_or_question": "Q11",
+        "source_reference": {
+          "question_id": "Q11"
+        },
+        "input_state": {
+          "Q10": "Yes"
+        },
+        "expected": true,
+        "criticality": "CRITICAL",
+        "ground_truth_status": "VERIFIED"
+      },
+      {
+        "test_id": "G021",
+        "category": "display",
+        "check": "graph_guard_condition",
+        "rule_or_question": "Q11",
+        "source_reference": {
+          "question_id": "Q11"
+        },
+        "input_state": {
+          "Q10": "No"
+        },
+        "expected": false,
+        "criticality": "CRITICAL",
+        "ground_truth_status": "VERIFIED"
+      },
+      {
+        "test_id": "G022",
+        "category": "display",
+        "check": "graph_guard_condition",
+        "rule_or_question": "Q12",
+        "source_reference": {
+          "question_id": "Q12"
+        },
+        "input_state": {
+          "Q10": "Yes"
+        },
+        "expected": true,
+        "criticality": "CRITICAL",
+        "ground_truth_status": "VERIFIED"
+      },
+      {
+        "test_id": "G023",
+        "category": "display",
+        "check": "graph_guard_condition",
+        "rule_or_question": "Q12",
+        "source_reference": {
+          "question_id": "Q12"
+        },
+        "input_state": {
+          "Q10": "No"
+        },
+        "expected": false,
+        "criticality": "CRITICAL",
+        "ground_truth_status": "VERIFIED"
+      },
+      {
+        "test_id": "G024",
+        "category": "display",
+        "check": "graph_guard_condition",
+        "rule_or_question": "Q13",
+        "source_reference": {
+          "question_id": "Q13"
+        },
+        "input_state": {
+          "Q12": "Fully"
+        },
+        "expected": true,
+        "criticality": "CRITICAL",
+        "ground_truth_status": "VERIFIED"
+      },
+      {
+        "test_id": "G025",
+        "category": "display",
+        "check": "graph_guard_condition",
+        "rule_or_question": "Q13",
+        "source_reference": {
+          "question_id": "Q13"
+        },
+        "input_state": {
+          "Q12": "Not resolved"
+        },
+        "expected": false,
+        "criticality": "CRITICAL",
+        "ground_truth_status": "VERIFIED"
+      },
+      {
+        "test_id": "G026",
+        "category": "display",
+        "check": "graph_guard_condition",
+        "rule_or_question": "Q14",
+        "source_reference": {
+          "question_id": "Q14"
+        },
+        "input_state": {
+          "Q12": "Not resolved"
+        },
+        "expected": true,
+        "criticality": "CRITICAL",
+        "ground_truth_status": "VERIFIED"
+      },
+      {
+        "test_id": "G027",
+        "category": "display",
+        "check": "graph_guard_condition",
+        "rule_or_question": "Q14",
+        "source_reference": {
+          "question_id": "Q14"
+        },
+        "input_state": {
+          "Q12": "Fully"
+        },
+        "expected": false,
+        "criticality": "CRITICAL",
+        "ground_truth_status": "VERIFIED"
+      },
+      {
+        "test_id": "G028",
+        "category": "display",
+        "check": "graph_guard_condition",
+        "rule_or_question": "Q15",
+        "source_reference": {
+          "question_id": "Q15"
+        },
+        "input_state": {
+          "Q3": "None/currently not using"
+        },
+        "expected": false,
+        "criticality": "CRITICAL",
+        "ground_truth_status": "VERIFIED"
+      },
+      {
+        "test_id": "G029",
+        "category": "display",
+        "check": "graph_guard_condition",
+        "rule_or_question": "Q15",
+        "source_reference": {
+          "question_id": "Q15"
+        },
+        "input_state": {
+          "Q3": "Care Network A"
+        },
+        "expected": true,
+        "criticality": "CRITICAL",
+        "ground_truth_status": "VERIFIED"
+      },
+      {
+        "test_id": "G030",
+        "category": "display",
+        "check": "graph_guard_condition",
+        "rule_or_question": "Q16",
+        "source_reference": {
+          "question_id": "Q16"
+        },
+        "input_state": {
+          "Q15": "Yes"
+        },
+        "expected": true,
+        "criticality": "CRITICAL",
+        "ground_truth_status": "VERIFIED"
+      },
+      {
+        "test_id": "G031",
+        "category": "display",
+        "check": "graph_guard_condition",
+        "rule_or_question": "Q16",
+        "source_reference": {
+          "question_id": "Q16"
+        },
+        "input_state": {
+          "Q15": "No"
+        },
+        "expected": false,
+        "criticality": "CRITICAL",
+        "ground_truth_status": "VERIFIED"
+      },
+      {
+        "test_id": "G032",
+        "category": "display",
+        "check": "graph_guard_condition",
+        "rule_or_question": "Q17",
+        "source_reference": {
+          "question_id": "Q17"
+        },
+        "input_state": {
+          "Q16": "Other"
+        },
+        "expected": true,
+        "criticality": "CRITICAL",
+        "ground_truth_status": "VERIFIED"
+      },
+      {
+        "test_id": "G033",
+        "category": "display",
+        "check": "graph_guard_condition",
+        "rule_or_question": "Q17",
+        "source_reference": {
+          "question_id": "Q17"
+        },
+        "input_state": {
+          "Q16": "Price"
+        },
+        "expected": false,
+        "criticality": "CRITICAL",
+        "ground_truth_status": "VERIFIED"
+      },
+      {
+        "test_id": "G034",
+        "category": "dependency",
+        "check": "dependency_edge_present",
+        "rule_or_question": "Q1->Q2",
+        "source_reference": {
+          "from": "Q1",
+          "to": "Q2"
+        },
+        "input_state": null,
+        "expected": true,
+        "criticality": "HIGH",
+        "ground_truth_status": "VERIFIED"
+      },
+      {
+        "test_id": "G035",
+        "category": "dependency",
+        "check": "dependency_edge_present",
+        "rule_or_question": "Q5->Q6",
+        "source_reference": {
+          "from": "Q5",
+          "to": "Q6"
+        },
+        "input_state": null,
+        "expected": true,
+        "criticality": "HIGH",
+        "ground_truth_status": "VERIFIED"
+      },
+      {
+        "test_id": "G036",
+        "category": "dependency",
+        "check": "dependency_edge_present",
+        "rule_or_question": "Q3->Q8",
+        "source_reference": {
+          "from": "Q3",
+          "to": "Q8"
+        },
+        "input_state": null,
+        "expected": true,
+        "criticality": "HIGH",
+        "ground_truth_status": "VERIFIED"
+      },
+      {
+        "test_id": "G037",
+        "category": "dependency",
+        "check": "dependency_edge_present",
+        "rule_or_question": "Q3->Q9",
+        "source_reference": {
+          "from": "Q3",
+          "to": "Q9"
+        },
+        "input_state": null,
+        "expected": true,
+        "criticality": "HIGH",
+        "ground_truth_status": "VERIFIED"
+      },
+      {
+        "test_id": "G038",
+        "category": "dependency",
+        "check": "dependency_edge_present",
+        "rule_or_question": "Q19->Q20",
+        "source_reference": {
+          "from": "Q19",
+          "to": "Q20"
+        },
+        "input_state": null,
+        "expected": true,
+        "criticality": "HIGH",
+        "ground_truth_status": "VERIFIED"
+      },
+      {
+        "test_id": "G039",
+        "category": "dependency",
+        "check": "dependency_edge_present",
+        "rule_or_question": "Q19->Q21",
+        "source_reference": {
+          "from": "Q19",
+          "to": "Q21"
+        },
+        "input_state": null,
+        "expected": true,
+        "criticality": "HIGH",
+        "ground_truth_status": "VERIFIED"
+      },
+      {
+        "test_id": "G040",
+        "category": "quota",
+        "check": "quota_edge_present_structural_only",
+        "rule_or_question": "QUOTA_REGION",
+        "source_reference": {
+          "quota_id": "QUOTA_REGION"
+        },
+        "input_state": null,
+        "expected": "a structural edge exists; quota fill is not a per-respondent condition",
+        "criticality": "HIGH",
+        "ground_truth_status": "UNVERIFIED"
+      },
+      {
+        "test_id": "G041",
+        "category": "quota",
+        "check": "quota_edge_present_structural_only",
+        "rule_or_question": "QUOTA_AGE",
+        "source_reference": {
+          "quota_id": "QUOTA_AGE"
+        },
+        "input_state": null,
+        "expected": "a structural edge exists; quota fill is not a per-respondent condition",
+        "criticality": "HIGH",
+        "ground_truth_status": "UNVERIFIED"
+      },
+      {
+        "test_id": "G042",
+        "category": "randomization",
+        "check": "randomization_metadata_present",
+        "rule_or_question": "Q1",
+        "source_reference": {
+          "question_id": "Q1"
+        },
+        "input_state": null,
+        "expected": true,
+        "criticality": "NORMAL",
+        "ground_truth_status": "VERIFIED"
+      },
+      {
+        "test_id": "G043",
+        "category": "randomization",
+        "check": "randomization_metadata_present",
+        "rule_or_question": "Q5",
+        "source_reference": {
+          "question_id": "Q5"
+        },
+        "input_state": null,
+        "expected": true,
+        "criticality": "NORMAL",
+        "ground_truth_status": "VERIFIED"
+      },
+      {
+        "test_id": "G044",
+        "category": "randomization",
+        "check": "randomization_metadata_present",
+        "rule_or_question": "Q9",
+        "source_reference": {
+          "question_id": "Q9"
+        },
+        "input_state": null,
+        "expected": true,
+        "criticality": "NORMAL",
+        "ground_truth_status": "VERIFIED"
+      },
+      {
+        "test_id": "G045",
+        "category": "randomization",
+        "check": "randomization_metadata_present",
+        "rule_or_question": "Q16",
+        "source_reference": {
+          "question_id": "Q16"
+        },
+        "input_state": null,
+        "expected": true,
+        "criticality": "NORMAL",
+        "ground_truth_status": "VERIFIED"
+      },
+      {
+        "test_id": "G046",
+        "category": "randomization",
+        "check": "randomization_metadata_present",
+        "rule_or_question": "Q19",
+        "source_reference": {
+          "question_id": "Q19"
+        },
+        "input_state": null,
+        "expected": true,
+        "criticality": "NORMAL",
+        "ground_truth_status": "VERIFIED"
+      },
+      {
+        "test_id": "G047",
+        "category": "route",
+        "check": "scenario_route_walk",
+        "rule_or_question": "T1",
+        "source_reference": {
+          "scenario_id": "T1",
+          "purpose": "age screenout"
+        },
+        "input_state": {
+          "S1": "No"
+        },
+        "expected": "TERM_AGE",
+        "criticality": "CRITICAL",
+        "ground_truth_status": "VERIFIED"
+      },
+      {
+        "test_id": "G048",
+        "category": "route",
+        "check": "scenario_route_walk",
+        "rule_or_question": "T2",
+        "source_reference": {
+          "scenario_id": "T2",
+          "purpose": "conflict screenout"
+        },
+        "input_state": {
+          "S1": "Yes",
+          "S2": "Personally manage an ongoing chronic health condition",
+          "S3": "No",
+          "S4": "Yes"
+        },
+        "expected": "TERM_CONFLICT",
+        "criticality": "CRITICAL",
+        "ground_truth_status": "VERIFIED"
+      },
+      {
+        "test_id": "G049",
+        "category": "route",
+        "check": "scenario_route_walk",
+        "rule_or_question": "T3",
+        "source_reference": {
+          "scenario_id": "T3",
+          "purpose": "brand unaware journey"
+        },
+        "input_state": {
+          "S1": "Yes",
+          "S2": "Personally manage an ongoing chronic health condition",
+          "S3": "No",
+          "S4": "No",
+          "Q1": [
+            "None of these"
+          ]
+        },
+        "expected": "COMPLETE",
+        "criticality": "CRITICAL",
+        "ground_truth_status": "VERIFIED"
+      },
+      {
+        "test_id": "G050",
+        "category": "route",
+        "check": "scenario_route_walk",
+        "rule_or_question": "T4",
+        "source_reference": {
+          "scenario_id": "T4",
+          "purpose": "user, no support, no switch"
+        },
+        "input_state": {
+          "S1": "Yes",
+          "S2": "Personally manage an ongoing chronic health condition",
+          "S3": "No",
+          "S4": "No",
+          "Q1": [
+            "Care Network A"
+          ],
+          "Q3": "Care Network A",
+          "Q10": "No",
+          "Q15": "No"
+        },
+        "expected": "COMPLETE",
+        "criticality": "CRITICAL",
+        "ground_truth_status": "VERIFIED"
+      },
+      {
+        "test_id": "G051",
+        "category": "route",
+        "check": "scenario_route_walk",
+        "rule_or_question": "T5",
+        "source_reference": {
+          "scenario_id": "T5",
+          "purpose": "unresolved support and other switch reason"
+        },
+        "input_state": {
+          "S1": "Yes",
+          "S2": "Personally manage an ongoing chronic health condition",
+          "S3": "No",
+          "S4": "No",
+          "Q1": [
+            "Care Network B"
+          ],
+          "Q3": "Care Network B",
+          "Q10": "Yes",
+          "Q12": "Not resolved",
+          "Q15": "Yes",
+          "Q16": "Other"
+        },
+        "expected": "COMPLETE",
+        "criticality": "CRITICAL",
+        "ground_truth_status": "VERIFIED"
+      }
+    ],
+    "behavioural_test_results": [
+      {
+        "test_id": "G001",
+        "category": "termination",
+        "status": "PASS",
+        "expected": true,
+        "actual": true,
+        "evidence": "S1 -> TERM_AGE on {\"S1\": \"No\"}",
+        "rule_or_question": "R1",
+        "explanation": "the graph's edge fires exactly when the QRE's own condition does"
+      },
+      {
+        "test_id": "G002",
+        "category": "termination",
+        "status": "PASS",
+        "expected": false,
+        "actual": false,
+        "evidence": "S1 -> TERM_AGE on {\"S1\": \"Yes\"}",
+        "rule_or_question": "R1",
+        "explanation": "the graph's edge fires exactly when the QRE's own condition does"
+      },
+      {
+        "test_id": "G003",
+        "category": "termination",
+        "status": "PASS",
+        "expected": false,
+        "actual": false,
+        "evidence": "S2 -> TERM_INVOLVEMENT on {\"S2\": \"Personally manage an ongoing chronic health condition\"}",
+        "rule_or_question": "R2",
+        "explanation": "the graph's edge fires exactly when the QRE's own condition does"
+      },
+      {
+        "test_id": "G004",
+        "category": "termination",
+        "status": "PASS",
+        "expected": true,
+        "actual": true,
+        "evidence": "S2 -> TERM_INVOLVEMENT on {\"S2\": \"Aware but not involved\"}",
+        "rule_or_question": "R2",
+        "explanation": "the graph's edge fires exactly when the QRE's own condition does"
+      },
+      {
+        "test_id": "G005",
+        "category": "termination",
+        "status": "PASS",
+        "expected": true,
+        "actual": true,
+        "evidence": "S3 -> TERM_RECENT_RESEARCH on {\"S3\": \"Yes\"}",
+        "rule_or_question": "R3",
+        "explanation": "the graph's edge fires exactly when the QRE's own condition does"
+      },
+      {
+        "test_id": "G006",
+        "category": "termination",
+        "status": "PASS",
+        "expected": false,
+        "actual": false,
+        "evidence": "S3 -> TERM_RECENT_RESEARCH on {\"S3\": \"No\"}",
+        "rule_or_question": "R3",
+        "explanation": "the graph's edge fires exactly when the QRE's own condition does"
+      },
+      {
+        "test_id": "G007",
+        "category": "termination",
+        "status": "PASS",
+        "expected": true,
+        "actual": true,
+        "evidence": "S4 -> TERM_CONFLICT on {\"S4\": \"Yes\"}",
+        "rule_or_question": "R4",
+        "explanation": "the graph's edge fires exactly when the QRE's own condition does"
+      },
+      {
+        "test_id": "G008",
+        "category": "termination",
+        "status": "PASS",
+        "expected": false,
+        "actual": false,
+        "evidence": "S4 -> TERM_CONFLICT on {\"S4\": \"No\"}",
+        "rule_or_question": "R4",
+        "explanation": "the graph's edge fires exactly when the QRE's own condition does"
+      },
+      {
+        "test_id": "G009",
+        "category": "skip",
+        "status": "PASS",
+        "expected": true,
+        "actual": true,
+        "evidence": "Q1 -> Q4 on {\"Q1\": [\"None of these\"]}",
+        "rule_or_question": "R5",
+        "explanation": "the graph's edge fires exactly when the QRE's own condition does"
+      },
+      {
+        "test_id": "G010",
+        "category": "skip",
+        "status": "PASS",
+        "expected": false,
+        "actual": false,
+        "evidence": "Q1 -> Q4 on {\"Q1\": [\"None of these\", \"Care Network A\"]}",
+        "rule_or_question": "R5",
+        "explanation": "the graph's edge fires exactly when the QRE's own condition does"
+      },
+      {
+        "test_id": "G011",
+        "category": "display",
+        "status": "UNVERIFIED",
+        "expected": "a reading a person must confirm",
+        "actual": null,
+        "evidence": "{\"question_id\": \"Q2\"}",
+        "rule_or_question": "Q2",
+        "explanation": "no independent oracle exists for this condition, so the graph's behaviour here cannot be checked without a person"
+      },
+      {
+        "test_id": "G012",
+        "category": "display",
+        "status": "UNVERIFIED",
+        "expected": "a reading a person must confirm",
+        "actual": null,
+        "evidence": "{\"question_id\": \"Q3\"}",
+        "rule_or_question": "Q3",
+        "explanation": "no independent oracle exists for this condition, so the graph's behaviour here cannot be checked without a person"
+      },
+      {
+        "test_id": "G013",
+        "category": "display",
+        "status": "UNVERIFIED",
+        "expected": "a reading a person must confirm",
+        "actual": null,
+        "evidence": "{\"question_id\": \"Q6\"}",
+        "rule_or_question": "Q6",
+        "explanation": "no independent oracle exists for this condition, so the graph's behaviour here cannot be checked without a person"
+      },
+      {
+        "test_id": "G014",
+        "category": "display",
+        "status": "PASS",
+        "expected": false,
+        "actual": false,
+        "evidence": "Q7 on {\"Q3\": \"None/currently not using\"}",
+        "rule_or_question": "Q7",
+        "explanation": "the node's guard resolves exactly as the QRE's own condition does"
+      },
+      {
+        "test_id": "G015",
+        "category": "display",
+        "status": "PASS",
+        "expected": true,
+        "actual": true,
+        "evidence": "Q7 on {\"Q3\": \"Care Network A\"}",
+        "rule_or_question": "Q7",
+        "explanation": "the node's guard resolves exactly as the QRE's own condition does"
+      },
+      {
+        "test_id": "G016",
+        "category": "display",
+        "status": "PASS",
+        "expected": false,
+        "actual": false,
+        "evidence": "Q8 on {\"Q3\": \"None/currently not using\"}",
+        "rule_or_question": "Q8",
+        "explanation": "the node's guard resolves exactly as the QRE's own condition does"
+      },
+      {
+        "test_id": "G017",
+        "category": "display",
+        "status": "PASS",
+        "expected": true,
+        "actual": true,
+        "evidence": "Q8 on {\"Q3\": \"Care Network A\"}",
+        "rule_or_question": "Q8",
+        "explanation": "the node's guard resolves exactly as the QRE's own condition does"
+      },
+      {
+        "test_id": "G018",
+        "category": "display",
+        "status": "PASS",
+        "expected": false,
+        "actual": false,
+        "evidence": "Q9 on {\"Q3\": \"None/currently not using\"}",
+        "rule_or_question": "Q9",
+        "explanation": "the node's guard resolves exactly as the QRE's own condition does"
+      },
+      {
+        "test_id": "G019",
+        "category": "display",
+        "status": "PASS",
+        "expected": true,
+        "actual": true,
+        "evidence": "Q9 on {\"Q3\": \"Care Network A\"}",
+        "rule_or_question": "Q9",
+        "explanation": "the node's guard resolves exactly as the QRE's own condition does"
+      },
+      {
+        "test_id": "G020",
+        "category": "display",
+        "status": "PASS",
+        "expected": true,
+        "actual": true,
+        "evidence": "Q11 on {\"Q10\": \"Yes\"}",
+        "rule_or_question": "Q11",
+        "explanation": "the node's guard resolves exactly as the QRE's own condition does"
+      },
+      {
+        "test_id": "G021",
+        "category": "display",
+        "status": "PASS",
+        "expected": false,
+        "actual": false,
+        "evidence": "Q11 on {\"Q10\": \"No\"}",
+        "rule_or_question": "Q11",
+        "explanation": "the node's guard resolves exactly as the QRE's own condition does"
+      },
+      {
+        "test_id": "G022",
+        "category": "display",
+        "status": "PASS",
+        "expected": true,
+        "actual": true,
+        "evidence": "Q12 on {\"Q10\": \"Yes\"}",
+        "rule_or_question": "Q12",
+        "explanation": "the node's guard resolves exactly as the QRE's own condition does"
+      },
+      {
+        "test_id": "G023",
+        "category": "display",
+        "status": "PASS",
+        "expected": false,
+        "actual": false,
+        "evidence": "Q12 on {\"Q10\": \"No\"}",
+        "rule_or_question": "Q12",
+        "explanation": "the node's guard resolves exactly as the QRE's own condition does"
+      },
+      {
+        "test_id": "G024",
+        "category": "display",
+        "status": "PASS",
+        "expected": true,
+        "actual": true,
+        "evidence": "Q13 on {\"Q12\": \"Fully\"}",
+        "rule_or_question": "Q13",
+        "explanation": "the node's guard resolves exactly as the QRE's own condition does"
+      },
+      {
+        "test_id": "G025",
+        "category": "display",
+        "status": "PASS",
+        "expected": false,
+        "actual": false,
+        "evidence": "Q13 on {\"Q12\": \"Not resolved\"}",
+        "rule_or_question": "Q13",
+        "explanation": "the node's guard resolves exactly as the QRE's own condition does"
+      },
+      {
+        "test_id": "G026",
+        "category": "display",
+        "status": "PASS",
+        "expected": true,
+        "actual": true,
+        "evidence": "Q14 on {\"Q12\": \"Not resolved\"}",
+        "rule_or_question": "Q14",
+        "explanation": "the node's guard resolves exactly as the QRE's own condition does"
+      },
+      {
+        "test_id": "G027",
+        "category": "display",
+        "status": "PASS",
+        "expected": false,
+        "actual": false,
+        "evidence": "Q14 on {\"Q12\": \"Fully\"}",
+        "rule_or_question": "Q14",
+        "explanation": "the node's guard resolves exactly as the QRE's own condition does"
+      },
+      {
+        "test_id": "G028",
+        "category": "display",
+        "status": "PASS",
+        "expected": false,
+        "actual": false,
+        "evidence": "Q15 on {\"Q3\": \"None/currently not using\"}",
+        "rule_or_question": "Q15",
+        "explanation": "the node's guard resolves exactly as the QRE's own condition does"
+      },
+      {
+        "test_id": "G029",
+        "category": "display",
+        "status": "PASS",
+        "expected": true,
+        "actual": true,
+        "evidence": "Q15 on {\"Q3\": \"Care Network A\"}",
+        "rule_or_question": "Q15",
+        "explanation": "the node's guard resolves exactly as the QRE's own condition does"
+      },
+      {
+        "test_id": "G030",
+        "category": "display",
+        "status": "PASS",
+        "expected": true,
+        "actual": true,
+        "evidence": "Q16 on {\"Q15\": \"Yes\"}",
+        "rule_or_question": "Q16",
+        "explanation": "the node's guard resolves exactly as the QRE's own condition does"
+      },
+      {
+        "test_id": "G031",
+        "category": "display",
+        "status": "PASS",
+        "expected": false,
+        "actual": false,
+        "evidence": "Q16 on {\"Q15\": \"No\"}",
+        "rule_or_question": "Q16",
+        "explanation": "the node's guard resolves exactly as the QRE's own condition does"
+      },
+      {
+        "test_id": "G032",
+        "category": "display",
+        "status": "PASS",
+        "expected": true,
+        "actual": true,
+        "evidence": "Q17 on {\"Q16\": \"Other\"}",
+        "rule_or_question": "Q17",
+        "explanation": "the node's guard resolves exactly as the QRE's own condition does"
+      },
+      {
+        "test_id": "G033",
+        "category": "display",
+        "status": "PASS",
+        "expected": false,
+        "actual": false,
+        "evidence": "Q17 on {\"Q16\": \"Price\"}",
+        "rule_or_question": "Q17",
+        "explanation": "the node's guard resolves exactly as the QRE's own condition does"
+      },
+      {
+        "test_id": "G034",
+        "category": "dependency",
+        "status": "PASS",
+        "expected": true,
+        "actual": true,
+        "evidence": "Q1->Q2",
+        "rule_or_question": "Q1->Q2",
+        "explanation": "dependency preserved"
+      },
+      {
+        "test_id": "G035",
+        "category": "dependency",
+        "status": "PASS",
+        "expected": true,
+        "actual": true,
+        "evidence": "Q5->Q6",
+        "rule_or_question": "Q5->Q6",
+        "explanation": "dependency preserved"
+      },
+      {
+        "test_id": "G036",
+        "category": "dependency",
+        "status": "PASS",
+        "expected": true,
+        "actual": true,
+        "evidence": "Q3->Q8",
+        "rule_or_question": "Q3->Q8",
+        "explanation": "dependency preserved"
+      },
+      {
+        "test_id": "G037",
+        "category": "dependency",
+        "status": "PASS",
+        "expected": true,
+        "actual": true,
+        "evidence": "Q3->Q9",
+        "rule_or_question": "Q3->Q9",
+        "explanation": "dependency preserved"
+      },
+      {
+        "test_id": "G038",
+        "category": "dependency",
+        "status": "PASS",
+        "expected": true,
+        "actual": true,
+        "evidence": "Q19->Q20",
+        "rule_or_question": "Q19->Q20",
+        "explanation": "dependency preserved"
+      },
+      {
+        "test_id": "G039",
+        "category": "dependency",
+        "status": "PASS",
+        "expected": true,
+        "actual": true,
+        "evidence": "Q19->Q21",
+        "rule_or_question": "Q19->Q21",
+        "explanation": "dependency preserved"
+      },
+      {
+        "test_id": "G040",
+        "category": "quota",
+        "status": "UNVERIFIED",
+        "expected": "a structural edge exists; quota fill is not a per-respondent condition",
+        "actual": null,
+        "evidence": "{\"quota_id\": \"QUOTA_REGION\"}",
+        "rule_or_question": "QUOTA_REGION",
+        "explanation": "no independent oracle exists for this condition, so the graph's behaviour here cannot be checked without a person"
+      },
+      {
+        "test_id": "G041",
+        "category": "quota",
+        "status": "UNVERIFIED",
+        "expected": "a structural edge exists; quota fill is not a per-respondent condition",
+        "actual": null,
+        "evidence": "{\"quota_id\": \"QUOTA_AGE\"}",
+        "rule_or_question": "QUOTA_AGE",
+        "explanation": "no independent oracle exists for this condition, so the graph's behaviour here cannot be checked without a person"
+      },
+      {
+        "test_id": "G042",
+        "category": "randomization",
+        "status": "PASS",
+        "expected": true,
+        "actual": true,
+        "evidence": "Q1",
+        "rule_or_question": "Q1",
+        "explanation": "metadata present on the node"
+      },
+      {
+        "test_id": "G043",
+        "category": "randomization",
+        "status": "PASS",
+        "expected": true,
+        "actual": true,
+        "evidence": "Q5",
+        "rule_or_question": "Q5",
+        "explanation": "metadata present on the node"
+      },
+      {
+        "test_id": "G044",
+        "category": "randomization",
+        "status": "PASS",
+        "expected": true,
+        "actual": true,
+        "evidence": "Q9",
+        "rule_or_question": "Q9",
+        "explanation": "metadata present on the node"
+      },
+      {
+        "test_id": "G045",
+        "category": "randomization",
+        "status": "PASS",
+        "expected": true,
+        "actual": true,
+        "evidence": "Q16",
+        "rule_or_question": "Q16",
+        "explanation": "metadata present on the node"
+      },
+      {
+        "test_id": "G046",
+        "category": "randomization",
+        "status": "PASS",
+        "expected": true,
+        "actual": true,
+        "evidence": "Q19",
+        "rule_or_question": "Q19",
+        "explanation": "metadata present on the node"
+      },
+      {
+        "test_id": "G047",
+        "category": "route",
+        "status": "PASS",
+        "expected": "TERM_AGE",
+        "actual": "TERM_AGE",
+        "evidence": "__START__ -> S1 -> TERM_AGE",
+        "rule_or_question": "T1",
+        "explanation": "walking the graph from the scenario's own inputs reaches the ending the QRE itself says it should"
+      },
+      {
+        "test_id": "G048",
+        "category": "route",
+        "status": "PASS",
+        "expected": "TERM_CONFLICT",
+        "actual": "TERM_CONFLICT",
+        "evidence": "__START__ -> S1 -> S2 -> S3 -> S4 -> TERM_CONFLICT",
+        "rule_or_question": "T2",
+        "explanation": "walking the graph from the scenario's own inputs reaches the ending the QRE itself says it should"
+      },
+      {
+        "test_id": "G049",
+        "category": "route",
+        "status": "PASS",
+        "expected": "COMPLETE",
+        "actual": "COMPLETE",
+        "evidence": "__START__ -> S1 -> S2 -> S3 -> S4 -> Q1 -> Q4 -> Q5 -> Q6 -> Q7 -> Q8 -> Q9 -> Q10 -> Q11 -> Q12 -> Q13 -> Q14 -> Q15 -> Q16 -> Q17 -> Q18 -> Q19 -> Q20 -> Q21 -> D1 -> D2 -> D3 -> D4 -> Q22 -> Q23 -> COMPLETE",
+        "rule_or_question": "T3",
+        "explanation": "walking the graph from the scenario's own inputs reaches the ending the QRE itself says it should"
+      },
+      {
+        "test_id": "G050",
+        "category": "route",
+        "status": "PASS",
+        "expected": "COMPLETE",
+        "actual": "COMPLETE",
+        "evidence": "__START__ -> S1 -> S2 -> S3 -> S4 -> Q1 -> Q2 -> Q3 -> Q4 -> Q5 -> Q6 -> Q7 -> Q8 -> Q9 -> Q10 -> Q11 -> Q12 -> Q13 -> Q14 -> Q15 -> Q16 -> Q17 -> Q18 -> Q19 -> Q20 -> Q21 -> D1 -> D2 -> D3 -> D4 -> Q22 -> Q23 -> COMPLETE",
+        "rule_or_question": "T4",
+        "explanation": "walking the graph from the scenario's own inputs reaches the ending the QRE itself says it should"
+      },
+      {
+        "test_id": "G051",
+        "category": "route",
+        "status": "PASS",
+        "expected": "COMPLETE",
+        "actual": "COMPLETE",
+        "evidence": "__START__ -> S1 -> S2 -> S3 -> S4 -> Q1 -> Q2 -> Q3 -> Q4 -> Q5 -> Q6 -> Q7 -> Q8 -> Q9 -> Q10 -> Q11 -> Q12 -> Q13 -> Q14 -> Q15 -> Q16 -> Q17 -> Q18 -> Q19 -> Q20 -> Q21 -> D1 -> D2 -> D3 -> D4 -> Q22 -> Q23 -> COMPLETE",
+        "rule_or_question": "T5",
+        "explanation": "walking the graph from the scenario's own inputs reaches the ending the QRE itself says it should"
+      }
+    ],
+    "test_counts": {
+      "total": 51,
+      "PASS": 46,
+      "FAIL": 0,
+      "UNVERIFIED": 5,
+      "BLOCKED": 0
+    },
+    "structural_findings": [],
+    "traceability_result": {
+      "numerator": 22,
+      "denominator": 22,
+      "result": 1.0
+    },
+    "agent3_input_sufficiency": {
+      "route_tests": "READY",
+      "branch_condition_tests": "READY",
+      "termination_tests": "READY",
+      "validation_negative_tests": "READY_VIA_CANONICAL_SPEC",
+      "dependency_piping_tests": "READY",
+      "randomization_tests": "READY_VIA_CANONICAL_SPEC",
+      "quota_tests": "READY_VIA_CANONICAL_SPEC",
+      "acceptance_tests": "READY_VIA_CANONICAL_SPEC",
+      "canonical_spec_required_for": [
+        {
+          "needs": "question wording, option labels, message text",
+          "why": "deliberately kept out of every node and edge; the graph carries ids and structure only"
+        },
+        {
+          "needs": "validation bounds (min/max length, min/max value, min_selections, sum_to, require_each_row, exclusive_option, mandatory)",
+          "why": "reject rules are recorded as a constraint, not an edge with the bound attached"
+        },
+        {
+          "needs": "acceptance scenarios",
+          "why": "specification-level ground truth; never represented as graph structure"
+        },
+        {
+          "needs": "study metadata and programming/QA requirements",
+          "why": "survey-level statements, not structural facts about any one node or edge"
+        },
+        {
+          "needs": "quota cell targets and percentages",
+          "why": "the graph records that a quota edge exists and is stateful, not its groups or targets"
+        },
+        {
+          "needs": "the human decision register's resolutions",
+          "why": "a graph edge exists whether or not its condition has been confirmed; the graph alone cannot say which of its own transitions are still provisional"
+        }
+      ]
+    },
+    "agent3_input_status": "READY",
+    "blockers": [],
+    "warnings": [
+      {
+        "test_id": "G011",
+        "category": "display",
+        "status": "UNVERIFIED",
+        "expected": "a reading a person must confirm",
+        "actual": null,
+        "evidence": "{\"question_id\": \"Q2\"}",
+        "rule_or_question": "Q2",
+        "explanation": "no independent oracle exists for this condition, so the graph's behaviour here cannot be checked without a person"
+      },
+      {
+        "test_id": "G012",
+        "category": "display",
+        "status": "UNVERIFIED",
+        "expected": "a reading a person must confirm",
+        "actual": null,
+        "evidence": "{\"question_id\": \"Q3\"}",
+        "rule_or_question": "Q3",
+        "explanation": "no independent oracle exists for this condition, so the graph's behaviour here cannot be checked without a person"
+      },
+      {
+        "test_id": "G013",
+        "category": "display",
+        "status": "UNVERIFIED",
+        "expected": "a reading a person must confirm",
+        "actual": null,
+        "evidence": "{\"question_id\": \"Q6\"}",
+        "rule_or_question": "Q6",
+        "explanation": "no independent oracle exists for this condition, so the graph's behaviour here cannot be checked without a person"
+      },
+      {
+        "test_id": "G040",
+        "category": "quota",
+        "status": "UNVERIFIED",
+        "expected": "a structural edge exists; quota fill is not a per-respondent condition",
+        "actual": null,
+        "evidence": "{\"quota_id\": \"QUOTA_REGION\"}",
+        "rule_or_question": "QUOTA_REGION",
+        "explanation": "no independent oracle exists for this condition, so the graph's behaviour here cannot be checked without a person"
+      },
+      {
+        "test_id": "G041",
+        "category": "quota",
+        "status": "UNVERIFIED",
+        "expected": "a structural edge exists; quota fill is not a per-respondent condition",
+        "actual": null,
+        "evidence": "{\"quota_id\": \"QUOTA_AGE\"}",
+        "rule_or_question": "QUOTA_AGE",
+        "explanation": "no independent oracle exists for this condition, so the graph's behaviour here cannot be checked without a person"
+      }
+    ],
+    "structural_graph_status": "READY",
+    "behavioural_graph_status": "READY_WITH_WARNINGS"
+  }
+}

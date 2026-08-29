@@ -1,0 +1,92 @@
+<?xml version='1.0' encoding='utf-8'?>
+<gexf xmlns="http://www.gexf.net/1.2draft" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.gexf.net/1.2draft http://www.gexf.net/1.2draft/gexf.xsd" version="1.2">
+  <meta lastmodifieddate="2026-08-29">
+    <creator>NetworkX 3.6.1</creator>
+  </meta>
+  <graph defaultedgetype="directed" mode="static" name="">
+    <attributes mode="static" class="edge">
+      <attribute id="2" title="kind" type="string" />
+      <attribute id="3" title="origin" type="string" />
+    </attributes>
+    <attributes mode="static" class="node">
+      <attribute id="0" title="kind" type="string" />
+      <attribute id="1" title="seq" type="long" />
+    </attributes>
+    <nodes>
+      <node id="S1" label="S1">
+        <attvalues>
+          <attvalue for="0" value="question" />
+          <attvalue for="1" value="1" />
+        </attvalues>
+      </node>
+      <node id="S2" label="S2">
+        <attvalues>
+          <attvalue for="0" value="question" />
+          <attvalue for="1" value="2" />
+        </attvalues>
+      </node>
+      <node id="Q1" label="Q1">
+        <attvalues>
+          <attvalue for="0" value="question" />
+          <attvalue for="1" value="3" />
+        </attvalues>
+      </node>
+      <node id="Q2" label="Q2">
+        <attvalues>
+          <attvalue for="0" value="question" />
+          <attvalue for="1" value="4" />
+        </attvalues>
+      </node>
+      <node id="Q3" label="Q3">
+        <attvalues>
+          <attvalue for="0" value="question" />
+          <attvalue for="1" value="5" />
+        </attvalues>
+      </node>
+      <node id="Q4" label="Q4">
+        <attvalues>
+          <attvalue for="0" value="question" />
+          <attvalue for="1" value="6" />
+        </attvalues>
+      </node>
+      <node id="Q5" label="Q5">
+        <attvalues>
+          <attvalue for="0" value="question" />
+          <attvalue for="1" value="7" />
+        </attvalues>
+      </node>
+      <node id="Q6" label="Q6">
+        <attvalues>
+          <attvalue for="0" value="question" />
+          <attvalue for="1" value="8" />
+        </attvalues>
+      </node>
+      <node id="Q7" label="Q7">
+        <attvalues>
+          <attvalue for="0" value="question" />
+          <attvalue for="1" value="9" />
+        </attvalues>
+      </node>
+      <node id="Q8" label="Q8">
+        <attvalues>
+          <attvalue for="0" value="question" />
+          <attvalue for="1" value="10" />
+        </attvalues>
+      </node>
+    </nodes>
+    <edges>
+      <edge source="Q2" target="Q4" id="0">
+        <attvalues>
+          <attvalue for="2" value="text_pipe" />
+          <attvalue for="3" value="inferred" />
+        </attvalues>
+      </edge>
+      <edge source="Q5" target="Q6" id="1">
+        <attvalues>
+          <attvalue for="2" value="text_pipe" />
+          <attvalue for="3" value="inferred" />
+        </attvalues>
+      </edge>
+    </edges>
+  </graph>
+</gexf>
