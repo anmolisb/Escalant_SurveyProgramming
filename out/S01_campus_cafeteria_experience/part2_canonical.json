@@ -8,7 +8,7 @@
     "sha256": "2756cb3b6dc3f21cdc7c1d35b7cfb0e2270af2a918ba6fe682e72ae8e121a804",
     "bytes": 40578
   },
-  "generated_at": "2026-08-28T14:48:55+00:00",
+  "generated_at": "2026-08-29T05:06:34+00:00",
   "item_count": null,
   "content": {
     "source": "S01_campus_cafeteria_experience.docx",
@@ -101,6 +101,22 @@
         "question_id": "Q8",
         "seq": 10,
         "guard": null
+      }
+    ],
+    "dispositions": [
+      {
+        "disposition_id": "COMPLETE",
+        "kind": "complete",
+        "message": "Thank you. Your response has been recorded.",
+        "terminal": true,
+        "defined_in_source": true
+      },
+      {
+        "disposition_id": "TERM_INELIGIBLE",
+        "kind": "screenout",
+        "message": "Thank you for your interest. You do not qualify for this survey.",
+        "terminal": true,
+        "defined_in_source": true
       }
     ],
     "rules": [
@@ -277,29 +293,10 @@
         }
       }
     ],
-    "dependencies": [
-      {
-        "from_question": "Q5",
-        "to_question": "Q6",
-        "kind": "text_pipe",
-        "detail": "the main problem",
-        "origin": "inferred"
-      }
-    ],
+    "dependencies": [],
     "randomization": [],
     "quotas": [],
     "review": [
-      {
-        "check": "text_pipe_inferred",
-        "severity": "WARNING",
-        "finding": "Q6's wording appears to quote the answer given at Q5. No table states this; it was read out of the sentence, so it is worth confirming.",
-        "target": {
-          "kind": "question",
-          "id": "Q6"
-        },
-        "evidence": "'the main problem' (confidence 1.00)",
-        "source_reference": null
-      },
       {
         "check": "semantics_unconfirmed",
         "severity": "BLOCKING",

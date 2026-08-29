@@ -17,6 +17,7 @@ Artifacts, under out/<document stem>/:
     stage4_<target>.json    stage4_flags.json
     stage5_audit.json
     part2_canonical.json     (Part 2 — what the QRE means)
+    part2_route_graph.json   part2_graph_report.json
 
 Targets: questionnaire, routing, scenarios, messages, quotas, study,
 programming. A target absent from the document is flagged, not fatal.
@@ -38,6 +39,7 @@ import stage3_raw_json
 import stage4_deep_parse
 import stage5_audit
 import part2_canonical
+import part2_graph
 from models import (
     SCHEMA_VERSION,
     ArtifactEnvelope,
@@ -48,6 +50,8 @@ from models import (
     Stage2Blocks,
     Stage3Block,
     CanonicalSurvey,
+    GraphReport,
+    RouteGraphs,
     Stage5Audit,
     TargetHeading,
 )
@@ -262,6 +266,31 @@ def run_part2(source: str, parsed: dict) -> CanonicalSurvey:
     return survey
 
 
+def run_graphs(source: str, survey: CanonicalSurvey) -> tuple[RouteGraphs, GraphReport]:
+    """Build the route and dependency graphs from the canonical specification.
+
+    Needs no model, so this always runs even when the day's token budget is
+    gone - it is pure structure, read from a file that already exists.
+    """
+    graphs, report = part2_graph.run(survey)
+    out = _out_dir(source)
+    _write(
+        out / "part2_route_graph.json",
+        graphs,
+        artifact="part2_route_graph",
+        stage=7,
+        source=source,
+    )
+    _write(
+        out / "part2_graph_report.json",
+        report,
+        artifact="part2_graph_report",
+        stage=7,
+        source=source,
+    )
+    return graphs, report
+
+
 # ---------------------------------------------------------------------------
 # Re-entry: load a previous stage's artifact instead of recomputing it
 # ---------------------------------------------------------------------------
@@ -365,6 +394,18 @@ def _summarise_part2(survey: CanonicalSurvey) -> None:
     print(f"  review           {len(survey.review)} ({blocking} blocking)")
 
 
+def _summarise_graphs(report: GraphReport) -> None:
+    print("\nROUTE GRAPH")
+    print(f"  nodes            {report.nodes} ({report.questions} questions, {report.dispositions} endings)")
+    print(f"  edges            {report.edges}")
+    print(f"  rules mapped     {report.rules_mapped}/{report.rules_total}")
+    print(f"  quotas mapped    {report.quotas_mapped}/{report.quotas_total}")
+    print(f"  dependency edges {report.dependency_edges}")
+    print(f"  check            {'PASS' if report.passed else 'FAIL'} ({report.blocking} blocking, {len(report.findings)} findings)")
+    for f in report.findings:
+        print(f"    [{f.severity.value:<8}] {f.check}: {f.finding}")
+
+
 def main(argv: list[str]) -> int:
     args = [a for a in argv[1:] if not a.startswith("--")]
     if not args:
@@ -398,10 +439,12 @@ def main(argv: list[str]) -> int:
     parsed, stage4_flags = run_stage4(source, stage3)
     audit = run_stage5(document, blocks, stage3, parsed)
     survey = run_part2(source, parsed)
+    _graphs, graph_report = run_graphs(source, survey)
 
     _summarise(blocks, stage3, parsed, [*stage3_flags, *stage4_flags])
     _summarise_audit(audit)
     _summarise_part2(survey)
+    _summarise_graphs(graph_report)
     print(f"\nArtifacts: {_out_dir(source)}")
     return 0
 

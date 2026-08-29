@@ -858,6 +858,26 @@ class CanonicalQuestion(BaseModel):
     guard: Guard | None = None
 
 
+class CanonicalDisposition(BaseModel):
+    """A way the survey can end.
+
+    Needed as a first-class object because the route graph has to give every
+    ending a node to terminate at. An ending a rule sends people to but which
+    the QRE never defines still gets one, marked `defined_in_source=False` —
+    C01 and C02 both send quota-full respondents to TERM_QUOTA_FULL and then
+    never say what it shows them, and a graph that quietly omitted that node
+    would hide a real hole rather than expose it.
+    """
+
+    disposition_id: str
+    #: complete, screenout, quota_full, or unknown where the id says nothing.
+    kind: str = "unknown"
+    message: str | None = None
+    terminal: bool = True
+    #: False when the id is referred to but never given a message of its own.
+    defined_in_source: bool = True
+
+
 class CanonicalSurvey(BaseModel):
     """What the QRE means, as opposed to what it says.
 
@@ -869,6 +889,7 @@ class CanonicalSurvey(BaseModel):
     source: str
     semantics: Semantics = Field(default_factory=Semantics)
     questions: list[CanonicalQuestion] = Field(default_factory=list)
+    dispositions: list[CanonicalDisposition] = Field(default_factory=list)
     rules: list[CanonicalRule] = Field(default_factory=list)
     dependencies: list[Dependency] = Field(default_factory=list)
     randomization: list[Randomization] = Field(default_factory=list)
@@ -876,6 +897,51 @@ class CanonicalSurvey(BaseModel):
     #: Things a person needs to decide. Reuses the audit's finding shape so the
     #: two queues can be read together.
     review: list[AuditFinding] = Field(default_factory=list)
+
+
+# ---------------------------------------------------------------------------
+# Part 2 — the graphs built from the canonical specification
+# ---------------------------------------------------------------------------
+
+
+class RouteGraphs(BaseModel):
+    """The graphs, in NetworkX's own node-link form.
+
+    Held as plain data rather than as typed nodes and edges so the file can be
+    read straight back with `networkx.node_link_graph` without this schema
+    having to mirror every attribute the graph carries. The specification stays
+    the source of truth; this is a view of it.
+    """
+
+    source: str
+    route_graph: dict
+    dependency_graph: dict
+    #: Which rule produced which edge or guard. The traceability spine: it is
+    #: what lets a failing test point back at the sentence that asked for the
+    #: behaviour.
+    rule_edge_map: dict[str, list[str]] = Field(default_factory=dict)
+
+
+class GraphReport(BaseModel):
+    """Whether the graph faithfully represents the specification.
+
+    A different question from whether the specification is right, which is what
+    the Stage 5 audit asks.
+    """
+
+    source: str
+    nodes: int = 0
+    edges: int = 0
+    questions: int = 0
+    dispositions: int = 0
+    rules_mapped: int = 0
+    rules_total: int = 0
+    quotas_mapped: int = 0
+    quotas_total: int = 0
+    dependency_edges: int = 0
+    findings: list[AuditFinding] = Field(default_factory=list)
+    blocking: int = 0
+    passed: bool = True
 
 
 Condition.model_rebuild()

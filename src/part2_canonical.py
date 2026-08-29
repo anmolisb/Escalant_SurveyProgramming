@@ -22,6 +22,7 @@ import re
 
 from models import (
     AuditFinding,
+    CanonicalDisposition,
     CanonicalQuestion,
     CanonicalRule,
     CanonicalSurvey,
@@ -708,6 +709,78 @@ def _read_condition(
     return condition
 
 
+#: What an ending's id says about the kind of ending it is. Matched as a word
+#: so "COMPLETE" is a completion but "TERM_INCOMPLETE_DATA" is not read as one.
+_DISPOSITION_KINDS = (
+    ("quota", "quota_full"),
+    ("term", "screenout"),
+    ("screen", "screenout"),
+    ("complete", "complete"),
+    ("finish", "complete"),
+)
+
+
+def _disposition_kind(disposition_id: str) -> str:
+    """Guess what sort of ending this is from its id.
+
+    Only a reading of the name, which is why it is a guess: the QRE names its
+    endings by its own convention and nothing states what each one means. Used
+    to tell a screenout from a completion when counting routes, never to decide
+    behaviour.
+    """
+    lowered = disposition_id.lower()
+    for needle, kind in _DISPOSITION_KINDS:
+        if needle in lowered:
+            return kind
+    return "unknown"
+
+
+def _build_dispositions(
+    parsed: dict, rules: list[CanonicalRule], quotas: list[Quota]
+) -> list[CanonicalDisposition]:
+    """Every way the survey can end, including the ones nobody defined.
+
+    Two sources. The completion messages give the endings the QRE spells out.
+    The rules and quotas give the endings something actually sends people to -
+    and those two sets are not the same: C01 and C02 both route quota-full
+    respondents to TERM_QUOTA_FULL and then never say what it shows them.
+
+    An ending that is referred to but never defined is kept, marked
+    `defined_in_source=False`. It is a real terminal state that a respondent can
+    reach, so the graph needs a node for it; leaving it out would make a hole in
+    the survey look like a tidy graph.
+    """
+    dispositions: dict[str, CanonicalDisposition] = {}
+
+    for message in parsed.get("messages", []):
+        if not message.code:
+            continue
+        dispositions[message.code] = CanonicalDisposition(
+            disposition_id=message.code,
+            kind=_disposition_kind(message.code),
+            message=message.message,
+            defined_in_source=True,
+        )
+
+    referenced = [
+        rule.destination.id
+        for rule in rules
+        if rule.destination.kind is DestinationKind.DISPOSITION
+    ]
+    referenced += [q.on_full for q in quotas if q.on_full]
+
+    for disposition_id in referenced:
+        if disposition_id and disposition_id not in dispositions:
+            dispositions[disposition_id] = CanonicalDisposition(
+                disposition_id=disposition_id,
+                kind=_disposition_kind(disposition_id),
+                message=None,
+                defined_in_source=False,
+            )
+
+    return sorted(dispositions.values(), key=lambda d: d.disposition_id)
+
+
 def run(source: str, parsed: dict) -> CanonicalSurvey:
     review: list[AuditFinding] = []
     question_ids = {q.id for q in parsed.get("questions", []) if q.id}
@@ -778,15 +851,18 @@ def run(source: str, parsed: dict) -> CanonicalSurvey:
         for q in parsed.get("questions", [])
     ]
 
+    quotas = _build_quotas(parsed, options_by_question, review)
+
     survey = CanonicalSurvey(
         source=source,
         semantics=Semantics(),
         questions=questions,
+        dispositions=_build_dispositions(parsed, rules, quotas),
         rules=rules,
         dependencies=_build_dependencies(parsed, review)
         + _build_text_pipes(parsed, review),
         randomization=_build_randomization(parsed, review),
-        quotas=_build_quotas(parsed, options_by_question, review),
+        quotas=quotas,
         review=review,
     )
 

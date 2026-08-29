@@ -1,0 +1,305 @@
+{
+  "schema_version": "1.0.0",
+  "artifact": "part2_route_graph",
+  "stage": 7,
+  "survey_id": "S01_campus_cafeteria_experience",
+  "source_document": {
+    "filename": "S01_campus_cafeteria_experience.docx",
+    "sha256": "2756cb3b6dc3f21cdc7c1d35b7cfb0e2270af2a918ba6fe682e72ae8e121a804",
+    "bytes": 40578
+  },
+  "generated_at": "2026-08-29T05:06:34+00:00",
+  "item_count": null,
+  "content": {
+    "source": "S01_campus_cafeteria_experience.docx",
+    "route_graph": {
+      "directed": true,
+      "multigraph": true,
+      "graph": {},
+      "nodes": [
+        {
+          "kind": "start",
+          "id": "__START__"
+        },
+        {
+          "kind": "question",
+          "seq": 1,
+          "has_guard": false,
+          "guard": null,
+          "guard_agreement": null,
+          "id": "S1"
+        },
+        {
+          "kind": "question",
+          "seq": 2,
+          "has_guard": false,
+          "guard": null,
+          "guard_agreement": null,
+          "id": "S2"
+        },
+        {
+          "kind": "question",
+          "seq": 3,
+          "has_guard": false,
+          "guard": null,
+          "guard_agreement": null,
+          "id": "Q1"
+        },
+        {
+          "kind": "question",
+          "seq": 4,
+          "has_guard": false,
+          "guard": null,
+          "guard_agreement": null,
+          "id": "Q2"
+        },
+        {
+          "kind": "question",
+          "seq": 5,
+          "has_guard": false,
+          "guard": null,
+          "guard_agreement": null,
+          "id": "Q3"
+        },
+        {
+          "kind": "question",
+          "seq": 6,
+          "has_guard": false,
+          "guard": null,
+          "guard_agreement": null,
+          "id": "Q4"
+        },
+        {
+          "kind": "question",
+          "seq": 7,
+          "has_guard": false,
+          "guard": null,
+          "guard_agreement": null,
+          "id": "Q5"
+        },
+        {
+          "kind": "question",
+          "seq": 8,
+          "has_guard": true,
+          "guard": "Q5 eq 'Yes'",
+          "guard_agreement": "agree",
+          "id": "Q6"
+        },
+        {
+          "kind": "question",
+          "seq": 9,
+          "has_guard": false,
+          "guard": null,
+          "guard_agreement": null,
+          "id": "Q7"
+        },
+        {
+          "kind": "question",
+          "seq": 10,
+          "has_guard": false,
+          "guard": null,
+          "guard_agreement": null,
+          "id": "Q8"
+        },
+        {
+          "kind": "disposition",
+          "terminal": true,
+          "disposition_kind": "complete",
+          "defined_in_source": true,
+          "id": "COMPLETE"
+        },
+        {
+          "kind": "disposition",
+          "terminal": true,
+          "disposition_kind": "screenout",
+          "defined_in_source": true,
+          "id": "TERM_INELIGIBLE"
+        }
+      ],
+      "edges": [
+        {
+          "kind": "advance",
+          "rule_id": null,
+          "source": "__START__",
+          "target": "S1",
+          "key": 0
+        },
+        {
+          "kind": "advance",
+          "rule_id": null,
+          "source": "S1",
+          "target": "S2",
+          "key": 0
+        },
+        {
+          "kind": "terminate",
+          "rule_id": "R1",
+          "condition": "S1 eq 'No'",
+          "precedence": 1,
+          "source": "S1",
+          "target": "TERM_INELIGIBLE",
+          "key": 0
+        },
+        {
+          "kind": "advance",
+          "rule_id": null,
+          "source": "S2",
+          "target": "Q1",
+          "key": 0
+        },
+        {
+          "kind": "terminate",
+          "rule_id": "R2",
+          "condition": "S2 eq 'No'",
+          "precedence": 2,
+          "source": "S2",
+          "target": "TERM_INELIGIBLE",
+          "key": 0
+        },
+        {
+          "kind": "advance",
+          "rule_id": null,
+          "source": "Q1",
+          "target": "Q2",
+          "key": 0
+        },
+        {
+          "kind": "advance",
+          "rule_id": null,
+          "source": "Q2",
+          "target": "Q3",
+          "key": 0
+        },
+        {
+          "kind": "advance",
+          "rule_id": null,
+          "source": "Q3",
+          "target": "Q4",
+          "key": 0
+        },
+        {
+          "kind": "advance",
+          "rule_id": null,
+          "source": "Q4",
+          "target": "Q5",
+          "key": 0
+        },
+        {
+          "kind": "advance",
+          "rule_id": null,
+          "source": "Q5",
+          "target": "Q6",
+          "key": 0
+        },
+        {
+          "kind": "jump",
+          "rule_id": "R4",
+          "condition": "Q5 eq 'No'",
+          "precedence": 4,
+          "source": "Q5",
+          "target": "Q7",
+          "key": 0
+        },
+        {
+          "kind": "advance",
+          "rule_id": null,
+          "source": "Q6",
+          "target": "Q7",
+          "key": 0
+        },
+        {
+          "kind": "advance",
+          "rule_id": null,
+          "source": "Q7",
+          "target": "Q8",
+          "key": 0
+        },
+        {
+          "kind": "advance",
+          "rule_id": null,
+          "source": "Q8",
+          "target": "COMPLETE",
+          "key": 0
+        }
+      ]
+    },
+    "dependency_graph": {
+      "directed": true,
+      "multigraph": false,
+      "graph": {},
+      "nodes": [
+        {
+          "kind": "question",
+          "seq": 1,
+          "id": "S1"
+        },
+        {
+          "kind": "question",
+          "seq": 2,
+          "id": "S2"
+        },
+        {
+          "kind": "question",
+          "seq": 3,
+          "id": "Q1"
+        },
+        {
+          "kind": "question",
+          "seq": 4,
+          "id": "Q2"
+        },
+        {
+          "kind": "question",
+          "seq": 5,
+          "id": "Q3"
+        },
+        {
+          "kind": "question",
+          "seq": 6,
+          "id": "Q4"
+        },
+        {
+          "kind": "question",
+          "seq": 7,
+          "id": "Q5"
+        },
+        {
+          "kind": "question",
+          "seq": 8,
+          "id": "Q6"
+        },
+        {
+          "kind": "question",
+          "seq": 9,
+          "id": "Q7"
+        },
+        {
+          "kind": "question",
+          "seq": 10,
+          "id": "Q8"
+        }
+      ],
+      "edges": [
+        {
+          "kind": "guard",
+          "source": "Q5",
+          "target": "Q6"
+        }
+      ]
+    },
+    "rule_edge_map": {
+      "R1": [
+        "S1->TERM_INELIGIBLE"
+      ],
+      "R2": [
+        "S2->TERM_INELIGIBLE"
+      ],
+      "R4": [
+        "Q5->Q7"
+      ],
+      "R3": [
+        "guard:Q6"
+      ]
+    }
+  }
+}
