@@ -17,6 +17,10 @@ import json
 import re
 
 from llm import LLMUnavailable, complete_async
+# The condition parser and its renderer. Deterministic syntax reading with no
+# Part 2 semantics in it, so using it here does not move interpretation
+# earlier - it is what decides that a condition needs no interpreting at all.
+import part2_conditions
 from models import (
     AcceptanceScenario,
     CompletionMessage,
@@ -24,15 +28,22 @@ from models import (
     FlagSeverity,
     FlagStatus,
     FlagTarget,
+    Condition,
+    ConditionOp,
+    DirectiveKind,
+    LLMComparisonOp,
     LLMQuestionFields,
     LLMRoutingExpression,
+    Operand,
     Option,
     Origin,
+    Paragraph,
     Question,
     ReviewFlag,
     RoutingRule,
     SourceReference,
     Stage3Block,
+    SurveyInformation,
     TargetHeading,
 )
 
@@ -193,24 +204,33 @@ _NUMERIC_OPTION = re.compile(r"^-?\d+(?:\.\d+)?$")
 _QUESTION_REF = re.compile(r"\b([A-Z]{1,3}[A-Za-z]*_?\d+)\b")
 
 _QUESTION_SYSTEM = """\
-You separate the inline attributes written in one questionnaire cell into fields.
+You read the instructions written in one questionnaire cell and label each one.
 
 The cell holds instructions on separate lines, for example:
     Show if: Q5 == 'Yes'
     Validate: {"min_length": 10}
     Randomize
+    Show only brands selected at Q1.
 
-Assign each line to a field:
-- display_condition: when the question is shown. Copy the text after "Show if:" \
-verbatim. Use null when the cell only says the question is always shown.
-- randomize: true if any line asks for randomised order.
-- optional: true if any line marks the question optional.
-- dynamic_option_source: a line saying options are carried from an earlier \
-question, e.g. "Show only brands selected at Q1."
-- other_attributes: any remaining instruction, keyed by a short name.
+Return one entry per instruction, with its kind and its text. Read every line; \
+a cell often holds several instructions of different kinds, and one kind can \
+appear more than once.
 
-Do not put a validation rule in other_attributes; validation is parsed elsewhere. \
-Copy text exactly. Never invent an attribute the cell does not state.
+Kinds:
+  always_show        the question is shown to everyone
+  display_condition  when the question is shown; text is the condition alone,
+                     without the leading "Show if:"
+  validation         a constraint on the answer, usually carrying JSON
+  randomize          options or rows are shuffled
+  option_source      the answer list is narrowed to an earlier answer,
+                     e.g. "Show only brands selected at Q1."
+  optional           an answer is not required
+  mandatory          an answer is required
+  other              an instruction that is none of the above
+
+Copy text exactly, minus only the leading keyword and its colon. Never reword, \
+never merge two instructions into one entry, and never invent an instruction \
+the cell does not state.
 """
 
 
@@ -330,6 +350,59 @@ def _assign_option_ids(question: Question) -> None:
         row.option_id = f"{question.id}-R{position}"
 
 
+def _apply_directives(
+    question: Question, fields: LLMQuestionFields
+) -> list[ReviewFlag]:
+    """Group one cell's labelled instructions onto the question's fields.
+
+    Validation keeps being read from its JSON by `_apply_validation` rather than
+    from the label: the payload is machine-readable already, and a model reading
+    it back would be a chance to change a number for nothing.
+    """
+    flags: list[ReviewFlag] = []
+    conditions = [
+        d.text.strip()
+        for d in fields.directives
+        if d.kind is DirectiveKind.DISPLAY_CONDITION and d.text.strip()
+    ]
+    if conditions:
+        if len(conditions) > 1:
+            # Two guards on one question. Joining them with "and" is the reading
+            # every survey tool takes, but it is still a reading, so it is said
+            # out loud rather than done quietly.
+            flags.append(
+                ReviewFlag(
+                    target_heading=TargetHeading.QUESTIONNAIRE,
+                    status=FlagStatus.POSSIBLE_MATCH,
+                    candidate_heading=question.id,
+                    severity=FlagSeverity.WARNING,
+                    target=FlagTarget(kind="question", id=question.id),
+                    reasoning=(
+                        f"The cell states {len(conditions)} display conditions "
+                        "and does not say how they combine; they are being read "
+                        "as all having to hold."
+                    ),
+                )
+            )
+        question.display_condition = " and ".join(conditions)
+
+    for directive in fields.directives:
+        text = directive.text.strip()
+        if directive.kind is DirectiveKind.RANDOMIZE:
+            question.randomize = True
+        elif directive.kind is DirectiveKind.OPTIONAL:
+            question.optional = True
+        elif directive.kind is DirectiveKind.MANDATORY:
+            question.optional = False
+        elif directive.kind is DirectiveKind.OPTION_SOURCE:
+            question.dynamic_option_source = text
+        elif directive.kind is DirectiveKind.OTHER and text:
+            # Kept under the kind that was read, so a reader can tell an
+            # unclassified instruction from a recognised one (CLAUDE.md §16).
+            question.other_attributes.setdefault("other_instructions", []).append(text)
+    return flags
+
+
 async def parse_questionnaire(
     block: Stage3Block | None,
 ) -> tuple[list[Question], list[ReviewFlag]]:
@@ -379,11 +452,7 @@ async def parse_questionnaire(
                     f"Question {question.id} cell:\n{display_cell}",
                     LLMQuestionFields,
                 )
-                question.display_condition = fields.display_condition
-                question.randomize = fields.randomize
-                question.optional = fields.optional
-                question.dynamic_option_source = fields.dynamic_option_source
-                question.other_attributes.update(fields.other_attributes)
+                flags.extend(_apply_directives(question, fields))
             except LLMUnavailable as exc:
                 flags.append(
                     ReviewFlag(
@@ -404,6 +473,38 @@ async def parse_questionnaire(
             *(one(index, row) for index, row in enumerate(block.rows))
         )
     )
+
+    # Second pass. A display condition names other questions - "Q1 contains at
+    # least one brand" needs Q1's options - and the first pass parses every
+    # question at once, so no question can see another's answer list while it
+    # runs. Resolving here, once they all exist, is the same dependency routing
+    # already has, kept inside this function rather than made someone else's.
+    by_id = {q.id: q for q in questions if q.id}
+
+    async def normalise(question: Question) -> None:
+        expression, origin, refusal = await _resolve_condition(
+            question.display_condition or "", by_id
+        )
+        question.display_condition_expression = expression
+        question.display_condition_expression_origin = origin
+        if refusal:
+            flags.append(
+                ReviewFlag(
+                    target_heading=TargetHeading.QUESTIONNAIRE,
+                    status=FlagStatus.POSSIBLE_MATCH,
+                    candidate_heading=question.id,
+                    # The condition is still there in `display_condition`, and
+                    # Part 2 builds its guard from that, so an unresolved
+                    # expression costs the reader convenience, not the fact.
+                    severity=FlagSeverity.WARNING,
+                    target=FlagTarget(kind="question", id=question.id),
+                    reasoning=refusal,
+                )
+            )
+
+    await asyncio.gather(
+        *(normalise(q) for q in questions if q.display_condition)
+    )
     return questions, flags
 
 
@@ -411,22 +512,178 @@ async def parse_questionnaire(
 # Routing — depends on the questionnaire's option codes
 # ---------------------------------------------------------------------------
 
+#: Says nothing about syntax, because the model no longer writes any. It reports
+#: which question, which operator and which values; this codebase writes the
+#: expression from that (`part2_conditions.render`).
 _ROUTING_SYSTEM = """\
-You translate a routing condition from a questionnaire into a formal expression.
+You break a routing condition from a questionnaire into its comparisons.
 
 You are given the condition and the option codes of the questions it references.
 
-Use these operators: ==, !=, IN, NOT IN, CONTAINS_ANY, CONTAINS_ALL, >, <.
-Refer to questions by id. Refer to an answer by its CODE where the question has \
-codes, otherwise by its exact label in single quotes. Copy codes and labels \
-exactly as listed; never emit a placeholder for a code that is not given.
+For each comparison report the question id, the operator, and the values.
+Use a value's CODE where the question has codes, otherwise its exact label. \
+Copy codes and labels exactly as listed; never invent one that is not given.
 
-Prose such as "Q1 contains at least one brand" becomes CONTAINS_ANY over the \
-option codes that are brands, excluding any "none of these" option.
+Operators:
+  eq / ne              the answer is, or is not, the single value
+  set_eq               the answer set is exactly these values and nothing else
+  contains_any         at least one of these values is among the answers
+  contains_all         all of these values are among the answers
+  in / not_in          the answer is, or is not, one of these values
+  lt / le / gt / ge    numeric comparison
+  answered/unanswered  whether the question was put to the respondent at all
 
-Return expression null when the condition cannot be resolved from the codes \
-given. A wrong expression silently routes real respondents down the wrong path.
+Prose such as "Q1 contains at least one brand" is contains_any over the option \
+codes that are brands, excluding any "none of these" option.
+
+Where a condition compares two answers rather than an answer and a value - \
+"selected option at Q6 was not selected at Q5" - set compare_to_question to the \
+other question and leave values empty.
+
+Where the condition has more than one comparison, set joiner to how they \
+combine. Where it has one, leave joiner null.
+
+Return no comparisons at all when the condition cannot be resolved from the \
+codes given. A wrong condition silently routes real respondents down the wrong \
+path, and saying so costs only a review.
 """
+
+
+#: Comparison operators, as the model names them, mapped onto the closed set the
+#: condition tree uses. Same names, so this is a lookup rather than a
+#: translation, but it is written out so an operator can never reach the tree
+#: without passing through it.
+_LLM_OPS = {op.value: ConditionOp(op.value) for op in LLMComparisonOp}
+
+
+def _condition_from(answer: LLMRoutingExpression) -> Condition | None:
+    """Build a condition tree from what the model reported, or refuse.
+
+    The model supplies parts; the shape is decided here. Nothing it returns is
+    a string of syntax any more, so there is no syntax to vary and no regex
+    needed to read it back.
+    """
+    if not answer.comparisons:
+        return None
+
+    built: list[Condition] = []
+    for comparison in answer.comparisons:
+        op = _LLM_OPS.get(comparison.operator.value)
+        if op is None:
+            return None
+        left = Operand(question_id=comparison.question_id)
+        if op in (ConditionOp.ANSWERED, ConditionOp.UNANSWERED):
+            built.append(Condition(op=op, left=left))
+            continue
+        if comparison.compare_to_question:
+            # Comparing two answers rather than an answer and a value.
+            built.append(
+                Condition(
+                    op=op,
+                    left=left,
+                    right=Operand(question_id=comparison.compare_to_question),
+                )
+            )
+            continue
+        if not comparison.values:
+            return None
+        if op in (ConditionOp.EQ, ConditionOp.NE, ConditionOp.LT, ConditionOp.LE,
+                  ConditionOp.GT, ConditionOp.GE):
+            # A single-value operator handed several values is a contradiction,
+            # not something to resolve by picking one.
+            if len(comparison.values) != 1:
+                return None
+            right = Operand(text=comparison.values[0])
+        else:
+            right = Operand(values=list(comparison.values))
+        built.append(Condition(op=op, left=left, right=right))
+
+    if len(built) == 1:
+        return built[0]
+    if answer.joiner not in ("and", "or"):
+        # Several comparisons and nothing saying how they combine. Reading that
+        # as "and" would be a guess about which respondents are routed.
+        return None
+    return Condition(op=ConditionOp(answer.joiner), operands=built)
+
+
+def _catalogue_line(question: Question) -> str:
+    """One catalogue line. A codeless option is listed by label alone - writing
+    a placeholder for the missing code invites the model to copy the placeholder
+    into the expression."""
+    rendered = ", ".join(
+        f"{o.code}={o.label}" if o.code else o.label for o in question.options
+    )
+    has_codes = any(o.code for o in question.options)
+    suffix = "" if has_codes else "   (no codes; refer to these by label)"
+    return f"{question.id}: {rendered}{suffix}"
+
+
+def _catalogue_for(condition: str, by_id: dict[str, Question]) -> str:
+    """Only the questions this condition actually names.
+
+    Sending every question's options made the prompt scale with the
+    questionnaire - on a 31-question QRE it overflowed the completion budget and
+    buried the one list that mattered.
+    """
+    referenced = [
+        by_id[qid]
+        for qid in dict.fromkeys(_QUESTION_REF.findall(condition))
+        if qid in by_id and by_id[qid].options
+    ]
+    if not referenced:
+        return "(the condition names no question with a known option list)"
+    return "\n".join(_catalogue_line(q) for q in referenced)
+
+
+async def _resolve_condition(
+    condition: str, by_id: dict[str, Question]
+) -> tuple[str | None, Origin | None, str | None]:
+    """Read one condition into the canonical grammar.
+
+    The single path for every condition in the document, whichever column it was
+    written in. C02 states the guard on Q2 twice - the questionnaire writes
+    "Q1 contains at least one brand" and the routing table writes it formally -
+    and before this only the routing one came out parseable, so anything reading
+    the artifact needed the routing table as a first choice and the
+    questionnaire as a fallback, with nothing keeping the two in agreement.
+    Running both through here means the same sentence produces the same string
+    no matter which column it appeared in.
+
+    Returns (expression, origin, refusal reason). Every element is None where
+    there is nothing to read.
+    """
+    if not condition or not condition.strip():
+        return None, None, None
+
+    # Already formal: the QRE wrote the grammar itself, so no model is needed
+    # and none is asked.
+    parsed = part2_conditions.parse(condition)
+    if parsed is not None:
+        return part2_conditions.render(parsed), Origin.DERIVED, None
+
+    try:
+        answer = await complete_async(
+            _ROUTING_SYSTEM,
+            f"Condition: {condition}\n\nOption codes:\n{_catalogue_for(condition, by_id)}",
+            LLMRoutingExpression,
+        )
+    except LLMUnavailable as exc:
+        return None, None, f"Condition not translated: {exc}"
+
+    tree = _condition_from(answer)
+    expression = part2_conditions.render(tree) if tree is not None else None
+    if expression is None:
+        return (
+            None,
+            None,
+            answer.reasoning
+            if not answer.comparisons
+            else f"The comparisons reported do not form a condition: {answer.reasoning}",
+        )
+    # A model decided the reading, so it is an inference and nothing downstream
+    # may treat it as something the QRE stated (CLAUDE.md §14).
+    return expression, Origin.INFERRED, None
 
 
 async def parse_routing(
@@ -436,34 +693,6 @@ async def parse_routing(
         return [], []
 
     by_id = {q.id: q for q in questions}
-
-    def _render(question: Question) -> str:
-        """One catalogue line. A codeless option is listed by label alone —
-        writing a placeholder for the missing code invites the model to copy the
-        placeholder into the expression."""
-        rendered = ", ".join(
-            f"{o.code}={o.label}" if o.code else o.label for o in question.options
-        )
-        has_codes = any(o.code for o in question.options)
-        suffix = "" if has_codes else "   (no codes; refer to these by label)"
-        return f"{question.id}: {rendered}{suffix}"
-
-    def _catalogue_for(condition: str) -> str:
-        """Only the questions this condition actually names.
-
-        Sending every question's options made the prompt scale with the
-        questionnaire — on a 31-question QRE it overflowed the completion budget
-        and buried the one list that mattered.
-        """
-        referenced = [
-            by_id[qid]
-            for qid in dict.fromkeys(_QUESTION_REF.findall(condition))
-            if qid in by_id and by_id[qid].options
-        ]
-        if not referenced:
-            return "(the condition names no question with a known option list)"
-        return "\n".join(_render(q) for q in referenced)
-
     flags: list[ReviewFlag] = []
 
     async def one(index: int, row: dict[str, str]) -> RoutingRule:
@@ -477,40 +706,22 @@ async def parse_routing(
         )
         if not condition:
             return rule
-        try:
-            translated = await complete_async(
-                _ROUTING_SYSTEM,
-                f"Condition: {condition}\n\nOption codes:\n{_catalogue_for(condition)}",
-                LLMRoutingExpression,
-            )
-            rule.condition_expression = translated.expression
-            if translated.expression is not None:
-                # A model wrote it, so it is an inference and nothing downstream
-                # may treat it as something the QRE stated (CLAUDE.md §14).
-                rule.condition_expression_origin = Origin.INFERRED
-            if translated.expression is None:
-                flags.append(
-                    ReviewFlag(
-                        target_heading=TargetHeading.ROUTING_AND_TERMINATION,
-                        status=FlagStatus.POSSIBLE_MATCH,
-                        candidate_heading=rule.rule,
-                        # condition_raw still holds what the QRE said, and Part 2
-                        # builds the real condition from that, so a missing
-                        # expression loses nothing that mattered.
-                        severity=FlagSeverity.WARNING,
-                        target=FlagTarget(kind="rule", id=rule.rule),
-                        reasoning=translated.reasoning,
-                    )
-                )
-        except LLMUnavailable as exc:
+
+        expression, origin, refusal = await _resolve_condition(condition, by_id)
+        rule.condition_expression = expression
+        rule.condition_expression_origin = origin
+        if refusal:
             flags.append(
                 ReviewFlag(
                     target_heading=TargetHeading.ROUTING_AND_TERMINATION,
                     status=FlagStatus.POSSIBLE_MATCH,
                     candidate_heading=rule.rule,
+                    # condition_raw still holds what the QRE said, and Part 2
+                    # builds the real condition from that, so a missing
+                    # expression loses nothing that mattered.
                     severity=FlagSeverity.WARNING,
                     target=FlagTarget(kind="rule", id=rule.rule),
-                    reasoning=f"Condition not translated: {exc}",
+                    reasoning=refusal,
                 )
             )
         return rule
@@ -701,7 +912,159 @@ async def parse_statements(
 # ---------------------------------------------------------------------------
 
 
-async def run_async(blocks: list[Stage3Block]) -> tuple[dict, list[ReviewFlag]]:
+# ---------------------------------------------------------------------------
+# Survey information — the headings the survey itself is presented under
+# ---------------------------------------------------------------------------
+
+#: Labels a QRE might use for each heading, best first. The first group states
+#: the thing outright; the second is a near neighbour being read as the thing,
+#: which is a judgement and so raises a flag saying what was read as what.
+_INFORMATION_LABELS: dict[str, tuple[tuple[str, ...], tuple[str, ...]]] = {
+    "qre_id": (
+        ("qre id", "qre reference", "study id", "project id", "project number",
+         "job number", "reference"),
+        (),
+    ),
+    "title": (
+        ("title", "survey title", "study title", "project title", "survey name",
+         "study name", "project name"),
+        (),
+    ),
+    "description": (
+        ("description", "survey description", "study description", "summary",
+         "overview"),
+        ("business objective", "objective", "purpose", "research objective"),
+    ),
+    "welcome_text": (
+        ("welcome text", "welcome message", "welcome", "intro text",
+         "introduction", "intro", "opening text", "landing text", "splash text"),
+        (),
+    ),
+}
+
+#: "S01 • SIMPLE", "C02 - COMPLEX", "M03". The id is the leading token; whatever
+#: follows it is the corpus's own difficulty tag, not part of the id.
+_FRONT_ID = re.compile(r"^\s*([A-Za-z]{1,4}\d{1,3})\b")
+
+#: The line naming the genre of the document. Every fixture writes it and it is
+#: never the survey's title, so it is skipped rather than read as one.
+_BOILERPLATE = re.compile(
+    r"questionnaire\s+requirement\s+document|^\s*\(?qre\)?\s*$", re.I
+)
+
+
+def _labelled(
+    statements: list[ExtractedStatement], aliases: tuple[str, ...]
+) -> ExtractedStatement | None:
+    """The first statement whose label is one of `aliases`, in preference order."""
+    for alias in aliases:
+        for statement in statements:
+            if (statement.label or "").strip().lower() == alias:
+                return statement
+    return None
+
+
+def parse_survey(
+    source: str, front_matter: list[Paragraph], study: list[ExtractedStatement]
+) -> tuple[SurveyInformation, list[ReviewFlag]]:
+    """Read the survey's headings out of the document.
+
+    Two places, in order. A labelled line in the study specification wins,
+    because a QRE writing "Title: X" has stated its title and there is nothing
+    to work out. Failing that the front matter is read positionally: the id is
+    the leading token of the first line that starts with one, and the title is
+    the first line left once that line and the "Questionnaire Requirement
+    Document" boilerplate are set aside.
+
+    Anything neither place supplies stays None and raises a flag naming the
+    field, so what still needs a person is listed rather than left to be
+    noticed. Nothing is defaulted (CLAUDE.md §30).
+    """
+    information = SurveyInformation(source_file=source)
+    flags: list[ReviewFlag] = []
+
+    def flag(severity: FlagSeverity, field: str, reasoning: str) -> None:
+        flags.append(
+            ReviewFlag(
+                target_heading=TargetHeading.STUDY_SPECIFICATION,
+                status=FlagStatus.NOT_PRESENT,
+                severity=severity,
+                target=FlagTarget(kind="survey_information", id=field),
+                reasoning=reasoning,
+            )
+        )
+
+    # --- the front matter, read positionally --------------------------------
+    spare: list[str] = []
+    for paragraph in front_matter:
+        line = paragraph.text.strip()
+        if not line or _BOILERPLATE.search(line):
+            continue
+        match = _FRONT_ID.match(line)
+        if match and information.qre_id is None:
+            information.qre_id = match.group(1)
+            # "S01 • SIMPLE" is an id and a tag, nothing more; but a line like
+            # "C02 Automotive Purchase Journey" carries the title too, so what
+            # follows the id is kept as a candidate rather than discarded.
+            remainder = line[match.end() :].strip(" •-–—:|")
+            if len(remainder.split()) > 1:
+                spare.append(remainder)
+            continue
+        spare.append(line)
+
+    if spare:
+        information.title = spare[0]
+
+    # --- a labelled line beats anything read off the cover page --------------
+    for field in ("qre_id", "title", "description", "welcome_text"):
+        stated, near = _INFORMATION_LABELS[field]
+        statement = _labelled(study, stated)
+        if statement is None:
+            statement = _labelled(study, near)
+            if statement is not None:
+                # Reading an objective as a description is a judgement, so say
+                # which line was read as what rather than presenting it as
+                # something the QRE labelled (CLAUDE.md §14).
+                flag(
+                    FlagSeverity.INFO,
+                    field,
+                    f"No line is labelled as the survey {field.replace('_', ' ')}; "
+                    f"the line labelled {statement.label!r} is being read as it.",
+                )
+        if statement is not None and statement.text.strip():
+            setattr(information, field, statement.text.strip())
+
+    # --- the id, last of all, from the filename ------------------------------
+    if information.qre_id is None:
+        match = _FRONT_ID.match(source)
+        if match:
+            information.qre_id = match.group(1)
+            flag(
+                FlagSeverity.INFO,
+                "qre_id",
+                "No line in the document states a study id; it is taken from "
+                f"the filename, which is a convention rather than a statement.",
+            )
+
+    for field, why in (
+        ("qre_id", "no line and no filename supplies one"),
+        ("title", "the document has no titled line above its first heading"),
+        ("description", "no line is labelled as a description or an objective"),
+        ("welcome_text", "the document never states what a respondent is shown "
+                         "before the first question"),
+    ):
+        if getattr(information, field) is None:
+            flag(
+                FlagSeverity.WARNING,
+                field,
+                f"The survey's {field.replace('_', ' ')} is not stated: {why}.",
+            )
+    return information, flags
+
+
+async def run_async(
+    blocks: list[Stage3Block], source: str, front_matter: list[Paragraph]
+) -> tuple[dict, list[ReviewFlag]]:
     by_target = {b.target: b for b in blocks}
 
     questionnaire_task = asyncio.create_task(
@@ -734,8 +1097,13 @@ async def run_async(blocks: list[Stage3Block]) -> tuple[dict, list[ReviewFlag]]:
         parse_statements(by_target.get(TargetHeading.PROGRAMMING_AND_QA)),
     )
 
+    # Read after the gather because a labelled line in the study
+    # specification outranks anything on the cover page.
+    information, info_flags = parse_survey(source, front_matter, study)
+
     return (
         {
+            "survey": information,
             "questions": questions,
             "routing": routing,
             "scenarios": scenarios,
@@ -752,9 +1120,12 @@ async def run_async(blocks: list[Stage3Block]) -> tuple[dict, list[ReviewFlag]]:
             *quota_flags,
             *study_flags,
             *programming_flags,
+            *info_flags,
         ],
     )
 
 
-def run(blocks: list[Stage3Block]) -> tuple[dict, list[ReviewFlag]]:
-    return asyncio.run(run_async(blocks))
+def run(
+    blocks: list[Stage3Block], source: str, front_matter: list[Paragraph]
+) -> tuple[dict, list[ReviewFlag]]:
+    return asyncio.run(run_async(blocks, source, front_matter))

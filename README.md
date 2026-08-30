@@ -92,6 +92,7 @@ re-run, but a `load_stage4` would remove the rest.
                             │  typed objects: Question, RoutingRule,
                             │  AcceptanceScenario, CompletionMessage,
                             │  ExtractedStatement
+                            │  stage4_survey.json — the survey's own headings
         ┌───────────────────▼───────────────────┐
         │ STAGE 5  extraction quality check     │  no LLM
         │ audits stage 4 against 2 and 3        │
@@ -126,6 +127,35 @@ normalised, inferred or split before Stage 4. That is what makes Stage 5's audit
 possible: Stage 3's output is a faithful record of the source, so any difference
 between it and Stage 4 is attributable to Stage 4.
 
+**Survey information.** `stage4_survey.json` carries the five things that
+identify a study and introduce it, which nothing else in the pipeline held:
+
+```json
+{"qre_id": "C02", "source_file": "C02_automotive_purchase_journey.docx",
+ "title": "Automotive Purchase Journey",
+ "description": "Understand brand funnel, purchase touchpoints, ownership satisfaction and switching.",
+ "welcome_text": null}
+```
+
+Two places are read, in order. A labelled line in the study specification wins —
+a QRE writing `Title: X` has stated its title and there is nothing to work out.
+Failing that the **front matter** is read positionally: the id is the leading
+token of the first line that starts with one (`S01 • SIMPLE` → `S01`), and the
+title is the first line left once that line and the "Questionnaire Requirement
+Document" boilerplate are set aside. The id falls back to the filename last of
+all. This is the only thing that reads the front matter — the lines above the
+first heading belong to no section, so every target declines them and Stage 5
+reports them as uncovered blocks.
+
+Plain values, no origin wrappers. Where a field carries interpretation — reading
+`Business objective` as the description, or taking the id off a filename — a
+Stage 4 flag says which line was read as what, rather than every value being
+wrapped to record the one case that needs it. Nothing is defaulted: no fixture
+states a welcome text, so it stays `null` and raises a flag naming the field.
+
+Part 2 does not consume this. It is a heading for the survey, not a fact about
+how the survey behaves, and the canonical specification is about behaviour.
+
 **Interpretation boundary.** Nothing before Stage 6 decides what the document
 means. Stage 6 is where a condition becomes a tree, a destination gets a kind,
 and a display rule gets combined with its routing-table twin.
@@ -143,8 +173,8 @@ a Pydantic model, temperature 0.
 |---|---|---|
 | 2 | Shape-match an unmatched heading's content against a target | `LLMHeadingCandidate` |
 | 3 | Transcribe a prose block (completion messages) | `LLMCompletionMessages` |
-| 4 | Split one question's inline attributes | `LLMQuestionFields` |
-| 4 | Translate one routing condition into an expression | `LLMRoutingExpression` |
+| 4 | Label the instructions in one question's cell | `LLMQuestionFields` |
+| 4 | Break one condition into comparisons (routing **and** display) | `LLMRoutingExpression` |
 | 6 | Rewrite a prose condition into the parser's grammar | `LLMConditionProposal` |
 | 6 | Find wording that quotes an earlier answer | `LLMTextPipes` |
 | 6 | Read a quota sentence into parts | `LLMQuota` |
@@ -155,6 +185,121 @@ accept it — so a model can only propose something the QRE could have written
 formally itself. Most conditions never reach a model at all: both fixtures write
 `S1 == 'No'` and `Q12 in ['Fully','Partly']` themselves, and those parse
 deterministically.
+
+### Routing conditions
+
+Two things decide `condition_expression`, and neither is a model writing syntax.
+
+**Most conditions never reach a model.** The QRE writes `S1 == 'No'` and
+`Q12 in ['Fully','Partly']` itself, and the deterministic parser reads those
+already. Where it can, the expression is rendered from the parsed tree and
+marked `derived` — 4 of 4 rules on S01, 12 of 20 on C01 and C02. Those calls
+used to be made and returned their own input, spending rate-limit budget to
+mark something the QRE stated outright as `inferred`, which CLAUDE.md §14
+forbids.
+
+**What is left is genuine prose**, such as `exclusive option selected with
+another response at Q1 or Q5`, and only that is sent. The model returns
+*structure* — question, operator, values, and a joiner where there is more than
+one comparison — never a string of syntax:
+
+```json
+{"comparisons": [{"question_id": "Q1", "operator": "contains_any",
+                  "values": ["Auto Brand A", "Auto Brand B"]}],
+ "joiner": null, "reasoning": "..."}
+```
+
+**Every operator is infix**, so the question is always leftmost:
+
+```
+Q1 contains_any ['Auto Brand A', 'Auto Brand B']
+Q1 == ['None of these']
+Q5 contains 'Dealer visit'
+Q3 answered
+sum(Q18) != 100
+```
+
+That is what lets one expression read any condition — `^(\w+)\s+(op)\s+(.*)$`
+finds the question in the same place whatever the operator. Membership used to
+be written as a call, `contains_any(Q1, [...])`, which buried the question
+inside the parentheses and made it the one comparison needing a rule of its own.
+The call form is no longer produced *or accepted*; `check_call_form_is_gone`
+fails if it returns.
+
+The operator comes from a closed enum, so the vocabulary is enforced by the
+schema rather than asked for in a prompt. `part2_conditions.render` then writes
+the expression, and it is the only place that decides the shape.
+
+This replaced a free-text field. The prompt fixed the operator vocabulary but
+could say nothing binding about the syntax around it, so a single document
+produced all three of these for one operator — each faithful to the prompt, each
+needing its own regex downstream, with no way to know when a fourth would
+appear:
+
+```
+CONTAINS_ANY(Q1, 'Auto Brand A', 'Auto Brand B')
+Q5 CONTAINS_ANY ('Manufacturer website','Dealer visit')
+CONTAINS_ANY(Q1, ['Auto Brand A','Auto Brand B'])
+```
+
+All three now render as `Q1 contains_any [...]`. Every rendering reads back
+through the parser as the same condition, which `src/test_conditions.py`
+checks.
+
+The builder refuses rather than guesses: several comparisons with no joiner, or
+a single-value operator handed several values, produce no expression and a
+review flag. `condition_raw` still holds what the QRE said either way, and
+Part 2 builds its condition tree from that, so a refusal loses nothing.
+
+### One reading for one condition
+
+A QRE states the same rule twice. C02 guards Q2 in the questionnaire with
+`Show if: Q1 contains at least one brand`, and again in the routing table as
+R6. Before, only the routing one came out parseable, so anything reading the
+artifacts had to prefer the routing table and fall back to the questionnaire —
+two sources with nothing keeping them in agreement.
+
+Both columns now go through `_resolve_condition`, one function, so the same
+sentence produces the same string whichever column it was written in:
+
+| Field | Where the QRE wrote it |
+|---|---|
+| `RoutingRule.condition_expression` | the routing table |
+| `Question.display_condition_expression` | the questionnaire's display column |
+
+Each keeps its verbatim text beside it (`condition_raw`, `display_condition`)
+and each carries an origin, so a re-rendered formal condition (`derived`) is
+never confused with a model's reading of prose (`inferred`).
+
+Resolving a display condition needs other questions' options, and the first
+pass parses every question at once, so no question can see another's answer list
+while it runs. A second pass runs once they all exist — the same dependency
+routing already had, kept inside `parse_questionnaire` rather than made
+someone else's problem.
+
+### Reading a display cell
+
+One cell holds several instructions, on separate lines:
+
+```
+Show if: Q3 != 'None/currently not using'
+Validate: {"scale": [...], "require_each_row": true}
+Randomize
+```
+
+The model labels each one with a `DirectiveKind` — `always_show`,
+`display_condition`, `validation`, `randomize`, `option_source`, `optional`,
+`mandatory`, `other` — and returns them as a list. The previous schema had one
+slot per kind plus a free-form `other_attributes` dictionary, so a second
+instruction of the same kind was dropped and anything unanticipated arrived
+under a key the model invented.
+
+Validation payloads are still read from their own JSON rather than from the
+label. They are machine-readable already, and having a model read one back is a
+chance to change a number for nothing.
+
+Two display conditions in one cell are joined with `and` — the reading every
+survey tool takes — and a flag says so, because the cell itself does not.
 
 ### Stage 4 concurrency
 
@@ -390,10 +535,11 @@ src/
   stage3_raw_json.py
   stage4_deep_parse.py
   stage5_audit.py        five deterministic checks
-  part2_conditions.py    a routing condition read as a tree
+  part2_conditions.py    a routing condition read as a tree, and rendered back
   part2_canonical.py     the canonical survey specification
   part2_graph.py         route and dependency graphs
   orchestrator.py
+  test_conditions.py     self-check: python3 src/test_conditions.py
 ```
 
 ## Rate limits
@@ -410,8 +556,9 @@ record answers every call.
 
 ## Known gaps
 
-- **No tests.** The previous suite covered modules that no longer exist and was
-  deleted with them; nothing replaced it.
+- **Almost no tests.** The previous suite covered modules that no longer exist
+  and was deleted with them. Only `src/test_conditions.py` replaced any of it,
+  covering the condition parser and its renderer.
 - **Stage 5 scores rows, not fields.** A section's score is the share of
   transcribed rows that produced an identified object. The field-by-field
   comparand against Stage 3 is not built.

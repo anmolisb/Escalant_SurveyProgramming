@@ -2,16 +2,16 @@
   "schema_version": "1.0.0",
   "artifact": "part2_route_graph",
   "stage": 7,
-  "survey_id": "C01_chronic_care_patient_journey",
+  "survey_id": "C02_automotive_purchase_journey",
   "source_document": {
-    "filename": "C01_chronic_care_patient_journey.docx",
-    "sha256": "319e6b78a2a1e36ef712ce421e6d2c1db3325a087a07d8d0e93ec38b39207e4b",
-    "bytes": 43612
+    "filename": "C02_automotive_purchase_journey.docx",
+    "sha256": "112a39d23aaf16dcfd2cce8a9de380d8b289dd33645c2703b7f00ec49f7e69f2",
+    "bytes": 43592
   },
-  "generated_at": "2026-08-30T11:05:18+00:00",
+  "generated_at": "2026-08-30T11:02:50+00:00",
   "item_count": null,
   "content": {
-    "source": "C01_chronic_care_patient_journey.docx",
+    "source": "C02_automotive_purchase_journey.docx",
     "route_graph": {
       "directed": true,
       "multigraph": true,
@@ -65,7 +65,7 @@
           "kind": "question",
           "seq": 6,
           "has_guard": true,
-          "guard": "Q1 contains_any ['Care Network A', 'Care Network B', 'Care Network C']",
+          "guard": "Q1 contains_any ['Auto Brand A', 'Auto Brand B', 'Auto Brand C', 'Auto Brand D']",
           "guard_agreement": "agree",
           "id": "Q2"
         },
@@ -73,7 +73,7 @@
           "kind": "question",
           "seq": 7,
           "has_guard": true,
-          "guard": "Q1 contains_any ['Care Network A', 'Care Network B', 'Care Network C']",
+          "guard": "Q1 contains_any ['Auto Brand A', 'Auto Brand B', 'Auto Brand C', 'Auto Brand D']",
           "guard_agreement": "agree",
           "id": "Q3"
         },
@@ -97,7 +97,7 @@
           "kind": "question",
           "seq": 10,
           "has_guard": true,
-          "guard": "Q5 contains_any ['Primary-care physician', 'Specialist', 'Hospital', 'Pharmacy', 'Patient portal', 'Support programme']",
+          "guard": "Q5 contains_any ['Manufacturer website', 'Dealer visit', 'Review site', 'Social media', 'Friends or family', 'Auto show']",
           "guard_agreement": "agree",
           "id": "Q6"
         },
@@ -346,7 +346,7 @@
         {
           "kind": "terminate",
           "rule_id": "R2",
-          "condition": "S2 ne 'Personally manage an ongoing chronic health condition'",
+          "condition": "S2 ne 'Purchased or seriously considered a new vehicle in the past 18 months'",
           "precedence": 2,
           "source": "S2",
           "target": "TERM_INVOLVEMENT",

@@ -7,7 +7,7 @@ Naming convention: `Stage1*` … `Stage4*` for artifacts written to disk,
 from __future__ import annotations
 
 from enum import Enum
-from typing import Any
+from typing import Any, Literal
 
 from pydantic import BaseModel, Field
 
@@ -353,6 +353,16 @@ class Question(BaseModel):
     options: list[Option] = Field(default_factory=list)
     matrix_rows: list[Option] = Field(default_factory=list)
     display_condition: str | None = None
+    #: `display_condition` read into the one canonical grammar, the same way a
+    #: routing rule's `condition_expression` is and by the same code, so the
+    #: two forms of one rule are written identically. C02 stated Q2's guard as
+    #: "Q1 contains at least one brand" in the questionnaire and as a formal
+    #: expression in the routing table, and only the routing one could be read.
+    display_condition_expression: str | None = None
+    #: `derived` where the QRE already wrote the condition formally and it was
+    #: only re-rendered, `inferred` where a model read the prose. Null when
+    #: there is no expression.
+    display_condition_expression_origin: Origin | None = None
     min_length: int | None = None
     max_length: int | None = None
     #: Kept as the QRE wrote it. `int | float` rather than plain `float` so a
@@ -378,14 +388,60 @@ class Question(BaseModel):
     source_reference: SourceReference | None = None
 
 
-class LLMQuestionFields(BaseModel):
-    """LLM response for splitting one question's inline attributes (Stage 4)."""
+class DirectiveKind(str, Enum):
+    """What one instruction in a question's display/validation cell asks for.
 
-    display_condition: str | None = None
-    randomize: bool = False
-    optional: bool = False
-    dynamic_option_source: str | None = None
-    other_attributes: dict[str, str] = Field(default_factory=dict)
+    A closed set, so an instruction is either recognised as one of these or
+    explicitly `other` - which is a classification, not a shrug. The previous
+    schema had a fixed field per kind plus a free `other_attributes` dictionary,
+    so anything unanticipated arrived under a key the model made up and nothing
+    downstream could tell a validation rule from a note to the scripter.
+    """
+
+    #: The question is shown to everyone. Stated, and worth keeping as a stated
+    #: fact rather than as the absence of a condition.
+    ALWAYS_SHOW = "always_show"
+    #: When the question is shown, e.g. "Show if: Q1 contains at least one brand".
+    DISPLAY_CONDITION = "display_condition"
+    #: A constraint on the answer. Carries a JSON payload in every QRE seen.
+    VALIDATION = "validation"
+    #: The options, or the matrix rows, are shuffled.
+    RANDOMIZE = "randomize"
+    #: The answer list is narrowed to an earlier answer, e.g. "Show only brands
+    #: selected at Q1."
+    OPTION_SOURCE = "option_source"
+    #: An answer is not required.
+    OPTIONAL = "optional"
+    #: An answer is required.
+    MANDATORY = "mandatory"
+    #: Recognised as an instruction, but none of the above.
+    OTHER = "other"
+
+
+class LLMDirective(BaseModel):
+    """One instruction read out of a question's cell (Stage 4)."""
+
+    kind: DirectiveKind
+    text: str = Field(
+        description=(
+            "The instruction as written, minus only its leading keyword. "
+            "Copy it exactly; never reword or summarise."
+        )
+    )
+
+
+class LLMQuestionFields(BaseModel):
+    """LLM response for splitting one question's inline attributes (Stage 4).
+
+    A classified list rather than a fixed set of fields. One cell routinely
+    holds several instructions of different kinds - C02's Q7 carries a display
+    condition, a scale and a per-row requirement in three lines - and a schema
+    with one slot per kind could hold only the first of each. Reading them as a
+    list means a second display condition is captured rather than dropped, and
+    every line lands under a keyword rather than in a catch-all.
+    """
+
+    directives: list[LLMDirective] = Field(default_factory=list)
 
 
 class RoutingRule(BaseModel):
@@ -415,12 +471,78 @@ class RoutingRule(BaseModel):
     source_reference: SourceReference | None = None
 
 
-class LLMRoutingExpression(BaseModel):
-    """LLM response for translating one routing condition (Stage 4)."""
+class LLMComparisonOp(str, Enum):
+    """The operators a routing condition may use.
 
-    expression: str | None = Field(
+    A separate, smaller enum than `ConditionOp` even though the names overlap.
+    `ConditionOp` also holds `and`, `or` and `not`, which join comparisons
+    rather than being ones - offering those here invites a model to answer
+    "the operator is AND", which is not a question about one comparison.
+    """
+
+    EQ = "eq"
+    NE = "ne"
+    LT = "lt"
+    LE = "le"
+    GT = "gt"
+    GE = "ge"
+    IN = "in"
+    NOT_IN = "not_in"
+    #: The answer set is exactly these values, not merely contains them.
+    SET_EQ = "set_eq"
+    CONTAINS_ANY = "contains_any"
+    CONTAINS_ALL = "contains_all"
+    ANSWERED = "answered"
+    UNANSWERED = "unanswered"
+
+
+class LLMComparison(BaseModel):
+    """One comparison inside a routing condition (Stage 4)."""
+
+    question_id: str = Field(description="The question this compares, e.g. Q1")
+    operator: LLMComparisonOp
+    values: list[str] = Field(
+        default_factory=list,
+        description=(
+            "Option codes where the question has codes, otherwise exact labels. "
+            "Empty for answered and unanswered, and when comparing against "
+            "another question."
+        ),
+    )
+    #: A condition can compare two answers rather than an answer and a value -
+    #: "selected option at Q6 was not selected at Q5". Without this the model
+    #: has to decline such a rule, which is what C02's R20 did.
+    compare_to_question: str | None = Field(
         default=None,
-        description="Formal expression using question ids and option codes, or null",
+        description=(
+            "Set instead of values when this compares against another "
+            "question's answers, e.g. Q6 not in Q5"
+        ),
+    )
+
+
+class LLMRoutingExpression(BaseModel):
+    """LLM response for translating one routing condition (Stage 4).
+
+    Structured rather than a string of formal syntax, which is what this used to
+    be. The prompt fixed the operator vocabulary but could say nothing binding
+    about the syntax around it, so one document produced
+    `CONTAINS_ANY(Q1, 'a', 'b')`, `Q1 CONTAINS_ANY ('a','b')` and
+    `CONTAINS_ANY(Q1, ['a','b'])` for the same operator, and every consumer
+    needed a regex per shape with no way to know when a new one would appear.
+
+    The model now supplies the parts and this codebase writes the syntax, so the
+    shape is not something a model can vary. `part2_conditions.render` is the
+    single place it is decided.
+    """
+
+    comparisons: list[LLMComparison] = Field(
+        default_factory=list,
+        description="Empty when the condition cannot be resolved from the codes given",
+    )
+    joiner: Literal["and", "or"] | None = Field(
+        default=None,
+        description="How to join the comparisons. Required when there is more than one.",
     )
     reasoning: str
 
@@ -454,6 +576,33 @@ class CompletionMessage(BaseModel):
     #: Where this came from in the QRE. None on artifacts written before
     #: provenance existed.
     source_reference: SourceReference | None = None
+
+
+class SurveyInformation(BaseModel):
+    """What identifies the study, and what a respondent is shown before it.
+
+    Written as its own artifact because nothing else in the pipeline carried it.
+    The title and the study id live in the document's front matter - the lines
+    above the first heading, which belong to no section, so every target
+    declines them and Stage 5 has always reported them as uncovered blocks. The
+    welcome text is usually not written down anywhere at all.
+
+    The alternative was a hand-maintained file per QRE, which is a second source
+    of truth that drifts from the document without saying so.
+
+    Flat values, no origins. Where a field carries any interpretation - reading
+    a business objective as a description - it is a Stage 4 flag that says so,
+    not a wrapper around every value. Part 2 does not consume this: it is a
+    heading for the survey, not a fact about how it behaves.
+    """
+
+    #: None where neither the front matter nor the filename supplies one.
+    qre_id: str | None = None
+    source_file: str
+    title: str | None = None
+    description: str | None = None
+    #: Null in every fixture so far. No QRE in the corpus states it.
+    welcome_text: str | None = None
 
 
 # ---------------------------------------------------------------------------

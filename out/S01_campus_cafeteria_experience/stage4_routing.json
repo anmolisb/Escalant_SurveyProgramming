@@ -8,14 +8,14 @@
     "sha256": "2756cb3b6dc3f21cdc7c1d35b7cfb0e2270af2a918ba6fe682e72ae8e121a804",
     "bytes": 40578
   },
-  "generated_at": "2026-08-29T05:28:26+00:00",
+  "generated_at": "2026-08-30T10:59:23+00:00",
   "item_count": 4,
   "content": [
     {
       "rule": "R1",
       "condition_raw": "S1 == 'No'",
       "condition_expression": "S1 == 'No'",
-      "condition_expression_origin": "inferred",
+      "condition_expression_origin": "derived",
       "action": "terminate",
       "destination": "TERM_INELIGIBLE",
       "source_reference": {
@@ -32,7 +32,7 @@
       "rule": "R2",
       "condition_raw": "S2 == 'No'",
       "condition_expression": "S2 == 'No'",
-      "condition_expression_origin": "inferred",
+      "condition_expression_origin": "derived",
       "action": "terminate",
       "destination": "TERM_INELIGIBLE",
       "source_reference": {
@@ -49,7 +49,7 @@
       "rule": "R3",
       "condition_raw": "Q5 == 'Yes'",
       "condition_expression": "Q5 == 'Yes'",
-      "condition_expression_origin": "inferred",
+      "condition_expression_origin": "derived",
       "action": "show",
       "destination": "Q6",
       "source_reference": {
@@ -66,7 +66,7 @@
       "rule": "R4",
       "condition_raw": "Q5 == 'No'",
       "condition_expression": "Q5 == 'No'",
-      "condition_expression_origin": "inferred",
+      "condition_expression_origin": "derived",
       "action": "skip",
       "destination": "Q7",
       "source_reference": {

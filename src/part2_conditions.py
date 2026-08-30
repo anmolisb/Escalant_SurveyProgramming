@@ -38,8 +38,14 @@ from models import (
 #: convention, not ours.
 _QID = r"[A-Za-z]{1,4}_?\d+"
 
-#: Comparison operators, longest first so "!=" is not read as "=" and "not in"
-#: is not read as "in".
+#: Every operator is infix: question, operator, value. One shape for all of
+#: them, so a reader - or a regex - finds the question on the left of any
+#: condition without having to know which operator it uses. Membership used to
+#: be written as a call, `contains_any(Q1, [...])`, which put the question
+#: inside the parentheses and made it the one comparison needing its own rule.
+#:
+#: Longest first, so "!=" is not read as "=", "not in" is not read as "in", and
+#: "contains_any" is not read as "contains".
 _OPERATORS: list[tuple[str, ConditionOp]] = [
     ("!=", ConditionOp.NE),
     ("==", ConditionOp.EQ),
@@ -50,7 +56,19 @@ _OPERATORS: list[tuple[str, ConditionOp]] = [
     (">", ConditionOp.GT),
     (" not in ", ConditionOp.NOT_IN),
     (" in ", ConditionOp.IN),
+    (" contains_any ", ConditionOp.CONTAINS_ANY),
+    (" contains_all ", ConditionOp.CONTAINS_ALL),
+    (" contains ", ConditionOp.CONTAINS),
 ]
+
+#: Operators taking no value: "Q3 answered". Still question-first, so the same
+#: reading applies. "unanswered" is listed first only for clarity; it cannot be
+#: mistaken for "answered", which needs a space in front of it.
+_POSTFIX = re.compile(r"^(.*?)\s+(unanswered|answered)\s*$", re.I)
+_POSTFIX_OPS = {
+    "answered": ConditionOp.ANSWERED,
+    "unanswered": ConditionOp.UNANSWERED,
+}
 
 #: "sum(Q18)" or "count(Q5)".
 _AGGREGATE = re.compile(r"^\s*(sum|count)\s*\(\s*(" + _QID + r")\s*\)\s*$", re.I)
@@ -160,10 +178,24 @@ def _split_top_level(text: str) -> list[str] | None:
 
 def _comparison(text: str) -> Condition | None:
     """Read a single comparison, or refuse."""
+    postfix = _POSTFIX.match(text)
+    if postfix:
+        left = _operand(postfix.group(1))
+        if left is not None and left.question_id is not None:
+            return Condition(
+                op=_POSTFIX_OPS[postfix.group(2).lower()],
+                left=left,
+                source_text=text.strip(),
+            )
+
     for token, op in _OPERATORS:
         # Search rather than split, so only the first operator counts and a
-        # value containing "=" does not confuse things.
-        position = text.lower().find(token) if token.strip().isalpha() else text.find(token)
+        # value containing "=" does not confuse things. Word operators are
+        # matched case-insensitively; testing for letters rather than for
+        # `isalpha` because "contains_any" holds an underscore and so would
+        # have been compared case-sensitively.
+        word = any(character.isalpha() for character in token)
+        position = text.lower().find(token) if word else text.find(token)
         if position <= 0:
             continue
         left = _operand(text[:position])
@@ -189,104 +221,20 @@ def _comparison(text: str) -> Condition | None:
                 ],
                 source_text=text.strip(),
             )
+        if (
+            op in (ConditionOp.CONTAINS_ANY, ConditionOp.CONTAINS_ALL, ConditionOp.IN,
+                   ConditionOp.NOT_IN)
+            and right.values is None
+            and right.text is not None
+        ):
+            # A lone value handed to a set operator is still a set of one.
+            right = Operand(values=[right.text])
         return Condition(op=op, left=left, right=right, source_text=text.strip())
     return None
 
 
-#: contains(Q5, 'x') / contains_any(Q1, ['a','b']) / answered(Q3).
-_CALL = re.compile(r"^\s*([A-Za-z_]+)\s*\((.*)\)\s*$", re.S)
-
-_CALL_OPS = {
-    "contains": ConditionOp.CONTAINS,
-    "contains_any": ConditionOp.CONTAINS_ANY,
-    "contains_all": ConditionOp.CONTAINS_ALL,
-    "answered": ConditionOp.ANSWERED,
-    "unanswered": ConditionOp.UNANSWERED,
-}
-
-
-def _split_args(inner: str) -> list[str]:
-    """Split a call's arguments on commas outside quotes and brackets."""
-    args: list[str] = []
-    current: list[str] = []
-    depth = 0
-    quote: str | None = None
-    for char in inner:
-        if quote:
-            current.append(char)
-            if char == quote:
-                quote = None
-            continue
-        if char in "'\"":
-            quote = char
-            current.append(char)
-        elif char in "[(":
-            depth += 1
-            current.append(char)
-        elif char in "])":
-            depth -= 1
-            current.append(char)
-        elif char == "," and depth == 0:
-            args.append("".join(current).strip())
-            current = []
-        else:
-            current.append(char)
-    if current.strip() if isinstance(current, str) else "".join(current).strip():
-        args.append("".join(current).strip())
-    return [a for a in args if a]
-
-
-def _call(text: str) -> Condition | None:
-    """Read a function-style condition, or refuse.
-
-    These forms do not appear in any QRE we have seen — the documents write
-    prose instead. They exist because a model proposing a reading of that prose
-    has to express it in something, and a grammar this parser can check is far
-    safer than free text that nobody can.
-    """
-    match = _CALL.match(text)
-    if not match:
-        return None
-    name = match.group(1).lower()
-    op = _CALL_OPS.get(name)
-    if op is None:
-        return None
-    args = _split_args(match.group(2))
-
-    if op in (ConditionOp.ANSWERED, ConditionOp.UNANSWERED):
-        if len(args) != 1:
-            return None
-        left = _operand(args[0])
-        if left is None or left.question_id is None:
-            return None
-        return Condition(op=op, left=left, source_text=text.strip())
-
-    if len(args) < 2:
-        return None
-    left = _operand(args[0])
-    if left is None or left.question_id is None:
-        return None
-    if len(args) == 2:
-        right = _operand(args[1])
-    else:
-        # contains_any(Q1, 'a', 'b') - loose arguments rather than a list.
-        collected: list[str] = []
-        for raw in args[1:]:
-            value = _operand(raw)
-            if value is None or value.text is None:
-                return None
-            collected.append(value.text)
-        right = Operand(values=collected)
-    if right is None:
-        return None
-    # A single value handed to a set operator is still a set of one.
-    if right.values is None and right.text is not None and op is not ConditionOp.CONTAINS:
-        right = Operand(values=[right.text])
-    return Condition(op=op, left=left, right=right, source_text=text.strip())
-
-
 def _term(text: str) -> Condition | None:
-    """One piece of an expression: a negation, a bracketed group, a call, or a
+    """One piece of an expression: a negation, a bracketed group, or a
     comparison."""
     text = text.strip()
     if not text:
@@ -314,9 +262,6 @@ def _term(text: str) -> Condition | None:
         if wraps:
             return parse(text[1:-1])
 
-    call = _call(text)
-    if call is not None:
-        return call
     return _comparison(text)
 
 
@@ -357,6 +302,107 @@ def parse(condition_raw: str) -> Condition | None:
         condition.source_text = text
         condition.origin = Origin.DERIVED
     return condition
+
+
+#: The one way each operator is written. `describe` renders for a human and
+#: names the operator in words; this renders for a machine, and every string it
+#: produces must read back through `parse` as the same condition.
+_RENDER_SYMBOL = {
+    ConditionOp.EQ: "==",
+    ConditionOp.NE: "!=",
+    ConditionOp.LT: "<",
+    ConditionOp.LE: "<=",
+    ConditionOp.GT: ">",
+    ConditionOp.GE: ">=",
+    ConditionOp.IN: "in",
+    ConditionOp.NOT_IN: "not in",
+    #: A claim about the whole answer set, written as equality against a list -
+    #: which is the form `parse` reads back as SET_EQ.
+    ConditionOp.SET_EQ: "==",
+    ConditionOp.CONTAINS: "contains",
+    ConditionOp.CONTAINS_ANY: "contains_any",
+    ConditionOp.CONTAINS_ALL: "contains_all",
+}
+
+#: Operators with nothing on the right: "Q3 answered".
+_RENDER_POSTFIX = {
+    ConditionOp.ANSWERED: "answered",
+    ConditionOp.UNANSWERED: "unanswered",
+}
+
+
+def _render_value(value: str) -> str:
+    """Quote one value. Double quotes where the value itself has an apostrophe.
+
+    The list splitter honours whichever quote opened the value and has no escape
+    character, so a label like "Don't know" has to be quoted the other way round
+    or it would terminate halfway through.
+    """
+    return f'"{value}"' if "'" in value else f"'{value}'"
+
+
+def _render_operand(operand: Operand | None) -> str | None:
+    if operand is None:
+        return None
+    if operand.question_id:
+        return (
+            f"{operand.aggregate.value}({operand.question_id})"
+            if operand.aggregate
+            else operand.question_id
+        )
+    if operand.values is not None:
+        return "[" + ", ".join(_render_value(v) for v in operand.values) + "]"
+    if operand.number is not None:
+        number = operand.number
+        return str(int(number)) if float(number).is_integer() else str(number)
+    if operand.text is not None:
+        return _render_value(operand.text)
+    return None
+
+
+def render(condition: Condition) -> str | None:
+    """Write a condition in the one canonical form, or refuse.
+
+    The point of this is that there is exactly one, and that it is the same
+    shape for every operator: the question, then the operator, then the value.
+    A reader that has found the question on the left of `Q1 == 'x'` finds it in
+    the same place on `Q1 contains_any ['x','y']`.
+
+    Stage 4's expression used to be whatever text a model happened to produce,
+    so one document held `CONTAINS_ANY(Q1, 'a', 'b')`, `Q1 CONTAINS_ANY
+    ('a','b')` and `CONTAINS_ANY(Q1, ['a','b'])` for a single operator, each
+    needing its own rule downstream. Rendering from the tree means the shape
+    cannot vary: it is produced by this function or it is not produced at all.
+
+    Returns None rather than a partial string where any piece cannot be
+    rendered, so a caller never receives something half-formed that happens to
+    look valid.
+    """
+    if condition.op in (ConditionOp.AND, ConditionOp.OR):
+        parts = [render(child) for child in condition.operands]
+        if not parts or any(part is None for part in parts):
+            return None
+        return "(" + f" {condition.op.value} ".join(parts) + ")"
+
+    if condition.op is ConditionOp.NOT:
+        if len(condition.operands) != 1:
+            return None
+        inner = render(condition.operands[0])
+        return None if inner is None else f"not ({inner})"
+
+    left = _render_operand(condition.left)
+    if left is None:
+        return None
+
+    postfix = _RENDER_POSTFIX.get(condition.op)
+    if postfix:
+        return f"{left} {postfix}"
+
+    symbol = _RENDER_SYMBOL.get(condition.op)
+    right = _render_operand(condition.right)
+    if symbol is None or right is None:
+        return None
+    return f"{left} {symbol} {right}"
 
 
 def describe(condition: Condition) -> str:
@@ -404,20 +450,23 @@ _GRAMMAR = """Write the condition using ONLY this grammar. Anything else is reje
                sum(Q18) != 100
   set is exactly
                Q1 == ['None of these']
-  membership   contains(Q5, 'Dealer visit')
-               contains_any(Q1, ['Auto Brand A','Auto Brand B'])
-               contains_all(Q1, ['Auto Brand A','Auto Brand B'])
-               contains(Q5, Q6)
-  asked or not answered(Q3)      unanswered(Q3)
+  membership   Q5 contains 'Dealer visit'
+               Q1 contains_any ['Auto Brand A','Auto Brand B']
+               Q1 contains_all ['Auto Brand A','Auto Brand B']
+               Q5 contains Q6
+  asked or not Q3 answered       Q3 unanswered
   combining    A and B           A or B           not A
                (A and B) or (C and D)
+
+Every operator is written the same way: the question, the operator, then the
+value. Never put the question inside brackets.
 
 Refer to questions by the ids given. Refer to answers by their exact label in
 single quotes, copied from the option list. Never invent a label or an id.
 
 Two operators are easy to confuse and mean different things:
-  Q1 == ['None of these']   the answer set is EXACTLY that, and nothing else
-  contains(Q1, 'None of these')   that was chosen, possibly among others
+  Q1 == ['None of these']       the answer set is EXACTLY that, nothing else
+  Q1 contains 'None of these'   that was chosen, possibly among others
 """
 
 _PROPOSE_SYSTEM = """You rewrite one routing condition from a questionnaire into a formal expression.
