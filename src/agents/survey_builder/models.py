@@ -13,6 +13,7 @@ from pydantic import BaseModel, Field
 
 # LimeSurvey question types used by the current fixtures.
 #   L = list (radio), M = multiple choice, T = long free text, S = short free text
+#   F = array, K = multiple numerical input (used for constant sum)
 QuestionType = str
 
 
@@ -47,7 +48,10 @@ class Question(BaseModel):
     relevance: str = "1"           # "1" means always show
     qid: int = 0                   # assigned by the loader
 
+    # Answer options. On an array these are the columns of the scale.
     options: list[Option] = Field(default_factory=list)
+
+    # Rows of an array, options of a multiple choice, items of a constant sum.
     subquestions: list[Subquestion] = Field(default_factory=list)
 
     # question_attributes rows, e.g. {"min_answers": "1", "maximum_chars": "500"}

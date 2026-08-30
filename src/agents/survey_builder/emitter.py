@@ -24,6 +24,17 @@ from src.agents.survey_builder.models import Survey
 DB_VERSION = "710"
 LANGUAGE = "en"
 
+#: A real export names the rendering theme on every question. The simple types
+#: import without it, but F and K rely on it to render at all.
+_QUESTION_THEME = {
+    "L": "listradio",
+    "M": "multiplechoice",
+    "T": "longfreetext",
+    "S": "shortfreetext",
+    "F": "arrays/array",
+    "K": "multiplenumeric",
+}
+
 _SURVEY_FIELDS = [
     "sid", "gsid", "admin", "adminemail", "anonymized", "format", "savetimings",
     "template", "language", "datestamp", "usecookie", "allowregister", "allowsave",
@@ -172,7 +183,9 @@ def emit(survey: Survey) -> str:
                 "type": question.type, "title": question.title, "other": "N",
                 "mandatory": question.mandatory, "encrypted": "N",
                 "question_order": question.question_order, "scale_id": 0,
-                "same_default": 0, "relevance": question.relevance, "same_script": 0,
+                "same_default": 0, "relevance": question.relevance,
+                "question_theme_name": _QUESTION_THEME.get(question.type),
+                "same_script": 0,
             })
             l10n_rows.append({
                 "id": question.qid, "qid": question.qid,
@@ -195,7 +208,7 @@ def emit(survey: Survey) -> str:
         "questions",
         ["qid", "parent_qid", "sid", "gid", "type", "title", "other", "mandatory",
          "encrypted", "question_order", "scale_id", "same_default", "relevance",
-         "same_script"],
+         "question_theme_name", "same_script"],
         question_rows,
     )
     out += _table(
