@@ -1,6 +1,6 @@
-# Decision register — C01_chronic_care_patient_journey
+# Decision register — C02_automotive_purchase_journey
 
-Source: `C01_chronic_care_patient_journey.docx` (sha256 `319e6b78a2a1e36e…`)
+Source: `C02_automotive_purchase_journey.docx` (sha256 `112a39d23aaf16dc…`)
 
 A decision is resolved by editing its entry in `agent1_decisions.json` -
 set `status` to `RESOLVED`, fill `decision` with the ruling and
@@ -9,11 +9,11 @@ reused from then on unless the source document or this module's
 vocabulary changes, in which case it returns here as pending, with the
 old ruling kept under `previous_decision` for a quick re-confirmation.
 
-**18 PENDING_CONFIRMATION, 1 NOT_REQUIRED**
+**17 PENDING_CONFIRMATION**
 
 ## 🔴 `ambiguous_piping` — PENDING_CONFIRMATION (BLOCKING)
 
-- **id:** `8c69b2c506c9955a`
+- **id:** `09a6552a63c1b22f`
 - **affects:** Q9
 - **evidence:** 'your current provider' (confidence 1.00)
 - **current reading:** A question's wording was read as quoting an earlier answer, from the phrasing alone; no table states the link.
@@ -23,9 +23,9 @@ old ruling kept under `previous_decision` for a quick re-confirmation.
 
 ## 🔴 `ambiguous_piping` — PENDING_CONFIRMATION (BLOCKING)
 
-- **id:** `ae7f9449c4271f16`
-- **affects:** Q8
-- **evidence:** 'the current provider' (confidence 1.00)
+- **id:** `2145a996ee4c78c0`
+- **affects:** Q20
+- **evidence:** 'the selected proposition' (confidence 1.00)
 - **current reading:** A question's wording was read as quoting an earlier answer, from the phrasing alone; no table states the link.
 - **alternatives:** The wording is generic and does not actually depend on the earlier answer.
 - **downstream impact:** Whether this question's wording depends on an earlier answer, which decides the order a respondent bot must answer in and what text it should expect on screen.
@@ -33,7 +33,7 @@ old ruling kept under `previous_decision` for a quick re-confirmation.
 
 ## 🔴 `ambiguous_piping` — PENDING_CONFIRMATION (BLOCKING)
 
-- **id:** `d04e54c7a70f655f`
+- **id:** `4faaae45e6e48533`
 - **affects:** Q21
 - **evidence:** 'your choice' (confidence 1.00)
 - **current reading:** A question's wording was read as quoting an earlier answer, from the phrasing alone; no table states the link.
@@ -43,9 +43,9 @@ old ruling kept under `previous_decision` for a quick re-confirmation.
 
 ## 🔴 `ambiguous_piping` — PENDING_CONFIRMATION (BLOCKING)
 
-- **id:** `e4c971197a4cd683`
-- **affects:** Q20
-- **evidence:** 'the selected proposition' (confidence 1.00)
+- **id:** `a7bd30538df016dc`
+- **affects:** Q8
+- **evidence:** 'the current provider' (confidence 1.00)
 - **current reading:** A question's wording was read as quoting an earlier answer, from the phrasing alone; no table states the link.
 - **alternatives:** The wording is generic and does not actually depend on the earlier answer.
 - **downstream impact:** Whether this question's wording depends on an earlier answer, which decides the order a respondent bot must answer in and what text it should expect on screen.
@@ -53,9 +53,9 @@ old ruling kept under `previous_decision` for a quick re-confirmation.
 
 ## 🔴 `ambiguous_routing_condition` — PENDING_CONFIRMATION (BLOCKING)
 
-- **id:** `8009e053dcf0c019`
+- **id:** `0acc077d59ebe601`
 - **affects:** Q2
-- **evidence:** Q1 contains at least one brand  ->  Q1 contains_any ['Care Network A', 'Care Network B', 'Care Network C']
+- **evidence:** Q1 contains at least one brand  ->  Q1 contains_any ['Auto Brand A', 'Auto Brand B', 'Auto Brand C', 'Auto Brand D']
 - **current reading:** A prose condition was rewritten into a formal one by a model, and the parser accepted the rewrite.
 - **alternatives:** A different formal reading of the same sentence is possible.
 - **downstream impact:** Whether this rule or guard fires for a given respondent, so which questions they see and which ending they reach.
@@ -63,19 +63,9 @@ old ruling kept under `previous_decision` for a quick re-confirmation.
 
 ## 🔴 `ambiguous_routing_condition` — PENDING_CONFIRMATION (BLOCKING)
 
-- **id:** `a4544d4f6623ba59`
-- **affects:** R19
-- **evidence:** exclusive option selected with another response at Q1 or Q5  ->  ((Q1 contains 'None of these' and Q1 contains_any ['Care Network A', 'Care Network B', 'Care Network C', 'Independent provider']) or (Q5 contains 'None of these' and Q5 contains_any ['Primary-care physician', 'Specialist', 'Hospital', 'Pharmacy', 'Patient portal', 'Support programme']))
-- **current reading:** A prose condition was rewritten into a formal one by a model, and the parser accepted the rewrite.
-- **alternatives:** A different formal reading of the same sentence is possible.
-- **downstream impact:** Whether this rule or guard fires for a given respondent, so which questions they see and which ending they reach.
-- **recommendation:** A person familiar with the survey should confirm the reading recorded here matches what the sentence intends.
-
-## 🔴 `ambiguous_routing_condition` — PENDING_CONFIRMATION (BLOCKING)
-
-- **id:** `b90d8580babbddab`
+- **id:** `2dbf8634c40e1bc4`
 - **affects:** Q6
-- **evidence:** Q5 contains any touchpoint  ->  Q5 contains_any ['Primary-care physician', 'Specialist', 'Hospital', 'Pharmacy', 'Patient portal', 'Support programme']
+- **evidence:** Q5 contains any touchpoint  ->  Q5 contains_any ['Manufacturer website', 'Dealer visit', 'Review site', 'Social media', 'Friends or family', 'Auto show']
 - **current reading:** A prose condition was rewritten into a formal one by a model, and the parser accepted the rewrite.
 - **alternatives:** A different formal reading of the same sentence is possible.
 - **downstream impact:** Whether this rule or guard fires for a given respondent, so which questions they see and which ending they reach.
@@ -83,7 +73,7 @@ old ruling kept under `previous_decision` for a quick re-confirmation.
 
 ## 🔴 `ambiguous_routing_condition` — PENDING_CONFIRMATION (BLOCKING)
 
-- **id:** `c417f67cdc3ab8cb`
+- **id:** `c9be4cf03190c906`
 - **affects:** R20
 - **evidence:** selected option at Q6 was not selected at Q5  ->  not Q5 contains Q6
 - **current reading:** A prose condition was rewritten into a formal one by a model, and the parser accepted the rewrite.
@@ -91,19 +81,19 @@ old ruling kept under `previous_decision` for a quick re-confirmation.
 - **downstream impact:** Whether this rule or guard fires for a given respondent, so which questions they see and which ending they reach.
 - **recommendation:** A person familiar with the survey should confirm the reading recorded here matches what the sentence intends.
 
-## 🔴 `inferred_condition_partial_options` — PENDING_CONFIRMATION (BLOCKING)
+## 🔴 `ambiguous_routing_condition` — PENDING_CONFIRMATION (BLOCKING)
 
-- **id:** `756d035e6abbdf43`
-- **affects:** Q2, Q3, R6, R7
-- **evidence:** Q1 contains at least one brand
-- **current reading:** A model reading a set-valued condition named only some of a question's selectable answers as satisfying it.
-- **alternatives:** The omitted answer(s) should also satisfy the condition.
-- **downstream impact:** Which answers satisfy the rule; a respondent choosing an omitted answer takes a different path than intended.
-- **recommendation:** Confirm whether the omitted answer(s) should count.
+- **id:** `d1a2c81c12ca7e68`
+- **affects:** R19
+- **evidence:** exclusive option selected with another response at Q1 or Q5  ->  ((Q1 contains 'None of these' and not Q1 set_eq ['None of these']) or (Q5 contains 'None of these' and not Q5 set_eq ['None of these']))
+- **current reading:** A prose condition was rewritten into a formal one by a model, and the parser accepted the rewrite.
+- **alternatives:** A different formal reading of the same sentence is possible.
+- **downstream impact:** Whether this rule or guard fires for a given respondent, so which questions they see and which ending they reach.
+- **recommendation:** A person familiar with the survey should confirm the reading recorded here matches what the sentence intends.
 
 ## 🔴 `missing_option_codes` — PENDING_CONFIRMATION (BLOCKING)
 
-- **id:** `70e04d836cb40d1b`
+- **id:** `1659a29caf13d3c1`
 - **affects:** Q13
 - **evidence:** 1=Very low; -=2; -=3; -=4; 5=Very high
 - **current reading:** Some but not all of this question's options carry an answer code; the rest are left null rather than invented.
@@ -112,7 +102,7 @@ old ruling kept under `previous_decision` for a quick re-confirmation.
 
 ## 🔴 `multi_select_equality` — PENDING_CONFIRMATION (BLOCKING)
 
-- **id:** `5c5b9104ff079c25`
+- **id:** `3a56161f7945542e`
 - **affects:** semantics
 - **evidence:** multi_equality='set_equality', origin=derived
 - **current reading:** '==' against a multi-select question's answer means the whole answer set is exactly that value - chosen, and nothing else.
@@ -122,17 +112,7 @@ old ruling kept under `previous_decision` for a quick re-confirmation.
 
 ## 🔴 `quota_behaviour` — PENDING_CONFIRMATION (BLOCKING)
 
-- **id:** `0430c3303a173c36`
-- **affects:** QUOTA_REGION
-- **evidence:** QUOTA_REGION: hard quota on D1: North=20%, South=20%, East=20%, West=2 -> D1, 5 groups
-- **current reading:** A quota's variable, groups and targets were read out of a prose sentence by a model and passed the structural checks.
-- **alternatives:** The sentence intends a different variable, grouping, or split.
-- **downstream impact:** Which respondents are counted against which quota, and when they are turned away.
-- **recommendation:** Confirm the quota reading with the project owner.
-
-## 🔴 `quota_behaviour` — PENDING_CONFIRMATION (BLOCKING)
-
-- **id:** `d1c767adabb142b1`
+- **id:** `1d8a644a70d99dfe`
 - **affects:** QUOTA_AGE
 - **evidence:** QUOTA_AGE: soft quota on D2: 21-29=20%, 30-39=25%, 40-49=25%, 50-59=20 -> D2, 5 groups
 - **current reading:** A quota's variable, groups and targets were read out of a prose sentence by a model and passed the structural checks.
@@ -140,9 +120,19 @@ old ruling kept under `previous_decision` for a quick re-confirmation.
 - **downstream impact:** Which respondents are counted against which quota, and when they are turned away.
 - **recommendation:** Confirm the quota reading with the project owner.
 
+## 🔴 `quota_behaviour` — PENDING_CONFIRMATION (BLOCKING)
+
+- **id:** `6eee05092d95ee89`
+- **affects:** QUOTA_REGION
+- **evidence:** QUOTA_REGION: hard quota on D1: North=20%, South=20%, East=20%, West=2 -> D1, 5 groups
+- **current reading:** A quota's variable, groups and targets were read out of a prose sentence by a model and passed the structural checks.
+- **alternatives:** The sentence intends a different variable, grouping, or split.
+- **downstream impact:** Which respondents are counted against which quota, and when they are turned away.
+- **recommendation:** Confirm the quota reading with the project owner.
+
 ## 🔴 `rule_precedence` — PENDING_CONFIRMATION (BLOCKING)
 
-- **id:** `00db7d74442cb17d`
+- **id:** `b6ec9432e013d044`
 - **affects:** semantics
 - **evidence:** rule_precedence='document_order_first_match', origin=inferred
 - **current reading:** The first rule in document order whose condition is true is the one that applies.
@@ -152,7 +142,7 @@ old ruling kept under `previous_decision` for a quick re-confirmation.
 
 ## 🔴 `unasked_question_semantics` — PENDING_CONFIRMATION (BLOCKING)
 
-- **id:** `f6de93712798f5f5`
+- **id:** `9b354f3c76403871`
 - **affects:** semantics
 - **evidence:** unasked_reference='condition_false', origin=inferred
 - **current reading:** A condition naming a question the respondent was never asked is treated as false, so the rule or guard does not fire.
@@ -162,7 +152,7 @@ old ruling kept under `previous_decision` for a quick re-confirmation.
 
 ## ⚪ `guard_single_source` — PENDING_CONFIRMATION (NON_BLOCKING)
 
-- **id:** `74f6f819e190cab4`
+- **id:** `6b7add1477916ad6`
 - **affects:** Q15
 - **evidence:** Q3 != 'None/currently not using'
 - **current reading:** The display condition is stated only in the questionnaire table, not in the routing table, and is carried from the one place that states it.
@@ -171,7 +161,7 @@ old ruling kept under `previous_decision` for a quick re-confirmation.
 
 ## ⚪ `missing_disposition_message` — PENDING_CONFIRMATION (NON_BLOCKING)
 
-- **id:** `7a5bd08ade146ea4`
+- **id:** `ce0afbd82b82c913`
 - **affects:** TERM_QUOTA_FULL
 - **evidence:** TERM_QUOTA_FULL is referenced but has no message.
 - **current reading:** This ending is reachable and the document never states what it shows the respondent who reaches it.
@@ -180,20 +170,10 @@ old ruling kept under `previous_decision` for a quick re-confirmation.
 
 ## ⚪ `randomization_anchoring` — PENDING_CONFIRMATION (NON_BLOCKING)
 
-- **id:** `95eaab2b4ebfe62e`
+- **id:** `64cf268157f07dbe`
 - **affects:** Q1, Q5
 - **evidence:** randomize=true, exclusive_option='None of these'
 - **current reading:** No option is anchored; every option in the list is free to move.
 - **alternatives:** An exclusive option (such as "None of these") stays anchored at the bottom, by convention.
 - **downstream impact:** Where an exclusive option appears when the list is shuffled, which decides whether a displayed-order assertion is correct. Does not change which questions are asked or how they route.
 - **recommendation:** Confirm anchoring convention with the project owner.
-
-## 🔴 `ambiguous_routing_condition` — NOT_REQUIRED (BLOCKING)
-
-- **id:** `71002f0c34af1fbc`
-- **affects:** R19
-- **evidence:** exclusive option selected with another response at Q1 or Q5  ->  ((Q1 contains 'None of these' and not Q1 set_eq ['None of these']) or (Q5 contains 'None of these' and not Q5 set_eq ['None of these']))
-- **current reading:** A prose condition was rewritten into a formal one by a model, and the parser accepted the rewrite.
-- **alternatives:** A different formal reading of the same sentence is possible.
-- **downstream impact:** Whether this rule or guard fires for a given respondent, so which questions they see and which ending they reach.
-- **recommendation:** A person familiar with the survey should confirm the reading recorded here matches what the sentence intends.

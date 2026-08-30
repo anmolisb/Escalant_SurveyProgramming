@@ -2,11 +2,11 @@
   "schema_version": "1.0.0",
   "artifact": "part2_validation",
   "stage": 7,
-  "survey_id": "C01_chronic_care_patient_journey",
+  "survey_id": "C02_automotive_purchase_journey",
   "source_document": {
-    "filename": "C01_chronic_care_patient_journey.docx",
-    "sha256": "319e6b78a2a1e36ef712ce421e6d2c1db3325a087a07d8d0e93ec38b39207e4b",
-    "bytes": 43612
+    "filename": "C02_automotive_purchase_journey.docx",
+    "sha256": "112a39d23aaf16dcfd2cce8a9de380d8b289dd33645c2703b7f00ec49f7e69f2",
+    "bytes": 43592
   },
   "generated_at": "2026-08-30T11:18:01+00:00",
   "item_count": null,
@@ -55,7 +55,7 @@
         ],
         "changes_downstream": "Where an exclusive option appears when the list is shuffled, which decides whether a displayed-order assertion is right.",
         "decision_ids": [
-          "95eaab2b4ebfe62e"
+          "64cf268157f07dbe"
         ]
       },
       {
@@ -70,21 +70,6 @@
         ],
         "changes_downstream": "Whether this rule fires for a given respondent, so which questions they see and which ending they reach.",
         "decision_ids": []
-      },
-      {
-        "status": "CONFIRMATION_REQUIRED",
-        "issue": "inferred_condition_partial_options",
-        "why_it_matters": "Rule R6 was read as naming 3 of Q1's 4 selectable answers, leaving out ['Independent provider']. A model chose which ones count and the QRE does not say.",
-        "affected": [
-          "Q2",
-          "Q3",
-          "R6",
-          "R7"
-        ],
-        "changes_downstream": "Which answers satisfy the rule. Respondents choosing an omitted answer take a different path than they should.",
-        "decision_ids": [
-          "756d035e6abbdf43"
-        ]
       },
       {
         "status": "CONFIRMATION_REQUIRED",
@@ -115,7 +100,7 @@
         "issue": "semantics_unconfirmed",
         "why_it_matters": "The semantics block records three decisions the QRE never states: that a condition naming an unasked question is false, that the first matching rule wins, and that '==' against a multi-select compares the whole answer set. Each changes which questions appear on many routes and needs confirming.",
         "affected": [
-          "C01_chronic_care_patient_journey.docx",
+          "C02_automotive_purchase_journey.docx",
           "semantics"
         ],
         "changes_downstream": "Which questions appear on many routes, which rule wins when two apply, and whether an 'is exactly' test passes on a multi-select answer.",
@@ -130,7 +115,7 @@
         ],
         "changes_downstream": "A display condition stated in only one place. Anyone reading the other place builds a survey without it.",
         "decision_ids": [
-          "74f6f819e190cab4"
+          "6b7add1477916ad6"
         ]
       },
       {
@@ -158,30 +143,29 @@
       "register": "agent1_decisions.json",
       "human_readable": "agent1_decision_register.md",
       "summary": {
-        "total": 19,
-        "raised_this_run": 1,
+        "total": 17,
+        "raised_this_run": 17,
         "resolved_reused": 0,
-        "pending": 18,
+        "pending": 17,
         "resolved": 0,
-        "not_required": 1,
-        "newly_transitioned_not_required": 1,
+        "not_required": 0,
+        "newly_transitioned_not_required": 0,
         "context_changed": 0,
         "blocking_pending": [
-          "00db7d74442cb17d",
-          "0430c3303a173c36",
-          "5c5b9104ff079c25",
-          "70e04d836cb40d1b",
-          "756d035e6abbdf43",
-          "8009e053dcf0c019",
-          "8c69b2c506c9955a",
-          "a4544d4f6623ba59",
-          "ae7f9449c4271f16",
-          "b90d8580babbddab",
-          "c417f67cdc3ab8cb",
-          "d04e54c7a70f655f",
-          "d1c767adabb142b1",
-          "e4c971197a4cd683",
-          "f6de93712798f5f5"
+          "09a6552a63c1b22f",
+          "0acc077d59ebe601",
+          "1659a29caf13d3c1",
+          "1d8a644a70d99dfe",
+          "2145a996ee4c78c0",
+          "2dbf8634c40e1bc4",
+          "3a56161f7945542e",
+          "4faaae45e6e48533",
+          "6eee05092d95ee89",
+          "9b354f3c76403871",
+          "a7bd30538df016dc",
+          "b6ec9432e013d044",
+          "c9be4cf03190c906",
+          "d1a2c81c12ca7e68"
         ]
       }
     },
@@ -212,27 +196,25 @@
       },
       "human_decision_gate": "PENDING_BLOCKING_DECISIONS",
       "pending_blocking_decisions": [
-        "00db7d74442cb17d",
-        "0430c3303a173c36",
-        "5c5b9104ff079c25",
-        "70e04d836cb40d1b",
-        "756d035e6abbdf43",
-        "8009e053dcf0c019",
-        "8c69b2c506c9955a",
-        "a4544d4f6623ba59",
-        "ae7f9449c4271f16",
-        "b90d8580babbddab",
-        "c417f67cdc3ab8cb",
-        "d04e54c7a70f655f",
-        "d1c767adabb142b1",
-        "e4c971197a4cd683",
-        "f6de93712798f5f5"
+        "09a6552a63c1b22f",
+        "0acc077d59ebe601",
+        "1659a29caf13d3c1",
+        "1d8a644a70d99dfe",
+        "2145a996ee4c78c0",
+        "2dbf8634c40e1bc4",
+        "3a56161f7945542e",
+        "4faaae45e6e48533",
+        "6eee05092d95ee89",
+        "9b354f3c76403871",
+        "a7bd30538df016dc",
+        "b6ec9432e013d044",
+        "c9be4cf03190c906",
+        "d1a2c81c12ca7e68"
       ],
       "agent3_ready": "NO",
       "agent3_blocked_by": [
         "ambiguous_piping",
         "ambiguous_routing_condition",
-        "inferred_condition_partial_options",
         "missing_option_codes",
         "multi_select_equality",
         "quota_behaviour",
@@ -244,7 +226,6 @@
       "what_is_ambiguous": [
         "randomization_anchoring \u2014 Where an exclusive option appears when the list is shuffled, which decides whether a displayed-order assertion is right.",
         "condition_inferred \u2014 Whether this rule fires for a given respondent, so which questions they see and which ending they reach.",
-        "inferred_condition_partial_options \u2014 Which answers satisfy the rule. Respondents choosing an omitted answer take a different path than they should.",
         "text_pipe_inferred \u2014 Whether this question's wording depends on an earlier answer, which decides the order a bot must answer in and what text it should expect on screen.",
         "quota_inferred \u2014 Which respondents are counted against which quota, and when they are turned away.",
         "semantics_unconfirmed \u2014 Which questions appear on many routes, which rule wins when two apply, and whether an 'is exactly' test passes on a multi-select answer.",
@@ -254,7 +235,7 @@
       ],
       "what_must_change": [],
       "affected_ids": [
-        "C01_chronic_care_patient_journey.docx",
+        "C02_automotive_purchase_journey.docx",
         "Q1",
         "Q13",
         "Q15",
@@ -263,7 +244,6 @@
         "Q2",
         "Q20",
         "Q21",
-        "Q3",
         "Q5",
         "Q6",
         "Q8",
@@ -272,8 +252,6 @@
         "QUOTA_REGION",
         "R19",
         "R20",
-        "R6",
-        "R7",
         "TERM_QUOTA_FULL",
         "semantics"
       ],
@@ -282,8 +260,8 @@
         "other_failures": 0,
         "blocked": 0,
         "cross_source_blocking": 0,
-        "confirmation_required": 9,
-        "decisions_pending_blocking": 15
+        "confirmation_required": 8,
+        "decisions_pending_blocking": 14
       }
     }
   }

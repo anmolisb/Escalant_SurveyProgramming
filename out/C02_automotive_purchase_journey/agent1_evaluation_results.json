@@ -2,11 +2,11 @@
   "schema_version": "1.0.0",
   "artifact": "agent1_evaluation_results",
   "stage": 7,
-  "survey_id": "C01_chronic_care_patient_journey",
+  "survey_id": "C02_automotive_purchase_journey",
   "source_document": {
-    "filename": "C01_chronic_care_patient_journey.docx",
-    "sha256": "319e6b78a2a1e36ef712ce421e6d2c1db3325a087a07d8d0e93ec38b39207e4b",
-    "bytes": 43612
+    "filename": "C02_automotive_purchase_journey.docx",
+    "sha256": "112a39d23aaf16dcfd2cce8a9de380d8b289dd33645c2703b7f00ec49f7e69f2",
+    "bytes": 43592
   },
   "generated_at": "2026-08-30T11:18:01+00:00",
   "item_count": null,
@@ -293,16 +293,16 @@
         "criticality": "HIGH",
         "status": "PASS",
         "expected": [
-          "Personally manage an ongoing chronic health condition",
+          "Purchased or seriously considered a new vehicle in the past 18 months",
           "Aware but not involved",
           "Not aware of this category"
         ],
         "actual": [
-          "Personally manage an ongoing chronic health condition",
+          "Purchased or seriously considered a new vehicle in the past 18 months",
           "Aware but not involved",
           "Not aware of this category"
         ],
-        "evidence": "Personally manage an ongoing chronic health condition; Aware but not involved; Not aware of this category",
+        "evidence": "Purchased or seriously considered a new vehicle in the past 18 months; Aware but not involved; Not aware of this category",
         "canonical_reference": "questions[S2].options",
         "explanation": "every option carried in order",
         "severity": "none"
@@ -529,20 +529,20 @@
         "criticality": "HIGH",
         "status": "PASS",
         "expected": [
-          "Care Network A",
-          "Care Network B",
-          "Care Network C",
-          "Independent provider",
+          "Auto Brand A",
+          "Auto Brand B",
+          "Auto Brand C",
+          "Auto Brand D",
           "None of these"
         ],
         "actual": [
-          "Care Network A",
-          "Care Network B",
-          "Care Network C",
-          "Independent provider",
+          "Auto Brand A",
+          "Auto Brand B",
+          "Auto Brand C",
+          "Auto Brand D",
           "None of these"
         ],
-        "evidence": "Care Network A; Care Network B; Care Network C; Independent provider; None of these",
+        "evidence": "Auto Brand A; Auto Brand B; Auto Brand C; Auto Brand D; None of these",
         "canonical_reference": "questions[Q1].options",
         "explanation": "every option carried in order",
         "severity": "none"
@@ -643,18 +643,18 @@
         "criticality": "HIGH",
         "status": "PASS",
         "expected": [
-          "Care Network A",
-          "Care Network B",
-          "Care Network C",
-          "Independent provider"
+          "Auto Brand A",
+          "Auto Brand B",
+          "Auto Brand C",
+          "Auto Brand D"
         ],
         "actual": [
-          "Care Network A",
-          "Care Network B",
-          "Care Network C",
-          "Independent provider"
+          "Auto Brand A",
+          "Auto Brand B",
+          "Auto Brand C",
+          "Auto Brand D"
         ],
-        "evidence": "Care Network A; Care Network B; Care Network C; Independent provider",
+        "evidence": "Auto Brand A; Auto Brand B; Auto Brand C; Auto Brand D",
         "canonical_reference": "questions[Q2].options",
         "explanation": "every option carried in order",
         "severity": "none"
@@ -755,20 +755,20 @@
         "criticality": "HIGH",
         "status": "PASS",
         "expected": [
-          "Care Network A",
-          "Care Network B",
-          "Care Network C",
-          "Independent provider",
+          "Auto Brand A",
+          "Auto Brand B",
+          "Auto Brand C",
+          "Auto Brand D",
           "None/currently not using"
         ],
         "actual": [
-          "Care Network A",
-          "Care Network B",
-          "Care Network C",
-          "Independent provider",
+          "Auto Brand A",
+          "Auto Brand B",
+          "Auto Brand C",
+          "Auto Brand D",
           "None/currently not using"
         ],
-        "evidence": "Care Network A; Care Network B; Care Network C; Independent provider; None/currently not using",
+        "evidence": "Auto Brand A; Auto Brand B; Auto Brand C; Auto Brand D; None/currently not using",
         "canonical_reference": "questions[Q3].options",
         "explanation": "every option carried in order",
         "severity": "none"
@@ -854,20 +854,20 @@
         "criticality": "HIGH",
         "status": "PASS",
         "expected": [
-          "Recently diagnosed",
-          "Treatment initiation",
-          "Ongoing management",
-          "Treatment change",
-          "Monitoring only"
+          "Initial research",
+          "Shortlisting",
+          "Test drive",
+          "Purchased",
+          "Post-purchase ownership"
         ],
         "actual": [
-          "Recently diagnosed",
-          "Treatment initiation",
-          "Ongoing management",
-          "Treatment change",
-          "Monitoring only"
+          "Initial research",
+          "Shortlisting",
+          "Test drive",
+          "Purchased",
+          "Post-purchase ownership"
         ],
-        "evidence": "Recently diagnosed; Treatment initiation; Ongoing management; Treatment change; Monitoring only",
+        "evidence": "Initial research; Shortlisting; Test drive; Purchased; Post-purchase ownership",
         "canonical_reference": "questions[Q4].options",
         "explanation": "every option carried in order",
         "severity": "none"
@@ -938,24 +938,24 @@
         "criticality": "HIGH",
         "status": "PASS",
         "expected": [
-          "Primary-care physician",
-          "Specialist",
-          "Hospital",
-          "Pharmacy",
-          "Patient portal",
-          "Support programme",
+          "Manufacturer website",
+          "Dealer visit",
+          "Review site",
+          "Social media",
+          "Friends or family",
+          "Auto show",
           "None of these"
         ],
         "actual": [
-          "Primary-care physician",
-          "Specialist",
-          "Hospital",
-          "Pharmacy",
-          "Patient portal",
-          "Support programme",
+          "Manufacturer website",
+          "Dealer visit",
+          "Review site",
+          "Social media",
+          "Friends or family",
+          "Auto show",
           "None of these"
         ],
-        "evidence": "Primary-care physician; Specialist; Hospital; Pharmacy; Patient portal; Support programme; None of these",
+        "evidence": "Manufacturer website; Dealer visit; Review site; Social media; Friends or family; Auto show; None of these",
         "canonical_reference": "questions[Q5].options",
         "explanation": "every option carried in order",
         "severity": "none"
@@ -1056,22 +1056,22 @@
         "criticality": "HIGH",
         "status": "PASS",
         "expected": [
-          "Primary-care physician",
-          "Specialist",
-          "Hospital",
-          "Pharmacy",
-          "Patient portal",
-          "Support programme"
+          "Manufacturer website",
+          "Dealer visit",
+          "Review site",
+          "Social media",
+          "Friends or family",
+          "Auto show"
         ],
         "actual": [
-          "Primary-care physician",
-          "Specialist",
-          "Hospital",
-          "Pharmacy",
-          "Patient portal",
-          "Support programme"
+          "Manufacturer website",
+          "Dealer visit",
+          "Review site",
+          "Social media",
+          "Friends or family",
+          "Auto show"
         ],
-        "evidence": "Primary-care physician; Specialist; Hospital; Pharmacy; Patient portal; Support programme",
+        "evidence": "Manufacturer website; Dealer visit; Review site; Social media; Friends or family; Auto show",
         "canonical_reference": "questions[Q6].options",
         "explanation": "every option carried in order",
         "severity": "none"
@@ -1245,7 +1245,7 @@
         "status": "PASS",
         "expected": true,
         "actual": true,
-        "evidence": "Q3 != 'None/currently not using' with {\"Q3\": \"Care Network A\"}",
+        "evidence": "Q3 != 'None/currently not using' with {\"Q3\": \"Auto Brand A\"}",
         "canonical_reference": "questions[Q7]",
         "explanation": "fires exactly when the QRE's own condition does",
         "severity": "none"
@@ -1365,7 +1365,7 @@
         "status": "PASS",
         "expected": true,
         "actual": true,
-        "evidence": "Q3 != 'None/currently not using' with {\"Q3\": \"Care Network A\"}",
+        "evidence": "Q3 != 'None/currently not using' with {\"Q3\": \"Auto Brand A\"}",
         "canonical_reference": "questions[Q8]",
         "explanation": "fires exactly when the QRE's own condition does",
         "severity": "none"
@@ -1472,22 +1472,22 @@
         "criticality": "HIGH",
         "status": "PASS",
         "expected": [
-          "Access",
-          "Communication",
-          "Coordination",
-          "Treatment information",
-          "Emotional support",
-          "Digital tools"
+          "Design",
+          "Performance",
+          "Safety",
+          "Technology",
+          "Dealer experience",
+          "Value for money"
         ],
         "actual": [
-          "Access",
-          "Communication",
-          "Coordination",
-          "Treatment information",
-          "Emotional support",
-          "Digital tools"
+          "Design",
+          "Performance",
+          "Safety",
+          "Technology",
+          "Dealer experience",
+          "Value for money"
         ],
-        "evidence": "Access; Communication; Coordination; Treatment information; Emotional support; Digital tools",
+        "evidence": "Design; Performance; Safety; Technology; Dealer experience; Value for money",
         "canonical_reference": "questions[Q9].matrix_rows",
         "explanation": "rows carried",
         "severity": "none"
@@ -1523,7 +1523,7 @@
         "status": "PASS",
         "expected": true,
         "actual": true,
-        "evidence": "Q3 != 'None/currently not using' with {\"Q3\": \"Care Network A\"}",
+        "evidence": "Q3 != 'None/currently not using' with {\"Q3\": \"Auto Brand A\"}",
         "canonical_reference": "questions[Q9]",
         "explanation": "fires exactly when the QRE's own condition does",
         "severity": "none"
@@ -2224,7 +2224,7 @@
         "status": "PASS",
         "expected": true,
         "actual": true,
-        "evidence": "Q3 != 'None/currently not using' with {\"Q3\": \"Care Network A\"}",
+        "evidence": "Q3 != 'None/currently not using' with {\"Q3\": \"Auto Brand A\"}",
         "canonical_reference": "questions[Q15]",
         "explanation": "fires exactly when the QRE's own condition does",
         "severity": "none"
@@ -3458,7 +3458,7 @@
         "status": "PASS",
         "expected": "R2",
         "actual": "R2",
-        "evidence": "S2 != 'Personally manage an ongoing chronic health condition'",
+        "evidence": "S2 != 'Purchased or seriously considered a new vehicle in the past 18 months'",
         "canonical_reference": "rules[R2]",
         "explanation": "present",
         "severity": "none"
@@ -3492,9 +3492,9 @@
         "category": "termination_logic",
         "criticality": "CRITICAL",
         "status": "PASS",
-        "expected": "S2 != 'Personally manage an ongoing chronic health condition'",
-        "actual": "S2 != 'Personally manage an ongoing chronic health condition'",
-        "evidence": "S2 != 'Personally manage an ongoing chronic health condition'",
+        "expected": "S2 != 'Purchased or seriously considered a new vehicle in the past 18 months'",
+        "actual": "S2 != 'Purchased or seriously considered a new vehicle in the past 18 months'",
+        "evidence": "S2 != 'Purchased or seriously considered a new vehicle in the past 18 months'",
         "canonical_reference": "rules[R2].when.source_text",
         "explanation": "condition kept verbatim",
         "severity": "none"
@@ -3518,7 +3518,7 @@
         "status": "PASS",
         "expected": false,
         "actual": false,
-        "evidence": "S2 != 'Personally manage an ongoing chronic health condition' with {\"S2\": \"Personally manage an ongoing chronic health condition\"}",
+        "evidence": "S2 != 'Purchased or seriously considered a new vehicle in the past 18 months' with {\"S2\": \"Purchased or seriously considered a new vehicle in the past 18 months\"}",
         "canonical_reference": "rules[R2]",
         "explanation": "fires exactly when the QRE's own condition does",
         "severity": "none"
@@ -3530,7 +3530,7 @@
         "status": "PASS",
         "expected": true,
         "actual": true,
-        "evidence": "S2 != 'Personally manage an ongoing chronic health condition' with {\"S2\": \"Aware but not involved\"}",
+        "evidence": "S2 != 'Purchased or seriously considered a new vehicle in the past 18 months' with {\"S2\": \"Aware but not involved\"}",
         "canonical_reference": "rules[R2]",
         "explanation": "fires exactly when the QRE's own condition does",
         "severity": "none"
@@ -3554,7 +3554,7 @@
         "status": "UNVERIFIED",
         "expected": "the QRE states no evaluation point",
         "actual": "S2",
-        "evidence": "S2 != 'Personally manage an ongoing chronic health condition'",
+        "evidence": "S2 != 'Purchased or seriously considered a new vehicle in the past 18 months'",
         "canonical_reference": "rules[R2]",
         "explanation": "derived from the questions the condition names; the QRE never states when a rule is checked",
         "severity": "review"
@@ -3842,7 +3842,7 @@
         "status": "PASS",
         "expected": false,
         "actual": false,
-        "evidence": "Q1 == ['None of these'] with {\"Q1\": [\"None of these\", \"Care Network A\"]}",
+        "evidence": "Q1 == ['None of these'] with {\"Q1\": [\"None of these\", \"Auto Brand A\"]}",
         "canonical_reference": "rules[R5]",
         "explanation": "fires exactly when the QRE's own condition does",
         "severity": "none"
@@ -4199,7 +4199,7 @@
         "status": "PASS",
         "expected": true,
         "actual": true,
-        "evidence": "Q3 != 'None/currently not using' with {\"Q3\": \"Care Network A\"}",
+        "evidence": "Q3 != 'None/currently not using' with {\"Q3\": \"Auto Brand A\"}",
         "canonical_reference": "rules[R9]",
         "explanation": "fires exactly when the QRE's own condition does",
         "severity": "none"
@@ -4295,7 +4295,7 @@
         "status": "PASS",
         "expected": true,
         "actual": true,
-        "evidence": "Q3 != 'None/currently not using' with {\"Q3\": \"Care Network A\"}",
+        "evidence": "Q3 != 'None/currently not using' with {\"Q3\": \"Auto Brand A\"}",
         "canonical_reference": "rules[R10]",
         "explanation": "fires exactly when the QRE's own condition does",
         "severity": "none"
@@ -4391,7 +4391,7 @@
         "status": "PASS",
         "expected": true,
         "actual": true,
-        "evidence": "Q3 != 'None/currently not using' with {\"Q3\": \"Care Network A\"}",
+        "evidence": "Q3 != 'None/currently not using' with {\"Q3\": \"Auto Brand A\"}",
         "canonical_reference": "rules[R11]",
         "explanation": "fires exactly when the QRE's own condition does",
         "severity": "none"
@@ -5533,17 +5533,17 @@
         "status": "PASS",
         "expected": {
           "S1": "Yes",
-          "S2": "Personally manage an ongoing chronic health condition",
+          "S2": "Purchased or seriously considered a new vehicle in the past 18 months",
           "S3": "No",
           "S4": "Yes"
         },
         "actual": {
           "S1": "Yes",
-          "S2": "Personally manage an ongoing chronic health condition",
+          "S2": "Purchased or seriously considered a new vehicle in the past 18 months",
           "S3": "No",
           "S4": "Yes"
         },
-        "evidence": "{\"S1\": \"Yes\", \"S2\": \"Personally manage an ongoing chronic health condition\", \"S3\": \"No\", \"S4\": \"Yes\"}",
+        "evidence": "{\"S1\": \"Yes\", \"S2\": \"Purchased or seriously considered a new vehicle in the past 18 months\", \"S3\": \"No\", \"S4\": \"Yes\"}",
         "canonical_reference": "scenarios[T2].inputs_raw",
         "explanation": "inputs carried exactly",
         "severity": "none"
@@ -5583,7 +5583,7 @@
         "status": "PASS",
         "expected": {
           "S1": "Yes",
-          "S2": "Personally manage an ongoing chronic health condition",
+          "S2": "Purchased or seriously considered a new vehicle in the past 18 months",
           "S3": "No",
           "S4": "No",
           "Q1": [
@@ -5592,14 +5592,14 @@
         },
         "actual": {
           "S1": "Yes",
-          "S2": "Personally manage an ongoing chronic health condition",
+          "S2": "Purchased or seriously considered a new vehicle in the past 18 months",
           "S3": "No",
           "S4": "No",
           "Q1": [
             "None of these"
           ]
         },
-        "evidence": "{\"S1\": \"Yes\", \"S2\": \"Personally manage an ongoing chronic health condition\", \"S3\": \"No\", \"S4\": \"No\", \"Q1\": [\"None of these\"]}",
+        "evidence": "{\"S1\": \"Yes\", \"S2\": \"Purchased or seriously considered a new vehicle in the past 18 months\", \"S3\": \"No\", \"S4\": \"No\", \"Q1\": [\"None of these\"]}",
         "canonical_reference": "scenarios[T3].inputs_raw",
         "explanation": "inputs carried exactly",
         "severity": "none"
@@ -5653,29 +5653,29 @@
         "status": "PASS",
         "expected": {
           "S1": "Yes",
-          "S2": "Personally manage an ongoing chronic health condition",
+          "S2": "Purchased or seriously considered a new vehicle in the past 18 months",
           "S3": "No",
           "S4": "No",
           "Q1": [
-            "Care Network A"
+            "Auto Brand A"
           ],
-          "Q3": "Care Network A",
+          "Q3": "Auto Brand A",
           "Q10": "No",
           "Q15": "No"
         },
         "actual": {
           "S1": "Yes",
-          "S2": "Personally manage an ongoing chronic health condition",
+          "S2": "Purchased or seriously considered a new vehicle in the past 18 months",
           "S3": "No",
           "S4": "No",
           "Q1": [
-            "Care Network A"
+            "Auto Brand A"
           ],
-          "Q3": "Care Network A",
+          "Q3": "Auto Brand A",
           "Q10": "No",
           "Q15": "No"
         },
-        "evidence": "{\"S1\": \"Yes\", \"S2\": \"Personally manage an ongoing chronic health condition\", \"S3\": \"No\", \"S4\": \"No\", \"Q1\": [\"Care Network A\"], \"Q3\": \"Care Network A\", \"Q10\": \"No\", \"Q15\": \"No\"}",
+        "evidence": "{\"S1\": \"Yes\", \"S2\": \"Purchased or seriously considered a new vehicle in the past 18 months\", \"S3\": \"No\", \"S4\": \"No\", \"Q1\": [\"Auto Brand A\"], \"Q3\": \"Auto Brand A\", \"Q10\": \"No\", \"Q15\": \"No\"}",
         "canonical_reference": "scenarios[T4].inputs_raw",
         "explanation": "inputs carried exactly",
         "severity": "none"
@@ -5731,13 +5731,13 @@
         "status": "PASS",
         "expected": {
           "S1": "Yes",
-          "S2": "Personally manage an ongoing chronic health condition",
+          "S2": "Purchased or seriously considered a new vehicle in the past 18 months",
           "S3": "No",
           "S4": "No",
           "Q1": [
-            "Care Network B"
+            "Auto Brand B"
           ],
-          "Q3": "Care Network B",
+          "Q3": "Auto Brand B",
           "Q10": "Yes",
           "Q12": "Not resolved",
           "Q15": "Yes",
@@ -5745,19 +5745,19 @@
         },
         "actual": {
           "S1": "Yes",
-          "S2": "Personally manage an ongoing chronic health condition",
+          "S2": "Purchased or seriously considered a new vehicle in the past 18 months",
           "S3": "No",
           "S4": "No",
           "Q1": [
-            "Care Network B"
+            "Auto Brand B"
           ],
-          "Q3": "Care Network B",
+          "Q3": "Auto Brand B",
           "Q10": "Yes",
           "Q12": "Not resolved",
           "Q15": "Yes",
           "Q16": "Other"
         },
-        "evidence": "{\"S1\": \"Yes\", \"S2\": \"Personally manage an ongoing chronic health condition\", \"S3\": \"No\", \"S4\": \"No\", \"Q1\": [\"Care Network B\"], \"Q3\": \"Care Network B\", \"Q10\": \"Yes\", \"Q12\": \"Not resolved\", \"Q15\": \"Yes\", \"Q16\": \"Other\"}",
+        "evidence": "{\"S1\": \"Yes\", \"S2\": \"Purchased or seriously considered a new vehicle in the past 18 months\", \"S3\": \"No\", \"S4\": \"No\", \"Q1\": [\"Auto Brand B\"], \"Q3\": \"Auto Brand B\", \"Q10\": \"Yes\", \"Q12\": \"Not resolved\", \"Q15\": \"Yes\", \"Q16\": \"Other\"}",
         "canonical_reference": "scenarios[T5].inputs_raw",
         "explanation": "inputs carried exactly",
         "severity": "none"
@@ -5873,17 +5873,17 @@
         "status": "PASS",
         "expected": {
           "Q5": [
-            "Primary-care physician"
+            "Manufacturer website"
           ],
-          "Q6": "Support programme"
+          "Q6": "Auto show"
         },
         "actual": {
           "Q5": [
-            "Primary-care physician"
+            "Manufacturer website"
           ],
-          "Q6": "Support programme"
+          "Q6": "Auto show"
         },
-        "evidence": "{\"Q5\": [\"Primary-care physician\"], \"Q6\": \"Support programme\"}",
+        "evidence": "{\"Q5\": [\"Manufacturer website\"], \"Q6\": \"Auto show\"}",
         "canonical_reference": "scenarios[T7].inputs_raw",
         "explanation": "inputs carried exactly",
         "severity": "none"
@@ -5981,9 +5981,9 @@
         "category": "study_metadata",
         "criticality": "NORMAL",
         "status": "PASS",
-        "expected": "Map the care journey, service experience, unmet needs and support interactions.",
+        "expected": "Understand brand funnel, purchase touchpoints, ownership satisfaction and switching.",
         "actual": true,
-        "evidence": "Map the care journey, service experience, unmet needs and support interactions.",
+        "evidence": "Understand brand funnel, purchase touchpoints, ownership satisfaction and switching.",
         "canonical_reference": "metadata[]",
         "explanation": "carried",
         "severity": "none"
@@ -5993,9 +5993,9 @@
         "category": "study_metadata",
         "criticality": "NORMAL",
         "status": "PASS",
-        "expected": "Personally manage an ongoing chronic health condition",
+        "expected": "Purchased or seriously considered a new vehicle in the past 18 months",
         "actual": true,
-        "evidence": "Personally manage an ongoing chronic health condition",
+        "evidence": "Purchased or seriously considered a new vehicle in the past 18 months",
         "canonical_reference": "metadata[]",
         "explanation": "carried",
         "severity": "none"

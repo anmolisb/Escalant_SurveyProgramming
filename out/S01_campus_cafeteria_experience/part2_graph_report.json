@@ -1,14 +1,14 @@
 {
   "schema_version": "1.0.0",
   "artifact": "part2_graph_report",
-  "stage": 7,
+  "stage": 8,
   "survey_id": "S01_campus_cafeteria_experience",
   "source_document": {
     "filename": "S01_campus_cafeteria_experience.docx",
     "sha256": "2756cb3b6dc3f21cdc7c1d35b7cfb0e2270af2a918ba6fe682e72ae8e121a804",
     "bytes": 40578
   },
-  "generated_at": "2026-08-30T10:59:23+00:00",
+  "generated_at": "2026-08-30T11:17:40+00:00",
   "item_count": null,
   "content": {
     "source": "S01_campus_cafeteria_experience.docx",
@@ -23,6 +23,58 @@
     "dependency_edges": 2,
     "findings": [],
     "blocking": 0,
-    "passed": true
+    "passed": true,
+    "coverage": {
+      "node_coverage": {
+        "numerator": 12,
+        "denominator": 12,
+        "result": 1.0
+      },
+      "routing_rule_coverage": {
+        "numerator": 4,
+        "denominator": 4,
+        "result": 1.0
+      },
+      "termination_coverage": {
+        "numerator": 2,
+        "denominator": 2,
+        "result": 1.0
+      },
+      "skip_display_representation": {
+        "numerator": 2,
+        "denominator": 2,
+        "result": 1.0
+      },
+      "validation_reject_representation": {
+        "numerator": 0,
+        "denominator": 0,
+        "result": null
+      },
+      "dependency_coverage": {
+        "numerator": 2,
+        "denominator": 2,
+        "result": 1.0
+      },
+      "quota_coverage": {
+        "numerator": 0,
+        "denominator": 0,
+        "result": null
+      },
+      "randomization_coverage": {
+        "numerator": 0,
+        "denominator": 0,
+        "result": null
+      },
+      "traceability_coverage": {
+        "numerator": 4,
+        "denominator": 4,
+        "result": 1.0
+      }
+    },
+    "structurally_buildable": true,
+    "behaviorally_approved": false,
+    "approval_blocked_by": [
+      "human_decision_gate=PENDING_BLOCKING_DECISIONS"
+    ]
   }
 }

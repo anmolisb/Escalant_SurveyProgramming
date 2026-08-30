@@ -1,14 +1,14 @@
 {
   "schema_version": "1.0.0",
   "artifact": "part2_route_graph",
-  "stage": 7,
+  "stage": 8,
   "survey_id": "C02_automotive_purchase_journey",
   "source_document": {
     "filename": "C02_automotive_purchase_journey.docx",
     "sha256": "112a39d23aaf16dcfd2cce8a9de380d8b289dd33645c2703b7f00ec49f7e69f2",
     "bytes": 43592
   },
-  "generated_at": "2026-08-30T11:02:50+00:00",
+  "generated_at": "2026-08-30T11:18:01+00:00",
   "item_count": null,
   "content": {
     "source": "C02_automotive_purchase_journey.docx",
@@ -27,6 +27,9 @@
           "has_guard": false,
           "guard": null,
           "guard_agreement": null,
+          "randomized": false,
+          "randomization_scope": null,
+          "randomization_anchored": [],
           "id": "S1"
         },
         {
@@ -35,6 +38,9 @@
           "has_guard": false,
           "guard": null,
           "guard_agreement": null,
+          "randomized": false,
+          "randomization_scope": null,
+          "randomization_anchored": [],
           "id": "S2"
         },
         {
@@ -43,6 +49,9 @@
           "has_guard": false,
           "guard": null,
           "guard_agreement": null,
+          "randomized": false,
+          "randomization_scope": null,
+          "randomization_anchored": [],
           "id": "S3"
         },
         {
@@ -51,6 +60,9 @@
           "has_guard": false,
           "guard": null,
           "guard_agreement": null,
+          "randomized": false,
+          "randomization_scope": null,
+          "randomization_anchored": [],
           "id": "S4"
         },
         {
@@ -59,6 +71,9 @@
           "has_guard": false,
           "guard": null,
           "guard_agreement": null,
+          "randomized": true,
+          "randomization_scope": "options",
+          "randomization_anchored": [],
           "id": "Q1"
         },
         {
@@ -67,6 +82,9 @@
           "has_guard": true,
           "guard": "Q1 contains_any ['Auto Brand A', 'Auto Brand B', 'Auto Brand C', 'Auto Brand D']",
           "guard_agreement": "agree",
+          "randomized": false,
+          "randomization_scope": null,
+          "randomization_anchored": [],
           "id": "Q2"
         },
         {
@@ -75,6 +93,9 @@
           "has_guard": true,
           "guard": "Q1 contains_any ['Auto Brand A', 'Auto Brand B', 'Auto Brand C', 'Auto Brand D']",
           "guard_agreement": "agree",
+          "randomized": false,
+          "randomization_scope": null,
+          "randomization_anchored": [],
           "id": "Q3"
         },
         {
@@ -83,6 +104,9 @@
           "has_guard": false,
           "guard": null,
           "guard_agreement": null,
+          "randomized": false,
+          "randomization_scope": null,
+          "randomization_anchored": [],
           "id": "Q4"
         },
         {
@@ -91,6 +115,9 @@
           "has_guard": false,
           "guard": null,
           "guard_agreement": null,
+          "randomized": true,
+          "randomization_scope": "options",
+          "randomization_anchored": [],
           "id": "Q5"
         },
         {
@@ -99,6 +126,9 @@
           "has_guard": true,
           "guard": "Q5 contains_any ['Manufacturer website', 'Dealer visit', 'Review site', 'Social media', 'Friends or family', 'Auto show']",
           "guard_agreement": "agree",
+          "randomized": false,
+          "randomization_scope": null,
+          "randomization_anchored": [],
           "id": "Q6"
         },
         {
@@ -107,6 +137,9 @@
           "has_guard": true,
           "guard": "Q3 ne 'None/currently not using'",
           "guard_agreement": "agree",
+          "randomized": false,
+          "randomization_scope": null,
+          "randomization_anchored": [],
           "id": "Q7"
         },
         {
@@ -115,6 +148,9 @@
           "has_guard": true,
           "guard": "Q3 ne 'None/currently not using'",
           "guard_agreement": "agree",
+          "randomized": false,
+          "randomization_scope": null,
+          "randomization_anchored": [],
           "id": "Q8"
         },
         {
@@ -123,6 +159,9 @@
           "has_guard": true,
           "guard": "Q3 ne 'None/currently not using'",
           "guard_agreement": "agree",
+          "randomized": true,
+          "randomization_scope": "rows",
+          "randomization_anchored": [],
           "id": "Q9"
         },
         {
@@ -131,6 +170,9 @@
           "has_guard": false,
           "guard": null,
           "guard_agreement": null,
+          "randomized": false,
+          "randomization_scope": null,
+          "randomization_anchored": [],
           "id": "Q10"
         },
         {
@@ -139,6 +181,9 @@
           "has_guard": true,
           "guard": "Q10 eq 'Yes'",
           "guard_agreement": "agree",
+          "randomized": false,
+          "randomization_scope": null,
+          "randomization_anchored": [],
           "id": "Q11"
         },
         {
@@ -147,6 +192,9 @@
           "has_guard": true,
           "guard": "Q10 eq 'Yes'",
           "guard_agreement": "agree",
+          "randomized": false,
+          "randomization_scope": null,
+          "randomization_anchored": [],
           "id": "Q12"
         },
         {
@@ -155,6 +203,9 @@
           "has_guard": true,
           "guard": "Q12 in ['Fully', 'Partly']",
           "guard_agreement": "agree",
+          "randomized": false,
+          "randomization_scope": null,
+          "randomization_anchored": [],
           "id": "Q13"
         },
         {
@@ -163,6 +214,9 @@
           "has_guard": true,
           "guard": "Q12 eq 'Not resolved'",
           "guard_agreement": "agree",
+          "randomized": false,
+          "randomization_scope": null,
+          "randomization_anchored": [],
           "id": "Q14"
         },
         {
@@ -171,6 +225,9 @@
           "has_guard": true,
           "guard": "Q3 ne 'None/currently not using'",
           "guard_agreement": "single_source",
+          "randomized": false,
+          "randomization_scope": null,
+          "randomization_anchored": [],
           "id": "Q15"
         },
         {
@@ -179,6 +236,9 @@
           "has_guard": true,
           "guard": "Q15 eq 'Yes'",
           "guard_agreement": "agree",
+          "randomized": true,
+          "randomization_scope": "options",
+          "randomization_anchored": [],
           "id": "Q16"
         },
         {
@@ -187,6 +247,9 @@
           "has_guard": true,
           "guard": "Q16 eq 'Other'",
           "guard_agreement": "agree",
+          "randomized": false,
+          "randomization_scope": null,
+          "randomization_anchored": [],
           "id": "Q17"
         },
         {
@@ -195,6 +258,9 @@
           "has_guard": false,
           "guard": null,
           "guard_agreement": null,
+          "randomized": false,
+          "randomization_scope": null,
+          "randomization_anchored": [],
           "id": "Q18"
         },
         {
@@ -203,6 +269,9 @@
           "has_guard": false,
           "guard": null,
           "guard_agreement": null,
+          "randomized": true,
+          "randomization_scope": "options",
+          "randomization_anchored": [],
           "id": "Q19"
         },
         {
@@ -211,6 +280,9 @@
           "has_guard": false,
           "guard": null,
           "guard_agreement": null,
+          "randomized": false,
+          "randomization_scope": null,
+          "randomization_anchored": [],
           "id": "Q20"
         },
         {
@@ -219,6 +291,9 @@
           "has_guard": false,
           "guard": null,
           "guard_agreement": null,
+          "randomized": false,
+          "randomization_scope": null,
+          "randomization_anchored": [],
           "id": "Q21"
         },
         {
@@ -227,6 +302,9 @@
           "has_guard": false,
           "guard": null,
           "guard_agreement": null,
+          "randomized": false,
+          "randomization_scope": null,
+          "randomization_anchored": [],
           "id": "D1"
         },
         {
@@ -235,6 +313,9 @@
           "has_guard": false,
           "guard": null,
           "guard_agreement": null,
+          "randomized": false,
+          "randomization_scope": null,
+          "randomization_anchored": [],
           "id": "D2"
         },
         {
@@ -243,6 +324,9 @@
           "has_guard": false,
           "guard": null,
           "guard_agreement": null,
+          "randomized": false,
+          "randomization_scope": null,
+          "randomization_anchored": [],
           "id": "D3"
         },
         {
@@ -251,6 +335,9 @@
           "has_guard": false,
           "guard": null,
           "guard_agreement": null,
+          "randomized": false,
+          "randomization_scope": null,
+          "randomization_anchored": [],
           "id": "D4"
         },
         {
@@ -259,6 +346,9 @@
           "has_guard": false,
           "guard": null,
           "guard_agreement": null,
+          "randomized": false,
+          "randomization_scope": null,
+          "randomization_anchored": [],
           "id": "Q22"
         },
         {
@@ -267,6 +357,9 @@
           "has_guard": false,
           "guard": null,
           "guard_agreement": null,
+          "randomized": false,
+          "randomization_scope": null,
+          "randomization_anchored": [],
           "id": "Q23"
         },
         {

@@ -8,7 +8,7 @@
     "sha256": "112a39d23aaf16dcfd2cce8a9de380d8b289dd33645c2703b7f00ec49f7e69f2",
     "bytes": 43592
   },
-  "generated_at": "2026-08-30T11:02:50+00:00",
+  "generated_at": "2026-08-30T11:18:01+00:00",
   "item_count": null,
   "content": {
     "source": "C02_automotive_purchase_journey.docx",
@@ -4034,6 +4034,23 @@
         "origin": "inferred",
         "confidence": 0.99,
         "source_text": "QUOTA_AGE: soft quota on D2: 21-29=20%, 30-39=25%, 40-49=25%, 50-59=20%, 60+=10%"
+      }
+    ],
+    "quota_requirements": [
+      {
+        "code": null,
+        "label": null,
+        "text": "Quota-full respondents terminate at TERM_QUOTA_FULL before the next substantive question. Quota status must be logged.",
+        "raw_text": "Quota-full respondents terminate at TERM_QUOTA_FULL before the next substantive question. Quota status must be logged.",
+        "source_reference": {
+          "document": "C02_automotive_purchase_journey.docx",
+          "section": "Quota controls",
+          "heading_text": "Quota controls",
+          "block_order": 16,
+          "row_index": null,
+          "source_kind": "prose",
+          "text": "Quota-full respondents terminate at TERM_QUOTA_FULL before the next substantive question. Quota status must be logged."
+        }
       }
     ],
     "scenarios": [

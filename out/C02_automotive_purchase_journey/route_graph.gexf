@@ -96,7 +96,7 @@
           <attvalue for="0" value="question" />
           <attvalue for="1" value="6" />
           <attvalue for="2" value="true" />
-          <attvalue for="3" value="Q1 contains_any ['Care Network A', 'Care Network B', 'Care Network C']" />
+          <attvalue for="3" value="Q1 contains_any ['Auto Brand A', 'Auto Brand B', 'Auto Brand C', 'Auto Brand D']" />
           <attvalue for="4" value="agree" />
           <attvalue for="5" value="false" />
           <attvalue for="6" value="" />
@@ -108,7 +108,7 @@
           <attvalue for="0" value="question" />
           <attvalue for="1" value="7" />
           <attvalue for="2" value="true" />
-          <attvalue for="3" value="Q1 contains_any ['Care Network A', 'Care Network B', 'Care Network C']" />
+          <attvalue for="3" value="Q1 contains_any ['Auto Brand A', 'Auto Brand B', 'Auto Brand C', 'Auto Brand D']" />
           <attvalue for="4" value="agree" />
           <attvalue for="5" value="false" />
           <attvalue for="6" value="" />
@@ -144,7 +144,7 @@
           <attvalue for="0" value="question" />
           <attvalue for="1" value="10" />
           <attvalue for="2" value="true" />
-          <attvalue for="3" value="Q5 contains_any ['Primary-care physician', 'Specialist', 'Hospital', 'Pharmacy', 'Patient portal', 'Support programme']" />
+          <attvalue for="3" value="Q5 contains_any ['Manufacturer website', 'Dealer visit', 'Review site', 'Social media', 'Friends or family', 'Auto show']" />
           <attvalue for="4" value="agree" />
           <attvalue for="5" value="false" />
           <attvalue for="6" value="" />
@@ -487,7 +487,7 @@
         <attvalues>
           <attvalue for="11" value="terminate" />
           <attvalue for="12" value="R2" />
-          <attvalue for="14" value="S2 ne 'Personally manage an ongoing chronic health condition'" />
+          <attvalue for="14" value="S2 ne 'Purchased or seriously considered a new vehicle in the past 18 months'" />
           <attvalue for="15" value="2" />
           <attvalue for="13" value="0" />
         </attvalues>

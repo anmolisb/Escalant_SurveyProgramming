@@ -2,11 +2,11 @@
   "schema_version": "1.0.0",
   "artifact": "agent1_evaluation_tests",
   "stage": 7,
-  "survey_id": "C01_chronic_care_patient_journey",
+  "survey_id": "C02_automotive_purchase_journey",
   "source_document": {
-    "filename": "C01_chronic_care_patient_journey.docx",
-    "sha256": "319e6b78a2a1e36ef712ce421e6d2c1db3325a087a07d8d0e93ec38b39207e4b",
-    "bytes": 43612
+    "filename": "C02_automotive_purchase_journey.docx",
+    "sha256": "112a39d23aaf16dcfd2cce8a9de380d8b289dd33645c2703b7f00ec49f7e69f2",
+    "bytes": 43592
   },
   "generated_at": "2026-08-30T11:18:01+00:00",
   "item_count": 445,
@@ -176,11 +176,11 @@
         "block_order": 10,
         "row_index": 1
       },
-      "source_text": "Personally manage an ongoing chronic health condition; Aware but not involved; Not aware of this category",
+      "source_text": "Purchased or seriously considered a new vehicle in the past 18 months; Aware but not involved; Not aware of this category",
       "target": "S2",
       "input_state": null,
       "expected": [
-        "Personally manage an ongoing chronic health condition",
+        "Purchased or seriously considered a new vehicle in the past 18 months",
         "Aware but not involved",
         "Not aware of this category"
       ],
@@ -492,14 +492,14 @@
         "block_order": 10,
         "row_index": 4
       },
-      "source_text": "Care Network A; Care Network B; Care Network C; Independent provider; None of these",
+      "source_text": "Auto Brand A; Auto Brand B; Auto Brand C; Auto Brand D; None of these",
       "target": "Q1",
       "input_state": null,
       "expected": [
-        "Care Network A",
-        "Care Network B",
-        "Care Network C",
-        "Independent provider",
+        "Auto Brand A",
+        "Auto Brand B",
+        "Auto Brand C",
+        "Auto Brand D",
         "None of these"
       ],
       "criticality": "HIGH",
@@ -634,14 +634,14 @@
         "block_order": 10,
         "row_index": 5
       },
-      "source_text": "Care Network A; Care Network B; Care Network C; Independent provider",
+      "source_text": "Auto Brand A; Auto Brand B; Auto Brand C; Auto Brand D",
       "target": "Q2",
       "input_state": null,
       "expected": [
-        "Care Network A",
-        "Care Network B",
-        "Care Network C",
-        "Independent provider"
+        "Auto Brand A",
+        "Auto Brand B",
+        "Auto Brand C",
+        "Auto Brand D"
       ],
       "criticality": "HIGH",
       "ground_truth_status": "VERIFIED",
@@ -775,14 +775,14 @@
         "block_order": 10,
         "row_index": 6
       },
-      "source_text": "Care Network A; Care Network B; Care Network C; Independent provider; None/currently not using",
+      "source_text": "Auto Brand A; Auto Brand B; Auto Brand C; Auto Brand D; None/currently not using",
       "target": "Q3",
       "input_state": null,
       "expected": [
-        "Care Network A",
-        "Care Network B",
-        "Care Network C",
-        "Independent provider",
+        "Auto Brand A",
+        "Auto Brand B",
+        "Auto Brand C",
+        "Auto Brand D",
         "None/currently not using"
       ],
       "criticality": "HIGH",
@@ -900,15 +900,15 @@
         "block_order": 10,
         "row_index": 7
       },
-      "source_text": "Recently diagnosed; Treatment initiation; Ongoing management; Treatment change; Monitoring only",
+      "source_text": "Initial research; Shortlisting; Test drive; Purchased; Post-purchase ownership",
       "target": "Q4",
       "input_state": null,
       "expected": [
-        "Recently diagnosed",
-        "Treatment initiation",
-        "Ongoing management",
-        "Treatment change",
-        "Monitoring only"
+        "Initial research",
+        "Shortlisting",
+        "Test drive",
+        "Purchased",
+        "Post-purchase ownership"
       ],
       "criticality": "HIGH",
       "ground_truth_status": "VERIFIED",
@@ -1008,16 +1008,16 @@
         "block_order": 10,
         "row_index": 8
       },
-      "source_text": "Primary-care physician; Specialist; Hospital; Pharmacy; Patient portal; Support programme; None of these",
+      "source_text": "Manufacturer website; Dealer visit; Review site; Social media; Friends or family; Auto show; None of these",
       "target": "Q5",
       "input_state": null,
       "expected": [
-        "Primary-care physician",
-        "Specialist",
-        "Hospital",
-        "Pharmacy",
-        "Patient portal",
-        "Support programme",
+        "Manufacturer website",
+        "Dealer visit",
+        "Review site",
+        "Social media",
+        "Friends or family",
+        "Auto show",
         "None of these"
       ],
       "criticality": "HIGH",
@@ -1152,16 +1152,16 @@
         "block_order": 10,
         "row_index": 9
       },
-      "source_text": "Primary-care physician; Specialist; Hospital; Pharmacy; Patient portal; Support programme",
+      "source_text": "Manufacturer website; Dealer visit; Review site; Social media; Friends or family; Auto show",
       "target": "Q6",
       "input_state": null,
       "expected": [
-        "Primary-care physician",
-        "Specialist",
-        "Hospital",
-        "Pharmacy",
-        "Patient portal",
-        "Support programme"
+        "Manufacturer website",
+        "Dealer visit",
+        "Review site",
+        "Social media",
+        "Friends or family",
+        "Auto show"
       ],
       "criticality": "HIGH",
       "ground_truth_status": "VERIFIED",
@@ -1382,7 +1382,7 @@
       "source_text": "Q3 != 'None/currently not using'",
       "target": "Q7",
       "input_state": {
-        "Q3": "Care Network A"
+        "Q3": "Auto Brand A"
       },
       "expected": true,
       "criticality": "CRITICAL",
@@ -1538,7 +1538,7 @@
       "source_text": "Q3 != 'None/currently not using'",
       "target": "Q8",
       "input_state": {
-        "Q3": "Care Network A"
+        "Q3": "Auto Brand A"
       },
       "expected": true,
       "criticality": "CRITICAL",
@@ -1670,16 +1670,16 @@
         "block_order": 10,
         "row_index": 12
       },
-      "source_text": "Access; Communication; Coordination; Treatment information; Emotional support; Digital tools",
+      "source_text": "Design; Performance; Safety; Technology; Dealer experience; Value for money",
       "target": "Q9",
       "input_state": null,
       "expected": [
-        "Access",
-        "Communication",
-        "Coordination",
-        "Treatment information",
-        "Emotional support",
-        "Digital tools"
+        "Design",
+        "Performance",
+        "Safety",
+        "Technology",
+        "Dealer experience",
+        "Value for money"
       ],
       "criticality": "HIGH",
       "ground_truth_status": "VERIFIED",
@@ -1735,7 +1735,7 @@
       "source_text": "Q3 != 'None/currently not using'",
       "target": "Q9",
       "input_state": {
-        "Q3": "Care Network A"
+        "Q3": "Auto Brand A"
       },
       "expected": true,
       "criticality": "CRITICAL",
@@ -2717,7 +2717,7 @@
       "source_text": "Q3 != 'None/currently not using'",
       "target": "Q15",
       "input_state": {
-        "Q3": "Care Network A"
+        "Q3": "Auto Brand A"
       },
       "expected": true,
       "criticality": "CRITICAL",
@@ -4389,7 +4389,7 @@
         "block_order": 12,
         "row_index": 1
       },
-      "source_text": "S2 != 'Personally manage an ongoing chronic health condition'",
+      "source_text": "S2 != 'Purchased or seriously considered a new vehicle in the past 18 months'",
       "target": "R2",
       "input_state": null,
       "expected": "R2",
@@ -4440,10 +4440,10 @@
         "block_order": 12,
         "row_index": 1
       },
-      "source_text": "S2 != 'Personally manage an ongoing chronic health condition'",
+      "source_text": "S2 != 'Purchased or seriously considered a new vehicle in the past 18 months'",
       "target": "R2",
       "input_state": null,
-      "expected": "S2 != 'Personally manage an ongoing chronic health condition'",
+      "expected": "S2 != 'Purchased or seriously considered a new vehicle in the past 18 months'",
       "criticality": "CRITICAL",
       "ground_truth_status": "VERIFIED",
       "params": {}
@@ -4476,10 +4476,10 @@
         "block_order": 12,
         "row_index": 1
       },
-      "source_text": "S2 != 'Personally manage an ongoing chronic health condition'",
+      "source_text": "S2 != 'Purchased or seriously considered a new vehicle in the past 18 months'",
       "target": "R2",
       "input_state": {
-        "S2": "Personally manage an ongoing chronic health condition"
+        "S2": "Purchased or seriously considered a new vehicle in the past 18 months"
       },
       "expected": false,
       "criticality": "CRITICAL",
@@ -4497,7 +4497,7 @@
         "block_order": 12,
         "row_index": 1
       },
-      "source_text": "S2 != 'Personally manage an ongoing chronic health condition'",
+      "source_text": "S2 != 'Purchased or seriously considered a new vehicle in the past 18 months'",
       "target": "R2",
       "input_state": {
         "S2": "Aware but not involved"
@@ -4535,7 +4535,7 @@
         "block_order": 12,
         "row_index": 1
       },
-      "source_text": "S2 != 'Personally manage an ongoing chronic health condition'",
+      "source_text": "S2 != 'Purchased or seriously considered a new vehicle in the past 18 months'",
       "target": "R2",
       "input_state": null,
       "expected": "the QRE states no evaluation point",
@@ -4974,7 +4974,7 @@
       "input_state": {
         "Q1": [
           "None of these",
-          "Care Network A"
+          "Auto Brand A"
         ]
       },
       "expected": false,
@@ -5476,7 +5476,7 @@
       "source_text": "Q3 != 'None/currently not using'",
       "target": "R9",
       "input_state": {
-        "Q3": "Care Network A"
+        "Q3": "Auto Brand A"
       },
       "expected": true,
       "criticality": "CRITICAL",
@@ -5620,7 +5620,7 @@
       "source_text": "Q3 != 'None/currently not using'",
       "target": "R10",
       "input_state": {
-        "Q3": "Care Network A"
+        "Q3": "Auto Brand A"
       },
       "expected": true,
       "criticality": "CRITICAL",
@@ -5764,7 +5764,7 @@
       "source_text": "Q3 != 'None/currently not using'",
       "target": "R11",
       "input_state": {
-        "Q3": "Care Network A"
+        "Q3": "Auto Brand A"
       },
       "expected": true,
       "criticality": "CRITICAL",
@@ -7382,12 +7382,12 @@
         "section": "scenarios",
         "row_index": 1
       },
-      "source_text": "{\"S1\": \"Yes\", \"S2\": \"Personally manage an ongoing chronic health condition\", \"S3\": \"No\", \"S4\": \"Yes\"}",
+      "source_text": "{\"S1\": \"Yes\", \"S2\": \"Purchased or seriously considered a new vehicle in the past 18 months\", \"S3\": \"No\", \"S4\": \"Yes\"}",
       "target": "T2",
       "input_state": null,
       "expected": {
         "S1": "Yes",
-        "S2": "Personally manage an ongoing chronic health condition",
+        "S2": "Purchased or seriously considered a new vehicle in the past 18 months",
         "S3": "No",
         "S4": "Yes"
       },
@@ -7437,12 +7437,12 @@
         "section": "scenarios",
         "row_index": 2
       },
-      "source_text": "{\"S1\": \"Yes\", \"S2\": \"Personally manage an ongoing chronic health condition\", \"S3\": \"No\", \"S4\": \"No\", \"Q1\": [\"None of these\"]}",
+      "source_text": "{\"S1\": \"Yes\", \"S2\": \"Purchased or seriously considered a new vehicle in the past 18 months\", \"S3\": \"No\", \"S4\": \"No\", \"Q1\": [\"None of these\"]}",
       "target": "T3",
       "input_state": null,
       "expected": {
         "S1": "Yes",
-        "S2": "Personally manage an ongoing chronic health condition",
+        "S2": "Purchased or seriously considered a new vehicle in the past 18 months",
         "S3": "No",
         "S4": "No",
         "Q1": [
@@ -7502,18 +7502,18 @@
         "section": "scenarios",
         "row_index": 3
       },
-      "source_text": "{\"S1\": \"Yes\", \"S2\": \"Personally manage an ongoing chronic health condition\", \"S3\": \"No\", \"S4\": \"No\", \"Q1\": [\"Care Network A\"], \"Q3\": \"Care Network A\", \"Q10\": \"No\", \"Q15\": \"No\"}",
+      "source_text": "{\"S1\": \"Yes\", \"S2\": \"Purchased or seriously considered a new vehicle in the past 18 months\", \"S3\": \"No\", \"S4\": \"No\", \"Q1\": [\"Auto Brand A\"], \"Q3\": \"Auto Brand A\", \"Q10\": \"No\", \"Q15\": \"No\"}",
       "target": "T4",
       "input_state": null,
       "expected": {
         "S1": "Yes",
-        "S2": "Personally manage an ongoing chronic health condition",
+        "S2": "Purchased or seriously considered a new vehicle in the past 18 months",
         "S3": "No",
         "S4": "No",
         "Q1": [
-          "Care Network A"
+          "Auto Brand A"
         ],
-        "Q3": "Care Network A",
+        "Q3": "Auto Brand A",
         "Q10": "No",
         "Q15": "No"
       },
@@ -7571,18 +7571,18 @@
         "section": "scenarios",
         "row_index": 4
       },
-      "source_text": "{\"S1\": \"Yes\", \"S2\": \"Personally manage an ongoing chronic health condition\", \"S3\": \"No\", \"S4\": \"No\", \"Q1\": [\"Care Network B\"], \"Q3\": \"Care Network B\", \"Q10\": \"Yes\", \"Q12\": \"Not resolved\", \"Q15\": \"Yes\", \"Q16\": \"Other\"}",
+      "source_text": "{\"S1\": \"Yes\", \"S2\": \"Purchased or seriously considered a new vehicle in the past 18 months\", \"S3\": \"No\", \"S4\": \"No\", \"Q1\": [\"Auto Brand B\"], \"Q3\": \"Auto Brand B\", \"Q10\": \"Yes\", \"Q12\": \"Not resolved\", \"Q15\": \"Yes\", \"Q16\": \"Other\"}",
       "target": "T5",
       "input_state": null,
       "expected": {
         "S1": "Yes",
-        "S2": "Personally manage an ongoing chronic health condition",
+        "S2": "Purchased or seriously considered a new vehicle in the past 18 months",
         "S3": "No",
         "S4": "No",
         "Q1": [
-          "Care Network B"
+          "Auto Brand B"
         ],
-        "Q3": "Care Network B",
+        "Q3": "Auto Brand B",
         "Q10": "Yes",
         "Q12": "Not resolved",
         "Q15": "Yes",
@@ -7702,14 +7702,14 @@
         "section": "scenarios",
         "row_index": 6
       },
-      "source_text": "{\"Q5\": [\"Primary-care physician\"], \"Q6\": \"Support programme\"}",
+      "source_text": "{\"Q5\": [\"Manufacturer website\"], \"Q6\": \"Auto show\"}",
       "target": "T7",
       "input_state": null,
       "expected": {
         "Q5": [
-          "Primary-care physician"
+          "Manufacturer website"
         ],
-        "Q6": "Support programme"
+        "Q6": "Auto show"
       },
       "criticality": "HIGH",
       "ground_truth_status": "VERIFIED",
@@ -7837,10 +7837,10 @@
         "section": "study",
         "block_order": 4
       },
-      "source_text": "Map the care journey, service experience, unmet needs and support interactions.",
+      "source_text": "Understand brand funnel, purchase touchpoints, ownership satisfaction and switching.",
       "target": "Business objective",
       "input_state": null,
-      "expected": "Map the care journey, service experience, unmet needs and support interactions.",
+      "expected": "Understand brand funnel, purchase touchpoints, ownership satisfaction and switching.",
       "criticality": "NORMAL",
       "ground_truth_status": "VERIFIED",
       "params": {}
@@ -7853,10 +7853,10 @@
         "section": "study",
         "block_order": 5
       },
-      "source_text": "Personally manage an ongoing chronic health condition",
+      "source_text": "Purchased or seriously considered a new vehicle in the past 18 months",
       "target": "Target population",
       "input_state": null,
-      "expected": "Personally manage an ongoing chronic health condition",
+      "expected": "Purchased or seriously considered a new vehicle in the past 18 months",
       "criticality": "NORMAL",
       "ground_truth_status": "VERIFIED",
       "params": {}

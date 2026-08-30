@@ -1,20 +1,20 @@
 {
   "schema_version": "1.0.0",
   "artifact": "agent1_decisions",
-  "survey_id": "C01_chronic_care_patient_journey",
+  "survey_id": "C02_automotive_purchase_journey",
   "source_document": {
-    "filename": "C01_chronic_care_patient_journey.docx",
-    "sha256": "319e6b78a2a1e36ef712ce421e6d2c1db3325a087a07d8d0e93ec38b39207e4b",
-    "bytes": 43612
+    "filename": "C02_automotive_purchase_journey.docx",
+    "sha256": "112a39d23aaf16dcfd2cce8a9de380d8b289dd33645c2703b7f00ec49f7e69f2",
+    "bytes": 43592
   },
   "generated_at": "2026-08-30T11:18:01+00:00",
   "entries": {
-    "f6de93712798f5f5": {
-      "decision_id": "f6de93712798f5f5",
-      "survey_id": "C01_chronic_care_patient_journey",
+    "9b354f3c76403871": {
+      "decision_id": "9b354f3c76403871",
+      "survey_id": "C02_automotive_purchase_journey",
       "source_document": {
-        "filename": "C01_chronic_care_patient_journey.docx",
-        "sha256": "319e6b78a2a1e36ef712ce421e6d2c1db3325a087a07d8d0e93ec38b39207e4b"
+        "filename": "C02_automotive_purchase_journey.docx",
+        "sha256": "112a39d23aaf16dcfd2cce8a9de380d8b289dd33645c2703b7f00ec49f7e69f2"
       },
       "affected": [
         "semantics"
@@ -33,19 +33,19 @@
       "context_key": "450036bdd1d10606",
       "last_seen_at": "2026-08-30T11:18:01+00:00",
       "status": "PENDING_CONFIRMATION",
-      "created_at": "2026-08-29T11:54:49+00:00",
+      "created_at": "2026-08-30T11:18:01+00:00",
       "resolved_at": null,
       "decision": null,
       "decision_provenance": null,
       "previous_decision": null,
       "context_changed": false
     },
-    "00db7d74442cb17d": {
-      "decision_id": "00db7d74442cb17d",
-      "survey_id": "C01_chronic_care_patient_journey",
+    "b6ec9432e013d044": {
+      "decision_id": "b6ec9432e013d044",
+      "survey_id": "C02_automotive_purchase_journey",
       "source_document": {
-        "filename": "C01_chronic_care_patient_journey.docx",
-        "sha256": "319e6b78a2a1e36ef712ce421e6d2c1db3325a087a07d8d0e93ec38b39207e4b"
+        "filename": "C02_automotive_purchase_journey.docx",
+        "sha256": "112a39d23aaf16dcfd2cce8a9de380d8b289dd33645c2703b7f00ec49f7e69f2"
       },
       "affected": [
         "semantics"
@@ -64,19 +64,19 @@
       "context_key": "450036bdd1d10606",
       "last_seen_at": "2026-08-30T11:18:01+00:00",
       "status": "PENDING_CONFIRMATION",
-      "created_at": "2026-08-29T11:54:49+00:00",
+      "created_at": "2026-08-30T11:18:01+00:00",
       "resolved_at": null,
       "decision": null,
       "decision_provenance": null,
       "previous_decision": null,
       "context_changed": false
     },
-    "5c5b9104ff079c25": {
-      "decision_id": "5c5b9104ff079c25",
-      "survey_id": "C01_chronic_care_patient_journey",
+    "3a56161f7945542e": {
+      "decision_id": "3a56161f7945542e",
+      "survey_id": "C02_automotive_purchase_journey",
       "source_document": {
-        "filename": "C01_chronic_care_patient_journey.docx",
-        "sha256": "319e6b78a2a1e36ef712ce421e6d2c1db3325a087a07d8d0e93ec38b39207e4b"
+        "filename": "C02_automotive_purchase_journey.docx",
+        "sha256": "112a39d23aaf16dcfd2cce8a9de380d8b289dd33645c2703b7f00ec49f7e69f2"
       },
       "affected": [
         "semantics"
@@ -95,142 +95,26 @@
       "context_key": "450036bdd1d10606",
       "last_seen_at": "2026-08-30T11:18:01+00:00",
       "status": "PENDING_CONFIRMATION",
-      "created_at": "2026-08-29T11:54:49+00:00",
+      "created_at": "2026-08-30T11:18:01+00:00",
       "resolved_at": null,
       "decision": null,
       "decision_provenance": null,
       "previous_decision": null,
       "context_changed": false
     },
-    "8009e053dcf0c019": {
-      "decision_id": "8009e053dcf0c019",
-      "survey_id": "C01_chronic_care_patient_journey",
+    "0acc077d59ebe601": {
+      "decision_id": "0acc077d59ebe601",
+      "survey_id": "C02_automotive_purchase_journey",
       "source_document": {
-        "filename": "C01_chronic_care_patient_journey.docx",
-        "sha256": "319e6b78a2a1e36ef712ce421e6d2c1db3325a087a07d8d0e93ec38b39207e4b"
+        "filename": "C02_automotive_purchase_journey.docx",
+        "sha256": "112a39d23aaf16dcfd2cce8a9de380d8b289dd33645c2703b7f00ec49f7e69f2"
       },
       "affected": [
         "Q2"
       ],
       "category": "routing",
       "issue": "ambiguous_routing_condition",
-      "source_evidence": "Q1 contains at least one brand  ->  Q1 contains_any ['Care Network A', 'Care Network B', 'Care Network C']",
-      "current_interpretation": "A prose condition was rewritten into a formal one by a model, and the parser accepted the rewrite.",
-      "alternative_interpretations": [
-        "A different formal reading of the same sentence is possible."
-      ],
-      "downstream_impact": "Whether this rule or guard fires for a given respondent, so which questions they see and which ending they reach.",
-      "recommendation": "A person familiar with the survey should confirm the reading recorded here matches what the sentence intends.",
-      "severity": "BLOCKING",
-      "context_key": "450036bdd1d10606",
-      "last_seen_at": "2026-08-30T11:18:01+00:00",
-      "status": "PENDING_CONFIRMATION",
-      "created_at": "2026-08-29T11:54:49+00:00",
-      "resolved_at": null,
-      "decision": null,
-      "decision_provenance": null,
-      "previous_decision": null,
-      "context_changed": false
-    },
-    "b90d8580babbddab": {
-      "decision_id": "b90d8580babbddab",
-      "survey_id": "C01_chronic_care_patient_journey",
-      "source_document": {
-        "filename": "C01_chronic_care_patient_journey.docx",
-        "sha256": "319e6b78a2a1e36ef712ce421e6d2c1db3325a087a07d8d0e93ec38b39207e4b"
-      },
-      "affected": [
-        "Q6"
-      ],
-      "category": "routing",
-      "issue": "ambiguous_routing_condition",
-      "source_evidence": "Q5 contains any touchpoint  ->  Q5 contains_any ['Primary-care physician', 'Specialist', 'Hospital', 'Pharmacy', 'Patient portal', 'Support programme']",
-      "current_interpretation": "A prose condition was rewritten into a formal one by a model, and the parser accepted the rewrite.",
-      "alternative_interpretations": [
-        "A different formal reading of the same sentence is possible."
-      ],
-      "downstream_impact": "Whether this rule or guard fires for a given respondent, so which questions they see and which ending they reach.",
-      "recommendation": "A person familiar with the survey should confirm the reading recorded here matches what the sentence intends.",
-      "severity": "BLOCKING",
-      "context_key": "450036bdd1d10606",
-      "last_seen_at": "2026-08-30T11:18:01+00:00",
-      "status": "PENDING_CONFIRMATION",
-      "created_at": "2026-08-29T11:54:49+00:00",
-      "resolved_at": null,
-      "decision": null,
-      "decision_provenance": null,
-      "previous_decision": null,
-      "context_changed": false
-    },
-    "74f6f819e190cab4": {
-      "decision_id": "74f6f819e190cab4",
-      "survey_id": "C01_chronic_care_patient_journey",
-      "source_document": {
-        "filename": "C01_chronic_care_patient_journey.docx",
-        "sha256": "319e6b78a2a1e36ef712ce421e6d2c1db3325a087a07d8d0e93ec38b39207e4b"
-      },
-      "affected": [
-        "Q15"
-      ],
-      "category": "routing",
-      "issue": "guard_single_source",
-      "source_evidence": "Q3 != 'None/currently not using'",
-      "current_interpretation": "The display condition is stated only in the questionnaire table, not in the routing table, and is carried from the one place that states it.",
-      "alternative_interpretations": [],
-      "downstream_impact": "None to this specification, which already combines both sources. Worth flagging back to whoever maintains the QRE, since a reader of only the routing table would miss it.",
-      "recommendation": "No action needed here; consider noting the asymmetry to the QRE author.",
-      "severity": "NON_BLOCKING",
-      "context_key": "450036bdd1d10606",
-      "last_seen_at": "2026-08-30T11:18:01+00:00",
-      "status": "PENDING_CONFIRMATION",
-      "created_at": "2026-08-29T11:54:49+00:00",
-      "resolved_at": null,
-      "decision": null,
-      "decision_provenance": null,
-      "previous_decision": null,
-      "context_changed": false
-    },
-    "70e04d836cb40d1b": {
-      "decision_id": "70e04d836cb40d1b",
-      "survey_id": "C01_chronic_care_patient_journey",
-      "source_document": {
-        "filename": "C01_chronic_care_patient_journey.docx",
-        "sha256": "319e6b78a2a1e36ef712ce421e6d2c1db3325a087a07d8d0e93ec38b39207e4b"
-      },
-      "affected": [
-        "Q13"
-      ],
-      "category": "validation",
-      "issue": "missing_option_codes",
-      "source_evidence": "1=Very low; -=2; -=3; -=4; 5=Very high",
-      "current_interpretation": "Some but not all of this question's options carry an answer code; the rest are left null rather than invented.",
-      "alternative_interpretations": [],
-      "downstream_impact": "A respondent bot told to answer by code cannot resolve the uncoded options.",
-      "recommendation": "Ask the project owner for the missing codes.",
-      "severity": "BLOCKING",
-      "context_key": "450036bdd1d10606",
-      "last_seen_at": "2026-08-30T11:18:01+00:00",
-      "status": "PENDING_CONFIRMATION",
-      "created_at": "2026-08-29T11:54:49+00:00",
-      "resolved_at": null,
-      "decision": null,
-      "decision_provenance": null,
-      "previous_decision": null,
-      "context_changed": false
-    },
-    "a4544d4f6623ba59": {
-      "decision_id": "a4544d4f6623ba59",
-      "survey_id": "C01_chronic_care_patient_journey",
-      "source_document": {
-        "filename": "C01_chronic_care_patient_journey.docx",
-        "sha256": "319e6b78a2a1e36ef712ce421e6d2c1db3325a087a07d8d0e93ec38b39207e4b"
-      },
-      "affected": [
-        "R19"
-      ],
-      "category": "routing",
-      "issue": "ambiguous_routing_condition",
-      "source_evidence": "exclusive option selected with another response at Q1 or Q5  ->  ((Q1 contains 'None of these' and Q1 contains_any ['Care Network A', 'Care Network B', 'Care Network C', 'Independent provider']) or (Q5 contains 'None of these' and Q5 contains_any ['Primary-care physician', 'Specialist', 'Hospital', 'Pharmacy', 'Patient portal', 'Support programme']))",
+      "source_evidence": "Q1 contains at least one brand  ->  Q1 contains_any ['Auto Brand A', 'Auto Brand B', 'Auto Brand C', 'Auto Brand D']",
       "current_interpretation": "A prose condition was rewritten into a formal one by a model, and the parser accepted the rewrite.",
       "alternative_interpretations": [
         "A different formal reading of the same sentence is possible."
@@ -248,12 +132,128 @@
       "previous_decision": null,
       "context_changed": false
     },
-    "c417f67cdc3ab8cb": {
-      "decision_id": "c417f67cdc3ab8cb",
-      "survey_id": "C01_chronic_care_patient_journey",
+    "2dbf8634c40e1bc4": {
+      "decision_id": "2dbf8634c40e1bc4",
+      "survey_id": "C02_automotive_purchase_journey",
       "source_document": {
-        "filename": "C01_chronic_care_patient_journey.docx",
-        "sha256": "319e6b78a2a1e36ef712ce421e6d2c1db3325a087a07d8d0e93ec38b39207e4b"
+        "filename": "C02_automotive_purchase_journey.docx",
+        "sha256": "112a39d23aaf16dcfd2cce8a9de380d8b289dd33645c2703b7f00ec49f7e69f2"
+      },
+      "affected": [
+        "Q6"
+      ],
+      "category": "routing",
+      "issue": "ambiguous_routing_condition",
+      "source_evidence": "Q5 contains any touchpoint  ->  Q5 contains_any ['Manufacturer website', 'Dealer visit', 'Review site', 'Social media', 'Friends or family', 'Auto show']",
+      "current_interpretation": "A prose condition was rewritten into a formal one by a model, and the parser accepted the rewrite.",
+      "alternative_interpretations": [
+        "A different formal reading of the same sentence is possible."
+      ],
+      "downstream_impact": "Whether this rule or guard fires for a given respondent, so which questions they see and which ending they reach.",
+      "recommendation": "A person familiar with the survey should confirm the reading recorded here matches what the sentence intends.",
+      "severity": "BLOCKING",
+      "context_key": "450036bdd1d10606",
+      "last_seen_at": "2026-08-30T11:18:01+00:00",
+      "status": "PENDING_CONFIRMATION",
+      "created_at": "2026-08-30T11:18:01+00:00",
+      "resolved_at": null,
+      "decision": null,
+      "decision_provenance": null,
+      "previous_decision": null,
+      "context_changed": false
+    },
+    "6b7add1477916ad6": {
+      "decision_id": "6b7add1477916ad6",
+      "survey_id": "C02_automotive_purchase_journey",
+      "source_document": {
+        "filename": "C02_automotive_purchase_journey.docx",
+        "sha256": "112a39d23aaf16dcfd2cce8a9de380d8b289dd33645c2703b7f00ec49f7e69f2"
+      },
+      "affected": [
+        "Q15"
+      ],
+      "category": "routing",
+      "issue": "guard_single_source",
+      "source_evidence": "Q3 != 'None/currently not using'",
+      "current_interpretation": "The display condition is stated only in the questionnaire table, not in the routing table, and is carried from the one place that states it.",
+      "alternative_interpretations": [],
+      "downstream_impact": "None to this specification, which already combines both sources. Worth flagging back to whoever maintains the QRE, since a reader of only the routing table would miss it.",
+      "recommendation": "No action needed here; consider noting the asymmetry to the QRE author.",
+      "severity": "NON_BLOCKING",
+      "context_key": "450036bdd1d10606",
+      "last_seen_at": "2026-08-30T11:18:01+00:00",
+      "status": "PENDING_CONFIRMATION",
+      "created_at": "2026-08-30T11:18:01+00:00",
+      "resolved_at": null,
+      "decision": null,
+      "decision_provenance": null,
+      "previous_decision": null,
+      "context_changed": false
+    },
+    "1659a29caf13d3c1": {
+      "decision_id": "1659a29caf13d3c1",
+      "survey_id": "C02_automotive_purchase_journey",
+      "source_document": {
+        "filename": "C02_automotive_purchase_journey.docx",
+        "sha256": "112a39d23aaf16dcfd2cce8a9de380d8b289dd33645c2703b7f00ec49f7e69f2"
+      },
+      "affected": [
+        "Q13"
+      ],
+      "category": "validation",
+      "issue": "missing_option_codes",
+      "source_evidence": "1=Very low; -=2; -=3; -=4; 5=Very high",
+      "current_interpretation": "Some but not all of this question's options carry an answer code; the rest are left null rather than invented.",
+      "alternative_interpretations": [],
+      "downstream_impact": "A respondent bot told to answer by code cannot resolve the uncoded options.",
+      "recommendation": "Ask the project owner for the missing codes.",
+      "severity": "BLOCKING",
+      "context_key": "450036bdd1d10606",
+      "last_seen_at": "2026-08-30T11:18:01+00:00",
+      "status": "PENDING_CONFIRMATION",
+      "created_at": "2026-08-30T11:18:01+00:00",
+      "resolved_at": null,
+      "decision": null,
+      "decision_provenance": null,
+      "previous_decision": null,
+      "context_changed": false
+    },
+    "d1a2c81c12ca7e68": {
+      "decision_id": "d1a2c81c12ca7e68",
+      "survey_id": "C02_automotive_purchase_journey",
+      "source_document": {
+        "filename": "C02_automotive_purchase_journey.docx",
+        "sha256": "112a39d23aaf16dcfd2cce8a9de380d8b289dd33645c2703b7f00ec49f7e69f2"
+      },
+      "affected": [
+        "R19"
+      ],
+      "category": "routing",
+      "issue": "ambiguous_routing_condition",
+      "source_evidence": "exclusive option selected with another response at Q1 or Q5  ->  ((Q1 contains 'None of these' and not Q1 set_eq ['None of these']) or (Q5 contains 'None of these' and not Q5 set_eq ['None of these']))",
+      "current_interpretation": "A prose condition was rewritten into a formal one by a model, and the parser accepted the rewrite.",
+      "alternative_interpretations": [
+        "A different formal reading of the same sentence is possible."
+      ],
+      "downstream_impact": "Whether this rule or guard fires for a given respondent, so which questions they see and which ending they reach.",
+      "recommendation": "A person familiar with the survey should confirm the reading recorded here matches what the sentence intends.",
+      "severity": "BLOCKING",
+      "context_key": "450036bdd1d10606",
+      "last_seen_at": "2026-08-30T11:18:01+00:00",
+      "status": "PENDING_CONFIRMATION",
+      "created_at": "2026-08-30T11:18:01+00:00",
+      "resolved_at": null,
+      "decision": null,
+      "decision_provenance": null,
+      "previous_decision": null,
+      "context_changed": false
+    },
+    "c9be4cf03190c906": {
+      "decision_id": "c9be4cf03190c906",
+      "survey_id": "C02_automotive_purchase_journey",
+      "source_document": {
+        "filename": "C02_automotive_purchase_journey.docx",
+        "sha256": "112a39d23aaf16dcfd2cce8a9de380d8b289dd33645c2703b7f00ec49f7e69f2"
       },
       "affected": [
         "R20"
@@ -271,19 +271,19 @@
       "context_key": "450036bdd1d10606",
       "last_seen_at": "2026-08-30T11:18:01+00:00",
       "status": "PENDING_CONFIRMATION",
-      "created_at": "2026-08-29T11:54:49+00:00",
+      "created_at": "2026-08-30T11:18:01+00:00",
       "resolved_at": null,
       "decision": null,
       "decision_provenance": null,
       "previous_decision": null,
       "context_changed": false
     },
-    "0430c3303a173c36": {
-      "decision_id": "0430c3303a173c36",
-      "survey_id": "C01_chronic_care_patient_journey",
+    "6eee05092d95ee89": {
+      "decision_id": "6eee05092d95ee89",
+      "survey_id": "C02_automotive_purchase_journey",
       "source_document": {
-        "filename": "C01_chronic_care_patient_journey.docx",
-        "sha256": "319e6b78a2a1e36ef712ce421e6d2c1db3325a087a07d8d0e93ec38b39207e4b"
+        "filename": "C02_automotive_purchase_journey.docx",
+        "sha256": "112a39d23aaf16dcfd2cce8a9de380d8b289dd33645c2703b7f00ec49f7e69f2"
       },
       "affected": [
         "QUOTA_REGION"
@@ -301,19 +301,19 @@
       "context_key": "450036bdd1d10606",
       "last_seen_at": "2026-08-30T11:18:01+00:00",
       "status": "PENDING_CONFIRMATION",
-      "created_at": "2026-08-29T11:54:49+00:00",
+      "created_at": "2026-08-30T11:18:01+00:00",
       "resolved_at": null,
       "decision": null,
       "decision_provenance": null,
       "previous_decision": null,
       "context_changed": false
     },
-    "d1c767adabb142b1": {
-      "decision_id": "d1c767adabb142b1",
-      "survey_id": "C01_chronic_care_patient_journey",
+    "1d8a644a70d99dfe": {
+      "decision_id": "1d8a644a70d99dfe",
+      "survey_id": "C02_automotive_purchase_journey",
       "source_document": {
-        "filename": "C01_chronic_care_patient_journey.docx",
-        "sha256": "319e6b78a2a1e36ef712ce421e6d2c1db3325a087a07d8d0e93ec38b39207e4b"
+        "filename": "C02_automotive_purchase_journey.docx",
+        "sha256": "112a39d23aaf16dcfd2cce8a9de380d8b289dd33645c2703b7f00ec49f7e69f2"
       },
       "affected": [
         "QUOTA_AGE"
@@ -331,19 +331,19 @@
       "context_key": "450036bdd1d10606",
       "last_seen_at": "2026-08-30T11:18:01+00:00",
       "status": "PENDING_CONFIRMATION",
-      "created_at": "2026-08-29T11:54:49+00:00",
+      "created_at": "2026-08-30T11:18:01+00:00",
       "resolved_at": null,
       "decision": null,
       "decision_provenance": null,
       "previous_decision": null,
       "context_changed": false
     },
-    "ae7f9449c4271f16": {
-      "decision_id": "ae7f9449c4271f16",
-      "survey_id": "C01_chronic_care_patient_journey",
+    "a7bd30538df016dc": {
+      "decision_id": "a7bd30538df016dc",
+      "survey_id": "C02_automotive_purchase_journey",
       "source_document": {
-        "filename": "C01_chronic_care_patient_journey.docx",
-        "sha256": "319e6b78a2a1e36ef712ce421e6d2c1db3325a087a07d8d0e93ec38b39207e4b"
+        "filename": "C02_automotive_purchase_journey.docx",
+        "sha256": "112a39d23aaf16dcfd2cce8a9de380d8b289dd33645c2703b7f00ec49f7e69f2"
       },
       "affected": [
         "Q8"
@@ -361,19 +361,19 @@
       "context_key": "450036bdd1d10606",
       "last_seen_at": "2026-08-30T11:18:01+00:00",
       "status": "PENDING_CONFIRMATION",
-      "created_at": "2026-08-29T11:54:49+00:00",
+      "created_at": "2026-08-30T11:18:01+00:00",
       "resolved_at": null,
       "decision": null,
       "decision_provenance": null,
       "previous_decision": null,
       "context_changed": false
     },
-    "8c69b2c506c9955a": {
-      "decision_id": "8c69b2c506c9955a",
-      "survey_id": "C01_chronic_care_patient_journey",
+    "09a6552a63c1b22f": {
+      "decision_id": "09a6552a63c1b22f",
+      "survey_id": "C02_automotive_purchase_journey",
       "source_document": {
-        "filename": "C01_chronic_care_patient_journey.docx",
-        "sha256": "319e6b78a2a1e36ef712ce421e6d2c1db3325a087a07d8d0e93ec38b39207e4b"
+        "filename": "C02_automotive_purchase_journey.docx",
+        "sha256": "112a39d23aaf16dcfd2cce8a9de380d8b289dd33645c2703b7f00ec49f7e69f2"
       },
       "affected": [
         "Q9"
@@ -391,19 +391,19 @@
       "context_key": "450036bdd1d10606",
       "last_seen_at": "2026-08-30T11:18:01+00:00",
       "status": "PENDING_CONFIRMATION",
-      "created_at": "2026-08-29T11:54:49+00:00",
+      "created_at": "2026-08-30T11:18:01+00:00",
       "resolved_at": null,
       "decision": null,
       "decision_provenance": null,
       "previous_decision": null,
       "context_changed": false
     },
-    "e4c971197a4cd683": {
-      "decision_id": "e4c971197a4cd683",
-      "survey_id": "C01_chronic_care_patient_journey",
+    "2145a996ee4c78c0": {
+      "decision_id": "2145a996ee4c78c0",
+      "survey_id": "C02_automotive_purchase_journey",
       "source_document": {
-        "filename": "C01_chronic_care_patient_journey.docx",
-        "sha256": "319e6b78a2a1e36ef712ce421e6d2c1db3325a087a07d8d0e93ec38b39207e4b"
+        "filename": "C02_automotive_purchase_journey.docx",
+        "sha256": "112a39d23aaf16dcfd2cce8a9de380d8b289dd33645c2703b7f00ec49f7e69f2"
       },
       "affected": [
         "Q20"
@@ -421,19 +421,19 @@
       "context_key": "450036bdd1d10606",
       "last_seen_at": "2026-08-30T11:18:01+00:00",
       "status": "PENDING_CONFIRMATION",
-      "created_at": "2026-08-29T11:54:49+00:00",
+      "created_at": "2026-08-30T11:18:01+00:00",
       "resolved_at": null,
       "decision": null,
       "decision_provenance": null,
       "previous_decision": null,
       "context_changed": false
     },
-    "d04e54c7a70f655f": {
-      "decision_id": "d04e54c7a70f655f",
-      "survey_id": "C01_chronic_care_patient_journey",
+    "4faaae45e6e48533": {
+      "decision_id": "4faaae45e6e48533",
+      "survey_id": "C02_automotive_purchase_journey",
       "source_document": {
-        "filename": "C01_chronic_care_patient_journey.docx",
-        "sha256": "319e6b78a2a1e36ef712ce421e6d2c1db3325a087a07d8d0e93ec38b39207e4b"
+        "filename": "C02_automotive_purchase_journey.docx",
+        "sha256": "112a39d23aaf16dcfd2cce8a9de380d8b289dd33645c2703b7f00ec49f7e69f2"
       },
       "affected": [
         "Q21"
@@ -451,19 +451,19 @@
       "context_key": "450036bdd1d10606",
       "last_seen_at": "2026-08-30T11:18:01+00:00",
       "status": "PENDING_CONFIRMATION",
-      "created_at": "2026-08-29T11:54:49+00:00",
+      "created_at": "2026-08-30T11:18:01+00:00",
       "resolved_at": null,
       "decision": null,
       "decision_provenance": null,
       "previous_decision": null,
       "context_changed": false
     },
-    "95eaab2b4ebfe62e": {
-      "decision_id": "95eaab2b4ebfe62e",
-      "survey_id": "C01_chronic_care_patient_journey",
+    "64cf268157f07dbe": {
+      "decision_id": "64cf268157f07dbe",
+      "survey_id": "C02_automotive_purchase_journey",
       "source_document": {
-        "filename": "C01_chronic_care_patient_journey.docx",
-        "sha256": "319e6b78a2a1e36ef712ce421e6d2c1db3325a087a07d8d0e93ec38b39207e4b"
+        "filename": "C02_automotive_purchase_journey.docx",
+        "sha256": "112a39d23aaf16dcfd2cce8a9de380d8b289dd33645c2703b7f00ec49f7e69f2"
       },
       "affected": [
         "Q1",
@@ -482,52 +482,19 @@
       "context_key": "450036bdd1d10606",
       "last_seen_at": "2026-08-30T11:18:01+00:00",
       "status": "PENDING_CONFIRMATION",
-      "created_at": "2026-08-29T11:54:49+00:00",
+      "created_at": "2026-08-30T11:18:01+00:00",
       "resolved_at": null,
       "decision": null,
       "decision_provenance": null,
       "previous_decision": null,
       "context_changed": false
     },
-    "756d035e6abbdf43": {
-      "decision_id": "756d035e6abbdf43",
-      "survey_id": "C01_chronic_care_patient_journey",
+    "ce0afbd82b82c913": {
+      "decision_id": "ce0afbd82b82c913",
+      "survey_id": "C02_automotive_purchase_journey",
       "source_document": {
-        "filename": "C01_chronic_care_patient_journey.docx",
-        "sha256": "319e6b78a2a1e36ef712ce421e6d2c1db3325a087a07d8d0e93ec38b39207e4b"
-      },
-      "affected": [
-        "Q2",
-        "Q3",
-        "R6",
-        "R7"
-      ],
-      "category": "routing",
-      "issue": "inferred_condition_partial_options",
-      "source_evidence": "Q1 contains at least one brand",
-      "current_interpretation": "A model reading a set-valued condition named only some of a question's selectable answers as satisfying it.",
-      "alternative_interpretations": [
-        "The omitted answer(s) should also satisfy the condition."
-      ],
-      "downstream_impact": "Which answers satisfy the rule; a respondent choosing an omitted answer takes a different path than intended.",
-      "recommendation": "Confirm whether the omitted answer(s) should count.",
-      "severity": "BLOCKING",
-      "context_key": "450036bdd1d10606",
-      "last_seen_at": "2026-08-30T11:18:01+00:00",
-      "status": "PENDING_CONFIRMATION",
-      "created_at": "2026-08-29T11:54:49+00:00",
-      "resolved_at": null,
-      "decision": null,
-      "decision_provenance": null,
-      "previous_decision": null,
-      "context_changed": false
-    },
-    "7a5bd08ade146ea4": {
-      "decision_id": "7a5bd08ade146ea4",
-      "survey_id": "C01_chronic_care_patient_journey",
-      "source_document": {
-        "filename": "C01_chronic_care_patient_journey.docx",
-        "sha256": "319e6b78a2a1e36ef712ce421e6d2c1db3325a087a07d8d0e93ec38b39207e4b"
+        "filename": "C02_automotive_purchase_journey.docx",
+        "sha256": "112a39d23aaf16dcfd2cce8a9de380d8b289dd33645c2703b7f00ec49f7e69f2"
       },
       "affected": [
         "TERM_QUOTA_FULL"
@@ -543,37 +510,7 @@
       "context_key": "450036bdd1d10606",
       "last_seen_at": "2026-08-30T11:18:01+00:00",
       "status": "PENDING_CONFIRMATION",
-      "created_at": "2026-08-29T11:54:49+00:00",
-      "resolved_at": null,
-      "decision": null,
-      "decision_provenance": null,
-      "previous_decision": null,
-      "context_changed": false
-    },
-    "71002f0c34af1fbc": {
-      "decision_id": "71002f0c34af1fbc",
-      "survey_id": "C01_chronic_care_patient_journey",
-      "source_document": {
-        "filename": "C01_chronic_care_patient_journey.docx",
-        "sha256": "319e6b78a2a1e36ef712ce421e6d2c1db3325a087a07d8d0e93ec38b39207e4b"
-      },
-      "affected": [
-        "R19"
-      ],
-      "category": "routing",
-      "issue": "ambiguous_routing_condition",
-      "source_evidence": "exclusive option selected with another response at Q1 or Q5  ->  ((Q1 contains 'None of these' and not Q1 set_eq ['None of these']) or (Q5 contains 'None of these' and not Q5 set_eq ['None of these']))",
-      "current_interpretation": "A prose condition was rewritten into a formal one by a model, and the parser accepted the rewrite.",
-      "alternative_interpretations": [
-        "A different formal reading of the same sentence is possible."
-      ],
-      "downstream_impact": "Whether this rule or guard fires for a given respondent, so which questions they see and which ending they reach.",
-      "recommendation": "A person familiar with the survey should confirm the reading recorded here matches what the sentence intends.",
-      "severity": "BLOCKING",
-      "context_key": "450036bdd1d10606",
-      "last_seen_at": "2026-08-30T11:18:01+00:00",
-      "status": "NOT_REQUIRED",
-      "created_at": "2026-08-29T11:54:49+00:00",
+      "created_at": "2026-08-30T11:18:01+00:00",
       "resolved_at": null,
       "decision": null,
       "decision_provenance": null,

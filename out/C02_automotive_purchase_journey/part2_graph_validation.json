@@ -2,19 +2,19 @@
   "schema_version": "1.0.0",
   "artifact": "part2_graph_validation",
   "stage": 9,
-  "survey_id": "C01_chronic_care_patient_journey",
+  "survey_id": "C02_automotive_purchase_journey",
   "source_document": {
-    "filename": "C01_chronic_care_patient_journey.docx",
-    "sha256": "319e6b78a2a1e36ef712ce421e6d2c1db3325a087a07d8d0e93ec38b39207e4b",
-    "bytes": 43612
+    "filename": "C02_automotive_purchase_journey.docx",
+    "sha256": "112a39d23aaf16dcfd2cce8a9de380d8b289dd33645c2703b7f00ec49f7e69f2",
+    "bytes": 43592
   },
   "generated_at": "2026-08-30T11:18:01+00:00",
   "item_count": null,
   "content": {
-    "survey_id": "C01_chronic_care_patient_journey",
+    "survey_id": "C02_automotive_purchase_journey",
     "source_document": {
-      "filename": "C01_chronic_care_patient_journey.docx",
-      "sha256": "319e6b78a2a1e36ef712ce421e6d2c1db3325a087a07d8d0e93ec38b39207e4b"
+      "filename": "C02_automotive_purchase_journey.docx",
+      "sha256": "112a39d23aaf16dcfd2cce8a9de380d8b289dd33645c2703b7f00ec49f7e69f2"
     },
     "graph_artifact": {
       "route_graph": "part2_route_graph.json",
@@ -138,7 +138,7 @@
           "rule_id": "R2"
         },
         "input_state": {
-          "S2": "Personally manage an ongoing chronic health condition"
+          "S2": "Purchased or seriously considered a new vehicle in the past 18 months"
         },
         "expected": false,
         "criticality": "CRITICAL",
@@ -247,7 +247,7 @@
         "input_state": {
           "Q1": [
             "None of these",
-            "Care Network A"
+            "Auto Brand A"
           ]
         },
         "expected": false,
@@ -317,7 +317,7 @@
           "question_id": "Q7"
         },
         "input_state": {
-          "Q3": "Care Network A"
+          "Q3": "Auto Brand A"
         },
         "expected": true,
         "criticality": "CRITICAL",
@@ -347,7 +347,7 @@
           "question_id": "Q8"
         },
         "input_state": {
-          "Q3": "Care Network A"
+          "Q3": "Auto Brand A"
         },
         "expected": true,
         "criticality": "CRITICAL",
@@ -377,7 +377,7 @@
           "question_id": "Q9"
         },
         "input_state": {
-          "Q3": "Care Network A"
+          "Q3": "Auto Brand A"
         },
         "expected": true,
         "criticality": "CRITICAL",
@@ -527,7 +527,7 @@
           "question_id": "Q15"
         },
         "input_state": {
-          "Q3": "Care Network A"
+          "Q3": "Auto Brand A"
         },
         "expected": true,
         "criticality": "CRITICAL",
@@ -795,7 +795,7 @@
         },
         "input_state": {
           "S1": "Yes",
-          "S2": "Personally manage an ongoing chronic health condition",
+          "S2": "Purchased or seriously considered a new vehicle in the past 18 months",
           "S3": "No",
           "S4": "Yes"
         },
@@ -814,7 +814,7 @@
         },
         "input_state": {
           "S1": "Yes",
-          "S2": "Personally manage an ongoing chronic health condition",
+          "S2": "Purchased or seriously considered a new vehicle in the past 18 months",
           "S3": "No",
           "S4": "No",
           "Q1": [
@@ -836,13 +836,13 @@
         },
         "input_state": {
           "S1": "Yes",
-          "S2": "Personally manage an ongoing chronic health condition",
+          "S2": "Purchased or seriously considered a new vehicle in the past 18 months",
           "S3": "No",
           "S4": "No",
           "Q1": [
-            "Care Network A"
+            "Auto Brand A"
           ],
-          "Q3": "Care Network A",
+          "Q3": "Auto Brand A",
           "Q10": "No",
           "Q15": "No"
         },
@@ -861,13 +861,13 @@
         },
         "input_state": {
           "S1": "Yes",
-          "S2": "Personally manage an ongoing chronic health condition",
+          "S2": "Purchased or seriously considered a new vehicle in the past 18 months",
           "S3": "No",
           "S4": "No",
           "Q1": [
-            "Care Network B"
+            "Auto Brand B"
           ],
-          "Q3": "Care Network B",
+          "Q3": "Auto Brand B",
           "Q10": "Yes",
           "Q12": "Not resolved",
           "Q15": "Yes",
@@ -905,7 +905,7 @@
         "status": "PASS",
         "expected": false,
         "actual": false,
-        "evidence": "S2 -> TERM_INVOLVEMENT on {\"S2\": \"Personally manage an ongoing chronic health condition\"}",
+        "evidence": "S2 -> TERM_INVOLVEMENT on {\"S2\": \"Purchased or seriously considered a new vehicle in the past 18 months\"}",
         "rule_or_question": "R2",
         "explanation": "the graph's edge fires exactly when the QRE's own condition does"
       },
@@ -975,7 +975,7 @@
         "status": "PASS",
         "expected": false,
         "actual": false,
-        "evidence": "Q1 -> Q4 on {\"Q1\": [\"None of these\", \"Care Network A\"]}",
+        "evidence": "Q1 -> Q4 on {\"Q1\": [\"None of these\", \"Auto Brand A\"]}",
         "rule_or_question": "R5",
         "explanation": "the graph's edge fires exactly when the QRE's own condition does"
       },
@@ -1025,7 +1025,7 @@
         "status": "PASS",
         "expected": true,
         "actual": true,
-        "evidence": "Q7 on {\"Q3\": \"Care Network A\"}",
+        "evidence": "Q7 on {\"Q3\": \"Auto Brand A\"}",
         "rule_or_question": "Q7",
         "explanation": "the node's guard resolves exactly as the QRE's own condition does"
       },
@@ -1045,7 +1045,7 @@
         "status": "PASS",
         "expected": true,
         "actual": true,
-        "evidence": "Q8 on {\"Q3\": \"Care Network A\"}",
+        "evidence": "Q8 on {\"Q3\": \"Auto Brand A\"}",
         "rule_or_question": "Q8",
         "explanation": "the node's guard resolves exactly as the QRE's own condition does"
       },
@@ -1065,7 +1065,7 @@
         "status": "PASS",
         "expected": true,
         "actual": true,
-        "evidence": "Q9 on {\"Q3\": \"Care Network A\"}",
+        "evidence": "Q9 on {\"Q3\": \"Auto Brand A\"}",
         "rule_or_question": "Q9",
         "explanation": "the node's guard resolves exactly as the QRE's own condition does"
       },
@@ -1165,7 +1165,7 @@
         "status": "PASS",
         "expected": true,
         "actual": true,
-        "evidence": "Q15 on {\"Q3\": \"Care Network A\"}",
+        "evidence": "Q15 on {\"Q3\": \"Auto Brand A\"}",
         "rule_or_question": "Q15",
         "explanation": "the node's guard resolves exactly as the QRE's own condition does"
       },

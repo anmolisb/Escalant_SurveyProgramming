@@ -1,14 +1,14 @@
 {
   "schema_version": "1.0.0",
   "artifact": "part2_graph_report",
-  "stage": 7,
+  "stage": 8,
   "survey_id": "C01_chronic_care_patient_journey",
   "source_document": {
     "filename": "C01_chronic_care_patient_journey.docx",
     "sha256": "319e6b78a2a1e36ef712ce421e6d2c1db3325a087a07d8d0e93ec38b39207e4b",
     "bytes": 43612
   },
-  "generated_at": "2026-08-30T11:05:18+00:00",
+  "generated_at": "2026-08-30T11:18:01+00:00",
   "item_count": null,
   "content": {
     "source": "C01_chronic_care_patient_journey.docx",
@@ -35,6 +35,58 @@
       }
     ],
     "blocking": 0,
-    "passed": true
+    "passed": true,
+    "coverage": {
+      "node_coverage": {
+        "numerator": 37,
+        "denominator": 37,
+        "result": 1.0
+      },
+      "routing_rule_coverage": {
+        "numerator": 17,
+        "denominator": 17,
+        "result": 1.0
+      },
+      "termination_coverage": {
+        "numerator": 4,
+        "denominator": 4,
+        "result": 1.0
+      },
+      "skip_display_representation": {
+        "numerator": 13,
+        "denominator": 13,
+        "result": 1.0
+      },
+      "validation_reject_representation": {
+        "numerator": 3,
+        "denominator": 3,
+        "result": 1.0
+      },
+      "dependency_coverage": {
+        "numerator": 6,
+        "denominator": 6,
+        "result": 1.0
+      },
+      "quota_coverage": {
+        "numerator": 2,
+        "denominator": 2,
+        "result": 1.0
+      },
+      "randomization_coverage": {
+        "numerator": 5,
+        "denominator": 5,
+        "result": 1.0
+      },
+      "traceability_coverage": {
+        "numerator": 22,
+        "denominator": 22,
+        "result": 1.0
+      }
+    },
+    "structurally_buildable": true,
+    "behaviorally_approved": false,
+    "approval_blocked_by": [
+      "human_decision_gate=PENDING_BLOCKING_DECISIONS"
+    ]
   }
 }
