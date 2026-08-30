@@ -8,19 +8,43 @@
     "sha256": "319e6b78a2a1e36ef712ce421e6d2c1db3325a087a07d8d0e93ec38b39207e4b",
     "bytes": 43612
   },
-  "generated_at": "2026-08-28T14:46:20+00:00",
-  "item_count": 1,
+  "generated_at": "2026-08-30T11:05:18+00:00",
+  "item_count": 3,
   "content": [
     {
       "target_heading": "Routing and termination",
       "status": "POSSIBLE_MATCH",
-      "candidate_heading": "R18",
+      "candidate_heading": "R19",
       "confidence": null,
-      "reasoning": "The condition references sum(Q18) which implies numeric values for the options of Q18. However, only the option labels (Price, Quality, Convenience, Trust, Support) are provided without any numeric codes or values. Without numeric codes, we cannot construct a valid formal expression for the sum comparison, so we must return null.",
+      "reasoning": "The condition describes a scenario where an exclusive option (e.g., \"None of these\") is selected together with another response at Q1 or Q5. This requires checking for the presence of \"None of these\" and also at least one additional option within the same question, and then combining those checks with logical AND/OR across two questions. The available operators (eq, ne, lt, le, gt, ge, in, not_in, set_eq, contains_any, contains_all, answered, unanswered) cannot express this exact composite logic in a single comparison, and constructing it would need multiple comparisons with nested logical joiners that go beyond the simple schema. Therefore, the condition cannot be resolved into a definitive set of comparisons using the provided codes and operators.",
       "severity": "WARNING",
       "target": {
         "kind": "rule",
-        "id": "R18"
+        "id": "R19"
+      }
+    },
+    {
+      "target_heading": "Study specification",
+      "status": "NOT_PRESENT",
+      "candidate_heading": null,
+      "confidence": null,
+      "reasoning": "No line is labelled as the survey description; the line labelled 'Business objective' is being read as it.",
+      "severity": "INFO",
+      "target": {
+        "kind": "survey_information",
+        "id": "description"
+      }
+    },
+    {
+      "target_heading": "Study specification",
+      "status": "NOT_PRESENT",
+      "candidate_heading": null,
+      "confidence": null,
+      "reasoning": "The survey's welcome text is not stated: the document never states what a respondent is shown before the first question.",
+      "severity": "WARNING",
+      "target": {
+        "kind": "survey_information",
+        "id": "welcome_text"
       }
     }
   ]

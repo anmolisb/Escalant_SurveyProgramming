@@ -101,6 +101,7 @@ from models import (
     SCHEMA_VERSION,
     ArtifactEnvelope,
     FlagSeverity,
+    Paragraph,
     ReviewFlag,
     SourceDocument,
     Stage1Document,
@@ -259,8 +260,27 @@ def run_stage3(stage2: Stage2Blocks) -> tuple[list[Stage3Block], list[ReviewFlag
     return blocks, flags
 
 
-def run_stage4(source: str, blocks: list[Stage3Block]) -> tuple[dict, list[ReviewFlag]]:
-    parsed, flags = stage4_deep_parse.run(blocks)
+def _front_matter(document: Stage1Document) -> list[Paragraph]:
+    """The paragraphs above the first heading.
+
+    They belong to no section, so Stage 2 hands them to no target and Stage 5
+    reports them as uncovered. They are still where the title and the study id
+    are written, so Stage 4 is given them from the Stage 1 record directly
+    rather than a heading being invented for lines that do not have one.
+    """
+    front: list[Paragraph] = []
+    for block in document.blocks:
+        if getattr(block, "heading_level", None):
+            break
+        if isinstance(block, Paragraph):
+            front.append(block)
+    return front
+
+
+def run_stage4(
+    source: str, blocks: list[Stage3Block], front_matter: list[Paragraph]
+) -> tuple[dict, list[ReviewFlag]]:
+    parsed, flags = stage4_deep_parse.run(blocks, source, front_matter)
     out = _out_dir(source)
     for key, slug in (
         ("questions", "questionnaire"),
@@ -278,6 +298,13 @@ def run_stage4(source: str, blocks: list[Stage3Block]) -> tuple[dict, list[Revie
             stage=4,
             source=source,
         )
+    _write(
+        out / "stage4_survey.json",
+        parsed["survey"],
+        artifact="stage4_survey",
+        stage=4,
+        source=source,
+    )
     _write(
         out / "stage4_flags.json",
         flags,
@@ -512,6 +539,15 @@ def load_stage3(source: str) -> list[Stage3Block]:
 
 
 def _summarise(blocks: Stage2Blocks, stage3: list[Stage3Block], parsed: dict, flags):
+    info = parsed["survey"]
+    print(f"\nSURVEY  {info.qre_id or '?'} — {info.title or '(no title)'}")
+    absent = [
+        name
+        for name in ("title", "description", "welcome_text")
+        if getattr(info, name) is None
+    ]
+    if absent:
+        print(f"        not stated: {', '.join(absent)}")
     print(f"\n{'TARGET':<28} {'MATCHED BY':<11} {'RAW ROWS':>9} {'PARSED':>7}")
     print("-" * 60)
     counts = {
@@ -700,7 +736,7 @@ def main(argv: list[str]) -> int:
     else:
         stage3, stage3_flags = load_stage3(source), []
 
-    parsed, stage4_flags = run_stage4(source, stage3)
+    parsed, stage4_flags = run_stage4(source, stage3, _front_matter(document))
     audit = run_stage5(document, blocks, stage3, parsed)
     survey = run_part2(source, parsed)
     # Validation and the human decision gate run before the graph is built,

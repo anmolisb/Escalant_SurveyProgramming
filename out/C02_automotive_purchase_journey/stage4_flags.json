@@ -8,19 +8,43 @@
     "sha256": "112a39d23aaf16dcfd2cce8a9de380d8b289dd33645c2703b7f00ec49f7e69f2",
     "bytes": 43592
   },
-  "generated_at": "2026-08-23T16:22:48+00:00",
-  "item_count": 1,
+  "generated_at": "2026-08-30T11:02:50+00:00",
+  "item_count": 3,
   "content": [
     {
       "target_heading": "Routing and termination",
       "status": "POSSIBLE_MATCH",
-      "candidate_heading": "R18",
+      "candidate_heading": "R19",
       "confidence": null,
-      "reasoning": "The condition requires summing numeric values of the answers to Q18 and comparing the total to 100. However, the option list for Q18 provides only textual labels (Price, Quality, Convenience, Trust, Support) with no associated numeric codes or values. Without numeric codes, we cannot construct a valid sum expression, so the expression must be null.",
+      "reasoning": "The condition describes an exclusive option ('None of these') being selected together with another response at Q1 or Q5. Without explicit option codes and without a clear way to express the required combination of selections (i.e., detecting both the exclusive option and any other option on the same question) using the available operators, the condition cannot be unambiguously translated into the required comparison format.",
       "severity": "WARNING",
       "target": {
         "kind": "rule",
-        "id": "R18"
+        "id": "R19"
+      }
+    },
+    {
+      "target_heading": "Study specification",
+      "status": "NOT_PRESENT",
+      "candidate_heading": null,
+      "confidence": null,
+      "reasoning": "No line is labelled as the survey description; the line labelled 'Business objective' is being read as it.",
+      "severity": "INFO",
+      "target": {
+        "kind": "survey_information",
+        "id": "description"
+      }
+    },
+    {
+      "target_heading": "Study specification",
+      "status": "NOT_PRESENT",
+      "candidate_heading": null,
+      "confidence": null,
+      "reasoning": "The survey's welcome text is not stated: the document never states what a respondent is shown before the first question.",
+      "severity": "WARNING",
+      "target": {
+        "kind": "survey_information",
+        "id": "welcome_text"
       }
     }
   ]

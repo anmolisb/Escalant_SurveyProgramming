@@ -113,6 +113,21 @@ def _is_daily_quota(message: str) -> bool:
     return "tokens per day" in lowered or "(tpd)" in lowered
 
 
+def _is_empty_completion(message: str) -> bool:
+    """Whether a schema failure is really the model having returned nothing.
+
+    Groq reports a truncated or empty completion as `json_validate_failed`, the
+    same code it uses for genuinely malformed JSON, and the two need opposite
+    handling: malformed JSON means the prompt or schema is wrong and retrying
+    hides that, while an empty completion means the token budget was squeezed
+    and retrying is the whole fix. They are told apart by `failed_generation`,
+    which holds the offending text in the first case and nothing in the second.
+    """
+    return "json_validate_failed" in message and (
+        "'failed_generation': ''" in message or '"failed_generation": ""' in message
+    )
+
+
 def _rate_limit_delay(error: Exception) -> float | None:
     """Seconds to wait for a rate-limit error, or None if it is not one.
 
@@ -283,6 +298,12 @@ def complete(
                     f"reset, or raise the quota. Provider said: {exc}"
                 ) from exc
             delay = _rate_limit_delay(exc)
+            if delay is None and _is_empty_completion(str(exc)):
+                # Nothing came back at all. Give the budget a moment to free up
+                # rather than reporting this as a schema problem, which is what
+                # the provider's error code says and what it is not.
+                delay = _FALLBACK_BACKOFF
+                logger.info("Empty completion; retrying in %.1fs", delay)
             if delay is None:
                 raise
             last = exc

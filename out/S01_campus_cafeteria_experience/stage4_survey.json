@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "artifact": "stage4_quotas",
+  "artifact": "stage4_survey",
   "stage": 4,
   "survey_id": "S01_campus_cafeteria_experience",
   "source_document": {
@@ -9,6 +9,12 @@
     "bytes": 40578
   },
   "generated_at": "2026-08-30T10:59:23+00:00",
-  "item_count": 0,
-  "content": []
+  "item_count": null,
+  "content": {
+    "qre_id": "S01",
+    "source_file": "S01_campus_cafeteria_experience.docx",
+    "title": "Campus Cafeteria Experience",
+    "description": "Measure satisfaction and identify operational improvements in a campus cafeteria.",
+    "welcome_text": null
+  }
 }

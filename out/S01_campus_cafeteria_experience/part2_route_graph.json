@@ -1,14 +1,14 @@
 {
   "schema_version": "1.0.0",
   "artifact": "part2_route_graph",
-  "stage": 8,
+  "stage": 7,
   "survey_id": "S01_campus_cafeteria_experience",
   "source_document": {
     "filename": "S01_campus_cafeteria_experience.docx",
     "sha256": "2756cb3b6dc3f21cdc7c1d35b7cfb0e2270af2a918ba6fe682e72ae8e121a804",
     "bytes": 40578
   },
-  "generated_at": "2026-08-29T12:12:26+00:00",
+  "generated_at": "2026-08-30T10:59:23+00:00",
   "item_count": null,
   "content": {
     "source": "S01_campus_cafeteria_experience.docx",
@@ -27,9 +27,6 @@
           "has_guard": false,
           "guard": null,
           "guard_agreement": null,
-          "randomized": false,
-          "randomization_scope": null,
-          "randomization_anchored": [],
           "id": "S1"
         },
         {
@@ -38,9 +35,6 @@
           "has_guard": false,
           "guard": null,
           "guard_agreement": null,
-          "randomized": false,
-          "randomization_scope": null,
-          "randomization_anchored": [],
           "id": "S2"
         },
         {
@@ -49,9 +43,6 @@
           "has_guard": false,
           "guard": null,
           "guard_agreement": null,
-          "randomized": false,
-          "randomization_scope": null,
-          "randomization_anchored": [],
           "id": "Q1"
         },
         {
@@ -60,9 +51,6 @@
           "has_guard": false,
           "guard": null,
           "guard_agreement": null,
-          "randomized": false,
-          "randomization_scope": null,
-          "randomization_anchored": [],
           "id": "Q2"
         },
         {
@@ -71,9 +59,6 @@
           "has_guard": false,
           "guard": null,
           "guard_agreement": null,
-          "randomized": false,
-          "randomization_scope": null,
-          "randomization_anchored": [],
           "id": "Q3"
         },
         {
@@ -82,9 +67,6 @@
           "has_guard": false,
           "guard": null,
           "guard_agreement": null,
-          "randomized": false,
-          "randomization_scope": null,
-          "randomization_anchored": [],
           "id": "Q4"
         },
         {
@@ -93,9 +75,6 @@
           "has_guard": false,
           "guard": null,
           "guard_agreement": null,
-          "randomized": false,
-          "randomization_scope": null,
-          "randomization_anchored": [],
           "id": "Q5"
         },
         {
@@ -104,9 +83,6 @@
           "has_guard": true,
           "guard": "Q5 eq 'Yes'",
           "guard_agreement": "agree",
-          "randomized": false,
-          "randomization_scope": null,
-          "randomization_anchored": [],
           "id": "Q6"
         },
         {
@@ -115,9 +91,6 @@
           "has_guard": false,
           "guard": null,
           "guard_agreement": null,
-          "randomized": false,
-          "randomization_scope": null,
-          "randomization_anchored": [],
           "id": "Q7"
         },
         {
@@ -126,9 +99,6 @@
           "has_guard": false,
           "guard": null,
           "guard_agreement": null,
-          "randomized": false,
-          "randomization_scope": null,
-          "randomization_anchored": [],
           "id": "Q8"
         },
         {

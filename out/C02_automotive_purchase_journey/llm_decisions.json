@@ -1,0 +1,1433 @@
+{
+  "entries": {
+    "414f609f6b68171c751b5408a0aa6eb4bec3e1fbb793ba7e3dfd634cd69cbe6e": {
+      "response_model": "LLMCompletionMessages",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-08-30T05:19:17+00:00",
+      "asked": "Section: Completion messages\n\nSource text:\nTERM_AGE: Thank you for your interest. You do not qualify for this survey.\nTERM_CONFLICT: Thank you for your interest. You do not qualify for this survey.\nTERM_INVOLVEMENT: Thank you for your interest. You do not qualify for this survey.\nTERM_RECENT_RESEARCH: Thank you for your interest. You do not qualify for this survey.\nCOMPLETE: Thank you. Your respon ...",
+      "response": {
+        "rows": [
+          {
+            "code": "TERM_AGE",
+            "message": "Thank you for your interest. You do not qualify for this survey."
+          },
+          {
+            "code": "TERM_CONFLICT",
+            "message": "Thank you for your interest. You do not qualify for this survey."
+          },
+          {
+            "code": "TERM_INVOLVEMENT",
+            "message": "Thank you for your interest. You do not qualify for this survey."
+          },
+          {
+            "code": "TERM_RECENT_RESEARCH",
+            "message": "Thank you for your interest. You do not qualify for this survey."
+          },
+          {
+            "code": "COMPLETE",
+            "message": "Thank you. Your response has been recorded."
+          }
+        ]
+      }
+    },
+    "e694ae244f52387452a0c3e5145448a60386df06a2c21f1ce12591f7af9ec508": {
+      "response_model": "LLMQuestionFields",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-08-30T05:19:18+00:00",
+      "asked": "Question S2 cell:\nAlways show",
+      "response": {
+        "display_condition": null,
+        "randomize": false,
+        "optional": false,
+        "dynamic_option_source": null,
+        "other_attributes": {}
+      }
+    },
+    "00f5be9abfdb47841783c1ba2936cf9a00f9c315cca0e7c804b38001ce8afb5b": {
+      "response_model": "LLMQuestionFields",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-08-30T05:19:19+00:00",
+      "asked": "Question S3 cell:\nAlways show",
+      "response": {
+        "display_condition": null,
+        "randomize": false,
+        "optional": false,
+        "dynamic_option_source": null,
+        "other_attributes": {}
+      }
+    },
+    "d160201229e88e7d39236814f2e05f8d50a9497d2ffb558b7ee69ce9483d1ef4": {
+      "response_model": "LLMQuestionFields",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-08-30T05:19:20+00:00",
+      "asked": "Question S4 cell:\nAlways show",
+      "response": {
+        "display_condition": null,
+        "randomize": false,
+        "optional": false,
+        "dynamic_option_source": null,
+        "other_attributes": {}
+      }
+    },
+    "8823578933db19d484c9a1449b3c0ce65753f651f1eb75b153c6b36b29f84d88": {
+      "response_model": "LLMQuestionFields",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-08-30T05:19:22+00:00",
+      "asked": "Question Q1 cell:\nValidate: {\"exclusive_option\": \"None of these\"}\nRandomize",
+      "response": {
+        "display_condition": null,
+        "randomize": true,
+        "optional": false,
+        "dynamic_option_source": null,
+        "other_attributes": {}
+      }
+    },
+    "8af4506ff43f96aa8021039803eb930b7e1f1e6db20bc634915c670d2365ca5f": {
+      "response_model": "LLMQuestionFields",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-08-30T05:19:23+00:00",
+      "asked": "Question Q2 cell:\nShow if: Q1 contains at least one brand\nShow only brands selected at Q1.",
+      "response": {
+        "display_condition": "Q1 contains at least one brand",
+        "randomize": false,
+        "optional": false,
+        "dynamic_option_source": "Show only brands selected at Q1.",
+        "other_attributes": {}
+      }
+    },
+    "eeb2f52143b57fb692cd6215191ab1e8bac09973b29cc5e3e17ec5394c85893e": {
+      "response_model": "LLMQuestionFields",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-08-30T05:19:24+00:00",
+      "asked": "Question Q3 cell:\nShow if: Q1 contains at least one brand",
+      "response": {
+        "display_condition": "Q1 contains at least one brand",
+        "randomize": false,
+        "optional": false,
+        "dynamic_option_source": null,
+        "other_attributes": {}
+      }
+    },
+    "e9ff2ed0f6a7ed757f3c857d4ba5c803197c540c4c2de98dba3c35f42bb50632": {
+      "response_model": "LLMQuestionFields",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-08-30T05:19:30+00:00",
+      "asked": "Question S1 cell:\nAlways show",
+      "response": {
+        "display_condition": null,
+        "randomize": false,
+        "optional": false,
+        "dynamic_option_source": null,
+        "other_attributes": {}
+      }
+    },
+    "f395c97705d5b5e6f5ee99c6cc0772f83ea13dceff0de2110373a220af572da2": {
+      "response_model": "LLMQuestionFields",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-08-30T05:19:32+00:00",
+      "asked": "Question Q5 cell:\nValidate: {\"exclusive_option\": \"None of these\"}\nRandomize",
+      "response": {
+        "display_condition": null,
+        "randomize": true,
+        "optional": false,
+        "dynamic_option_source": null,
+        "other_attributes": {}
+      }
+    },
+    "b8b3d6dfc1ca80e3b52d806298e2d26a86736f962932c016118346cbfe133af4": {
+      "response_model": "LLMQuestionFields",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-08-30T05:19:39+00:00",
+      "asked": "Question Q6 cell:\nShow if: Q5 contains any touchpoint\nShow only touchpoints selected at Q5.",
+      "response": {
+        "display_condition": "Q5 contains any touchpoint",
+        "randomize": false,
+        "optional": false,
+        "dynamic_option_source": "Show only touchpoints selected at Q5.",
+        "other_attributes": {}
+      }
+    },
+    "714abc168d114951cc3286bb8f6114382310e4315c4dc6f40a573fd65e1a0568": {
+      "response_model": "LLMQuestionFields",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-08-30T05:19:44+00:00",
+      "asked": "Question Q4 cell:\nAlways show",
+      "response": {
+        "display_condition": null,
+        "randomize": false,
+        "optional": false,
+        "dynamic_option_source": null,
+        "other_attributes": {}
+      }
+    },
+    "b5b8f3416acfeac70775f44df923ed31be947524da499582ef07f19497d5eaa0": {
+      "response_model": "LLMQuestionFields",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-08-30T05:19:52+00:00",
+      "asked": "Question Q8 cell:\nShow if: Q3 != 'None/currently not using'",
+      "response": {
+        "display_condition": "Q3 != 'None/currently not using'",
+        "randomize": false,
+        "optional": false,
+        "dynamic_option_source": null,
+        "other_attributes": {}
+      }
+    },
+    "b9694cf5a835119aaf05f37ce1063c974ed1d9db9450634ae0ab0dd13bd5ea48": {
+      "response_model": "LLMQuestionFields",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-08-30T05:19:54+00:00",
+      "asked": "Question Q9 cell:\nShow if: Q3 != 'None/currently not using'\nValidate: {\"scale\": [\"1 - Very poor\", \"2 - Poor\", \"3 - Fair\", \"4 - Good\", \"5 - Excellent\"], \"require_each_row\": true}\nRandomize",
+      "response": {
+        "display_condition": "Q3 != 'None/currently not using'",
+        "randomize": true,
+        "optional": false,
+        "dynamic_option_source": null,
+        "other_attributes": {
+          "Validate": "{\"scale\": [\"1 - Very poor\", \"2 - Poor\", \"3 - Fair\", \"4 - Good\", \"5 - Excellent\"], \"require_each_row\": true}"
+        }
+      }
+    },
+    "a4f4592da6038149cab17074787e874110c6969d4411e94e2eac9f59a859e9ed": {
+      "response_model": "LLMQuestionFields",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-08-30T05:19:58+00:00",
+      "asked": "Question Q10 cell:\nAlways show",
+      "response": {
+        "display_condition": null,
+        "randomize": false,
+        "optional": false,
+        "dynamic_option_source": null,
+        "other_attributes": {}
+      }
+    },
+    "bc0e88c9ea2d127fc22680a3b12ff8bbab04d13d7bd83c64ee53b5d8b1a8c2a0": {
+      "response_model": "LLMQuestionFields",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-08-30T05:20:00+00:00",
+      "asked": "Question Q11 cell:\nShow if: Q10 == 'Yes'\nValidate: {\"min_selections\": 1}",
+      "response": {
+        "display_condition": "Q10 == 'Yes'",
+        "randomize": false,
+        "optional": false,
+        "dynamic_option_source": null,
+        "other_attributes": {}
+      }
+    },
+    "f11b70ec5bdd39482842eb6920206cd8a3c49b6a9e5701158a70d17c061cdc06": {
+      "response_model": "LLMQuestionFields",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-08-30T05:20:03+00:00",
+      "asked": "Question Q12 cell:\nShow if: Q10 == 'Yes'",
+      "response": {
+        "display_condition": "Q10 == 'Yes'",
+        "randomize": false,
+        "optional": false,
+        "dynamic_option_source": null,
+        "other_attributes": {}
+      }
+    },
+    "590a0b15e56a2ac5d52cb695b6d37f44e2ee2056777f1cc17628076e3571d931": {
+      "response_model": "LLMQuestionFields",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-08-30T05:20:08+00:00",
+      "asked": "Question Q7 cell:\nShow if: Q3 != 'None/currently not using'",
+      "response": {
+        "display_condition": "Q3 != 'None/currently not using'",
+        "randomize": false,
+        "optional": false,
+        "dynamic_option_source": null,
+        "other_attributes": {}
+      }
+    },
+    "188f88f5e122d30e5cb50bf0a4bf91a087e6e031f37e9f4afef519fd91a56609": {
+      "response_model": "LLMQuestionFields",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-08-30T05:20:16+00:00",
+      "asked": "Question Q13 cell:\nShow if: Q12 in ['Fully','Partly']",
+      "response": {
+        "display_condition": "Q12 in ['Fully','Partly']",
+        "randomize": false,
+        "optional": false,
+        "dynamic_option_source": null,
+        "other_attributes": {}
+      }
+    },
+    "b7524ad5265121875b11dc3fdcef19f20552d07490a996ce4d23c5c9088dfa1f": {
+      "response_model": "LLMQuestionFields",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-08-30T05:20:18+00:00",
+      "asked": "Question Q15 cell:\nShow if: Q3 != 'None/currently not using'",
+      "response": {
+        "display_condition": "Q3 != 'None/currently not using'",
+        "randomize": false,
+        "optional": false,
+        "dynamic_option_source": null,
+        "other_attributes": {}
+      }
+    },
+    "904c6125e262ac89ec7e1abab3a09b2cd88a122d8ad5e81272e1007339b46e1c": {
+      "response_model": "LLMQuestionFields",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-08-30T05:20:21+00:00",
+      "asked": "Question Q16 cell:\nShow if: Q15 == 'Yes'\nRandomize",
+      "response": {
+        "display_condition": "Q15 == 'Yes'",
+        "randomize": true,
+        "optional": false,
+        "dynamic_option_source": null,
+        "other_attributes": {}
+      }
+    },
+    "daf4e544b760eae99faff9474daae3f33fcc0b9437f95b5c44310a6bd28a1dc0": {
+      "response_model": "LLMQuestionFields",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-08-30T05:20:24+00:00",
+      "asked": "Question Q14 cell:\nShow if: Q12 == 'Not resolved'\nValidate: {\"min_length\": 10, \"max_length\": 500}",
+      "response": {
+        "display_condition": "Q12 == 'Not resolved'",
+        "randomize": false,
+        "optional": false,
+        "dynamic_option_source": null,
+        "other_attributes": {}
+      }
+    },
+    "bf8661f5261babf78696ebdc22ab0e3efa2579d7b6051a2f00676087467c2949": {
+      "response_model": "LLMQuestionFields",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-08-30T05:20:27+00:00",
+      "asked": "Question Q18 cell:\nValidate: {\"sum\": 100}",
+      "response": {
+        "display_condition": null,
+        "randomize": false,
+        "optional": false,
+        "dynamic_option_source": null,
+        "other_attributes": {}
+      }
+    },
+    "a53bedcbe59f193f295b15820f18888678f675149b3143e472cb867336c28ab4": {
+      "response_model": "LLMQuestionFields",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-08-30T05:20:30+00:00",
+      "asked": "Question Q19 cell:\nRandomize\nConcept descriptions are displayed in randomized order; store display order.",
+      "response": {
+        "display_condition": null,
+        "randomize": true,
+        "optional": false,
+        "dynamic_option_source": null,
+        "other_attributes": {
+          "note": "Concept descriptions are displayed in randomized order; store display order."
+        }
+      }
+    },
+    "22a4d293b1adf4c1330939f558c7f8c39564ea4507df0de8dc9de2f0790f0bd4": {
+      "response_model": "LLMQuestionFields",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-08-30T05:20:36+00:00",
+      "asked": "Question Q17 cell:\nShow if: Q16 == 'Other'\nValidate: {\"min_length\": 3, \"max_length\": 200}",
+      "response": {
+        "display_condition": "Q16 == 'Other'",
+        "randomize": false,
+        "optional": false,
+        "dynamic_option_source": null,
+        "other_attributes": {}
+      }
+    },
+    "b20968d9ee9bd0a820d5b11ba0472532ae5141391d9c70092fe25590ebaa58ca": {
+      "response_model": "LLMQuestionFields",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-08-30T05:20:43+00:00",
+      "asked": "Question Q21 cell:\nValidate: {\"min_length\": 5, \"max_length\": 500}",
+      "response": {
+        "display_condition": null,
+        "randomize": false,
+        "optional": false,
+        "dynamic_option_source": null,
+        "other_attributes": {}
+      }
+    },
+    "6d9206be29bcdd8a7b10d988c0247089f9cd7076d1c8e867b9a20e7c3d6956a1": {
+      "response_model": "LLMQuestionFields",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-08-30T05:20:45+00:00",
+      "asked": "Question D1 cell:\nAlways show",
+      "response": {
+        "display_condition": null,
+        "randomize": false,
+        "optional": false,
+        "dynamic_option_source": null,
+        "other_attributes": {}
+      }
+    },
+    "dda83e3b5384e2550b34dcb10e8fa6a8072e2cf85bc13c0ce70f2af28036177e": {
+      "response_model": "LLMQuestionFields",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-08-30T05:20:47+00:00",
+      "asked": "Question D2 cell:\nAlways show",
+      "response": {
+        "display_condition": null,
+        "randomize": false,
+        "optional": false,
+        "dynamic_option_source": null,
+        "other_attributes": {}
+      }
+    },
+    "ccdc308e56aeb1fee0142a32a6069019775b09011ab79cc9e37a50e24e528eca": {
+      "response_model": "LLMQuestionFields",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-08-30T05:20:49+00:00",
+      "asked": "Question D3 cell:\nAlways show",
+      "response": {
+        "display_condition": null,
+        "randomize": false,
+        "optional": false,
+        "dynamic_option_source": null,
+        "other_attributes": {}
+      }
+    },
+    "e2ac55fb625b520555e93b2c3759481e196ea562abe341b2205be214b8fe8278": {
+      "response_model": "LLMQuestionFields",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-08-30T05:20:51+00:00",
+      "asked": "Question D4 cell:\nAlways show",
+      "response": {
+        "display_condition": null,
+        "randomize": false,
+        "optional": false,
+        "dynamic_option_source": null,
+        "other_attributes": {}
+      }
+    },
+    "e159ca08e6b492f067cda44e6fbbdb49162893e5023a6ab74ed6da1af985dbcd": {
+      "response_model": "LLMQuestionFields",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-08-30T05:20:52+00:00",
+      "asked": "Question Q20 cell:\nAlways show",
+      "response": {
+        "display_condition": null,
+        "randomize": false,
+        "optional": false,
+        "dynamic_option_source": null,
+        "other_attributes": {}
+      }
+    },
+    "4894dad149ef34f7e236f1b414fb25535263b4f89f083b1d789e86baae7f3249": {
+      "response_model": "LLMQuestionFields",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-08-30T05:20:57+00:00",
+      "asked": "Question Q23 cell:\nValidate: {\"max_length\": 1000}\nOptional",
+      "response": {
+        "display_condition": null,
+        "randomize": false,
+        "optional": true,
+        "dynamic_option_source": null,
+        "other_attributes": {}
+      }
+    },
+    "8ac4bd9afda44262455f39e3f4e654f4dfe6e1356bf79932a6943fef48151b4d": {
+      "response_model": "LLMQuestionFields",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-08-30T05:20:59+00:00",
+      "asked": "Question Q22 cell:\nAlways show",
+      "response": {
+        "display_condition": null,
+        "randomize": false,
+        "optional": false,
+        "dynamic_option_source": null,
+        "other_attributes": {}
+      }
+    },
+    "cc2446d507d7baac648af3c6223d8411c43446754a1f1493427f986d9d714bff": {
+      "response_model": "LLMRoutingExpression",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-08-30T05:21:01+00:00",
+      "asked": "Condition: S1 == 'No'\n\nOption codes:\nS1: Yes, No   (no codes; refer to these by label)",
+      "response": {
+        "expression": "S1 == 'No'",
+        "reasoning": "The condition directly compares the answer to question S1 with the label 'No'. Since no option codes are provided, the label is used in single quotes."
+      }
+    },
+    "d23292dcc7f82a74930cef84b51bf6fe168d63841722d577d3c916576e978ecf": {
+      "response_model": "LLMRoutingExpression",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-08-30T05:21:07+00:00",
+      "asked": "Condition: S2 != 'Purchased or seriously considered a new vehicle in the past 18 months'\n\nOption codes:\nS2: Purchased or seriously considered a new vehicle in the past 18 months, Aware but not involved, Not aware of this category   (no codes; refer to these by label)",
+      "response": {
+        "expression": "S2 != 'Purchased or seriously considered a new vehicle in the past 18 months'",
+        "reasoning": "The condition states that the response to question S2 must not be the option labeled 'Purchased or seriously considered a new vehicle in the past 18 months'. Since no option codes are provided, the label is used directly in single quotes with the != operator."
+      }
+    },
+    "aab1f6096bc360b04a7c16ea4d2fc429d32aec6382c4eae5899c259efd0d5f5f": {
+      "response_model": "LLMRoutingExpression",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-08-30T05:21:11+00:00",
+      "asked": "Condition: S4 == 'Yes'\n\nOption codes:\nS4: Yes, No   (no codes; refer to these by label)",
+      "response": {
+        "expression": "S4 == 'Yes'",
+        "reasoning": "The condition directly compares the answer to question S4 with the label 'Yes'. Since no option codes are provided, we use the label in single quotes as required."
+      }
+    },
+    "d227397e58a72074fad4069f8fc25fb4aa7e09edc617aef38f7c301349fbef7b": {
+      "response_model": "LLMRoutingExpression",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-08-30T05:21:13+00:00",
+      "asked": "Condition: S3 == 'Yes'\n\nOption codes:\nS3: Yes, No   (no codes; refer to these by label)",
+      "response": {
+        "expression": "S3 == 'Yes'",
+        "reasoning": "The condition directly compares the answer to question S3 with the label 'Yes'. Since no option codes are provided, we use the label in single quotes as required."
+      }
+    },
+    "4b747a33bfc1bbcaea458ae409866b51227b80efa889adc72c5b275b17238e6f": {
+      "response_model": "LLMRoutingExpression",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-08-30T05:21:19+00:00",
+      "asked": "Condition: Q1 == ['None of these']\n\nOption codes:\nQ1: Auto Brand A, Auto Brand B, Auto Brand C, Auto Brand D, None of these   (no codes; refer to these by label)",
+      "response": {
+        "expression": "Q1 == 'None of these'",
+        "reasoning": "The condition checks if the response to Q1 exactly matches the option labeled \"None of these\". Since Q1 has no option codes, we refer to the answer by its label in single quotes."
+      }
+    },
+    "e3365d48d7a904e46cf6807cffa442afb1a4e9812e9698dcdf9df3abc790edf9": {
+      "response_model": "LLMRoutingExpression",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-08-30T05:21:26+00:00",
+      "asked": "Condition: Q1 contains at least one brand\n\nOption codes:\nQ1: Auto Brand A, Auto Brand B, Auto Brand C, Auto Brand D, None of these   (no codes; refer to these by label)",
+      "response": {
+        "expression": "CONTAINS_ANY(Q1, 'Auto Brand A', 'Auto Brand B', 'Auto Brand C', 'Auto Brand D')",
+        "reasoning": "The condition states that Q1 must contain at least one brand. The brand options are the four listed labels; 'None of these' is excluded. Using CONTAINS_ANY with those four option labels captures the requirement."
+      }
+    },
+    "ad8c6891f3cf86f2b013f3090eda08d08a77a81b3c764548443e1e5013a43742": {
+      "response_model": "LLMRoutingExpression",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-08-30T05:21:32+00:00",
+      "asked": "Condition: Q3 != 'None/currently not using'\n\nOption codes:\nQ3: Auto Brand A, Auto Brand B, Auto Brand C, Auto Brand D, None/currently not using   (no codes; refer to these by label)",
+      "response": {
+        "expression": "Q3 != 'None/currently not using'",
+        "reasoning": "The condition states that the answer to question Q3 must not be the option labeled \"None/currently not using\". Since the options have no codes, we reference the option by its exact label in single quotes, using the != operator."
+      }
+    },
+    "587e924427695ac0eab7a59f2a8ba605dbed8c26c8b134c720d3129a40c4d3f9": {
+      "response_model": "LLMRoutingExpression",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-08-30T05:21:35+00:00",
+      "asked": "Condition: Q10 == 'Yes'\n\nOption codes:\nQ10: Yes, No   (no codes; refer to these by label)",
+      "response": {
+        "expression": "Q10 == 'Yes'",
+        "reasoning": "The condition directly compares the answer to question Q10 with the label 'Yes'. Since the options have no specific codes, we use the label in single quotes as required."
+      }
+    },
+    "12484bcaa9ed282c30c4b7bbfcdcecc4737493534d4ebf966a9c7d3f416acf22": {
+      "response_model": "LLMRoutingExpression",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-08-30T05:21:40+00:00",
+      "asked": "Condition: Q12 in ['Fully','Partly']\n\nOption codes:\nQ12: Fully, Partly, Not resolved   (no codes; refer to these by label)",
+      "response": {
+        "expression": "Q12 IN ['Fully','Partly']",
+        "reasoning": "The condition states that the answer to question Q12 must be either 'Fully' or 'Partly'. Since the options have no codes, we reference them by their exact labels in single quotes and use the IN operator to capture the set of allowed values."
+      }
+    },
+    "71a9f6641eb2bf3da748378cc838b80222ade101123c63d4bc7d8b0dc6feb29b": {
+      "response_model": "LLMRoutingExpression",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-08-30T05:21:44+00:00",
+      "asked": "Condition: Q12 == 'Not resolved'\n\nOption codes:\nQ12: Fully, Partly, Not resolved   (no codes; refer to these by label)",
+      "response": {
+        "expression": "Q12 == 'Not resolved'",
+        "reasoning": "The condition directly compares the answer to question Q12 with the label 'Not resolved'. Since no option codes are provided, the label is used in single quotes as required."
+      }
+    },
+    "206160d5c9045158d4cf53e93bdaa07c0ad2c745ee5881b2d41aab40b2349c5c": {
+      "response_model": "LLMRoutingExpression",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-08-30T05:21:48+00:00",
+      "asked": "Condition: Q5 contains any touchpoint\n\nOption codes:\nQ5: Manufacturer website, Dealer visit, Review site, Social media, Friends or family, Auto show, None of these   (no codes; refer to these by label)",
+      "response": {
+        "expression": "Q5 CONTAINS_ANY ('Manufacturer website','Dealer visit','Review site','Social media','Friends or family','Auto show')",
+        "reasoning": "The condition asks if Q5 includes any touchpoint. All listed options except 'None of these' are touchpoints, so we use CONTAINS_ANY with those labels."
+      }
+    },
+    "ae6a7ba0823fd08e76ae8b0c64cee3226301e148bf9ad5499c20e4a52e3650ed": {
+      "response_model": "LLMRoutingExpression",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-08-30T05:21:54+00:00",
+      "asked": "Condition: Q16 == 'Other'\n\nOption codes:\nQ16: Price, Service quality, Features, Poor support, Competitor offer, Other   (no codes; refer to these by label)",
+      "response": {
+        "expression": "Q16 == 'Other'",
+        "reasoning": "The condition directly compares the answer to question Q16 with the label 'Other'. Since the options are given without codes, we use the label in single quotes as required."
+      }
+    },
+    "8fd9427256acddcc7d2a5ed293051de6bb10203d2ac4b344a77c90fb3dd95dbf": {
+      "response_model": "LLMRoutingExpression",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-08-30T05:21:57+00:00",
+      "asked": "Condition: sum(Q18) != 100\n\nOption codes:\nQ18: Price, Quality, Convenience, Trust, Support   (no codes; refer to these by label)",
+      "response": {
+        "expression": null,
+        "reasoning": "The condition involves summing the numeric values of the responses to Q18 and comparing the total to 100. However, the provided option list for Q18 (Price, Quality, Convenience, Trust, Support) includes only textual labels with no associated numeric codes or values, making it impossible to construct a valid sum expression. Therefore, the expression cannot be resolved and is returned as null."
+      }
+    },
+    "bf3f8bafd28e582b63bba5921be701588304d2cace93d8a76d8d5ffa6bc06af0": {
+      "response_model": "LLMRoutingExpression",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-08-30T05:22:03+00:00",
+      "asked": "Condition: exclusive option selected with another response at Q1 or Q5\n\nOption codes:\nQ1: Auto Brand A, Auto Brand B, Auto Brand C, Auto Brand D, None of these   (no codes; refer to these by label)\nQ5: Manufacturer website, Dealer visit, Review site, Social media, Friends or family, Auto show, None of these   (no codes; refer to these by label)",
+      "response": {
+        "expression": "(Q1 == 'None of these' AND CONTAINS_ANY(Q1, ['Auto Brand A','Auto Brand B','Auto Brand C','Auto Brand D'])) OR (Q5 == 'None of these' AND CONTAINS_ANY(Q5, ['Manufacturer website','Dealer visit','Review site','Social media','Friends or family','Auto show']))",
+        "reasoning": "The condition says an exclusive option (\"None of these\") is selected together with another response on the same question (Q1 or Q5). For each question we check that \"None of these\" is chosen (Q1 == 'None of these' or Q5 == 'None of these') and that at least one of the other non\u2011exclusive options is also selected, expressed with CONTAINS_ANY over the remaining option labels."
+      }
+    },
+    "c18c602b7738b0b5cc37b867fa26e09ba4fb807f401681b6f92da74947324bc1": {
+      "response_model": "LLMRoutingExpression",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-08-30T05:22:10+00:00",
+      "asked": "Condition: Q15 == 'Yes'\n\nOption codes:\nQ15: Yes, No   (no codes; refer to these by label)",
+      "response": {
+        "expression": "Q15 == 'Yes'",
+        "reasoning": "The condition directly compares the answer to question Q15 with the label 'Yes'. Since the options have no specific codes, we use the label in single quotes as required."
+      }
+    },
+    "fabc2a0dc5e6e156e3342fa94944cfa7ecb648eef3f77c0b3e03c5ba7a41bc1f": {
+      "response_model": "LLMRoutingExpression",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-08-30T05:22:13+00:00",
+      "asked": "Condition: selected option at Q6 was not selected at Q5\n\nOption codes:\nQ6: Manufacturer website, Dealer visit, Review site, Social media, Friends or family, Auto show   (no codes; refer to these by label)\nQ5: Manufacturer website, Dealer visit, Review site, Social media, Friends or family, Auto show, None of these   (no codes; refer to these by label)",
+      "response": {
+        "expression": "Q6 NOT IN Q5",
+        "reasoning": "The condition says the option selected at Q6 must not be selected at Q5. Using the NOT IN operator compares Q6's selected answer(s) against the set of answers selected at Q5, satisfying the requirement."
+      }
+    },
+    "1af8624bde9af603586a5b53ef1740e4fa2ec734fa49d5a29bd35078962e8d45": {
+      "response_model": "LLMConditionProposal",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-08-30T05:22:22+00:00",
+      "asked": "Condition as written: Q1 contains at least one brand\n\nAnswer options:\nQ1: 'Auto Brand A', 'Auto Brand B', 'Auto Brand C', 'Auto Brand D', 'None of these'",
+      "response": {
+        "expression": "contains_any(Q1, ['Auto Brand A','Auto Brand B','Auto Brand C','Auto Brand D'])",
+        "confidence": 1.0,
+        "reasoning": "The phrase 'contains at least one brand' means the respondent selected any of the brand options. Using the grammar, this is expressed with the contains_any operator listing the brand labels."
+      }
+    },
+    "f6263914545aa9aa0dbdc074e92d211bb05e7ff106db256c0c75ac81f1ee7779": {
+      "response_model": "LLMConditionProposal",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-08-30T05:22:29+00:00",
+      "asked": "Condition as written: Q5 contains any touchpoint\n\nAnswer options:\nQ5: 'Manufacturer website', 'Dealer visit', 'Review site', 'Social media', 'Friends or family', 'Auto show', 'None of these'",
+      "response": {
+        "expression": "contains_any(Q5, ['Manufacturer website','Dealer visit','Review site','Social media','Friends or family','Auto show'])",
+        "confidence": 0.96,
+        "reasoning": "The condition 'Q5 contains any touchpoint' means that the respondent selected at least one of the touchpoint options. Using the provided grammar, this is expressed with the contains_any operator, listing all touchpoint answer labels except 'None of these', which is not a touchpoint."
+      }
+    },
+    "7c94860610aa0dd1ddefa0af36e1cbd18ee1631a4d9bb21c6585bc64d90f375b": {
+      "response_model": "LLMConditionProposal",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-08-30T05:22:39+00:00",
+      "asked": "Condition as written: exclusive option selected with another response at Q1 or Q5\n\nAnswer options:\nQ1: 'Auto Brand A', 'Auto Brand B', 'Auto Brand C', 'Auto Brand D', 'None of these'\nQ5: 'Manufacturer website', 'Dealer visit', 'Review site', 'Social media', 'Friends or family', 'Auto show', 'None of these'",
+      "response": {
+        "expression": "(contains(Q1, 'None of these') and not Q1 == ['None of these']) or (contains(Q5, 'None of these') and not Q5 == ['None of these'])",
+        "confidence": 0.85,
+        "reasoning": "The phrase 'exclusive option selected with another response at Q1 or Q5' is interpreted as the exclusive answer 'None of these' being chosen together with at least one other answer in the same question. This is expressed by checking that 'None of these' is contained in the response set (contains) and that the response set is not exactly only that option (not Q == ['None of these']). The condition applies to either Q1 or Q5, combined with an OR."
+      }
+    },
+    "24d8c160765f1eb0d95fda3cf0b00ce19c8ed6ce47a579f59e1395c50c15e242": {
+      "response_model": "LLMConditionProposal",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-08-30T05:22:48+00:00",
+      "asked": "Condition as written: selected option at Q6 was not selected at Q5\n\nAnswer options:\nQ6: 'Manufacturer website', 'Dealer visit', 'Review site', 'Social media', 'Friends or family', 'Auto show'\nQ5: 'Manufacturer website', 'Dealer visit', 'Review site', 'Social media', 'Friends or family', 'Auto show', 'None of these'",
+      "response": {
+        "expression": "not contains(Q5, Q6)",
+        "confidence": 0.99,
+        "reasoning": "The condition states that the option chosen in Q6 should not be among the selections in Q5. Using the membership operator, contains(Q5, Q6) checks if Q5 includes the answer selected in Q6. Negating it with 'not' yields the required condition."
+      }
+    },
+    "7ddb64d8faa110c5541390d8efa8d172b527d2ffc31b7b9b0824a57fd5fb865a": {
+      "response_model": "LLMQuota",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-08-30T05:23:03+00:00",
+      "asked": "Whole quota section, for context:\nQUOTA_REGION: hard quota on D1: North=20%, South=20%, East=20%, West=20%, Central=20%\nQUOTA_AGE: soft quota on D2: 21-29=20%, 30-39=25%, 40-49=25%, 50-59=20%, 60+=10%\nQuota-full respondents terminate at TERM_QUOTA_FULL before the next substantive question. Quota status must be logged.\n\nSentence to read now: QUOTA_REGION: hard quota on D1: North=20%, South=20%, Eas ...",
+      "response": {
+        "is_quota": true,
+        "quota_id": "QUOTA_REGION",
+        "enforcement": "hard",
+        "variable_question_id": "D1",
+        "cell_labels": [
+          "North",
+          "South",
+          "East",
+          "West",
+          "Central"
+        ],
+        "cell_percents": [
+          20.0,
+          20.0,
+          20.0,
+          20.0,
+          20.0
+        ],
+        "on_full": "TERM_QUOTA_FULL",
+        "confidence": 0.99,
+        "reasoning": "The sentence explicitly defines a quota: it starts with the identifier QUOTA_REGION, states it is a hard quota, and specifies it applies to question D1. The answer options for D1 are listed in the provided option list, matching the labels North, South, East, West, Central. Percentages are given after each label. The section also contains a separate sentence that defines the termination code for any quota\u2011full respondent as TERM_QUOTA_FULL, which applies here because no different ending is specified for this quota."
+      }
+    },
+    "e96207b0f929e39d37e4a46f4b53dca4fe8b7cdf457b1a6a8768eaf7e509bf27": {
+      "response_model": "LLMQuota",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-08-30T05:23:20+00:00",
+      "asked": "Whole quota section, for context:\nQUOTA_REGION: hard quota on D1: North=20%, South=20%, East=20%, West=20%, Central=20%\nQUOTA_AGE: soft quota on D2: 21-29=20%, 30-39=25%, 40-49=25%, 50-59=20%, 60+=10%\nQuota-full respondents terminate at TERM_QUOTA_FULL before the next substantive question. Quota status must be logged.\n\nSentence to read now: QUOTA_AGE: soft quota on D2: 21-29=20%, 30-39=25%, 40-49= ...",
+      "response": {
+        "is_quota": true,
+        "quota_id": "QUOTA_AGE",
+        "enforcement": "soft",
+        "variable_question_id": "D2",
+        "cell_labels": [
+          "21-29",
+          "30-39",
+          "40-49",
+          "50-59",
+          "60+"
+        ],
+        "cell_percents": [
+          20.0,
+          25.0,
+          25.0,
+          20.0,
+          10.0
+        ],
+        "on_full": "TERM_QUOTA_FULL",
+        "confidence": 0.99,
+        "reasoning": "The sentence explicitly defines a quota (QUOTA_AGE) with a soft enforcement, counting responses on variable D2. The listed groups and percentages match the answer options for D2, which are '21-29', '30-39', '40-49', '50-59', '60+'. The section states that quota\u2011full respondents terminate at TERM_QUOTA_FULL, which applies to this quota as no different ending is specified."
+      }
+    },
+    "9a92e4a8a635f9bd6be24172f9ad116a94c6f984795fe87e9dc2cf61cb267246": {
+      "response_model": "LLMQuota",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-08-30T05:23:38+00:00",
+      "asked": "Whole quota section, for context:\nQUOTA_REGION: hard quota on D1: North=20%, South=20%, East=20%, West=20%, Central=20%\nQUOTA_AGE: soft quota on D2: 21-29=20%, 30-39=25%, 40-49=25%, 50-59=20%, 60+=10%\nQuota-full respondents terminate at TERM_QUOTA_FULL before the next substantive question. Quota status must be logged.\n\nSentence to read now: Quota-full respondents terminate at TERM_QUOTA_FULL befor ...",
+      "response": {
+        "is_quota": false,
+        "quota_id": null,
+        "enforcement": null,
+        "variable_question_id": null,
+        "cell_labels": [],
+        "cell_percents": [],
+        "on_full": null,
+        "confidence": 1.0,
+        "reasoning": "The sentence only states the action taken when a quota is already full (terminate with TERM_QUOTA_FULL) and that quota status must be logged. It does not define a quota\u2014no quota identifier, enforcement type, question variable, answer groups, or percentages are provided\u2014so it is not a quota definition. Consequently all quota\u2011specific fields are left null or empty."
+      }
+    },
+    "e176c72bbf93ce3876b49f29e546d948879d7dafd83aeff87c586eee6a3e954a": {
+      "response_model": "LLMTextPipes",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-08-30T05:23:55+00:00",
+      "asked": "S1: Are you 21 years of age or older?\nS2: Which statement best describes your involvement?\nS3: Have you participated in market research in the past 3 months?\nS4: Do you or an immediate family member work in market research, advertising, or the category being studied?\nQ1: Which of these brands have you heard of?\nQ2: Which brands would you consider?\nQ3: Which brand is your current or most recent pro ...",
+      "response": {
+        "pipes": [
+          {
+            "is_pipe": true,
+            "source_question_id": "Q3",
+            "target_question_id": "Q8",
+            "phrase": "the current provider",
+            "confidence": 1.0,
+            "reasoning": "The wording uses the definite article \"the\" and refers to \"current provider\", which can only be identified from the answer to Q3 where the respondent selected a brand. Without that earlier answer the phrase would be meaningless."
+          },
+          {
+            "is_pipe": true,
+            "source_question_id": "Q3",
+            "target_question_id": "Q9",
+            "phrase": "your current provider",
+            "confidence": 1.0,
+            "reasoning": "The phrase \"your current provider\" depends on the brand chosen in Q3. It is a direct reference to that earlier answer, making the wording impossible to display correctly without it."
+          },
+          {
+            "is_pipe": true,
+            "source_question_id": "Q19",
+            "target_question_id": "Q20",
+            "phrase": "the selected proposition",
+            "confidence": 1.0,
+            "reasoning": "\"The selected proposition\" can only be identified after the respondent answers Q19, which asks which new proposition they prefer. The reference is explicit and requires the prior answer."
+          },
+          {
+            "is_pipe": true,
+            "source_question_id": "Q19",
+            "target_question_id": "Q21",
+            "phrase": "your choice",
+            "confidence": 1.0,
+            "reasoning": "The wording \"your choice\" points back to the proposition the respondent selected in Q19. Without that earlier answer the phrase would lack a referent."
+          }
+        ]
+      }
+    },
+    "744138bebe162ec6fa59e151c3435d1f9479aa03ca268fd0d23674a33a421cac": {
+      "response_model": "LLMRoutingExpression",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-08-30T06:14:30+00:00",
+      "asked": "Condition: Q1 contains at least one brand\n\nOption codes:\nQ1: Auto Brand A, Auto Brand B, Auto Brand C, Auto Brand D, None of these   (no codes; refer to these by label)",
+      "response": {
+        "comparisons": [
+          {
+            "question_id": "Q1",
+            "operator": "contains_any",
+            "values": [
+              "Auto Brand A",
+              "Auto Brand B",
+              "Auto Brand C",
+              "Auto Brand D"
+            ]
+          }
+        ],
+        "joiner": null,
+        "reasoning": "The condition says Q1 must contain at least one brand. Brands are the listed options except \"None of these\", so we use a contains_any operator with those option labels."
+      }
+    },
+    "132e3c51d2a1dec8d106a3b8d3882388022721ad158e5b0a2b0db425a40b0187": {
+      "response_model": "LLMRoutingExpression",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-08-30T06:14:04+00:00",
+      "asked": "Condition: Q5 contains any touchpoint\n\nOption codes:\nQ5: Manufacturer website, Dealer visit, Review site, Social media, Friends or family, Auto show, None of these   (no codes; refer to these by label)",
+      "response": {
+        "comparisons": [
+          {
+            "question_id": "Q5",
+            "operator": "contains_any",
+            "values": [
+              "Manufacturer website",
+              "Dealer visit",
+              "Review site",
+              "Social media",
+              "Friends or family",
+              "Auto show"
+            ]
+          }
+        ],
+        "joiner": null,
+        "reasoning": "The phrase 'contains any touchpoint' means the respondent selected at least one of the touchpoint options. Since Q5 has no option codes, we use the exact labels as values, excluding the 'None of these' option which represents no touchpoint."
+      }
+    },
+    "83668f7f2a22372b8a42ad80d1c17f3f3f559413b6a245e4b5b2a23df9335d3f": {
+      "response_model": "LLMRoutingExpression",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-08-30T06:14:13+00:00",
+      "asked": "Condition: exclusive option selected with another response at Q1 or Q5\n\nOption codes:\nQ1: Auto Brand A, Auto Brand B, Auto Brand C, Auto Brand D, None of these   (no codes; refer to these by label)\nQ5: Manufacturer website, Dealer visit, Review site, Social media, Friends or family, Auto show, None of these   (no codes; refer to these by label)",
+      "response": {
+        "comparisons": [],
+        "joiner": null,
+        "reasoning": "The condition says \"exclusive option selected with another response at Q1 or Q5\" but does not specify whether the exclusive option and the other response must be in the same question or across questions, nor how the logical combination (AND/OR) should be applied. While \"None of these\" appears to be the exclusive option for both Q1 and Q5, the required structure cannot be unambiguously derived from the given wording, so no reliable comparisons can be generated."
+      }
+    },
+    "4f37c5f58b68f982eeb7a2829f84c059fb5212b8383c7d4912eebe2735ecde87": {
+      "response_model": "LLMRoutingExpression",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-08-30T06:14:44+00:00",
+      "asked": "Condition: selected option at Q6 was not selected at Q5\n\nOption codes:\nQ6: Manufacturer website, Dealer visit, Review site, Social media, Friends or family, Auto show   (no codes; refer to these by label)\nQ5: Manufacturer website, Dealer visit, Review site, Social media, Friends or family, Auto show, None of these   (no codes; refer to these by label)",
+      "response": {
+        "comparisons": [],
+        "joiner": null,
+        "reasoning": "The condition compares selections between two different questions (Q6 and Q5) using a cross\u2011question relationship ('selected option at Q6 was not selected at Q5'). The allowed operators only handle comparisons of a single question's answer against static values, not against another question's answer set. Therefore the condition cannot be expressed with the provided operators and must be left unresolved."
+      }
+    },
+    "6fe46d4b60da90f8cbda6cce19f2f4b0f5707a2f3339be7b128d3cb2dc27f4e9": {
+      "response_model": "LLMRoutingExpression",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-08-30T06:17:13+00:00",
+      "asked": "Condition: Q1 contains at least one brand\n\nOption codes:\nQ1: Auto Brand A, Auto Brand B, Auto Brand C, Auto Brand D, None of these   (no codes; refer to these by label)",
+      "response": {
+        "comparisons": [
+          {
+            "question_id": "Q1",
+            "operator": "contains_any",
+            "values": [
+              "Auto Brand A",
+              "Auto Brand B",
+              "Auto Brand C",
+              "Auto Brand D"
+            ],
+            "compare_to_question": null
+          }
+        ],
+        "joiner": null,
+        "reasoning": "The condition states that Q1 must contain at least one brand. The brand options are the listed labels except the 'None of these' option, so we use a contains_any operator with those four labels."
+      }
+    },
+    "00242c715c187981f9e55be605d95a3f44c7bc0833ca46d427ed8131f432a435": {
+      "response_model": "LLMRoutingExpression",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-08-30T06:16:44+00:00",
+      "asked": "Condition: Q5 contains any touchpoint\n\nOption codes:\nQ5: Manufacturer website, Dealer visit, Review site, Social media, Friends or family, Auto show, None of these   (no codes; refer to these by label)",
+      "response": {
+        "comparisons": [
+          {
+            "question_id": "Q5",
+            "operator": "contains_any",
+            "values": [
+              "Manufacturer website",
+              "Dealer visit",
+              "Review site",
+              "Social media",
+              "Friends or family",
+              "Auto show"
+            ],
+            "compare_to_question": null
+          }
+        ],
+        "joiner": null,
+        "reasoning": "The phrase 'contains any touchpoint' implies the respondent selected at least one of the touchpoint options. All listed options except 'None of these' are touchpoints, so we use a contains_any operator with those labels as values."
+      }
+    },
+    "5f960942780186b0e01ed74316f19fa7eb5579be9913b6639ba6389903b2a6b7": {
+      "response_model": "LLMRoutingExpression",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-08-30T06:16:57+00:00",
+      "asked": "Condition: exclusive option selected with another response at Q1 or Q5\n\nOption codes:\nQ1: Auto Brand A, Auto Brand B, Auto Brand C, Auto Brand D, None of these   (no codes; refer to these by label)\nQ5: Manufacturer website, Dealer visit, Review site, Social media, Friends or family, Auto show, None of these   (no codes; refer to these by label)",
+      "response": {
+        "comparisons": [],
+        "joiner": null,
+        "reasoning": "The condition describes an exclusive option ('None of these') being selected together with another response at Q1 or Q5. Without explicit option codes and without a clear way to express the required combination of selections (i.e., detecting both the exclusive option and any other option on the same question) using the available operators, the condition cannot be unambiguously translated into the required comparison format."
+      }
+    },
+    "46258a4b67e30df6bd0bfa4bd6e1cf74ac4a9861bdc7dbb411ceb13e007f9688": {
+      "response_model": "LLMRoutingExpression",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-08-30T06:17:27+00:00",
+      "asked": "Condition: selected option at Q6 was not selected at Q5\n\nOption codes:\nQ6: Manufacturer website, Dealer visit, Review site, Social media, Friends or family, Auto show   (no codes; refer to these by label)\nQ5: Manufacturer website, Dealer visit, Review site, Social media, Friends or family, Auto show, None of these   (no codes; refer to these by label)",
+      "response": {
+        "comparisons": [
+          {
+            "question_id": "Q6",
+            "operator": "not_in",
+            "values": [],
+            "compare_to_question": "Q5"
+          }
+        ],
+        "joiner": null,
+        "reasoning": "The condition states that the option selected in Q6 must not be among the options selected in Q5. This is a set\u2011membership test where Q6's answer is compared against Q5's answer set, so the appropriate operator is 'not_in' with Q5 as the compare_to_question. No explicit value list is needed."
+      }
+    },
+    "093cdd686068120f6e5f80da760e5d13bbfc74d837ad5a9ceefe58ca0b35e49b": {
+      "response_model": "LLMConditionProposal",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-08-30T06:29:10+00:00",
+      "asked": "Condition as written: Q1 contains at least one brand\n\nAnswer options:\nQ1: 'Auto Brand A', 'Auto Brand B', 'Auto Brand C', 'Auto Brand D', 'None of these'",
+      "response": {
+        "expression": "Q1 contains_any ['Auto Brand A','Auto Brand B','Auto Brand C','Auto Brand D']",
+        "confidence": 0.99,
+        "reasoning": "The condition 'Q1 contains at least one brand' means the respondent selected any of the brand options. Using the grammar, this is expressed with the contains_any operator and the list of brand labels."
+      }
+    },
+    "81dbd28f153852aed43ebddf04331a5c48f909ee1a749e7740a63492c441fe2e": {
+      "response_model": "LLMConditionProposal",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-08-30T06:29:23+00:00",
+      "asked": "Condition as written: Q5 contains any touchpoint\n\nAnswer options:\nQ5: 'Manufacturer website', 'Dealer visit', 'Review site', 'Social media', 'Friends or family', 'Auto show', 'None of these'",
+      "response": {
+        "expression": "Q5 contains_any ['Manufacturer website','Dealer visit','Review site','Social media','Friends or family','Auto show']",
+        "confidence": 0.95,
+        "reasoning": "The phrase 'contains any touchpoint' implies that the respondent selected at least one of the listed touchpoint options. Using the grammar's membership operator, this is expressed as Q5 contains_any with the list of all touchpoint answer labels."
+      }
+    },
+    "981d6d4f9699add3d3668bf4be97c605939a2a8ddc617d754969b67516dd7cb7": {
+      "response_model": "LLMConditionProposal",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-08-30T06:29:31+00:00",
+      "asked": "Condition as written: exclusive option selected with another response at Q1 or Q5\n\nAnswer options:\nQ1: 'Auto Brand A', 'Auto Brand B', 'Auto Brand C', 'Auto Brand D', 'None of these'\nQ5: 'Manufacturer website', 'Dealer visit', 'Review site', 'Social media', 'Friends or family', 'Auto show', 'None of these'",
+      "response": {
+        "expression": "(Q1 contains 'None of these' and not Q1 == ['None of these']) or (Q5 contains 'None of these' and not Q5 == ['None of these'])",
+        "confidence": 0.8,
+        "reasoning": "The phrase 'exclusive option selected with another response at Q1 or Q5' suggests that the respondent chose the exclusive answer 'None of these' together with at least one other option in the same question. This can be expressed by checking that the question contains 'None of these' but the answer set is not exactly ['None of these']. The condition is applied to Q1 or Q5, combined with OR. If the intended exclusive option were different, the expression would need to be adjusted, but based on the provided answer lists, 'None of these' is the only exclusive option."
+      }
+    },
+    "9440f92586bd7e3862d29f94ce2a62cd2b44181f948e2f169018f13f0e0260fd": {
+      "response_model": "LLMConditionProposal",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-08-30T06:29:39+00:00",
+      "asked": "Condition as written: selected option at Q6 was not selected at Q5\n\nAnswer options:\nQ6: 'Manufacturer website', 'Dealer visit', 'Review site', 'Social media', 'Friends or family', 'Auto show'\nQ5: 'Manufacturer website', 'Dealer visit', 'Review site', 'Social media', 'Friends or family', 'Auto show', 'None of these'",
+      "response": {
+        "expression": "not Q5 contains Q6",
+        "confidence": 0.99,
+        "reasoning": "The condition states that the option chosen in Q6 must not be among those selected in Q5. Using the membership operator, 'Q5 contains Q6' checks if Q5 includes the answer from Q6; applying the negation 'not' yields the required condition."
+      }
+    },
+    "65507e181f0cc5b82b44f8fcd5cad4664c2d5c7ee414f0c42a898a513b31028c": {
+      "response_model": "LLMQuestionFields",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-08-30T10:59:36+00:00",
+      "asked": "Question S1 cell:\nAlways show",
+      "response": {
+        "directives": [
+          {
+            "kind": "always_show",
+            "text": ""
+          }
+        ]
+      }
+    },
+    "845d13aaf86f3b89e49d4b959d728b13a4aef87516628a34bddefa0881c4d11d": {
+      "response_model": "LLMQuestionFields",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-08-30T10:59:37+00:00",
+      "asked": "Question S2 cell:\nAlways show",
+      "response": {
+        "directives": [
+          {
+            "kind": "always_show",
+            "text": ""
+          }
+        ]
+      }
+    },
+    "ab8bb8081b7bbd076841340129636fe6989b5bae1481210a1f55dd61e6f9c2cb": {
+      "response_model": "LLMQuestionFields",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-08-30T10:59:40+00:00",
+      "asked": "Question S4 cell:\nAlways show",
+      "response": {
+        "directives": [
+          {
+            "kind": "always_show",
+            "text": ""
+          }
+        ]
+      }
+    },
+    "014fa2ad10874c340c63530b5ea70b0ad26f21890959db373f7d529f49338e3f": {
+      "response_model": "LLMQuestionFields",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-08-30T10:59:49+00:00",
+      "asked": "Question Q1 cell:\nValidate: {\"exclusive_option\": \"None of these\"}\nRandomize",
+      "response": {
+        "directives": [
+          {
+            "kind": "validation",
+            "text": " {\"exclusive_option\": \"None of these\"}"
+          },
+          {
+            "kind": "randomize",
+            "text": ""
+          }
+        ]
+      }
+    },
+    "36e9438215de26e3c88ae993e66abbdde55c27e8704740a11a79d0e94b7ec1c3": {
+      "response_model": "LLMQuestionFields",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-08-30T10:59:54+00:00",
+      "asked": "Question Q2 cell:\nShow if: Q1 contains at least one brand\nShow only brands selected at Q1.",
+      "response": {
+        "directives": [
+          {
+            "kind": "display_condition",
+            "text": "Q1 contains at least one brand"
+          },
+          {
+            "kind": "option_source",
+            "text": "brands selected at Q1."
+          }
+        ]
+      }
+    },
+    "b7ac01d6230be66d10e979d3ad27703bf39d4fede7fcfe64ec16751e60c0719f": {
+      "response_model": "LLMQuestionFields",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-08-30T11:00:03+00:00",
+      "asked": "Question Q3 cell:\nShow if: Q1 contains at least one brand",
+      "response": {
+        "directives": [
+          {
+            "kind": "display_condition",
+            "text": "Q1 contains at least one brand"
+          }
+        ]
+      }
+    },
+    "a9b92428618425e6e89aff41582a4169c3c76ccc6ced61902fece26a807da30f": {
+      "response_model": "LLMQuestionFields",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-08-30T11:00:11+00:00",
+      "asked": "Question Q4 cell:\nAlways show",
+      "response": {
+        "directives": [
+          {
+            "kind": "always_show",
+            "text": ""
+          }
+        ]
+      }
+    },
+    "ef7a3228cd0c0fe1810bea8412678370037e6e2d25096edcf585bc749f6e7ace": {
+      "response_model": "LLMQuestionFields",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-08-30T11:00:13+00:00",
+      "asked": "Question S3 cell:\nAlways show",
+      "response": {
+        "directives": [
+          {
+            "kind": "always_show",
+            "text": ""
+          }
+        ]
+      }
+    },
+    "c3097a45afb3e697b47a49c130a72f3576363d9ddbcb442f583b8439e1e3e97d": {
+      "response_model": "LLMQuestionFields",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-08-30T11:00:22+00:00",
+      "asked": "Question Q6 cell:\nShow if: Q5 contains any touchpoint\nShow only touchpoints selected at Q5.",
+      "response": {
+        "directives": [
+          {
+            "kind": "display_condition",
+            "text": "Q5 contains any touchpoint"
+          },
+          {
+            "kind": "option_source",
+            "text": "touchpoints selected at Q5."
+          }
+        ]
+      }
+    },
+    "dcceedc3109df288e833fe757cdd6f8eac2ffd4d1c56968316693ae60e78d706": {
+      "response_model": "LLMQuestionFields",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-08-30T11:00:32+00:00",
+      "asked": "Question Q5 cell:\nValidate: {\"exclusive_option\": \"None of these\"}\nRandomize",
+      "response": {
+        "directives": [
+          {
+            "kind": "validation",
+            "text": "{\"exclusive_option\": \"None of these\"}"
+          },
+          {
+            "kind": "randomize",
+            "text": ""
+          }
+        ]
+      }
+    },
+    "ac0fb518bbc4ebf92749d24b82ff3ff693ba26e254c1a6a193f25d7d4a8ca78d": {
+      "response_model": "LLMQuestionFields",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-08-30T11:00:41+00:00",
+      "asked": "Question Q8 cell:\nShow if: Q3 != 'None/currently not using'",
+      "response": {
+        "directives": [
+          {
+            "kind": "display_condition",
+            "text": "Q3 != 'None/currently not using'"
+          }
+        ]
+      }
+    },
+    "dc16490a2ca9fd7b114235e1c5698b45602868b581813f1b2d96892c8191c1a9": {
+      "response_model": "LLMQuestionFields",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-08-30T11:00:49+00:00",
+      "asked": "Question Q9 cell:\nShow if: Q3 != 'None/currently not using'\nValidate: {\"scale\": [\"1 - Very poor\", \"2 - Poor\", \"3 - Fair\", \"4 - Good\", \"5 - Excellent\"], \"require_each_row\": true}\nRandomize",
+      "response": {
+        "directives": [
+          {
+            "kind": "display_condition",
+            "text": "Q3 != 'None/currently not using'"
+          },
+          {
+            "kind": "validation",
+            "text": "{\"scale\": [\"1 - Very poor\", \"2 - Poor\", \"3 - Fair\", \"4 - Good\", \"5 - Excellent\"], \"require_each_row\": true}"
+          },
+          {
+            "kind": "randomize",
+            "text": ""
+          }
+        ]
+      }
+    },
+    "15855af582a10d41364e77f406dff2862c4815e3457d59c3dd9243a0e4df158d": {
+      "response_model": "LLMQuestionFields",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-08-30T11:00:59+00:00",
+      "asked": "Question Q7 cell:\nShow if: Q3 != 'None/currently not using'",
+      "response": {
+        "directives": [
+          {
+            "kind": "display_condition",
+            "text": "Q3 != 'None/currently not using'"
+          }
+        ]
+      }
+    },
+    "42c7107a8469c930dba1d81bb3f698709c89430b75ec25158726c4a26ce28459": {
+      "response_model": "LLMQuestionFields",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-08-30T11:01:07+00:00",
+      "asked": "Question Q11 cell:\nShow if: Q10 == 'Yes'\nValidate: {\"min_selections\": 1}",
+      "response": {
+        "directives": [
+          {
+            "kind": "display_condition",
+            "text": " Q10 == 'Yes'"
+          },
+          {
+            "kind": "validation",
+            "text": " {\"min_selections\": 1}"
+          }
+        ]
+      }
+    },
+    "6f4f10910e59a1d639ecfca4f3a06e78f85ef17c9cfb456591bd9f62639dcc26": {
+      "response_model": "LLMQuestionFields",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-08-30T11:01:12+00:00",
+      "asked": "Question Q10 cell:\nAlways show",
+      "response": {
+        "directives": [
+          {
+            "kind": "always_show",
+            "text": ""
+          }
+        ]
+      }
+    },
+    "5fd18324c07da142f7b866ee40b22d555397afb76f4baa304f170d8aca338081": {
+      "response_model": "LLMQuestionFields",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-08-30T11:01:21+00:00",
+      "asked": "Question Q13 cell:\nShow if: Q12 in ['Fully','Partly']",
+      "response": {
+        "directives": [
+          {
+            "kind": "display_condition",
+            "text": "Q12 in ['Fully','Partly']"
+          }
+        ]
+      }
+    },
+    "d2d86da4b8a0f5ca5369a8f651116a312a9bb3c0a8c3369dadb69a8414489f1d": {
+      "response_model": "LLMQuestionFields",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-08-30T11:01:23+00:00",
+      "asked": "Question Q14 cell:\nShow if: Q12 == 'Not resolved'\nValidate: {\"min_length\": 10, \"max_length\": 500}",
+      "response": {
+        "directives": [
+          {
+            "kind": "display_condition",
+            "text": "Q12 == 'Not resolved'"
+          },
+          {
+            "kind": "validation",
+            "text": "{\"min_length\": 10, \"max_length\": 500}"
+          }
+        ]
+      }
+    },
+    "65019f70ff24faab8836f74fe188a7abcde836bca7fb75b6e42ef697401bf679": {
+      "response_model": "LLMQuestionFields",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-08-30T11:01:28+00:00",
+      "asked": "Question Q15 cell:\nShow if: Q3 != 'None/currently not using'",
+      "response": {
+        "directives": [
+          {
+            "kind": "display_condition",
+            "text": "Q3 != 'None/currently not using'"
+          }
+        ]
+      }
+    },
+    "0565dbe6a58a6760ae4bdf149b4ea0c774138e71de770d051e42f90d92e0833a": {
+      "response_model": "LLMQuestionFields",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-08-30T11:01:30+00:00",
+      "asked": "Question Q16 cell:\nShow if: Q15 == 'Yes'\nRandomize",
+      "response": {
+        "directives": [
+          {
+            "kind": "display_condition",
+            "text": "Q15 == 'Yes'"
+          },
+          {
+            "kind": "randomize",
+            "text": ""
+          }
+        ]
+      }
+    },
+    "656a994d02177742ec15f9c923eec57f2b486efac4a6377e818f9d1096053632": {
+      "response_model": "LLMQuestionFields",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-08-30T11:01:33+00:00",
+      "asked": "Question Q12 cell:\nShow if: Q10 == 'Yes'",
+      "response": {
+        "directives": [
+          {
+            "kind": "display_condition",
+            "text": "Q10 == 'Yes'"
+          }
+        ]
+      }
+    },
+    "8fdbd777a4405e42e1e9a420961214ae5f3dffd4931dd3d9e44d010c39500e44": {
+      "response_model": "LLMQuestionFields",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-08-30T11:01:41+00:00",
+      "asked": "Question Q18 cell:\nValidate: {\"sum\": 100}",
+      "response": {
+        "directives": [
+          {
+            "kind": "validation",
+            "text": "{\"sum\": 100}"
+          }
+        ]
+      }
+    },
+    "29cf271043aa808dd8ba8dfd1e49907844fe5db19f3c376697758ba2dabd6ade": {
+      "response_model": "LLMQuestionFields",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-08-30T11:01:43+00:00",
+      "asked": "Question Q19 cell:\nRandomize\nConcept descriptions are displayed in randomized order; store display order.",
+      "response": {
+        "directives": [
+          {
+            "kind": "randomize",
+            "text": ""
+          },
+          {
+            "kind": "other",
+            "text": "Concept descriptions are displayed in randomized order; store display order."
+          }
+        ]
+      }
+    },
+    "993e9ab3485f5ea9e7322787de77d17f3891ec2442cc7d230acb77723a96a43d": {
+      "response_model": "LLMQuestionFields",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-08-30T11:01:52+00:00",
+      "asked": "Question Q20 cell:\nAlways show",
+      "response": {
+        "directives": [
+          {
+            "kind": "always_show",
+            "text": ""
+          }
+        ]
+      }
+    },
+    "9b29e5a855e33bc0c44eb73418233e396438a65c3743451dd1ed0cf4c57f710e": {
+      "response_model": "LLMQuestionFields",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-08-30T11:02:01+00:00",
+      "asked": "Question Q21 cell:\nValidate: {\"min_length\": 5, \"max_length\": 500}",
+      "response": {
+        "directives": [
+          {
+            "kind": "validation",
+            "text": "{\"min_length\": 5, \"max_length\": 500}"
+          }
+        ]
+      }
+    },
+    "80358d18543a422a5b7dfc397e2b4e1e75b505b23b074a229276a0007b37d9bc": {
+      "response_model": "LLMQuestionFields",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-08-30T11:02:09+00:00",
+      "asked": "Question D1 cell:\nAlways show",
+      "response": {
+        "directives": [
+          {
+            "kind": "always_show",
+            "text": ""
+          }
+        ]
+      }
+    },
+    "7cb2afae4a143d7a79dd2b36fd22bf6a3efdd2951d96722589572346efdf0d58": {
+      "response_model": "LLMQuestionFields",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-08-30T11:02:19+00:00",
+      "asked": "Question Q17 cell:\nShow if: Q16 == 'Other'\nValidate: {\"min_length\": 3, \"max_length\": 200}",
+      "response": {
+        "directives": [
+          {
+            "kind": "display_condition",
+            "text": "Q16 == 'Other'"
+          },
+          {
+            "kind": "validation",
+            "text": "{\"min_length\": 3, \"max_length\": 200}"
+          }
+        ]
+      }
+    },
+    "66915dc9c81ec1edf482068b3bfd8862390302699f8fcfd05777dc8bcf7cefdc": {
+      "response_model": "LLMQuestionFields",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-08-30T11:02:29+00:00",
+      "asked": "Question D2 cell:\nAlways show",
+      "response": {
+        "directives": [
+          {
+            "kind": "always_show",
+            "text": ""
+          }
+        ]
+      }
+    },
+    "0f41b29950362d3956f3ddd087296c2482ee4b53df258f03deda2aa603a35626": {
+      "response_model": "LLMQuestionFields",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-08-30T11:02:32+00:00",
+      "asked": "Question D4 cell:\nAlways show",
+      "response": {
+        "directives": [
+          {
+            "kind": "always_show",
+            "text": ""
+          }
+        ]
+      }
+    },
+    "b38cf0b18ca952c6b6a69fcf65e9fd847d9b25994b4cf8787e36c025721fd4dc": {
+      "response_model": "LLMQuestionFields",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-08-30T11:02:36+00:00",
+      "asked": "Question Q22 cell:\nAlways show",
+      "response": {
+        "directives": [
+          {
+            "kind": "always_show",
+            "text": ""
+          }
+        ]
+      }
+    },
+    "68ad2df3a0c17dc461b12e7c03915707734233b1f2d983dec0dd2300bc31e39a": {
+      "response_model": "LLMQuestionFields",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-08-30T11:02:40+00:00",
+      "asked": "Question D3 cell:\nAlways show",
+      "response": {
+        "directives": [
+          {
+            "kind": "always_show",
+            "text": ""
+          }
+        ]
+      }
+    },
+    "20b1982f62ac427ad4eaf7e3783905d00baf0be47eb15630b81763a8e1427c56": {
+      "response_model": "LLMQuestionFields",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-08-30T11:02:50+00:00",
+      "asked": "Question Q23 cell:\nValidate: {\"max_length\": 1000}\nOptional",
+      "response": {
+        "directives": [
+          {
+            "kind": "validation",
+            "text": "{\"max_length\": 1000}"
+          },
+          {
+            "kind": "optional",
+            "text": ""
+          }
+        ]
+      }
+    }
+  }
+}
