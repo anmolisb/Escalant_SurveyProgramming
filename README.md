@@ -4,8 +4,8 @@ DOCX questionnaire requirement document → a structured extraction of what it
 says, and a canonical specification of what it means.
 
 Agent 1 has two parts. **Part 1** (stages 1 to 5) reads the document and records
-it. **Part 2** (stages 6 and 7) interprets that record into a platform-neutral
-survey specification and the graphs built from it. The dividing line matters and
+it. **Part 2** (stages 6 to 9) interprets that record into a platform-neutral
+survey specification, builds the graphs, and validates both. The dividing line matters and
 is enforced: Part 1 preserves `Show if: Q5 contains any touchpoint` as text, and
 Part 2 is the only place allowed to decide that the operator is `contains_any`.
 
@@ -111,6 +111,23 @@ re-run, but a `load_stage4` would remove the rest.
         └───────────────────┬───────────────────┘
                             │  part2_route_graph.json
                             │  part2_graph_report.json
+                            │  route_graph.graphml / .gexf
+                            │  dependency_graph.graphml / .gexf
+        ┌───────────────────▼───────────────────┐
+        │ STAGE 8  canonical validation         │  no LLM
+        │ is the specification right?           │
+        └───────────────────┬───────────────────┘
+                            │  part2_validation.json
+                            │  agent1_evaluation_tests.json
+                            │  agent1_evaluation_results.json
+                            │  agent1_decisions.json
+                            │  agent1_decision_register.md
+        ┌───────────────────▼───────────────────┐
+        │ STAGE 9  graph validation             │  no LLM
+        │ does the graph behave as specified?   │
+        └───────────────────┬───────────────────┘
+                            │  part2_graph_validation.json
+                            │  agent1_stage9_gate.json
                             ▼
                     Agent 2 (build) · Agent 3 (test design)
 ```
@@ -524,6 +541,71 @@ reverse is a design decision.
 
 ---
 
+## Stage 8 — is the specification right?
+
+Stage 5 asks whether the extraction is faithful to the document. This asks
+whether the *specification* is, and it asks four questions that are kept apart
+because they fail differently:
+
+| Question | What it answers |
+|---|---|
+| cross-source | Does the specification say only what the document says, and all of it? Raw QRE, Stage 4 and canonical compared three ways, so a disagreement can be attributed to one of them |
+| reproducibility | Does the same document read the same way twice? |
+| confirmation | What is still a person's decision, and what does each one block? |
+| evaluation | Do tests derived from the QRE pass against the canonical output? |
+
+**The oracle shares no code with the pipeline it checks.** `qre_oracle.py`
+reads the document through Stage 1 only — a mechanical walk of the body XML
+with no interpretation in it — and works everything else out for itself.
+Importing `part2_canonical` or `part2_conditions` there would make the test
+agree with the thing under test by construction, which is the one result that
+would mean nothing (CLAUDE.md §33).
+
+`agent1_decisions.py` keeps the confirmation record. Part 2 already marks where
+it inferred or could not read something; what this adds is a record that
+survives between runs, so an owner who confirms "the first matching rule wins"
+on Monday is not asked again on Tuesday — and a confirmation given against one
+version of a QRE never silently answers for a different one.
+
+## Stage 9 — does the graph behave as specified?
+
+Two questions, again kept apart:
+
+- **structural** — does every node, edge, guard, dependency and quota in the
+  specification appear in the persisted graph?
+- **behavioural** — walked as a respondent would, does the graph do what the
+  specification says?
+
+It reads `part2_canonical.json` and the graph files already on disk. No Stage 4,
+no Part 2, no model call, no rebuild: the graph it validates is exactly the one
+Stage 7 wrote.
+
+### The approval gate
+
+`agent1_stage9_gate.json` separates two things that were previously one:
+
+```
+GRAPH_INPUT_SUFFICIENCY     is the graph complete enough to build on?
+AGENT3_EXECUTION_APPROVAL   is it approved to actually run?
+```
+
+A graph can be structurally sufficient and still not approved, because approval
+also needs canonical validation clear and every blocking human decision
+answered. All three fixtures currently report `GRAPH_INPUT_SUFFICIENCY READY`
+and `AGENT3_EXECUTION_APPROVAL BLOCKED`, blocked on
+`human_decision_gate=PENDING_BLOCKING_DECISIONS` — chiefly the three semantics
+decisions the QRE never states. That is the gate working, not a failure.
+
+## Running validation on its own
+
+Both layers re-run from committed artifacts, with no extraction and no model
+calls:
+
+```bash
+python3 src/run_validation.py S01_campus_cafeteria_experience
+python3 src/run_graph_validation.py S01_campus_cafeteria_experience
+```
+
 ## Files
 
 ```
@@ -535,9 +617,16 @@ src/
   stage3_raw_json.py
   stage4_deep_parse.py
   stage5_audit.py        five deterministic checks
-  part2_conditions.py    a routing condition read as a tree, and rendered back
+  part2_conditions.py    a condition read as a tree, and rendered back
   part2_canonical.py     the canonical survey specification
   part2_graph.py         route and dependency graphs
+  part2_validate.py      Stage 8 — cross-source, reproducibility, confirmation
+  qre_oracle.py          an independent reading of the QRE, used as ground truth
+  agent1_decisions.py    the human decision register, kept between runs
+  agent1_eval.py         tests derived from the QRE, run against the output
+  graph_validate.py      Stage 9 — structural and behavioural graph checks
+  run_validation.py      Stage 8 on its own, from committed artifacts
+  run_graph_validation.py  Stage 9 on its own, from committed artifacts
   orchestrator.py
   test_conditions.py     self-check: python3 src/test_conditions.py
 ```
@@ -556,19 +645,30 @@ record answers every call.
 
 ## Known gaps
 
-- **Almost no tests.** The previous suite covered modules that no longer exist
-  and was deleted with them. Only `src/test_conditions.py` replaced any of it,
-  covering the condition parser and its renderer.
+- **No unit test suite.** The previous one covered modules that no longer exist
+  and was deleted with them. What exists instead is `src/test_conditions.py`
+  (ten checks on the condition parser and renderer) and Stages 8 and 9, which
+  test the output rather than the code — a module can be refactored into
+  nonsense and nothing here will notice until a document is run through it.
 - **Stage 5 scores rows, not fields.** A section's score is the share of
   transcribed rows that produced an identified object. The field-by-field
   comparand against Stage 3 is not built.
+- **C01 and C02 are the same synthetic skeleton.** Identical rule ids, identical
+  graph shape (38 nodes, 39 edges, 31 questions) and the same screener wording
+  word for word; only the subject matter differs. So "verified on three
+  documents" is really two distinct shapes, and the complex tier has never been
+  tested against a second structure. This is why `build_route_graph`'s
+  first-completion bug below has never fired.
 - **The whole pipeline has been run end to end on C02, C01 and S01 only.**
   Stages 1 to 4 run over all 17 fixtures without error, but the model-dependent
   paths — Stage 2 shape-matching, Stage 3 prose transcription, Stage 4's field
   split, and all three Stage 6 calls — have been exercised on those three.
-- **Part 2 has no condition evaluator.** The trees are machine-evaluable and
-  nothing evaluates them. Route feasibility — deciding whether the guards along a
-  path can all hold at once — is Agent 3's to build.
+- **The only condition evaluator is the oracle's.** `qre_oracle.evaluate_reference`
+  evaluates its own independently-built conditions so Stage 9 can walk a route;
+  Part 2's own trees still have nothing that evaluates them. Route feasibility —
+  deciding whether the guards along a path can all hold at once — is Agent 3's
+  to build. Where the pipeline cannot read a condition, the behavioural test is
+  reported `UNVERIFIED` rather than skipped or guessed at.
 - **`build_route_graph` wires only the first completion.** A QRE with two
   `complete` dispositions would connect its last question to one of them.
   Neither committed fixture has two, so it has never bitten.
