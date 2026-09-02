@@ -93,6 +93,7 @@ re-run, but a `load_stage4` would remove the rest.
                             │  AcceptanceScenario, CompletionMessage,
                             │  ExtractedStatement
                             │  stage4_survey.json — the survey's own headings
+                            │  written bare: no envelope, no source_reference
         ┌───────────────────▼───────────────────┐
         │ STAGE 5  extraction quality check     │  no LLM
         │ audits stage 4 against 2 and 3        │
@@ -267,6 +268,29 @@ The builder refuses rather than guesses: several comparisons with no joiner, or
 a single-value operator handed several values, produce no expression and a
 review flag. `condition_raw` still holds what the QRE said either way, and
 Part 2 builds its condition tree from that, so a refusal loses nothing.
+
+### Stage 4's files are written bare
+
+Every other stage wraps its artifact in an `ArtifactEnvelope` — schema version,
+source document and digest, timestamp — and carries a `source_reference` on
+every record. Stage 4 does neither. It is the handover point to the survey
+builder, and there both are weight the consumer steps over rather than anything
+it uses:
+
+```json
+[ { "rule": "R1", "condition_raw": "S1 == 'No'",
+    "condition_expression": "S1 == 'No'",
+    "condition_expression_origin": "derived",
+    "action": "terminate", "destination": "TERM_INELIGIBLE" } ]
+```
+
+**No provenance is lost.** Only the serialisation drops it; the objects in
+memory are unchanged. Stage 5 and Part 2 are handed those objects rather than
+the file, so `part2_canonical.json` still carries a source reference for every
+question and every rule, and Stage 9's `traceability_coverage` still resolves in
+full. Anything re-reading Stage 4 from disk — `run_validation.py` does — gets
+records without provenance, which costs nothing today because the traceability
+checks read the canonical specification instead.
 
 ### One reading for one condition
 

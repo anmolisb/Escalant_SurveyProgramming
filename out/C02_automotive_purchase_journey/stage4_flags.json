@@ -1,51 +1,38 @@
-{
-  "schema_version": "1.0.0",
-  "artifact": "stage4_flags",
-  "stage": 4,
-  "survey_id": "C02_automotive_purchase_journey",
-  "source_document": {
-    "filename": "C02_automotive_purchase_journey.docx",
-    "sha256": "112a39d23aaf16dcfd2cce8a9de380d8b289dd33645c2703b7f00ec49f7e69f2",
-    "bytes": 43592
-  },
-  "generated_at": "2026-08-30T11:18:01+00:00",
-  "item_count": 3,
-  "content": [
-    {
-      "target_heading": "Routing and termination",
-      "status": "POSSIBLE_MATCH",
-      "candidate_heading": "R19",
-      "confidence": null,
-      "reasoning": "The condition describes an exclusive option ('None of these') being selected together with another response at Q1 or Q5. Without explicit option codes and without a clear way to express the required combination of selections (i.e., detecting both the exclusive option and any other option on the same question) using the available operators, the condition cannot be unambiguously translated into the required comparison format.",
-      "severity": "WARNING",
-      "target": {
-        "kind": "rule",
-        "id": "R19"
-      }
-    },
-    {
-      "target_heading": "Study specification",
-      "status": "NOT_PRESENT",
-      "candidate_heading": null,
-      "confidence": null,
-      "reasoning": "No line is labelled as the survey description; the line labelled 'Business objective' is being read as it.",
-      "severity": "INFO",
-      "target": {
-        "kind": "survey_information",
-        "id": "description"
-      }
-    },
-    {
-      "target_heading": "Study specification",
-      "status": "NOT_PRESENT",
-      "candidate_heading": null,
-      "confidence": null,
-      "reasoning": "The survey's welcome text is not stated: the document never states what a respondent is shown before the first question.",
-      "severity": "WARNING",
-      "target": {
-        "kind": "survey_information",
-        "id": "welcome_text"
-      }
+[
+  {
+    "target_heading": "Routing and termination",
+    "status": "POSSIBLE_MATCH",
+    "candidate_heading": "R19",
+    "confidence": null,
+    "reasoning": "The condition describes an exclusive option ('None of these') being selected together with another response at Q1 or Q5. Without explicit option codes and without a clear way to express the required combination of selections (i.e., detecting both the exclusive option and any other option on the same question) using the available operators, the condition cannot be unambiguously translated into the required comparison format.",
+    "severity": "WARNING",
+    "target": {
+      "kind": "rule",
+      "id": "R19"
     }
-  ]
-}
+  },
+  {
+    "target_heading": "Study specification",
+    "status": "NOT_PRESENT",
+    "candidate_heading": null,
+    "confidence": null,
+    "reasoning": "No line is labelled as the survey description; the line labelled 'Business objective' is being read as it.",
+    "severity": "INFO",
+    "target": {
+      "kind": "survey_information",
+      "id": "description"
+    }
+  },
+  {
+    "target_heading": "Study specification",
+    "status": "NOT_PRESENT",
+    "candidate_heading": null,
+    "confidence": null,
+    "reasoning": "The survey's welcome text is not stated: the document never states what a respondent is shown before the first question.",
+    "severity": "WARNING",
+    "target": {
+      "kind": "survey_information",
+      "id": "welcome_text"
+    }
+  }
+]

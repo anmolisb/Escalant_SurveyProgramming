@@ -1,1773 +1,1481 @@
-{
-  "schema_version": "1.0.0",
-  "artifact": "stage4_questionnaire",
-  "stage": 4,
-  "survey_id": "C02_automotive_purchase_journey",
-  "source_document": {
-    "filename": "C02_automotive_purchase_journey.docx",
-    "sha256": "112a39d23aaf16dcfd2cce8a9de380d8b289dd33645c2703b7f00ec49f7e69f2",
-    "bytes": 43592
+[
+  {
+    "id": "S1",
+    "seq": 1,
+    "wording": "Are you 21 years of age or older?",
+    "type": "single",
+    "options": [
+      {
+        "option_id": "S1-O1",
+        "code": null,
+        "label": "Yes",
+        "numeric_value": null
+      },
+      {
+        "option_id": "S1-O2",
+        "code": null,
+        "label": "No",
+        "numeric_value": null
+      }
+    ],
+    "matrix_rows": [],
+    "display_condition": null,
+    "display_condition_expression": null,
+    "display_condition_expression_origin": null,
+    "min_length": null,
+    "max_length": null,
+    "min_value": null,
+    "max_value": null,
+    "min_selections": null,
+    "exclusive_option": null,
+    "sum_to": null,
+    "randomize": false,
+    "optional": false,
+    "dynamic_option_source": null,
+    "other_attributes": {}
   },
-  "generated_at": "2026-08-30T11:18:01+00:00",
-  "item_count": 31,
-  "content": [
-    {
-      "id": "S1",
-      "seq": 1,
-      "wording": "Are you 21 years of age or older?",
-      "type": "single",
-      "options": [
-        {
-          "option_id": "S1-O1",
-          "code": null,
-          "label": "Yes",
-          "numeric_value": null
-        },
-        {
-          "option_id": "S1-O2",
-          "code": null,
-          "label": "No",
-          "numeric_value": null
-        }
-      ],
-      "matrix_rows": [],
-      "display_condition": null,
-      "display_condition_expression": null,
-      "display_condition_expression_origin": null,
-      "min_length": null,
-      "max_length": null,
-      "min_value": null,
-      "max_value": null,
-      "min_selections": null,
-      "exclusive_option": null,
-      "sum_to": null,
-      "randomize": false,
-      "optional": false,
-      "dynamic_option_source": null,
-      "other_attributes": {},
-      "source_reference": {
-        "document": "C02_automotive_purchase_journey.docx",
-        "section": "Questionnaire",
-        "heading_text": "Questionnaire",
-        "block_order": 10,
-        "row_index": 0,
-        "source_kind": "table",
-        "text": "S1 | Are you 21 years of age or older? | single | Yes; No | Always show"
-      }
-    },
-    {
-      "id": "S2",
-      "seq": 2,
-      "wording": "Which statement best describes your involvement?",
-      "type": "single",
-      "options": [
-        {
-          "option_id": "S2-O1",
-          "code": null,
-          "label": "Purchased or seriously considered a new vehicle in the past 18 months",
-          "numeric_value": null
-        },
-        {
-          "option_id": "S2-O2",
-          "code": null,
-          "label": "Aware but not involved",
-          "numeric_value": null
-        },
-        {
-          "option_id": "S2-O3",
-          "code": null,
-          "label": "Not aware of this category",
-          "numeric_value": null
-        }
-      ],
-      "matrix_rows": [],
-      "display_condition": null,
-      "display_condition_expression": null,
-      "display_condition_expression_origin": null,
-      "min_length": null,
-      "max_length": null,
-      "min_value": null,
-      "max_value": null,
-      "min_selections": null,
-      "exclusive_option": null,
-      "sum_to": null,
-      "randomize": false,
-      "optional": false,
-      "dynamic_option_source": null,
-      "other_attributes": {},
-      "source_reference": {
-        "document": "C02_automotive_purchase_journey.docx",
-        "section": "Questionnaire",
-        "heading_text": "Questionnaire",
-        "block_order": 10,
-        "row_index": 1,
-        "source_kind": "table",
-        "text": "S2 | Which statement best describes your involvement? | single | Purchased or seriously considered a new vehicle in the past 18 months; Aware but not involved; Not aware of this category | Always show"
-      }
-    },
-    {
-      "id": "S3",
-      "seq": 3,
-      "wording": "Have you participated in market research in the past 3 months?",
-      "type": "single",
-      "options": [
-        {
-          "option_id": "S3-O1",
-          "code": null,
-          "label": "Yes",
-          "numeric_value": null
-        },
-        {
-          "option_id": "S3-O2",
-          "code": null,
-          "label": "No",
-          "numeric_value": null
-        }
-      ],
-      "matrix_rows": [],
-      "display_condition": null,
-      "display_condition_expression": null,
-      "display_condition_expression_origin": null,
-      "min_length": null,
-      "max_length": null,
-      "min_value": null,
-      "max_value": null,
-      "min_selections": null,
-      "exclusive_option": null,
-      "sum_to": null,
-      "randomize": false,
-      "optional": false,
-      "dynamic_option_source": null,
-      "other_attributes": {},
-      "source_reference": {
-        "document": "C02_automotive_purchase_journey.docx",
-        "section": "Questionnaire",
-        "heading_text": "Questionnaire",
-        "block_order": 10,
-        "row_index": 2,
-        "source_kind": "table",
-        "text": "S3 | Have you participated in market research in the past 3 months? | single | Yes; No | Always show"
-      }
-    },
-    {
-      "id": "S4",
-      "seq": 4,
-      "wording": "Do you or an immediate family member work in market research, advertising, or the category being studied?",
-      "type": "single",
-      "options": [
-        {
-          "option_id": "S4-O1",
-          "code": null,
-          "label": "Yes",
-          "numeric_value": null
-        },
-        {
-          "option_id": "S4-O2",
-          "code": null,
-          "label": "No",
-          "numeric_value": null
-        }
-      ],
-      "matrix_rows": [],
-      "display_condition": null,
-      "display_condition_expression": null,
-      "display_condition_expression_origin": null,
-      "min_length": null,
-      "max_length": null,
-      "min_value": null,
-      "max_value": null,
-      "min_selections": null,
-      "exclusive_option": null,
-      "sum_to": null,
-      "randomize": false,
-      "optional": false,
-      "dynamic_option_source": null,
-      "other_attributes": {},
-      "source_reference": {
-        "document": "C02_automotive_purchase_journey.docx",
-        "section": "Questionnaire",
-        "heading_text": "Questionnaire",
-        "block_order": 10,
-        "row_index": 3,
-        "source_kind": "table",
-        "text": "S4 | Do you or an immediate family member work in market research, advertising, or the category being studied? | single | Yes; No | Always show"
-      }
-    },
-    {
-      "id": "Q1",
-      "seq": 5,
-      "wording": "Which of these brands have you heard of?",
-      "type": "multi",
-      "options": [
-        {
-          "option_id": "Q1-O1",
-          "code": null,
-          "label": "Auto Brand A",
-          "numeric_value": null
-        },
-        {
-          "option_id": "Q1-O2",
-          "code": null,
-          "label": "Auto Brand B",
-          "numeric_value": null
-        },
-        {
-          "option_id": "Q1-O3",
-          "code": null,
-          "label": "Auto Brand C",
-          "numeric_value": null
-        },
-        {
-          "option_id": "Q1-O4",
-          "code": null,
-          "label": "Auto Brand D",
-          "numeric_value": null
-        },
-        {
-          "option_id": "Q1-O5",
-          "code": null,
-          "label": "None of these",
-          "numeric_value": null
-        }
-      ],
-      "matrix_rows": [],
-      "display_condition": null,
-      "display_condition_expression": null,
-      "display_condition_expression_origin": null,
-      "min_length": null,
-      "max_length": null,
-      "min_value": null,
-      "max_value": null,
-      "min_selections": null,
-      "exclusive_option": "None of these",
-      "sum_to": null,
-      "randomize": true,
-      "optional": false,
-      "dynamic_option_source": null,
-      "other_attributes": {},
-      "source_reference": {
-        "document": "C02_automotive_purchase_journey.docx",
-        "section": "Questionnaire",
-        "heading_text": "Questionnaire",
-        "block_order": 10,
-        "row_index": 4,
-        "source_kind": "table",
-        "text": "Q1 | Which of these brands have you heard of? | multi | Auto Brand A; Auto Brand B; Auto Brand C; Auto Brand D; None of these | Validate: {\"exclusive_option\": \"None of these\"}\nRandomize"
-      }
-    },
-    {
-      "id": "Q2",
-      "seq": 6,
-      "wording": "Which brands would you consider?",
-      "type": "multi",
-      "options": [
-        {
-          "option_id": "Q2-O1",
-          "code": null,
-          "label": "Auto Brand A",
-          "numeric_value": null
-        },
-        {
-          "option_id": "Q2-O2",
-          "code": null,
-          "label": "Auto Brand B",
-          "numeric_value": null
-        },
-        {
-          "option_id": "Q2-O3",
-          "code": null,
-          "label": "Auto Brand C",
-          "numeric_value": null
-        },
-        {
-          "option_id": "Q2-O4",
-          "code": null,
-          "label": "Auto Brand D",
-          "numeric_value": null
-        }
-      ],
-      "matrix_rows": [],
-      "display_condition": "Q1 contains at least one brand",
-      "display_condition_expression": "Q1 contains_any ['Auto Brand A', 'Auto Brand B', 'Auto Brand C', 'Auto Brand D']",
-      "display_condition_expression_origin": "inferred",
-      "min_length": null,
-      "max_length": null,
-      "min_value": null,
-      "max_value": null,
-      "min_selections": null,
-      "exclusive_option": null,
-      "sum_to": null,
-      "randomize": false,
-      "optional": false,
-      "dynamic_option_source": "brands selected at Q1.",
-      "other_attributes": {},
-      "source_reference": {
-        "document": "C02_automotive_purchase_journey.docx",
-        "section": "Questionnaire",
-        "heading_text": "Questionnaire",
-        "block_order": 10,
-        "row_index": 5,
-        "source_kind": "table",
-        "text": "Q2 | Which brands would you consider? | multi | Auto Brand A; Auto Brand B; Auto Brand C; Auto Brand D | Show if: Q1 contains at least one brand\nShow only brands selected at Q1."
-      }
-    },
-    {
-      "id": "Q3",
-      "seq": 7,
-      "wording": "Which brand is your current or most recent provider?",
-      "type": "single",
-      "options": [
-        {
-          "option_id": "Q3-O1",
-          "code": null,
-          "label": "Auto Brand A",
-          "numeric_value": null
-        },
-        {
-          "option_id": "Q3-O2",
-          "code": null,
-          "label": "Auto Brand B",
-          "numeric_value": null
-        },
-        {
-          "option_id": "Q3-O3",
-          "code": null,
-          "label": "Auto Brand C",
-          "numeric_value": null
-        },
-        {
-          "option_id": "Q3-O4",
-          "code": null,
-          "label": "Auto Brand D",
-          "numeric_value": null
-        },
-        {
-          "option_id": "Q3-O5",
-          "code": null,
-          "label": "None/currently not using",
-          "numeric_value": null
-        }
-      ],
-      "matrix_rows": [],
-      "display_condition": "Q1 contains at least one brand",
-      "display_condition_expression": "Q1 contains_any ['Auto Brand A', 'Auto Brand B', 'Auto Brand C', 'Auto Brand D']",
-      "display_condition_expression_origin": "inferred",
-      "min_length": null,
-      "max_length": null,
-      "min_value": null,
-      "max_value": null,
-      "min_selections": null,
-      "exclusive_option": null,
-      "sum_to": null,
-      "randomize": false,
-      "optional": false,
-      "dynamic_option_source": null,
-      "other_attributes": {},
-      "source_reference": {
-        "document": "C02_automotive_purchase_journey.docx",
-        "section": "Questionnaire",
-        "heading_text": "Questionnaire",
-        "block_order": 10,
-        "row_index": 6,
-        "source_kind": "table",
-        "text": "Q3 | Which brand is your current or most recent provider? | single | Auto Brand A; Auto Brand B; Auto Brand C; Auto Brand D; None/currently not using | Show if: Q1 contains at least one brand"
-      }
-    },
-    {
-      "id": "Q4",
-      "seq": 8,
-      "wording": "Which stage best describes your current position?",
-      "type": "single",
-      "options": [
-        {
-          "option_id": "Q4-O1",
-          "code": null,
-          "label": "Initial research",
-          "numeric_value": null
-        },
-        {
-          "option_id": "Q4-O2",
-          "code": null,
-          "label": "Shortlisting",
-          "numeric_value": null
-        },
-        {
-          "option_id": "Q4-O3",
-          "code": null,
-          "label": "Test drive",
-          "numeric_value": null
-        },
-        {
-          "option_id": "Q4-O4",
-          "code": null,
-          "label": "Purchased",
-          "numeric_value": null
-        },
-        {
-          "option_id": "Q4-O5",
-          "code": null,
-          "label": "Post-purchase ownership",
-          "numeric_value": null
-        }
-      ],
-      "matrix_rows": [],
-      "display_condition": null,
-      "display_condition_expression": null,
-      "display_condition_expression_origin": null,
-      "min_length": null,
-      "max_length": null,
-      "min_value": null,
-      "max_value": null,
-      "min_selections": null,
-      "exclusive_option": null,
-      "sum_to": null,
-      "randomize": false,
-      "optional": false,
-      "dynamic_option_source": null,
-      "other_attributes": {},
-      "source_reference": {
-        "document": "C02_automotive_purchase_journey.docx",
-        "section": "Questionnaire",
-        "heading_text": "Questionnaire",
-        "block_order": 10,
-        "row_index": 7,
-        "source_kind": "table",
-        "text": "Q4 | Which stage best describes your current position? | single | Initial research; Shortlisting; Test drive; Purchased; Post-purchase ownership | Always show"
-      }
-    },
-    {
-      "id": "Q5",
-      "seq": 9,
-      "wording": "Which touchpoints did you use?",
-      "type": "multi",
-      "options": [
-        {
-          "option_id": "Q5-O1",
-          "code": null,
-          "label": "Manufacturer website",
-          "numeric_value": null
-        },
-        {
-          "option_id": "Q5-O2",
-          "code": null,
-          "label": "Dealer visit",
-          "numeric_value": null
-        },
-        {
-          "option_id": "Q5-O3",
-          "code": null,
-          "label": "Review site",
-          "numeric_value": null
-        },
-        {
-          "option_id": "Q5-O4",
-          "code": null,
-          "label": "Social media",
-          "numeric_value": null
-        },
-        {
-          "option_id": "Q5-O5",
-          "code": null,
-          "label": "Friends or family",
-          "numeric_value": null
-        },
-        {
-          "option_id": "Q5-O6",
-          "code": null,
-          "label": "Auto show",
-          "numeric_value": null
-        },
-        {
-          "option_id": "Q5-O7",
-          "code": null,
-          "label": "None of these",
-          "numeric_value": null
-        }
-      ],
-      "matrix_rows": [],
-      "display_condition": null,
-      "display_condition_expression": null,
-      "display_condition_expression_origin": null,
-      "min_length": null,
-      "max_length": null,
-      "min_value": null,
-      "max_value": null,
-      "min_selections": null,
-      "exclusive_option": "None of these",
-      "sum_to": null,
-      "randomize": true,
-      "optional": false,
-      "dynamic_option_source": null,
-      "other_attributes": {},
-      "source_reference": {
-        "document": "C02_automotive_purchase_journey.docx",
-        "section": "Questionnaire",
-        "heading_text": "Questionnaire",
-        "block_order": 10,
-        "row_index": 8,
-        "source_kind": "table",
-        "text": "Q5 | Which touchpoints did you use? | multi | Manufacturer website; Dealer visit; Review site; Social media; Friends or family; Auto show; None of these | Validate: {\"exclusive_option\": \"None of these\"}\nRandomize"
-      }
-    },
-    {
-      "id": "Q6",
-      "seq": 10,
-      "wording": "Which touchpoint was most influential?",
-      "type": "single",
-      "options": [
-        {
-          "option_id": "Q6-O1",
-          "code": null,
-          "label": "Manufacturer website",
-          "numeric_value": null
-        },
-        {
-          "option_id": "Q6-O2",
-          "code": null,
-          "label": "Dealer visit",
-          "numeric_value": null
-        },
-        {
-          "option_id": "Q6-O3",
-          "code": null,
-          "label": "Review site",
-          "numeric_value": null
-        },
-        {
-          "option_id": "Q6-O4",
-          "code": null,
-          "label": "Social media",
-          "numeric_value": null
-        },
-        {
-          "option_id": "Q6-O5",
-          "code": null,
-          "label": "Friends or family",
-          "numeric_value": null
-        },
-        {
-          "option_id": "Q6-O6",
-          "code": null,
-          "label": "Auto show",
-          "numeric_value": null
-        }
-      ],
-      "matrix_rows": [],
-      "display_condition": "Q5 contains any touchpoint",
-      "display_condition_expression": "Q5 contains_any ['Manufacturer website', 'Dealer visit', 'Review site', 'Social media', 'Friends or family', 'Auto show']",
-      "display_condition_expression_origin": "inferred",
-      "min_length": null,
-      "max_length": null,
-      "min_value": null,
-      "max_value": null,
-      "min_selections": null,
-      "exclusive_option": null,
-      "sum_to": null,
-      "randomize": false,
-      "optional": false,
-      "dynamic_option_source": "touchpoints selected at Q5.",
-      "other_attributes": {},
-      "source_reference": {
-        "document": "C02_automotive_purchase_journey.docx",
-        "section": "Questionnaire",
-        "heading_text": "Questionnaire",
-        "block_order": 10,
-        "row_index": 9,
-        "source_kind": "table",
-        "text": "Q6 | Which touchpoint was most influential? | single | Manufacturer website; Dealer visit; Review site; Social media; Friends or family; Auto show | Show if: Q5 contains any touchpoint\nShow only touchpoints selected at Q5."
-      }
-    },
-    {
-      "id": "Q7",
-      "seq": 11,
-      "wording": "How satisfied are you with the overall experience?",
-      "type": "single",
-      "options": [
-        {
-          "option_id": "Q7-O1",
-          "code": "1",
-          "label": "Very poor",
-          "numeric_value": 1.0
-        },
-        {
-          "option_id": "Q7-O2",
-          "code": "2",
-          "label": "Poor",
-          "numeric_value": 2.0
-        },
-        {
-          "option_id": "Q7-O3",
-          "code": "3",
-          "label": "Fair",
-          "numeric_value": 3.0
-        },
-        {
-          "option_id": "Q7-O4",
-          "code": "4",
-          "label": "Good",
-          "numeric_value": 4.0
-        },
-        {
-          "option_id": "Q7-O5",
-          "code": "5",
-          "label": "Excellent",
-          "numeric_value": 5.0
-        }
-      ],
-      "matrix_rows": [],
-      "display_condition": "Q3 != 'None/currently not using'",
-      "display_condition_expression": "Q3 != 'None/currently not using'",
-      "display_condition_expression_origin": "derived",
-      "min_length": null,
-      "max_length": null,
-      "min_value": null,
-      "max_value": null,
-      "min_selections": null,
-      "exclusive_option": null,
-      "sum_to": null,
-      "randomize": false,
-      "optional": false,
-      "dynamic_option_source": null,
-      "other_attributes": {},
-      "source_reference": {
-        "document": "C02_automotive_purchase_journey.docx",
-        "section": "Questionnaire",
-        "heading_text": "Questionnaire",
-        "block_order": 10,
-        "row_index": 10,
-        "source_kind": "table",
-        "text": "Q7 | How satisfied are you with the overall experience? | single | 1 - Very poor; 2 - Poor; 3 - Fair; 4 - Good; 5 - Excellent | Show if: Q3 != 'None/currently not using'"
-      }
-    },
-    {
-      "id": "Q8",
-      "seq": 12,
-      "wording": "How likely are you to recommend the current provider?",
-      "type": "single",
-      "options": [
-        {
-          "option_id": "Q8-O1",
-          "code": null,
-          "label": "0",
-          "numeric_value": 0.0
-        },
-        {
-          "option_id": "Q8-O2",
-          "code": null,
-          "label": "1",
-          "numeric_value": 1.0
-        },
-        {
-          "option_id": "Q8-O3",
-          "code": null,
-          "label": "2",
-          "numeric_value": 2.0
-        },
-        {
-          "option_id": "Q8-O4",
-          "code": null,
-          "label": "3",
-          "numeric_value": 3.0
-        },
-        {
-          "option_id": "Q8-O5",
-          "code": null,
-          "label": "4",
-          "numeric_value": 4.0
-        },
-        {
-          "option_id": "Q8-O6",
-          "code": null,
-          "label": "5",
-          "numeric_value": 5.0
-        },
-        {
-          "option_id": "Q8-O7",
-          "code": null,
-          "label": "6",
-          "numeric_value": 6.0
-        },
-        {
-          "option_id": "Q8-O8",
-          "code": null,
-          "label": "7",
-          "numeric_value": 7.0
-        },
-        {
-          "option_id": "Q8-O9",
-          "code": null,
-          "label": "8",
-          "numeric_value": 8.0
-        },
-        {
-          "option_id": "Q8-O10",
-          "code": null,
-          "label": "9",
-          "numeric_value": 9.0
-        },
-        {
-          "option_id": "Q8-O11",
-          "code": null,
-          "label": "10",
-          "numeric_value": 10.0
-        }
-      ],
-      "matrix_rows": [],
-      "display_condition": "Q3 != 'None/currently not using'",
-      "display_condition_expression": "Q3 != 'None/currently not using'",
-      "display_condition_expression_origin": "derived",
-      "min_length": null,
-      "max_length": null,
-      "min_value": null,
-      "max_value": null,
-      "min_selections": null,
-      "exclusive_option": null,
-      "sum_to": null,
-      "randomize": false,
-      "optional": false,
-      "dynamic_option_source": null,
-      "other_attributes": {},
-      "source_reference": {
-        "document": "C02_automotive_purchase_journey.docx",
-        "section": "Questionnaire",
-        "heading_text": "Questionnaire",
-        "block_order": 10,
-        "row_index": 11,
-        "source_kind": "table",
-        "text": "Q8 | How likely are you to recommend the current provider? | single | 0; 1; 2; 3; 4; 5; 6; 7; 8; 9; 10 | Show if: Q3 != 'None/currently not using'"
-      }
-    },
-    {
-      "id": "Q9",
-      "seq": 13,
-      "wording": "Please rate each attribute for your current provider.",
-      "type": "matrix",
-      "options": [
-        {
-          "option_id": "Q9-O1",
-          "code": "1",
-          "label": "Very poor",
-          "numeric_value": 1.0
-        },
-        {
-          "option_id": "Q9-O2",
-          "code": "2",
-          "label": "Poor",
-          "numeric_value": 2.0
-        },
-        {
-          "option_id": "Q9-O3",
-          "code": "3",
-          "label": "Fair",
-          "numeric_value": 3.0
-        },
-        {
-          "option_id": "Q9-O4",
-          "code": "4",
-          "label": "Good",
-          "numeric_value": 4.0
-        },
-        {
-          "option_id": "Q9-O5",
-          "code": "5",
-          "label": "Excellent",
-          "numeric_value": 5.0
-        }
-      ],
-      "matrix_rows": [
-        {
-          "option_id": "Q9-R1",
-          "code": null,
-          "label": "Design",
-          "numeric_value": null
-        },
-        {
-          "option_id": "Q9-R2",
-          "code": null,
-          "label": "Performance",
-          "numeric_value": null
-        },
-        {
-          "option_id": "Q9-R3",
-          "code": null,
-          "label": "Safety",
-          "numeric_value": null
-        },
-        {
-          "option_id": "Q9-R4",
-          "code": null,
-          "label": "Technology",
-          "numeric_value": null
-        },
-        {
-          "option_id": "Q9-R5",
-          "code": null,
-          "label": "Dealer experience",
-          "numeric_value": null
-        },
-        {
-          "option_id": "Q9-R6",
-          "code": null,
-          "label": "Value for money",
-          "numeric_value": null
-        }
-      ],
-      "display_condition": "Q3 != 'None/currently not using'",
-      "display_condition_expression": "Q3 != 'None/currently not using'",
-      "display_condition_expression_origin": "derived",
-      "min_length": null,
-      "max_length": null,
-      "min_value": null,
-      "max_value": null,
-      "min_selections": null,
-      "exclusive_option": null,
-      "sum_to": null,
-      "randomize": true,
-      "optional": false,
-      "dynamic_option_source": null,
-      "other_attributes": {
-        "scale": [
-          "1 - Very poor",
-          "2 - Poor",
-          "3 - Fair",
-          "4 - Good",
-          "5 - Excellent"
-        ],
-        "require_each_row": true
+  {
+    "id": "S2",
+    "seq": 2,
+    "wording": "Which statement best describes your involvement?",
+    "type": "single",
+    "options": [
+      {
+        "option_id": "S2-O1",
+        "code": null,
+        "label": "Purchased or seriously considered a new vehicle in the past 18 months",
+        "numeric_value": null
       },
-      "source_reference": {
-        "document": "C02_automotive_purchase_journey.docx",
-        "section": "Questionnaire",
-        "heading_text": "Questionnaire",
-        "block_order": 10,
-        "row_index": 12,
-        "source_kind": "table",
-        "text": "Q9 | Please rate each attribute for your current provider. | matrix | Rows: Design; Performance; Safety; Technology; Dealer experience; Value for money\nScale: 1 - Very poor; 2 - Poor; 3 - Fair; 4 - Good; 5 - Excellent | Show if: Q3 != 'None/currently not using'\nValidate: {\"scale\": [\"1 - Very poor\", "
-      }
-    },
-    {
-      "id": "Q10",
-      "seq": 14,
-      "wording": "Did you contact support during the experience?",
-      "type": "single",
-      "options": [
-        {
-          "option_id": "Q10-O1",
-          "code": null,
-          "label": "Yes",
-          "numeric_value": null
-        },
-        {
-          "option_id": "Q10-O2",
-          "code": null,
-          "label": "No",
-          "numeric_value": null
-        }
-      ],
-      "matrix_rows": [],
-      "display_condition": null,
-      "display_condition_expression": null,
-      "display_condition_expression_origin": null,
-      "min_length": null,
-      "max_length": null,
-      "min_value": null,
-      "max_value": null,
-      "min_selections": null,
-      "exclusive_option": null,
-      "sum_to": null,
-      "randomize": false,
-      "optional": false,
-      "dynamic_option_source": null,
-      "other_attributes": {},
-      "source_reference": {
-        "document": "C02_automotive_purchase_journey.docx",
-        "section": "Questionnaire",
-        "heading_text": "Questionnaire",
-        "block_order": 10,
-        "row_index": 13,
-        "source_kind": "table",
-        "text": "Q10 | Did you contact support during the experience? | single | Yes; No | Always show"
-      }
-    },
-    {
-      "id": "Q11",
-      "seq": 15,
-      "wording": "Which support channels did you use?",
-      "type": "multi",
-      "options": [
-        {
-          "option_id": "Q11-O1",
-          "code": null,
-          "label": "Phone",
-          "numeric_value": null
-        },
-        {
-          "option_id": "Q11-O2",
-          "code": null,
-          "label": "Email",
-          "numeric_value": null
-        },
-        {
-          "option_id": "Q11-O3",
-          "code": null,
-          "label": "Chat",
-          "numeric_value": null
-        },
-        {
-          "option_id": "Q11-O4",
-          "code": null,
-          "label": "In person",
-          "numeric_value": null
-        },
-        {
-          "option_id": "Q11-O5",
-          "code": null,
-          "label": "Self-service",
-          "numeric_value": null
-        }
-      ],
-      "matrix_rows": [],
-      "display_condition": "Q10 == 'Yes'",
-      "display_condition_expression": "Q10 == 'Yes'",
-      "display_condition_expression_origin": "derived",
-      "min_length": null,
-      "max_length": null,
-      "min_value": null,
-      "max_value": null,
-      "min_selections": 1,
-      "exclusive_option": null,
-      "sum_to": null,
-      "randomize": false,
-      "optional": false,
-      "dynamic_option_source": null,
-      "other_attributes": {},
-      "source_reference": {
-        "document": "C02_automotive_purchase_journey.docx",
-        "section": "Questionnaire",
-        "heading_text": "Questionnaire",
-        "block_order": 10,
-        "row_index": 14,
-        "source_kind": "table",
-        "text": "Q11 | Which support channels did you use? | multi | Phone; Email; Chat; In person; Self-service | Show if: Q10 == 'Yes'\nValidate: {\"min_selections\": 1}"
-      }
-    },
-    {
-      "id": "Q12",
-      "seq": 16,
-      "wording": "Was your issue resolved?",
-      "type": "single",
-      "options": [
-        {
-          "option_id": "Q12-O1",
-          "code": null,
-          "label": "Fully",
-          "numeric_value": null
-        },
-        {
-          "option_id": "Q12-O2",
-          "code": null,
-          "label": "Partly",
-          "numeric_value": null
-        },
-        {
-          "option_id": "Q12-O3",
-          "code": null,
-          "label": "Not resolved",
-          "numeric_value": null
-        }
-      ],
-      "matrix_rows": [],
-      "display_condition": "Q10 == 'Yes'",
-      "display_condition_expression": "Q10 == 'Yes'",
-      "display_condition_expression_origin": "derived",
-      "min_length": null,
-      "max_length": null,
-      "min_value": null,
-      "max_value": null,
-      "min_selections": null,
-      "exclusive_option": null,
-      "sum_to": null,
-      "randomize": false,
-      "optional": false,
-      "dynamic_option_source": null,
-      "other_attributes": {},
-      "source_reference": {
-        "document": "C02_automotive_purchase_journey.docx",
-        "section": "Questionnaire",
-        "heading_text": "Questionnaire",
-        "block_order": 10,
-        "row_index": 15,
-        "source_kind": "table",
-        "text": "Q12 | Was your issue resolved? | single | Fully; Partly; Not resolved | Show if: Q10 == 'Yes'"
-      }
-    },
-    {
-      "id": "Q13",
-      "seq": 17,
-      "wording": "How much effort did resolution require?",
-      "type": "single",
-      "options": [
-        {
-          "option_id": "Q13-O1",
-          "code": "1",
-          "label": "Very low",
-          "numeric_value": 1.0
-        },
-        {
-          "option_id": "Q13-O2",
-          "code": null,
-          "label": "2",
-          "numeric_value": 2.0
-        },
-        {
-          "option_id": "Q13-O3",
-          "code": null,
-          "label": "3",
-          "numeric_value": 3.0
-        },
-        {
-          "option_id": "Q13-O4",
-          "code": null,
-          "label": "4",
-          "numeric_value": 4.0
-        },
-        {
-          "option_id": "Q13-O5",
-          "code": "5",
-          "label": "Very high",
-          "numeric_value": 5.0
-        }
-      ],
-      "matrix_rows": [],
-      "display_condition": "Q12 in ['Fully','Partly']",
-      "display_condition_expression": "Q12 in ['Fully', 'Partly']",
-      "display_condition_expression_origin": "derived",
-      "min_length": null,
-      "max_length": null,
-      "min_value": null,
-      "max_value": null,
-      "min_selections": null,
-      "exclusive_option": null,
-      "sum_to": null,
-      "randomize": false,
-      "optional": false,
-      "dynamic_option_source": null,
-      "other_attributes": {},
-      "source_reference": {
-        "document": "C02_automotive_purchase_journey.docx",
-        "section": "Questionnaire",
-        "heading_text": "Questionnaire",
-        "block_order": 10,
-        "row_index": 16,
-        "source_kind": "table",
-        "text": "Q13 | How much effort did resolution require? | single | 1 - Very low; 2; 3; 4; 5 - Very high | Show if: Q12 in ['Fully','Partly']"
-      }
-    },
-    {
-      "id": "Q14",
-      "seq": 18,
-      "wording": "Why was the issue not resolved?",
-      "type": "text",
-      "options": [],
-      "matrix_rows": [],
-      "display_condition": "Q12 == 'Not resolved'",
-      "display_condition_expression": "Q12 == 'Not resolved'",
-      "display_condition_expression_origin": "derived",
-      "min_length": 10,
-      "max_length": 500,
-      "min_value": null,
-      "max_value": null,
-      "min_selections": null,
-      "exclusive_option": null,
-      "sum_to": null,
-      "randomize": false,
-      "optional": false,
-      "dynamic_option_source": null,
-      "other_attributes": {},
-      "source_reference": {
-        "document": "C02_automotive_purchase_journey.docx",
-        "section": "Questionnaire",
-        "heading_text": "Questionnaire",
-        "block_order": 10,
-        "row_index": 17,
-        "source_kind": "table",
-        "text": "Q14 | Why was the issue not resolved? | text | \u2014 | Show if: Q12 == 'Not resolved'\nValidate: {\"min_length\": 10, \"max_length\": 500}"
-      }
-    },
-    {
-      "id": "Q15",
-      "seq": 19,
-      "wording": "Have you considered switching providers?",
-      "type": "single",
-      "options": [
-        {
-          "option_id": "Q15-O1",
-          "code": null,
-          "label": "Yes",
-          "numeric_value": null
-        },
-        {
-          "option_id": "Q15-O2",
-          "code": null,
-          "label": "No",
-          "numeric_value": null
-        }
-      ],
-      "matrix_rows": [],
-      "display_condition": "Q3 != 'None/currently not using'",
-      "display_condition_expression": "Q3 != 'None/currently not using'",
-      "display_condition_expression_origin": "derived",
-      "min_length": null,
-      "max_length": null,
-      "min_value": null,
-      "max_value": null,
-      "min_selections": null,
-      "exclusive_option": null,
-      "sum_to": null,
-      "randomize": false,
-      "optional": false,
-      "dynamic_option_source": null,
-      "other_attributes": {},
-      "source_reference": {
-        "document": "C02_automotive_purchase_journey.docx",
-        "section": "Questionnaire",
-        "heading_text": "Questionnaire",
-        "block_order": 10,
-        "row_index": 18,
-        "source_kind": "table",
-        "text": "Q15 | Have you considered switching providers? | single | Yes; No | Show if: Q3 != 'None/currently not using'"
-      }
-    },
-    {
-      "id": "Q16",
-      "seq": 20,
-      "wording": "What is the main reason for considering a switch?",
-      "type": "single",
-      "options": [
-        {
-          "option_id": "Q16-O1",
-          "code": null,
-          "label": "Price",
-          "numeric_value": null
-        },
-        {
-          "option_id": "Q16-O2",
-          "code": null,
-          "label": "Service quality",
-          "numeric_value": null
-        },
-        {
-          "option_id": "Q16-O3",
-          "code": null,
-          "label": "Features",
-          "numeric_value": null
-        },
-        {
-          "option_id": "Q16-O4",
-          "code": null,
-          "label": "Poor support",
-          "numeric_value": null
-        },
-        {
-          "option_id": "Q16-O5",
-          "code": null,
-          "label": "Competitor offer",
-          "numeric_value": null
-        },
-        {
-          "option_id": "Q16-O6",
-          "code": null,
-          "label": "Other",
-          "numeric_value": null
-        }
-      ],
-      "matrix_rows": [],
-      "display_condition": "Q15 == 'Yes'",
-      "display_condition_expression": "Q15 == 'Yes'",
-      "display_condition_expression_origin": "derived",
-      "min_length": null,
-      "max_length": null,
-      "min_value": null,
-      "max_value": null,
-      "min_selections": null,
-      "exclusive_option": null,
-      "sum_to": null,
-      "randomize": true,
-      "optional": false,
-      "dynamic_option_source": null,
-      "other_attributes": {},
-      "source_reference": {
-        "document": "C02_automotive_purchase_journey.docx",
-        "section": "Questionnaire",
-        "heading_text": "Questionnaire",
-        "block_order": 10,
-        "row_index": 19,
-        "source_kind": "table",
-        "text": "Q16 | What is the main reason for considering a switch? | single | Price; Service quality; Features; Poor support; Competitor offer; Other | Show if: Q15 == 'Yes'\nRandomize"
-      }
-    },
-    {
-      "id": "Q17",
-      "seq": 21,
-      "wording": "Please specify the other switching reason.",
-      "type": "text",
-      "options": [],
-      "matrix_rows": [],
-      "display_condition": "Q16 == 'Other'",
-      "display_condition_expression": "Q16 == 'Other'",
-      "display_condition_expression_origin": "derived",
-      "min_length": 3,
-      "max_length": 200,
-      "min_value": null,
-      "max_value": null,
-      "min_selections": null,
-      "exclusive_option": null,
-      "sum_to": null,
-      "randomize": false,
-      "optional": false,
-      "dynamic_option_source": null,
-      "other_attributes": {},
-      "source_reference": {
-        "document": "C02_automotive_purchase_journey.docx",
-        "section": "Questionnaire",
-        "heading_text": "Questionnaire",
-        "block_order": 10,
-        "row_index": 20,
-        "source_kind": "table",
-        "text": "Q17 | Please specify the other switching reason. | text | \u2014 | Show if: Q16 == 'Other'\nValidate: {\"min_length\": 3, \"max_length\": 200}"
-      }
-    },
-    {
-      "id": "Q18",
-      "seq": 22,
-      "wording": "Allocate 100 points across the factors that drive your decision.",
-      "type": "constant_sum",
-      "options": [
-        {
-          "option_id": "Q18-O1",
-          "code": null,
-          "label": "Price",
-          "numeric_value": null
-        },
-        {
-          "option_id": "Q18-O2",
-          "code": null,
-          "label": "Quality",
-          "numeric_value": null
-        },
-        {
-          "option_id": "Q18-O3",
-          "code": null,
-          "label": "Convenience",
-          "numeric_value": null
-        },
-        {
-          "option_id": "Q18-O4",
-          "code": null,
-          "label": "Trust",
-          "numeric_value": null
-        },
-        {
-          "option_id": "Q18-O5",
-          "code": null,
-          "label": "Support",
-          "numeric_value": null
-        }
-      ],
-      "matrix_rows": [],
-      "display_condition": null,
-      "display_condition_expression": null,
-      "display_condition_expression_origin": null,
-      "min_length": null,
-      "max_length": null,
-      "min_value": null,
-      "max_value": null,
-      "min_selections": null,
-      "exclusive_option": null,
-      "sum_to": 100,
-      "randomize": false,
-      "optional": false,
-      "dynamic_option_source": null,
-      "other_attributes": {},
-      "source_reference": {
-        "document": "C02_automotive_purchase_journey.docx",
-        "section": "Questionnaire",
-        "heading_text": "Questionnaire",
-        "block_order": 10,
-        "row_index": 21,
-        "source_kind": "table",
-        "text": "Q18 | Allocate 100 points across the factors that drive your decision. | constant_sum | Price; Quality; Convenience; Trust; Support | Validate: {\"sum\": 100}"
-      }
-    },
-    {
-      "id": "Q19",
-      "seq": 23,
-      "wording": "Which new proposition do you prefer?",
-      "type": "single",
-      "options": [
-        {
-          "option_id": "Q19-O1",
-          "code": null,
-          "label": "Concept A",
-          "numeric_value": null
-        },
-        {
-          "option_id": "Q19-O2",
-          "code": null,
-          "label": "Concept B",
-          "numeric_value": null
-        },
-        {
-          "option_id": "Q19-O3",
-          "code": null,
-          "label": "Concept C",
-          "numeric_value": null
-        }
-      ],
-      "matrix_rows": [],
-      "display_condition": null,
-      "display_condition_expression": null,
-      "display_condition_expression_origin": null,
-      "min_length": null,
-      "max_length": null,
-      "min_value": null,
-      "max_value": null,
-      "min_selections": null,
-      "exclusive_option": null,
-      "sum_to": null,
-      "randomize": true,
-      "optional": false,
-      "dynamic_option_source": null,
-      "other_attributes": {
-        "other_instructions": [
-          "Concept descriptions are displayed in randomized order; store display order."
-        ]
+      {
+        "option_id": "S2-O2",
+        "code": null,
+        "label": "Aware but not involved",
+        "numeric_value": null
       },
-      "source_reference": {
-        "document": "C02_automotive_purchase_journey.docx",
-        "section": "Questionnaire",
-        "heading_text": "Questionnaire",
-        "block_order": 10,
-        "row_index": 22,
-        "source_kind": "table",
-        "text": "Q19 | Which new proposition do you prefer? | single | Concept A; Concept B; Concept C | Randomize\nConcept descriptions are displayed in randomized order; store display order."
+      {
+        "option_id": "S2-O3",
+        "code": null,
+        "label": "Not aware of this category",
+        "numeric_value": null
       }
-    },
-    {
-      "id": "Q20",
-      "seq": 24,
-      "wording": "How appealing is the selected proposition?",
-      "type": "single",
-      "options": [
-        {
-          "option_id": "Q20-O1",
-          "code": "1",
-          "label": "Very poor",
-          "numeric_value": 1.0
-        },
-        {
-          "option_id": "Q20-O2",
-          "code": "2",
-          "label": "Poor",
-          "numeric_value": 2.0
-        },
-        {
-          "option_id": "Q20-O3",
-          "code": "3",
-          "label": "Fair",
-          "numeric_value": 3.0
-        },
-        {
-          "option_id": "Q20-O4",
-          "code": "4",
-          "label": "Good",
-          "numeric_value": 4.0
-        },
-        {
-          "option_id": "Q20-O5",
-          "code": "5",
-          "label": "Excellent",
-          "numeric_value": 5.0
-        }
+    ],
+    "matrix_rows": [],
+    "display_condition": null,
+    "display_condition_expression": null,
+    "display_condition_expression_origin": null,
+    "min_length": null,
+    "max_length": null,
+    "min_value": null,
+    "max_value": null,
+    "min_selections": null,
+    "exclusive_option": null,
+    "sum_to": null,
+    "randomize": false,
+    "optional": false,
+    "dynamic_option_source": null,
+    "other_attributes": {}
+  },
+  {
+    "id": "S3",
+    "seq": 3,
+    "wording": "Have you participated in market research in the past 3 months?",
+    "type": "single",
+    "options": [
+      {
+        "option_id": "S3-O1",
+        "code": null,
+        "label": "Yes",
+        "numeric_value": null
+      },
+      {
+        "option_id": "S3-O2",
+        "code": null,
+        "label": "No",
+        "numeric_value": null
+      }
+    ],
+    "matrix_rows": [],
+    "display_condition": null,
+    "display_condition_expression": null,
+    "display_condition_expression_origin": null,
+    "min_length": null,
+    "max_length": null,
+    "min_value": null,
+    "max_value": null,
+    "min_selections": null,
+    "exclusive_option": null,
+    "sum_to": null,
+    "randomize": false,
+    "optional": false,
+    "dynamic_option_source": null,
+    "other_attributes": {}
+  },
+  {
+    "id": "S4",
+    "seq": 4,
+    "wording": "Do you or an immediate family member work in market research, advertising, or the category being studied?",
+    "type": "single",
+    "options": [
+      {
+        "option_id": "S4-O1",
+        "code": null,
+        "label": "Yes",
+        "numeric_value": null
+      },
+      {
+        "option_id": "S4-O2",
+        "code": null,
+        "label": "No",
+        "numeric_value": null
+      }
+    ],
+    "matrix_rows": [],
+    "display_condition": null,
+    "display_condition_expression": null,
+    "display_condition_expression_origin": null,
+    "min_length": null,
+    "max_length": null,
+    "min_value": null,
+    "max_value": null,
+    "min_selections": null,
+    "exclusive_option": null,
+    "sum_to": null,
+    "randomize": false,
+    "optional": false,
+    "dynamic_option_source": null,
+    "other_attributes": {}
+  },
+  {
+    "id": "Q1",
+    "seq": 5,
+    "wording": "Which of these brands have you heard of?",
+    "type": "multi",
+    "options": [
+      {
+        "option_id": "Q1-O1",
+        "code": null,
+        "label": "Auto Brand A",
+        "numeric_value": null
+      },
+      {
+        "option_id": "Q1-O2",
+        "code": null,
+        "label": "Auto Brand B",
+        "numeric_value": null
+      },
+      {
+        "option_id": "Q1-O3",
+        "code": null,
+        "label": "Auto Brand C",
+        "numeric_value": null
+      },
+      {
+        "option_id": "Q1-O4",
+        "code": null,
+        "label": "Auto Brand D",
+        "numeric_value": null
+      },
+      {
+        "option_id": "Q1-O5",
+        "code": null,
+        "label": "None of these",
+        "numeric_value": null
+      }
+    ],
+    "matrix_rows": [],
+    "display_condition": null,
+    "display_condition_expression": null,
+    "display_condition_expression_origin": null,
+    "min_length": null,
+    "max_length": null,
+    "min_value": null,
+    "max_value": null,
+    "min_selections": null,
+    "exclusive_option": "None of these",
+    "sum_to": null,
+    "randomize": true,
+    "optional": false,
+    "dynamic_option_source": null,
+    "other_attributes": {}
+  },
+  {
+    "id": "Q2",
+    "seq": 6,
+    "wording": "Which brands would you consider?",
+    "type": "multi",
+    "options": [
+      {
+        "option_id": "Q2-O1",
+        "code": null,
+        "label": "Auto Brand A",
+        "numeric_value": null
+      },
+      {
+        "option_id": "Q2-O2",
+        "code": null,
+        "label": "Auto Brand B",
+        "numeric_value": null
+      },
+      {
+        "option_id": "Q2-O3",
+        "code": null,
+        "label": "Auto Brand C",
+        "numeric_value": null
+      },
+      {
+        "option_id": "Q2-O4",
+        "code": null,
+        "label": "Auto Brand D",
+        "numeric_value": null
+      }
+    ],
+    "matrix_rows": [],
+    "display_condition": "Q1 contains at least one brand",
+    "display_condition_expression": "Q1 contains_any ['Auto Brand A', 'Auto Brand B', 'Auto Brand C', 'Auto Brand D']",
+    "display_condition_expression_origin": "inferred",
+    "min_length": null,
+    "max_length": null,
+    "min_value": null,
+    "max_value": null,
+    "min_selections": null,
+    "exclusive_option": null,
+    "sum_to": null,
+    "randomize": false,
+    "optional": false,
+    "dynamic_option_source": "brands selected at Q1.",
+    "other_attributes": {}
+  },
+  {
+    "id": "Q3",
+    "seq": 7,
+    "wording": "Which brand is your current or most recent provider?",
+    "type": "single",
+    "options": [
+      {
+        "option_id": "Q3-O1",
+        "code": null,
+        "label": "Auto Brand A",
+        "numeric_value": null
+      },
+      {
+        "option_id": "Q3-O2",
+        "code": null,
+        "label": "Auto Brand B",
+        "numeric_value": null
+      },
+      {
+        "option_id": "Q3-O3",
+        "code": null,
+        "label": "Auto Brand C",
+        "numeric_value": null
+      },
+      {
+        "option_id": "Q3-O4",
+        "code": null,
+        "label": "Auto Brand D",
+        "numeric_value": null
+      },
+      {
+        "option_id": "Q3-O5",
+        "code": null,
+        "label": "None/currently not using",
+        "numeric_value": null
+      }
+    ],
+    "matrix_rows": [],
+    "display_condition": "Q1 contains at least one brand",
+    "display_condition_expression": "Q1 contains_any ['Auto Brand A', 'Auto Brand B', 'Auto Brand C', 'Auto Brand D']",
+    "display_condition_expression_origin": "inferred",
+    "min_length": null,
+    "max_length": null,
+    "min_value": null,
+    "max_value": null,
+    "min_selections": null,
+    "exclusive_option": null,
+    "sum_to": null,
+    "randomize": false,
+    "optional": false,
+    "dynamic_option_source": null,
+    "other_attributes": {}
+  },
+  {
+    "id": "Q4",
+    "seq": 8,
+    "wording": "Which stage best describes your current position?",
+    "type": "single",
+    "options": [
+      {
+        "option_id": "Q4-O1",
+        "code": null,
+        "label": "Initial research",
+        "numeric_value": null
+      },
+      {
+        "option_id": "Q4-O2",
+        "code": null,
+        "label": "Shortlisting",
+        "numeric_value": null
+      },
+      {
+        "option_id": "Q4-O3",
+        "code": null,
+        "label": "Test drive",
+        "numeric_value": null
+      },
+      {
+        "option_id": "Q4-O4",
+        "code": null,
+        "label": "Purchased",
+        "numeric_value": null
+      },
+      {
+        "option_id": "Q4-O5",
+        "code": null,
+        "label": "Post-purchase ownership",
+        "numeric_value": null
+      }
+    ],
+    "matrix_rows": [],
+    "display_condition": null,
+    "display_condition_expression": null,
+    "display_condition_expression_origin": null,
+    "min_length": null,
+    "max_length": null,
+    "min_value": null,
+    "max_value": null,
+    "min_selections": null,
+    "exclusive_option": null,
+    "sum_to": null,
+    "randomize": false,
+    "optional": false,
+    "dynamic_option_source": null,
+    "other_attributes": {}
+  },
+  {
+    "id": "Q5",
+    "seq": 9,
+    "wording": "Which touchpoints did you use?",
+    "type": "multi",
+    "options": [
+      {
+        "option_id": "Q5-O1",
+        "code": null,
+        "label": "Manufacturer website",
+        "numeric_value": null
+      },
+      {
+        "option_id": "Q5-O2",
+        "code": null,
+        "label": "Dealer visit",
+        "numeric_value": null
+      },
+      {
+        "option_id": "Q5-O3",
+        "code": null,
+        "label": "Review site",
+        "numeric_value": null
+      },
+      {
+        "option_id": "Q5-O4",
+        "code": null,
+        "label": "Social media",
+        "numeric_value": null
+      },
+      {
+        "option_id": "Q5-O5",
+        "code": null,
+        "label": "Friends or family",
+        "numeric_value": null
+      },
+      {
+        "option_id": "Q5-O6",
+        "code": null,
+        "label": "Auto show",
+        "numeric_value": null
+      },
+      {
+        "option_id": "Q5-O7",
+        "code": null,
+        "label": "None of these",
+        "numeric_value": null
+      }
+    ],
+    "matrix_rows": [],
+    "display_condition": null,
+    "display_condition_expression": null,
+    "display_condition_expression_origin": null,
+    "min_length": null,
+    "max_length": null,
+    "min_value": null,
+    "max_value": null,
+    "min_selections": null,
+    "exclusive_option": "None of these",
+    "sum_to": null,
+    "randomize": true,
+    "optional": false,
+    "dynamic_option_source": null,
+    "other_attributes": {}
+  },
+  {
+    "id": "Q6",
+    "seq": 10,
+    "wording": "Which touchpoint was most influential?",
+    "type": "single",
+    "options": [
+      {
+        "option_id": "Q6-O1",
+        "code": null,
+        "label": "Manufacturer website",
+        "numeric_value": null
+      },
+      {
+        "option_id": "Q6-O2",
+        "code": null,
+        "label": "Dealer visit",
+        "numeric_value": null
+      },
+      {
+        "option_id": "Q6-O3",
+        "code": null,
+        "label": "Review site",
+        "numeric_value": null
+      },
+      {
+        "option_id": "Q6-O4",
+        "code": null,
+        "label": "Social media",
+        "numeric_value": null
+      },
+      {
+        "option_id": "Q6-O5",
+        "code": null,
+        "label": "Friends or family",
+        "numeric_value": null
+      },
+      {
+        "option_id": "Q6-O6",
+        "code": null,
+        "label": "Auto show",
+        "numeric_value": null
+      }
+    ],
+    "matrix_rows": [],
+    "display_condition": "Q5 contains any touchpoint",
+    "display_condition_expression": "Q5 contains_any ['Manufacturer website', 'Dealer visit', 'Review site', 'Social media', 'Friends or family', 'Auto show']",
+    "display_condition_expression_origin": "inferred",
+    "min_length": null,
+    "max_length": null,
+    "min_value": null,
+    "max_value": null,
+    "min_selections": null,
+    "exclusive_option": null,
+    "sum_to": null,
+    "randomize": false,
+    "optional": false,
+    "dynamic_option_source": "touchpoints selected at Q5.",
+    "other_attributes": {}
+  },
+  {
+    "id": "Q7",
+    "seq": 11,
+    "wording": "How satisfied are you with the overall experience?",
+    "type": "single",
+    "options": [
+      {
+        "option_id": "Q7-O1",
+        "code": "1",
+        "label": "Very poor",
+        "numeric_value": 1.0
+      },
+      {
+        "option_id": "Q7-O2",
+        "code": "2",
+        "label": "Poor",
+        "numeric_value": 2.0
+      },
+      {
+        "option_id": "Q7-O3",
+        "code": "3",
+        "label": "Fair",
+        "numeric_value": 3.0
+      },
+      {
+        "option_id": "Q7-O4",
+        "code": "4",
+        "label": "Good",
+        "numeric_value": 4.0
+      },
+      {
+        "option_id": "Q7-O5",
+        "code": "5",
+        "label": "Excellent",
+        "numeric_value": 5.0
+      }
+    ],
+    "matrix_rows": [],
+    "display_condition": "Q3 != 'None/currently not using'",
+    "display_condition_expression": "Q3 != 'None/currently not using'",
+    "display_condition_expression_origin": "derived",
+    "min_length": null,
+    "max_length": null,
+    "min_value": null,
+    "max_value": null,
+    "min_selections": null,
+    "exclusive_option": null,
+    "sum_to": null,
+    "randomize": false,
+    "optional": false,
+    "dynamic_option_source": null,
+    "other_attributes": {}
+  },
+  {
+    "id": "Q8",
+    "seq": 12,
+    "wording": "How likely are you to recommend the current provider?",
+    "type": "single",
+    "options": [
+      {
+        "option_id": "Q8-O1",
+        "code": null,
+        "label": "0",
+        "numeric_value": 0.0
+      },
+      {
+        "option_id": "Q8-O2",
+        "code": null,
+        "label": "1",
+        "numeric_value": 1.0
+      },
+      {
+        "option_id": "Q8-O3",
+        "code": null,
+        "label": "2",
+        "numeric_value": 2.0
+      },
+      {
+        "option_id": "Q8-O4",
+        "code": null,
+        "label": "3",
+        "numeric_value": 3.0
+      },
+      {
+        "option_id": "Q8-O5",
+        "code": null,
+        "label": "4",
+        "numeric_value": 4.0
+      },
+      {
+        "option_id": "Q8-O6",
+        "code": null,
+        "label": "5",
+        "numeric_value": 5.0
+      },
+      {
+        "option_id": "Q8-O7",
+        "code": null,
+        "label": "6",
+        "numeric_value": 6.0
+      },
+      {
+        "option_id": "Q8-O8",
+        "code": null,
+        "label": "7",
+        "numeric_value": 7.0
+      },
+      {
+        "option_id": "Q8-O9",
+        "code": null,
+        "label": "8",
+        "numeric_value": 8.0
+      },
+      {
+        "option_id": "Q8-O10",
+        "code": null,
+        "label": "9",
+        "numeric_value": 9.0
+      },
+      {
+        "option_id": "Q8-O11",
+        "code": null,
+        "label": "10",
+        "numeric_value": 10.0
+      }
+    ],
+    "matrix_rows": [],
+    "display_condition": "Q3 != 'None/currently not using'",
+    "display_condition_expression": "Q3 != 'None/currently not using'",
+    "display_condition_expression_origin": "derived",
+    "min_length": null,
+    "max_length": null,
+    "min_value": null,
+    "max_value": null,
+    "min_selections": null,
+    "exclusive_option": null,
+    "sum_to": null,
+    "randomize": false,
+    "optional": false,
+    "dynamic_option_source": null,
+    "other_attributes": {}
+  },
+  {
+    "id": "Q9",
+    "seq": 13,
+    "wording": "Please rate each attribute for your current provider.",
+    "type": "matrix",
+    "options": [
+      {
+        "option_id": "Q9-O1",
+        "code": "1",
+        "label": "Very poor",
+        "numeric_value": 1.0
+      },
+      {
+        "option_id": "Q9-O2",
+        "code": "2",
+        "label": "Poor",
+        "numeric_value": 2.0
+      },
+      {
+        "option_id": "Q9-O3",
+        "code": "3",
+        "label": "Fair",
+        "numeric_value": 3.0
+      },
+      {
+        "option_id": "Q9-O4",
+        "code": "4",
+        "label": "Good",
+        "numeric_value": 4.0
+      },
+      {
+        "option_id": "Q9-O5",
+        "code": "5",
+        "label": "Excellent",
+        "numeric_value": 5.0
+      }
+    ],
+    "matrix_rows": [
+      {
+        "option_id": "Q9-R1",
+        "code": null,
+        "label": "Design",
+        "numeric_value": null
+      },
+      {
+        "option_id": "Q9-R2",
+        "code": null,
+        "label": "Performance",
+        "numeric_value": null
+      },
+      {
+        "option_id": "Q9-R3",
+        "code": null,
+        "label": "Safety",
+        "numeric_value": null
+      },
+      {
+        "option_id": "Q9-R4",
+        "code": null,
+        "label": "Technology",
+        "numeric_value": null
+      },
+      {
+        "option_id": "Q9-R5",
+        "code": null,
+        "label": "Dealer experience",
+        "numeric_value": null
+      },
+      {
+        "option_id": "Q9-R6",
+        "code": null,
+        "label": "Value for money",
+        "numeric_value": null
+      }
+    ],
+    "display_condition": "Q3 != 'None/currently not using'",
+    "display_condition_expression": "Q3 != 'None/currently not using'",
+    "display_condition_expression_origin": "derived",
+    "min_length": null,
+    "max_length": null,
+    "min_value": null,
+    "max_value": null,
+    "min_selections": null,
+    "exclusive_option": null,
+    "sum_to": null,
+    "randomize": true,
+    "optional": false,
+    "dynamic_option_source": null,
+    "other_attributes": {
+      "scale": [
+        "1 - Very poor",
+        "2 - Poor",
+        "3 - Fair",
+        "4 - Good",
+        "5 - Excellent"
       ],
-      "matrix_rows": [],
-      "display_condition": null,
-      "display_condition_expression": null,
-      "display_condition_expression_origin": null,
-      "min_length": null,
-      "max_length": null,
-      "min_value": null,
-      "max_value": null,
-      "min_selections": null,
-      "exclusive_option": null,
-      "sum_to": null,
-      "randomize": false,
-      "optional": false,
-      "dynamic_option_source": null,
-      "other_attributes": {},
-      "source_reference": {
-        "document": "C02_automotive_purchase_journey.docx",
-        "section": "Questionnaire",
-        "heading_text": "Questionnaire",
-        "block_order": 10,
-        "row_index": 23,
-        "source_kind": "table",
-        "text": "Q20 | How appealing is the selected proposition? | single | 1 - Very poor; 2 - Poor; 3 - Fair; 4 - Good; 5 - Excellent | Always show"
-      }
-    },
-    {
-      "id": "Q21",
-      "seq": 25,
-      "wording": "What most influenced your choice?",
-      "type": "text",
-      "options": [],
-      "matrix_rows": [],
-      "display_condition": null,
-      "display_condition_expression": null,
-      "display_condition_expression_origin": null,
-      "min_length": 5,
-      "max_length": 500,
-      "min_value": null,
-      "max_value": null,
-      "min_selections": null,
-      "exclusive_option": null,
-      "sum_to": null,
-      "randomize": false,
-      "optional": false,
-      "dynamic_option_source": null,
-      "other_attributes": {},
-      "source_reference": {
-        "document": "C02_automotive_purchase_journey.docx",
-        "section": "Questionnaire",
-        "heading_text": "Questionnaire",
-        "block_order": 10,
-        "row_index": 24,
-        "source_kind": "table",
-        "text": "Q21 | What most influenced your choice? | text | \u2014 | Validate: {\"min_length\": 5, \"max_length\": 500}"
-      }
-    },
-    {
-      "id": "D1",
-      "seq": 26,
-      "wording": "Which region do you live in?",
-      "type": "single",
-      "options": [
-        {
-          "option_id": "D1-O1",
-          "code": null,
-          "label": "North",
-          "numeric_value": null
-        },
-        {
-          "option_id": "D1-O2",
-          "code": null,
-          "label": "South",
-          "numeric_value": null
-        },
-        {
-          "option_id": "D1-O3",
-          "code": null,
-          "label": "East",
-          "numeric_value": null
-        },
-        {
-          "option_id": "D1-O4",
-          "code": null,
-          "label": "West",
-          "numeric_value": null
-        },
-        {
-          "option_id": "D1-O5",
-          "code": null,
-          "label": "Central",
-          "numeric_value": null
-        }
-      ],
-      "matrix_rows": [],
-      "display_condition": null,
-      "display_condition_expression": null,
-      "display_condition_expression_origin": null,
-      "min_length": null,
-      "max_length": null,
-      "min_value": null,
-      "max_value": null,
-      "min_selections": null,
-      "exclusive_option": null,
-      "sum_to": null,
-      "randomize": false,
-      "optional": false,
-      "dynamic_option_source": null,
-      "other_attributes": {},
-      "source_reference": {
-        "document": "C02_automotive_purchase_journey.docx",
-        "section": "Questionnaire",
-        "heading_text": "Questionnaire",
-        "block_order": 10,
-        "row_index": 25,
-        "source_kind": "table",
-        "text": "D1 | Which region do you live in? | single | North; South; East; West; Central | Always show"
-      }
-    },
-    {
-      "id": "D2",
-      "seq": 27,
-      "wording": "Which age group describes you?",
-      "type": "single",
-      "options": [
-        {
-          "option_id": "D2-O1",
-          "code": null,
-          "label": "21-29",
-          "numeric_value": null
-        },
-        {
-          "option_id": "D2-O2",
-          "code": null,
-          "label": "30-39",
-          "numeric_value": null
-        },
-        {
-          "option_id": "D2-O3",
-          "code": null,
-          "label": "40-49",
-          "numeric_value": null
-        },
-        {
-          "option_id": "D2-O4",
-          "code": null,
-          "label": "50-59",
-          "numeric_value": null
-        },
-        {
-          "option_id": "D2-O5",
-          "code": null,
-          "label": "60+",
-          "numeric_value": null
-        }
-      ],
-      "matrix_rows": [],
-      "display_condition": null,
-      "display_condition_expression": null,
-      "display_condition_expression_origin": null,
-      "min_length": null,
-      "max_length": null,
-      "min_value": null,
-      "max_value": null,
-      "min_selections": null,
-      "exclusive_option": null,
-      "sum_to": null,
-      "randomize": false,
-      "optional": false,
-      "dynamic_option_source": null,
-      "other_attributes": {},
-      "source_reference": {
-        "document": "C02_automotive_purchase_journey.docx",
-        "section": "Questionnaire",
-        "heading_text": "Questionnaire",
-        "block_order": 10,
-        "row_index": 26,
-        "source_kind": "table",
-        "text": "D2 | Which age group describes you? | single | 21-29; 30-39; 40-49; 50-59; 60+ | Always show"
-      }
-    },
-    {
-      "id": "D3",
-      "seq": 28,
-      "wording": "How do you describe your gender?",
-      "type": "single",
-      "options": [
-        {
-          "option_id": "D3-O1",
-          "code": null,
-          "label": "Woman",
-          "numeric_value": null
-        },
-        {
-          "option_id": "D3-O2",
-          "code": null,
-          "label": "Man",
-          "numeric_value": null
-        },
-        {
-          "option_id": "D3-O3",
-          "code": null,
-          "label": "Non-binary",
-          "numeric_value": null
-        },
-        {
-          "option_id": "D3-O4",
-          "code": null,
-          "label": "Prefer to self-describe",
-          "numeric_value": null
-        },
-        {
-          "option_id": "D3-O5",
-          "code": null,
-          "label": "Prefer not to say",
-          "numeric_value": null
-        }
-      ],
-      "matrix_rows": [],
-      "display_condition": null,
-      "display_condition_expression": null,
-      "display_condition_expression_origin": null,
-      "min_length": null,
-      "max_length": null,
-      "min_value": null,
-      "max_value": null,
-      "min_selections": null,
-      "exclusive_option": null,
-      "sum_to": null,
-      "randomize": false,
-      "optional": false,
-      "dynamic_option_source": null,
-      "other_attributes": {},
-      "source_reference": {
-        "document": "C02_automotive_purchase_journey.docx",
-        "section": "Questionnaire",
-        "heading_text": "Questionnaire",
-        "block_order": 10,
-        "row_index": 27,
-        "source_kind": "table",
-        "text": "D3 | How do you describe your gender? | single | Woman; Man; Non-binary; Prefer to self-describe; Prefer not to say | Always show"
-      }
-    },
-    {
-      "id": "D4",
-      "seq": 29,
-      "wording": "What is your household or organizational decision band?",
-      "type": "single",
-      "options": [
-        {
-          "option_id": "D4-O1",
-          "code": null,
-          "label": "Band 1",
-          "numeric_value": null
-        },
-        {
-          "option_id": "D4-O2",
-          "code": null,
-          "label": "Band 2",
-          "numeric_value": null
-        },
-        {
-          "option_id": "D4-O3",
-          "code": null,
-          "label": "Band 3",
-          "numeric_value": null
-        },
-        {
-          "option_id": "D4-O4",
-          "code": null,
-          "label": "Band 4",
-          "numeric_value": null
-        },
-        {
-          "option_id": "D4-O5",
-          "code": null,
-          "label": "Prefer not to say",
-          "numeric_value": null
-        }
-      ],
-      "matrix_rows": [],
-      "display_condition": null,
-      "display_condition_expression": null,
-      "display_condition_expression_origin": null,
-      "min_length": null,
-      "max_length": null,
-      "min_value": null,
-      "max_value": null,
-      "min_selections": null,
-      "exclusive_option": null,
-      "sum_to": null,
-      "randomize": false,
-      "optional": false,
-      "dynamic_option_source": null,
-      "other_attributes": {},
-      "source_reference": {
-        "document": "C02_automotive_purchase_journey.docx",
-        "section": "Questionnaire",
-        "heading_text": "Questionnaire",
-        "block_order": 10,
-        "row_index": 28,
-        "source_kind": "table",
-        "text": "D4 | What is your household or organizational decision band? | single | Band 1; Band 2; Band 3; Band 4; Prefer not to say | Always show"
-      }
-    },
-    {
-      "id": "Q22",
-      "seq": 30,
-      "wording": "May we use your anonymized comments in internal reporting?",
-      "type": "single",
-      "options": [
-        {
-          "option_id": "Q22-O1",
-          "code": null,
-          "label": "Yes",
-          "numeric_value": null
-        },
-        {
-          "option_id": "Q22-O2",
-          "code": null,
-          "label": "No",
-          "numeric_value": null
-        }
-      ],
-      "matrix_rows": [],
-      "display_condition": null,
-      "display_condition_expression": null,
-      "display_condition_expression_origin": null,
-      "min_length": null,
-      "max_length": null,
-      "min_value": null,
-      "max_value": null,
-      "min_selections": null,
-      "exclusive_option": null,
-      "sum_to": null,
-      "randomize": false,
-      "optional": false,
-      "dynamic_option_source": null,
-      "other_attributes": {},
-      "source_reference": {
-        "document": "C02_automotive_purchase_journey.docx",
-        "section": "Questionnaire",
-        "heading_text": "Questionnaire",
-        "block_order": 10,
-        "row_index": 29,
-        "source_kind": "table",
-        "text": "Q22 | May we use your anonymized comments in internal reporting? | single | Yes; No | Always show"
-      }
-    },
-    {
-      "id": "Q23",
-      "seq": 31,
-      "wording": "Any final comments?",
-      "type": "text",
-      "options": [],
-      "matrix_rows": [],
-      "display_condition": null,
-      "display_condition_expression": null,
-      "display_condition_expression_origin": null,
-      "min_length": null,
-      "max_length": 1000,
-      "min_value": null,
-      "max_value": null,
-      "min_selections": null,
-      "exclusive_option": null,
-      "sum_to": null,
-      "randomize": false,
-      "optional": true,
-      "dynamic_option_source": null,
-      "other_attributes": {},
-      "source_reference": {
-        "document": "C02_automotive_purchase_journey.docx",
-        "section": "Questionnaire",
-        "heading_text": "Questionnaire",
-        "block_order": 10,
-        "row_index": 30,
-        "source_kind": "table",
-        "text": "Q23 | Any final comments? | text | \u2014 | Validate: {\"max_length\": 1000}\nOptional"
-      }
+      "require_each_row": true
     }
-  ]
-}
+  },
+  {
+    "id": "Q10",
+    "seq": 14,
+    "wording": "Did you contact support during the experience?",
+    "type": "single",
+    "options": [
+      {
+        "option_id": "Q10-O1",
+        "code": null,
+        "label": "Yes",
+        "numeric_value": null
+      },
+      {
+        "option_id": "Q10-O2",
+        "code": null,
+        "label": "No",
+        "numeric_value": null
+      }
+    ],
+    "matrix_rows": [],
+    "display_condition": null,
+    "display_condition_expression": null,
+    "display_condition_expression_origin": null,
+    "min_length": null,
+    "max_length": null,
+    "min_value": null,
+    "max_value": null,
+    "min_selections": null,
+    "exclusive_option": null,
+    "sum_to": null,
+    "randomize": false,
+    "optional": false,
+    "dynamic_option_source": null,
+    "other_attributes": {}
+  },
+  {
+    "id": "Q11",
+    "seq": 15,
+    "wording": "Which support channels did you use?",
+    "type": "multi",
+    "options": [
+      {
+        "option_id": "Q11-O1",
+        "code": null,
+        "label": "Phone",
+        "numeric_value": null
+      },
+      {
+        "option_id": "Q11-O2",
+        "code": null,
+        "label": "Email",
+        "numeric_value": null
+      },
+      {
+        "option_id": "Q11-O3",
+        "code": null,
+        "label": "Chat",
+        "numeric_value": null
+      },
+      {
+        "option_id": "Q11-O4",
+        "code": null,
+        "label": "In person",
+        "numeric_value": null
+      },
+      {
+        "option_id": "Q11-O5",
+        "code": null,
+        "label": "Self-service",
+        "numeric_value": null
+      }
+    ],
+    "matrix_rows": [],
+    "display_condition": "Q10 == 'Yes'",
+    "display_condition_expression": "Q10 == 'Yes'",
+    "display_condition_expression_origin": "derived",
+    "min_length": null,
+    "max_length": null,
+    "min_value": null,
+    "max_value": null,
+    "min_selections": 1,
+    "exclusive_option": null,
+    "sum_to": null,
+    "randomize": false,
+    "optional": false,
+    "dynamic_option_source": null,
+    "other_attributes": {}
+  },
+  {
+    "id": "Q12",
+    "seq": 16,
+    "wording": "Was your issue resolved?",
+    "type": "single",
+    "options": [
+      {
+        "option_id": "Q12-O1",
+        "code": null,
+        "label": "Fully",
+        "numeric_value": null
+      },
+      {
+        "option_id": "Q12-O2",
+        "code": null,
+        "label": "Partly",
+        "numeric_value": null
+      },
+      {
+        "option_id": "Q12-O3",
+        "code": null,
+        "label": "Not resolved",
+        "numeric_value": null
+      }
+    ],
+    "matrix_rows": [],
+    "display_condition": "Q10 == 'Yes'",
+    "display_condition_expression": "Q10 == 'Yes'",
+    "display_condition_expression_origin": "derived",
+    "min_length": null,
+    "max_length": null,
+    "min_value": null,
+    "max_value": null,
+    "min_selections": null,
+    "exclusive_option": null,
+    "sum_to": null,
+    "randomize": false,
+    "optional": false,
+    "dynamic_option_source": null,
+    "other_attributes": {}
+  },
+  {
+    "id": "Q13",
+    "seq": 17,
+    "wording": "How much effort did resolution require?",
+    "type": "single",
+    "options": [
+      {
+        "option_id": "Q13-O1",
+        "code": "1",
+        "label": "Very low",
+        "numeric_value": 1.0
+      },
+      {
+        "option_id": "Q13-O2",
+        "code": null,
+        "label": "2",
+        "numeric_value": 2.0
+      },
+      {
+        "option_id": "Q13-O3",
+        "code": null,
+        "label": "3",
+        "numeric_value": 3.0
+      },
+      {
+        "option_id": "Q13-O4",
+        "code": null,
+        "label": "4",
+        "numeric_value": 4.0
+      },
+      {
+        "option_id": "Q13-O5",
+        "code": "5",
+        "label": "Very high",
+        "numeric_value": 5.0
+      }
+    ],
+    "matrix_rows": [],
+    "display_condition": "Q12 in ['Fully','Partly']",
+    "display_condition_expression": "Q12 in ['Fully', 'Partly']",
+    "display_condition_expression_origin": "derived",
+    "min_length": null,
+    "max_length": null,
+    "min_value": null,
+    "max_value": null,
+    "min_selections": null,
+    "exclusive_option": null,
+    "sum_to": null,
+    "randomize": false,
+    "optional": false,
+    "dynamic_option_source": null,
+    "other_attributes": {}
+  },
+  {
+    "id": "Q14",
+    "seq": 18,
+    "wording": "Why was the issue not resolved?",
+    "type": "text",
+    "options": [],
+    "matrix_rows": [],
+    "display_condition": "Q12 == 'Not resolved'",
+    "display_condition_expression": "Q12 == 'Not resolved'",
+    "display_condition_expression_origin": "derived",
+    "min_length": 10,
+    "max_length": 500,
+    "min_value": null,
+    "max_value": null,
+    "min_selections": null,
+    "exclusive_option": null,
+    "sum_to": null,
+    "randomize": false,
+    "optional": false,
+    "dynamic_option_source": null,
+    "other_attributes": {}
+  },
+  {
+    "id": "Q15",
+    "seq": 19,
+    "wording": "Have you considered switching providers?",
+    "type": "single",
+    "options": [
+      {
+        "option_id": "Q15-O1",
+        "code": null,
+        "label": "Yes",
+        "numeric_value": null
+      },
+      {
+        "option_id": "Q15-O2",
+        "code": null,
+        "label": "No",
+        "numeric_value": null
+      }
+    ],
+    "matrix_rows": [],
+    "display_condition": "Q3 != 'None/currently not using'",
+    "display_condition_expression": "Q3 != 'None/currently not using'",
+    "display_condition_expression_origin": "derived",
+    "min_length": null,
+    "max_length": null,
+    "min_value": null,
+    "max_value": null,
+    "min_selections": null,
+    "exclusive_option": null,
+    "sum_to": null,
+    "randomize": false,
+    "optional": false,
+    "dynamic_option_source": null,
+    "other_attributes": {}
+  },
+  {
+    "id": "Q16",
+    "seq": 20,
+    "wording": "What is the main reason for considering a switch?",
+    "type": "single",
+    "options": [
+      {
+        "option_id": "Q16-O1",
+        "code": null,
+        "label": "Price",
+        "numeric_value": null
+      },
+      {
+        "option_id": "Q16-O2",
+        "code": null,
+        "label": "Service quality",
+        "numeric_value": null
+      },
+      {
+        "option_id": "Q16-O3",
+        "code": null,
+        "label": "Features",
+        "numeric_value": null
+      },
+      {
+        "option_id": "Q16-O4",
+        "code": null,
+        "label": "Poor support",
+        "numeric_value": null
+      },
+      {
+        "option_id": "Q16-O5",
+        "code": null,
+        "label": "Competitor offer",
+        "numeric_value": null
+      },
+      {
+        "option_id": "Q16-O6",
+        "code": null,
+        "label": "Other",
+        "numeric_value": null
+      }
+    ],
+    "matrix_rows": [],
+    "display_condition": "Q15 == 'Yes'",
+    "display_condition_expression": "Q15 == 'Yes'",
+    "display_condition_expression_origin": "derived",
+    "min_length": null,
+    "max_length": null,
+    "min_value": null,
+    "max_value": null,
+    "min_selections": null,
+    "exclusive_option": null,
+    "sum_to": null,
+    "randomize": true,
+    "optional": false,
+    "dynamic_option_source": null,
+    "other_attributes": {}
+  },
+  {
+    "id": "Q17",
+    "seq": 21,
+    "wording": "Please specify the other switching reason.",
+    "type": "text",
+    "options": [],
+    "matrix_rows": [],
+    "display_condition": "Q16 == 'Other'",
+    "display_condition_expression": "Q16 == 'Other'",
+    "display_condition_expression_origin": "derived",
+    "min_length": 3,
+    "max_length": 200,
+    "min_value": null,
+    "max_value": null,
+    "min_selections": null,
+    "exclusive_option": null,
+    "sum_to": null,
+    "randomize": false,
+    "optional": false,
+    "dynamic_option_source": null,
+    "other_attributes": {}
+  },
+  {
+    "id": "Q18",
+    "seq": 22,
+    "wording": "Allocate 100 points across the factors that drive your decision.",
+    "type": "constant_sum",
+    "options": [
+      {
+        "option_id": "Q18-O1",
+        "code": null,
+        "label": "Price",
+        "numeric_value": null
+      },
+      {
+        "option_id": "Q18-O2",
+        "code": null,
+        "label": "Quality",
+        "numeric_value": null
+      },
+      {
+        "option_id": "Q18-O3",
+        "code": null,
+        "label": "Convenience",
+        "numeric_value": null
+      },
+      {
+        "option_id": "Q18-O4",
+        "code": null,
+        "label": "Trust",
+        "numeric_value": null
+      },
+      {
+        "option_id": "Q18-O5",
+        "code": null,
+        "label": "Support",
+        "numeric_value": null
+      }
+    ],
+    "matrix_rows": [],
+    "display_condition": null,
+    "display_condition_expression": null,
+    "display_condition_expression_origin": null,
+    "min_length": null,
+    "max_length": null,
+    "min_value": null,
+    "max_value": null,
+    "min_selections": null,
+    "exclusive_option": null,
+    "sum_to": 100,
+    "randomize": false,
+    "optional": false,
+    "dynamic_option_source": null,
+    "other_attributes": {}
+  },
+  {
+    "id": "Q19",
+    "seq": 23,
+    "wording": "Which new proposition do you prefer?",
+    "type": "single",
+    "options": [
+      {
+        "option_id": "Q19-O1",
+        "code": null,
+        "label": "Concept A",
+        "numeric_value": null
+      },
+      {
+        "option_id": "Q19-O2",
+        "code": null,
+        "label": "Concept B",
+        "numeric_value": null
+      },
+      {
+        "option_id": "Q19-O3",
+        "code": null,
+        "label": "Concept C",
+        "numeric_value": null
+      }
+    ],
+    "matrix_rows": [],
+    "display_condition": null,
+    "display_condition_expression": null,
+    "display_condition_expression_origin": null,
+    "min_length": null,
+    "max_length": null,
+    "min_value": null,
+    "max_value": null,
+    "min_selections": null,
+    "exclusive_option": null,
+    "sum_to": null,
+    "randomize": true,
+    "optional": false,
+    "dynamic_option_source": null,
+    "other_attributes": {
+      "other_instructions": [
+        "Concept descriptions are displayed in randomized order; store display order."
+      ]
+    }
+  },
+  {
+    "id": "Q20",
+    "seq": 24,
+    "wording": "How appealing is the selected proposition?",
+    "type": "single",
+    "options": [
+      {
+        "option_id": "Q20-O1",
+        "code": "1",
+        "label": "Very poor",
+        "numeric_value": 1.0
+      },
+      {
+        "option_id": "Q20-O2",
+        "code": "2",
+        "label": "Poor",
+        "numeric_value": 2.0
+      },
+      {
+        "option_id": "Q20-O3",
+        "code": "3",
+        "label": "Fair",
+        "numeric_value": 3.0
+      },
+      {
+        "option_id": "Q20-O4",
+        "code": "4",
+        "label": "Good",
+        "numeric_value": 4.0
+      },
+      {
+        "option_id": "Q20-O5",
+        "code": "5",
+        "label": "Excellent",
+        "numeric_value": 5.0
+      }
+    ],
+    "matrix_rows": [],
+    "display_condition": null,
+    "display_condition_expression": null,
+    "display_condition_expression_origin": null,
+    "min_length": null,
+    "max_length": null,
+    "min_value": null,
+    "max_value": null,
+    "min_selections": null,
+    "exclusive_option": null,
+    "sum_to": null,
+    "randomize": false,
+    "optional": false,
+    "dynamic_option_source": null,
+    "other_attributes": {}
+  },
+  {
+    "id": "Q21",
+    "seq": 25,
+    "wording": "What most influenced your choice?",
+    "type": "text",
+    "options": [],
+    "matrix_rows": [],
+    "display_condition": null,
+    "display_condition_expression": null,
+    "display_condition_expression_origin": null,
+    "min_length": 5,
+    "max_length": 500,
+    "min_value": null,
+    "max_value": null,
+    "min_selections": null,
+    "exclusive_option": null,
+    "sum_to": null,
+    "randomize": false,
+    "optional": false,
+    "dynamic_option_source": null,
+    "other_attributes": {}
+  },
+  {
+    "id": "D1",
+    "seq": 26,
+    "wording": "Which region do you live in?",
+    "type": "single",
+    "options": [
+      {
+        "option_id": "D1-O1",
+        "code": null,
+        "label": "North",
+        "numeric_value": null
+      },
+      {
+        "option_id": "D1-O2",
+        "code": null,
+        "label": "South",
+        "numeric_value": null
+      },
+      {
+        "option_id": "D1-O3",
+        "code": null,
+        "label": "East",
+        "numeric_value": null
+      },
+      {
+        "option_id": "D1-O4",
+        "code": null,
+        "label": "West",
+        "numeric_value": null
+      },
+      {
+        "option_id": "D1-O5",
+        "code": null,
+        "label": "Central",
+        "numeric_value": null
+      }
+    ],
+    "matrix_rows": [],
+    "display_condition": null,
+    "display_condition_expression": null,
+    "display_condition_expression_origin": null,
+    "min_length": null,
+    "max_length": null,
+    "min_value": null,
+    "max_value": null,
+    "min_selections": null,
+    "exclusive_option": null,
+    "sum_to": null,
+    "randomize": false,
+    "optional": false,
+    "dynamic_option_source": null,
+    "other_attributes": {}
+  },
+  {
+    "id": "D2",
+    "seq": 27,
+    "wording": "Which age group describes you?",
+    "type": "single",
+    "options": [
+      {
+        "option_id": "D2-O1",
+        "code": null,
+        "label": "21-29",
+        "numeric_value": null
+      },
+      {
+        "option_id": "D2-O2",
+        "code": null,
+        "label": "30-39",
+        "numeric_value": null
+      },
+      {
+        "option_id": "D2-O3",
+        "code": null,
+        "label": "40-49",
+        "numeric_value": null
+      },
+      {
+        "option_id": "D2-O4",
+        "code": null,
+        "label": "50-59",
+        "numeric_value": null
+      },
+      {
+        "option_id": "D2-O5",
+        "code": null,
+        "label": "60+",
+        "numeric_value": null
+      }
+    ],
+    "matrix_rows": [],
+    "display_condition": null,
+    "display_condition_expression": null,
+    "display_condition_expression_origin": null,
+    "min_length": null,
+    "max_length": null,
+    "min_value": null,
+    "max_value": null,
+    "min_selections": null,
+    "exclusive_option": null,
+    "sum_to": null,
+    "randomize": false,
+    "optional": false,
+    "dynamic_option_source": null,
+    "other_attributes": {}
+  },
+  {
+    "id": "D3",
+    "seq": 28,
+    "wording": "How do you describe your gender?",
+    "type": "single",
+    "options": [
+      {
+        "option_id": "D3-O1",
+        "code": null,
+        "label": "Woman",
+        "numeric_value": null
+      },
+      {
+        "option_id": "D3-O2",
+        "code": null,
+        "label": "Man",
+        "numeric_value": null
+      },
+      {
+        "option_id": "D3-O3",
+        "code": null,
+        "label": "Non-binary",
+        "numeric_value": null
+      },
+      {
+        "option_id": "D3-O4",
+        "code": null,
+        "label": "Prefer to self-describe",
+        "numeric_value": null
+      },
+      {
+        "option_id": "D3-O5",
+        "code": null,
+        "label": "Prefer not to say",
+        "numeric_value": null
+      }
+    ],
+    "matrix_rows": [],
+    "display_condition": null,
+    "display_condition_expression": null,
+    "display_condition_expression_origin": null,
+    "min_length": null,
+    "max_length": null,
+    "min_value": null,
+    "max_value": null,
+    "min_selections": null,
+    "exclusive_option": null,
+    "sum_to": null,
+    "randomize": false,
+    "optional": false,
+    "dynamic_option_source": null,
+    "other_attributes": {}
+  },
+  {
+    "id": "D4",
+    "seq": 29,
+    "wording": "What is your household or organizational decision band?",
+    "type": "single",
+    "options": [
+      {
+        "option_id": "D4-O1",
+        "code": null,
+        "label": "Band 1",
+        "numeric_value": null
+      },
+      {
+        "option_id": "D4-O2",
+        "code": null,
+        "label": "Band 2",
+        "numeric_value": null
+      },
+      {
+        "option_id": "D4-O3",
+        "code": null,
+        "label": "Band 3",
+        "numeric_value": null
+      },
+      {
+        "option_id": "D4-O4",
+        "code": null,
+        "label": "Band 4",
+        "numeric_value": null
+      },
+      {
+        "option_id": "D4-O5",
+        "code": null,
+        "label": "Prefer not to say",
+        "numeric_value": null
+      }
+    ],
+    "matrix_rows": [],
+    "display_condition": null,
+    "display_condition_expression": null,
+    "display_condition_expression_origin": null,
+    "min_length": null,
+    "max_length": null,
+    "min_value": null,
+    "max_value": null,
+    "min_selections": null,
+    "exclusive_option": null,
+    "sum_to": null,
+    "randomize": false,
+    "optional": false,
+    "dynamic_option_source": null,
+    "other_attributes": {}
+  },
+  {
+    "id": "Q22",
+    "seq": 30,
+    "wording": "May we use your anonymized comments in internal reporting?",
+    "type": "single",
+    "options": [
+      {
+        "option_id": "Q22-O1",
+        "code": null,
+        "label": "Yes",
+        "numeric_value": null
+      },
+      {
+        "option_id": "Q22-O2",
+        "code": null,
+        "label": "No",
+        "numeric_value": null
+      }
+    ],
+    "matrix_rows": [],
+    "display_condition": null,
+    "display_condition_expression": null,
+    "display_condition_expression_origin": null,
+    "min_length": null,
+    "max_length": null,
+    "min_value": null,
+    "max_value": null,
+    "min_selections": null,
+    "exclusive_option": null,
+    "sum_to": null,
+    "randomize": false,
+    "optional": false,
+    "dynamic_option_source": null,
+    "other_attributes": {}
+  },
+  {
+    "id": "Q23",
+    "seq": 31,
+    "wording": "Any final comments?",
+    "type": "text",
+    "options": [],
+    "matrix_rows": [],
+    "display_condition": null,
+    "display_condition_expression": null,
+    "display_condition_expression_origin": null,
+    "min_length": null,
+    "max_length": 1000,
+    "min_value": null,
+    "max_value": null,
+    "min_selections": null,
+    "exclusive_option": null,
+    "sum_to": null,
+    "randomize": false,
+    "optional": true,
+    "dynamic_option_source": null,
+    "other_attributes": {}
+  }
+]

@@ -1,355 +1,162 @@
-{
-  "schema_version": "1.0.0",
-  "artifact": "stage4_routing",
-  "stage": 4,
-  "survey_id": "C01_chronic_care_patient_journey",
-  "source_document": {
-    "filename": "C01_chronic_care_patient_journey.docx",
-    "sha256": "319e6b78a2a1e36ef712ce421e6d2c1db3325a087a07d8d0e93ec38b39207e4b",
-    "bytes": 43612
+[
+  {
+    "rule": "R1",
+    "condition_raw": "S1 == 'No'",
+    "condition_expression": "S1 == 'No'",
+    "condition_expression_origin": "derived",
+    "action": "terminate",
+    "destination": "TERM_AGE"
   },
-  "generated_at": "2026-08-30T11:18:01+00:00",
-  "item_count": 20,
-  "content": [
-    {
-      "rule": "R1",
-      "condition_raw": "S1 == 'No'",
-      "condition_expression": "S1 == 'No'",
-      "condition_expression_origin": "derived",
-      "action": "terminate",
-      "destination": "TERM_AGE",
-      "source_reference": {
-        "document": "C01_chronic_care_patient_journey.docx",
-        "section": "Routing and termination",
-        "heading_text": "Routing and termination",
-        "block_order": 12,
-        "row_index": 0,
-        "source_kind": "table",
-        "text": "R1 | S1 == 'No' | terminate | TERM_AGE"
-      }
-    },
-    {
-      "rule": "R2",
-      "condition_raw": "S2 != 'Personally manage an ongoing chronic health condition'",
-      "condition_expression": "S2 != 'Personally manage an ongoing chronic health condition'",
-      "condition_expression_origin": "derived",
-      "action": "terminate",
-      "destination": "TERM_INVOLVEMENT",
-      "source_reference": {
-        "document": "C01_chronic_care_patient_journey.docx",
-        "section": "Routing and termination",
-        "heading_text": "Routing and termination",
-        "block_order": 12,
-        "row_index": 1,
-        "source_kind": "table",
-        "text": "R2 | S2 != 'Personally manage an ongoing chronic health condition' | terminate | TERM_INVOLVEMENT"
-      }
-    },
-    {
-      "rule": "R3",
-      "condition_raw": "S3 == 'Yes'",
-      "condition_expression": "S3 == 'Yes'",
-      "condition_expression_origin": "derived",
-      "action": "terminate",
-      "destination": "TERM_RECENT_RESEARCH",
-      "source_reference": {
-        "document": "C01_chronic_care_patient_journey.docx",
-        "section": "Routing and termination",
-        "heading_text": "Routing and termination",
-        "block_order": 12,
-        "row_index": 2,
-        "source_kind": "table",
-        "text": "R3 | S3 == 'Yes' | terminate | TERM_RECENT_RESEARCH"
-      }
-    },
-    {
-      "rule": "R4",
-      "condition_raw": "S4 == 'Yes'",
-      "condition_expression": "S4 == 'Yes'",
-      "condition_expression_origin": "derived",
-      "action": "terminate",
-      "destination": "TERM_CONFLICT",
-      "source_reference": {
-        "document": "C01_chronic_care_patient_journey.docx",
-        "section": "Routing and termination",
-        "heading_text": "Routing and termination",
-        "block_order": 12,
-        "row_index": 3,
-        "source_kind": "table",
-        "text": "R4 | S4 == 'Yes' | terminate | TERM_CONFLICT"
-      }
-    },
-    {
-      "rule": "R5",
-      "condition_raw": "Q1 == ['None of these']",
-      "condition_expression": "Q1 == ['None of these']",
-      "condition_expression_origin": "derived",
-      "action": "skip",
-      "destination": "Q4",
-      "source_reference": {
-        "document": "C01_chronic_care_patient_journey.docx",
-        "section": "Routing and termination",
-        "heading_text": "Routing and termination",
-        "block_order": 12,
-        "row_index": 4,
-        "source_kind": "table",
-        "text": "R5 | Q1 == ['None of these'] | skip | Q4"
-      }
-    },
-    {
-      "rule": "R6",
-      "condition_raw": "Q1 contains at least one brand",
-      "condition_expression": "Q1 contains_any ['Care Network A', 'Care Network B', 'Care Network C']",
-      "condition_expression_origin": "inferred",
-      "action": "show",
-      "destination": "Q2",
-      "source_reference": {
-        "document": "C01_chronic_care_patient_journey.docx",
-        "section": "Routing and termination",
-        "heading_text": "Routing and termination",
-        "block_order": 12,
-        "row_index": 5,
-        "source_kind": "table",
-        "text": "R6 | Q1 contains at least one brand | show | Q2"
-      }
-    },
-    {
-      "rule": "R7",
-      "condition_raw": "Q1 contains at least one brand",
-      "condition_expression": "Q1 contains_any ['Care Network A', 'Care Network B', 'Care Network C']",
-      "condition_expression_origin": "inferred",
-      "action": "show",
-      "destination": "Q3",
-      "source_reference": {
-        "document": "C01_chronic_care_patient_journey.docx",
-        "section": "Routing and termination",
-        "heading_text": "Routing and termination",
-        "block_order": 12,
-        "row_index": 6,
-        "source_kind": "table",
-        "text": "R7 | Q1 contains at least one brand | show | Q3"
-      }
-    },
-    {
-      "rule": "R8",
-      "condition_raw": "Q5 contains any touchpoint",
-      "condition_expression": "Q5 contains_any ['Primary-care physician', 'Specialist', 'Hospital', 'Pharmacy', 'Patient portal', 'Support programme']",
-      "condition_expression_origin": "inferred",
-      "action": "show",
-      "destination": "Q6",
-      "source_reference": {
-        "document": "C01_chronic_care_patient_journey.docx",
-        "section": "Routing and termination",
-        "heading_text": "Routing and termination",
-        "block_order": 12,
-        "row_index": 7,
-        "source_kind": "table",
-        "text": "R8 | Q5 contains any touchpoint | show | Q6"
-      }
-    },
-    {
-      "rule": "R9",
-      "condition_raw": "Q3 != 'None/currently not using'",
-      "condition_expression": "Q3 != 'None/currently not using'",
-      "condition_expression_origin": "derived",
-      "action": "show",
-      "destination": "Q7",
-      "source_reference": {
-        "document": "C01_chronic_care_patient_journey.docx",
-        "section": "Routing and termination",
-        "heading_text": "Routing and termination",
-        "block_order": 12,
-        "row_index": 8,
-        "source_kind": "table",
-        "text": "R9 | Q3 != 'None/currently not using' | show | Q7"
-      }
-    },
-    {
-      "rule": "R10",
-      "condition_raw": "Q3 != 'None/currently not using'",
-      "condition_expression": "Q3 != 'None/currently not using'",
-      "condition_expression_origin": "derived",
-      "action": "show",
-      "destination": "Q8",
-      "source_reference": {
-        "document": "C01_chronic_care_patient_journey.docx",
-        "section": "Routing and termination",
-        "heading_text": "Routing and termination",
-        "block_order": 12,
-        "row_index": 9,
-        "source_kind": "table",
-        "text": "R10 | Q3 != 'None/currently not using' | show | Q8"
-      }
-    },
-    {
-      "rule": "R11",
-      "condition_raw": "Q3 != 'None/currently not using'",
-      "condition_expression": "Q3 != 'None/currently not using'",
-      "condition_expression_origin": "derived",
-      "action": "show",
-      "destination": "Q9",
-      "source_reference": {
-        "document": "C01_chronic_care_patient_journey.docx",
-        "section": "Routing and termination",
-        "heading_text": "Routing and termination",
-        "block_order": 12,
-        "row_index": 10,
-        "source_kind": "table",
-        "text": "R11 | Q3 != 'None/currently not using' | show | Q9"
-      }
-    },
-    {
-      "rule": "R12",
-      "condition_raw": "Q10 == 'Yes'",
-      "condition_expression": "Q10 == 'Yes'",
-      "condition_expression_origin": "derived",
-      "action": "show",
-      "destination": "Q11",
-      "source_reference": {
-        "document": "C01_chronic_care_patient_journey.docx",
-        "section": "Routing and termination",
-        "heading_text": "Routing and termination",
-        "block_order": 12,
-        "row_index": 11,
-        "source_kind": "table",
-        "text": "R12 | Q10 == 'Yes' | show | Q11"
-      }
-    },
-    {
-      "rule": "R13",
-      "condition_raw": "Q10 == 'Yes'",
-      "condition_expression": "Q10 == 'Yes'",
-      "condition_expression_origin": "derived",
-      "action": "show",
-      "destination": "Q12",
-      "source_reference": {
-        "document": "C01_chronic_care_patient_journey.docx",
-        "section": "Routing and termination",
-        "heading_text": "Routing and termination",
-        "block_order": 12,
-        "row_index": 12,
-        "source_kind": "table",
-        "text": "R13 | Q10 == 'Yes' | show | Q12"
-      }
-    },
-    {
-      "rule": "R14",
-      "condition_raw": "Q12 in ['Fully','Partly']",
-      "condition_expression": "Q12 in ['Fully', 'Partly']",
-      "condition_expression_origin": "derived",
-      "action": "show",
-      "destination": "Q13",
-      "source_reference": {
-        "document": "C01_chronic_care_patient_journey.docx",
-        "section": "Routing and termination",
-        "heading_text": "Routing and termination",
-        "block_order": 12,
-        "row_index": 13,
-        "source_kind": "table",
-        "text": "R14 | Q12 in ['Fully','Partly'] | show | Q13"
-      }
-    },
-    {
-      "rule": "R15",
-      "condition_raw": "Q12 == 'Not resolved'",
-      "condition_expression": "Q12 == 'Not resolved'",
-      "condition_expression_origin": "derived",
-      "action": "show",
-      "destination": "Q14",
-      "source_reference": {
-        "document": "C01_chronic_care_patient_journey.docx",
-        "section": "Routing and termination",
-        "heading_text": "Routing and termination",
-        "block_order": 12,
-        "row_index": 14,
-        "source_kind": "table",
-        "text": "R15 | Q12 == 'Not resolved' | show | Q14"
-      }
-    },
-    {
-      "rule": "R16",
-      "condition_raw": "Q15 == 'Yes'",
-      "condition_expression": "Q15 == 'Yes'",
-      "condition_expression_origin": "derived",
-      "action": "show",
-      "destination": "Q16",
-      "source_reference": {
-        "document": "C01_chronic_care_patient_journey.docx",
-        "section": "Routing and termination",
-        "heading_text": "Routing and termination",
-        "block_order": 12,
-        "row_index": 15,
-        "source_kind": "table",
-        "text": "R16 | Q15 == 'Yes' | show | Q16"
-      }
-    },
-    {
-      "rule": "R17",
-      "condition_raw": "Q16 == 'Other'",
-      "condition_expression": "Q16 == 'Other'",
-      "condition_expression_origin": "derived",
-      "action": "show",
-      "destination": "Q17",
-      "source_reference": {
-        "document": "C01_chronic_care_patient_journey.docx",
-        "section": "Routing and termination",
-        "heading_text": "Routing and termination",
-        "block_order": 12,
-        "row_index": 16,
-        "source_kind": "table",
-        "text": "R17 | Q16 == 'Other' | show | Q17"
-      }
-    },
-    {
-      "rule": "R18",
-      "condition_raw": "sum(Q18) != 100",
-      "condition_expression": "sum(Q18) != 100",
-      "condition_expression_origin": "derived",
-      "action": "reject",
-      "destination": "Q18",
-      "source_reference": {
-        "document": "C01_chronic_care_patient_journey.docx",
-        "section": "Routing and termination",
-        "heading_text": "Routing and termination",
-        "block_order": 12,
-        "row_index": 17,
-        "source_kind": "table",
-        "text": "R18 | sum(Q18) != 100 | reject | Q18"
-      }
-    },
-    {
-      "rule": "R19",
-      "condition_raw": "exclusive option selected with another response at Q1 or Q5",
-      "condition_expression": null,
-      "condition_expression_origin": null,
-      "action": "reject",
-      "destination": "CURRENT_QUESTION",
-      "source_reference": {
-        "document": "C01_chronic_care_patient_journey.docx",
-        "section": "Routing and termination",
-        "heading_text": "Routing and termination",
-        "block_order": 12,
-        "row_index": 18,
-        "source_kind": "table",
-        "text": "R19 | exclusive option selected with another response at Q1 or Q5 | reject | CURRENT_QUESTION"
-      }
-    },
-    {
-      "rule": "R20",
-      "condition_raw": "selected option at Q6 was not selected at Q5",
-      "condition_expression": "Q6 not in Q5",
-      "condition_expression_origin": "inferred",
-      "action": "reject",
-      "destination": "Q6",
-      "source_reference": {
-        "document": "C01_chronic_care_patient_journey.docx",
-        "section": "Routing and termination",
-        "heading_text": "Routing and termination",
-        "block_order": 12,
-        "row_index": 19,
-        "source_kind": "table",
-        "text": "R20 | selected option at Q6 was not selected at Q5 | reject | Q6"
-      }
-    }
-  ]
-}
+  {
+    "rule": "R2",
+    "condition_raw": "S2 != 'Personally manage an ongoing chronic health condition'",
+    "condition_expression": "S2 != 'Personally manage an ongoing chronic health condition'",
+    "condition_expression_origin": "derived",
+    "action": "terminate",
+    "destination": "TERM_INVOLVEMENT"
+  },
+  {
+    "rule": "R3",
+    "condition_raw": "S3 == 'Yes'",
+    "condition_expression": "S3 == 'Yes'",
+    "condition_expression_origin": "derived",
+    "action": "terminate",
+    "destination": "TERM_RECENT_RESEARCH"
+  },
+  {
+    "rule": "R4",
+    "condition_raw": "S4 == 'Yes'",
+    "condition_expression": "S4 == 'Yes'",
+    "condition_expression_origin": "derived",
+    "action": "terminate",
+    "destination": "TERM_CONFLICT"
+  },
+  {
+    "rule": "R5",
+    "condition_raw": "Q1 == ['None of these']",
+    "condition_expression": "Q1 == ['None of these']",
+    "condition_expression_origin": "derived",
+    "action": "skip",
+    "destination": "Q4"
+  },
+  {
+    "rule": "R6",
+    "condition_raw": "Q1 contains at least one brand",
+    "condition_expression": "Q1 contains_any ['Care Network A', 'Care Network B', 'Care Network C']",
+    "condition_expression_origin": "inferred",
+    "action": "show",
+    "destination": "Q2"
+  },
+  {
+    "rule": "R7",
+    "condition_raw": "Q1 contains at least one brand",
+    "condition_expression": "Q1 contains_any ['Care Network A', 'Care Network B', 'Care Network C']",
+    "condition_expression_origin": "inferred",
+    "action": "show",
+    "destination": "Q3"
+  },
+  {
+    "rule": "R8",
+    "condition_raw": "Q5 contains any touchpoint",
+    "condition_expression": "Q5 contains_any ['Primary-care physician', 'Specialist', 'Hospital', 'Pharmacy', 'Patient portal', 'Support programme']",
+    "condition_expression_origin": "inferred",
+    "action": "show",
+    "destination": "Q6"
+  },
+  {
+    "rule": "R9",
+    "condition_raw": "Q3 != 'None/currently not using'",
+    "condition_expression": "Q3 != 'None/currently not using'",
+    "condition_expression_origin": "derived",
+    "action": "show",
+    "destination": "Q7"
+  },
+  {
+    "rule": "R10",
+    "condition_raw": "Q3 != 'None/currently not using'",
+    "condition_expression": "Q3 != 'None/currently not using'",
+    "condition_expression_origin": "derived",
+    "action": "show",
+    "destination": "Q8"
+  },
+  {
+    "rule": "R11",
+    "condition_raw": "Q3 != 'None/currently not using'",
+    "condition_expression": "Q3 != 'None/currently not using'",
+    "condition_expression_origin": "derived",
+    "action": "show",
+    "destination": "Q9"
+  },
+  {
+    "rule": "R12",
+    "condition_raw": "Q10 == 'Yes'",
+    "condition_expression": "Q10 == 'Yes'",
+    "condition_expression_origin": "derived",
+    "action": "show",
+    "destination": "Q11"
+  },
+  {
+    "rule": "R13",
+    "condition_raw": "Q10 == 'Yes'",
+    "condition_expression": "Q10 == 'Yes'",
+    "condition_expression_origin": "derived",
+    "action": "show",
+    "destination": "Q12"
+  },
+  {
+    "rule": "R14",
+    "condition_raw": "Q12 in ['Fully','Partly']",
+    "condition_expression": "Q12 in ['Fully', 'Partly']",
+    "condition_expression_origin": "derived",
+    "action": "show",
+    "destination": "Q13"
+  },
+  {
+    "rule": "R15",
+    "condition_raw": "Q12 == 'Not resolved'",
+    "condition_expression": "Q12 == 'Not resolved'",
+    "condition_expression_origin": "derived",
+    "action": "show",
+    "destination": "Q14"
+  },
+  {
+    "rule": "R16",
+    "condition_raw": "Q15 == 'Yes'",
+    "condition_expression": "Q15 == 'Yes'",
+    "condition_expression_origin": "derived",
+    "action": "show",
+    "destination": "Q16"
+  },
+  {
+    "rule": "R17",
+    "condition_raw": "Q16 == 'Other'",
+    "condition_expression": "Q16 == 'Other'",
+    "condition_expression_origin": "derived",
+    "action": "show",
+    "destination": "Q17"
+  },
+  {
+    "rule": "R18",
+    "condition_raw": "sum(Q18) != 100",
+    "condition_expression": "sum(Q18) != 100",
+    "condition_expression_origin": "derived",
+    "action": "reject",
+    "destination": "Q18"
+  },
+  {
+    "rule": "R19",
+    "condition_raw": "exclusive option selected with another response at Q1 or Q5",
+    "condition_expression": null,
+    "condition_expression_origin": null,
+    "action": "reject",
+    "destination": "CURRENT_QUESTION"
+  },
+  {
+    "rule": "R20",
+    "condition_raw": "selected option at Q6 was not selected at Q5",
+    "condition_expression": "Q6 not in Q5",
+    "condition_expression_origin": "inferred",
+    "action": "reject",
+    "destination": "Q6"
+  }
+]

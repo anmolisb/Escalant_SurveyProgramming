@@ -1,20 +1,7 @@
 {
-  "schema_version": "1.0.0",
-  "artifact": "stage4_survey",
-  "stage": 4,
-  "survey_id": "C01_chronic_care_patient_journey",
-  "source_document": {
-    "filename": "C01_chronic_care_patient_journey.docx",
-    "sha256": "319e6b78a2a1e36ef712ce421e6d2c1db3325a087a07d8d0e93ec38b39207e4b",
-    "bytes": 43612
-  },
-  "generated_at": "2026-08-30T11:18:01+00:00",
-  "item_count": null,
-  "content": {
-    "qre_id": "C01",
-    "source_file": "C01_chronic_care_patient_journey.docx",
-    "title": "Chronic-Care Patient Journey",
-    "description": "Map the care journey, service experience, unmet needs and support interactions.",
-    "welcome_text": null
-  }
+  "qre_id": "C01",
+  "source_file": "C01_chronic_care_patient_journey.docx",
+  "title": "Chronic-Care Patient Journey",
+  "description": "Map the care journey, service experience, unmet needs and support interactions.",
+  "welcome_text": null
 }

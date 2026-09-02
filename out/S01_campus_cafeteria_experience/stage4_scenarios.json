@@ -1,109 +1,69 @@
-{
-  "schema_version": "1.0.0",
-  "artifact": "stage4_scenarios",
-  "stage": 4,
-  "survey_id": "S01_campus_cafeteria_experience",
-  "source_document": {
-    "filename": "S01_campus_cafeteria_experience.docx",
-    "sha256": "2756cb3b6dc3f21cdc7c1d35b7cfb0e2270af2a918ba6fe682e72ae8e121a804",
-    "bytes": 40578
+[
+  {
+    "id": "T1",
+    "purpose": "recent-use screenout",
+    "key_inputs": {
+      "S1": "No"
+    },
+    "expected_outcome": {
+      "expected_end": "TERM_INELIGIBLE"
+    },
+    "input_question_ids": [
+      "S1"
+    ],
+    "referenced_ids": [
+      "TERM_INELIGIBLE"
+    ],
+    "parse_errors": []
   },
-  "generated_at": "2026-08-30T11:17:40+00:00",
-  "item_count": 3,
-  "content": [
-    {
-      "id": "T1",
-      "purpose": "recent-use screenout",
-      "key_inputs": {
-        "S1": "No"
-      },
-      "expected_outcome": {
-        "expected_end": "TERM_INELIGIBLE"
-      },
-      "input_question_ids": [
-        "S1"
-      ],
-      "referenced_ids": [
-        "TERM_INELIGIBLE"
-      ],
-      "parse_errors": [],
-      "source_reference": {
-        "document": "S01_campus_cafeteria_experience.docx",
-        "section": "Acceptance test scenarios",
-        "heading_text": "Acceptance test scenarios",
-        "block_order": 21,
-        "row_index": 0,
-        "source_kind": "table",
-        "text": "T1 | recent-use screenout | {\"S1\": \"No\"} | {\"expected_end\": \"TERM_INELIGIBLE\"}"
-      }
+  {
+    "id": "T2",
+    "purpose": "eligible with problem",
+    "key_inputs": {
+      "S1": "Yes",
+      "S2": "Yes",
+      "Q5": "Yes"
     },
-    {
-      "id": "T2",
-      "purpose": "eligible with problem",
-      "key_inputs": {
-        "S1": "Yes",
-        "S2": "Yes",
-        "Q5": "Yes"
-      },
-      "expected_outcome": {
-        "expected_visible": [
-          "Q6"
-        ],
-        "expected_end": "COMPLETE"
-      },
-      "input_question_ids": [
-        "S1",
-        "S2",
-        "Q5"
+    "expected_outcome": {
+      "expected_visible": [
+        "Q6"
       ],
-      "referenced_ids": [
-        "Q6",
-        "COMPLETE"
-      ],
-      "parse_errors": [],
-      "source_reference": {
-        "document": "S01_campus_cafeteria_experience.docx",
-        "section": "Acceptance test scenarios",
-        "heading_text": "Acceptance test scenarios",
-        "block_order": 21,
-        "row_index": 1,
-        "source_kind": "table",
-        "text": "T2 | eligible with problem | {\"S1\": \"Yes\", \"S2\": \"Yes\", \"Q5\": \"Yes\"} | {\"expected_visible\": [\"Q6\"], \"expected_end\": \"COMPLETE\"}"
-      }
+      "expected_end": "COMPLETE"
     },
-    {
-      "id": "T3",
-      "purpose": "eligible without problem",
-      "key_inputs": {
-        "S1": "Yes",
-        "S2": "Yes",
-        "Q5": "No"
-      },
-      "expected_outcome": {
-        "expected_hidden": [
-          "Q6"
-        ],
-        "expected_end": "COMPLETE"
-      },
-      "input_question_ids": [
-        "S1",
-        "S2",
-        "Q5"
+    "input_question_ids": [
+      "S1",
+      "S2",
+      "Q5"
+    ],
+    "referenced_ids": [
+      "Q6",
+      "COMPLETE"
+    ],
+    "parse_errors": []
+  },
+  {
+    "id": "T3",
+    "purpose": "eligible without problem",
+    "key_inputs": {
+      "S1": "Yes",
+      "S2": "Yes",
+      "Q5": "No"
+    },
+    "expected_outcome": {
+      "expected_hidden": [
+        "Q6"
       ],
-      "referenced_ids": [
-        "Q6",
-        "COMPLETE"
-      ],
-      "parse_errors": [],
-      "source_reference": {
-        "document": "S01_campus_cafeteria_experience.docx",
-        "section": "Acceptance test scenarios",
-        "heading_text": "Acceptance test scenarios",
-        "block_order": 21,
-        "row_index": 2,
-        "source_kind": "table",
-        "text": "T3 | eligible without problem | {\"S1\": \"Yes\", \"S2\": \"Yes\", \"Q5\": \"No\"} | {\"expected_hidden\": [\"Q6\"], \"expected_end\": \"COMPLETE\"}"
-      }
-    }
-  ]
-}
+      "expected_end": "COMPLETE"
+    },
+    "input_question_ids": [
+      "S1",
+      "S2",
+      "Q5"
+    ],
+    "referenced_ids": [
+      "Q6",
+      "COMPLETE"
+    ],
+    "parse_errors": []
+  }
+]

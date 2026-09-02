@@ -193,6 +193,37 @@ def _write(path: Path, payload, *, artifact: str, stage: int, source: str) -> Pa
     return path
 
 
+#: Fields dropped from Stage 4's files. `source_reference` is provenance for a
+#: reader of the pipeline, not part of the survey definition, and Stage 4's
+#: files are the survey builder's input.
+_STAGE4_OMIT = {"source_reference"}
+
+
+def _write_bare(path: Path, payload) -> Path:
+    """Write Stage 4's records with no envelope and no per-item provenance.
+
+    Every other stage keeps both. Stage 4 is the handover point to the survey
+    builder, and there the header and the source references are weight the
+    consumer has to step over rather than anything it uses.
+
+    Nothing in memory changes. Stage 5 and Part 2 are handed the objects
+    directly, not the file, so both still see full provenance and
+    `part2_canonical.json` still carries a source reference for every item.
+    """
+    path.parent.mkdir(parents=True, exist_ok=True)
+    if hasattr(payload, "model_dump"):
+        content = payload.model_dump(mode="json", exclude=_STAGE4_OMIT)
+    else:
+        content = [
+            item.model_dump(mode="json", exclude=_STAGE4_OMIT)
+            if hasattr(item, "model_dump")
+            else item
+            for item in payload
+        ]
+    path.write_text(json.dumps(content, indent=2, default=str))
+    return path
+
+
 def _read_content(path: Path):
     """Unwrap an artifact, tolerating one written before headers existed."""
     data = json.loads(path.read_text())
@@ -291,27 +322,9 @@ def run_stage4(
         ("study", "study"),
         ("programming", "programming"),
     ):
-        _write(
-            out / f"stage4_{slug}.json",
-            parsed[key],
-            artifact=f"stage4_{slug}",
-            stage=4,
-            source=source,
-        )
-    _write(
-        out / "stage4_survey.json",
-        parsed["survey"],
-        artifact="stage4_survey",
-        stage=4,
-        source=source,
-    )
-    _write(
-        out / "stage4_flags.json",
-        flags,
-        artifact="stage4_flags",
-        stage=4,
-        source=source,
-    )
+        _write_bare(out / f"stage4_{slug}.json", parsed[key])
+    _write_bare(out / "stage4_survey.json", parsed["survey"])
+    _write_bare(out / "stage4_flags.json", flags)
     return parsed, flags
 
 
