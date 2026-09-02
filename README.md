@@ -107,15 +107,7 @@ re-run, but a `load_stage4` would remove the rest.
                             │  part2_canonical.json
                             │  every added value carries an origin
         ┌───────────────────▼───────────────────┐
-        │ STAGE 7  route + dependency graphs    │  no LLM
-        │ a view of the specification           │
-        └───────────────────┬───────────────────┘
-                            │  part2_route_graph.json
-                            │  part2_graph_report.json
-                            │  route_graph.graphml / .gexf
-                            │  dependency_graph.graphml / .gexf
-        ┌───────────────────▼───────────────────┐
-        │ STAGE 8  canonical validation         │  no LLM
+        │ STAGE 7  canonical validation         │  no LLM
         │ is the specification right?           │
         └───────────────────┬───────────────────┘
                             │  part2_validation.json
@@ -123,6 +115,14 @@ re-run, but a `load_stage4` would remove the rest.
                             │  agent1_evaluation_results.json
                             │  agent1_decisions.json
                             │  agent1_decision_register.md
+        ┌───────────────────▼───────────────────┐
+        │ STAGE 8  route + dependency graphs    │  no LLM
+        │ a view of the validated specification │
+        └───────────────────┬───────────────────┘
+                            │  part2_route_graph.json
+                            │  part2_graph_report.json
+                            │  route_graph.graphml / .gexf
+                            │  dependency_graph.graphml / .gexf
         ┌───────────────────▼───────────────────┐
         │ STAGE 9  graph validation             │  no LLM
         │ does the graph behave as specified?   │
@@ -522,7 +522,37 @@ screen.
 
 ---
 
-## Stage 7 — the graphs
+## Stage 7 — is the specification right?
+
+Stage 5 asks whether the extraction is faithful to the document. This asks
+whether the *specification* is, and it asks four questions that are kept apart
+because they fail differently:
+
+| Question | What it answers |
+|---|---|
+| cross-source | Does the specification say only what the document says, and all of it? Raw QRE, Stage 4 and canonical compared three ways, so a disagreement can be attributed to one of them |
+| reproducibility | Does the same document read the same way twice? |
+| confirmation | What is still a person's decision, and what does each one block? |
+| evaluation | Do tests derived from the QRE pass against the canonical output? |
+
+**The oracle shares no code with the pipeline it checks.** `qre_oracle.py`
+reads the document through Stage 1 only — a mechanical walk of the body XML
+with no interpretation in it — and works everything else out for itself.
+Importing `part2_canonical` or `part2_conditions` there would make the test
+agree with the thing under test by construction, which is the one result that
+would mean nothing (CLAUDE.md §33).
+
+`agent1_decisions.py` keeps the confirmation record. Part 2 already marks where
+it inferred or could not read something; what this adds is a record that
+survives between runs, so an owner who confirms "the first matching rule wins"
+on Monday is not asked again on Tuesday — and a confirmation given against one
+version of a QRE never silently answers for a different one.
+
+## Stage 8 — the graphs
+
+Built after Stage 7, not before it, and handed that stage's report: the graph
+is a view of a specification that has already been checked, and it records what
+it can and cannot vouch for rather than presenting every edge as equally sound.
 
 Two graphs, because they answer different questions and fusing them gives
 something that answers neither well:
@@ -565,32 +595,6 @@ reverse is a design decision.
 
 ---
 
-## Stage 8 — is the specification right?
-
-Stage 5 asks whether the extraction is faithful to the document. This asks
-whether the *specification* is, and it asks four questions that are kept apart
-because they fail differently:
-
-| Question | What it answers |
-|---|---|
-| cross-source | Does the specification say only what the document says, and all of it? Raw QRE, Stage 4 and canonical compared three ways, so a disagreement can be attributed to one of them |
-| reproducibility | Does the same document read the same way twice? |
-| confirmation | What is still a person's decision, and what does each one block? |
-| evaluation | Do tests derived from the QRE pass against the canonical output? |
-
-**The oracle shares no code with the pipeline it checks.** `qre_oracle.py`
-reads the document through Stage 1 only — a mechanical walk of the body XML
-with no interpretation in it — and works everything else out for itself.
-Importing `part2_canonical` or `part2_conditions` there would make the test
-agree with the thing under test by construction, which is the one result that
-would mean nothing (CLAUDE.md §33).
-
-`agent1_decisions.py` keeps the confirmation record. Part 2 already marks where
-it inferred or could not read something; what this adds is a record that
-survives between runs, so an owner who confirms "the first matching rule wins"
-on Monday is not asked again on Tuesday — and a confirmation given against one
-version of a QRE never silently answers for a different one.
-
 ## Stage 9 — does the graph behave as specified?
 
 Two questions, again kept apart:
@@ -602,7 +606,7 @@ Two questions, again kept apart:
 
 It reads `part2_canonical.json` and the graph files already on disk. No Stage 4,
 no Part 2, no model call, no rebuild: the graph it validates is exactly the one
-Stage 7 wrote.
+Stage 8 wrote.
 
 ### The approval gate
 
@@ -643,13 +647,13 @@ src/
   stage5_audit.py        five deterministic checks
   part2_conditions.py    a condition read as a tree, and rendered back
   part2_canonical.py     the canonical survey specification
-  part2_graph.py         route and dependency graphs
-  part2_validate.py      Stage 8 — cross-source, reproducibility, confirmation
+  part2_graph.py         Stage 8 — route and dependency graphs
+  part2_validate.py      Stage 7 — cross-source, reproducibility, confirmation
   qre_oracle.py          an independent reading of the QRE, used as ground truth
   agent1_decisions.py    the human decision register, kept between runs
   agent1_eval.py         tests derived from the QRE, run against the output
   graph_validate.py      Stage 9 — structural and behavioural graph checks
-  run_validation.py      Stage 8 on its own, from committed artifacts
+  run_validation.py      Stage 7 on its own, from committed artifacts
   run_graph_validation.py  Stage 9 on its own, from committed artifacts
   orchestrator.py
   test_conditions.py     self-check: python3 src/test_conditions.py
