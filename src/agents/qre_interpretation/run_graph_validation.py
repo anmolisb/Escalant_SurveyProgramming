@@ -23,14 +23,13 @@ from dataclasses import asdict
 from datetime import datetime, timezone
 from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).resolve().parent))
 
-import graph_validate
-import orchestrator
-import qre_oracle
-from models import SCHEMA_VERSION, ArtifactEnvelope, CanonicalSurvey
+from . import graph_validate
+from . import orchestrator
+from . import qre_oracle
+from .models import SCHEMA_VERSION, ArtifactEnvelope, CanonicalSurvey
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = Path(__file__).resolve().parents[3]
 FIXTURES = ROOT / "fixtures" / "qre-samples"
 
 

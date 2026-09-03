@@ -37,8 +37,8 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
-import part2_conditions
-from models import (
+from . import part2_conditions
+from .models import (
     CanonicalSurvey, Condition, ConditionOp, Origin, RuleKind, SourceDocument,
 )
 

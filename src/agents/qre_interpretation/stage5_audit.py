@@ -26,7 +26,7 @@ from __future__ import annotations
 
 import re
 
-from models import (
+from .models import (
     AuditFinding,
     FlagSeverity,
     FlagTarget,

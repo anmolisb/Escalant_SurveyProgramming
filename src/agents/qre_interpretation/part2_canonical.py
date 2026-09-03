@@ -20,7 +20,7 @@ from __future__ import annotations
 
 import re
 
-from models import (
+from .models import (
     AuditFinding,
     CanonicalDisposition,
     CanonicalOption,
@@ -53,8 +53,8 @@ from models import (
     ScenarioInput,
     Semantics,
 )
-from llm import LLMUnavailable, complete
-import part2_conditions
+from src.common.llm.groq_client import LLMUnavailable, complete
+from . import part2_conditions
 
 #: A question id inside free text, so a pipe instruction such as
 #: "Show only brands selected at Q1." can name its source.

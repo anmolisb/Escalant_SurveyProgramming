@@ -44,7 +44,7 @@ from __future__ import annotations
 
 import networkx as nx
 
-from models import (
+from .models import (
     AuditFinding,
     CanonicalSurvey,
     DestinationKind,
@@ -74,7 +74,7 @@ def _condition_summary(condition) -> str | None:
     """A short readable form of a condition, for looking at an edge by eye."""
     if condition is None:
         return None
-    import part2_conditions
+    from . import part2_conditions
 
     return part2_conditions.describe(condition)
 

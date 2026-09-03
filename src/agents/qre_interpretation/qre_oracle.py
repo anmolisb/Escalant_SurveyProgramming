@@ -32,8 +32,8 @@ import re
 from dataclasses import dataclass, field
 from pathlib import Path
 
-import stage1_ingestion
-from models import BlockKind
+from . import stage1_ingestion
+from .models import BlockKind
 
 # ---------------------------------------------------------------------------
 # Finding the parts of the document

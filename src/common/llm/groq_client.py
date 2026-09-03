@@ -25,7 +25,7 @@ import instructor
 from groq import Groq
 from pydantic import BaseModel
 
-REPO_ROOT = Path(__file__).resolve().parents[1]
+REPO_ROOT = Path(__file__).resolve().parents[3]
 ENV_FILE = REPO_ROOT / ".env"
 
 DEFAULT_MODEL = "openai/gpt-oss-120b"

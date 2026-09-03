@@ -27,8 +27,8 @@ import json
 from dataclasses import asdict, dataclass, field
 from typing import Any
 
-import qre_oracle
-from models import CanonicalSurvey, ConditionOp, RuleKind
+from . import qre_oracle
+from .models import CanonicalSurvey, ConditionOp, RuleKind
 
 CRITICAL = "CRITICAL"
 HIGH = "HIGH"

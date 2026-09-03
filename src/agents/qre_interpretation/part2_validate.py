@@ -24,9 +24,9 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
-import agent1_eval
-import qre_oracle
-from models import CanonicalSurvey, FlagSeverity, Origin, RuleKind
+from . import agent1_eval
+from . import qre_oracle
+from .models import CanonicalSurvey, FlagSeverity, Origin, RuleKind
 
 PASSED, PASSED_WITH_WARNINGS, FAILED = "PASSED", "PASSED_WITH_WARNINGS", "FAILED"
 

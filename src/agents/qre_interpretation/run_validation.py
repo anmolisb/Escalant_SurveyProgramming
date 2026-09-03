@@ -22,22 +22,21 @@ import sys
 from datetime import datetime, timezone
 from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).resolve().parent))
 
-import agent1_decisions
-import agent1_eval
-import llm
-import orchestrator
-import part2_canonical
-import part2_graph
-import part2_validate
-import qre_oracle
-from models import (
+from . import agent1_decisions
+from . import agent1_eval
+from src.common.llm import groq_client as llm
+from . import orchestrator
+from . import part2_canonical
+from . import part2_graph
+from . import part2_validate
+from . import qre_oracle
+from .models import (
     SCHEMA_VERSION, AcceptanceScenario, ArtifactEnvelope, CanonicalSurvey,
     CompletionMessage, ExtractedStatement, Question, RoutingRule,
 )
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = Path(__file__).resolve().parents[3]
 FIXTURES = ROOT / "fixtures" / "qre-samples"
 
 

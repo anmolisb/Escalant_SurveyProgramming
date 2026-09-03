@@ -83,21 +83,20 @@ import sys
 from datetime import datetime, timezone
 from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).resolve().parent))
 
-import llm
-import stage1_ingestion
-import stage2_headings
-import stage3_raw_json
-import stage4_deep_parse
-import stage5_audit
-import part2_canonical
-import part2_graph
+from src.common.llm import groq_client as llm
+from . import stage1_ingestion
+from . import stage2_headings
+from . import stage3_raw_json
+from . import stage4_deep_parse
+from . import stage5_audit
+from . import part2_canonical
+from . import part2_graph
 # Not imported at module level: run_validation imports this module to reuse
 # _set_source, so importing it up here would be a cycle. Imported inside
 # run_agent1_validation instead, by which point this module has finished
 # loading.
-from models import (
+from .models import (
     SCHEMA_VERSION,
     ArtifactEnvelope,
     FlagSeverity,
@@ -114,7 +113,7 @@ from models import (
     TargetHeading,
 )
 
-OUT_ROOT = Path(__file__).resolve().parents[1] / "out"
+OUT_ROOT = Path(__file__).resolve().parents[3] / "out"
 
 #: Filename-safe stem per target.
 _SLUG = {

@@ -16,12 +16,12 @@ import asyncio
 import json
 import re
 
-from llm import LLMUnavailable, complete_async
+from src.common.llm.groq_client import LLMUnavailable, complete_async
 # The condition parser and its renderer. Deterministic syntax reading with no
 # Part 2 semantics in it, so using it here does not move interpretation
 # earlier - it is what decides that a condition needs no interpreting at all.
-import part2_conditions
-from models import (
+from . import part2_conditions
+from .models import (
     AcceptanceScenario,
     CompletionMessage,
     ExtractedStatement,

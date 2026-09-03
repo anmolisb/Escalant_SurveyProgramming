@@ -16,7 +16,7 @@ from docx.oxml.ns import qn
 from docx.table import Table as DocxTable
 from docx.text.paragraph import Paragraph as DocxParagraph
 
-from models import BlockKind, Paragraph, Stage1Document, Table
+from .models import BlockKind, Paragraph, Stage1Document, Table
 
 _HEADING_LEVEL = re.compile(r"^heading\s+(\d+)$", re.IGNORECASE)
 

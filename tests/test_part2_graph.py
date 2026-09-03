@@ -21,12 +21,11 @@ from __future__ import annotations
 import sys
 from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 
 import networkx as nx
 
-import part2_graph
-from models import (
+from src.agents.qre_interpretation import part2_graph
+from src.agents.qre_interpretation.models import (
     CanonicalDisposition,
     CanonicalQuestion,
     CanonicalRule,

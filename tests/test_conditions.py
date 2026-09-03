@@ -12,11 +12,10 @@ import re
 import sys
 from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).resolve().parent))
 
-import part2_conditions as pc
-from models import ConditionOp, LLMComparison, LLMComparisonOp, LLMRoutingExpression
-from stage4_deep_parse import _condition_from
+from src.agents.qre_interpretation import part2_conditions as pc
+from src.agents.qre_interpretation.models import ConditionOp, LLMComparison, LLMComparisonOp, LLMRoutingExpression
+from src.agents.qre_interpretation.stage4_deep_parse import _condition_from
 
 
 def check_round_trip() -> None:

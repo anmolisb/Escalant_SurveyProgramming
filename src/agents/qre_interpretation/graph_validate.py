@@ -38,11 +38,11 @@ from typing import Any
 
 import networkx as nx
 
-import agent1_eval
-import part2_conditions
-import part2_graph
-import qre_oracle
-from models import CanonicalSurvey, DestinationKind, RuleKind
+from . import agent1_eval
+from . import part2_conditions
+from . import part2_graph
+from . import qre_oracle
+from .models import CanonicalSurvey, DestinationKind, RuleKind
 
 PASS, FAIL, UNVERIFIED, BLOCKED = "PASS", "FAIL", "UNVERIFIED", "BLOCKED"
 VERIFIED, WARNING, INCORRECT, MISSING = (
