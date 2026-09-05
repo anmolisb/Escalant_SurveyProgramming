@@ -429,7 +429,7 @@ def run_graph_validation(docx_path: Path, source: str) -> dict:
     Agent 3 may actually proceed; that needs Stage 7's verdict too, and is
     computed by `agent3_execution_approval` below, never inside this stage.
     """
-    import run_graph_validation  # deferred: it imports this module too
+    from . import run_graph_validation  # deferred: it imports this module too
 
     return run_graph_validation.validate(Path(source).stem, docx_path=docx_path)
 
@@ -521,7 +521,7 @@ def run_agent1_validation(docx_path: Path, source: str, survey: CanonicalSurvey)
     needs, so validating on every call is not validating for free but it is
     validating for nearly free.
     """
-    import run_validation  # deferred: see the note where this module is imported
+    from . import run_validation  # deferred: see the note where this module is imported
 
     return run_validation.validate(Path(source).stem, docx_path=docx_path, survey=survey)
 
