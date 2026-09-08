@@ -1,0 +1,40 @@
+{
+  "document": "Z01_hostile_naming_SYNTHETIC.docx",
+  "method": "hand-authored",
+  "why_manual": "Every column is headed with a synonym no reasonable vocabulary would list - the id column is 'Marker', the options column 'Permitted replies'. The automated extractor declines to classify the table rather than guessing, so ground truth was read by a person from the document. Three rows, one table, transcribed field by field.",
+  "questions": [
+    {
+      "id": "A_01",
+      "wording": "In which year were you born?",
+      "type": "numeric entry",
+      "options": ["1900-2010"],
+      "matrix": {},
+      "display_conditions": [],
+      "display_cell": "everyone"
+    },
+    {
+      "id": "A_02",
+      "wording": "Which of these have you used?",
+      "type": "pick many",
+      "options": ["App", "Web", "Phone", "None"],
+      "matrix": {},
+      "display_conditions": [],
+      "display_cell": "everyone"
+    },
+    {
+      "id": "A_03",
+      "wording": "Why did you stop using it?",
+      "type": "free response",
+      "options": [],
+      "matrix": {},
+      "display_conditions": ["A_02 excludes None"],
+      "display_cell": "only if A_02 excludes None"
+    }
+  ],
+  "routing": [],
+  "scenarios": [],
+  "messages": [],
+  "study": [],
+  "programming": [],
+  "quotas": []
+}

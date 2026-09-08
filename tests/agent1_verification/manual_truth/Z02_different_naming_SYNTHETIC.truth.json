@@ -1,0 +1,98 @@
+{
+  "document": "Z02_different_naming_SYNTHETIC.docx",
+  "method": "hand-authored",
+  "why_manual": "Column order is shuffled - the id column 'Q No' sits fourth - and the routing table is headed Ref / Test / Then / Go to, which the automated matcher cannot classify without widening its vocabulary until this fixture passes. Read by a person instead: two tables, five questions and two rules, transcribed field by field.",
+  "questions": [
+    {
+      "id": "SC1",
+      "wording": "Do you have a loyalty card?",
+      "type": "single",
+      "options": [
+        "1=Yes",
+        "2=No"
+      ],
+      "matrix": {},
+      "display_conditions": [],
+      "display_cell": "ask all"
+    },
+    {
+      "id": "M1",
+      "wording": "Rate each pharmacy attribute",
+      "type": "grid",
+      "options": [],
+      "matrix": {
+        "rows": [
+          "Staff",
+          "Stock",
+          "Price"
+        ],
+        "scale": [
+          "1=Poor",
+          "2=OK",
+          "3=Good"
+        ]
+      },
+      "display_conditions": [],
+      "display_cell": "ask all"
+    },
+    {
+      "id": "B2",
+      "wording": "Which brands do you recall?",
+      "type": "multiselect",
+      "options": [
+        "Acme",
+        "Bayer",
+        "Zeno",
+        "None"
+      ],
+      "matrix": {},
+      "display_conditions": [],
+      "display_cell": "Validate: {\"min_selections\": 1}"
+    },
+    {
+      "id": "N4",
+      "wording": "How many visits last month?",
+      "type": "open numeric",
+      "options": [],
+      "matrix": {},
+      "display_conditions": [
+        "SC1 = 1"
+      ],
+      "display_cell": "Show if: SC1 = 1"
+    },
+    {
+      "id": "OE9",
+      "wording": "Any other comments?",
+      "type": "verbatim",
+      "options": [],
+      "matrix": {},
+      "display_conditions": [],
+      "display_cell": "Optional"
+    }
+  ],
+  "routing": [
+    {
+      "rule": "F1",
+      "condition": "SC1 = 2",
+      "action": "screen out",
+      "destination": "DQ_NOCARD"
+    },
+    {
+      "rule": "F2",
+      "condition": "N4 > 20",
+      "action": "flag",
+      "destination": "HEAVY_USER"
+    }
+  ],
+  "scenarios": [],
+  "messages": [],
+  "study": [
+    "Research goal: Track loyalty programme awareness among pharmacy shoppers.",
+    "Who we need: Adults 25+ who filled a prescription in past 90 days",
+    "Method: CATI telephone interview",
+    "Interview duration: 12 minutes"
+  ],
+  "programming": [],
+  "quotas": [],
+  "correction_note": "M1's scale (COLS: 1=Poor; 2=OK; 3=Good) was omitted from the first hand transcription and is restored here. The pipeline had extracted it correctly; the error was in this file."
+}

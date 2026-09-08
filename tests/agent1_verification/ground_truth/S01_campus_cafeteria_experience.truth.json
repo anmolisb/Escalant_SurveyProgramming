@@ -1,0 +1,208 @@
+{
+  "document": "S01_campus_cafeteria_experience.docx",
+  "questions": [
+    {
+      "id": "S1",
+      "wording": "Have you purchased food or a beverage from the campus cafeteria in the past 30 days?",
+      "type": "single",
+      "options": [
+        "Yes",
+        "No"
+      ],
+      "matrix": {},
+      "display_conditions": [],
+      "display_cell": "Always show"
+    },
+    {
+      "id": "S2",
+      "wording": "Are you 18 years of age or older?",
+      "type": "single",
+      "options": [
+        "Yes",
+        "No"
+      ],
+      "matrix": {},
+      "display_conditions": [],
+      "display_cell": "Always show"
+    },
+    {
+      "id": "Q1",
+      "wording": "Which channel did you primarily use for this cafeteria visit?",
+      "type": "single",
+      "options": [
+        "Counter",
+        "Mobile pre-order",
+        "Vending kiosk"
+      ],
+      "matrix": {},
+      "display_conditions": [],
+      "display_cell": "Always show"
+    },
+    {
+      "id": "Q2",
+      "wording": "Overall, how satisfied were you with the cafeteria visit?",
+      "type": "single",
+      "options": [
+        "1 - Very poor",
+        "2 - Poor",
+        "3 - Fair",
+        "4 - Good",
+        "5 - Excellent"
+      ],
+      "matrix": {},
+      "display_conditions": [],
+      "display_cell": "Always show"
+    },
+    {
+      "id": "Q3",
+      "wording": "How easy was it to complete what you wanted to do?",
+      "type": "single",
+      "options": [
+        "1 - Very poor",
+        "2 - Poor",
+        "3 - Fair",
+        "4 - Good",
+        "5 - Excellent"
+      ],
+      "matrix": {},
+      "display_conditions": [],
+      "display_cell": "Always show"
+    },
+    {
+      "id": "Q4",
+      "wording": "Which aspects influenced your rating? Select all that apply.",
+      "type": "multi",
+      "options": [
+        "Food quality",
+        "Menu variety",
+        "Waiting time",
+        "Cleanliness",
+        "Staff behaviour",
+        "Price"
+      ],
+      "matrix": {},
+      "display_conditions": [],
+      "display_cell": "Validate: {\"min_selections\": 1}"
+    },
+    {
+      "id": "Q5",
+      "wording": "Did you encounter a problem?",
+      "type": "single",
+      "options": [
+        "Yes",
+        "No"
+      ],
+      "matrix": {},
+      "display_conditions": [],
+      "display_cell": "Always show"
+    },
+    {
+      "id": "Q6",
+      "wording": "Please describe the main problem.",
+      "type": "text",
+      "options": [],
+      "matrix": {},
+      "display_conditions": [
+        "Q5 == 'Yes'"
+      ],
+      "display_cell": "Show if: Q5 == 'Yes'\nValidate: {\"min_length\": 10, \"max_length\": 500}"
+    },
+    {
+      "id": "Q7",
+      "wording": "How likely are you to recommend this service?",
+      "type": "single",
+      "options": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10"
+      ],
+      "matrix": {},
+      "display_conditions": [],
+      "display_cell": "Always show"
+    },
+    {
+      "id": "Q8",
+      "wording": "What is the single most important improvement you would suggest?",
+      "type": "text",
+      "options": [],
+      "matrix": {},
+      "display_conditions": [],
+      "display_cell": "Validate: {\"max_length\": 500}\nOptional"
+    }
+  ],
+  "routing": [
+    {
+      "rule": "R1",
+      "condition": "S1 == 'No'",
+      "action": "terminate",
+      "destination": "TERM_INELIGIBLE"
+    },
+    {
+      "rule": "R2",
+      "condition": "S2 == 'No'",
+      "action": "terminate",
+      "destination": "TERM_INELIGIBLE"
+    },
+    {
+      "rule": "R3",
+      "condition": "Q5 == 'Yes'",
+      "action": "show",
+      "destination": "Q6"
+    },
+    {
+      "rule": "R4",
+      "condition": "Q5 == 'No'",
+      "action": "skip",
+      "destination": "Q7"
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "T1",
+      "purpose": "recent-use screenout",
+      "inputs": "{\"S1\": \"No\"}",
+      "outcome": "{\"expected_end\": \"TERM_INELIGIBLE\"}"
+    },
+    {
+      "id": "T2",
+      "purpose": "eligible with problem",
+      "inputs": "{\"S1\": \"Yes\", \"S2\": \"Yes\", \"Q5\": \"Yes\"}",
+      "outcome": "{\"expected_visible\": [\"Q6\"], \"expected_end\": \"COMPLETE\"}"
+    },
+    {
+      "id": "T3",
+      "purpose": "eligible without problem",
+      "inputs": "{\"S1\": \"Yes\", \"S2\": \"Yes\", \"Q5\": \"No\"}",
+      "outcome": "{\"expected_hidden\": [\"Q6\"], \"expected_end\": \"COMPLETE\"}"
+    }
+  ],
+  "messages": [
+    "TERM_INELIGIBLE: Thank you for your interest. You do not qualify for this survey.",
+    "COMPLETE: Thank you. Your response has been recorded."
+  ],
+  "study": [
+    "Business objective: Measure satisfaction and identify operational improvements in a campus cafeteria.",
+    "Target population: Adults with a relevant experience in the last 30 days",
+    "Mode: Self-completion web survey",
+    "Estimated length: 4 minutes",
+    "General instruction: All questions are mandatory unless explicitly marked optional. Do not infer unstated routing."
+  ],
+  "programming": [
+    "Store stable question, option, route and test-run identifiers.",
+    "Capture displayed random order for every randomized item.",
+    "Record expected and observed destination for every routing transition.",
+    "Reject mutually exclusive selections and invalid numeric/text responses before progression.",
+    "Produce an audit record containing inputs, timestamps, route, assertions, screenshots on failure and final disposition.",
+    "Do not send synthetic test responses into live operational reporting."
+  ],
+  "quotas": [],
+  "method": "automated"
+}

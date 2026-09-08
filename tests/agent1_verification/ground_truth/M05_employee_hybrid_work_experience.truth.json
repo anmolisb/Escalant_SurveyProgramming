@@ -1,0 +1,392 @@
+{
+  "document": "M05_employee_hybrid_work_experience.docx",
+  "questions": [
+    {
+      "id": "S1",
+      "wording": "Have you used or purchased hybrid-work arrangements in the past 6 months?",
+      "type": "single",
+      "options": [
+        "Yes",
+        "No"
+      ],
+      "matrix": {},
+      "display_conditions": [],
+      "display_cell": "Always show"
+    },
+    {
+      "id": "S2",
+      "wording": "Are you personally involved in choosing this product or service?",
+      "type": "single",
+      "options": [
+        "Yes",
+        "No"
+      ],
+      "matrix": {},
+      "display_conditions": [],
+      "display_cell": "Always show"
+    },
+    {
+      "id": "S3",
+      "wording": "What is your age?",
+      "type": "integer",
+      "options": [],
+      "matrix": {},
+      "display_conditions": [],
+      "display_cell": "Validate: {\"min\": 18, \"max\": 80}"
+    },
+    {
+      "id": "Q1",
+      "wording": "Which hybrid-work arrangements channel or provider did you use most recently?",
+      "type": "single",
+      "options": [
+        "Mostly office",
+        "Balanced hybrid",
+        "Mostly remote",
+        "Fully remote"
+      ],
+      "matrix": {},
+      "display_conditions": [],
+      "display_cell": "Always show"
+    },
+    {
+      "id": "Q2",
+      "wording": "When did the most recent experience occur?",
+      "type": "single",
+      "options": [
+        "Within 7 days",
+        "8-30 days",
+        "1-3 months",
+        "4-6 months"
+      ],
+      "matrix": {},
+      "display_conditions": [],
+      "display_cell": "Always show"
+    },
+    {
+      "id": "Q3",
+      "wording": "What was the primary purpose of the experience?",
+      "type": "single",
+      "options": [
+        "Focused work",
+        "Team collaboration",
+        "Client interaction",
+        "Learning",
+        "Work-life flexibility"
+      ],
+      "matrix": {},
+      "display_conditions": [],
+      "display_cell": "Randomize"
+    },
+    {
+      "id": "Q4",
+      "wording": "Rate your overall satisfaction.",
+      "type": "single",
+      "options": [
+        "1 - Very poor",
+        "2 - Poor",
+        "3 - Fair",
+        "4 - Good",
+        "5 - Excellent"
+      ],
+      "matrix": {},
+      "display_conditions": [],
+      "display_cell": "Always show"
+    },
+    {
+      "id": "Q5",
+      "wording": "Rate the ease of completing the experience.",
+      "type": "single",
+      "options": [
+        "1 - Very poor",
+        "2 - Poor",
+        "3 - Fair",
+        "4 - Good",
+        "5 - Excellent"
+      ],
+      "matrix": {},
+      "display_conditions": [],
+      "display_cell": "Always show"
+    },
+    {
+      "id": "Q6",
+      "wording": "Rate the clarity of information provided.",
+      "type": "single",
+      "options": [
+        "1 - Very poor",
+        "2 - Poor",
+        "3 - Fair",
+        "4 - Good",
+        "5 - Excellent"
+      ],
+      "matrix": {},
+      "display_conditions": [],
+      "display_cell": "Always show"
+    },
+    {
+      "id": "Q7",
+      "wording": "Did you experience any of the following problems?",
+      "type": "multi",
+      "options": [
+        "Meeting overload",
+        "Technology failure",
+        "Access to information",
+        "Isolation",
+        "Workspace difficulty",
+        "None of these"
+      ],
+      "matrix": {},
+      "display_conditions": [],
+      "display_cell": "Validate: {\"exclusive_option\": \"None of these\"}\nRandomize"
+    },
+    {
+      "id": "Q8",
+      "wording": "Which problem had the greatest impact?",
+      "type": "single",
+      "options": [
+        "Meeting overload",
+        "Technology failure",
+        "Access to information",
+        "Isolation",
+        "Workspace difficulty"
+      ],
+      "matrix": {},
+      "display_conditions": [
+        "Q7 contains any problem"
+      ],
+      "display_cell": "Show if: Q7 contains any problem\nShow only options selected at Q7."
+    },
+    {
+      "id": "Q9",
+      "wording": "Was the main problem resolved?",
+      "type": "single",
+      "options": [
+        "Yes, fully",
+        "Yes, partly",
+        "No"
+      ],
+      "matrix": {},
+      "display_conditions": [
+        "Q7 contains any problem"
+      ],
+      "display_cell": "Show if: Q7 contains any problem"
+    },
+    {
+      "id": "Q10",
+      "wording": "How satisfied were you with the resolution?",
+      "type": "single",
+      "options": [
+        "1 - Very poor",
+        "2 - Poor",
+        "3 - Fair",
+        "4 - Good",
+        "5 - Excellent"
+      ],
+      "matrix": {},
+      "display_conditions": [
+        "Q9 in ['Yes, fully','Yes, partly']"
+      ],
+      "display_cell": "Show if: Q9 in ['Yes, fully','Yes, partly']"
+    },
+    {
+      "id": "Q11",
+      "wording": "How likely are you to recommend the provider?",
+      "type": "single",
+      "options": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10"
+      ],
+      "matrix": {},
+      "display_conditions": [],
+      "display_cell": "Always show"
+    },
+    {
+      "id": "Q12",
+      "wording": "How likely are you to continue using the provider?",
+      "type": "single",
+      "options": [
+        "Definitely not",
+        "Probably not",
+        "Unsure",
+        "Probably",
+        "Definitely"
+      ],
+      "matrix": {},
+      "display_conditions": [],
+      "display_cell": "Always show"
+    },
+    {
+      "id": "Q13",
+      "wording": "Which improvement would have the greatest value?",
+      "type": "single",
+      "options": [
+        "Lower cost",
+        "Faster service",
+        "Clearer information",
+        "Better staff support",
+        "Improved digital experience"
+      ],
+      "matrix": {},
+      "display_conditions": [],
+      "display_cell": "Randomize"
+    },
+    {
+      "id": "D1",
+      "wording": "Which region do you live in?",
+      "type": "single",
+      "options": [
+        "North",
+        "South",
+        "East",
+        "West",
+        "Central"
+      ],
+      "matrix": {},
+      "display_conditions": [],
+      "display_cell": "Always show"
+    },
+    {
+      "id": "D2",
+      "wording": "Which age group describes you?",
+      "type": "single",
+      "options": [
+        "18-24",
+        "25-34",
+        "35-44",
+        "45-54",
+        "55+"
+      ],
+      "matrix": {},
+      "display_conditions": [],
+      "display_cell": "Always show"
+    },
+    {
+      "id": "Q14",
+      "wording": "Please provide any final comments.",
+      "type": "text",
+      "options": [],
+      "matrix": {},
+      "display_conditions": [],
+      "display_cell": "Validate: {\"max_length\": 750}\nOptional"
+    }
+  ],
+  "routing": [
+    {
+      "rule": "R1",
+      "condition": "S1 == 'No'",
+      "action": "terminate",
+      "destination": "TERM_INELIGIBLE"
+    },
+    {
+      "rule": "R2",
+      "condition": "S2 == 'No'",
+      "action": "terminate",
+      "destination": "TERM_INELIGIBLE"
+    },
+    {
+      "rule": "R3",
+      "condition": "S3 < 18 or S3 > 80",
+      "action": "reject",
+      "destination": "S3"
+    },
+    {
+      "rule": "R4",
+      "condition": "Q7 contains any problem",
+      "action": "show",
+      "destination": "Q8"
+    },
+    {
+      "rule": "R5",
+      "condition": "Q7 contains any problem",
+      "action": "show",
+      "destination": "Q9"
+    },
+    {
+      "rule": "R6",
+      "condition": "Q7 == ['None of these']",
+      "action": "skip",
+      "destination": "Q11"
+    },
+    {
+      "rule": "R7",
+      "condition": "Q9 in ['Yes, fully','Yes, partly']",
+      "action": "show",
+      "destination": "Q10"
+    },
+    {
+      "rule": "R8",
+      "condition": "Q9 == 'No'",
+      "action": "skip",
+      "destination": "Q11"
+    },
+    {
+      "rule": "R9",
+      "condition": "Q7 includes 'None of these' plus another option",
+      "action": "reject",
+      "destination": "Q7"
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "T1",
+      "purpose": "category non-user",
+      "inputs": "{\"S1\": \"No\"}",
+      "outcome": "{\"expected_end\": \"TERM_INELIGIBLE\"}"
+    },
+    {
+      "id": "T2",
+      "purpose": "eligible, no problems",
+      "inputs": "{\"S1\": \"Yes\", \"S2\": \"Yes\", \"S3\": 34, \"Q7\": [\"None of these\"]}",
+      "outcome": "{\"expected_hidden\": [\"Q8\", \"Q9\", \"Q10\"], \"expected_end\": \"COMPLETE\"}"
+    },
+    {
+      "id": "T3",
+      "purpose": "problem resolved",
+      "inputs": "{\"S1\": \"Yes\", \"S2\": \"Yes\", \"S3\": 42, \"Q7\": [\"Meeting overload\"], \"Q9\": \"Yes, fully\"}",
+      "outcome": "{\"expected_visible\": [\"Q8\", \"Q9\", \"Q10\"], \"expected_end\": \"COMPLETE\"}"
+    },
+    {
+      "id": "T4",
+      "purpose": "problem unresolved",
+      "inputs": "{\"S1\": \"Yes\", \"S2\": \"Yes\", \"S3\": 29, \"Q7\": [\"Workspace difficulty\"], \"Q9\": \"No\"}",
+      "outcome": "{\"expected_hidden\": [\"Q10\"], \"expected_end\": \"COMPLETE\"}"
+    },
+    {
+      "id": "T5",
+      "purpose": "exclusive response validation",
+      "inputs": "{\"Q7\": [\"Meeting overload\", \"None of these\"]}",
+      "outcome": "{\"expected_validation_error\": \"Q7\"}"
+    }
+  ],
+  "messages": [
+    "TERM_INELIGIBLE: Thank you for your interest. You do not qualify for this survey.",
+    "COMPLETE: Thank you. Your response has been recorded."
+  ],
+  "study": [
+    "Business objective: Understand productivity, collaboration and friction in hybrid work.",
+    "Target population: Adults 18-80 who recently used hybrid-work arrangements and influenced the choice",
+    "Mode: Self-completion web survey",
+    "Estimated length: 7 minutes",
+    "General instruction: All questions are mandatory unless explicitly marked optional. Do not infer unstated routing."
+  ],
+  "programming": [
+    "Store stable question, option, route and test-run identifiers.",
+    "Capture displayed random order for every randomized item.",
+    "Record expected and observed destination for every routing transition.",
+    "Reject mutually exclusive selections and invalid numeric/text responses before progression.",
+    "Produce an audit record containing inputs, timestamps, route, assertions, screenshots on failure and final disposition.",
+    "Do not send synthetic test responses into live operational reporting."
+  ],
+  "quotas": [
+    "QUOTA_REGION: soft quota on D1: North=20%, South=20%, East=20%, West=20%, Central=20%",
+    "Quota-full respondents terminate at TERM_QUOTA_FULL before the next substantive question. Quota status must be logged."
+  ]
+}

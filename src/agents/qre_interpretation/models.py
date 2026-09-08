@@ -1,0 +1,1357 @@
+"""Pydantic schemas for every stage artifact and every LLM response.
+
+Naming convention: `Stage1*` … `Stage4*` for artifacts written to disk,
+`LLM*` for schemas passed to instructor as a response model.
+"""
+
+from __future__ import annotations
+
+from enum import Enum
+from typing import Any, Literal
+
+from pydantic import BaseModel, Field
+
+# ---------------------------------------------------------------------------
+# Target headings — the four blocks the pipeline extracts
+# ---------------------------------------------------------------------------
+
+
+class TargetHeading(str, Enum):
+    QUESTIONNAIRE = "Questionnaire"
+    ROUTING_AND_TERMINATION = "Routing and termination"
+    ACCEPTANCE_TEST_SCENARIOS = "Acceptance test scenarios"
+    COMPLETION_MESSAGES = "Completion messages"
+    # Sections the pipeline previously ignored. These name concepts, not
+    # document conventions: a QRE calling its quota section "Sample & Quotas"
+    # still matches, by shape if not by name, and no target has to be present.
+    QUOTA_CONTROLS = "Quota controls"
+    STUDY_SPECIFICATION = "Study specification"
+    PROGRAMMING_AND_QA = "Programming and QA requirements"
+
+
+class FlagStatus(str, Enum):
+    NOT_PRESENT = "NOT_PRESENT"
+    POSSIBLE_MATCH = "POSSIBLE_MATCH"
+
+
+class FlagSeverity(str, Enum):
+    """How much a flag should stop things.
+
+    Without this every flag looked equally urgent, so in practice none of them
+    were prioritised at all.
+    """
+
+    #: Output is incomplete or unusable as it stands. Do not build on it.
+    BLOCKING = "BLOCKING"
+    #: Worth a look, but the artifact is still usable.
+    WARNING = "WARNING"
+    #: Recorded for the audit trail; no action expected.
+    INFO = "INFO"
+
+
+class Origin(str, Enum):
+    """Where a value came from, per CLAUDE.md §14.
+
+    An inference must never be presented as something the QRE stated.
+    """
+
+    #: Read directly out of the document.
+    EXTRACTED = "extracted"
+    #: Worked out from extracted values by fixed rules, with no judgement.
+    DERIVED = "derived"
+    #: Produced by semantic reasoning, and therefore not guaranteed correct.
+    INFERRED = "inferred"
+    #: The source does not say.
+    UNKNOWN = "unknown"
+    #: The source supports more than one reading.
+    AMBIGUOUS = "ambiguous"
+
+
+#: Bumped when an artifact's shape changes in a way a reader must know about.
+#: Artifacts written before headers existed carry no version at all, which is
+#: itself the signal that they predate this.
+SCHEMA_VERSION = "1.0.0"
+
+
+# ---------------------------------------------------------------------------
+# Provenance — shared by every stage
+# ---------------------------------------------------------------------------
+
+
+class SourceDocument(BaseModel):
+    """The QRE an artifact was produced from.
+
+    The digest is what makes this useful: a filename alone cannot tell you that
+    the client sent a revised document, and a stale artifact next to a changed
+    QRE is the kind of error nobody notices by eye.
+    """
+
+    filename: str
+    #: SHA-256 of the file. Null when the document was not readable at the time
+    #: of writing, which happens re-running a later stage from saved artifacts.
+    sha256: str | None = None
+    bytes: int | None = None
+
+
+class ArtifactEnvelope(BaseModel):
+    """Header wrapped around every artifact this pipeline writes.
+
+    Before this, `stage4_questionnaire.json` was a bare array. Two runs of two
+    different QREs produced files that were indistinguishable without reading
+    the survey content itself, and nothing recorded which document, which code
+    version, or when.
+
+    Readers should treat a payload with no `schema_version` as pre-header and
+    read it as the content itself.
+    """
+
+    schema_version: str = SCHEMA_VERSION
+    artifact: str
+    stage: int
+    survey_id: str
+    source_document: SourceDocument
+    generated_at: str
+    #: Number of records, for list artifacts. Null for a single object.
+    item_count: int | None = None
+    content: Any
+
+
+class SourceReference(BaseModel):
+    """Where a piece of extracted content came from in the source document.
+
+    Answers "where did this come from in the QRE?" for review, debugging and
+    defect traceability. Every field is optional because what is knowable varies
+    by source: a table row can name its row index, a sentence transcribed out of
+    a prose block cannot.
+
+    Page number is deliberately absent. python-docx reads the document body, not
+    its rendered pagination, so a page number here would be a guess.
+    """
+
+    document: str | None = None
+    section: str | None = None
+    heading_text: str | None = None
+    #: Stage 1 block index — the position of the paragraph or table in the body.
+    block_order: int | None = None
+    #: Row within a table, counting data rows only, so 0 is the row under the
+    #: header. None for prose, where rows do not map one to one.
+    row_index: int | None = None
+    source_kind: str | None = None
+    #: Verbatim source text, where a single short span can be pointed at.
+    text: str | None = None
+
+
+# ---------------------------------------------------------------------------
+# Stage 1 — ingestion
+# ---------------------------------------------------------------------------
+
+
+class BlockKind(str, Enum):
+    PARAGRAPH = "paragraph"
+    TABLE = "table"
+
+
+class Paragraph(BaseModel):
+    kind: BlockKind = BlockKind.PARAGRAPH
+    order: int
+    text: str
+    style: str
+    is_bold: bool
+    heading_level: int | None = None
+
+
+class Table(BaseModel):
+    kind: BlockKind = BlockKind.TABLE
+    order: int
+    rows: list[list[str]]
+
+    @property
+    def header(self) -> list[str]:
+        return self.rows[0] if self.rows else []
+
+
+class Stage1Document(BaseModel):
+    """Document body in true top-to-bottom order, paragraphs and tables interleaved."""
+
+    source: str
+    blocks: list[Paragraph | Table]
+
+
+# ---------------------------------------------------------------------------
+# Stage 2 — heading identification
+# ---------------------------------------------------------------------------
+
+
+class ContentBlock(BaseModel):
+    """Everything beneath a matched heading, up to the next heading of equal or
+    higher level."""
+
+    target: TargetHeading
+    heading_text: str
+    heading_order: int
+    heading_level: int
+    matched_by: str = Field(description="direct | llm_shape")
+    blocks: list[Paragraph | Table]
+
+
+class FlagTarget(BaseModel):
+    """The specific thing a flag is about.
+
+    `target_heading` says which section; this says which item inside it. Before
+    this existed, a flag about routing rule R18 had to put "R18" into
+    `candidate_heading`, a field meant for heading-match candidates, so nothing
+    could route a flag to the right item or count flags per rule.
+    """
+
+    #: What sort of thing `id` names: question, rule, scenario, message,
+    #: statement, option or section. Left open rather than fixed to an enum,
+    #: because new kinds appear as the pipeline learns to read more of a QRE.
+    kind: str
+    id: str
+
+
+class ReviewFlag(BaseModel):
+    target_heading: TargetHeading
+    status: FlagStatus
+    candidate_heading: str | None = None
+    confidence: float | None = None
+    reasoning: str
+    #: Flags written before severity existed load as WARNING, which is the
+    #: neutral reading: they were worth recording but nothing was stopped.
+    severity: FlagSeverity = FlagSeverity.WARNING
+    target: FlagTarget | None = None
+
+
+class UnclassifiedSection(BaseModel):
+    """A heading whose content matched no target.
+
+    Kept rather than dropped. A section this pipeline does not yet understand is
+    still part of the QRE: C02's `Quota controls` and
+    `Programming and QA requirements` both describe real survey behaviour, and
+    before this existed they were discarded at Stage 2 without a trace. Retaining
+    them means a later stage — or a human — can still see what was there.
+    """
+
+    heading_text: str
+    heading_order: int
+    heading_level: int
+    blocks: list[Paragraph | Table]
+    reason: str = "heading matched no known target"
+    requires_review: bool = True
+
+
+class Stage2Blocks(BaseModel):
+    source: str
+    blocks: list[ContentBlock]
+    flags: list[ReviewFlag]
+    #: Sections that matched no target. Defaults to empty so artifacts written
+    #: before this field existed still load.
+    unclassified: list[UnclassifiedSection] = Field(default_factory=list)
+
+
+class LLMHeadingCandidate(BaseModel):
+    """LLM response for shape-matching an unmatched heading (Stage 2)."""
+
+    is_match: bool = Field(description="True only if the content shape matches the target")
+    confidence: float = Field(ge=0.0, le=1.0)
+    reasoning: str = Field(description="One sentence citing the observed shape")
+
+
+# ---------------------------------------------------------------------------
+# Stage 3 — literal transcription
+# ---------------------------------------------------------------------------
+
+
+class Stage3Block(BaseModel):
+    """Literal transcription of one content block. No renaming, no splitting."""
+
+    target: TargetHeading
+    source_kind: str = Field(description="table | prose")
+    rows: list[dict[str, str]]
+    #: Index-aligned with `rows`: `row_sources[i]` describes where `rows[i]` came
+    #: from. A parallel list rather than a field on each row, so `rows` keeps its
+    #: plain dict shape — Stage 4 reads it by column name, and Stage 5's audit
+    #: relies on it staying row-aligned with Stage 4's output.
+    #:
+    #: Empty on artifacts written before provenance existed, so consumers must
+    #: tolerate a list that is absent or shorter than `rows`.
+    row_sources: list[SourceReference] = Field(default_factory=list)
+
+
+class ExtractedStatement(BaseModel):
+    """One statement captured verbatim from a prose section.
+
+    Part 1 records what the QRE says; Part 2 decides what it means. A quota line
+    such as "QUOTA_REGION: hard quota on D1: North=20%, ..." is kept whole here,
+    not broken into cells and percentages, because splitting it is interpretation
+    and belongs downstream (CLAUDE.md §19).
+    """
+
+    #: Leading identifier where the line supplies one, e.g. QUOTA_REGION.
+    code: str | None = None
+    #: Leading label where the line reads "Label: value", e.g. Mode.
+    label: str | None = None
+    #: The statement as written, minus only the code or label prefix.
+    text: str
+    #: The whole line as it appeared, including any prefix.
+    raw_text: str
+    source_reference: SourceReference | None = None
+
+
+class LLMCompletionMessages(BaseModel):
+    """LLM response for transcribing prose completion messages (Stage 3)."""
+
+    rows: list[dict[str, str]] = Field(
+        description="One object per message, keys taken verbatim from the source"
+    )
+
+
+# ---------------------------------------------------------------------------
+# Stage 4 — deep parse
+# ---------------------------------------------------------------------------
+
+
+class Option(BaseModel):
+    #: A handle for this option, derived from the question id and the option's
+    #: position, e.g. `Q1-O3`. NOT a response code: CLAUDE.md §13 forbids
+    #: inventing those, and `code` below stays null where the QRE supplied none.
+    #: This exists so later stages and other agents can refer to an option
+    #: without matching on its label text, which changes with any rewording.
+    #: Null where the question has no id to derive it from.
+    option_id: str | None = None
+    code: str | None = None
+    label: str
+    #: The number this option stands for, where the QRE wrote one — read from the
+    #: code if it is numeric, otherwise from the label. Derived, not invented:
+    #: Q8's labels really are "0" to "10", and Q13's scale really does write
+    #: "1 - Very low; 2; 3; 4; 5 - Very high". Null wherever neither is a number,
+    #: which is most options: "Auto Brand A" and the age band "60+" have no
+    #: numeric value.
+    #:
+    #: Exists so a scale can be ordered and its endpoints found without parsing
+    #: label text downstream. Deliberately separate from the question's
+    #: `min_value` / `max_value`, which are extracted from an explicit
+    #: `Validate:` instruction and must not be confused with a derived reading.
+    numeric_value: float | None = None
+
+
+class Question(BaseModel):
+    id: str
+    #: Position in the questionnaire, counting from 1 in document order.
+    #:
+    #: Derived, not read: the QRE states the order by the sequence it writes the
+    #: rows in, and this records that sequence explicitly so it survives being
+    #: stored, re-serialised or re-sorted. C02 runs S1-S4, Q1-Q21, D1-D4, then
+    #: Q22-Q23 — sorting those ids alphabetically would move the demographics to
+    #: the end and quietly change the survey.
+    #:
+    #: Distinct from `source_reference.row_index`, which restarts at zero for
+    #: each table and so cannot order a questionnaire split across two of them.
+    seq: int | None = None
+    wording: str
+    type: str
+    options: list[Option] = Field(default_factory=list)
+    matrix_rows: list[Option] = Field(default_factory=list)
+    display_condition: str | None = None
+    #: `display_condition` read into the one canonical grammar, the same way a
+    #: routing rule's `condition_expression` is and by the same code, so the
+    #: two forms of one rule are written identically. C02 stated Q2's guard as
+    #: "Q1 contains at least one brand" in the questionnaire and as a formal
+    #: expression in the routing table, and only the routing one could be read.
+    display_condition_expression: str | None = None
+    #: `derived` where the QRE already wrote the condition formally and it was
+    #: only re-rendered, `inferred` where a model read the prose. Null when
+    #: there is no expression.
+    display_condition_expression_origin: Origin | None = None
+    min_length: int | None = None
+    max_length: int | None = None
+    #: Kept as the QRE wrote it. `int | float` rather than plain `float` so a
+    #: whole number stays whole: a constant sum written as 100 should not come
+    #: back as 100.0, which reads as a precision the source never claimed and
+    #: which LimeSurvey would have to round back.
+    min_value: int | float | None = None
+    max_value: int | float | None = None
+    min_selections: int | None = None
+    exclusive_option: str | None = None
+    sum_to: int | float | None = None
+    randomize: bool = False
+    optional: bool = False
+    dynamic_option_source: str | None = None
+    #: Validation settings with no field of their own, kept with their original
+    #: JSON type. Previously every value was run through `json.dumps`, so Q9's
+    #: scale arrived as a string that merely looked like a list and its
+    #: `require_each_row` as the word "true" — both of which had to be parsed a
+    #: second time downstream, and one day would have been parsed wrongly.
+    other_attributes: dict[str, Any] = Field(default_factory=dict)
+    #: Where this came from in the QRE. None on artifacts written before
+    #: provenance existed.
+    source_reference: SourceReference | None = None
+
+
+class DirectiveKind(str, Enum):
+    """What one instruction in a question's display/validation cell asks for.
+
+    A closed set, so an instruction is either recognised as one of these or
+    explicitly `other` - which is a classification, not a shrug. The previous
+    schema had a fixed field per kind plus a free `other_attributes` dictionary,
+    so anything unanticipated arrived under a key the model made up and nothing
+    downstream could tell a validation rule from a note to the scripter.
+    """
+
+    #: The question is shown to everyone. Stated, and worth keeping as a stated
+    #: fact rather than as the absence of a condition.
+    ALWAYS_SHOW = "always_show"
+    #: When the question is shown, e.g. "Show if: Q1 contains at least one brand".
+    DISPLAY_CONDITION = "display_condition"
+    #: A constraint on the answer. Carries a JSON payload in every QRE seen.
+    VALIDATION = "validation"
+    #: The options, or the matrix rows, are shuffled.
+    RANDOMIZE = "randomize"
+    #: The answer list is narrowed to an earlier answer, e.g. "Show only brands
+    #: selected at Q1."
+    OPTION_SOURCE = "option_source"
+    #: An answer is not required.
+    OPTIONAL = "optional"
+    #: An answer is required.
+    MANDATORY = "mandatory"
+    #: Recognised as an instruction, but none of the above.
+    OTHER = "other"
+
+
+class LLMDirective(BaseModel):
+    """One instruction read out of a question's cell (Stage 4)."""
+
+    kind: DirectiveKind
+    text: str = Field(
+        description=(
+            "The instruction as written, minus only its leading keyword. "
+            "Copy it exactly; never reword or summarise."
+        )
+    )
+
+
+class LLMQuestionFields(BaseModel):
+    """LLM response for splitting one question's inline attributes (Stage 4).
+
+    A classified list rather than a fixed set of fields. One cell routinely
+    holds several instructions of different kinds - C02's Q7 carries a display
+    condition, a scale and a per-row requirement in three lines - and a schema
+    with one slot per kind could hold only the first of each. Reading them as a
+    list means a second display condition is captured rather than dropped, and
+    every line lands under a keyword rather than in a catch-all.
+    """
+
+    directives: list[LLMDirective] = Field(default_factory=list)
+
+
+class RoutingRule(BaseModel):
+    rule: str
+    #: The condition exactly as the QRE wrote it. Trustworthy: on C02 all twenty
+    #: match the source document word for word.
+    condition_raw: str
+    #: A formal reading of `condition_raw`, produced by a language model.
+    #:
+    #: NOT TRUSTWORTHY, and deliberately kept anyway. On C02 two of the twenty
+    #: changed meaning — R5 turned an "only answer" test into an "among the
+    #: answers" test, and R19 came out as a condition that can never be true —
+    #: one came back empty, and the same operator is written three different
+    #: ways across the set. There is no grammar behind this field.
+    #:
+    #: Do not parse it. Part 2 builds the real condition from `condition_raw`;
+    #: this is kept as a hint and as evidence of what the model thought.
+    #: See `condition_expression_origin`.
+    condition_expression: str | None = None
+    #: How `condition_expression` was produced. Always `inferred` when there is
+    #: one, because a model wrote it. Null when there is none.
+    condition_expression_origin: Origin | None = None
+    action: str
+    destination: str
+    #: Where this came from in the QRE. None on artifacts written before
+    #: provenance existed.
+    source_reference: SourceReference | None = None
+
+
+class LLMComparisonOp(str, Enum):
+    """The operators a routing condition may use.
+
+    A separate, smaller enum than `ConditionOp` even though the names overlap.
+    `ConditionOp` also holds `and`, `or` and `not`, which join comparisons
+    rather than being ones - offering those here invites a model to answer
+    "the operator is AND", which is not a question about one comparison.
+    """
+
+    EQ = "eq"
+    NE = "ne"
+    LT = "lt"
+    LE = "le"
+    GT = "gt"
+    GE = "ge"
+    IN = "in"
+    NOT_IN = "not_in"
+    #: The answer set is exactly these values, not merely contains them.
+    SET_EQ = "set_eq"
+    CONTAINS_ANY = "contains_any"
+    CONTAINS_ALL = "contains_all"
+    ANSWERED = "answered"
+    UNANSWERED = "unanswered"
+
+
+class LLMComparison(BaseModel):
+    """One comparison inside a routing condition (Stage 4)."""
+
+    question_id: str = Field(description="The question this compares, e.g. Q1")
+    operator: LLMComparisonOp
+    values: list[str] = Field(
+        default_factory=list,
+        description=(
+            "Option codes where the question has codes, otherwise exact labels. "
+            "Empty for answered and unanswered, and when comparing against "
+            "another question."
+        ),
+    )
+    #: A condition can compare two answers rather than an answer and a value -
+    #: "selected option at Q6 was not selected at Q5". Without this the model
+    #: has to decline such a rule, which is what C02's R20 did.
+    compare_to_question: str | None = Field(
+        default=None,
+        description=(
+            "Set instead of values when this compares against another "
+            "question's answers, e.g. Q6 not in Q5"
+        ),
+    )
+
+
+class LLMRoutingExpression(BaseModel):
+    """LLM response for translating one routing condition (Stage 4).
+
+    Structured rather than a string of formal syntax, which is what this used to
+    be. The prompt fixed the operator vocabulary but could say nothing binding
+    about the syntax around it, so one document produced
+    `CONTAINS_ANY(Q1, 'a', 'b')`, `Q1 CONTAINS_ANY ('a','b')` and
+    `CONTAINS_ANY(Q1, ['a','b'])` for the same operator, and every consumer
+    needed a regex per shape with no way to know when a new one would appear.
+
+    The model now supplies the parts and this codebase writes the syntax, so the
+    shape is not something a model can vary. `part2_conditions.render` is the
+    single place it is decided.
+    """
+
+    comparisons: list[LLMComparison] = Field(
+        default_factory=list,
+        description="Empty when the condition cannot be resolved from the codes given",
+    )
+    joiner: Literal["and", "or"] | None = Field(
+        default=None,
+        description="How to join the comparisons. Required when there is more than one.",
+    )
+    reasoning: str
+
+
+class AcceptanceScenario(BaseModel):
+    id: str
+    purpose: str
+    key_inputs: dict = Field(default_factory=dict)
+    expected_outcome: dict = Field(default_factory=dict)
+    #: Questions the scenario supplies an answer for, in the order written.
+    #: Read from the keys of `key_inputs`, so it needs no knowledge of the
+    #: questionnaire and makes no claim about whether the set is sufficient.
+    input_question_ids: list[str] = Field(default_factory=list)
+    #: Every identifier-shaped token in the expected outcome — questions it
+    #: expects to see or not see, and the disposition it expects to end at.
+    #:
+    #: Collected without deciding which is which, because telling a question id
+    #: from a disposition code needs the questionnaire and the message list.
+    #: Stage 5 resolves these against both; anything that resolves to nothing is
+    #: a broken reference in the QRE.
+    referenced_ids: list[str] = Field(default_factory=list)
+    parse_errors: list[str] = Field(default_factory=list)
+    #: Where this came from in the QRE. None on artifacts written before
+    #: provenance existed.
+    source_reference: SourceReference | None = None
+
+
+class CompletionMessage(BaseModel):
+    code: str
+    message: str
+    #: Where this came from in the QRE. None on artifacts written before
+    #: provenance existed.
+    source_reference: SourceReference | None = None
+
+
+class SurveyInformation(BaseModel):
+    """What identifies the study, and what a respondent is shown before it.
+
+    Written as its own artifact because nothing else in the pipeline carried it.
+    The title and the study id live in the document's front matter - the lines
+    above the first heading, which belong to no section, so every target
+    declines them and Stage 5 has always reported them as uncovered blocks. The
+    welcome text is usually not written down anywhere at all.
+
+    The alternative was a hand-maintained file per QRE, which is a second source
+    of truth that drifts from the document without saying so.
+
+    Flat values, no origins. Where a field carries any interpretation - reading
+    a business objective as a description - it is a Stage 4 flag that says so,
+    not a wrapper around every value. Part 2 does not consume this: it is a
+    heading for the survey, not a fact about how it behaves.
+    """
+
+    #: None where neither the front matter nor the filename supplies one.
+    qre_id: str | None = None
+    source_file: str
+    title: str | None = None
+    description: str | None = None
+    #: Null in every fixture so far. No QRE in the corpus states it.
+    welcome_text: str | None = None
+
+
+# ---------------------------------------------------------------------------
+# Part 2 — the typed condition
+# ---------------------------------------------------------------------------
+
+
+class ConditionOp(str, Enum):
+    """Operators a condition can use.
+
+    A closed set on purpose. The whole problem with Stage 4's
+    `condition_expression` is that it is free text, so the same operator comes
+    out written three different ways and nothing can check it. Choosing from a
+    fixed list makes that impossible by construction.
+    """
+
+    EQ = "eq"
+    NE = "ne"
+    LT = "lt"
+    LE = "le"
+    GT = "gt"
+    GE = "ge"
+    IN = "in"
+    NOT_IN = "not_in"
+    #: The answer set is exactly this set — "Q1 == ['None of these']" means None
+    #: of these was the ONLY answer, which is not the same as it being among
+    #: them. Stage 4's expression lost that distinction on C02's rule R5.
+    SET_EQ = "set_eq"
+    CONTAINS = "contains"
+    CONTAINS_ANY = "contains_any"
+    CONTAINS_ALL = "contains_all"
+    AND = "and"
+    OR = "or"
+    NOT = "not"
+    #: Whether the question was put to the respondent at all. Needed because a
+    #: condition can refer to a question that was skipped.
+    ANSWERED = "answered"
+    UNANSWERED = "unanswered"
+
+
+class Aggregate(str, Enum):
+    SUM = "sum"
+    COUNT = "count"
+
+
+class Operand(BaseModel):
+    """One side of a comparison.
+
+    Deliberately one flat type rather than a union of reference-or-literal. A
+    union needs the reader to work out which arm it is holding, and gets that
+    wrong quietly; here `question_id` is either set or it is not.
+    """
+
+    #: Set when this side names a question's answer.
+    question_id: str | None = None
+    #: Set when the reference is aggregated, as in "sum(Q18)".
+    aggregate: Aggregate | None = None
+    #: Set when this side is a literal.
+    text: str | None = None
+    number: float | None = None
+    #: Set when this side is a list, as in "in ['Fully','Partly']".
+    values: list[str] | None = None
+    #: The options `text` or `values` actually name, resolved against the
+    #: question on the other side of the comparison.
+    #:
+    #: Conditions are written by the QRE in terms of answer labels, and matching
+    #: on a label breaks the moment a word or a space changes. Every option
+    #: already carries a stable id; this is what connects the two, so a consumer
+    #: can act on the id and never on the text. Null where the comparison is not
+    #: about options at all, as in "S3 < 18".
+    option_ids: list[str] | None = None
+
+
+class Condition(BaseModel):
+    """A condition as a tree, not as a string.
+
+    Built from `RoutingRule.condition_raw`, which is verbatim source text, and
+    never from `condition_expression`, which a model wrote and which changed
+    meaning on two of C02's twenty rules.
+    """
+
+    op: ConditionOp
+    left: Operand | None = None
+    right: Operand | None = None
+    #: Children, for and / or / not.
+    operands: list["Condition"] = Field(default_factory=list)
+    #: The text this was built from, kept so the reading can always be checked
+    #: against what the QRE actually said.
+    source_text: str = ""
+    origin: Origin = Origin.DERIVED
+    #: Set when a model proposed this rather than the parser deriving it.
+    confidence: float | None = None
+
+
+class LLMConditionProposal(BaseModel):
+    """LLM response: a prose condition rewritten in the parser's grammar.
+
+    The model never returns a condition tree directly. It returns text in a
+    grammar the deterministic parser already checks, and the parser is what
+    decides whether the proposal is usable. A proposal the parser rejects is
+    thrown away, so the model cannot put anything into the specification that
+    could not equally have come from the QRE writing it formally.
+    """
+
+    expression: str | None = Field(
+        default=None,
+        description="The condition in the given grammar, or null if it cannot be expressed",
+    )
+    confidence: float = Field(ge=0.0, le=1.0)
+    reasoning: str
+
+
+class LLMTextPipe(BaseModel):
+    """LLM response: whether a question's wording quotes an earlier answer."""
+
+    is_pipe: bool = Field(
+        description="True only if the wording refers to an answer given earlier"
+    )
+    source_question_id: str | None = Field(
+        default=None, description="The question whose answer is quoted"
+    )
+    target_question_id: str | None = Field(
+        default=None, description="The question whose wording does the quoting"
+    )
+    phrase: str | None = Field(
+        default=None, description="The words that do the quoting, copied exactly"
+    )
+    confidence: float = Field(ge=0.0, le=1.0)
+    reasoning: str
+
+
+class LLMTextPipes(BaseModel):
+    """LLM response: every question whose wording quotes an earlier answer.
+
+    Asked once for the whole questionnaire rather than once per question. A
+    per-question call would cost thirty on C02 to find one, and the model needs
+    to see the earlier wording anyway to judge what is being referred back to.
+    """
+
+    pipes: list[LLMTextPipe] = Field(default_factory=list)
+
+
+class QuotaCell(BaseModel):
+    """One group a quota counts, and how much of the sample it may take."""
+
+    option_label: str
+    #: Filled in from the question's own options once the label is matched, so
+    #: downstream can refer to the option without matching on text again.
+    option_id: str | None = None
+    target_percent: float | None = None
+    target_count: int | None = None
+
+
+class Quota(BaseModel):
+    """A sampling quota, structured enough to build and to test.
+
+    Part 1 keeps the sentence the QRE wrote. This is the reading of it: which
+    question it counts, which answers it groups by, how much each may take, and
+    what happens to somebody whose group is already full.
+    """
+
+    quota_id: str
+    #: hard - the respondent is turned away. soft - the target is a preference.
+    enforcement: str
+    variable_question_id: str
+    cells: list[QuotaCell] = Field(default_factory=list)
+    #: The ending a respondent reaches when their group is full.
+    on_full: str | None = None
+    #: The question after which the quota is checked.
+    evaluation_point: str | None = None
+    origin: Origin = Origin.INFERRED
+    confidence: float | None = None
+    #: The sentence this was read from, so the reading can always be checked.
+    source_text: str = ""
+
+
+class LLMQuota(BaseModel):
+    """LLM response: one quota statement read into parts.
+
+    Deliberately flat, with the cells as two matching lists rather than a list
+    of objects. A list of objects needs far more room to express, and running
+    out of room arrives as an empty answer rather than as an error.
+    """
+
+    is_quota: bool = Field(
+        description="False when the sentence sets no quota, e.g. it only says what happens when one is full"
+    )
+    quota_id: str | None = None
+    enforcement: str | None = Field(
+        default=None, description="hard or soft, exactly as the sentence says"
+    )
+    variable_question_id: str | None = Field(
+        default=None, description="The question the quota counts"
+    )
+    cell_labels: list[str] = Field(
+        default_factory=list, description="The answer labels, copied exactly"
+    )
+    cell_percents: list[float] = Field(
+        default_factory=list, description="One percentage per label, same order"
+    )
+    on_full: str | None = Field(
+        default=None, description="The ending code for a respondent whose group is full"
+    )
+    confidence: float = Field(ge=0.0, le=1.0)
+    reasoning: str
+
+
+class AuditFinding(BaseModel):
+    """One thing Stage 5 noticed while comparing Stage 4 against its inputs.
+
+    Kept separate from `ReviewFlag` on purpose. A flag records trouble a stage
+    hit while producing its own output; a finding records a disagreement between
+    artifacts that each looked fine on their own. Conflating them would lose
+    which of the two you are reading.
+    """
+
+    #: Which check produced this, so a finding can be traced to its rule.
+    check: str
+    severity: FlagSeverity
+    finding: str
+    target: FlagTarget | None = None
+    #: What the check actually saw, quoted rather than summarised.
+    evidence: str | None = None
+    source_reference: SourceReference | None = None
+
+
+class SectionScore(BaseModel):
+    """How much of one section survived the journey from Stage 3 to Stage 4."""
+
+    target: TargetHeading
+    rows_in: int
+    objects_out: int
+    identified: int = Field(
+        description="Objects that came out carrying a non-empty identifier"
+    )
+    score: float
+    threshold: float
+    passed: bool
+
+
+class Stage5Audit(BaseModel):
+    """The extraction quality check.
+
+    Audits Stage 4's output against what it was produced from. It does not
+    re-extract: a second independent extraction tends to repeat the first one's
+    mistakes and agree with a wrong answer rather than catch it.
+    """
+
+    source: str
+    checks_run: list[str] = Field(default_factory=list)
+    sections: list[SectionScore] = Field(default_factory=list)
+    findings: list[AuditFinding] = Field(default_factory=list)
+    blocking: int = 0
+    passed: bool = True
+
+
+class Stage4Output(BaseModel):
+    source: str
+    questions: list[Question] = Field(default_factory=list)
+    routing: list[RoutingRule] = Field(default_factory=list)
+    scenarios: list[AcceptanceScenario] = Field(default_factory=list)
+    messages: list[CompletionMessage] = Field(default_factory=list)
+    flags: list[ReviewFlag] = Field(default_factory=list)
+
+
+# ---------------------------------------------------------------------------
+# Part 2 — the canonical survey specification
+# ---------------------------------------------------------------------------
+
+
+class DestinationKind(str, Enum):
+    QUESTION = "question"
+    DISPOSITION = "disposition"
+    #: Names a position in the flow, not a thing: C02's CURRENT_QUESTION.
+    POSITION = "position"
+    UNKNOWN = "unknown"
+
+
+class Destination(BaseModel):
+    """Where a rule sends the respondent, with its kind made explicit.
+
+    Part 1's `destination` is one string holding three different sorts of thing
+    - a question id, an ending code, and the word CURRENT_QUESTION - so every
+    reader had to guess which it was holding. Guessing wrong sends a respondent
+    to the wrong place.
+    """
+
+    kind: DestinationKind
+    id: str
+    origin: Origin = Origin.DERIVED
+
+
+class RuleKind(str, Enum):
+    TERMINATE = "terminate"
+    SKIP = "skip"
+    SHOW = "show"
+    REJECT = "reject"
+    OTHER = "other"
+
+
+class CanonicalRule(BaseModel):
+    rule_id: str
+    kind: RuleKind
+    #: The condition as a tree. Null where it could not be read.
+    when: Condition | None = None
+    #: The source text, kept when `when` is null so nothing is lost.
+    when_unread: str | None = None
+    destination: Destination
+    #: The question after which this rule is checked. Worked out from the
+    #: questions the condition names, because the QRE never states it.
+    evaluation_point: str | None = None
+    evaluation_point_origin: Origin = Origin.INFERRED
+    #: Position in the routing table, used as precedence under
+    #: `Semantics.rule_precedence`.
+    precedence: int = 0
+    source_reference: SourceReference | None = None
+
+
+class GuardAgreement(str, Enum):
+    #: Stated in one place only.
+    SINGLE_SOURCE = "single_source"
+    #: Stated in both the questionnaire and the routing table, identically.
+    AGREE = "agree"
+    #: Stated in both, differently. Needs a human.
+    DISAGREE = "disagree"
+    #: Stated, but not readable as a tree.
+    UNREAD = "unread"
+
+
+class Guard(BaseModel):
+    """When a question is shown.
+
+    Built by combining both places a QRE states this. Neither is complete on its
+    own: in C02 twelve display conditions appear in both the questionnaire and
+    the routing table, and Q15's appears only in the questionnaire - the routing
+    table omits it, and so would anyone who read only that.
+    """
+
+    condition: Condition | None = None
+    agreement: GuardAgreement
+    #: Where the condition was stated: "questionnaire", or a rule id.
+    sources: list[str] = Field(default_factory=list)
+    raw_texts: list[str] = Field(default_factory=list)
+
+
+class RandomizationScope(str, Enum):
+    OPTIONS = "options"
+    ROWS = "rows"
+
+
+class Randomization(BaseModel):
+    """What is shuffled, and what stays put.
+
+    Part 1 records only that a question randomises. That cannot say whether the
+    answer options or a matrix's rows move, nor whether an exclusive option such
+    as "None of these" is anchored at the bottom, which is what convention
+    expects and what the QRE never states.
+    """
+
+    question_id: str
+    scope: RandomizationScope
+    scope_origin: Origin = Origin.INFERRED
+    #: Options that should keep their position. Empty and marked ambiguous when
+    #: the QRE does not say.
+    anchored: list[str] = Field(default_factory=list)
+    anchored_origin: Origin = Origin.UNKNOWN
+    #: The QRE asks for the shown order to be recorded for every randomised item.
+    capture_display_order: bool = True
+    #: Where the randomisation instruction was stated.
+    source_reference: SourceReference | None = None
+
+
+class DependencyKind(str, Enum):
+    #: The options offered come from an earlier question's answers.
+    OPTION_SOURCE = "option_source"
+    #: The wording quotes an earlier question's answer.
+    TEXT_PIPE = "text_pipe"
+
+
+class Dependency(BaseModel):
+    from_question: str
+    to_question: str
+    kind: DependencyKind
+    detail: str = ""
+    origin: Origin = Origin.DERIVED
+    #: Set where a model proposed the link rather than a table stating it.
+    confidence: float | None = None
+    #: Where the sentence carrying this link was written.
+    source_reference: SourceReference | None = None
+
+
+class Semantics(BaseModel):
+    """Decisions about how this survey's language works.
+
+    Written down because they are decisions, not readings. Every later stage
+    behaves the same way only if they are stated once, in the file, where a
+    reviewer can disagree with them.
+    """
+
+    #: What a condition means when it names a question the respondent was never
+    #: asked. C02's scenario T3 implies false, by expecting Q7 to Q9 hidden when
+    #: Q3 was skipped, but never says so.
+    unasked_reference: str = "condition_false"
+    unasked_reference_origin: Origin = Origin.INFERRED
+    #: Which rule wins when two apply. The routing table is ordered, but nothing
+    #: states that the order means anything.
+    rule_precedence: str = "document_order_first_match"
+    rule_precedence_origin: Origin = Origin.INFERRED
+    #: What "==" means against a multi-select answer.
+    multi_equality: str = "set_equality"
+    multi_equality_origin: Origin = Origin.DERIVED
+    #: Whether an answer is required where the question itself says nothing.
+    #: Both fixtures state this in prose - "All questions are mandatory unless
+    #: explicitly marked optional" - and until now nothing read that sentence,
+    #: so `mandatory` was defaulted to true on no evidence at all. Null when no
+    #: statement in the document sets a default, in which case the questions
+    #: that say nothing are left unknown rather than assumed.
+    default_mandatory: bool | None = None
+    default_mandatory_origin: Origin = Origin.UNKNOWN
+    #: The sentence the default was read from, so the reading can be checked.
+    default_mandatory_source: str = ""
+
+
+class CanonicalOption(BaseModel):
+    """One answer a question offers, as the specification carries it."""
+
+    option_id: str | None = None
+    #: Exactly what the QRE gave, still null where it gave nothing.
+    code: str | None = None
+    label: str
+    numeric_value: float | None = None
+    #: True for an option that cannot be chosen alongside any other, such as
+    #: "None of these". Resolved from the question's own exclusive_option.
+    is_exclusive: bool = False
+
+
+class CanonicalValidation(BaseModel):
+    """What counts as an acceptable answer.
+
+    Needed to generate a test at all: without the bounds there is no way to
+    produce a value that should be accepted, or one that should be refused.
+
+    Every question carries one, and an all-null validation means the QRE stated
+    no constraint on that answer. Previously this was null in that case, which
+    forced every consumer to handle two shapes for the same fact and made
+    "nothing was stated" indistinguishable from "this question was not reached".
+    """
+
+    min_length: int | None = None
+    max_length: int | None = None
+    min_value: int | float | None = None
+    max_value: int | float | None = None
+    min_selections: int | None = None
+    sum_to: int | float | None = None
+    #: Every row of a matrix must be answered. Promoted out of the question's
+    #: leftover attributes because it is a validation rule like any other: it
+    #: decides whether a part-filled grid is refused, which is a test.
+    require_each_row: bool | None = None
+    #: The exclusive option, resolved to an id rather than left as loose text.
+    exclusive_option_id: str | None = None
+    exclusive_option_label: str | None = None
+    #: Whether an answer is required. Tri-state on purpose: null means the QRE
+    #: neither marked this question optional nor stated a survey-wide default,
+    #: and a bot must not be told an answer is required on no evidence. It was
+    #: previously `bool = True`, which asserted mandatory for every question
+    #: that carried any validation at all — an inference presented as a reading,
+    #: which CLAUDE.md §14 forbids.
+    mandatory: bool | None = None
+    mandatory_origin: Origin = Origin.UNKNOWN
+
+
+class OptionSource(BaseModel):
+    """Where a question's answer list actually comes from when it is shown.
+
+    A piped question prints one list in the QRE and shows a different one to the
+    respondent: C01's Q2 lists four brands, but shows only those chosen at Q1.
+    Nothing said so on the question itself, so a bot reading the specification
+    would pick an option that is not on screen — which is exactly the failure
+    the QRE's own scenario T7 is written to catch.
+
+    The full printed list stays on the question. This narrows it, and says what
+    narrows it, rather than editing the list down to a guess.
+    """
+
+    #: The earlier question whose answer decides the list.
+    from_question: str
+    #: The QRE's own sentence, kept so the reading can be checked against it.
+    instruction: str = ""
+    #: The subset is stated by the QRE; which question supplies it is read out
+    #: of that sentence, so the link is derived rather than invented.
+    origin: Origin = Origin.DERIVED
+    source_reference: SourceReference | None = None
+
+
+class CanonicalQuestion(BaseModel):
+    """A question, with everything needed to ask it and to answer it.
+
+    Originally this held only an id, a position and a guard - enough to draw a
+    route graph, and not enough to walk one. A test designer reading it could
+    see that a rule fired on `S1 == 'No'` and still had no way to learn that S1
+    is a single-choice question whose answers are Yes and No, because that lived
+    only in Part 1's questionnaire file. Carrying it here makes the
+    specification answerable on its own.
+    """
+
+    question_id: str
+    seq: int | None = None
+    #: The QRE's own word for the type - single, multi, grid, verbatim. Kept as
+    #: written rather than mapped to a fixed vocabulary, since the word is the
+    #: document's convention and Z02 alone writes four this pipeline had not
+    #: seen before.
+    kind: str = ""
+    wording: str = ""
+    options: list[CanonicalOption] = Field(default_factory=list)
+    matrix_rows: list[CanonicalOption] = Field(default_factory=list)
+    validation: CanonicalValidation | None = None
+    guard: Guard | None = None
+    #: Set when the answer list shown at runtime is not the list above. See
+    #: `OptionSource`: `options` stays the full set the QRE printed, and this
+    #: says which earlier answer narrows it.
+    option_source: OptionSource | None = None
+    #: Attributes Stage 4 read but this model does not name, kept with their
+    #: original JSON type rather than dropped. A QRE is free to state something
+    #: no schema anticipated, and losing it silently is worse than carrying it
+    #: somewhere a reader can find it (CLAUDE.md §16).
+    extra: dict[str, Any] = Field(default_factory=dict)
+    #: Where this question came from in the QRE.
+    source_reference: SourceReference | None = None
+
+
+class CanonicalDisposition(BaseModel):
+    """A way the survey can end.
+
+    Needed as a first-class object because the route graph has to give every
+    ending a node to terminate at. An ending a rule sends people to but which
+    the QRE never defines still gets one, marked `defined_in_source=False` —
+    C01 and C02 both send quota-full respondents to TERM_QUOTA_FULL and then
+    never say what it shows them, and a graph that quietly omitted that node
+    would hide a real hole rather than expose it.
+    """
+
+    disposition_id: str
+    #: complete, screenout, quota_full, or unknown where the id says nothing.
+    kind: str = "unknown"
+    message: str | None = None
+    terminal: bool = True
+    #: False when the id is referred to but never given a message of its own.
+    defined_in_source: bool = True
+    #: Where the message was stated. Null for an ending that is only referred
+    #: to, which is itself the evidence that nothing defines it.
+    source_reference: SourceReference | None = None
+
+
+class CanonicalStatement(BaseModel):
+    """One thing the QRE states about the study, or about how to program it.
+
+    Carried across as written. These sections were being dropped between Part 1
+    and Part 2 even though Part 1 had extracted them: the study specification
+    holds the mandatory default and "Do not infer unstated routing", and the
+    programming section holds six requirements addressed squarely at the agents
+    downstream - store stable identifiers, capture the displayed random order,
+    record expected against observed destination for every transition.
+
+    Kept as statements, not turned into behaviour. Where one of them does decide
+    behaviour it is read into the semantics block, which is the one place
+    decisions are allowed to live, with this sentence as its evidence.
+    """
+
+    #: Leading identifier where the line supplies one.
+    code: str | None = None
+    #: Leading label where the line reads "Label: value".
+    label: str | None = None
+    text: str
+    raw_text: str = ""
+    source_reference: SourceReference | None = None
+
+
+class ScenarioInput(BaseModel):
+    """One answer a scenario supplies, with its options resolved where it can be.
+
+    The raw value is always kept. `option_ids` is filled in only when every
+    part of the value names an option the question actually offers, so a bot can
+    act on ids; where it cannot, the value stands unresolved and is reported
+    rather than half-matched.
+    """
+
+    question_id: str
+    #: Exactly what the scenario's table cell said: a label, a list of labels,
+    #: or a mapping such as a constant sum's allocation.
+    value: Any = None
+    option_ids: list[str] | None = None
+    #: True where the question is not one this survey asks.
+    unknown_question: bool = False
+
+
+class ScenarioExpectation(BaseModel):
+    """One thing a scenario expects to happen.
+
+    `kind` is the QRE's own key, copied rather than mapped to a fixed
+    vocabulary: the four seen so far are about the ending reached, questions
+    shown, questions hidden and a validation error, but a document is free to
+    write others and a closed list would silently drop them.
+    """
+
+    kind: str
+    #: The identifiers the expectation names, in the order written.
+    targets: list[str] = Field(default_factory=list)
+    #: What each target turned out to be - question, disposition or unknown -
+    #: resolved against this survey rather than guessed from the name.
+    target_kinds: list[str] = Field(default_factory=list)
+    #: The value as written, for expectations that are not a list of ids.
+    value: Any = None
+
+
+class CanonicalScenario(BaseModel):
+    """An acceptance test the QRE itself wrote.
+
+    These are the document's own statement of what correct behaviour looks like,
+    given as inputs and an expected outcome, and Part 2 was dropping all of them
+    - seven on C01, three on S01. They are the closest thing to ground truth
+    that exists anywhere in the pipeline: a test designer that agrees with them
+    is very likely right, and one that contradicts them has found either a bug
+    or a defect in the QRE. Either way somebody needs to see it.
+
+    Carried, not executed. Deciding whether a scenario passes means evaluating
+    conditions against an answer set, which is the test designer's job.
+    """
+
+    scenario_id: str
+    purpose: str = ""
+    inputs: list[ScenarioInput] = Field(default_factory=list)
+    expectations: list[ScenarioExpectation] = Field(default_factory=list)
+    #: The two cells exactly as the QRE wrote them, so the reading above can
+    #: always be checked against the source.
+    inputs_raw: dict = Field(default_factory=dict)
+    expected_raw: dict = Field(default_factory=dict)
+    #: Anything Part 1 could not read out of the row.
+    parse_errors: list[str] = Field(default_factory=list)
+    source_reference: SourceReference | None = None
+
+
+class CanonicalSurvey(BaseModel):
+    """What the QRE means, as opposed to what it says.
+
+    Part 1's artifacts remain the record of what was written. This is the
+    reading of them, and every value it adds carries an origin saying whether it
+    was extracted, derived or inferred.
+    """
+
+    source: str
+    semantics: Semantics = Field(default_factory=Semantics)
+    #: What the document says about the study itself - objective, population,
+    #: mode, length, and any general instruction.
+    metadata: list[CanonicalStatement] = Field(default_factory=list)
+    questions: list[CanonicalQuestion] = Field(default_factory=list)
+    dispositions: list[CanonicalDisposition] = Field(default_factory=list)
+    rules: list[CanonicalRule] = Field(default_factory=list)
+    dependencies: list[Dependency] = Field(default_factory=list)
+    randomization: list[Randomization] = Field(default_factory=list)
+    quotas: list[Quota] = Field(default_factory=list)
+    #: Statements from the quota section that are not themselves a quota
+    #: definition - what happens when a group is full, that status must be
+    #: logged, and anything else a document says about quota *behaviour*
+    #: rather than a quota's groups and targets. `_build_quotas` already reads
+    #: every sentence in the section to decide whether it sets a quota; a
+    #: sentence it decides does not was previously read and then discarded,
+    #: which is why "Quota-full respondents terminate at TERM_QUOTA_FULL
+    #: before the next substantive question" existed in Stage 4 and nowhere
+    #: after it. Carried verbatim, never parsed into a rule: "before the next
+    #: substantive question" names no question, and turning it into one would
+    #: be exactly the invented precision CLAUDE.md §13 forbids.
+    quota_requirements: list[CanonicalStatement] = Field(default_factory=list)
+    #: The QRE's own acceptance tests.
+    scenarios: list[CanonicalScenario] = Field(default_factory=list)
+    #: What the document requires of whoever programs and tests the survey.
+    requirements: list[CanonicalStatement] = Field(default_factory=list)
+    #: Things a person needs to decide. Reuses the audit's finding shape so the
+    #: two queues can be read together.
+    review: list[AuditFinding] = Field(default_factory=list)
+
+
+# ---------------------------------------------------------------------------
+# Part 2 — the graphs built from the canonical specification
+# ---------------------------------------------------------------------------
+
+
+class RouteGraphs(BaseModel):
+    """The graphs, in NetworkX's own node-link form.
+
+    Held as plain data rather than as typed nodes and edges so the file can be
+    read straight back with `networkx.node_link_graph` without this schema
+    having to mirror every attribute the graph carries. The specification stays
+    the source of truth; this is a view of it.
+    """
+
+    source: str
+    route_graph: dict
+    dependency_graph: dict
+    #: Which rule produced which edge or guard. The traceability spine: it is
+    #: what lets a failing test point back at the sentence that asked for the
+    #: behaviour.
+    rule_edge_map: dict[str, list[str]] = Field(default_factory=dict)
+
+
+class GraphReport(BaseModel):
+    """Whether the graph faithfully represents the specification.
+
+    A different question from whether the specification is right, which is what
+    the Stage 5 audit asks - and a different question again from whether this
+    graph may be treated as behaviourally approved, which is not the graph
+    builder's to decide (see `structurally_buildable` / `behaviorally_approved`
+    below).
+    """
+
+    source: str
+    nodes: int = 0
+    edges: int = 0
+    questions: int = 0
+    dispositions: int = 0
+    rules_mapped: int = 0
+    rules_total: int = 0
+    quotas_mapped: int = 0
+    quotas_total: int = 0
+    dependency_edges: int = 0
+    findings: list[AuditFinding] = Field(default_factory=list)
+    blocking: int = 0
+    passed: bool = True
+    #: Per-category coverage: node, routing-rule, termination, skip/display,
+    #: validation/reject, dependency, quota, randomization and traceability.
+    #: Kept separate on purpose - the same reasoning as Stage 5's per-section
+    #: scores and Stage 8's per-category test coverage: one missed termination
+    #: rule must not disappear inside a single blended percentage.
+    coverage: dict[str, dict] = Field(default_factory=dict)
+    #: True when the graph itself builds and passes its own fidelity checks -
+    #: a purely structural fact, unaffected by anything a person has or has not
+    #: yet confirmed. Always known; computed the moment the graph is built.
+    structurally_buildable: bool = True
+    #: Whether this graph may be treated as behaviourally approved for
+    #: downstream use - Agent 3 test design, ultimately Agent 4 execution.
+    #: None when no canonical-validation verdict was supplied to judge it
+    #: against (the validation layer builds a graph purely to grade the
+    #: specification, and that build is not asking this question). Never
+    #: inferred from `passed` alone: a structurally sound graph built from a
+    #: specification with a pending BLOCKING human decision is not approved.
+    behaviorally_approved: bool | None = None
+    #: Why `behaviorally_approved` is false, in the vocabulary the validation
+    #: layer already uses - "canonical_status=FAILED",
+    #: "human_decision_gate=PENDING_BLOCKING_DECISIONS", "graph_fidelity_failed".
+    approval_blocked_by: list[str] = Field(default_factory=list)
+
+
+Condition.model_rebuild()
