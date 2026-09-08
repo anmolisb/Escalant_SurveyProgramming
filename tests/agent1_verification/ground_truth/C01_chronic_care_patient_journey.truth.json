@@ -1,0 +1,660 @@
+{
+  "document": "C01_chronic_care_patient_journey.docx",
+  "questions": [
+    {
+      "id": "S1",
+      "wording": "Are you 21 years of age or older?",
+      "type": "single",
+      "options": [
+        "Yes",
+        "No"
+      ],
+      "matrix": {},
+      "display_conditions": [],
+      "display_cell": "Always show"
+    },
+    {
+      "id": "S2",
+      "wording": "Which statement best describes your involvement?",
+      "type": "single",
+      "options": [
+        "Personally manage an ongoing chronic health condition",
+        "Aware but not involved",
+        "Not aware of this category"
+      ],
+      "matrix": {},
+      "display_conditions": [],
+      "display_cell": "Always show"
+    },
+    {
+      "id": "S3",
+      "wording": "Have you participated in market research in the past 3 months?",
+      "type": "single",
+      "options": [
+        "Yes",
+        "No"
+      ],
+      "matrix": {},
+      "display_conditions": [],
+      "display_cell": "Always show"
+    },
+    {
+      "id": "S4",
+      "wording": "Do you or an immediate family member work in market research, advertising, or the category being studied?",
+      "type": "single",
+      "options": [
+        "Yes",
+        "No"
+      ],
+      "matrix": {},
+      "display_conditions": [],
+      "display_cell": "Always show"
+    },
+    {
+      "id": "Q1",
+      "wording": "Which of these brands have you heard of?",
+      "type": "multi",
+      "options": [
+        "Care Network A",
+        "Care Network B",
+        "Care Network C",
+        "Independent provider",
+        "None of these"
+      ],
+      "matrix": {},
+      "display_conditions": [],
+      "display_cell": "Validate: {\"exclusive_option\": \"None of these\"}\nRandomize"
+    },
+    {
+      "id": "Q2",
+      "wording": "Which brands would you consider?",
+      "type": "multi",
+      "options": [
+        "Care Network A",
+        "Care Network B",
+        "Care Network C",
+        "Independent provider"
+      ],
+      "matrix": {},
+      "display_conditions": [
+        "Q1 contains at least one brand"
+      ],
+      "display_cell": "Show if: Q1 contains at least one brand\nShow only brands selected at Q1."
+    },
+    {
+      "id": "Q3",
+      "wording": "Which brand is your current or most recent provider?",
+      "type": "single",
+      "options": [
+        "Care Network A",
+        "Care Network B",
+        "Care Network C",
+        "Independent provider",
+        "None/currently not using"
+      ],
+      "matrix": {},
+      "display_conditions": [
+        "Q1 contains at least one brand"
+      ],
+      "display_cell": "Show if: Q1 contains at least one brand"
+    },
+    {
+      "id": "Q4",
+      "wording": "Which stage best describes your current position?",
+      "type": "single",
+      "options": [
+        "Recently diagnosed",
+        "Treatment initiation",
+        "Ongoing management",
+        "Treatment change",
+        "Monitoring only"
+      ],
+      "matrix": {},
+      "display_conditions": [],
+      "display_cell": "Always show"
+    },
+    {
+      "id": "Q5",
+      "wording": "Which touchpoints did you use?",
+      "type": "multi",
+      "options": [
+        "Primary-care physician",
+        "Specialist",
+        "Hospital",
+        "Pharmacy",
+        "Patient portal",
+        "Support programme",
+        "None of these"
+      ],
+      "matrix": {},
+      "display_conditions": [],
+      "display_cell": "Validate: {\"exclusive_option\": \"None of these\"}\nRandomize"
+    },
+    {
+      "id": "Q6",
+      "wording": "Which touchpoint was most influential?",
+      "type": "single",
+      "options": [
+        "Primary-care physician",
+        "Specialist",
+        "Hospital",
+        "Pharmacy",
+        "Patient portal",
+        "Support programme"
+      ],
+      "matrix": {},
+      "display_conditions": [
+        "Q5 contains any touchpoint"
+      ],
+      "display_cell": "Show if: Q5 contains any touchpoint\nShow only touchpoints selected at Q5."
+    },
+    {
+      "id": "Q7",
+      "wording": "How satisfied are you with the overall experience?",
+      "type": "single",
+      "options": [
+        "1 - Very poor",
+        "2 - Poor",
+        "3 - Fair",
+        "4 - Good",
+        "5 - Excellent"
+      ],
+      "matrix": {},
+      "display_conditions": [
+        "Q3 != 'None/currently not using'"
+      ],
+      "display_cell": "Show if: Q3 != 'None/currently not using'"
+    },
+    {
+      "id": "Q8",
+      "wording": "How likely are you to recommend the current provider?",
+      "type": "single",
+      "options": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10"
+      ],
+      "matrix": {},
+      "display_conditions": [
+        "Q3 != 'None/currently not using'"
+      ],
+      "display_cell": "Show if: Q3 != 'None/currently not using'"
+    },
+    {
+      "id": "Q9",
+      "wording": "Please rate each attribute for your current provider.",
+      "type": "matrix",
+      "options": [],
+      "matrix": {
+        "rows": [
+          "Access",
+          "Communication",
+          "Coordination",
+          "Treatment information",
+          "Emotional support",
+          "Digital tools"
+        ],
+        "scale": [
+          "1 - Very poor",
+          "2 - Poor",
+          "3 - Fair",
+          "4 - Good",
+          "5 - Excellent"
+        ]
+      },
+      "display_conditions": [
+        "Q3 != 'None/currently not using'"
+      ],
+      "display_cell": "Show if: Q3 != 'None/currently not using'\nValidate: {\"scale\": [\"1 - Very poor\", \"2 - Poor\", \"3 - Fair\", \"4 - Good\", \"5 - Excellent\"], \"require_each_row\": true}\nRandomize"
+    },
+    {
+      "id": "Q10",
+      "wording": "Did you contact support during the experience?",
+      "type": "single",
+      "options": [
+        "Yes",
+        "No"
+      ],
+      "matrix": {},
+      "display_conditions": [],
+      "display_cell": "Always show"
+    },
+    {
+      "id": "Q11",
+      "wording": "Which support channels did you use?",
+      "type": "multi",
+      "options": [
+        "Phone",
+        "Email",
+        "Chat",
+        "In person",
+        "Self-service"
+      ],
+      "matrix": {},
+      "display_conditions": [
+        "Q10 == 'Yes'"
+      ],
+      "display_cell": "Show if: Q10 == 'Yes'\nValidate: {\"min_selections\": 1}"
+    },
+    {
+      "id": "Q12",
+      "wording": "Was your issue resolved?",
+      "type": "single",
+      "options": [
+        "Fully",
+        "Partly",
+        "Not resolved"
+      ],
+      "matrix": {},
+      "display_conditions": [
+        "Q10 == 'Yes'"
+      ],
+      "display_cell": "Show if: Q10 == 'Yes'"
+    },
+    {
+      "id": "Q13",
+      "wording": "How much effort did resolution require?",
+      "type": "single",
+      "options": [
+        "1 - Very low",
+        "2",
+        "3",
+        "4",
+        "5 - Very high"
+      ],
+      "matrix": {},
+      "display_conditions": [
+        "Q12 in ['Fully','Partly']"
+      ],
+      "display_cell": "Show if: Q12 in ['Fully','Partly']"
+    },
+    {
+      "id": "Q14",
+      "wording": "Why was the issue not resolved?",
+      "type": "text",
+      "options": [],
+      "matrix": {},
+      "display_conditions": [
+        "Q12 == 'Not resolved'"
+      ],
+      "display_cell": "Show if: Q12 == 'Not resolved'\nValidate: {\"min_length\": 10, \"max_length\": 500}"
+    },
+    {
+      "id": "Q15",
+      "wording": "Have you considered switching providers?",
+      "type": "single",
+      "options": [
+        "Yes",
+        "No"
+      ],
+      "matrix": {},
+      "display_conditions": [
+        "Q3 != 'None/currently not using'"
+      ],
+      "display_cell": "Show if: Q3 != 'None/currently not using'"
+    },
+    {
+      "id": "Q16",
+      "wording": "What is the main reason for considering a switch?",
+      "type": "single",
+      "options": [
+        "Price",
+        "Service quality",
+        "Features",
+        "Poor support",
+        "Competitor offer",
+        "Other"
+      ],
+      "matrix": {},
+      "display_conditions": [
+        "Q15 == 'Yes'"
+      ],
+      "display_cell": "Show if: Q15 == 'Yes'\nRandomize"
+    },
+    {
+      "id": "Q17",
+      "wording": "Please specify the other switching reason.",
+      "type": "text",
+      "options": [],
+      "matrix": {},
+      "display_conditions": [
+        "Q16 == 'Other'"
+      ],
+      "display_cell": "Show if: Q16 == 'Other'\nValidate: {\"min_length\": 3, \"max_length\": 200}"
+    },
+    {
+      "id": "Q18",
+      "wording": "Allocate 100 points across the factors that drive your decision.",
+      "type": "constant_sum",
+      "options": [
+        "Price",
+        "Quality",
+        "Convenience",
+        "Trust",
+        "Support"
+      ],
+      "matrix": {},
+      "display_conditions": [],
+      "display_cell": "Validate: {\"sum\": 100}"
+    },
+    {
+      "id": "Q19",
+      "wording": "Which new proposition do you prefer?",
+      "type": "single",
+      "options": [
+        "Concept A",
+        "Concept B",
+        "Concept C"
+      ],
+      "matrix": {},
+      "display_conditions": [],
+      "display_cell": "Randomize\nConcept descriptions are displayed in randomized order; store display order."
+    },
+    {
+      "id": "Q20",
+      "wording": "How appealing is the selected proposition?",
+      "type": "single",
+      "options": [
+        "1 - Very poor",
+        "2 - Poor",
+        "3 - Fair",
+        "4 - Good",
+        "5 - Excellent"
+      ],
+      "matrix": {},
+      "display_conditions": [],
+      "display_cell": "Always show"
+    },
+    {
+      "id": "Q21",
+      "wording": "What most influenced your choice?",
+      "type": "text",
+      "options": [],
+      "matrix": {},
+      "display_conditions": [],
+      "display_cell": "Validate: {\"min_length\": 5, \"max_length\": 500}"
+    },
+    {
+      "id": "D1",
+      "wording": "Which region do you live in?",
+      "type": "single",
+      "options": [
+        "North",
+        "South",
+        "East",
+        "West",
+        "Central"
+      ],
+      "matrix": {},
+      "display_conditions": [],
+      "display_cell": "Always show"
+    },
+    {
+      "id": "D2",
+      "wording": "Which age group describes you?",
+      "type": "single",
+      "options": [
+        "21-29",
+        "30-39",
+        "40-49",
+        "50-59",
+        "60+"
+      ],
+      "matrix": {},
+      "display_conditions": [],
+      "display_cell": "Always show"
+    },
+    {
+      "id": "D3",
+      "wording": "How do you describe your gender?",
+      "type": "single",
+      "options": [
+        "Woman",
+        "Man",
+        "Non-binary",
+        "Prefer to self-describe",
+        "Prefer not to say"
+      ],
+      "matrix": {},
+      "display_conditions": [],
+      "display_cell": "Always show"
+    },
+    {
+      "id": "D4",
+      "wording": "What is your household or organizational decision band?",
+      "type": "single",
+      "options": [
+        "Band 1",
+        "Band 2",
+        "Band 3",
+        "Band 4",
+        "Prefer not to say"
+      ],
+      "matrix": {},
+      "display_conditions": [],
+      "display_cell": "Always show"
+    },
+    {
+      "id": "Q22",
+      "wording": "May we use your anonymized comments in internal reporting?",
+      "type": "single",
+      "options": [
+        "Yes",
+        "No"
+      ],
+      "matrix": {},
+      "display_conditions": [],
+      "display_cell": "Always show"
+    },
+    {
+      "id": "Q23",
+      "wording": "Any final comments?",
+      "type": "text",
+      "options": [],
+      "matrix": {},
+      "display_conditions": [],
+      "display_cell": "Validate: {\"max_length\": 1000}\nOptional"
+    }
+  ],
+  "routing": [
+    {
+      "rule": "R1",
+      "condition": "S1 == 'No'",
+      "action": "terminate",
+      "destination": "TERM_AGE"
+    },
+    {
+      "rule": "R2",
+      "condition": "S2 != 'Personally manage an ongoing chronic health condition'",
+      "action": "terminate",
+      "destination": "TERM_INVOLVEMENT"
+    },
+    {
+      "rule": "R3",
+      "condition": "S3 == 'Yes'",
+      "action": "terminate",
+      "destination": "TERM_RECENT_RESEARCH"
+    },
+    {
+      "rule": "R4",
+      "condition": "S4 == 'Yes'",
+      "action": "terminate",
+      "destination": "TERM_CONFLICT"
+    },
+    {
+      "rule": "R5",
+      "condition": "Q1 == ['None of these']",
+      "action": "skip",
+      "destination": "Q4"
+    },
+    {
+      "rule": "R6",
+      "condition": "Q1 contains at least one brand",
+      "action": "show",
+      "destination": "Q2"
+    },
+    {
+      "rule": "R7",
+      "condition": "Q1 contains at least one brand",
+      "action": "show",
+      "destination": "Q3"
+    },
+    {
+      "rule": "R8",
+      "condition": "Q5 contains any touchpoint",
+      "action": "show",
+      "destination": "Q6"
+    },
+    {
+      "rule": "R9",
+      "condition": "Q3 != 'None/currently not using'",
+      "action": "show",
+      "destination": "Q7"
+    },
+    {
+      "rule": "R10",
+      "condition": "Q3 != 'None/currently not using'",
+      "action": "show",
+      "destination": "Q8"
+    },
+    {
+      "rule": "R11",
+      "condition": "Q3 != 'None/currently not using'",
+      "action": "show",
+      "destination": "Q9"
+    },
+    {
+      "rule": "R12",
+      "condition": "Q10 == 'Yes'",
+      "action": "show",
+      "destination": "Q11"
+    },
+    {
+      "rule": "R13",
+      "condition": "Q10 == 'Yes'",
+      "action": "show",
+      "destination": "Q12"
+    },
+    {
+      "rule": "R14",
+      "condition": "Q12 in ['Fully','Partly']",
+      "action": "show",
+      "destination": "Q13"
+    },
+    {
+      "rule": "R15",
+      "condition": "Q12 == 'Not resolved'",
+      "action": "show",
+      "destination": "Q14"
+    },
+    {
+      "rule": "R16",
+      "condition": "Q15 == 'Yes'",
+      "action": "show",
+      "destination": "Q16"
+    },
+    {
+      "rule": "R17",
+      "condition": "Q16 == 'Other'",
+      "action": "show",
+      "destination": "Q17"
+    },
+    {
+      "rule": "R18",
+      "condition": "sum(Q18) != 100",
+      "action": "reject",
+      "destination": "Q18"
+    },
+    {
+      "rule": "R19",
+      "condition": "exclusive option selected with another response at Q1 or Q5",
+      "action": "reject",
+      "destination": "CURRENT_QUESTION"
+    },
+    {
+      "rule": "R20",
+      "condition": "selected option at Q6 was not selected at Q5",
+      "action": "reject",
+      "destination": "Q6"
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "T1",
+      "purpose": "age screenout",
+      "inputs": "{\"S1\": \"No\"}",
+      "outcome": "{\"expected_end\": \"TERM_AGE\"}"
+    },
+    {
+      "id": "T2",
+      "purpose": "conflict screenout",
+      "inputs": "{\"S1\": \"Yes\", \"S2\": \"Personally manage an ongoing chronic health condition\", \"S3\": \"No\", \"S4\": \"Yes\"}",
+      "outcome": "{\"expected_end\": \"TERM_CONFLICT\"}"
+    },
+    {
+      "id": "T3",
+      "purpose": "brand unaware journey",
+      "inputs": "{\"S1\": \"Yes\", \"S2\": \"Personally manage an ongoing chronic health condition\", \"S3\": \"No\", \"S4\": \"No\", \"Q1\": [\"None of these\"]}",
+      "outcome": "{\"expected_hidden\": [\"Q2\", \"Q3\", \"Q7\", \"Q8\", \"Q9\"], \"expected_end\": \"COMPLETE\"}"
+    },
+    {
+      "id": "T4",
+      "purpose": "user, no support, no switch",
+      "inputs": "{\"S1\": \"Yes\", \"S2\": \"Personally manage an ongoing chronic health condition\", \"S3\": \"No\", \"S4\": \"No\", \"Q1\": [\"Care Network A\"], \"Q3\": \"Care Network A\", \"Q10\": \"No\", \"Q15\": \"No\"}",
+      "outcome": "{\"expected_hidden\": [\"Q11\", \"Q12\", \"Q13\", \"Q14\", \"Q16\", \"Q17\"], \"expected_end\": \"COMPLETE\"}"
+    },
+    {
+      "id": "T5",
+      "purpose": "unresolved support and other switch reason",
+      "inputs": "{\"S1\": \"Yes\", \"S2\": \"Personally manage an ongoing chronic health condition\", \"S3\": \"No\", \"S4\": \"No\", \"Q1\": [\"Care Network B\"], \"Q3\": \"Care Network B\", \"Q10\": \"Yes\", \"Q12\": \"Not resolved\", \"Q15\": \"Yes\", \"Q16\": \"Other\"}",
+      "outcome": "{\"expected_visible\": [\"Q11\", \"Q12\", \"Q14\", \"Q16\", \"Q17\"], \"expected_hidden\": [\"Q13\"], \"expected_end\": \"COMPLETE\"}"
+    },
+    {
+      "id": "T6",
+      "purpose": "constant-sum under 100",
+      "inputs": "{\"Q18\": {\"Price\": 30, \"Quality\": 30, \"Convenience\": 10, \"Trust\": 10, \"Support\": 10}}",
+      "outcome": "{\"expected_validation_error\": \"Q18\"}"
+    },
+    {
+      "id": "T7",
+      "purpose": "piped option violation",
+      "inputs": "{\"Q5\": [\"Primary-care physician\"], \"Q6\": \"Support programme\"}",
+      "outcome": "{\"expected_validation_error\": \"Q6\"}"
+    }
+  ],
+  "messages": [
+    "TERM_AGE: Thank you for your interest. You do not qualify for this survey.",
+    "TERM_CONFLICT: Thank you for your interest. You do not qualify for this survey.",
+    "TERM_INVOLVEMENT: Thank you for your interest. You do not qualify for this survey.",
+    "TERM_RECENT_RESEARCH: Thank you for your interest. You do not qualify for this survey.",
+    "COMPLETE: Thank you. Your response has been recorded."
+  ],
+  "study": [
+    "Business objective: Map the care journey, service experience, unmet needs and support interactions.",
+    "Target population: Personally manage an ongoing chronic health condition",
+    "Mode: Self-completion web survey",
+    "Estimated length: 12 minutes",
+    "General instruction: All questions are mandatory unless explicitly marked optional. Do not infer unstated routing."
+  ],
+  "programming": [
+    "Store stable question, option, route and test-run identifiers.",
+    "Capture displayed random order for every randomized item.",
+    "Record expected and observed destination for every routing transition.",
+    "Reject mutually exclusive selections and invalid numeric/text responses before progression.",
+    "Produce an audit record containing inputs, timestamps, route, assertions, screenshots on failure and final disposition.",
+    "Do not send synthetic test responses into live operational reporting."
+  ],
+  "quotas": [
+    "QUOTA_REGION: hard quota on D1: North=20%, South=20%, East=20%, West=20%, Central=20%",
+    "QUOTA_AGE: soft quota on D2: 21-29=20%, 30-39=25%, 40-49=25%, 50-59=20%, 60+=10%",
+    "Quota-full respondents terminate at TERM_QUOTA_FULL before the next substantive question. Quota status must be logged."
+  ]
+}
