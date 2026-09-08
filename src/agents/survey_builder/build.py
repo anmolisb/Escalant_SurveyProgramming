@@ -1,6 +1,5 @@
-"""Build a LimeSurvey .lss file from a stage 4 output directory.
-
-    python -m src.agents.survey_builder.build fixtures/stage4-outputs/C02
+"""Build a LimeSurvey .lss file from a stage 4 output files.
+    python -m src.agents.survey_builder.build out/C02
 
 The input is checked before anything is built. The loader raises on the first
 problem it meets, which means fixing gaps one rerun at a time; preflight walks

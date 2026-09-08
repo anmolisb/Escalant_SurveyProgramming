@@ -18,9 +18,8 @@ from pathlib import Path
 from src.agents.survey_builder.emitter import emit
 from src.agents.survey_builder.loader import load
 
-FIXTURES = Path("fixtures/stage4-outputs/S01")
+FIXTURES = Path(__file__).parent / "stage4-outputs" / "S01"
 SNAPSHOT = Path(__file__).parent / "S01_expected.lss"
-
 
 def _build() -> str:
     return emit(load(FIXTURES))
