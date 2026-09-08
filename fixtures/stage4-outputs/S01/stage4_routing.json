@@ -1,0 +1,30 @@
+[
+  {
+    "rule": "R1",
+    "condition_raw": "S1 == 'No'",
+    "condition_expression": "S1 == 'No'",
+    "action": "terminate",
+    "destination": "TERM_INELIGIBLE"
+  },
+  {
+    "rule": "R2",
+    "condition_raw": "S2 == 'No'",
+    "condition_expression": "S2 == 'No'",
+    "action": "terminate",
+    "destination": "TERM_INELIGIBLE"
+  },
+  {
+    "rule": "R3",
+    "condition_raw": "Q5 == 'Yes'",
+    "condition_expression": "Q5 == 'Yes'",
+    "action": "show",
+    "destination": "Q6"
+  },
+  {
+    "rule": "R4",
+    "condition_raw": "Q5 == 'No'",
+    "condition_expression": "Q5 == 'No'",
+    "action": "skip",
+    "destination": "Q7"
+  }
+]
