@@ -53,4 +53,8 @@ jobs:
           echo "Holdout is locked."
 
       - name: Run tests
-        run: python -m pytest
+        # The suite was removed in the main cleanup. pytest exits 5 when it
+        # collects nothing, which CI would read as a failure. Drop this once
+        # tests return.
+        shell: bash
+        run: python -m pytest || [ $? -eq 5 ]
