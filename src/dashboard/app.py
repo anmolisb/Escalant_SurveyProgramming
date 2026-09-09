@@ -10,6 +10,7 @@ from __future__ import annotations
 
 import io
 import json
+import shutil
 import subprocess
 import sys
 import zipfile
@@ -99,6 +100,15 @@ with st.sidebar:
         picked = st.selectbox("Run", names)
         if picked != "(new upload)":
             st.session_state["run_name"] = picked
+
+    if st.session_state.get("run_name"):
+        current = OUT / st.session_state["run_name"]
+        if st.button("Delete this run", type="secondary"):
+            shutil.rmtree(current, ignore_errors=True)
+            (OUT / f"{current.name}_generated.lss").unlink(missing_ok=True)
+            for key in ("run_name", "log", "build_log", "build_ok"):
+                st.session_state.pop(key, None)
+            st.rerun()
 
     uploaded = st.file_uploader("QRE document", type="docx")
     already_run = bool(uploaded) and (OUT / Path(uploaded.name).stem).exists()
