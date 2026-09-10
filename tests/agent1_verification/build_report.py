@@ -466,6 +466,15 @@ def main() -> int:
          "Question id, wording, type, every answer option, every matrix row, every display "
          "condition, every routing rule with its condition, action and destination, every "
          "acceptance scenario, completion message, study statement and QA instruction."),
+        ("Conditions are compared as meaning, not presence",
+         "Earlier this check only asked whether a condition tree existed, which a tree "
+         "meaning the OPPOSITE of the document would have passed. The document's own "
+         "condition text is now parsed independently - by a small parser written for this "
+         "harness, importing none of the pipeline's - and the two structures compared: "
+         "operator, question, values, and how sub-conditions combine. Both readings are "
+         "printed side by side in the evidence sheet so a reviewer can compare them by "
+         "eye. Validated by negative control: flipping an operator, changing a value and "
+         "turning an OR into an AND were each detected."),
         ("Declined by design",
          "Where the pipeline deliberately refuses — a condition it cannot read without "
          "guessing — the item is recorded as 'declined', not 'missed', and excluded from "
