@@ -663,10 +663,16 @@ async def _resolve_condition(
         return part2_conditions.render(parsed), Origin.DERIVED, None
 
     try:
+        # answer = await complete_async(
+        #     _ROUTING_SYSTEM,
+        #     f"Condition: {condition}\n\nOption codes:\n{_catalogue_for(condition, by_id)}",
+        #     LLMRoutingExpression,
+        # )
         answer = await complete_async(
             _ROUTING_SYSTEM,
             f"Condition: {condition}\n\nOption codes:\n{_catalogue_for(condition, by_id)}",
             LLMRoutingExpression,
+            max_tokens=2000,
         )
     except LLMUnavailable as exc:
         return None, None, f"Condition not translated: {exc}"

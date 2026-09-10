@@ -510,6 +510,7 @@ def propose(
             f"Condition as written: {condition_raw}\n\n"
             f"Answer options:\n{_catalogue(question_ids, options_by_question)}",
             LLMConditionProposal,
+            max_tokens=2000,
         )
     except LLMUnavailable as exc:
         return None, f"no model available: {exc}"
