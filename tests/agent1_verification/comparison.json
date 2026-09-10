@@ -2354,8 +2354,8 @@
     "section": "Routing",
     "item": "R1",
     "field": "condition",
-    "expected": "S1 == 'No'",
-    "found": "(read as a condition tree)",
+    "expected": "S1 eq 'no'",
+    "found": "S1 eq 'no'",
     "outcome": "correct",
     "note": ""
   },
@@ -2394,8 +2394,8 @@
     "section": "Routing",
     "item": "R2",
     "field": "condition",
-    "expected": "S2 != 'Personally manage an ongoing chronic health condition'",
-    "found": "(read as a condition tree)",
+    "expected": "S2 ne 'personally manage an ongoing chronic health condition'",
+    "found": "S2 ne 'personally manage an ongoing chronic health condition'",
     "outcome": "correct",
     "note": ""
   },
@@ -2434,8 +2434,8 @@
     "section": "Routing",
     "item": "R3",
     "field": "condition",
-    "expected": "S3 == 'Yes'",
-    "found": "(read as a condition tree)",
+    "expected": "S3 eq 'yes'",
+    "found": "S3 eq 'yes'",
     "outcome": "correct",
     "note": ""
   },
@@ -2474,8 +2474,8 @@
     "section": "Routing",
     "item": "R4",
     "field": "condition",
-    "expected": "S4 == 'Yes'",
-    "found": "(read as a condition tree)",
+    "expected": "S4 eq 'yes'",
+    "found": "S4 eq 'yes'",
     "outcome": "correct",
     "note": ""
   },
@@ -2514,8 +2514,8 @@
     "section": "Routing",
     "item": "R5",
     "field": "condition",
-    "expected": "Q1 == ['None of these']",
-    "found": "(read as a condition tree)",
+    "expected": "Q1 set_eq ['none of these']",
+    "found": "Q1 set_eq ['none of these']",
     "outcome": "correct",
     "note": ""
   },
@@ -2555,9 +2555,9 @@
     "item": "R6",
     "field": "condition",
     "expected": "Q1 contains at least one brand",
-    "found": "(read as a condition tree)",
-    "outcome": "correct",
-    "note": ""
+    "found": "(a tree was built)",
+    "outcome": "declined",
+    "note": "the document writes this as prose, so no independent reading exists to check the tree against"
   },
   {
     "document": "C01_chronic_care_patient_journey.docx",
@@ -2595,9 +2595,9 @@
     "item": "R7",
     "field": "condition",
     "expected": "Q1 contains at least one brand",
-    "found": "(read as a condition tree)",
-    "outcome": "correct",
-    "note": ""
+    "found": "(a tree was built)",
+    "outcome": "declined",
+    "note": "the document writes this as prose, so no independent reading exists to check the tree against"
   },
   {
     "document": "C01_chronic_care_patient_journey.docx",
@@ -2635,9 +2635,9 @@
     "item": "R8",
     "field": "condition",
     "expected": "Q5 contains any touchpoint",
-    "found": "(read as a condition tree)",
-    "outcome": "correct",
-    "note": ""
+    "found": "(a tree was built)",
+    "outcome": "declined",
+    "note": "the document writes this as prose, so no independent reading exists to check the tree against"
   },
   {
     "document": "C01_chronic_care_patient_journey.docx",
@@ -2674,8 +2674,8 @@
     "section": "Routing",
     "item": "R9",
     "field": "condition",
-    "expected": "Q3 != 'None/currently not using'",
-    "found": "(read as a condition tree)",
+    "expected": "Q3 ne 'none/currently not using'",
+    "found": "Q3 ne 'none/currently not using'",
     "outcome": "correct",
     "note": ""
   },
@@ -2714,8 +2714,8 @@
     "section": "Routing",
     "item": "R10",
     "field": "condition",
-    "expected": "Q3 != 'None/currently not using'",
-    "found": "(read as a condition tree)",
+    "expected": "Q3 ne 'none/currently not using'",
+    "found": "Q3 ne 'none/currently not using'",
     "outcome": "correct",
     "note": ""
   },
@@ -2754,8 +2754,8 @@
     "section": "Routing",
     "item": "R11",
     "field": "condition",
-    "expected": "Q3 != 'None/currently not using'",
-    "found": "(read as a condition tree)",
+    "expected": "Q3 ne 'none/currently not using'",
+    "found": "Q3 ne 'none/currently not using'",
     "outcome": "correct",
     "note": ""
   },
@@ -2794,8 +2794,8 @@
     "section": "Routing",
     "item": "R12",
     "field": "condition",
-    "expected": "Q10 == 'Yes'",
-    "found": "(read as a condition tree)",
+    "expected": "Q10 eq 'yes'",
+    "found": "Q10 eq 'yes'",
     "outcome": "correct",
     "note": ""
   },
@@ -2834,8 +2834,8 @@
     "section": "Routing",
     "item": "R13",
     "field": "condition",
-    "expected": "Q10 == 'Yes'",
-    "found": "(read as a condition tree)",
+    "expected": "Q10 eq 'yes'",
+    "found": "Q10 eq 'yes'",
     "outcome": "correct",
     "note": ""
   },
@@ -2874,8 +2874,8 @@
     "section": "Routing",
     "item": "R14",
     "field": "condition",
-    "expected": "Q12 in ['Fully','Partly']",
-    "found": "(read as a condition tree)",
+    "expected": "Q12 in ['fully', 'partly']",
+    "found": "Q12 in ['fully', 'partly']",
     "outcome": "correct",
     "note": ""
   },
@@ -2914,8 +2914,8 @@
     "section": "Routing",
     "item": "R15",
     "field": "condition",
-    "expected": "Q12 == 'Not resolved'",
-    "found": "(read as a condition tree)",
+    "expected": "Q12 eq 'not resolved'",
+    "found": "Q12 eq 'not resolved'",
     "outcome": "correct",
     "note": ""
   },
@@ -2954,8 +2954,8 @@
     "section": "Routing",
     "item": "R16",
     "field": "condition",
-    "expected": "Q15 == 'Yes'",
-    "found": "(read as a condition tree)",
+    "expected": "Q15 eq 'yes'",
+    "found": "Q15 eq 'yes'",
     "outcome": "correct",
     "note": ""
   },
@@ -2994,8 +2994,8 @@
     "section": "Routing",
     "item": "R17",
     "field": "condition",
-    "expected": "Q16 == 'Other'",
-    "found": "(read as a condition tree)",
+    "expected": "Q16 eq 'other'",
+    "found": "Q16 eq 'other'",
     "outcome": "correct",
     "note": ""
   },
@@ -3034,8 +3034,8 @@
     "section": "Routing",
     "item": "R18",
     "field": "condition",
-    "expected": "sum(Q18) != 100",
-    "found": "(read as a condition tree)",
+    "expected": "sum(Q18) ne 100.0",
+    "found": "sum(Q18) ne 100.0",
     "outcome": "correct",
     "note": ""
   },
@@ -3075,9 +3075,9 @@
     "item": "R19",
     "field": "condition",
     "expected": "exclusive option selected with another response at Q1 or Q5",
-    "found": "(read as a condition tree)",
-    "outcome": "correct",
-    "note": ""
+    "found": "(a tree was built)",
+    "outcome": "declined",
+    "note": "the document writes this as prose, so no independent reading exists to check the tree against"
   },
   {
     "document": "C01_chronic_care_patient_journey.docx",
@@ -3115,9 +3115,9 @@
     "item": "R20",
     "field": "condition",
     "expected": "selected option at Q6 was not selected at Q5",
-    "found": "(read as a condition tree)",
-    "outcome": "correct",
-    "note": ""
+    "found": "(a tree was built)",
+    "outcome": "declined",
+    "note": "the document writes this as prose, so no independent reading exists to check the tree against"
   },
   {
     "document": "C01_chronic_care_patient_journey.docx",
@@ -5864,8 +5864,8 @@
     "section": "Routing",
     "item": "R1",
     "field": "condition",
-    "expected": "S1 == 'No'",
-    "found": "(read as a condition tree)",
+    "expected": "S1 eq 'no'",
+    "found": "S1 eq 'no'",
     "outcome": "correct",
     "note": ""
   },
@@ -5905,9 +5905,9 @@
     "item": "R2",
     "field": "condition",
     "expected": "S2 != 'Purchased or seriously considered a new vehicle in the past 18 months'",
-    "found": "(read as a condition tree)",
-    "outcome": "correct",
-    "note": ""
+    "found": "(a tree was built)",
+    "outcome": "declined",
+    "note": "the document writes this as prose, so no independent reading exists to check the tree against"
   },
   {
     "document": "C02_automotive_purchase_journey.docx",
@@ -5944,8 +5944,8 @@
     "section": "Routing",
     "item": "R3",
     "field": "condition",
-    "expected": "S3 == 'Yes'",
-    "found": "(read as a condition tree)",
+    "expected": "S3 eq 'yes'",
+    "found": "S3 eq 'yes'",
     "outcome": "correct",
     "note": ""
   },
@@ -5984,8 +5984,8 @@
     "section": "Routing",
     "item": "R4",
     "field": "condition",
-    "expected": "S4 == 'Yes'",
-    "found": "(read as a condition tree)",
+    "expected": "S4 eq 'yes'",
+    "found": "S4 eq 'yes'",
     "outcome": "correct",
     "note": ""
   },
@@ -6024,8 +6024,8 @@
     "section": "Routing",
     "item": "R5",
     "field": "condition",
-    "expected": "Q1 == ['None of these']",
-    "found": "(read as a condition tree)",
+    "expected": "Q1 set_eq ['none of these']",
+    "found": "Q1 set_eq ['none of these']",
     "outcome": "correct",
     "note": ""
   },
@@ -6065,9 +6065,9 @@
     "item": "R6",
     "field": "condition",
     "expected": "Q1 contains at least one brand",
-    "found": "(read as a condition tree)",
-    "outcome": "correct",
-    "note": ""
+    "found": "(a tree was built)",
+    "outcome": "declined",
+    "note": "the document writes this as prose, so no independent reading exists to check the tree against"
   },
   {
     "document": "C02_automotive_purchase_journey.docx",
@@ -6105,9 +6105,9 @@
     "item": "R7",
     "field": "condition",
     "expected": "Q1 contains at least one brand",
-    "found": "(read as a condition tree)",
-    "outcome": "correct",
-    "note": ""
+    "found": "(a tree was built)",
+    "outcome": "declined",
+    "note": "the document writes this as prose, so no independent reading exists to check the tree against"
   },
   {
     "document": "C02_automotive_purchase_journey.docx",
@@ -6145,9 +6145,9 @@
     "item": "R8",
     "field": "condition",
     "expected": "Q5 contains any touchpoint",
-    "found": "(read as a condition tree)",
-    "outcome": "correct",
-    "note": ""
+    "found": "(a tree was built)",
+    "outcome": "declined",
+    "note": "the document writes this as prose, so no independent reading exists to check the tree against"
   },
   {
     "document": "C02_automotive_purchase_journey.docx",
@@ -6184,8 +6184,8 @@
     "section": "Routing",
     "item": "R9",
     "field": "condition",
-    "expected": "Q3 != 'None/currently not using'",
-    "found": "(read as a condition tree)",
+    "expected": "Q3 ne 'none/currently not using'",
+    "found": "Q3 ne 'none/currently not using'",
     "outcome": "correct",
     "note": ""
   },
@@ -6224,8 +6224,8 @@
     "section": "Routing",
     "item": "R10",
     "field": "condition",
-    "expected": "Q3 != 'None/currently not using'",
-    "found": "(read as a condition tree)",
+    "expected": "Q3 ne 'none/currently not using'",
+    "found": "Q3 ne 'none/currently not using'",
     "outcome": "correct",
     "note": ""
   },
@@ -6264,8 +6264,8 @@
     "section": "Routing",
     "item": "R11",
     "field": "condition",
-    "expected": "Q3 != 'None/currently not using'",
-    "found": "(read as a condition tree)",
+    "expected": "Q3 ne 'none/currently not using'",
+    "found": "Q3 ne 'none/currently not using'",
     "outcome": "correct",
     "note": ""
   },
@@ -6304,8 +6304,8 @@
     "section": "Routing",
     "item": "R12",
     "field": "condition",
-    "expected": "Q10 == 'Yes'",
-    "found": "(read as a condition tree)",
+    "expected": "Q10 eq 'yes'",
+    "found": "Q10 eq 'yes'",
     "outcome": "correct",
     "note": ""
   },
@@ -6344,8 +6344,8 @@
     "section": "Routing",
     "item": "R13",
     "field": "condition",
-    "expected": "Q10 == 'Yes'",
-    "found": "(read as a condition tree)",
+    "expected": "Q10 eq 'yes'",
+    "found": "Q10 eq 'yes'",
     "outcome": "correct",
     "note": ""
   },
@@ -6384,8 +6384,8 @@
     "section": "Routing",
     "item": "R14",
     "field": "condition",
-    "expected": "Q12 in ['Fully','Partly']",
-    "found": "(read as a condition tree)",
+    "expected": "Q12 in ['fully', 'partly']",
+    "found": "Q12 in ['fully', 'partly']",
     "outcome": "correct",
     "note": ""
   },
@@ -6424,8 +6424,8 @@
     "section": "Routing",
     "item": "R15",
     "field": "condition",
-    "expected": "Q12 == 'Not resolved'",
-    "found": "(read as a condition tree)",
+    "expected": "Q12 eq 'not resolved'",
+    "found": "Q12 eq 'not resolved'",
     "outcome": "correct",
     "note": ""
   },
@@ -6464,8 +6464,8 @@
     "section": "Routing",
     "item": "R16",
     "field": "condition",
-    "expected": "Q15 == 'Yes'",
-    "found": "(read as a condition tree)",
+    "expected": "Q15 eq 'yes'",
+    "found": "Q15 eq 'yes'",
     "outcome": "correct",
     "note": ""
   },
@@ -6504,8 +6504,8 @@
     "section": "Routing",
     "item": "R17",
     "field": "condition",
-    "expected": "Q16 == 'Other'",
-    "found": "(read as a condition tree)",
+    "expected": "Q16 eq 'other'",
+    "found": "Q16 eq 'other'",
     "outcome": "correct",
     "note": ""
   },
@@ -6544,8 +6544,8 @@
     "section": "Routing",
     "item": "R18",
     "field": "condition",
-    "expected": "sum(Q18) != 100",
-    "found": "(read as a condition tree)",
+    "expected": "sum(Q18) ne 100.0",
+    "found": "sum(Q18) ne 100.0",
     "outcome": "correct",
     "note": ""
   },
@@ -6585,9 +6585,9 @@
     "item": "R19",
     "field": "condition",
     "expected": "exclusive option selected with another response at Q1 or Q5",
-    "found": "(read as a condition tree)",
-    "outcome": "correct",
-    "note": ""
+    "found": "(a tree was built)",
+    "outcome": "declined",
+    "note": "the document writes this as prose, so no independent reading exists to check the tree against"
   },
   {
     "document": "C02_automotive_purchase_journey.docx",
@@ -6625,9 +6625,9 @@
     "item": "R20",
     "field": "condition",
     "expected": "selected option at Q6 was not selected at Q5",
-    "found": "(read as a condition tree)",
-    "outcome": "correct",
-    "note": ""
+    "found": "(a tree was built)",
+    "outcome": "declined",
+    "note": "the document writes this as prose, so no independent reading exists to check the tree against"
   },
   {
     "document": "C02_automotive_purchase_journey.docx",
@@ -8474,8 +8474,8 @@
     "section": "Routing",
     "item": "R1",
     "field": "condition",
-    "expected": "S1 == 'No'",
-    "found": "(read as a condition tree)",
+    "expected": "S1 eq 'no'",
+    "found": "S1 eq 'no'",
     "outcome": "correct",
     "note": ""
   },
@@ -8514,8 +8514,8 @@
     "section": "Routing",
     "item": "R2",
     "field": "condition",
-    "expected": "S2 == 'No'",
-    "found": "(read as a condition tree)",
+    "expected": "S2 eq 'no'",
+    "found": "S2 eq 'no'",
     "outcome": "correct",
     "note": ""
   },
@@ -8554,8 +8554,8 @@
     "section": "Routing",
     "item": "R3",
     "field": "condition",
-    "expected": "S3 < 18 or S3 > 80",
-    "found": "(read as a condition tree)",
+    "expected": "(S3 lt 18.0 or S3 gt 80.0)",
+    "found": "(S3 lt 18.0 or S3 gt 80.0)",
     "outcome": "correct",
     "note": ""
   },
@@ -8595,9 +8595,9 @@
     "item": "R4",
     "field": "condition",
     "expected": "Q7 contains any problem",
-    "found": "(read as a condition tree)",
-    "outcome": "correct",
-    "note": ""
+    "found": "(a tree was built)",
+    "outcome": "declined",
+    "note": "the document writes this as prose, so no independent reading exists to check the tree against"
   },
   {
     "document": "M01_mobile_network_experience.docx",
@@ -8635,9 +8635,9 @@
     "item": "R5",
     "field": "condition",
     "expected": "Q7 contains any problem",
-    "found": "(read as a condition tree)",
-    "outcome": "correct",
-    "note": ""
+    "found": "(a tree was built)",
+    "outcome": "declined",
+    "note": "the document writes this as prose, so no independent reading exists to check the tree against"
   },
   {
     "document": "M01_mobile_network_experience.docx",
@@ -8674,8 +8674,8 @@
     "section": "Routing",
     "item": "R6",
     "field": "condition",
-    "expected": "Q7 == ['None of these']",
-    "found": "(read as a condition tree)",
+    "expected": "Q7 set_eq ['none of these']",
+    "found": "Q7 set_eq ['none of these']",
     "outcome": "correct",
     "note": ""
   },
@@ -8714,8 +8714,8 @@
     "section": "Routing",
     "item": "R7",
     "field": "condition",
-    "expected": "Q9 in ['Yes, fully','Yes, partly']",
-    "found": "(read as a condition tree)",
+    "expected": "Q9 in ['yes, fully', 'yes, partly']",
+    "found": "Q9 in ['yes, fully', 'yes, partly']",
     "outcome": "correct",
     "note": ""
   },
@@ -8754,8 +8754,8 @@
     "section": "Routing",
     "item": "R8",
     "field": "condition",
-    "expected": "Q9 == 'No'",
-    "found": "(read as a condition tree)",
+    "expected": "Q9 eq 'no'",
+    "found": "Q9 eq 'no'",
     "outcome": "correct",
     "note": ""
   },
@@ -8795,9 +8795,9 @@
     "item": "R9",
     "field": "condition",
     "expected": "Q7 includes 'None of these' plus another option",
-    "found": "(read as a condition tree)",
-    "outcome": "correct",
-    "note": ""
+    "found": "(a tree was built)",
+    "outcome": "declined",
+    "note": "the document writes this as prose, so no independent reading exists to check the tree against"
   },
   {
     "document": "M01_mobile_network_experience.docx",
@@ -10514,8 +10514,8 @@
     "section": "Routing",
     "item": "R1",
     "field": "condition",
-    "expected": "S1 == 'No'",
-    "found": "(read as a condition tree)",
+    "expected": "S1 eq 'no'",
+    "found": "S1 eq 'no'",
     "outcome": "correct",
     "note": ""
   },
@@ -10554,8 +10554,8 @@
     "section": "Routing",
     "item": "R2",
     "field": "condition",
-    "expected": "S2 == 'No'",
-    "found": "(read as a condition tree)",
+    "expected": "S2 eq 'no'",
+    "found": "S2 eq 'no'",
     "outcome": "correct",
     "note": ""
   },
@@ -10594,8 +10594,8 @@
     "section": "Routing",
     "item": "R3",
     "field": "condition",
-    "expected": "S3 < 18 or S3 > 80",
-    "found": "(read as a condition tree)",
+    "expected": "(S3 lt 18.0 or S3 gt 80.0)",
+    "found": "(S3 lt 18.0 or S3 gt 80.0)",
     "outcome": "correct",
     "note": ""
   },
@@ -10635,9 +10635,9 @@
     "item": "R4",
     "field": "condition",
     "expected": "Q7 contains any problem",
-    "found": "(read as a condition tree)",
-    "outcome": "correct",
-    "note": ""
+    "found": "(a tree was built)",
+    "outcome": "declined",
+    "note": "the document writes this as prose, so no independent reading exists to check the tree against"
   },
   {
     "document": "M02_electric_vehicle_consideration.docx",
@@ -10675,9 +10675,9 @@
     "item": "R5",
     "field": "condition",
     "expected": "Q7 contains any problem",
-    "found": "(read as a condition tree)",
-    "outcome": "correct",
-    "note": ""
+    "found": "(a tree was built)",
+    "outcome": "declined",
+    "note": "the document writes this as prose, so no independent reading exists to check the tree against"
   },
   {
     "document": "M02_electric_vehicle_consideration.docx",
@@ -10714,8 +10714,8 @@
     "section": "Routing",
     "item": "R6",
     "field": "condition",
-    "expected": "Q7 == ['None of these']",
-    "found": "(read as a condition tree)",
+    "expected": "Q7 set_eq ['none of these']",
+    "found": "Q7 set_eq ['none of these']",
     "outcome": "correct",
     "note": ""
   },
@@ -10754,8 +10754,8 @@
     "section": "Routing",
     "item": "R7",
     "field": "condition",
-    "expected": "Q9 in ['Yes, fully','Yes, partly']",
-    "found": "(read as a condition tree)",
+    "expected": "Q9 in ['yes, fully', 'yes, partly']",
+    "found": "Q9 in ['yes, fully', 'yes, partly']",
     "outcome": "correct",
     "note": ""
   },
@@ -10794,8 +10794,8 @@
     "section": "Routing",
     "item": "R8",
     "field": "condition",
-    "expected": "Q9 == 'No'",
-    "found": "(read as a condition tree)",
+    "expected": "Q9 eq 'no'",
+    "found": "Q9 eq 'no'",
     "outcome": "correct",
     "note": ""
   },
@@ -10835,9 +10835,9 @@
     "item": "R9",
     "field": "condition",
     "expected": "Q7 includes 'None of these' plus another option",
-    "found": "(read as a condition tree)",
-    "outcome": "correct",
-    "note": ""
+    "found": "(a tree was built)",
+    "outcome": "declined",
+    "note": "the document writes this as prose, so no independent reading exists to check the tree against"
   },
   {
     "document": "M02_electric_vehicle_consideration.docx",
@@ -12554,8 +12554,8 @@
     "section": "Routing",
     "item": "R1",
     "field": "condition",
-    "expected": "S1 == 'No'",
-    "found": "(read as a condition tree)",
+    "expected": "S1 eq 'no'",
+    "found": "S1 eq 'no'",
     "outcome": "correct",
     "note": ""
   },
@@ -12594,8 +12594,8 @@
     "section": "Routing",
     "item": "R2",
     "field": "condition",
-    "expected": "S2 == 'No'",
-    "found": "(read as a condition tree)",
+    "expected": "S2 eq 'no'",
+    "found": "S2 eq 'no'",
     "outcome": "correct",
     "note": ""
   },
@@ -12634,8 +12634,8 @@
     "section": "Routing",
     "item": "R3",
     "field": "condition",
-    "expected": "S3 < 18 or S3 > 80",
-    "found": "(read as a condition tree)",
+    "expected": "(S3 lt 18.0 or S3 gt 80.0)",
+    "found": "(S3 lt 18.0 or S3 gt 80.0)",
     "outcome": "correct",
     "note": ""
   },
@@ -12675,9 +12675,9 @@
     "item": "R4",
     "field": "condition",
     "expected": "Q7 contains any problem",
-    "found": "(read as a condition tree)",
-    "outcome": "correct",
-    "note": ""
+    "found": "(a tree was built)",
+    "outcome": "declined",
+    "note": "the document writes this as prose, so no independent reading exists to check the tree against"
   },
   {
     "document": "M03_insurance_claims_experience.docx",
@@ -12715,9 +12715,9 @@
     "item": "R5",
     "field": "condition",
     "expected": "Q7 contains any problem",
-    "found": "(read as a condition tree)",
-    "outcome": "correct",
-    "note": ""
+    "found": "(a tree was built)",
+    "outcome": "declined",
+    "note": "the document writes this as prose, so no independent reading exists to check the tree against"
   },
   {
     "document": "M03_insurance_claims_experience.docx",
@@ -12754,8 +12754,8 @@
     "section": "Routing",
     "item": "R6",
     "field": "condition",
-    "expected": "Q7 == ['None of these']",
-    "found": "(read as a condition tree)",
+    "expected": "Q7 set_eq ['none of these']",
+    "found": "Q7 set_eq ['none of these']",
     "outcome": "correct",
     "note": ""
   },
@@ -12794,8 +12794,8 @@
     "section": "Routing",
     "item": "R7",
     "field": "condition",
-    "expected": "Q9 in ['Yes, fully','Yes, partly']",
-    "found": "(read as a condition tree)",
+    "expected": "Q9 in ['yes, fully', 'yes, partly']",
+    "found": "Q9 in ['yes, fully', 'yes, partly']",
     "outcome": "correct",
     "note": ""
   },
@@ -12834,8 +12834,8 @@
     "section": "Routing",
     "item": "R8",
     "field": "condition",
-    "expected": "Q9 == 'No'",
-    "found": "(read as a condition tree)",
+    "expected": "Q9 eq 'no'",
+    "found": "Q9 eq 'no'",
     "outcome": "correct",
     "note": ""
   },
@@ -12875,9 +12875,9 @@
     "item": "R9",
     "field": "condition",
     "expected": "Q7 includes 'None of these' plus another option",
-    "found": "(read as a condition tree)",
-    "outcome": "correct",
-    "note": ""
+    "found": "(a tree was built)",
+    "outcome": "declined",
+    "note": "the document writes this as prose, so no independent reading exists to check the tree against"
   },
   {
     "document": "M03_insurance_claims_experience.docx",
@@ -14594,8 +14594,8 @@
     "section": "Routing",
     "item": "R1",
     "field": "condition",
-    "expected": "S1 == 'No'",
-    "found": "(read as a condition tree)",
+    "expected": "S1 eq 'no'",
+    "found": "S1 eq 'no'",
     "outcome": "correct",
     "note": ""
   },
@@ -14634,8 +14634,8 @@
     "section": "Routing",
     "item": "R2",
     "field": "condition",
-    "expected": "S2 == 'No'",
-    "found": "(read as a condition tree)",
+    "expected": "S2 eq 'no'",
+    "found": "S2 eq 'no'",
     "outcome": "correct",
     "note": ""
   },
@@ -14674,8 +14674,8 @@
     "section": "Routing",
     "item": "R3",
     "field": "condition",
-    "expected": "S3 < 18 or S3 > 80",
-    "found": "(read as a condition tree)",
+    "expected": "(S3 lt 18.0 or S3 gt 80.0)",
+    "found": "(S3 lt 18.0 or S3 gt 80.0)",
     "outcome": "correct",
     "note": ""
   },
@@ -14715,9 +14715,9 @@
     "item": "R4",
     "field": "condition",
     "expected": "Q7 contains any problem",
-    "found": "(read as a condition tree)",
-    "outcome": "correct",
-    "note": ""
+    "found": "(a tree was built)",
+    "outcome": "declined",
+    "note": "the document writes this as prose, so no independent reading exists to check the tree against"
   },
   {
     "document": "M04_hotel_stay_experience.docx",
@@ -14755,9 +14755,9 @@
     "item": "R5",
     "field": "condition",
     "expected": "Q7 contains any problem",
-    "found": "(read as a condition tree)",
-    "outcome": "correct",
-    "note": ""
+    "found": "(a tree was built)",
+    "outcome": "declined",
+    "note": "the document writes this as prose, so no independent reading exists to check the tree against"
   },
   {
     "document": "M04_hotel_stay_experience.docx",
@@ -14794,8 +14794,8 @@
     "section": "Routing",
     "item": "R6",
     "field": "condition",
-    "expected": "Q7 == ['None of these']",
-    "found": "(read as a condition tree)",
+    "expected": "Q7 set_eq ['none of these']",
+    "found": "Q7 set_eq ['none of these']",
     "outcome": "correct",
     "note": ""
   },
@@ -14834,8 +14834,8 @@
     "section": "Routing",
     "item": "R7",
     "field": "condition",
-    "expected": "Q9 in ['Yes, fully','Yes, partly']",
-    "found": "(read as a condition tree)",
+    "expected": "Q9 in ['yes, fully', 'yes, partly']",
+    "found": "Q9 in ['yes, fully', 'yes, partly']",
     "outcome": "correct",
     "note": ""
   },
@@ -14874,8 +14874,8 @@
     "section": "Routing",
     "item": "R8",
     "field": "condition",
-    "expected": "Q9 == 'No'",
-    "found": "(read as a condition tree)",
+    "expected": "Q9 eq 'no'",
+    "found": "Q9 eq 'no'",
     "outcome": "correct",
     "note": ""
   },
@@ -14915,9 +14915,9 @@
     "item": "R9",
     "field": "condition",
     "expected": "Q7 includes 'None of these' plus another option",
-    "found": "(read as a condition tree)",
-    "outcome": "correct",
-    "note": ""
+    "found": "(a tree was built)",
+    "outcome": "declined",
+    "note": "the document writes this as prose, so no independent reading exists to check the tree against"
   },
   {
     "document": "M04_hotel_stay_experience.docx",
@@ -16634,8 +16634,8 @@
     "section": "Routing",
     "item": "R1",
     "field": "condition",
-    "expected": "S1 == 'No'",
-    "found": "(read as a condition tree)",
+    "expected": "S1 eq 'no'",
+    "found": "S1 eq 'no'",
     "outcome": "correct",
     "note": ""
   },
@@ -16674,8 +16674,8 @@
     "section": "Routing",
     "item": "R2",
     "field": "condition",
-    "expected": "S2 == 'No'",
-    "found": "(read as a condition tree)",
+    "expected": "S2 eq 'no'",
+    "found": "S2 eq 'no'",
     "outcome": "correct",
     "note": ""
   },
@@ -16714,8 +16714,8 @@
     "section": "Routing",
     "item": "R3",
     "field": "condition",
-    "expected": "S3 < 18 or S3 > 80",
-    "found": "(read as a condition tree)",
+    "expected": "(S3 lt 18.0 or S3 gt 80.0)",
+    "found": "(S3 lt 18.0 or S3 gt 80.0)",
     "outcome": "correct",
     "note": ""
   },
@@ -16755,9 +16755,9 @@
     "item": "R4",
     "field": "condition",
     "expected": "Q7 contains any problem",
-    "found": "(read as a condition tree)",
-    "outcome": "correct",
-    "note": ""
+    "found": "(a tree was built)",
+    "outcome": "declined",
+    "note": "the document writes this as prose, so no independent reading exists to check the tree against"
   },
   {
     "document": "M05_employee_hybrid_work_experience.docx",
@@ -16795,9 +16795,9 @@
     "item": "R5",
     "field": "condition",
     "expected": "Q7 contains any problem",
-    "found": "(read as a condition tree)",
-    "outcome": "correct",
-    "note": ""
+    "found": "(a tree was built)",
+    "outcome": "declined",
+    "note": "the document writes this as prose, so no independent reading exists to check the tree against"
   },
   {
     "document": "M05_employee_hybrid_work_experience.docx",
@@ -16834,8 +16834,8 @@
     "section": "Routing",
     "item": "R6",
     "field": "condition",
-    "expected": "Q7 == ['None of these']",
-    "found": "(read as a condition tree)",
+    "expected": "Q7 set_eq ['none of these']",
+    "found": "Q7 set_eq ['none of these']",
     "outcome": "correct",
     "note": ""
   },
@@ -16874,8 +16874,8 @@
     "section": "Routing",
     "item": "R7",
     "field": "condition",
-    "expected": "Q9 in ['Yes, fully','Yes, partly']",
-    "found": "(read as a condition tree)",
+    "expected": "Q9 in ['yes, fully', 'yes, partly']",
+    "found": "Q9 in ['yes, fully', 'yes, partly']",
     "outcome": "correct",
     "note": ""
   },
@@ -16914,8 +16914,8 @@
     "section": "Routing",
     "item": "R8",
     "field": "condition",
-    "expected": "Q9 == 'No'",
-    "found": "(read as a condition tree)",
+    "expected": "Q9 eq 'no'",
+    "found": "Q9 eq 'no'",
     "outcome": "correct",
     "note": ""
   },
@@ -16955,9 +16955,9 @@
     "item": "R9",
     "field": "condition",
     "expected": "Q7 includes 'None of these' plus another option",
-    "found": "(read as a condition tree)",
-    "outcome": "correct",
-    "note": ""
+    "found": "(a tree was built)",
+    "outcome": "declined",
+    "note": "the document writes this as prose, so no independent reading exists to check the tree against"
   },
   {
     "document": "M05_employee_hybrid_work_experience.docx",
@@ -18674,8 +18674,8 @@
     "section": "Routing",
     "item": "R1",
     "field": "condition",
-    "expected": "S1 == 'No'",
-    "found": "(read as a condition tree)",
+    "expected": "S1 eq 'no'",
+    "found": "S1 eq 'no'",
     "outcome": "correct",
     "note": ""
   },
@@ -18714,8 +18714,8 @@
     "section": "Routing",
     "item": "R2",
     "field": "condition",
-    "expected": "S2 == 'No'",
-    "found": "(read as a condition tree)",
+    "expected": "S2 eq 'no'",
+    "found": "S2 eq 'no'",
     "outcome": "correct",
     "note": ""
   },
@@ -18754,8 +18754,8 @@
     "section": "Routing",
     "item": "R3",
     "field": "condition",
-    "expected": "S3 < 18 or S3 > 80",
-    "found": "(read as a condition tree)",
+    "expected": "(S3 lt 18.0 or S3 gt 80.0)",
+    "found": "(S3 lt 18.0 or S3 gt 80.0)",
     "outcome": "correct",
     "note": ""
   },
@@ -18795,9 +18795,9 @@
     "item": "R4",
     "field": "condition",
     "expected": "Q7 contains any problem",
-    "found": "(read as a condition tree)",
-    "outcome": "correct",
-    "note": ""
+    "found": "(a tree was built)",
+    "outcome": "declined",
+    "note": "the document writes this as prose, so no independent reading exists to check the tree against"
   },
   {
     "document": "M06_digital_wallet_usage.docx",
@@ -18835,9 +18835,9 @@
     "item": "R5",
     "field": "condition",
     "expected": "Q7 contains any problem",
-    "found": "(read as a condition tree)",
-    "outcome": "correct",
-    "note": ""
+    "found": "(a tree was built)",
+    "outcome": "declined",
+    "note": "the document writes this as prose, so no independent reading exists to check the tree against"
   },
   {
     "document": "M06_digital_wallet_usage.docx",
@@ -18874,8 +18874,8 @@
     "section": "Routing",
     "item": "R6",
     "field": "condition",
-    "expected": "Q7 == ['None of these']",
-    "found": "(read as a condition tree)",
+    "expected": "Q7 set_eq ['none of these']",
+    "found": "Q7 set_eq ['none of these']",
     "outcome": "correct",
     "note": ""
   },
@@ -18914,8 +18914,8 @@
     "section": "Routing",
     "item": "R7",
     "field": "condition",
-    "expected": "Q9 in ['Yes, fully','Yes, partly']",
-    "found": "(read as a condition tree)",
+    "expected": "Q9 in ['yes, fully', 'yes, partly']",
+    "found": "Q9 in ['yes, fully', 'yes, partly']",
     "outcome": "correct",
     "note": ""
   },
@@ -18954,8 +18954,8 @@
     "section": "Routing",
     "item": "R8",
     "field": "condition",
-    "expected": "Q9 == 'No'",
-    "found": "(read as a condition tree)",
+    "expected": "Q9 eq 'no'",
+    "found": "Q9 eq 'no'",
     "outcome": "correct",
     "note": ""
   },
@@ -18995,9 +18995,9 @@
     "item": "R9",
     "field": "condition",
     "expected": "Q7 includes 'None of these' plus another option",
-    "found": "(read as a condition tree)",
-    "outcome": "correct",
-    "note": ""
+    "found": "(a tree was built)",
+    "outcome": "declined",
+    "note": "the document writes this as prose, so no independent reading exists to check the tree against"
   },
   {
     "document": "M06_digital_wallet_usage.docx",
@@ -19964,8 +19964,8 @@
     "section": "Routing",
     "item": "R1",
     "field": "condition",
-    "expected": "S1 == 'No'",
-    "found": "(read as a condition tree)",
+    "expected": "S1 eq 'no'",
+    "found": "S1 eq 'no'",
     "outcome": "correct",
     "note": ""
   },
@@ -20004,8 +20004,8 @@
     "section": "Routing",
     "item": "R2",
     "field": "condition",
-    "expected": "S2 == 'No'",
-    "found": "(read as a condition tree)",
+    "expected": "S2 eq 'no'",
+    "found": "S2 eq 'no'",
     "outcome": "correct",
     "note": ""
   },
@@ -20044,8 +20044,8 @@
     "section": "Routing",
     "item": "R3",
     "field": "condition",
-    "expected": "Q5 == 'Yes'",
-    "found": "(read as a condition tree)",
+    "expected": "Q5 eq 'yes'",
+    "found": "Q5 eq 'yes'",
     "outcome": "correct",
     "note": ""
   },
@@ -20084,8 +20084,8 @@
     "section": "Routing",
     "item": "R4",
     "field": "condition",
-    "expected": "Q5 == 'No'",
-    "found": "(read as a condition tree)",
+    "expected": "Q5 eq 'no'",
+    "found": "Q5 eq 'no'",
     "outcome": "correct",
     "note": ""
   },
@@ -20954,8 +20954,8 @@
     "section": "Routing",
     "item": "R1",
     "field": "condition",
-    "expected": "S1 == 'No'",
-    "found": "(read as a condition tree)",
+    "expected": "S1 eq 'no'",
+    "found": "S1 eq 'no'",
     "outcome": "correct",
     "note": ""
   },
@@ -20994,8 +20994,8 @@
     "section": "Routing",
     "item": "R2",
     "field": "condition",
-    "expected": "S2 == 'No'",
-    "found": "(read as a condition tree)",
+    "expected": "S2 eq 'no'",
+    "found": "S2 eq 'no'",
     "outcome": "correct",
     "note": ""
   },
@@ -21034,8 +21034,8 @@
     "section": "Routing",
     "item": "R3",
     "field": "condition",
-    "expected": "Q5 == 'Yes'",
-    "found": "(read as a condition tree)",
+    "expected": "Q5 eq 'yes'",
+    "found": "Q5 eq 'yes'",
     "outcome": "correct",
     "note": ""
   },
@@ -21074,8 +21074,8 @@
     "section": "Routing",
     "item": "R4",
     "field": "condition",
-    "expected": "Q5 == 'No'",
-    "found": "(read as a condition tree)",
+    "expected": "Q5 eq 'no'",
+    "found": "Q5 eq 'no'",
     "outcome": "correct",
     "note": ""
   },
@@ -21944,8 +21944,8 @@
     "section": "Routing",
     "item": "R1",
     "field": "condition",
-    "expected": "S1 == 'No'",
-    "found": "(read as a condition tree)",
+    "expected": "S1 eq 'no'",
+    "found": "S1 eq 'no'",
     "outcome": "correct",
     "note": ""
   },
@@ -21984,8 +21984,8 @@
     "section": "Routing",
     "item": "R2",
     "field": "condition",
-    "expected": "S2 == 'No'",
-    "found": "(read as a condition tree)",
+    "expected": "S2 eq 'no'",
+    "found": "S2 eq 'no'",
     "outcome": "correct",
     "note": ""
   },
@@ -22024,8 +22024,8 @@
     "section": "Routing",
     "item": "R3",
     "field": "condition",
-    "expected": "Q5 == 'Yes'",
-    "found": "(read as a condition tree)",
+    "expected": "Q5 eq 'yes'",
+    "found": "Q5 eq 'yes'",
     "outcome": "correct",
     "note": ""
   },
@@ -22064,8 +22064,8 @@
     "section": "Routing",
     "item": "R4",
     "field": "condition",
-    "expected": "Q5 == 'No'",
-    "found": "(read as a condition tree)",
+    "expected": "Q5 eq 'no'",
+    "found": "Q5 eq 'no'",
     "outcome": "correct",
     "note": ""
   },
@@ -22934,8 +22934,8 @@
     "section": "Routing",
     "item": "R1",
     "field": "condition",
-    "expected": "S1 == 'No'",
-    "found": "(read as a condition tree)",
+    "expected": "S1 eq 'no'",
+    "found": "S1 eq 'no'",
     "outcome": "correct",
     "note": ""
   },
@@ -22974,8 +22974,8 @@
     "section": "Routing",
     "item": "R2",
     "field": "condition",
-    "expected": "S2 == 'No'",
-    "found": "(read as a condition tree)",
+    "expected": "S2 eq 'no'",
+    "found": "S2 eq 'no'",
     "outcome": "correct",
     "note": ""
   },
@@ -23014,8 +23014,8 @@
     "section": "Routing",
     "item": "R3",
     "field": "condition",
-    "expected": "Q5 == 'Yes'",
-    "found": "(read as a condition tree)",
+    "expected": "Q5 eq 'yes'",
+    "found": "Q5 eq 'yes'",
     "outcome": "correct",
     "note": ""
   },
@@ -23054,8 +23054,8 @@
     "section": "Routing",
     "item": "R4",
     "field": "condition",
-    "expected": "Q5 == 'No'",
-    "found": "(read as a condition tree)",
+    "expected": "Q5 eq 'no'",
+    "found": "Q5 eq 'no'",
     "outcome": "correct",
     "note": ""
   },
@@ -23934,8 +23934,8 @@
     "section": "Routing",
     "item": "R1",
     "field": "condition",
-    "expected": "S1 == 'No'",
-    "found": "(read as a condition tree)",
+    "expected": "S1 eq 'no'",
+    "found": "S1 eq 'no'",
     "outcome": "correct",
     "note": ""
   },
@@ -23974,8 +23974,8 @@
     "section": "Routing",
     "item": "R2",
     "field": "condition",
-    "expected": "S2 == 'No'",
-    "found": "(read as a condition tree)",
+    "expected": "S2 eq 'no'",
+    "found": "S2 eq 'no'",
     "outcome": "correct",
     "note": ""
   },
@@ -24014,8 +24014,8 @@
     "section": "Routing",
     "item": "R3",
     "field": "condition",
-    "expected": "Q5 == 'Yes'",
-    "found": "(read as a condition tree)",
+    "expected": "Q5 eq 'yes'",
+    "found": "Q5 eq 'yes'",
     "outcome": "correct",
     "note": ""
   },
@@ -24054,8 +24054,8 @@
     "section": "Routing",
     "item": "R4",
     "field": "condition",
-    "expected": "Q5 == 'No'",
-    "found": "(read as a condition tree)",
+    "expected": "Q5 eq 'no'",
+    "found": "Q5 eq 'no'",
     "outcome": "correct",
     "note": ""
   },

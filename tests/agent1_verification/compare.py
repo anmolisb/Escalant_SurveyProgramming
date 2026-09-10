@@ -53,6 +53,171 @@ def strip_code(label: str) -> str:
     return normalise(re.sub(r"^\s*[A-Za-z0-9]{1,3}\s*[=)]\s*|^\s*\d+\s*-\s+", "", label or ""))
 
 
+# ---------------------------------------------------------------------------
+# An independent reading of a formal condition
+# ---------------------------------------------------------------------------
+#
+# Checking that a condition tree merely EXISTS proves nothing: a tree meaning
+# the opposite of the document would pass. So the document's own condition text
+# is parsed here, independently, and the two are compared as structures.
+#
+# Written from scratch for the same reason as everything else in this file -
+# importing the pipeline's parser would compare its reading against its own
+# reading. Deliberately small: it reads the formal conditions a QRE writes and
+# refuses everything else, and a condition it cannot read is reported as
+# unverifiable rather than assumed correct.
+
+#: The pipeline's operator names, as this parser expects to find them.
+OPS = {"==": "eq", "!=": "ne", "<": "lt", "<=": "le", ">": "gt", ">=": "ge",
+       "in": "in", "not in": "not_in"}
+
+QID = r"[A-Za-z]{1,4}_?\d+"
+BOOL_SPLIT = re.compile(r"\s+(and|or)\s+", re.I)
+COMPARISON = re.compile(
+    r"^\s*(?P<agg>sum|count)?\s*\(?\s*(?P<q>" + QID + r")\s*\)?\s*"
+    r"(?P<op>==|!=|<=|>=|<|>|\bnot\s+in\b|\bin\b)\s*(?P<rhs>.+?)\s*$",
+    re.I,
+)
+
+
+def parse_values(text: str):
+    """The right-hand side: a list, a quoted string, or a number."""
+    text = text.strip()
+    listed = re.match(r"^\[(.*)\]$", text, re.S)
+    if listed:
+        items, current, quote = [], [], None
+        for ch in listed.group(1):
+            if quote:
+                if ch == quote:
+                    quote = None
+                else:
+                    current.append(ch)
+            elif ch in "'\"":
+                quote = ch
+            elif ch == ",":
+                items.append("".join(current).strip()); current = []
+            else:
+                current.append(ch)
+        items.append("".join(current).strip())
+        return ("list", [normalise(i) for i in items if i.strip()])
+    quoted = re.match(r"^['\"](.*)['\"]$", text, re.S)
+    if quoted:
+        return ("text", normalise(quoted.group(1)))
+    if re.match(r"^-?\d+(\.\d+)?$", text):
+        return ("number", float(text))
+    if re.match(r"^" + QID + r"$", text):
+        return ("question", text)
+    return None
+
+
+def read_condition(text: str):
+    """Read the document's condition into a comparable shape, or refuse.
+
+    Returns None for anything not written formally - prose such as "Q7 contains
+    any problem" needs a person, and guessing at it here would defeat the point.
+    """
+    text = (text or "").strip()
+    if not text:
+        return None
+    parts = BOOL_SPLIT.split(text)
+    if len(parts) > 1:
+        joiners = {p.lower() for p in parts[1::2]}
+        if len(joiners) != 1:
+            return None                       # mixed and/or, needs brackets
+        operands = [read_condition(p) for p in parts[0::2]]
+        if any(o is None for o in operands):
+            return None
+        return {"op": joiners.pop(), "operands": operands}
+
+    match = COMPARISON.match(text.strip("()"))
+    if not match:
+        return None
+    op = re.sub(r"\s+", " ", match.group("op").lower())
+    op = OPS.get(op)
+    rhs = parse_values(match.group("rhs"))
+    if op is None or rhs is None:
+        return None
+    kind, value = rhs
+    # Equality against a list is a claim about the whole answer set.
+    if op == "eq" and kind == "list":
+        op = "set_eq"
+    if op == "ne" and kind == "list":
+        return {"op": "not", "operands": [
+            {"op": "set_eq", "question": match.group("q"), "value": value}]}
+    return {"op": op, "question": match.group("q"),
+            "aggregate": (match.group("agg") or "").lower() or None,
+            "value": value}
+
+
+def shape_of(node) -> dict | None:
+    """The pipeline's tree in the same shape, so the two can be compared."""
+    if node is None:
+        return None
+    op = node.get("op")
+    if op in ("and", "or"):
+        parts = [shape_of(c) for c in node.get("operands", [])]
+        return None if any(p is None for p in parts) else {"op": op, "operands": parts}
+    if op == "not":
+        parts = [shape_of(c) for c in node.get("operands", [])]
+        return None if any(p is None for p in parts) else {"op": "not", "operands": parts}
+    left, right = node.get("left") or {}, node.get("right") or {}
+    if not left.get("question_id"):
+        return None
+    if right.get("values") is not None:
+        value = [normalise(v) for v in right["values"]]
+    elif right.get("text") is not None:
+        value = normalise(right["text"])
+    elif right.get("number") is not None:
+        value = float(right["number"])
+    elif right.get("question_id"):
+        value = right["question_id"]
+    else:
+        return None
+    return {"op": op, "question": left["question_id"],
+            "aggregate": left.get("aggregate"), "value": value}
+
+
+def same_condition(expected, actual) -> bool:
+    """Compare two readings, order-insensitively where a set is a set."""
+    if expected is None or actual is None:
+        return False
+    if expected.get("op") != actual.get("op"):
+        return False
+    if "operands" in expected or "operands" in actual:
+        e, a = expected.get("operands") or [], actual.get("operands") or []
+        if len(e) != len(a):
+            return False
+        remaining = list(a)
+        for item in e:
+            hit = next((x for x in remaining if same_condition(item, x)), None)
+            if hit is None:
+                return False
+            remaining.remove(hit)
+        return True
+    if expected.get("question") != actual.get("question"):
+        return False
+    if (expected.get("aggregate") or None) != (actual.get("aggregate") or None):
+        return False
+    ev, av = expected.get("value"), actual.get("value")
+    if isinstance(ev, list) and isinstance(av, list):
+        return sorted(ev) == sorted(av)
+    return ev == av
+
+
+def describe_shape(node) -> str:
+    """One line, so a reviewer can compare the two readings by eye."""
+    if node is None:
+        return "?"
+    op = node.get("op")
+    if "operands" in node:
+        inner = f" {op} ".join(describe_shape(c) for c in node["operands"])
+        return f"({inner})" if op != "not" else f"not {inner}"
+    left = node.get("question", "?")
+    if node.get("aggregate"):
+        left = f"{node['aggregate']}({left})"
+    return f"{left} {op} {node.get('value')!r}"
+
+
 def load_canonical(stem: str) -> dict | None:
     path = OUT_DIR / stem / "part2_canonical.json"
     if not path.exists():
@@ -162,8 +327,29 @@ def compare_routing(doc, truth, canonical, rows):
                         CORRECT if normalise(expected["action"]) == normalise(actual.get("kind"))
                         else MISMATCH))
         if actual.get("when") is not None:
-            rows.append(row(doc, "Routing", rid, "condition", expected["condition"],
-                            "(read as a condition tree)", CORRECT))
+            # Not "a tree exists" - that would pass a tree meaning the opposite.
+            # The document's own condition is parsed independently and the two
+            # structures compared.
+            want = read_condition(expected["condition"])
+            got = shape_of(actual["when"])
+            if want is None:
+                rows.append(row(
+                    doc, "Routing", rid, "condition", expected["condition"],
+                    "(a tree was built)", DECLINED,
+                    "the document writes this as prose, so no independent reading "
+                    "exists to check the tree against"))
+            elif got is None:
+                rows.append(row(
+                    doc, "Routing", rid, "condition", expected["condition"],
+                    "(tree could not be normalised)", MISMATCH))
+            elif same_condition(want, got):
+                rows.append(row(doc, "Routing", rid, "condition",
+                                describe_shape(want), describe_shape(got), CORRECT))
+            else:
+                rows.append(row(doc, "Routing", rid, "condition",
+                                describe_shape(want), describe_shape(got), MISMATCH,
+                                "the tree does not match an independent reading of "
+                                "the document's own condition"))
         else:
             rows.append(row(doc, "Routing", rid, "condition", expected["condition"],
                             actual.get("when_unread") or "(not read)", DECLINED,
