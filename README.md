@@ -190,6 +190,20 @@ Agent 1 needs the Groq key in `.env` at the repository root; `.env` is git-ignor
 PYTHONPATH=. streamlit run src/dashboard/app.py
 ```
 
+### Changing the Groq API key
+
+1. Create a key at [console.groq.com/keys](https://console.groq.com/keys).
+2. Open `.env` in the repository root (copy it from `config/.env.example` if it does not exist) and replace the value:
+   ```
+   GROQ_API_KEY=gsk_your_new_key
+   ```
+3. Make sure no older key is set in your shell, because a shell variable takes precedence over `.env`:
+   ```bash
+   unset GROQ_API_KEY                 # Windows PowerShell: Remove-Item Env:GROQ_API_KEY
+   ```
+
+The key is read when an agent starts, so the next run — from the command line or the dashboard — uses the new key with no restart. `GROQ_MODEL` in the same file changes the model the same way. Never commit `.env`; it is git-ignored.
+
 ### Working with the corpus
 
 - **Do not open `fixtures/holdout/`.** It measures whether Agent 1 generalises beyond the documents it was built against, and reading it destroys that measurement (decision 0002). The automated guard was removed in the `main` cleanup, so this now rests on discipline alone; CI only checks that `ESCALENT_ALLOW_HOLDOUT` is not set.
