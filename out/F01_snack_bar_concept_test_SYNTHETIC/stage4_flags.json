@@ -1,0 +1,38 @@
+[
+  {
+    "target_heading": "Study specification",
+    "status": "NOT_PRESENT",
+    "candidate_heading": null,
+    "confidence": null,
+    "reasoning": "The survey's qre id is not stated: no line and no filename supplies one.",
+    "severity": "WARNING",
+    "target": {
+      "kind": "survey_information",
+      "id": "qre_id"
+    }
+  },
+  {
+    "target_heading": "Study specification",
+    "status": "NOT_PRESENT",
+    "candidate_heading": null,
+    "confidence": null,
+    "reasoning": "The survey's description is not stated: no line is labelled as a description or an objective.",
+    "severity": "WARNING",
+    "target": {
+      "kind": "survey_information",
+      "id": "description"
+    }
+  },
+  {
+    "target_heading": "Study specification",
+    "status": "NOT_PRESENT",
+    "candidate_heading": null,
+    "confidence": null,
+    "reasoning": "The survey's welcome text is not stated: the document never states what a respondent is shown before the first question.",
+    "severity": "WARNING",
+    "target": {
+      "kind": "survey_information",
+      "id": "welcome_text"
+    }
+  }
+]

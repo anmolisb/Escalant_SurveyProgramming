@@ -1,0 +1,282 @@
+{
+  "schema_version": "1.0.0",
+  "artifact": "part2_validation",
+  "stage": 7,
+  "survey_id": "F02_streaming_brand_tracker_SYNTHETIC",
+  "source_document": {
+    "filename": "F02_streaming_brand_tracker_SYNTHETIC.docx",
+    "sha256": "c49bd90b63f0019e02bb86173836d6a0f6de4f974c3a0fd37c3090650d83d293",
+    "bytes": 41535
+  },
+  "generated_at": "2026-09-11T16:05:31+00:00",
+  "item_count": null,
+  "content": {
+    "cross_source": [
+      {
+        "check": "invented_disposition",
+        "severity": "BLOCKING",
+        "finding": "COMPLETE is an ending nothing in the QRE names.",
+        "target": "COMPLETE"
+      },
+      {
+        "check": "invented_message",
+        "severity": "BLOCKING",
+        "finding": "COMPLETE carries a message the QRE never gives it.",
+        "target": "COMPLETE"
+      },
+      {
+        "check": "invented_disposition",
+        "severity": "BLOCKING",
+        "finding": "SO1 to SO4 (screen-outs) is an ending nothing in the QRE names.",
+        "target": "SO1 to SO4 (screen-outs)"
+      },
+      {
+        "check": "invented_message",
+        "severity": "BLOCKING",
+        "finding": "SO1 to SO4 (screen-outs) carries a message the QRE never gives it.",
+        "target": "SO1 to SO4 (screen-outs)"
+      },
+      {
+        "check": "invented_disposition",
+        "severity": "BLOCKING",
+        "finding": "SO5 (quota full) is an ending nothing in the QRE names.",
+        "target": "SO5 (quota full)"
+      },
+      {
+        "check": "invented_message",
+        "severity": "BLOCKING",
+        "finding": "SO5 (quota full) carries a message the QRE never gives it.",
+        "target": "SO5 (quota full)"
+      }
+    ],
+    "reproducibility": {
+      "runs": 2,
+      "exact_reproducible": true,
+      "semantic_reproducible": true,
+      "meaningful_differences": [],
+      "note": "Formatting and ordering are excluded from the semantic comparison; routing, destinations, conditions, validation, termination, dependencies, quotas and randomization are not."
+    },
+    "graph": {
+      "nodes": 4,
+      "edges": 0,
+      "rules_mapped": "0/0",
+      "quotas_mapped": "0/0",
+      "dependency_edges": 0,
+      "passed": false,
+      "blocking": 3,
+      "findings": [
+        {
+          "check": "reachability",
+          "severity": "WARNING",
+          "finding": "Ending COMPLETE cannot be reached from anywhere.",
+          "target": {
+            "kind": "disposition",
+            "id": "COMPLETE"
+          },
+          "evidence": null,
+          "source_reference": null
+        },
+        {
+          "check": "reachability",
+          "severity": "WARNING",
+          "finding": "Ending SO1 to SO4 (screen-outs) cannot be reached from anywhere.",
+          "target": {
+            "kind": "disposition",
+            "id": "SO1 to SO4 (screen-outs)"
+          },
+          "evidence": null,
+          "source_reference": null
+        },
+        {
+          "check": "reachability",
+          "severity": "WARNING",
+          "finding": "Ending SO5 (quota full) cannot be reached from anywhere.",
+          "target": {
+            "kind": "disposition",
+            "id": "SO5 (quota full)"
+          },
+          "evidence": null,
+          "source_reference": null
+        },
+        {
+          "check": "reachability",
+          "severity": "BLOCKING",
+          "finding": "COMPLETE cannot be reached from the start of the survey.",
+          "target": {
+            "kind": "disposition",
+            "id": "COMPLETE"
+          },
+          "evidence": null,
+          "source_reference": null
+        },
+        {
+          "check": "reachability",
+          "severity": "BLOCKING",
+          "finding": "SO1 to SO4 (screen-outs) cannot be reached from the start of the survey.",
+          "target": {
+            "kind": "disposition",
+            "id": "SO1 to SO4 (screen-outs)"
+          },
+          "evidence": null,
+          "source_reference": null
+        },
+        {
+          "check": "reachability",
+          "severity": "BLOCKING",
+          "finding": "SO5 (quota full) cannot be reached from the start of the survey.",
+          "target": {
+            "kind": "disposition",
+            "id": "SO5 (quota full)"
+          },
+          "evidence": null,
+          "source_reference": null
+        }
+      ]
+    },
+    "confirmation_required": [
+      {
+        "status": "CONFIRMATION_REQUIRED",
+        "issue": "semantics_unconfirmed",
+        "why_it_matters": "The semantics block records three decisions the QRE never states: that a condition naming an unasked question is false, that the first matching rule wins, and that '==' against a multi-select compares the whole answer set. Each changes which questions appear on many routes and needs confirming.",
+        "affected": [
+          "F02_streaming_brand_tracker_SYNTHETIC.docx",
+          "semantics",
+          "semantics.default_mandatory"
+        ],
+        "changes_downstream": "Which questions appear on many routes, which rule wins when two apply, and whether an 'is exactly' test passes on a multi-select answer.",
+        "decision_ids": []
+      }
+    ],
+    "decisions": {
+      "register": "agent1_decisions.json",
+      "human_readable": "agent1_decision_register.md",
+      "summary": {
+        "total": 0,
+        "raised_this_run": 0,
+        "resolved_reused": 0,
+        "pending": 0,
+        "resolved": 0,
+        "not_required": 0,
+        "newly_transitioned_not_required": 0,
+        "context_changed": 0,
+        "blocking_pending": []
+      }
+    },
+    "verdict": {
+      "canonical_status": "FAILED",
+      "graph_ready": "NO",
+      "graph_evidence": {
+        "nodes": 4,
+        "edges": 0,
+        "rules_mapped": "0/0",
+        "quotas_mapped": "0/0",
+        "dependency_edges": 0,
+        "passed": false,
+        "blocking": 3,
+        "findings": [
+          {
+            "check": "reachability",
+            "severity": "WARNING",
+            "finding": "Ending COMPLETE cannot be reached from anywhere.",
+            "target": {
+              "kind": "disposition",
+              "id": "COMPLETE"
+            },
+            "evidence": null,
+            "source_reference": null
+          },
+          {
+            "check": "reachability",
+            "severity": "WARNING",
+            "finding": "Ending SO1 to SO4 (screen-outs) cannot be reached from anywhere.",
+            "target": {
+              "kind": "disposition",
+              "id": "SO1 to SO4 (screen-outs)"
+            },
+            "evidence": null,
+            "source_reference": null
+          },
+          {
+            "check": "reachability",
+            "severity": "WARNING",
+            "finding": "Ending SO5 (quota full) cannot be reached from anywhere.",
+            "target": {
+              "kind": "disposition",
+              "id": "SO5 (quota full)"
+            },
+            "evidence": null,
+            "source_reference": null
+          },
+          {
+            "check": "reachability",
+            "severity": "BLOCKING",
+            "finding": "COMPLETE cannot be reached from the start of the survey.",
+            "target": {
+              "kind": "disposition",
+              "id": "COMPLETE"
+            },
+            "evidence": null,
+            "source_reference": null
+          },
+          {
+            "check": "reachability",
+            "severity": "BLOCKING",
+            "finding": "SO1 to SO4 (screen-outs) cannot be reached from the start of the survey.",
+            "target": {
+              "kind": "disposition",
+              "id": "SO1 to SO4 (screen-outs)"
+            },
+            "evidence": null,
+            "source_reference": null
+          },
+          {
+            "check": "reachability",
+            "severity": "BLOCKING",
+            "finding": "SO5 (quota full) cannot be reached from the start of the survey.",
+            "target": {
+              "kind": "disposition",
+              "id": "SO5 (quota full)"
+            },
+            "evidence": null,
+            "source_reference": null
+          }
+        ]
+      },
+      "human_decision_gate": "CLEAR",
+      "pending_blocking_decisions": [],
+      "agent3_ready": "NO",
+      "agent3_blocked_by": [],
+      "what_is_incorrect": [
+        "invented_disposition: COMPLETE is an ending nothing in the QRE names.",
+        "invented_message: COMPLETE carries a message the QRE never gives it.",
+        "invented_disposition: SO1 to SO4 (screen-outs) is an ending nothing in the QRE names.",
+        "invented_message: SO1 to SO4 (screen-outs) carries a message the QRE never gives it.",
+        "invented_disposition: SO5 (quota full) is an ending nothing in the QRE names.",
+        "invented_message: SO5 (quota full) carries a message the QRE never gives it."
+      ],
+      "what_is_missing": [],
+      "what_is_ambiguous": [
+        "semantics_unconfirmed \u2014 Which questions appear on many routes, which rule wins when two apply, and whether an 'is exactly' test passes on a multi-select answer."
+      ],
+      "what_must_change": [
+        "Resolve the 6 cross-source findings: the specification and the document disagree."
+      ],
+      "affected_ids": [
+        "COMPLETE",
+        "F02_streaming_brand_tracker_SYNTHETIC.docx",
+        "SO1 to SO4 (screen-outs)",
+        "SO5 (quota full)",
+        "semantics",
+        "semantics.default_mandatory"
+      ],
+      "counts": {
+        "critical_failures": 0,
+        "other_failures": 0,
+        "blocked": 0,
+        "cross_source_blocking": 6,
+        "confirmation_required": 1,
+        "decisions_pending_blocking": 0
+      }
+    }
+  }
+}

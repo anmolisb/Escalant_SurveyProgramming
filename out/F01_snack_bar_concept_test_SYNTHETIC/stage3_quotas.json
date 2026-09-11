@@ -1,0 +1,101 @@
+{
+  "schema_version": "1.0.0",
+  "artifact": "stage3_quotas",
+  "stage": 3,
+  "survey_id": "F01_snack_bar_concept_test_SYNTHETIC",
+  "source_document": {
+    "filename": "F01_snack_bar_concept_test_SYNTHETIC.docx",
+    "sha256": "12b02e04b203b53d98ed23b8cb6682b07040aceede01a08428174d0783e5c069",
+    "bytes": 43735
+  },
+  "generated_at": "2026-09-11T11:24:39+00:00",
+  "item_count": null,
+  "content": {
+    "target": "Quota controls",
+    "source_kind": "table",
+    "rows": [
+      {
+        "Quota": "Q-REGION",
+        "Based on": "S6",
+        "Cells and targets": "North 25%, South 25%, East 25%, West 25%",
+        "Type": "Hard",
+        "When a cell is full": "End at QF"
+      },
+      {
+        "Quota": "Q-AGE",
+        "Based on": "hAGE (from S2)",
+        "Cells and targets": "18-34: 35%, 35-49: 35%, 50-64: 30%",
+        "Type": "Hard",
+        "When a cell is full": "End at QF"
+      },
+      {
+        "Quota": "Q-CELL",
+        "Based on": "hCELL",
+        "Cells and targets": "Concept A: 200, Concept B: 200",
+        "Type": "Hard",
+        "When a cell is full": "Assign by least-fill; nobody is ended"
+      },
+      {
+        "Quota": "Q-FREQ",
+        "Based on": "S5",
+        "Cells and targets": "Codes 1-2 combined: at least 40%",
+        "Type": "Soft (minimum)",
+        "When a cell is full": "Monitor only"
+      },
+      {
+        "Quota": "Q-GENDER",
+        "Based on": "D1",
+        "Cells and targets": "Man 45-55%, Woman 45-55%",
+        "Type": "Soft",
+        "When a cell is full": "Monitor only - D1 is asked at the end, so it cannot end an interview."
+      }
+    ],
+    "row_sources": [
+      {
+        "document": "F01_snack_bar_concept_test_SYNTHETIC.docx",
+        "section": "Quota controls",
+        "heading_text": "7. Quotas",
+        "block_order": 28,
+        "row_index": 0,
+        "source_kind": "table",
+        "text": "Q-REGION | S6 | North 25%, South 25%, East 25%, West 25% | Hard | End at QF"
+      },
+      {
+        "document": "F01_snack_bar_concept_test_SYNTHETIC.docx",
+        "section": "Quota controls",
+        "heading_text": "7. Quotas",
+        "block_order": 28,
+        "row_index": 1,
+        "source_kind": "table",
+        "text": "Q-AGE | hAGE (from S2) | 18-34: 35%, 35-49: 35%, 50-64: 30% | Hard | End at QF"
+      },
+      {
+        "document": "F01_snack_bar_concept_test_SYNTHETIC.docx",
+        "section": "Quota controls",
+        "heading_text": "7. Quotas",
+        "block_order": 28,
+        "row_index": 2,
+        "source_kind": "table",
+        "text": "Q-CELL | hCELL | Concept A: 200, Concept B: 200 | Hard | Assign by least-fill; nobody is ended"
+      },
+      {
+        "document": "F01_snack_bar_concept_test_SYNTHETIC.docx",
+        "section": "Quota controls",
+        "heading_text": "7. Quotas",
+        "block_order": 28,
+        "row_index": 3,
+        "source_kind": "table",
+        "text": "Q-FREQ | S5 | Codes 1-2 combined: at least 40% | Soft (minimum) | Monitor only"
+      },
+      {
+        "document": "F01_snack_bar_concept_test_SYNTHETIC.docx",
+        "section": "Quota controls",
+        "heading_text": "7. Quotas",
+        "block_order": 28,
+        "row_index": 4,
+        "source_kind": "table",
+        "text": "Q-GENDER | D1 | Man 45-55%, Woman 45-55% | Soft | Monitor only - D1 is asked at the end, so it cannot end an interview."
+      }
+    ]
+  }
+}

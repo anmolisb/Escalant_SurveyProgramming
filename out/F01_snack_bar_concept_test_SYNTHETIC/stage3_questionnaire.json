@@ -1,0 +1,133 @@
+{
+  "schema_version": "1.0.0",
+  "artifact": "stage3_questionnaire",
+  "stage": 3,
+  "survey_id": "F01_snack_bar_concept_test_SYNTHETIC",
+  "source_document": {
+    "filename": "F01_snack_bar_concept_test_SYNTHETIC.docx",
+    "sha256": "12b02e04b203b53d98ed23b8cb6682b07040aceede01a08428174d0783e5c069",
+    "bytes": 43735
+  },
+  "generated_at": "2026-09-11T11:24:39+00:00",
+  "item_count": null,
+  "content": {
+    "target": "Questionnaire",
+    "source_kind": "table",
+    "rows": [
+      {
+        "Var": "S1",
+        "Question text": "Do you, or does anyone in your household, work in any of the following industries?",
+        "Format": "Multi",
+        "Response list (codes)": "1 Market research or advertising\n2 Food or beverage manufacturing\n3 Grocery retail\n4 Journalism or media\n99 None of these [EXCLUSIVE]",
+        "Base / logic / checks": "ASK ALL\nRANDOMIZE codes 1-4\nTERMINATE (T01) if any of codes 1, 2 or 3 is selected. Code 4 on its own continues."
+      },
+      {
+        "Var": "S2",
+        "Question text": "What is your age?",
+        "Format": "Numeric, whole number",
+        "Response list (codes)": "Range 0-120",
+        "Base / logic / checks": "ASK ALL\nTERMINATE (T02) if under 18 or over 64.\nCreate hidden hAGE: 1 = 18-34, 2 = 35-49, 3 = 50-64."
+      },
+      {
+        "Var": "S3",
+        "Question text": "Which best describes your role in grocery shopping for your household?",
+        "Format": "Single",
+        "Response list (codes)": "1 I do all or most of it\n2 I share it equally with someone else\n3 Someone else does most of it",
+        "Base / logic / checks": "ASK ALL\nTERMINATE (T03) if code 3."
+      },
+      {
+        "Var": "S4",
+        "Question text": "Which of these types of snack have you bought in the past 3 months?",
+        "Format": "Multi",
+        "Response list (codes)": "1 Cereal or granola bars\n2 Protein bars\n3 Crisps or chips\n4 Biscuits or cookies\n5 Fruit snacks\n99 None of these [EXCLUSIVE]",
+        "Base / logic / checks": "ASK ALL\nRANDOMIZE codes 1-5\nMust select code 1 or code 2 to continue; otherwise TERMINATE (T04)."
+      },
+      {
+        "Var": "S5",
+        "Question text": "How often do you eat snack bars of any kind?",
+        "Format": "Single",
+        "Response list (codes)": "1 Every day\n2 A few times a week\n3 About once a week\n4 A few times a month\n5 Less often",
+        "Base / logic / checks": "ASK ALL\nTERMINATE (T04) if code 5.\nQUOTA: Q-FREQ (section 7)."
+      },
+      {
+        "Var": "S6",
+        "Question text": "Which region do you live in?",
+        "Format": "Single",
+        "Response list (codes)": "1 North\n2 South\n3 East\n4 West",
+        "Base / logic / checks": "ASK ALL\nQUOTA: Q-REGION (section 7)."
+      },
+      {
+        "Var": "hCELL",
+        "Question text": "[HIDDEN - not shown to respondent] Concept cell",
+        "Format": "Hidden, single",
+        "Response list (codes)": "1 Concept A: Oatlume Original\n2 Concept B: Oatlume Protein+",
+        "Base / logic / checks": "Assign after S6 using least-fill so that each cell reaches 200.\nKeep the cells balanced on hAGE (within 5 completes per age band)."
+      }
+    ],
+    "row_sources": [
+      {
+        "document": "F01_snack_bar_concept_test_SYNTHETIC.docx",
+        "section": "Questionnaire",
+        "heading_text": "3. Screener",
+        "block_order": 16,
+        "row_index": 0,
+        "source_kind": "table",
+        "text": "S1 | Do you, or does anyone in your household, work in any of the following industries? | Multi | 1 Market research or advertising\n2 Food or beverage manufacturing\n3 Grocery retail\n4 Journalism or media\n99 None of these [EXCLUSIVE] | ASK ALL\nRANDOMIZE codes 1-4\nTERMINATE (T01) if any of codes 1, 2 o"
+      },
+      {
+        "document": "F01_snack_bar_concept_test_SYNTHETIC.docx",
+        "section": "Questionnaire",
+        "heading_text": "3. Screener",
+        "block_order": 16,
+        "row_index": 1,
+        "source_kind": "table",
+        "text": "S2 | What is your age? | Numeric, whole number | Range 0-120 | ASK ALL\nTERMINATE (T02) if under 18 or over 64.\nCreate hidden hAGE: 1 = 18-34, 2 = 35-49, 3 = 50-64."
+      },
+      {
+        "document": "F01_snack_bar_concept_test_SYNTHETIC.docx",
+        "section": "Questionnaire",
+        "heading_text": "3. Screener",
+        "block_order": 16,
+        "row_index": 2,
+        "source_kind": "table",
+        "text": "S3 | Which best describes your role in grocery shopping for your household? | Single | 1 I do all or most of it\n2 I share it equally with someone else\n3 Someone else does most of it | ASK ALL\nTERMINATE (T03) if code 3."
+      },
+      {
+        "document": "F01_snack_bar_concept_test_SYNTHETIC.docx",
+        "section": "Questionnaire",
+        "heading_text": "3. Screener",
+        "block_order": 16,
+        "row_index": 3,
+        "source_kind": "table",
+        "text": "S4 | Which of these types of snack have you bought in the past 3 months? | Multi | 1 Cereal or granola bars\n2 Protein bars\n3 Crisps or chips\n4 Biscuits or cookies\n5 Fruit snacks\n99 None of these [EXCLUSIVE] | ASK ALL\nRANDOMIZE codes 1-5\nMust select code 1 or code 2 to continue; otherwise TERMINATE ("
+      },
+      {
+        "document": "F01_snack_bar_concept_test_SYNTHETIC.docx",
+        "section": "Questionnaire",
+        "heading_text": "3. Screener",
+        "block_order": 16,
+        "row_index": 4,
+        "source_kind": "table",
+        "text": "S5 | How often do you eat snack bars of any kind? | Single | 1 Every day\n2 A few times a week\n3 About once a week\n4 A few times a month\n5 Less often | ASK ALL\nTERMINATE (T04) if code 5.\nQUOTA: Q-FREQ (section 7)."
+      },
+      {
+        "document": "F01_snack_bar_concept_test_SYNTHETIC.docx",
+        "section": "Questionnaire",
+        "heading_text": "3. Screener",
+        "block_order": 16,
+        "row_index": 5,
+        "source_kind": "table",
+        "text": "S6 | Which region do you live in? | Single | 1 North\n2 South\n3 East\n4 West | ASK ALL\nQUOTA: Q-REGION (section 7)."
+      },
+      {
+        "document": "F01_snack_bar_concept_test_SYNTHETIC.docx",
+        "section": "Questionnaire",
+        "heading_text": "3. Screener",
+        "block_order": 16,
+        "row_index": 6,
+        "source_kind": "table",
+        "text": "hCELL | [HIDDEN - not shown to respondent] Concept cell | Hidden, single | 1 Concept A: Oatlume Original\n2 Concept B: Oatlume Protein+ | Assign after S6 using least-fill so that each cell reaches 200.\nKeep the cells balanced on hAGE (within 5 completes per age band)."
+      }
+    ]
+  }
+}

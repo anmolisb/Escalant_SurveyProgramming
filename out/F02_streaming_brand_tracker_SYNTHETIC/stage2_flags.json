@@ -1,0 +1,99 @@
+{
+  "schema_version": "1.0.0",
+  "artifact": "stage2_flags",
+  "stage": 2,
+  "survey_id": "F02_streaming_brand_tracker_SYNTHETIC",
+  "source_document": {
+    "filename": "F02_streaming_brand_tracker_SYNTHETIC.docx",
+    "sha256": "c49bd90b63f0019e02bb86173836d6a0f6de4f974c3a0fd37c3090650d83d293",
+    "bytes": 41535
+  },
+  "generated_at": "2026-09-11T16:04:37+00:00",
+  "item_count": 7,
+  "content": [
+    {
+      "target_heading": "Questionnaire",
+      "status": "NOT_PRESENT",
+      "candidate_heading": null,
+      "confidence": null,
+      "reasoning": "No heading matched by name, and no unmatched heading's content had this section's shape.",
+      "severity": "WARNING",
+      "target": {
+        "kind": "section",
+        "id": "Questionnaire"
+      }
+    },
+    {
+      "target_heading": "Routing and termination",
+      "status": "NOT_PRESENT",
+      "candidate_heading": null,
+      "confidence": null,
+      "reasoning": "No heading matched by name, and no unmatched heading's content had this section's shape.",
+      "severity": "WARNING",
+      "target": {
+        "kind": "section",
+        "id": "Routing and termination"
+      }
+    },
+    {
+      "target_heading": "Acceptance test scenarios",
+      "status": "NOT_PRESENT",
+      "candidate_heading": null,
+      "confidence": null,
+      "reasoning": "No heading matched by name, and no unmatched heading's content had this section's shape.",
+      "severity": "WARNING",
+      "target": {
+        "kind": "section",
+        "id": "Acceptance test scenarios"
+      }
+    },
+    {
+      "target_heading": "Completion messages",
+      "status": "POSSIBLE_MATCH",
+      "candidate_heading": "Closing and redirects",
+      "confidence": 0.95,
+      "reasoning": "Content lists disposition codes (e.g., COMPLETE, SO1) paired with the respondent-facing message, matching the expected code\u2011message pairing shape.",
+      "severity": "WARNING",
+      "target": {
+        "kind": "section",
+        "id": "Completion messages"
+      }
+    },
+    {
+      "target_heading": "Quota controls",
+      "status": "POSSIBLE_MATCH",
+      "candidate_heading": "Part E - Quotas",
+      "confidence": 0.96,
+      "reasoning": "The content lists quota groups (Region, Age, Gender) with associated demographics, target percentages/counts, and closure rules, matching the prose/table shape of quota controls.",
+      "severity": "WARNING",
+      "target": {
+        "kind": "section",
+        "id": "Quota controls"
+      }
+    },
+    {
+      "target_heading": "Study specification",
+      "status": "POSSIBLE_MATCH",
+      "candidate_heading": "Wave 7 overview",
+      "confidence": 0.97,
+      "reasoning": "The content consists of several prose paragraphs detailing purpose, method, sample, and interview length, which matches the study specification shape.",
+      "severity": "WARNING",
+      "target": {
+        "kind": "section",
+        "id": "Study specification"
+      }
+    },
+    {
+      "target_heading": "Programming and QA requirements",
+      "status": "POSSIBLE_MATCH",
+      "candidate_heading": "Checking notes",
+      "confidence": 0.97,
+      "reasoning": "The content consists of multiple instructional paragraphs about storing variables, logging data, and test conditions, matching the prose format of programming and QA requirements.",
+      "severity": "WARNING",
+      "target": {
+        "kind": "section",
+        "id": "Programming and QA requirements"
+      }
+    }
+  ]
+}

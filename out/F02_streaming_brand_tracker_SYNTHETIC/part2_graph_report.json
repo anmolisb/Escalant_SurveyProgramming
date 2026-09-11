@@ -1,0 +1,148 @@
+{
+  "schema_version": "1.0.0",
+  "artifact": "part2_graph_report",
+  "stage": 8,
+  "survey_id": "F02_streaming_brand_tracker_SYNTHETIC",
+  "source_document": {
+    "filename": "F02_streaming_brand_tracker_SYNTHETIC.docx",
+    "sha256": "c49bd90b63f0019e02bb86173836d6a0f6de4f974c3a0fd37c3090650d83d293",
+    "bytes": 41535
+  },
+  "generated_at": "2026-09-11T16:05:31+00:00",
+  "item_count": null,
+  "content": {
+    "source": "F02_streaming_brand_tracker_SYNTHETIC.docx",
+    "nodes": 4,
+    "edges": 0,
+    "questions": 0,
+    "dispositions": 3,
+    "rules_mapped": 0,
+    "rules_total": 0,
+    "quotas_mapped": 0,
+    "quotas_total": 0,
+    "dependency_edges": 0,
+    "findings": [
+      {
+        "check": "reachability",
+        "severity": "WARNING",
+        "finding": "Ending COMPLETE cannot be reached from anywhere.",
+        "target": {
+          "kind": "disposition",
+          "id": "COMPLETE"
+        },
+        "evidence": null,
+        "source_reference": null
+      },
+      {
+        "check": "reachability",
+        "severity": "WARNING",
+        "finding": "Ending SO1 to SO4 (screen-outs) cannot be reached from anywhere.",
+        "target": {
+          "kind": "disposition",
+          "id": "SO1 to SO4 (screen-outs)"
+        },
+        "evidence": null,
+        "source_reference": null
+      },
+      {
+        "check": "reachability",
+        "severity": "WARNING",
+        "finding": "Ending SO5 (quota full) cannot be reached from anywhere.",
+        "target": {
+          "kind": "disposition",
+          "id": "SO5 (quota full)"
+        },
+        "evidence": null,
+        "source_reference": null
+      },
+      {
+        "check": "reachability",
+        "severity": "BLOCKING",
+        "finding": "COMPLETE cannot be reached from the start of the survey.",
+        "target": {
+          "kind": "disposition",
+          "id": "COMPLETE"
+        },
+        "evidence": null,
+        "source_reference": null
+      },
+      {
+        "check": "reachability",
+        "severity": "BLOCKING",
+        "finding": "SO1 to SO4 (screen-outs) cannot be reached from the start of the survey.",
+        "target": {
+          "kind": "disposition",
+          "id": "SO1 to SO4 (screen-outs)"
+        },
+        "evidence": null,
+        "source_reference": null
+      },
+      {
+        "check": "reachability",
+        "severity": "BLOCKING",
+        "finding": "SO5 (quota full) cannot be reached from the start of the survey.",
+        "target": {
+          "kind": "disposition",
+          "id": "SO5 (quota full)"
+        },
+        "evidence": null,
+        "source_reference": null
+      }
+    ],
+    "blocking": 3,
+    "passed": false,
+    "coverage": {
+      "node_coverage": {
+        "numerator": 3,
+        "denominator": 3,
+        "result": 1.0
+      },
+      "routing_rule_coverage": {
+        "numerator": 0,
+        "denominator": 0,
+        "result": null
+      },
+      "termination_coverage": {
+        "numerator": 0,
+        "denominator": 0,
+        "result": null
+      },
+      "skip_display_representation": {
+        "numerator": 0,
+        "denominator": 0,
+        "result": null
+      },
+      "validation_reject_representation": {
+        "numerator": 0,
+        "denominator": 0,
+        "result": null
+      },
+      "dependency_coverage": {
+        "numerator": 0,
+        "denominator": 0,
+        "result": null
+      },
+      "quota_coverage": {
+        "numerator": 0,
+        "denominator": 0,
+        "result": null
+      },
+      "randomization_coverage": {
+        "numerator": 0,
+        "denominator": 0,
+        "result": null
+      },
+      "traceability_coverage": {
+        "numerator": 0,
+        "denominator": 0,
+        "result": null
+      }
+    },
+    "structurally_buildable": false,
+    "behaviorally_approved": false,
+    "approval_blocked_by": [
+      "graph_fidelity_failed",
+      "canonical_status=FAILED"
+    ]
+  }
+}

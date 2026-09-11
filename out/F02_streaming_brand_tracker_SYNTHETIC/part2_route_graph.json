@@ -1,0 +1,57 @@
+{
+  "schema_version": "1.0.0",
+  "artifact": "part2_route_graph",
+  "stage": 8,
+  "survey_id": "F02_streaming_brand_tracker_SYNTHETIC",
+  "source_document": {
+    "filename": "F02_streaming_brand_tracker_SYNTHETIC.docx",
+    "sha256": "c49bd90b63f0019e02bb86173836d6a0f6de4f974c3a0fd37c3090650d83d293",
+    "bytes": 41535
+  },
+  "generated_at": "2026-09-11T16:05:31+00:00",
+  "item_count": null,
+  "content": {
+    "source": "F02_streaming_brand_tracker_SYNTHETIC.docx",
+    "route_graph": {
+      "directed": true,
+      "multigraph": true,
+      "graph": {},
+      "nodes": [
+        {
+          "kind": "start",
+          "id": "__START__"
+        },
+        {
+          "kind": "disposition",
+          "terminal": true,
+          "disposition_kind": "complete",
+          "defined_in_source": true,
+          "id": "COMPLETE"
+        },
+        {
+          "kind": "disposition",
+          "terminal": true,
+          "disposition_kind": "screenout",
+          "defined_in_source": true,
+          "id": "SO1 to SO4 (screen-outs)"
+        },
+        {
+          "kind": "disposition",
+          "terminal": true,
+          "disposition_kind": "quota_full",
+          "defined_in_source": true,
+          "id": "SO5 (quota full)"
+        }
+      ],
+      "edges": []
+    },
+    "dependency_graph": {
+      "directed": true,
+      "multigraph": false,
+      "graph": {},
+      "nodes": [],
+      "edges": []
+    },
+    "rule_edge_map": {}
+  }
+}

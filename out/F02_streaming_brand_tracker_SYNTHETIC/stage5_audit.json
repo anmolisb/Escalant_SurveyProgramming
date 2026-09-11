@@ -1,0 +1,285 @@
+{
+  "schema_version": "1.0.0",
+  "artifact": "stage5_audit",
+  "stage": 5,
+  "survey_id": "F02_streaming_brand_tracker_SYNTHETIC",
+  "source_document": {
+    "filename": "F02_streaming_brand_tracker_SYNTHETIC.docx",
+    "sha256": "c49bd90b63f0019e02bb86173836d6a0f6de4f974c3a0fd37c3090650d83d293",
+    "bytes": 41535
+  },
+  "generated_at": "2026-09-11T16:04:41+00:00",
+  "item_count": null,
+  "content": {
+    "source": "F02_streaming_brand_tracker_SYNTHETIC.docx",
+    "checks_run": [
+      "source_coverage",
+      "row_accounting",
+      "reference_integrity",
+      "condition_consistency",
+      "piping_symmetry"
+    ],
+    "sections": [
+      {
+        "target": "Completion messages",
+        "rows_in": 3,
+        "objects_out": 3,
+        "identified": 3,
+        "score": 1.0,
+        "threshold": 1.0,
+        "passed": true
+      },
+      {
+        "target": "Quota controls",
+        "rows_in": 4,
+        "objects_out": 4,
+        "identified": 4,
+        "score": 1.0,
+        "threshold": 1.0,
+        "passed": true
+      },
+      {
+        "target": "Study specification",
+        "rows_in": 4,
+        "objects_out": 4,
+        "identified": 4,
+        "score": 1.0,
+        "threshold": 1.0,
+        "passed": true
+      },
+      {
+        "target": "Programming and QA requirements",
+        "rows_in": 4,
+        "objects_out": 4,
+        "identified": 4,
+        "score": 1.0,
+        "threshold": 1.0,
+        "passed": true
+      }
+    ],
+    "findings": [
+      {
+        "check": "source_coverage",
+        "severity": "WARNING",
+        "finding": "Section 'Changes from Wave 6' matched no target. Its 3 block(s) are preserved but nothing has parsed them.",
+        "target": {
+          "kind": "section",
+          "id": "Changes from Wave 6"
+        },
+        "evidence": "A2 to A4 added for the new Corvo campaign.; B9 (price perception) removed.; The brand loop is now capped at three brands (previously every brand used).",
+        "source_reference": null
+      },
+      {
+        "check": "source_coverage",
+        "severity": "WARNING",
+        "finding": "Section 'Scripting conventions' matched no target. Its 12 block(s) are preserved but nothing has parsed them.",
+        "target": {
+          "kind": "section",
+          "id": "Scripting conventions"
+        },
+        "evidence": "Question type tags: [SC] single code, [MC] multi code, [NUM] numeric, [OE] open ; Each question is preceded by its base (ASK ALL or ASK IF ...). Where no base is ; BRAND LIST means the master list below. Randomise its order once per respondent ",
+        "source_reference": null
+      },
+      {
+        "check": "source_coverage",
+        "severity": "WARNING",
+        "finding": "Section 'Part A - Screening' matched no target. Its 27 block(s) are preserved but nothing has parsed them.",
+        "target": {
+          "kind": "section",
+          "id": "Part A - Screening"
+        },
+        "evidence": "ASK ALL; S1. [NUM] How old are you?; RANGE 16-99. IF S1 < 18, CLOSE - SO1.",
+        "source_reference": null
+      },
+      {
+        "check": "source_coverage",
+        "severity": "WARNING",
+        "finding": "Section 'Part B - Brand funnel' matched no target. Its 30 block(s) are preserved but nothing has parsed them.",
+        "target": {
+          "kind": "section",
+          "id": "Part B - Brand funnel"
+        },
+        "evidence": "ASK ALL; B1. [OE] When you think of streaming services for films and series, which ones c; PROVIDE 6 BOXES; AT LEAST ONE REQUIRED. STORE THE FIRST BOX AS B1_FIRST.",
+        "source_reference": null
+      },
+      {
+        "check": "source_coverage",
+        "severity": "WARNING",
+        "finding": "Section 'Brand loop (B5 to B7)' matched no target. Its 14 block(s) are preserved but nothing has parsed them.",
+        "target": {
+          "kind": "section",
+          "id": "Brand loop (B5 to B7)"
+        },
+        "evidence": "LOOP FOR EACH BRAND SELECTED AT B3 (CODES 1-6). IF MORE THAN 3 BRANDS WERE SELEC; ASK IF ANY OF CODES 1-6 AT B3; B5. [SC] Overall, how satisfied are you with [BRAND]?",
+        "source_reference": null
+      },
+      {
+        "check": "source_coverage",
+        "severity": "WARNING",
+        "finding": "Section 'Part C - Advertising' matched no target. Its 23 block(s) are preserved but nothing has parsed them.",
+        "target": {
+          "kind": "section",
+          "id": "Part C - Advertising"
+        },
+        "evidence": "ASK ALL; A1. [MC] In the past 4 weeks, have you seen or heard any advertising for these s; SHOW BRAND LIST + 98 Don't know + 99 None of these.",
+        "source_reference": null
+      },
+      {
+        "check": "source_coverage",
+        "severity": "WARNING",
+        "finding": "Section 'Part D - About you' matched no target. Its 18 block(s) are preserved but nothing has parsed them.",
+        "target": {
+          "kind": "section",
+          "id": "Part D - About you"
+        },
+        "evidence": "ASK ALL; D1. [SC] How would you describe your gender?; 1 Male",
+        "source_reference": null
+      },
+      {
+        "check": "source_coverage",
+        "severity": "WARNING",
+        "finding": "3 block(s) sit outside every heading and reached no stage. Content before the first heading is not captured by any target.",
+        "target": {
+          "kind": "document",
+          "id": "F02_streaming_brand_tracker_SYNTHETIC.docx"
+        },
+        "evidence": "StreamScope Wave 7; Streaming Video Brand and Advertising Tracker - Questionnair; Project ESC-SYN-2602  |  9 September 2026  |  All brands, ad",
+        "source_reference": null
+      },
+      {
+        "check": "reference_integrity",
+        "severity": "WARNING",
+        "finding": "'S4' is named in a quotas statement but is not a question or an ending in this QRE.",
+        "target": {
+          "kind": "statement",
+          "id": "S4"
+        },
+        "evidence": "Region (S4) - HARD: North 24%, Midlands 17%, South 41%, Scotland 8%, Wales 5%, Northern Ireland 5%. Close at SO5 when a cell is full.",
+        "source_reference": null
+      },
+      {
+        "check": "reference_integrity",
+        "severity": "WARNING",
+        "finding": "'HARD' is named in a quotas statement but is not a question or an ending in this QRE.",
+        "target": {
+          "kind": "statement",
+          "id": "HARD"
+        },
+        "evidence": "Region (S4) - HARD: North 24%, Midlands 17%, South 41%, Scotland 8%, Wales 5%, Northern Ireland 5%. Close at SO5 when a cell is full.",
+        "source_reference": null
+      },
+      {
+        "check": "reference_integrity",
+        "severity": "WARNING",
+        "finding": "'SO5' is named in a quotas statement but is not a question or an ending in this QRE.",
+        "target": {
+          "kind": "statement",
+          "id": "SO5"
+        },
+        "evidence": "Region (S4) - HARD: North 24%, Midlands 17%, South 41%, Scotland 8%, Wales 5%, Northern Ireland 5%. Close at SO5 when a cell is full.",
+        "source_reference": null
+      },
+      {
+        "check": "reference_integrity",
+        "severity": "WARNING",
+        "finding": "'S1' is named in a quotas statement but is not a question or an ending in this QRE.",
+        "target": {
+          "kind": "statement",
+          "id": "S1"
+        },
+        "evidence": "Age (S1) - HARD: 18-34 40%, 35-54 35%, 55 and over 25%. Close at SO5 when a cell is full.",
+        "source_reference": null
+      },
+      {
+        "check": "reference_integrity",
+        "severity": "WARNING",
+        "finding": "'HARD' is named in a quotas statement but is not a question or an ending in this QRE.",
+        "target": {
+          "kind": "statement",
+          "id": "HARD"
+        },
+        "evidence": "Age (S1) - HARD: 18-34 40%, 35-54 35%, 55 and over 25%. Close at SO5 when a cell is full.",
+        "source_reference": null
+      },
+      {
+        "check": "reference_integrity",
+        "severity": "WARNING",
+        "finding": "'SO5' is named in a quotas statement but is not a question or an ending in this QRE.",
+        "target": {
+          "kind": "statement",
+          "id": "SO5"
+        },
+        "evidence": "Age (S1) - HARD: 18-34 40%, 35-54 35%, 55 and over 25%. Close at SO5 when a cell is full.",
+        "source_reference": null
+      },
+      {
+        "check": "reference_integrity",
+        "severity": "WARNING",
+        "finding": "'D1' is named in a quotas statement but is not a question or an ending in this QRE.",
+        "target": {
+          "kind": "statement",
+          "id": "D1"
+        },
+        "evidence": "Gender (D1) - SOFT: at least 280 Male and at least 280 Female. Monitor only; D1 is asked at the end of the interview.",
+        "source_reference": null
+      },
+      {
+        "check": "reference_integrity",
+        "severity": "WARNING",
+        "finding": "'SOFT' is named in a quotas statement but is not a question or an ending in this QRE.",
+        "target": {
+          "kind": "statement",
+          "id": "SOFT"
+        },
+        "evidence": "Gender (D1) - SOFT: at least 280 Male and at least 280 Female. Monitor only; D1 is asked at the end of the interview.",
+        "source_reference": null
+      },
+      {
+        "check": "reference_integrity",
+        "severity": "WARNING",
+        "finding": "'D1' is named in a quotas statement but is not a question or an ending in this QRE.",
+        "target": {
+          "kind": "statement",
+          "id": "D1"
+        },
+        "evidence": "Gender (D1) - SOFT: at least 280 Male and at least 280 Female. Monitor only; D1 is asked at the end of the interview.",
+        "source_reference": null
+      },
+      {
+        "check": "reference_integrity",
+        "severity": "WARNING",
+        "finding": "'B1' is named in a programming statement but is not a question or an ending in this QRE.",
+        "target": {
+          "kind": "statement",
+          "id": "B1"
+        },
+        "evidence": "Store B1 and B7 verbatims exactly as typed.",
+        "source_reference": null
+      },
+      {
+        "check": "reference_integrity",
+        "severity": "WARNING",
+        "finding": "'B7' is named in a programming statement but is not a question or an ending in this QRE.",
+        "target": {
+          "kind": "statement",
+          "id": "B7"
+        },
+        "evidence": "Store B1 and B7 verbatims exactly as typed.",
+        "source_reference": null
+      },
+      {
+        "check": "reference_integrity",
+        "severity": "WARNING",
+        "finding": "'A5' is named in a programming statement but is not a question or an ending in this QRE.",
+        "target": {
+          "kind": "statement",
+          "id": "A5"
+        },
+        "evidence": "Check that A5 appears only for respondents shown the advertisement image.",
+        "source_reference": null
+      }
+    ],
+    "blocking": 0,
+    "passed": true
+  }
+}

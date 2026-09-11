@@ -1,0 +1,641 @@
+{
+  "schema_version": "1.0.0",
+  "artifact": "part2_canonical",
+  "stage": 6,
+  "survey_id": "F01_snack_bar_concept_test_SYNTHETIC",
+  "source_document": {
+    "filename": "F01_snack_bar_concept_test_SYNTHETIC.docx",
+    "sha256": "12b02e04b203b53d98ed23b8cb6682b07040aceede01a08428174d0783e5c069",
+    "bytes": 43735
+  },
+  "generated_at": "2026-09-11T11:25:46+00:00",
+  "item_count": null,
+  "content": {
+    "source": "F01_snack_bar_concept_test_SYNTHETIC.docx",
+    "semantics": {
+      "unasked_reference": "condition_false",
+      "unasked_reference_origin": "inferred",
+      "rule_precedence": "document_order_first_match",
+      "rule_precedence_origin": "inferred",
+      "multi_equality": "set_equality",
+      "multi_equality_origin": "derived",
+      "default_mandatory": null,
+      "default_mandatory_origin": "unknown",
+      "default_mandatory_source": ""
+    },
+    "metadata": [],
+    "questions": [
+      {
+        "question_id": "",
+        "seq": 1,
+        "kind": "Multi",
+        "wording": "Do you, or does anyone in your household, work in any of the following industries?",
+        "options": [
+          {
+            "option_id": null,
+            "code": null,
+            "label": "1 Market research or advertising\n2 Food or beverage manufacturing\n3 Grocery retail\n4 Journalism or media\n99 None of these [EXCLUSIVE]",
+            "numeric_value": null,
+            "is_exclusive": false
+          }
+        ],
+        "matrix_rows": [],
+        "validation": {
+          "min_length": null,
+          "max_length": null,
+          "min_value": null,
+          "max_value": null,
+          "min_selections": null,
+          "sum_to": null,
+          "require_each_row": null,
+          "exclusive_option_id": null,
+          "exclusive_option_label": null,
+          "mandatory": null,
+          "mandatory_origin": "unknown"
+        },
+        "guard": null,
+        "option_source": null,
+        "extra": {
+          "other_instructions": [
+            "TERMINATE (T01) if any of codes 1, 2 or 3 is selected. Code 4 on its own continues."
+          ]
+        },
+        "source_reference": {
+          "document": "F01_snack_bar_concept_test_SYNTHETIC.docx",
+          "section": "Questionnaire",
+          "heading_text": "3. Screener",
+          "block_order": 16,
+          "row_index": 0,
+          "source_kind": "table",
+          "text": "S1 | Do you, or does anyone in your household, work in any of the following industries? | Multi | 1 Market research or advertising\n2 Food or beverage manufacturing\n3 Grocery retail\n4 Journalism or media\n99 None of these [EXCLUSIVE] | ASK ALL\nRANDOMIZE codes 1-4\nTERMINATE (T01) if any of codes 1, 2 o"
+        }
+      },
+      {
+        "question_id": "",
+        "seq": 2,
+        "kind": "Numeric, whole number",
+        "wording": "What is your age?",
+        "options": [
+          {
+            "option_id": null,
+            "code": null,
+            "label": "Range 0-120",
+            "numeric_value": null,
+            "is_exclusive": false
+          }
+        ],
+        "matrix_rows": [],
+        "validation": {
+          "min_length": null,
+          "max_length": null,
+          "min_value": null,
+          "max_value": null,
+          "min_selections": null,
+          "sum_to": null,
+          "require_each_row": null,
+          "exclusive_option_id": null,
+          "exclusive_option_label": null,
+          "mandatory": null,
+          "mandatory_origin": "unknown"
+        },
+        "guard": null,
+        "option_source": null,
+        "extra": {
+          "other_instructions": [
+            "TERMINATE (T02) if under 18 or over 64.",
+            "Create hidden hAGE: 1 = 18-34, 2 = 35-49, 3 = 50-64."
+          ]
+        },
+        "source_reference": {
+          "document": "F01_snack_bar_concept_test_SYNTHETIC.docx",
+          "section": "Questionnaire",
+          "heading_text": "3. Screener",
+          "block_order": 16,
+          "row_index": 1,
+          "source_kind": "table",
+          "text": "S2 | What is your age? | Numeric, whole number | Range 0-120 | ASK ALL\nTERMINATE (T02) if under 18 or over 64.\nCreate hidden hAGE: 1 = 18-34, 2 = 35-49, 3 = 50-64."
+        }
+      },
+      {
+        "question_id": "",
+        "seq": 3,
+        "kind": "Single",
+        "wording": "Which best describes your role in grocery shopping for your household?",
+        "options": [
+          {
+            "option_id": null,
+            "code": null,
+            "label": "1 I do all or most of it\n2 I share it equally with someone else\n3 Someone else does most of it",
+            "numeric_value": null,
+            "is_exclusive": false
+          }
+        ],
+        "matrix_rows": [],
+        "validation": {
+          "min_length": null,
+          "max_length": null,
+          "min_value": null,
+          "max_value": null,
+          "min_selections": null,
+          "sum_to": null,
+          "require_each_row": null,
+          "exclusive_option_id": null,
+          "exclusive_option_label": null,
+          "mandatory": null,
+          "mandatory_origin": "unknown"
+        },
+        "guard": null,
+        "option_source": null,
+        "extra": {
+          "other_instructions": [
+            "TERMINATE (T03) if code 3."
+          ]
+        },
+        "source_reference": {
+          "document": "F01_snack_bar_concept_test_SYNTHETIC.docx",
+          "section": "Questionnaire",
+          "heading_text": "3. Screener",
+          "block_order": 16,
+          "row_index": 2,
+          "source_kind": "table",
+          "text": "S3 | Which best describes your role in grocery shopping for your household? | Single | 1 I do all or most of it\n2 I share it equally with someone else\n3 Someone else does most of it | ASK ALL\nTERMINATE (T03) if code 3."
+        }
+      },
+      {
+        "question_id": "",
+        "seq": 4,
+        "kind": "Multi",
+        "wording": "Which of these types of snack have you bought in the past 3 months?",
+        "options": [
+          {
+            "option_id": null,
+            "code": null,
+            "label": "1 Cereal or granola bars\n2 Protein bars\n3 Crisps or chips\n4 Biscuits or cookies\n5 Fruit snacks\n99 None of these [EXCLUSIVE]",
+            "numeric_value": null,
+            "is_exclusive": false
+          }
+        ],
+        "matrix_rows": [],
+        "validation": {
+          "min_length": null,
+          "max_length": null,
+          "min_value": null,
+          "max_value": null,
+          "min_selections": null,
+          "sum_to": null,
+          "require_each_row": null,
+          "exclusive_option_id": null,
+          "exclusive_option_label": null,
+          "mandatory": null,
+          "mandatory_origin": "unknown"
+        },
+        "guard": null,
+        "option_source": null,
+        "extra": {},
+        "source_reference": {
+          "document": "F01_snack_bar_concept_test_SYNTHETIC.docx",
+          "section": "Questionnaire",
+          "heading_text": "3. Screener",
+          "block_order": 16,
+          "row_index": 3,
+          "source_kind": "table",
+          "text": "S4 | Which of these types of snack have you bought in the past 3 months? | Multi | 1 Cereal or granola bars\n2 Protein bars\n3 Crisps or chips\n4 Biscuits or cookies\n5 Fruit snacks\n99 None of these [EXCLUSIVE] | ASK ALL\nRANDOMIZE codes 1-5\nMust select code 1 or code 2 to continue; otherwise TERMINATE ("
+        }
+      },
+      {
+        "question_id": "",
+        "seq": 5,
+        "kind": "Single",
+        "wording": "How often do you eat snack bars of any kind?",
+        "options": [
+          {
+            "option_id": null,
+            "code": null,
+            "label": "1 Every day\n2 A few times a week\n3 About once a week\n4 A few times a month\n5 Less often",
+            "numeric_value": null,
+            "is_exclusive": false
+          }
+        ],
+        "matrix_rows": [],
+        "validation": {
+          "min_length": null,
+          "max_length": null,
+          "min_value": null,
+          "max_value": null,
+          "min_selections": null,
+          "sum_to": null,
+          "require_each_row": null,
+          "exclusive_option_id": null,
+          "exclusive_option_label": null,
+          "mandatory": null,
+          "mandatory_origin": "unknown"
+        },
+        "guard": null,
+        "option_source": null,
+        "extra": {
+          "other_instructions": [
+            "TERMINATE (T04) if code 5.",
+            "Q-FREQ (section 7)."
+          ]
+        },
+        "source_reference": {
+          "document": "F01_snack_bar_concept_test_SYNTHETIC.docx",
+          "section": "Questionnaire",
+          "heading_text": "3. Screener",
+          "block_order": 16,
+          "row_index": 4,
+          "source_kind": "table",
+          "text": "S5 | How often do you eat snack bars of any kind? | Single | 1 Every day\n2 A few times a week\n3 About once a week\n4 A few times a month\n5 Less often | ASK ALL\nTERMINATE (T04) if code 5.\nQUOTA: Q-FREQ (section 7)."
+        }
+      },
+      {
+        "question_id": "",
+        "seq": 6,
+        "kind": "Single",
+        "wording": "Which region do you live in?",
+        "options": [
+          {
+            "option_id": null,
+            "code": null,
+            "label": "1 North\n2 South\n3 East\n4 West",
+            "numeric_value": null,
+            "is_exclusive": false
+          }
+        ],
+        "matrix_rows": [],
+        "validation": {
+          "min_length": null,
+          "max_length": null,
+          "min_value": null,
+          "max_value": null,
+          "min_selections": null,
+          "sum_to": null,
+          "require_each_row": null,
+          "exclusive_option_id": null,
+          "exclusive_option_label": null,
+          "mandatory": null,
+          "mandatory_origin": "unknown"
+        },
+        "guard": null,
+        "option_source": null,
+        "extra": {
+          "other_instructions": [
+            "Q-REGION (section 7)."
+          ]
+        },
+        "source_reference": {
+          "document": "F01_snack_bar_concept_test_SYNTHETIC.docx",
+          "section": "Questionnaire",
+          "heading_text": "3. Screener",
+          "block_order": 16,
+          "row_index": 5,
+          "source_kind": "table",
+          "text": "S6 | Which region do you live in? | Single | 1 North\n2 South\n3 East\n4 West | ASK ALL\nQUOTA: Q-REGION (section 7)."
+        }
+      },
+      {
+        "question_id": "",
+        "seq": 7,
+        "kind": "Hidden, single",
+        "wording": "[HIDDEN - not shown to respondent] Concept cell",
+        "options": [
+          {
+            "option_id": null,
+            "code": null,
+            "label": "1 Concept A: Oatlume Original\n2 Concept B: Oatlume Protein+",
+            "numeric_value": null,
+            "is_exclusive": false
+          }
+        ],
+        "matrix_rows": [],
+        "validation": {
+          "min_length": null,
+          "max_length": null,
+          "min_value": null,
+          "max_value": null,
+          "min_selections": null,
+          "sum_to": null,
+          "require_each_row": null,
+          "exclusive_option_id": null,
+          "exclusive_option_label": null,
+          "mandatory": null,
+          "mandatory_origin": "unknown"
+        },
+        "guard": null,
+        "option_source": null,
+        "extra": {
+          "other_instructions": [
+            "Assign after S6 using least-fill so that each cell reaches 200.",
+            "Keep the cells balanced on hAGE (within 5 completes per age band)."
+          ]
+        },
+        "source_reference": {
+          "document": "F01_snack_bar_concept_test_SYNTHETIC.docx",
+          "section": "Questionnaire",
+          "heading_text": "3. Screener",
+          "block_order": 16,
+          "row_index": 6,
+          "source_kind": "table",
+          "text": "hCELL | [HIDDEN - not shown to respondent] Concept cell | Hidden, single | 1 Concept A: Oatlume Original\n2 Concept B: Oatlume Protein+ | Assign after S6 using least-fill so that each cell reaches 200.\nKeep the cells balanced on hAGE (within 5 completes per age band)."
+        }
+      }
+    ],
+    "dispositions": [],
+    "rules": [
+      {
+        "rule_id": "",
+        "kind": "other",
+        "when": null,
+        "when_unread": null,
+        "destination": {
+          "kind": "unknown",
+          "id": "",
+          "origin": "unknown"
+        },
+        "evaluation_point": null,
+        "evaluation_point_origin": "inferred",
+        "precedence": 1,
+        "source_reference": {
+          "document": "F01_snack_bar_concept_test_SYNTHETIC.docx",
+          "section": "Routing and termination",
+          "heading_text": "6. Endings",
+          "block_order": 25,
+          "row_index": 0,
+          "source_kind": "table",
+          "text": "T01 | Screen-out: industry | S1 code 1, 2 or 3 | Thank you for your time. Unfortunately you do not qualify for this survey."
+        }
+      },
+      {
+        "rule_id": "",
+        "kind": "other",
+        "when": null,
+        "when_unread": null,
+        "destination": {
+          "kind": "unknown",
+          "id": "",
+          "origin": "unknown"
+        },
+        "evaluation_point": null,
+        "evaluation_point_origin": "inferred",
+        "precedence": 2,
+        "source_reference": {
+          "document": "F01_snack_bar_concept_test_SYNTHETIC.docx",
+          "section": "Routing and termination",
+          "heading_text": "6. Endings",
+          "block_order": 25,
+          "row_index": 1,
+          "source_kind": "table",
+          "text": "T02 | Screen-out: age | S2 under 18 or over 64 | Thank you for your time. Unfortunately you do not qualify for this survey."
+        }
+      },
+      {
+        "rule_id": "",
+        "kind": "other",
+        "when": null,
+        "when_unread": null,
+        "destination": {
+          "kind": "unknown",
+          "id": "",
+          "origin": "unknown"
+        },
+        "evaluation_point": null,
+        "evaluation_point_origin": "inferred",
+        "precedence": 3,
+        "source_reference": {
+          "document": "F01_snack_bar_concept_test_SYNTHETIC.docx",
+          "section": "Routing and termination",
+          "heading_text": "6. Endings",
+          "block_order": 25,
+          "row_index": 2,
+          "source_kind": "table",
+          "text": "T03 | Screen-out: not a grocery shopper | S3 = 3 | Thank you for your time. Unfortunately you do not qualify for this survey."
+        }
+      },
+      {
+        "rule_id": "",
+        "kind": "other",
+        "when": null,
+        "when_unread": null,
+        "destination": {
+          "kind": "unknown",
+          "id": "",
+          "origin": "unknown"
+        },
+        "evaluation_point": null,
+        "evaluation_point_origin": "inferred",
+        "precedence": 4,
+        "source_reference": {
+          "document": "F01_snack_bar_concept_test_SYNTHETIC.docx",
+          "section": "Routing and termination",
+          "heading_text": "6. Endings",
+          "block_order": 25,
+          "row_index": 3,
+          "source_kind": "table",
+          "text": "T04 | Screen-out: low category use | S4 without code 1 or 2; or S5 = 5 | Thank you for your time. Unfortunately you do not qualify for this survey."
+        }
+      },
+      {
+        "rule_id": "",
+        "kind": "other",
+        "when": null,
+        "when_unread": null,
+        "destination": {
+          "kind": "unknown",
+          "id": "",
+          "origin": "unknown"
+        },
+        "evaluation_point": null,
+        "evaluation_point_origin": "inferred",
+        "precedence": 5,
+        "source_reference": {
+          "document": "F01_snack_bar_concept_test_SYNTHETIC.docx",
+          "section": "Routing and termination",
+          "heading_text": "6. Endings",
+          "block_order": 25,
+          "row_index": 4,
+          "source_kind": "table",
+          "text": "QF | Quota full | Any full hard quota cell (section 7) | Thank you. We already have enough people like you for this survey."
+        }
+      },
+      {
+        "rule_id": "",
+        "kind": "other",
+        "when": null,
+        "when_unread": null,
+        "destination": {
+          "kind": "unknown",
+          "id": "",
+          "origin": "unknown"
+        },
+        "evaluation_point": null,
+        "evaluation_point_origin": "inferred",
+        "precedence": 6,
+        "source_reference": {
+          "document": "F01_snack_bar_concept_test_SYNTHETIC.docx",
+          "section": "Routing and termination",
+          "heading_text": "6. Endings",
+          "block_order": 25,
+          "row_index": 5,
+          "source_kind": "table",
+          "text": "COMP | Complete | Reaching the end of D4 | Thank you for completing this survey. Your answers have been recorded."
+        }
+      }
+    ],
+    "dependencies": [],
+    "randomization": [
+      {
+        "question_id": "",
+        "scope": "options",
+        "scope_origin": "inferred",
+        "anchored": [],
+        "anchored_origin": "unknown",
+        "capture_display_order": true,
+        "source_reference": {
+          "document": "F01_snack_bar_concept_test_SYNTHETIC.docx",
+          "section": "Questionnaire",
+          "heading_text": "3. Screener",
+          "block_order": 16,
+          "row_index": 0,
+          "source_kind": "table",
+          "text": "S1 | Do you, or does anyone in your household, work in any of the following industries? | Multi | 1 Market research or advertising\n2 Food or beverage manufacturing\n3 Grocery retail\n4 Journalism or media\n99 None of these [EXCLUSIVE] | ASK ALL\nRANDOMIZE codes 1-4\nTERMINATE (T01) if any of codes 1, 2 o"
+        }
+      },
+      {
+        "question_id": "",
+        "scope": "options",
+        "scope_origin": "inferred",
+        "anchored": [],
+        "anchored_origin": "unknown",
+        "capture_display_order": true,
+        "source_reference": {
+          "document": "F01_snack_bar_concept_test_SYNTHETIC.docx",
+          "section": "Questionnaire",
+          "heading_text": "3. Screener",
+          "block_order": 16,
+          "row_index": 3,
+          "source_kind": "table",
+          "text": "S4 | Which of these types of snack have you bought in the past 3 months? | Multi | 1 Cereal or granola bars\n2 Protein bars\n3 Crisps or chips\n4 Biscuits or cookies\n5 Fruit snacks\n99 None of these [EXCLUSIVE] | ASK ALL\nRANDOMIZE codes 1-5\nMust select code 1 or code 2 to continue; otherwise TERMINATE ("
+        }
+      }
+    ],
+    "quotas": [],
+    "quota_requirements": [],
+    "scenarios": [],
+    "requirements": [
+      {
+        "code": null,
+        "label": null,
+        "text": "All questions are mandatory and single response unless the Format column says otherwise.",
+        "raw_text": "All questions are mandatory and single response unless the Format column says otherwise.",
+        "source_reference": {
+          "document": "F01_snack_bar_concept_test_SYNTHETIC.docx",
+          "section": "Programming and QA requirements",
+          "heading_text": "2. General programming instructions",
+          "block_order": 9,
+          "row_index": null,
+          "source_kind": "prose",
+          "text": "All questions are mandatory and single response unless the Format column says otherwise."
+        }
+      },
+      {
+        "code": null,
+        "label": null,
+        "text": "Codes 98 (Don't know) and 99 (None of these / Nothing) are exclusive: selecting one clears any other answer. Always show them last, even when the list is randomised.",
+        "raw_text": "Codes 98 (Don't know) and 99 (None of these / Nothing) are exclusive: selecting one clears any other answer. Always show them last, even when the list is randomised.",
+        "source_reference": {
+          "document": "F01_snack_bar_concept_test_SYNTHETIC.docx",
+          "section": "Programming and QA requirements",
+          "heading_text": "2. General programming instructions",
+          "block_order": 10,
+          "row_index": null,
+          "source_kind": "prose",
+          "text": "Codes 98 (Don't know) and 99 (None of these / Nothing) are exclusive: selecting one clears any other answer. Always show them last, even when the list is randomised."
+        }
+      },
+      {
+        "code": null,
+        "label": null,
+        "text": "RANDOMIZE means randomise the order of the listed codes for each respondent. Anchored codes keep their position.",
+        "raw_text": "RANDOMIZE means randomise the order of the listed codes for each respondent. Anchored codes keep their position.",
+        "source_reference": {
+          "document": "F01_snack_bar_concept_test_SYNTHETIC.docx",
+          "section": "Programming and QA requirements",
+          "heading_text": "2. General programming instructions",
+          "block_order": 11,
+          "row_index": null,
+          "source_kind": "prose",
+          "text": "RANDOMIZE means randomise the order of the listed codes for each respondent. Anchored codes keep their position."
+        }
+      },
+      {
+        "code": null,
+        "label": null,
+        "text": "One question per screen. Respondents may not go back during the screener.",
+        "raw_text": "One question per screen. Respondents may not go back during the screener.",
+        "source_reference": {
+          "document": "F01_snack_bar_concept_test_SYNTHETIC.docx",
+          "section": "Programming and QA requirements",
+          "heading_text": "2. General programming instructions",
+          "block_order": 12,
+          "row_index": null,
+          "source_kind": "prose",
+          "text": "One question per screen. Respondents may not go back during the screener."
+        }
+      },
+      {
+        "code": null,
+        "label": "Speeders",
+        "text": "flag anyone who completes in under 40% of the median length. Do not end the interview; flagged cases are removed at data cleaning.",
+        "raw_text": "Speeders: flag anyone who completes in under 40% of the median length. Do not end the interview; flagged cases are removed at data cleaning.",
+        "source_reference": {
+          "document": "F01_snack_bar_concept_test_SYNTHETIC.docx",
+          "section": "Programming and QA requirements",
+          "heading_text": "2. General programming instructions",
+          "block_order": 13,
+          "row_index": null,
+          "source_kind": "prose",
+          "text": "Speeders: flag anyone who completes in under 40% of the median length. Do not end the interview; flagged cases are removed at data cleaning."
+        }
+      },
+      {
+        "code": null,
+        "label": null,
+        "text": "Store hCELL, every randomised order and the timestamp of each screen.",
+        "raw_text": "Store hCELL, every randomised order and the timestamp of each screen.",
+        "source_reference": {
+          "document": "F01_snack_bar_concept_test_SYNTHETIC.docx",
+          "section": "Programming and QA requirements",
+          "heading_text": "2. General programming instructions",
+          "block_order": 14,
+          "row_index": null,
+          "source_kind": "prose",
+          "text": "Store hCELL, every randomised order and the timestamp of each screen."
+        }
+      }
+    ],
+    "review": [
+      {
+        "check": "mandatory_unknown",
+        "severity": "WARNING",
+        "finding": "7 questions say nothing about whether an answer is required, and no statement in the document sets a default, so it is left unknown rather than assumed.",
+        "target": {
+          "kind": "survey",
+          "id": "F01_snack_bar_concept_test_SYNTHETIC.docx"
+        },
+        "evidence": ", , , , , , ",
+        "source_reference": null
+      },
+      {
+        "check": "semantics_unconfirmed",
+        "severity": "BLOCKING",
+        "finding": "The semantics block records three decisions the QRE never states: that a condition naming an unasked question is false, that the first matching rule wins, and that '==' against a multi-select compares the whole answer set. Each changes which questions appear on many routes and needs confirming.",
+        "target": {
+          "kind": "survey",
+          "id": "F01_snack_bar_concept_test_SYNTHETIC.docx"
+        },
+        "evidence": "{\"unasked_reference\":\"condition_false\",\"unasked_reference_origin\":\"inferred\",\"rule_precedence\":\"document_order_first_match\",\"rule_precedence_origin\":\"inferred\",\"multi_equality\":\"set_equality\",\"multi_equality_origin\":\"derived\",\"default_mandatory\":null,\"default_mandatory_origin\":\"unknown\",\"default_mandatory_source\":\"\"}",
+        "source_reference": null
+      }
+    ]
+  }
+}
