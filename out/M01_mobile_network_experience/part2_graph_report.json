@@ -8,7 +8,7 @@
     "sha256": "1be6ec051fbc914680d8add2a2c9e85c568f5468d8f39f5b6e915eb5bfe6f3b5",
     "bytes": 41874
   },
-  "generated_at": "2026-09-11T17:03:18+00:00",
+  "generated_at": "2026-09-11T20:24:03+00:00",
   "item_count": null,
   "content": {
     "source": "M01_mobile_network_experience.docx",
@@ -20,7 +20,7 @@
     "rules_total": 9,
     "quotas_mapped": 1,
     "quotas_total": 1,
-    "dependency_edges": 7,
+    "dependency_edges": 9,
     "findings": [
       {
         "check": "termination",
@@ -63,8 +63,8 @@
         "result": 1.0
       },
       "dependency_coverage": {
-        "numerator": 5,
-        "denominator": 5,
+        "numerator": 8,
+        "denominator": 8,
         "result": 1.0
       },
       "quota_coverage": {

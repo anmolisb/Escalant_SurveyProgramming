@@ -1,0 +1,459 @@
+{
+  "schema_version": "0.1.0",
+  "artifact": "agent3_targets",
+  "agent": 3,
+  "survey_id": "S01_campus_cafeteria_experience",
+  "source_document": {
+    "filename": "S01_campus_cafeteria_experience.docx",
+    "sha256": "2756cb3b6dc3f21cdc7c1d35b7cfb0e2270af2a918ba6fe682e72ae8e121a804"
+  },
+  "upstream": {
+    "canonical_schema_version": "1.0.0",
+    "canonical_generated_at": "2026-09-11T17:17:56+00:00"
+  },
+  "content": {
+    "report": {
+      "per_dimension": {
+        "D1": 14,
+        "D2": 3,
+        "D3": 6,
+        "D4": 10,
+        "D5": 0,
+        "D6": 1,
+        "D7": 0,
+        "D8": 0,
+        "D9": 1
+      },
+      "records_enumerated": 35,
+      "predetermined_unresolvable": 0,
+      "orphan_rules": [],
+      "note": "Dimensions are reported side by side and never summed. records_enumerated counts records, not coverage."
+    },
+    "targets": [
+      {
+        "target_id": "T-94ce2e5d20",
+        "dimension": "D1",
+        "subject": "S1",
+        "polarity": "advances",
+        "claim": "answering S1 normally moves the respondent on to the question that should come next",
+        "traces_to": [
+          "S1"
+        ],
+        "predetermined_reason": null,
+        "notes": null
+      },
+      {
+        "target_id": "T-9b21d71193",
+        "dimension": "D1",
+        "subject": "S2",
+        "polarity": "advances",
+        "claim": "answering S2 normally moves the respondent on to the question that should come next",
+        "traces_to": [
+          "S2"
+        ],
+        "predetermined_reason": null,
+        "notes": null
+      },
+      {
+        "target_id": "T-f325a4a781",
+        "dimension": "D1",
+        "subject": "Q1",
+        "polarity": "advances",
+        "claim": "answering Q1 normally moves the respondent on to the question that should come next",
+        "traces_to": [
+          "Q1"
+        ],
+        "predetermined_reason": null,
+        "notes": null
+      },
+      {
+        "target_id": "T-ea15e888c6",
+        "dimension": "D1",
+        "subject": "Q2",
+        "polarity": "advances",
+        "claim": "answering Q2 normally moves the respondent on to the question that should come next",
+        "traces_to": [
+          "Q2"
+        ],
+        "predetermined_reason": null,
+        "notes": null
+      },
+      {
+        "target_id": "T-d182c884c0",
+        "dimension": "D1",
+        "subject": "Q3",
+        "polarity": "advances",
+        "claim": "answering Q3 normally moves the respondent on to the question that should come next",
+        "traces_to": [
+          "Q3"
+        ],
+        "predetermined_reason": null,
+        "notes": null
+      },
+      {
+        "target_id": "T-460e9ac790",
+        "dimension": "D1",
+        "subject": "Q4",
+        "polarity": "advances",
+        "claim": "answering Q4 normally moves the respondent on to the question that should come next",
+        "traces_to": [
+          "Q4"
+        ],
+        "predetermined_reason": null,
+        "notes": null
+      },
+      {
+        "target_id": "T-4a81ad1c54",
+        "dimension": "D1",
+        "subject": "Q5",
+        "polarity": "advances",
+        "claim": "answering Q5 normally moves the respondent on to the question that should come next",
+        "traces_to": [
+          "Q5"
+        ],
+        "predetermined_reason": null,
+        "notes": null
+      },
+      {
+        "target_id": "T-a31d9e36e7",
+        "dimension": "D1",
+        "subject": "Q6",
+        "polarity": "advances",
+        "claim": "answering Q6 normally moves the respondent on to the question that should come next",
+        "traces_to": [
+          "Q6"
+        ],
+        "predetermined_reason": null,
+        "notes": null
+      },
+      {
+        "target_id": "T-a25fbf002c",
+        "dimension": "D1",
+        "subject": "Q7",
+        "polarity": "advances",
+        "claim": "answering Q7 normally moves the respondent on to the question that should come next",
+        "traces_to": [
+          "Q7"
+        ],
+        "predetermined_reason": null,
+        "notes": null
+      },
+      {
+        "target_id": "T-b3b76ca11a",
+        "dimension": "D1",
+        "subject": "Q8",
+        "polarity": "advances",
+        "claim": "answering Q8 normally moves the respondent on to the question that should come next",
+        "traces_to": [
+          "Q8"
+        ],
+        "predetermined_reason": null,
+        "notes": null
+      },
+      {
+        "target_id": "T-46ad0b9227",
+        "dimension": "D1",
+        "subject": "Q6",
+        "polarity": "shown",
+        "claim": "Q6 is displayed when its guard holds",
+        "traces_to": [
+          "Q6",
+          "R3"
+        ],
+        "predetermined_reason": null,
+        "notes": null
+      },
+      {
+        "target_id": "T-836bcea7a3",
+        "dimension": "D1",
+        "subject": "Q6",
+        "polarity": "hidden",
+        "claim": "Q6 is not displayed when its guard fails",
+        "traces_to": [
+          "Q6",
+          "R3"
+        ],
+        "predetermined_reason": null,
+        "notes": null
+      },
+      {
+        "target_id": "T-42c434e9a8",
+        "dimension": "D1",
+        "subject": "R4:Q5->Q7",
+        "polarity": "skip_fired",
+        "claim": "R4 jumps to Q7 when its condition holds",
+        "traces_to": [
+          "R4"
+        ],
+        "predetermined_reason": null,
+        "notes": "skip rule, bypasses questions between Q5 and Q7"
+      },
+      {
+        "target_id": "T-bb19b20b74",
+        "dimension": "D1",
+        "subject": "R4:Q5->Q7",
+        "polarity": "skip_not_fired",
+        "claim": "R4 does not jump when its condition fails, so the respondent continues in sequence",
+        "traces_to": [
+          "R4"
+        ],
+        "predetermined_reason": null,
+        "notes": null
+      },
+      {
+        "target_id": "T-05b0993ae8",
+        "dimension": "D2",
+        "subject": "COMPLETE",
+        "polarity": "reachable",
+        "claim": "a respondent can reach ending COMPLETE",
+        "traces_to": [],
+        "predetermined_reason": null,
+        "notes": null
+      },
+      {
+        "target_id": "T-ad81bd1fb8",
+        "dimension": "D2",
+        "subject": "TERM_INELIGIBLE<-R1",
+        "polarity": "reachable",
+        "claim": "ending TERM_INELIGIBLE is reached by rule R1, evaluated at S1",
+        "traces_to": [
+          "R1",
+          "TERM_INELIGIBLE"
+        ],
+        "predetermined_reason": null,
+        "notes": "one of 2 route(s) to TERM_INELIGIBLE"
+      },
+      {
+        "target_id": "T-b13742d625",
+        "dimension": "D2",
+        "subject": "TERM_INELIGIBLE<-R2",
+        "polarity": "reachable",
+        "claim": "ending TERM_INELIGIBLE is reached by rule R2, evaluated at S2",
+        "traces_to": [
+          "R2",
+          "TERM_INELIGIBLE"
+        ],
+        "predetermined_reason": null,
+        "notes": "one of 2 route(s) to TERM_INELIGIBLE"
+      },
+      {
+        "target_id": "T-91f64c7737",
+        "dimension": "D3",
+        "subject": "Q4",
+        "polarity": "satisfied",
+        "claim": "Q4 accepts an answer meeting ['min_selections']",
+        "traces_to": [
+          "Q4"
+        ],
+        "predetermined_reason": null,
+        "notes": null
+      },
+      {
+        "target_id": "T-bf3e461be3",
+        "dimension": "D3",
+        "subject": "Q4",
+        "polarity": "violated",
+        "claim": "Q4 rejects an answer breaking ['min_selections']",
+        "traces_to": [
+          "Q4"
+        ],
+        "predetermined_reason": null,
+        "notes": null
+      },
+      {
+        "target_id": "T-5763469416",
+        "dimension": "D3",
+        "subject": "Q6",
+        "polarity": "satisfied",
+        "claim": "Q6 accepts an answer meeting ['max_length', 'min_length']",
+        "traces_to": [
+          "Q6"
+        ],
+        "predetermined_reason": null,
+        "notes": null
+      },
+      {
+        "target_id": "T-3ba88a35fd",
+        "dimension": "D3",
+        "subject": "Q6",
+        "polarity": "violated",
+        "claim": "Q6 rejects an answer breaking ['max_length', 'min_length']",
+        "traces_to": [
+          "Q6"
+        ],
+        "predetermined_reason": null,
+        "notes": null
+      },
+      {
+        "target_id": "T-9363260523",
+        "dimension": "D3",
+        "subject": "Q8",
+        "polarity": "satisfied",
+        "claim": "Q8 accepts an answer meeting ['max_length']",
+        "traces_to": [
+          "Q8"
+        ],
+        "predetermined_reason": null,
+        "notes": null
+      },
+      {
+        "target_id": "T-b073440eac",
+        "dimension": "D3",
+        "subject": "Q8",
+        "polarity": "violated",
+        "claim": "Q8 rejects an answer breaking ['max_length']",
+        "traces_to": [
+          "Q8"
+        ],
+        "predetermined_reason": null,
+        "notes": null
+      },
+      {
+        "target_id": "T-04f1f82dbc",
+        "dimension": "D4",
+        "subject": "S1",
+        "polarity": "enforced",
+        "claim": "S1 blocks progress when left blank",
+        "traces_to": [
+          "S1"
+        ],
+        "predetermined_reason": null,
+        "notes": "question kind: single"
+      },
+      {
+        "target_id": "T-f3c7bd7103",
+        "dimension": "D4",
+        "subject": "S2",
+        "polarity": "enforced",
+        "claim": "S2 blocks progress when left blank",
+        "traces_to": [
+          "S2"
+        ],
+        "predetermined_reason": null,
+        "notes": "question kind: single"
+      },
+      {
+        "target_id": "T-e12aace78c",
+        "dimension": "D4",
+        "subject": "Q1",
+        "polarity": "enforced",
+        "claim": "Q1 blocks progress when left blank",
+        "traces_to": [
+          "Q1"
+        ],
+        "predetermined_reason": null,
+        "notes": "question kind: single"
+      },
+      {
+        "target_id": "T-727f5e7cc5",
+        "dimension": "D4",
+        "subject": "Q2",
+        "polarity": "enforced",
+        "claim": "Q2 blocks progress when left blank",
+        "traces_to": [
+          "Q2"
+        ],
+        "predetermined_reason": null,
+        "notes": "question kind: single"
+      },
+      {
+        "target_id": "T-4bdf659dfa",
+        "dimension": "D4",
+        "subject": "Q3",
+        "polarity": "enforced",
+        "claim": "Q3 blocks progress when left blank",
+        "traces_to": [
+          "Q3"
+        ],
+        "predetermined_reason": null,
+        "notes": "question kind: single"
+      },
+      {
+        "target_id": "T-9a87b3907e",
+        "dimension": "D4",
+        "subject": "Q4",
+        "polarity": "enforced",
+        "claim": "Q4 blocks progress when left blank",
+        "traces_to": [
+          "Q4"
+        ],
+        "predetermined_reason": null,
+        "notes": "question kind: multi"
+      },
+      {
+        "target_id": "T-0249397b0f",
+        "dimension": "D4",
+        "subject": "Q5",
+        "polarity": "enforced",
+        "claim": "Q5 blocks progress when left blank",
+        "traces_to": [
+          "Q5"
+        ],
+        "predetermined_reason": null,
+        "notes": "question kind: single"
+      },
+      {
+        "target_id": "T-e98006aa3a",
+        "dimension": "D4",
+        "subject": "Q6",
+        "polarity": "enforced",
+        "claim": "Q6 blocks progress when left blank",
+        "traces_to": [
+          "Q6"
+        ],
+        "predetermined_reason": null,
+        "notes": "question kind: text"
+      },
+      {
+        "target_id": "T-fdb731cc7b",
+        "dimension": "D4",
+        "subject": "Q7",
+        "polarity": "enforced",
+        "claim": "Q7 blocks progress when left blank",
+        "traces_to": [
+          "Q7"
+        ],
+        "predetermined_reason": null,
+        "notes": "question kind: single"
+      },
+      {
+        "target_id": "T-fffe27cc01",
+        "dimension": "D4",
+        "subject": "Q8",
+        "polarity": "not_enforced",
+        "claim": "Q8 is optional and permits progress when left blank",
+        "traces_to": [
+          "Q8"
+        ],
+        "predetermined_reason": null,
+        "notes": "question kind: text"
+      },
+      {
+        "target_id": "T-9e8e92980a",
+        "dimension": "D6",
+        "subject": "Q5->Q6",
+        "polarity": "rendered",
+        "claim": "Q6's wording renders the answer given at Q5",
+        "traces_to": [
+          "Q5",
+          "Q6"
+        ],
+        "predetermined_reason": null,
+        "notes": "origin=inferred, no table in the QRE states this link"
+      },
+      {
+        "target_id": "T-84fe582a25",
+        "dimension": "D9",
+        "subject": "Q5+Q6",
+        "polarity": "combined",
+        "claim": "Q6 is shown by its guard and simultaneously reflects its dependency on Q5",
+        "traces_to": [
+          "Q5",
+          "Q6"
+        ],
+        "predetermined_reason": null,
+        "notes": "risk-selected pair, BOUNDED by design"
+      }
+    ]
+  }
+}

@@ -224,6 +224,34 @@ def to_dot(graph: nx.DiGraph, zoom: float, vertical: bool = False) -> str:
     lines.append("}")
     return "\n".join(lines)
 
+def path_dot(path: dict) -> str:
+    """One path drawn as a left-to-right chain, ending at its disposition."""
+    sequence = list(path.get("sequence") or [])
+    disposition = path.get("disposition")
+    skipped = set(path.get("skipped") or [])
+
+    lines = [
+        "digraph {",
+        "  rankdir=LR;",
+        "  pad=0.2;",
+        "  nodesep=0.25;",
+        "  ranksep=0.45;",
+        "  bgcolor=transparent;",
+        '  node [fontname="Helvetica" fontsize=12 shape=box height=0.4 '
+        'width=1.1 style=filled fillcolor="#e7eefb" color="#c3ccd8"];',
+        '  edge [color="#8b95a3" arrowsize=0.7];',
+    ]
+    for name in sequence:
+        lines.append(f'  "{name}";')
+    if disposition:
+        lines.append(
+            f'  "{disposition}" [shape=ellipse fillcolor="#fbe4dc" width=1.4];'
+        )
+    chain = sequence + ([disposition] if disposition else [])
+    for source, target in zip(chain, chain[1:]):
+        lines.append(f'  "{source}" -> "{target}";')
+    lines.append("}")
+    return "\n".join(lines)
 
 def step(number: int, label: str, state: str) -> None:
     """state is done, next or waiting."""
@@ -587,6 +615,24 @@ with tab_t:
                     widths={"Dimension": "18%", "Coverage": "82%"},
                     height="40vh",
                 )
+
+            paths = (read_json(design_dir, "agent3_paths.json", {}) or {}).get("paths", [])
+            if paths:
+                st.markdown("#### Distinct journeys")
+                for path in paths:
+                    scenario = path.get("scenario")
+                    label = f"{path['path_id']} · {path['name']}"
+                    if scenario:
+                        label += f"  ·  acceptance scenario {scenario}"
+                    with st.expander(label, expanded=False):
+                        st.graphviz_chart(path_dot(path))
+                        st.markdown(
+                            f"**Ends at** {path.get('disposition')}  ·  "
+                            f"**Rules exercised** {', '.join(path.get('rules_exercised') or []) or 'none'}"
+                        )
+                        if path.get("skipped"):
+                            st.caption("Skipped: " + ", ".join(path["skipped"]))
+                        st.caption(path.get("why_selected", ""))
 
         if has_design:
             review = design_dir / "agent3_review.md"

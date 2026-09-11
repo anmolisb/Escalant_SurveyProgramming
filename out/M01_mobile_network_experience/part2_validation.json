@@ -8,7 +8,7 @@
     "sha256": "1be6ec051fbc914680d8add2a2c9e85c568f5468d8f39f5b6e915eb5bfe6f3b5",
     "bytes": 41874
   },
-  "generated_at": "2026-09-11T17:03:18+00:00",
+  "generated_at": "2026-09-11T20:24:03+00:00",
   "item_count": null,
   "content": {
     "cross_source": [
@@ -37,7 +37,7 @@
       "edges": 25,
       "rules_mapped": "9/9",
       "quotas_mapped": "1/1",
-      "dependency_edges": 7,
+      "dependency_edges": 9,
       "passed": true,
       "blocking": 0,
       "findings": [
@@ -60,6 +60,9 @@
         "issue": "text_pipe_inferred",
         "why_it_matters": "Q2's wording appears to quote the answer given at Q1. No table states this; it was read out of the sentence, so it is worth confirming.",
         "affected": [
+          "Q10",
+          "Q11",
+          "Q12",
           "Q2",
           "Q3",
           "Q5",
@@ -129,21 +132,23 @@
       "register": "agent1_decisions.json",
       "human_readable": "agent1_decision_register.md",
       "summary": {
-        "total": 11,
-        "raised_this_run": 11,
+        "total": 13,
+        "raised_this_run": 13,
         "resolved_reused": 0,
-        "pending": 11,
+        "pending": 13,
         "resolved": 0,
         "not_required": 0,
         "newly_transitioned_not_required": 0,
         "context_changed": 0,
         "blocking_pending": [
-          "1c2525515fb410ef",
+          "38c5cfdf054ba5ca",
           "479ba5baeee26b97",
+          "6f40664fb178e879",
           "89323997a884fd7e",
           "8f44c584fbb7802c",
           "c33199c713b4aaab",
           "c6a39b1ce587b8cd",
+          "c860df53d420d659",
           "d407415a87012399",
           "ee893480c79dbb80",
           "fd8266d76c7306e2"
@@ -158,7 +163,7 @@
         "edges": 25,
         "rules_mapped": "9/9",
         "quotas_mapped": "1/1",
-        "dependency_edges": 7,
+        "dependency_edges": 9,
         "passed": true,
         "blocking": 0,
         "findings": [
@@ -177,12 +182,14 @@
       },
       "human_decision_gate": "PENDING_BLOCKING_DECISIONS",
       "pending_blocking_decisions": [
-        "1c2525515fb410ef",
+        "38c5cfdf054ba5ca",
         "479ba5baeee26b97",
+        "6f40664fb178e879",
         "89323997a884fd7e",
         "8f44c584fbb7802c",
         "c33199c713b4aaab",
         "c6a39b1ce587b8cd",
+        "c860df53d420d659",
         "d407415a87012399",
         "ee893480c79dbb80",
         "fd8266d76c7306e2"
@@ -216,6 +223,9 @@
       ],
       "affected_ids": [
         "M01_mobile_network_experience.docx",
+        "Q10",
+        "Q11",
+        "Q12",
         "Q13",
         "Q2",
         "Q3",
@@ -235,7 +245,7 @@
         "blocked": 0,
         "cross_source_blocking": 2,
         "confirmation_required": 6,
-        "decisions_pending_blocking": 9
+        "decisions_pending_blocking": 11
       }
     }
   }

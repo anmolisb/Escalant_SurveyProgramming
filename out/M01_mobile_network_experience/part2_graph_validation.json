@@ -8,7 +8,7 @@
     "sha256": "1be6ec051fbc914680d8add2a2c9e85c568f5468d8f39f5b6e915eb5bfe6f3b5",
     "bytes": 41874
   },
-  "generated_at": "2026-09-11T17:03:18+00:00",
+  "generated_at": "2026-09-11T20:24:03+00:00",
   "item_count": null,
   "content": {
     "survey_id": "M01_mobile_network_experience",
@@ -20,7 +20,7 @@
       "route_graph": "part2_route_graph.json",
       "graph_report": "part2_graph_report.json",
       "schema_version": "1.0.0",
-      "generated_at": "2026-09-11T17:03:18+00:00"
+      "generated_at": "2026-09-11T20:24:03+00:00"
     },
     "validation_status": "READY",
     "graph_readiness": "READY_WITH_WARNINGS",
@@ -78,8 +78,8 @@
         "result": 1.0
       },
       "dependency_preservation": {
-        "numerator": 5,
-        "denominator": 5,
+        "numerator": 8,
+        "denominator": 8,
         "result": 1.0
       },
       "randomization_preservation": {
@@ -352,6 +352,48 @@
       },
       {
         "test_id": "G018",
+        "category": "dependency",
+        "check": "dependency_edge_present",
+        "rule_or_question": "Q9->Q10",
+        "source_reference": {
+          "from": "Q9",
+          "to": "Q10"
+        },
+        "input_state": null,
+        "expected": true,
+        "criticality": "HIGH",
+        "ground_truth_status": "VERIFIED"
+      },
+      {
+        "test_id": "G019",
+        "category": "dependency",
+        "check": "dependency_edge_present",
+        "rule_or_question": "Q1->Q11",
+        "source_reference": {
+          "from": "Q1",
+          "to": "Q11"
+        },
+        "input_state": null,
+        "expected": true,
+        "criticality": "HIGH",
+        "ground_truth_status": "VERIFIED"
+      },
+      {
+        "test_id": "G020",
+        "category": "dependency",
+        "check": "dependency_edge_present",
+        "rule_or_question": "Q1->Q12",
+        "source_reference": {
+          "from": "Q1",
+          "to": "Q12"
+        },
+        "input_state": null,
+        "expected": true,
+        "criticality": "HIGH",
+        "ground_truth_status": "VERIFIED"
+      },
+      {
+        "test_id": "G021",
         "category": "quota",
         "check": "quota_edge_present_structural_only",
         "rule_or_question": "QUOTA_REGION",
@@ -364,7 +406,7 @@
         "ground_truth_status": "UNVERIFIED"
       },
       {
-        "test_id": "G019",
+        "test_id": "G022",
         "category": "randomization",
         "check": "randomization_metadata_present",
         "rule_or_question": "Q3",
@@ -377,7 +419,7 @@
         "ground_truth_status": "VERIFIED"
       },
       {
-        "test_id": "G020",
+        "test_id": "G023",
         "category": "randomization",
         "check": "randomization_metadata_present",
         "rule_or_question": "Q7",
@@ -390,7 +432,7 @@
         "ground_truth_status": "VERIFIED"
       },
       {
-        "test_id": "G021",
+        "test_id": "G024",
         "category": "randomization",
         "check": "randomization_metadata_present",
         "rule_or_question": "Q13",
@@ -403,7 +445,7 @@
         "ground_truth_status": "VERIFIED"
       },
       {
-        "test_id": "G022",
+        "test_id": "G025",
         "category": "route",
         "check": "scenario_route_walk",
         "rule_or_question": "T1",
@@ -419,7 +461,7 @@
         "ground_truth_status": "VERIFIED"
       },
       {
-        "test_id": "G023",
+        "test_id": "G026",
         "category": "route",
         "check": "scenario_route_walk",
         "rule_or_question": "T2",
@@ -440,7 +482,7 @@
         "ground_truth_status": "VERIFIED"
       },
       {
-        "test_id": "G024",
+        "test_id": "G027",
         "category": "route",
         "check": "scenario_route_walk",
         "rule_or_question": "T3",
@@ -462,7 +504,7 @@
         "ground_truth_status": "VERIFIED"
       },
       {
-        "test_id": "G025",
+        "test_id": "G028",
         "category": "route",
         "check": "scenario_route_walk",
         "rule_or_question": "T4",
@@ -657,6 +699,36 @@
       },
       {
         "test_id": "G018",
+        "category": "dependency",
+        "status": "PASS",
+        "expected": true,
+        "actual": true,
+        "evidence": "Q9->Q10",
+        "rule_or_question": "Q9->Q10",
+        "explanation": "dependency preserved"
+      },
+      {
+        "test_id": "G019",
+        "category": "dependency",
+        "status": "PASS",
+        "expected": true,
+        "actual": true,
+        "evidence": "Q1->Q11",
+        "rule_or_question": "Q1->Q11",
+        "explanation": "dependency preserved"
+      },
+      {
+        "test_id": "G020",
+        "category": "dependency",
+        "status": "PASS",
+        "expected": true,
+        "actual": true,
+        "evidence": "Q1->Q12",
+        "rule_or_question": "Q1->Q12",
+        "explanation": "dependency preserved"
+      },
+      {
+        "test_id": "G021",
         "category": "quota",
         "status": "UNVERIFIED",
         "expected": "a structural edge exists; quota fill is not a per-respondent condition",
@@ -666,7 +738,7 @@
         "explanation": "no independent oracle exists for this condition, so the graph's behaviour here cannot be checked without a person"
       },
       {
-        "test_id": "G019",
+        "test_id": "G022",
         "category": "randomization",
         "status": "PASS",
         "expected": true,
@@ -676,7 +748,7 @@
         "explanation": "metadata present on the node"
       },
       {
-        "test_id": "G020",
+        "test_id": "G023",
         "category": "randomization",
         "status": "PASS",
         "expected": true,
@@ -686,7 +758,7 @@
         "explanation": "metadata present on the node"
       },
       {
-        "test_id": "G021",
+        "test_id": "G024",
         "category": "randomization",
         "status": "PASS",
         "expected": true,
@@ -696,7 +768,7 @@
         "explanation": "metadata present on the node"
       },
       {
-        "test_id": "G022",
+        "test_id": "G025",
         "category": "route",
         "status": "PASS",
         "expected": "TERM_INELIGIBLE",
@@ -706,7 +778,7 @@
         "explanation": "walking the graph from the scenario's own inputs reaches the ending the QRE itself says it should"
       },
       {
-        "test_id": "G023",
+        "test_id": "G026",
         "category": "route",
         "status": "PASS",
         "expected": "COMPLETE",
@@ -716,7 +788,7 @@
         "explanation": "walking the graph from the scenario's own inputs reaches the ending the QRE itself says it should"
       },
       {
-        "test_id": "G024",
+        "test_id": "G027",
         "category": "route",
         "status": "PASS",
         "expected": "COMPLETE",
@@ -726,7 +798,7 @@
         "explanation": "walking the graph from the scenario's own inputs reaches the ending the QRE itself says it should"
       },
       {
-        "test_id": "G025",
+        "test_id": "G028",
         "category": "route",
         "status": "PASS",
         "expected": "COMPLETE",
@@ -737,8 +809,8 @@
       }
     ],
     "test_counts": {
-      "total": 25,
-      "PASS": 22,
+      "total": 28,
+      "PASS": 25,
       "FAIL": 0,
       "UNVERIFIED": 3,
       "BLOCKED": 0
@@ -809,7 +881,7 @@
         "explanation": "no independent oracle exists for this condition, so the graph's behaviour here cannot be checked without a person"
       },
       {
-        "test_id": "G018",
+        "test_id": "G021",
         "category": "quota",
         "status": "UNVERIFIED",
         "expected": "a structural edge exists; quota fill is not a per-respondent condition",

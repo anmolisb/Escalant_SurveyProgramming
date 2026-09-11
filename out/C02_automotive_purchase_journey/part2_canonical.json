@@ -8,7 +8,7 @@
     "sha256": "112a39d23aaf16dcfd2cce8a9de380d8b289dd33645c2703b7f00ec49f7e69f2",
     "bytes": 43592
   },
-  "generated_at": "2026-09-11T16:46:45+00:00",
+  "generated_at": "2026-09-11T20:30:56+00:00",
   "item_count": null,
   "content": {
     "source": "C02_automotive_purchase_journey.docx",
@@ -450,7 +450,7 @@
             "operands": [],
             "source_text": "Q1 contains at least one brand",
             "origin": "inferred",
-            "confidence": 0.97
+            "confidence": 1.0
           },
           "agreement": "agree",
           "sources": [
@@ -575,7 +575,7 @@
             "operands": [],
             "source_text": "Q1 contains at least one brand",
             "origin": "inferred",
-            "confidence": 0.97
+            "confidence": 1.0
           },
           "agreement": "agree",
           "sources": [
@@ -836,7 +836,8 @@
                 "Review site",
                 "Social media",
                 "Friends or family",
-                "Auto show"
+                "Auto show",
+                "None of these"
               ],
               "option_ids": [
                 "Q5-O1",
@@ -844,13 +845,14 @@
                 "Q5-O3",
                 "Q5-O4",
                 "Q5-O5",
-                "Q5-O6"
+                "Q5-O6",
+                "Q5-O7"
               ]
             },
             "operands": [],
             "source_text": "Q5 contains any touchpoint",
             "origin": "inferred",
-            "confidence": 0.9
+            "confidence": 0.97
           },
           "agreement": "agree",
           "sources": [
@@ -2920,7 +2922,7 @@
           "operands": [],
           "source_text": "Q1 contains at least one brand",
           "origin": "inferred",
-          "confidence": 0.97
+          "confidence": 1.0
         },
         "when_unread": null,
         "destination": {
@@ -2975,7 +2977,7 @@
           "operands": [],
           "source_text": "Q1 contains at least one brand",
           "origin": "inferred",
-          "confidence": 0.97
+          "confidence": 1.0
         },
         "when_unread": null,
         "destination": {
@@ -3020,7 +3022,8 @@
               "Review site",
               "Social media",
               "Friends or family",
-              "Auto show"
+              "Auto show",
+              "None of these"
             ],
             "option_ids": [
               "Q5-O1",
@@ -3028,13 +3031,14 @@
               "Q5-O3",
               "Q5-O4",
               "Q5-O5",
-              "Q5-O6"
+              "Q5-O6",
+              "Q5-O7"
             ]
           },
           "operands": [],
           "source_text": "Q5 contains any touchpoint",
           "origin": "inferred",
-          "confidence": 0.9
+          "confidence": 0.97
         },
         "when_unread": null,
         "destination": {
@@ -3800,7 +3804,7 @@
         "kind": "text_pipe",
         "detail": "the current provider",
         "origin": "inferred",
-        "confidence": 0.99,
+        "confidence": 1.0,
         "source_reference": {
           "document": "C02_automotive_purchase_journey.docx",
           "section": "Questionnaire",
@@ -3815,9 +3819,9 @@
         "from_question": "Q3",
         "to_question": "Q9",
         "kind": "text_pipe",
-        "detail": "the current provider",
+        "detail": "your current provider",
         "origin": "inferred",
-        "confidence": 0.99,
+        "confidence": 1.0,
         "source_reference": {
           "document": "C02_automotive_purchase_journey.docx",
           "section": "Questionnaire",
@@ -3834,7 +3838,7 @@
         "kind": "text_pipe",
         "detail": "the selected proposition",
         "origin": "inferred",
-        "confidence": 0.99,
+        "confidence": 1.0,
         "source_reference": {
           "document": "C02_automotive_purchase_journey.docx",
           "section": "Questionnaire",
@@ -3843,6 +3847,23 @@
           "row_index": 23,
           "source_kind": "table",
           "text": "Q20 | How appealing is the selected proposition? | single | 1 - Very poor; 2 - Poor; 3 - Fair; 4 - Good; 5 - Excellent | Always show"
+        }
+      },
+      {
+        "from_question": "Q19",
+        "to_question": "Q21",
+        "kind": "text_pipe",
+        "detail": "your choice",
+        "origin": "inferred",
+        "confidence": 0.99,
+        "source_reference": {
+          "document": "C02_automotive_purchase_journey.docx",
+          "section": "Questionnaire",
+          "heading_text": "Questionnaire",
+          "block_order": 10,
+          "row_index": 24,
+          "source_kind": "table",
+          "text": "Q21 | What most influenced your choice? | text | \u2014 | Validate: {\"min_length\": 5, \"max_length\": 500}"
         }
       }
     ],
@@ -3973,7 +3994,7 @@
         "on_full": "TERM_QUOTA_FULL",
         "evaluation_point": "D1",
         "origin": "inferred",
-        "confidence": 0.99,
+        "confidence": 1.0,
         "source_text": "QUOTA_REGION: hard quota on D1: North=20%, South=20%, East=20%, West=20%, Central=20%"
       },
       {
@@ -4804,7 +4825,7 @@
           "kind": "question",
           "id": "Q6"
         },
-        "evidence": "Q5 contains any touchpoint  ->  Q5 contains_any ['Manufacturer website', 'Dealer visit', 'Review site', 'Social media', 'Friends or family', 'Auto show']",
+        "evidence": "Q5 contains any touchpoint  ->  Q5 contains_any ['Manufacturer website', 'Dealer visit', 'Review site', 'Social media', 'Friends or family', 'Auto show', 'None of these']",
         "source_reference": null
       },
       {
@@ -4903,7 +4924,7 @@
           "kind": "question",
           "id": "Q8"
         },
-        "evidence": "'the current provider' (confidence 0.99)",
+        "evidence": "'the current provider' (confidence 1.00)",
         "source_reference": null
       },
       {
@@ -4914,7 +4935,7 @@
           "kind": "question",
           "id": "Q9"
         },
-        "evidence": "'the current provider' (confidence 0.99)",
+        "evidence": "'your current provider' (confidence 1.00)",
         "source_reference": null
       },
       {
@@ -4925,7 +4946,18 @@
           "kind": "question",
           "id": "Q20"
         },
-        "evidence": "'the selected proposition' (confidence 0.99)",
+        "evidence": "'the selected proposition' (confidence 1.00)",
+        "source_reference": null
+      },
+      {
+        "check": "text_pipe_inferred",
+        "severity": "WARNING",
+        "finding": "Q21's wording appears to quote the answer given at Q19. No table states this; it was read out of the sentence, so it is worth confirming.",
+        "target": {
+          "kind": "question",
+          "id": "Q21"
+        },
+        "evidence": "'your choice' (confidence 0.99)",
         "source_reference": null
       },
       {

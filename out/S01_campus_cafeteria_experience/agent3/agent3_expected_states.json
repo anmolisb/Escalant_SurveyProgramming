@@ -1,0 +1,2627 @@
+{
+  "schema_version": "0.1.0",
+  "artifact": "agent3_expected_states",
+  "agent": 3,
+  "survey_id": "S01_campus_cafeteria_experience",
+  "source_document": {
+    "filename": "S01_campus_cafeteria_experience.docx",
+    "sha256": "2756cb3b6dc3f21cdc7c1d35b7cfb0e2270af2a918ba6fe682e72ae8e121a804"
+  },
+  "upstream": {
+    "canonical_schema_version": "1.0.0",
+    "canonical_generated_at": "2026-09-11T17:17:56+00:00"
+  },
+  "content": {
+    "predictions": {
+      "T-94ce2e5d20": {
+        "witness_target_id": "",
+        "shown": [
+          "S1",
+          "S2",
+          "Q1",
+          "Q2",
+          "Q3",
+          "Q4",
+          "Q5",
+          "Q6",
+          "Q7",
+          "Q8"
+        ],
+        "hidden": [],
+        "validation_triggered": [
+          {
+            "question_id": "Q4",
+            "rule": "min_selections",
+            "outcome": "satisfied",
+            "detail": "1 selected, minimum 1 met"
+          },
+          {
+            "question_id": "Q6",
+            "rule": "length",
+            "outcome": "satisfied",
+            "detail": "length 10 within [10, 500]"
+          }
+        ],
+        "ending": "COMPLETE",
+        "path": [
+          "__START__",
+          "S1",
+          "S2",
+          "Q1",
+          "Q2",
+          "Q3",
+          "Q4",
+          "Q5",
+          "Q6",
+          "Q7",
+          "Q8",
+          "COMPLETE"
+        ],
+        "piped_text": {
+          "Q6": "Yes"
+        },
+        "piped_options": {},
+        "unresolved": [],
+        "fired_rules": [],
+        "blocked_at": null,
+        "quota_stopped": null,
+        "semantics_used": [],
+        "observable": {
+          "questions_seen_in_order": [
+            "S1",
+            "S2",
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4",
+            "Q5",
+            "Q6",
+            "Q7",
+            "Q8"
+          ],
+          "questions_not_seen": [],
+          "ending_reached": "COMPLETE",
+          "blocked_at": null,
+          "quota_stopped": null,
+          "validation_messages_expected": [],
+          "piped_text_visible": {
+            "Q6": "Yes"
+          },
+          "option_lists_visible": {}
+        }
+      },
+      "T-9b21d71193": {
+        "witness_target_id": "",
+        "shown": [
+          "S1",
+          "S2",
+          "Q1",
+          "Q2",
+          "Q3",
+          "Q4",
+          "Q5",
+          "Q6",
+          "Q7",
+          "Q8"
+        ],
+        "hidden": [],
+        "validation_triggered": [
+          {
+            "question_id": "Q4",
+            "rule": "min_selections",
+            "outcome": "satisfied",
+            "detail": "1 selected, minimum 1 met"
+          },
+          {
+            "question_id": "Q6",
+            "rule": "length",
+            "outcome": "satisfied",
+            "detail": "length 10 within [10, 500]"
+          }
+        ],
+        "ending": "COMPLETE",
+        "path": [
+          "__START__",
+          "S1",
+          "S2",
+          "Q1",
+          "Q2",
+          "Q3",
+          "Q4",
+          "Q5",
+          "Q6",
+          "Q7",
+          "Q8",
+          "COMPLETE"
+        ],
+        "piped_text": {
+          "Q6": "Yes"
+        },
+        "piped_options": {},
+        "unresolved": [],
+        "fired_rules": [],
+        "blocked_at": null,
+        "quota_stopped": null,
+        "semantics_used": [],
+        "observable": {
+          "questions_seen_in_order": [
+            "S1",
+            "S2",
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4",
+            "Q5",
+            "Q6",
+            "Q7",
+            "Q8"
+          ],
+          "questions_not_seen": [],
+          "ending_reached": "COMPLETE",
+          "blocked_at": null,
+          "quota_stopped": null,
+          "validation_messages_expected": [],
+          "piped_text_visible": {
+            "Q6": "Yes"
+          },
+          "option_lists_visible": {}
+        }
+      },
+      "T-f325a4a781": {
+        "witness_target_id": "",
+        "shown": [
+          "S1",
+          "S2",
+          "Q1",
+          "Q2",
+          "Q3",
+          "Q4",
+          "Q5",
+          "Q6",
+          "Q7",
+          "Q8"
+        ],
+        "hidden": [],
+        "validation_triggered": [
+          {
+            "question_id": "Q4",
+            "rule": "min_selections",
+            "outcome": "satisfied",
+            "detail": "1 selected, minimum 1 met"
+          },
+          {
+            "question_id": "Q6",
+            "rule": "length",
+            "outcome": "satisfied",
+            "detail": "length 10 within [10, 500]"
+          }
+        ],
+        "ending": "COMPLETE",
+        "path": [
+          "__START__",
+          "S1",
+          "S2",
+          "Q1",
+          "Q2",
+          "Q3",
+          "Q4",
+          "Q5",
+          "Q6",
+          "Q7",
+          "Q8",
+          "COMPLETE"
+        ],
+        "piped_text": {
+          "Q6": "Yes"
+        },
+        "piped_options": {},
+        "unresolved": [],
+        "fired_rules": [],
+        "blocked_at": null,
+        "quota_stopped": null,
+        "semantics_used": [],
+        "observable": {
+          "questions_seen_in_order": [
+            "S1",
+            "S2",
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4",
+            "Q5",
+            "Q6",
+            "Q7",
+            "Q8"
+          ],
+          "questions_not_seen": [],
+          "ending_reached": "COMPLETE",
+          "blocked_at": null,
+          "quota_stopped": null,
+          "validation_messages_expected": [],
+          "piped_text_visible": {
+            "Q6": "Yes"
+          },
+          "option_lists_visible": {}
+        }
+      },
+      "T-ea15e888c6": {
+        "witness_target_id": "",
+        "shown": [
+          "S1",
+          "S2",
+          "Q1",
+          "Q2",
+          "Q3",
+          "Q4",
+          "Q5",
+          "Q6",
+          "Q7",
+          "Q8"
+        ],
+        "hidden": [],
+        "validation_triggered": [
+          {
+            "question_id": "Q4",
+            "rule": "min_selections",
+            "outcome": "satisfied",
+            "detail": "1 selected, minimum 1 met"
+          },
+          {
+            "question_id": "Q6",
+            "rule": "length",
+            "outcome": "satisfied",
+            "detail": "length 10 within [10, 500]"
+          }
+        ],
+        "ending": "COMPLETE",
+        "path": [
+          "__START__",
+          "S1",
+          "S2",
+          "Q1",
+          "Q2",
+          "Q3",
+          "Q4",
+          "Q5",
+          "Q6",
+          "Q7",
+          "Q8",
+          "COMPLETE"
+        ],
+        "piped_text": {
+          "Q6": "Yes"
+        },
+        "piped_options": {},
+        "unresolved": [],
+        "fired_rules": [],
+        "blocked_at": null,
+        "quota_stopped": null,
+        "semantics_used": [],
+        "observable": {
+          "questions_seen_in_order": [
+            "S1",
+            "S2",
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4",
+            "Q5",
+            "Q6",
+            "Q7",
+            "Q8"
+          ],
+          "questions_not_seen": [],
+          "ending_reached": "COMPLETE",
+          "blocked_at": null,
+          "quota_stopped": null,
+          "validation_messages_expected": [],
+          "piped_text_visible": {
+            "Q6": "Yes"
+          },
+          "option_lists_visible": {}
+        }
+      },
+      "T-d182c884c0": {
+        "witness_target_id": "",
+        "shown": [
+          "S1",
+          "S2",
+          "Q1",
+          "Q2",
+          "Q3",
+          "Q4",
+          "Q5",
+          "Q6",
+          "Q7",
+          "Q8"
+        ],
+        "hidden": [],
+        "validation_triggered": [
+          {
+            "question_id": "Q4",
+            "rule": "min_selections",
+            "outcome": "satisfied",
+            "detail": "1 selected, minimum 1 met"
+          },
+          {
+            "question_id": "Q6",
+            "rule": "length",
+            "outcome": "satisfied",
+            "detail": "length 10 within [10, 500]"
+          }
+        ],
+        "ending": "COMPLETE",
+        "path": [
+          "__START__",
+          "S1",
+          "S2",
+          "Q1",
+          "Q2",
+          "Q3",
+          "Q4",
+          "Q5",
+          "Q6",
+          "Q7",
+          "Q8",
+          "COMPLETE"
+        ],
+        "piped_text": {
+          "Q6": "Yes"
+        },
+        "piped_options": {},
+        "unresolved": [],
+        "fired_rules": [],
+        "blocked_at": null,
+        "quota_stopped": null,
+        "semantics_used": [],
+        "observable": {
+          "questions_seen_in_order": [
+            "S1",
+            "S2",
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4",
+            "Q5",
+            "Q6",
+            "Q7",
+            "Q8"
+          ],
+          "questions_not_seen": [],
+          "ending_reached": "COMPLETE",
+          "blocked_at": null,
+          "quota_stopped": null,
+          "validation_messages_expected": [],
+          "piped_text_visible": {
+            "Q6": "Yes"
+          },
+          "option_lists_visible": {}
+        }
+      },
+      "T-460e9ac790": {
+        "witness_target_id": "",
+        "shown": [
+          "S1",
+          "S2",
+          "Q1",
+          "Q2",
+          "Q3",
+          "Q4",
+          "Q5",
+          "Q6",
+          "Q7",
+          "Q8"
+        ],
+        "hidden": [],
+        "validation_triggered": [
+          {
+            "question_id": "Q4",
+            "rule": "min_selections",
+            "outcome": "satisfied",
+            "detail": "1 selected, minimum 1 met"
+          },
+          {
+            "question_id": "Q6",
+            "rule": "length",
+            "outcome": "satisfied",
+            "detail": "length 10 within [10, 500]"
+          }
+        ],
+        "ending": "COMPLETE",
+        "path": [
+          "__START__",
+          "S1",
+          "S2",
+          "Q1",
+          "Q2",
+          "Q3",
+          "Q4",
+          "Q5",
+          "Q6",
+          "Q7",
+          "Q8",
+          "COMPLETE"
+        ],
+        "piped_text": {
+          "Q6": "Yes"
+        },
+        "piped_options": {},
+        "unresolved": [],
+        "fired_rules": [],
+        "blocked_at": null,
+        "quota_stopped": null,
+        "semantics_used": [],
+        "observable": {
+          "questions_seen_in_order": [
+            "S1",
+            "S2",
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4",
+            "Q5",
+            "Q6",
+            "Q7",
+            "Q8"
+          ],
+          "questions_not_seen": [],
+          "ending_reached": "COMPLETE",
+          "blocked_at": null,
+          "quota_stopped": null,
+          "validation_messages_expected": [],
+          "piped_text_visible": {
+            "Q6": "Yes"
+          },
+          "option_lists_visible": {}
+        }
+      },
+      "T-4a81ad1c54": {
+        "witness_target_id": "",
+        "shown": [
+          "S1",
+          "S2",
+          "Q1",
+          "Q2",
+          "Q3",
+          "Q4",
+          "Q5",
+          "Q6",
+          "Q7",
+          "Q8"
+        ],
+        "hidden": [],
+        "validation_triggered": [
+          {
+            "question_id": "Q4",
+            "rule": "min_selections",
+            "outcome": "satisfied",
+            "detail": "1 selected, minimum 1 met"
+          },
+          {
+            "question_id": "Q6",
+            "rule": "length",
+            "outcome": "satisfied",
+            "detail": "length 10 within [10, 500]"
+          }
+        ],
+        "ending": "COMPLETE",
+        "path": [
+          "__START__",
+          "S1",
+          "S2",
+          "Q1",
+          "Q2",
+          "Q3",
+          "Q4",
+          "Q5",
+          "Q6",
+          "Q7",
+          "Q8",
+          "COMPLETE"
+        ],
+        "piped_text": {
+          "Q6": "Yes"
+        },
+        "piped_options": {},
+        "unresolved": [],
+        "fired_rules": [],
+        "blocked_at": null,
+        "quota_stopped": null,
+        "semantics_used": [],
+        "observable": {
+          "questions_seen_in_order": [
+            "S1",
+            "S2",
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4",
+            "Q5",
+            "Q6",
+            "Q7",
+            "Q8"
+          ],
+          "questions_not_seen": [],
+          "ending_reached": "COMPLETE",
+          "blocked_at": null,
+          "quota_stopped": null,
+          "validation_messages_expected": [],
+          "piped_text_visible": {
+            "Q6": "Yes"
+          },
+          "option_lists_visible": {}
+        }
+      },
+      "T-a31d9e36e7": {
+        "witness_target_id": "",
+        "shown": [
+          "S1",
+          "S2",
+          "Q1",
+          "Q2",
+          "Q3",
+          "Q4",
+          "Q5",
+          "Q6",
+          "Q7",
+          "Q8"
+        ],
+        "hidden": [],
+        "validation_triggered": [
+          {
+            "question_id": "Q4",
+            "rule": "min_selections",
+            "outcome": "satisfied",
+            "detail": "1 selected, minimum 1 met"
+          },
+          {
+            "question_id": "Q6",
+            "rule": "length",
+            "outcome": "satisfied",
+            "detail": "length 10 within [10, 500]"
+          }
+        ],
+        "ending": "COMPLETE",
+        "path": [
+          "__START__",
+          "S1",
+          "S2",
+          "Q1",
+          "Q2",
+          "Q3",
+          "Q4",
+          "Q5",
+          "Q6",
+          "Q7",
+          "Q8",
+          "COMPLETE"
+        ],
+        "piped_text": {
+          "Q6": "Yes"
+        },
+        "piped_options": {},
+        "unresolved": [],
+        "fired_rules": [],
+        "blocked_at": null,
+        "quota_stopped": null,
+        "semantics_used": [],
+        "observable": {
+          "questions_seen_in_order": [
+            "S1",
+            "S2",
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4",
+            "Q5",
+            "Q6",
+            "Q7",
+            "Q8"
+          ],
+          "questions_not_seen": [],
+          "ending_reached": "COMPLETE",
+          "blocked_at": null,
+          "quota_stopped": null,
+          "validation_messages_expected": [],
+          "piped_text_visible": {
+            "Q6": "Yes"
+          },
+          "option_lists_visible": {}
+        }
+      },
+      "T-a25fbf002c": {
+        "witness_target_id": "",
+        "shown": [
+          "S1",
+          "S2",
+          "Q1",
+          "Q2",
+          "Q3",
+          "Q4",
+          "Q5",
+          "Q6",
+          "Q7",
+          "Q8"
+        ],
+        "hidden": [],
+        "validation_triggered": [
+          {
+            "question_id": "Q4",
+            "rule": "min_selections",
+            "outcome": "satisfied",
+            "detail": "1 selected, minimum 1 met"
+          },
+          {
+            "question_id": "Q6",
+            "rule": "length",
+            "outcome": "satisfied",
+            "detail": "length 10 within [10, 500]"
+          }
+        ],
+        "ending": "COMPLETE",
+        "path": [
+          "__START__",
+          "S1",
+          "S2",
+          "Q1",
+          "Q2",
+          "Q3",
+          "Q4",
+          "Q5",
+          "Q6",
+          "Q7",
+          "Q8",
+          "COMPLETE"
+        ],
+        "piped_text": {
+          "Q6": "Yes"
+        },
+        "piped_options": {},
+        "unresolved": [],
+        "fired_rules": [],
+        "blocked_at": null,
+        "quota_stopped": null,
+        "semantics_used": [],
+        "observable": {
+          "questions_seen_in_order": [
+            "S1",
+            "S2",
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4",
+            "Q5",
+            "Q6",
+            "Q7",
+            "Q8"
+          ],
+          "questions_not_seen": [],
+          "ending_reached": "COMPLETE",
+          "blocked_at": null,
+          "quota_stopped": null,
+          "validation_messages_expected": [],
+          "piped_text_visible": {
+            "Q6": "Yes"
+          },
+          "option_lists_visible": {}
+        }
+      },
+      "T-b3b76ca11a": {
+        "witness_target_id": "",
+        "shown": [
+          "S1",
+          "S2",
+          "Q1",
+          "Q2",
+          "Q3",
+          "Q4",
+          "Q5",
+          "Q6",
+          "Q7",
+          "Q8"
+        ],
+        "hidden": [],
+        "validation_triggered": [
+          {
+            "question_id": "Q4",
+            "rule": "min_selections",
+            "outcome": "satisfied",
+            "detail": "1 selected, minimum 1 met"
+          },
+          {
+            "question_id": "Q6",
+            "rule": "length",
+            "outcome": "satisfied",
+            "detail": "length 10 within [10, 500]"
+          }
+        ],
+        "ending": "COMPLETE",
+        "path": [
+          "__START__",
+          "S1",
+          "S2",
+          "Q1",
+          "Q2",
+          "Q3",
+          "Q4",
+          "Q5",
+          "Q6",
+          "Q7",
+          "Q8",
+          "COMPLETE"
+        ],
+        "piped_text": {
+          "Q6": "Yes"
+        },
+        "piped_options": {},
+        "unresolved": [],
+        "fired_rules": [],
+        "blocked_at": null,
+        "quota_stopped": null,
+        "semantics_used": [],
+        "observable": {
+          "questions_seen_in_order": [
+            "S1",
+            "S2",
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4",
+            "Q5",
+            "Q6",
+            "Q7",
+            "Q8"
+          ],
+          "questions_not_seen": [],
+          "ending_reached": "COMPLETE",
+          "blocked_at": null,
+          "quota_stopped": null,
+          "validation_messages_expected": [],
+          "piped_text_visible": {
+            "Q6": "Yes"
+          },
+          "option_lists_visible": {}
+        }
+      },
+      "T-46ad0b9227": {
+        "witness_target_id": "",
+        "shown": [
+          "S1",
+          "S2",
+          "Q1",
+          "Q2",
+          "Q3",
+          "Q4",
+          "Q5",
+          "Q6",
+          "Q7",
+          "Q8"
+        ],
+        "hidden": [],
+        "validation_triggered": [
+          {
+            "question_id": "Q4",
+            "rule": "min_selections",
+            "outcome": "satisfied",
+            "detail": "1 selected, minimum 1 met"
+          },
+          {
+            "question_id": "Q6",
+            "rule": "length",
+            "outcome": "satisfied",
+            "detail": "length 10 within [10, 500]"
+          }
+        ],
+        "ending": "COMPLETE",
+        "path": [
+          "__START__",
+          "S1",
+          "S2",
+          "Q1",
+          "Q2",
+          "Q3",
+          "Q4",
+          "Q5",
+          "Q6",
+          "Q7",
+          "Q8",
+          "COMPLETE"
+        ],
+        "piped_text": {
+          "Q6": "Yes"
+        },
+        "piped_options": {},
+        "unresolved": [],
+        "fired_rules": [],
+        "blocked_at": null,
+        "quota_stopped": null,
+        "semantics_used": [],
+        "observable": {
+          "questions_seen_in_order": [
+            "S1",
+            "S2",
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4",
+            "Q5",
+            "Q6",
+            "Q7",
+            "Q8"
+          ],
+          "questions_not_seen": [],
+          "ending_reached": "COMPLETE",
+          "blocked_at": null,
+          "quota_stopped": null,
+          "validation_messages_expected": [],
+          "piped_text_visible": {
+            "Q6": "Yes"
+          },
+          "option_lists_visible": {}
+        }
+      },
+      "T-836bcea7a3": {
+        "witness_target_id": "",
+        "shown": [
+          "S1",
+          "S2",
+          "Q1",
+          "Q2",
+          "Q3",
+          "Q4",
+          "Q5",
+          "Q7",
+          "Q8"
+        ],
+        "hidden": [
+          "Q6"
+        ],
+        "validation_triggered": [
+          {
+            "question_id": "Q4",
+            "rule": "min_selections",
+            "outcome": "satisfied",
+            "detail": "1 selected, minimum 1 met"
+          }
+        ],
+        "ending": "COMPLETE",
+        "path": [
+          "__START__",
+          "S1",
+          "S2",
+          "Q1",
+          "Q2",
+          "Q3",
+          "Q4",
+          "Q5",
+          "Q7",
+          "Q8",
+          "COMPLETE"
+        ],
+        "piped_text": {},
+        "piped_options": {},
+        "unresolved": [],
+        "fired_rules": [
+          "R4"
+        ],
+        "blocked_at": null,
+        "quota_stopped": null,
+        "semantics_used": [
+          "rule_precedence"
+        ],
+        "observable": {
+          "questions_seen_in_order": [
+            "S1",
+            "S2",
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4",
+            "Q5",
+            "Q7",
+            "Q8"
+          ],
+          "questions_not_seen": [
+            "Q6"
+          ],
+          "ending_reached": "COMPLETE",
+          "blocked_at": null,
+          "quota_stopped": null,
+          "validation_messages_expected": [],
+          "piped_text_visible": {},
+          "option_lists_visible": {}
+        }
+      },
+      "T-42c434e9a8": {
+        "witness_target_id": "",
+        "shown": [
+          "S1",
+          "S2",
+          "Q1",
+          "Q2",
+          "Q3",
+          "Q4",
+          "Q5",
+          "Q7",
+          "Q8"
+        ],
+        "hidden": [
+          "Q6"
+        ],
+        "validation_triggered": [
+          {
+            "question_id": "Q4",
+            "rule": "min_selections",
+            "outcome": "satisfied",
+            "detail": "1 selected, minimum 1 met"
+          }
+        ],
+        "ending": "COMPLETE",
+        "path": [
+          "__START__",
+          "S1",
+          "S2",
+          "Q1",
+          "Q2",
+          "Q3",
+          "Q4",
+          "Q5",
+          "Q7",
+          "Q8",
+          "COMPLETE"
+        ],
+        "piped_text": {},
+        "piped_options": {},
+        "unresolved": [],
+        "fired_rules": [
+          "R4"
+        ],
+        "blocked_at": null,
+        "quota_stopped": null,
+        "semantics_used": [
+          "rule_precedence"
+        ],
+        "observable": {
+          "questions_seen_in_order": [
+            "S1",
+            "S2",
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4",
+            "Q5",
+            "Q7",
+            "Q8"
+          ],
+          "questions_not_seen": [
+            "Q6"
+          ],
+          "ending_reached": "COMPLETE",
+          "blocked_at": null,
+          "quota_stopped": null,
+          "validation_messages_expected": [],
+          "piped_text_visible": {},
+          "option_lists_visible": {}
+        }
+      },
+      "T-bb19b20b74": {
+        "witness_target_id": "",
+        "shown": [
+          "S1",
+          "S2",
+          "Q1",
+          "Q2",
+          "Q3",
+          "Q4",
+          "Q5",
+          "Q6",
+          "Q7",
+          "Q8"
+        ],
+        "hidden": [],
+        "validation_triggered": [
+          {
+            "question_id": "Q4",
+            "rule": "min_selections",
+            "outcome": "satisfied",
+            "detail": "1 selected, minimum 1 met"
+          },
+          {
+            "question_id": "Q6",
+            "rule": "length",
+            "outcome": "satisfied",
+            "detail": "length 10 within [10, 500]"
+          }
+        ],
+        "ending": "COMPLETE",
+        "path": [
+          "__START__",
+          "S1",
+          "S2",
+          "Q1",
+          "Q2",
+          "Q3",
+          "Q4",
+          "Q5",
+          "Q6",
+          "Q7",
+          "Q8",
+          "COMPLETE"
+        ],
+        "piped_text": {
+          "Q6": "Yes"
+        },
+        "piped_options": {},
+        "unresolved": [],
+        "fired_rules": [],
+        "blocked_at": null,
+        "quota_stopped": null,
+        "semantics_used": [],
+        "observable": {
+          "questions_seen_in_order": [
+            "S1",
+            "S2",
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4",
+            "Q5",
+            "Q6",
+            "Q7",
+            "Q8"
+          ],
+          "questions_not_seen": [],
+          "ending_reached": "COMPLETE",
+          "blocked_at": null,
+          "quota_stopped": null,
+          "validation_messages_expected": [],
+          "piped_text_visible": {
+            "Q6": "Yes"
+          },
+          "option_lists_visible": {}
+        }
+      },
+      "T-05b0993ae8": {
+        "witness_target_id": "",
+        "shown": [
+          "S1",
+          "S2",
+          "Q1",
+          "Q2",
+          "Q3",
+          "Q4",
+          "Q5",
+          "Q6",
+          "Q7",
+          "Q8"
+        ],
+        "hidden": [],
+        "validation_triggered": [
+          {
+            "question_id": "Q4",
+            "rule": "min_selections",
+            "outcome": "satisfied",
+            "detail": "1 selected, minimum 1 met"
+          },
+          {
+            "question_id": "Q6",
+            "rule": "length",
+            "outcome": "satisfied",
+            "detail": "length 10 within [10, 500]"
+          }
+        ],
+        "ending": "COMPLETE",
+        "path": [
+          "__START__",
+          "S1",
+          "S2",
+          "Q1",
+          "Q2",
+          "Q3",
+          "Q4",
+          "Q5",
+          "Q6",
+          "Q7",
+          "Q8",
+          "COMPLETE"
+        ],
+        "piped_text": {
+          "Q6": "Yes"
+        },
+        "piped_options": {},
+        "unresolved": [],
+        "fired_rules": [],
+        "blocked_at": null,
+        "quota_stopped": null,
+        "semantics_used": [],
+        "observable": {
+          "questions_seen_in_order": [
+            "S1",
+            "S2",
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4",
+            "Q5",
+            "Q6",
+            "Q7",
+            "Q8"
+          ],
+          "questions_not_seen": [],
+          "ending_reached": "COMPLETE",
+          "blocked_at": null,
+          "quota_stopped": null,
+          "validation_messages_expected": [],
+          "piped_text_visible": {
+            "Q6": "Yes"
+          },
+          "option_lists_visible": {}
+        }
+      },
+      "T-ad81bd1fb8": {
+        "witness_target_id": "",
+        "shown": [
+          "S1"
+        ],
+        "hidden": [],
+        "validation_triggered": [],
+        "ending": "TERM_INELIGIBLE",
+        "path": [
+          "__START__",
+          "S1",
+          "TERM_INELIGIBLE"
+        ],
+        "piped_text": {},
+        "piped_options": {},
+        "unresolved": [],
+        "fired_rules": [],
+        "blocked_at": null,
+        "quota_stopped": null,
+        "semantics_used": [
+          "rule_precedence"
+        ],
+        "observable": {
+          "questions_seen_in_order": [
+            "S1"
+          ],
+          "questions_not_seen": [],
+          "ending_reached": "TERM_INELIGIBLE",
+          "blocked_at": null,
+          "quota_stopped": null,
+          "validation_messages_expected": [],
+          "piped_text_visible": {},
+          "option_lists_visible": {}
+        }
+      },
+      "T-b13742d625": {
+        "witness_target_id": "",
+        "shown": [
+          "S1",
+          "S2"
+        ],
+        "hidden": [],
+        "validation_triggered": [],
+        "ending": "TERM_INELIGIBLE",
+        "path": [
+          "__START__",
+          "S1",
+          "S2",
+          "TERM_INELIGIBLE"
+        ],
+        "piped_text": {},
+        "piped_options": {},
+        "unresolved": [],
+        "fired_rules": [],
+        "blocked_at": null,
+        "quota_stopped": null,
+        "semantics_used": [
+          "rule_precedence"
+        ],
+        "observable": {
+          "questions_seen_in_order": [
+            "S1",
+            "S2"
+          ],
+          "questions_not_seen": [],
+          "ending_reached": "TERM_INELIGIBLE",
+          "blocked_at": null,
+          "quota_stopped": null,
+          "validation_messages_expected": [],
+          "piped_text_visible": {},
+          "option_lists_visible": {}
+        }
+      },
+      "T-91f64c7737": {
+        "witness_target_id": "",
+        "shown": [
+          "S1",
+          "S2",
+          "Q1",
+          "Q2",
+          "Q3",
+          "Q4",
+          "Q5",
+          "Q6",
+          "Q7",
+          "Q8"
+        ],
+        "hidden": [],
+        "validation_triggered": [
+          {
+            "question_id": "Q4",
+            "rule": "min_selections",
+            "outcome": "satisfied",
+            "detail": "1 selected, minimum 1 met"
+          },
+          {
+            "question_id": "Q6",
+            "rule": "length",
+            "outcome": "satisfied",
+            "detail": "length 10 within [10, 500]"
+          }
+        ],
+        "ending": "COMPLETE",
+        "path": [
+          "__START__",
+          "S1",
+          "S2",
+          "Q1",
+          "Q2",
+          "Q3",
+          "Q4",
+          "Q5",
+          "Q6",
+          "Q7",
+          "Q8",
+          "COMPLETE"
+        ],
+        "piped_text": {
+          "Q6": "Yes"
+        },
+        "piped_options": {},
+        "unresolved": [],
+        "fired_rules": [],
+        "blocked_at": null,
+        "quota_stopped": null,
+        "semantics_used": [],
+        "observable": {
+          "questions_seen_in_order": [
+            "S1",
+            "S2",
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4",
+            "Q5",
+            "Q6",
+            "Q7",
+            "Q8"
+          ],
+          "questions_not_seen": [],
+          "ending_reached": "COMPLETE",
+          "blocked_at": null,
+          "quota_stopped": null,
+          "validation_messages_expected": [],
+          "piped_text_visible": {
+            "Q6": "Yes"
+          },
+          "option_lists_visible": {}
+        }
+      },
+      "T-bf3e461be3": {
+        "witness_target_id": "",
+        "shown": [
+          "S1",
+          "S2",
+          "Q1",
+          "Q2",
+          "Q3",
+          "Q4"
+        ],
+        "hidden": [
+          "Q5",
+          "Q6",
+          "Q7",
+          "Q8"
+        ],
+        "validation_triggered": [
+          {
+            "question_id": "Q4",
+            "rule": "mandatory",
+            "outcome": "violated",
+            "detail": "mandatory question left blank, progress should be blocked"
+          }
+        ],
+        "ending": null,
+        "path": [
+          "__START__",
+          "S1",
+          "S2",
+          "Q1",
+          "Q2",
+          "Q3",
+          "Q4",
+          "BLOCKED_AT:Q4"
+        ],
+        "piped_text": {},
+        "piped_options": {},
+        "unresolved": [],
+        "fired_rules": [],
+        "blocked_at": "Q4",
+        "quota_stopped": null,
+        "semantics_used": [],
+        "observable": {
+          "questions_seen_in_order": [
+            "S1",
+            "S2",
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4"
+          ],
+          "questions_not_seen": [
+            "Q5",
+            "Q6",
+            "Q7",
+            "Q8"
+          ],
+          "ending_reached": null,
+          "blocked_at": "Q4",
+          "quota_stopped": null,
+          "validation_messages_expected": [
+            {
+              "question_id": "Q4",
+              "rule": "mandatory",
+              "outcome": "violated",
+              "detail": "mandatory question left blank, progress should be blocked"
+            }
+          ],
+          "piped_text_visible": {},
+          "option_lists_visible": {}
+        }
+      },
+      "T-5763469416": {
+        "witness_target_id": "",
+        "shown": [
+          "S1",
+          "S2",
+          "Q1",
+          "Q2",
+          "Q3",
+          "Q4",
+          "Q5",
+          "Q6",
+          "Q7",
+          "Q8"
+        ],
+        "hidden": [],
+        "validation_triggered": [
+          {
+            "question_id": "Q4",
+            "rule": "min_selections",
+            "outcome": "satisfied",
+            "detail": "1 selected, minimum 1 met"
+          },
+          {
+            "question_id": "Q6",
+            "rule": "length",
+            "outcome": "satisfied",
+            "detail": "length 10 within [10, 500]"
+          }
+        ],
+        "ending": "COMPLETE",
+        "path": [
+          "__START__",
+          "S1",
+          "S2",
+          "Q1",
+          "Q2",
+          "Q3",
+          "Q4",
+          "Q5",
+          "Q6",
+          "Q7",
+          "Q8",
+          "COMPLETE"
+        ],
+        "piped_text": {
+          "Q6": "Yes"
+        },
+        "piped_options": {},
+        "unresolved": [],
+        "fired_rules": [],
+        "blocked_at": null,
+        "quota_stopped": null,
+        "semantics_used": [],
+        "observable": {
+          "questions_seen_in_order": [
+            "S1",
+            "S2",
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4",
+            "Q5",
+            "Q6",
+            "Q7",
+            "Q8"
+          ],
+          "questions_not_seen": [],
+          "ending_reached": "COMPLETE",
+          "blocked_at": null,
+          "quota_stopped": null,
+          "validation_messages_expected": [],
+          "piped_text_visible": {
+            "Q6": "Yes"
+          },
+          "option_lists_visible": {}
+        }
+      },
+      "T-3ba88a35fd": {
+        "witness_target_id": "",
+        "shown": [
+          "S1",
+          "S2",
+          "Q1",
+          "Q2",
+          "Q3",
+          "Q4",
+          "Q5",
+          "Q6"
+        ],
+        "hidden": [
+          "Q7",
+          "Q8"
+        ],
+        "validation_triggered": [
+          {
+            "question_id": "Q4",
+            "rule": "min_selections",
+            "outcome": "satisfied",
+            "detail": "1 selected, minimum 1 met"
+          },
+          {
+            "question_id": "Q6",
+            "rule": "max_length",
+            "outcome": "violated",
+            "detail": "length 501 above maximum 500"
+          }
+        ],
+        "ending": null,
+        "path": [
+          "__START__",
+          "S1",
+          "S2",
+          "Q1",
+          "Q2",
+          "Q3",
+          "Q4",
+          "Q5",
+          "Q6",
+          "BLOCKED_AT:Q6"
+        ],
+        "piped_text": {
+          "Q6": "Yes"
+        },
+        "piped_options": {},
+        "unresolved": [],
+        "fired_rules": [],
+        "blocked_at": "Q6",
+        "quota_stopped": null,
+        "semantics_used": [],
+        "observable": {
+          "questions_seen_in_order": [
+            "S1",
+            "S2",
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4",
+            "Q5",
+            "Q6"
+          ],
+          "questions_not_seen": [
+            "Q7",
+            "Q8"
+          ],
+          "ending_reached": null,
+          "blocked_at": "Q6",
+          "quota_stopped": null,
+          "validation_messages_expected": [
+            {
+              "question_id": "Q6",
+              "rule": "max_length",
+              "outcome": "violated",
+              "detail": "length 501 above maximum 500"
+            }
+          ],
+          "piped_text_visible": {
+            "Q6": "Yes"
+          },
+          "option_lists_visible": {}
+        }
+      },
+      "T-9363260523": {
+        "witness_target_id": "",
+        "shown": [
+          "S1",
+          "S2",
+          "Q1",
+          "Q2",
+          "Q3",
+          "Q4",
+          "Q5",
+          "Q6",
+          "Q7",
+          "Q8"
+        ],
+        "hidden": [],
+        "validation_triggered": [
+          {
+            "question_id": "Q4",
+            "rule": "min_selections",
+            "outcome": "satisfied",
+            "detail": "1 selected, minimum 1 met"
+          },
+          {
+            "question_id": "Q6",
+            "rule": "length",
+            "outcome": "satisfied",
+            "detail": "length 10 within [10, 500]"
+          },
+          {
+            "question_id": "Q8",
+            "rule": "length",
+            "outcome": "satisfied",
+            "detail": "length 1 within [None, 500]"
+          }
+        ],
+        "ending": "COMPLETE",
+        "path": [
+          "__START__",
+          "S1",
+          "S2",
+          "Q1",
+          "Q2",
+          "Q3",
+          "Q4",
+          "Q5",
+          "Q6",
+          "Q7",
+          "Q8",
+          "COMPLETE"
+        ],
+        "piped_text": {
+          "Q6": "Yes"
+        },
+        "piped_options": {},
+        "unresolved": [],
+        "fired_rules": [],
+        "blocked_at": null,
+        "quota_stopped": null,
+        "semantics_used": [],
+        "observable": {
+          "questions_seen_in_order": [
+            "S1",
+            "S2",
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4",
+            "Q5",
+            "Q6",
+            "Q7",
+            "Q8"
+          ],
+          "questions_not_seen": [],
+          "ending_reached": "COMPLETE",
+          "blocked_at": null,
+          "quota_stopped": null,
+          "validation_messages_expected": [],
+          "piped_text_visible": {
+            "Q6": "Yes"
+          },
+          "option_lists_visible": {}
+        }
+      },
+      "T-b073440eac": {
+        "witness_target_id": "",
+        "shown": [
+          "S1",
+          "S2",
+          "Q1",
+          "Q2",
+          "Q3",
+          "Q4",
+          "Q5",
+          "Q6",
+          "Q7",
+          "Q8"
+        ],
+        "hidden": [],
+        "validation_triggered": [
+          {
+            "question_id": "Q4",
+            "rule": "min_selections",
+            "outcome": "satisfied",
+            "detail": "1 selected, minimum 1 met"
+          },
+          {
+            "question_id": "Q6",
+            "rule": "length",
+            "outcome": "satisfied",
+            "detail": "length 10 within [10, 500]"
+          },
+          {
+            "question_id": "Q8",
+            "rule": "max_length",
+            "outcome": "violated",
+            "detail": "length 501 above maximum 500"
+          }
+        ],
+        "ending": null,
+        "path": [
+          "__START__",
+          "S1",
+          "S2",
+          "Q1",
+          "Q2",
+          "Q3",
+          "Q4",
+          "Q5",
+          "Q6",
+          "Q7",
+          "Q8",
+          "BLOCKED_AT:Q8"
+        ],
+        "piped_text": {
+          "Q6": "Yes"
+        },
+        "piped_options": {},
+        "unresolved": [],
+        "fired_rules": [],
+        "blocked_at": "Q8",
+        "quota_stopped": null,
+        "semantics_used": [],
+        "observable": {
+          "questions_seen_in_order": [
+            "S1",
+            "S2",
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4",
+            "Q5",
+            "Q6",
+            "Q7",
+            "Q8"
+          ],
+          "questions_not_seen": [],
+          "ending_reached": null,
+          "blocked_at": "Q8",
+          "quota_stopped": null,
+          "validation_messages_expected": [
+            {
+              "question_id": "Q8",
+              "rule": "max_length",
+              "outcome": "violated",
+              "detail": "length 501 above maximum 500"
+            }
+          ],
+          "piped_text_visible": {
+            "Q6": "Yes"
+          },
+          "option_lists_visible": {}
+        }
+      },
+      "T-04f1f82dbc": {
+        "witness_target_id": "",
+        "shown": [
+          "S1"
+        ],
+        "hidden": [
+          "S2",
+          "Q1",
+          "Q2",
+          "Q3",
+          "Q4",
+          "Q5",
+          "Q6",
+          "Q7",
+          "Q8"
+        ],
+        "validation_triggered": [
+          {
+            "question_id": "S1",
+            "rule": "mandatory",
+            "outcome": "violated",
+            "detail": "mandatory question left blank, progress should be blocked"
+          }
+        ],
+        "ending": null,
+        "path": [
+          "__START__",
+          "S1",
+          "BLOCKED_AT:S1"
+        ],
+        "piped_text": {},
+        "piped_options": {},
+        "unresolved": [],
+        "fired_rules": [],
+        "blocked_at": "S1",
+        "quota_stopped": null,
+        "semantics_used": [],
+        "observable": {
+          "questions_seen_in_order": [
+            "S1"
+          ],
+          "questions_not_seen": [
+            "S2",
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4",
+            "Q5",
+            "Q6",
+            "Q7",
+            "Q8"
+          ],
+          "ending_reached": null,
+          "blocked_at": "S1",
+          "quota_stopped": null,
+          "validation_messages_expected": [
+            {
+              "question_id": "S1",
+              "rule": "mandatory",
+              "outcome": "violated",
+              "detail": "mandatory question left blank, progress should be blocked"
+            }
+          ],
+          "piped_text_visible": {},
+          "option_lists_visible": {}
+        }
+      },
+      "T-f3c7bd7103": {
+        "witness_target_id": "",
+        "shown": [
+          "S1",
+          "S2"
+        ],
+        "hidden": [
+          "Q1",
+          "Q2",
+          "Q3",
+          "Q4",
+          "Q5",
+          "Q6",
+          "Q7",
+          "Q8"
+        ],
+        "validation_triggered": [
+          {
+            "question_id": "S2",
+            "rule": "mandatory",
+            "outcome": "violated",
+            "detail": "mandatory question left blank, progress should be blocked"
+          }
+        ],
+        "ending": null,
+        "path": [
+          "__START__",
+          "S1",
+          "S2",
+          "BLOCKED_AT:S2"
+        ],
+        "piped_text": {},
+        "piped_options": {},
+        "unresolved": [],
+        "fired_rules": [],
+        "blocked_at": "S2",
+        "quota_stopped": null,
+        "semantics_used": [],
+        "observable": {
+          "questions_seen_in_order": [
+            "S1",
+            "S2"
+          ],
+          "questions_not_seen": [
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4",
+            "Q5",
+            "Q6",
+            "Q7",
+            "Q8"
+          ],
+          "ending_reached": null,
+          "blocked_at": "S2",
+          "quota_stopped": null,
+          "validation_messages_expected": [
+            {
+              "question_id": "S2",
+              "rule": "mandatory",
+              "outcome": "violated",
+              "detail": "mandatory question left blank, progress should be blocked"
+            }
+          ],
+          "piped_text_visible": {},
+          "option_lists_visible": {}
+        }
+      },
+      "T-e12aace78c": {
+        "witness_target_id": "",
+        "shown": [
+          "S1",
+          "S2",
+          "Q1"
+        ],
+        "hidden": [
+          "Q2",
+          "Q3",
+          "Q4",
+          "Q5",
+          "Q6",
+          "Q7",
+          "Q8"
+        ],
+        "validation_triggered": [
+          {
+            "question_id": "Q1",
+            "rule": "mandatory",
+            "outcome": "violated",
+            "detail": "mandatory question left blank, progress should be blocked"
+          }
+        ],
+        "ending": null,
+        "path": [
+          "__START__",
+          "S1",
+          "S2",
+          "Q1",
+          "BLOCKED_AT:Q1"
+        ],
+        "piped_text": {},
+        "piped_options": {},
+        "unresolved": [],
+        "fired_rules": [],
+        "blocked_at": "Q1",
+        "quota_stopped": null,
+        "semantics_used": [],
+        "observable": {
+          "questions_seen_in_order": [
+            "S1",
+            "S2",
+            "Q1"
+          ],
+          "questions_not_seen": [
+            "Q2",
+            "Q3",
+            "Q4",
+            "Q5",
+            "Q6",
+            "Q7",
+            "Q8"
+          ],
+          "ending_reached": null,
+          "blocked_at": "Q1",
+          "quota_stopped": null,
+          "validation_messages_expected": [
+            {
+              "question_id": "Q1",
+              "rule": "mandatory",
+              "outcome": "violated",
+              "detail": "mandatory question left blank, progress should be blocked"
+            }
+          ],
+          "piped_text_visible": {},
+          "option_lists_visible": {}
+        }
+      },
+      "T-727f5e7cc5": {
+        "witness_target_id": "",
+        "shown": [
+          "S1",
+          "S2",
+          "Q1",
+          "Q2"
+        ],
+        "hidden": [
+          "Q3",
+          "Q4",
+          "Q5",
+          "Q6",
+          "Q7",
+          "Q8"
+        ],
+        "validation_triggered": [
+          {
+            "question_id": "Q2",
+            "rule": "mandatory",
+            "outcome": "violated",
+            "detail": "mandatory question left blank, progress should be blocked"
+          }
+        ],
+        "ending": null,
+        "path": [
+          "__START__",
+          "S1",
+          "S2",
+          "Q1",
+          "Q2",
+          "BLOCKED_AT:Q2"
+        ],
+        "piped_text": {},
+        "piped_options": {},
+        "unresolved": [],
+        "fired_rules": [],
+        "blocked_at": "Q2",
+        "quota_stopped": null,
+        "semantics_used": [],
+        "observable": {
+          "questions_seen_in_order": [
+            "S1",
+            "S2",
+            "Q1",
+            "Q2"
+          ],
+          "questions_not_seen": [
+            "Q3",
+            "Q4",
+            "Q5",
+            "Q6",
+            "Q7",
+            "Q8"
+          ],
+          "ending_reached": null,
+          "blocked_at": "Q2",
+          "quota_stopped": null,
+          "validation_messages_expected": [
+            {
+              "question_id": "Q2",
+              "rule": "mandatory",
+              "outcome": "violated",
+              "detail": "mandatory question left blank, progress should be blocked"
+            }
+          ],
+          "piped_text_visible": {},
+          "option_lists_visible": {}
+        }
+      },
+      "T-4bdf659dfa": {
+        "witness_target_id": "",
+        "shown": [
+          "S1",
+          "S2",
+          "Q1",
+          "Q2",
+          "Q3"
+        ],
+        "hidden": [
+          "Q4",
+          "Q5",
+          "Q6",
+          "Q7",
+          "Q8"
+        ],
+        "validation_triggered": [
+          {
+            "question_id": "Q3",
+            "rule": "mandatory",
+            "outcome": "violated",
+            "detail": "mandatory question left blank, progress should be blocked"
+          }
+        ],
+        "ending": null,
+        "path": [
+          "__START__",
+          "S1",
+          "S2",
+          "Q1",
+          "Q2",
+          "Q3",
+          "BLOCKED_AT:Q3"
+        ],
+        "piped_text": {},
+        "piped_options": {},
+        "unresolved": [],
+        "fired_rules": [],
+        "blocked_at": "Q3",
+        "quota_stopped": null,
+        "semantics_used": [],
+        "observable": {
+          "questions_seen_in_order": [
+            "S1",
+            "S2",
+            "Q1",
+            "Q2",
+            "Q3"
+          ],
+          "questions_not_seen": [
+            "Q4",
+            "Q5",
+            "Q6",
+            "Q7",
+            "Q8"
+          ],
+          "ending_reached": null,
+          "blocked_at": "Q3",
+          "quota_stopped": null,
+          "validation_messages_expected": [
+            {
+              "question_id": "Q3",
+              "rule": "mandatory",
+              "outcome": "violated",
+              "detail": "mandatory question left blank, progress should be blocked"
+            }
+          ],
+          "piped_text_visible": {},
+          "option_lists_visible": {}
+        }
+      },
+      "T-9a87b3907e": {
+        "witness_target_id": "",
+        "shown": [
+          "S1",
+          "S2",
+          "Q1",
+          "Q2",
+          "Q3",
+          "Q4"
+        ],
+        "hidden": [
+          "Q5",
+          "Q6",
+          "Q7",
+          "Q8"
+        ],
+        "validation_triggered": [
+          {
+            "question_id": "Q4",
+            "rule": "mandatory",
+            "outcome": "violated",
+            "detail": "mandatory question left blank, progress should be blocked"
+          }
+        ],
+        "ending": null,
+        "path": [
+          "__START__",
+          "S1",
+          "S2",
+          "Q1",
+          "Q2",
+          "Q3",
+          "Q4",
+          "BLOCKED_AT:Q4"
+        ],
+        "piped_text": {},
+        "piped_options": {},
+        "unresolved": [],
+        "fired_rules": [],
+        "blocked_at": "Q4",
+        "quota_stopped": null,
+        "semantics_used": [],
+        "observable": {
+          "questions_seen_in_order": [
+            "S1",
+            "S2",
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4"
+          ],
+          "questions_not_seen": [
+            "Q5",
+            "Q6",
+            "Q7",
+            "Q8"
+          ],
+          "ending_reached": null,
+          "blocked_at": "Q4",
+          "quota_stopped": null,
+          "validation_messages_expected": [
+            {
+              "question_id": "Q4",
+              "rule": "mandatory",
+              "outcome": "violated",
+              "detail": "mandatory question left blank, progress should be blocked"
+            }
+          ],
+          "piped_text_visible": {},
+          "option_lists_visible": {}
+        }
+      },
+      "T-0249397b0f": {
+        "witness_target_id": "",
+        "shown": [
+          "S1",
+          "S2",
+          "Q1",
+          "Q2",
+          "Q3",
+          "Q4",
+          "Q5"
+        ],
+        "hidden": [
+          "Q6",
+          "Q7",
+          "Q8"
+        ],
+        "validation_triggered": [
+          {
+            "question_id": "Q4",
+            "rule": "min_selections",
+            "outcome": "satisfied",
+            "detail": "1 selected, minimum 1 met"
+          },
+          {
+            "question_id": "Q5",
+            "rule": "mandatory",
+            "outcome": "violated",
+            "detail": "mandatory question left blank, progress should be blocked"
+          }
+        ],
+        "ending": null,
+        "path": [
+          "__START__",
+          "S1",
+          "S2",
+          "Q1",
+          "Q2",
+          "Q3",
+          "Q4",
+          "Q5",
+          "BLOCKED_AT:Q5"
+        ],
+        "piped_text": {},
+        "piped_options": {},
+        "unresolved": [],
+        "fired_rules": [],
+        "blocked_at": "Q5",
+        "quota_stopped": null,
+        "semantics_used": [],
+        "observable": {
+          "questions_seen_in_order": [
+            "S1",
+            "S2",
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4",
+            "Q5"
+          ],
+          "questions_not_seen": [
+            "Q6",
+            "Q7",
+            "Q8"
+          ],
+          "ending_reached": null,
+          "blocked_at": "Q5",
+          "quota_stopped": null,
+          "validation_messages_expected": [
+            {
+              "question_id": "Q5",
+              "rule": "mandatory",
+              "outcome": "violated",
+              "detail": "mandatory question left blank, progress should be blocked"
+            }
+          ],
+          "piped_text_visible": {},
+          "option_lists_visible": {}
+        }
+      },
+      "T-e98006aa3a": {
+        "witness_target_id": "",
+        "shown": [
+          "S1",
+          "S2",
+          "Q1",
+          "Q2",
+          "Q3",
+          "Q4",
+          "Q5",
+          "Q6"
+        ],
+        "hidden": [
+          "Q7",
+          "Q8"
+        ],
+        "validation_triggered": [
+          {
+            "question_id": "Q4",
+            "rule": "min_selections",
+            "outcome": "satisfied",
+            "detail": "1 selected, minimum 1 met"
+          },
+          {
+            "question_id": "Q6",
+            "rule": "mandatory",
+            "outcome": "violated",
+            "detail": "mandatory question left blank, progress should be blocked"
+          }
+        ],
+        "ending": null,
+        "path": [
+          "__START__",
+          "S1",
+          "S2",
+          "Q1",
+          "Q2",
+          "Q3",
+          "Q4",
+          "Q5",
+          "Q6",
+          "BLOCKED_AT:Q6"
+        ],
+        "piped_text": {
+          "Q6": "Yes"
+        },
+        "piped_options": {},
+        "unresolved": [],
+        "fired_rules": [],
+        "blocked_at": "Q6",
+        "quota_stopped": null,
+        "semantics_used": [],
+        "observable": {
+          "questions_seen_in_order": [
+            "S1",
+            "S2",
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4",
+            "Q5",
+            "Q6"
+          ],
+          "questions_not_seen": [
+            "Q7",
+            "Q8"
+          ],
+          "ending_reached": null,
+          "blocked_at": "Q6",
+          "quota_stopped": null,
+          "validation_messages_expected": [
+            {
+              "question_id": "Q6",
+              "rule": "mandatory",
+              "outcome": "violated",
+              "detail": "mandatory question left blank, progress should be blocked"
+            }
+          ],
+          "piped_text_visible": {
+            "Q6": "Yes"
+          },
+          "option_lists_visible": {}
+        }
+      },
+      "T-fdb731cc7b": {
+        "witness_target_id": "",
+        "shown": [
+          "S1",
+          "S2",
+          "Q1",
+          "Q2",
+          "Q3",
+          "Q4",
+          "Q5",
+          "Q6",
+          "Q7"
+        ],
+        "hidden": [
+          "Q8"
+        ],
+        "validation_triggered": [
+          {
+            "question_id": "Q4",
+            "rule": "min_selections",
+            "outcome": "satisfied",
+            "detail": "1 selected, minimum 1 met"
+          },
+          {
+            "question_id": "Q6",
+            "rule": "length",
+            "outcome": "satisfied",
+            "detail": "length 10 within [10, 500]"
+          },
+          {
+            "question_id": "Q7",
+            "rule": "mandatory",
+            "outcome": "violated",
+            "detail": "mandatory question left blank, progress should be blocked"
+          }
+        ],
+        "ending": null,
+        "path": [
+          "__START__",
+          "S1",
+          "S2",
+          "Q1",
+          "Q2",
+          "Q3",
+          "Q4",
+          "Q5",
+          "Q6",
+          "Q7",
+          "BLOCKED_AT:Q7"
+        ],
+        "piped_text": {
+          "Q6": "Yes"
+        },
+        "piped_options": {},
+        "unresolved": [],
+        "fired_rules": [],
+        "blocked_at": "Q7",
+        "quota_stopped": null,
+        "semantics_used": [],
+        "observable": {
+          "questions_seen_in_order": [
+            "S1",
+            "S2",
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4",
+            "Q5",
+            "Q6",
+            "Q7"
+          ],
+          "questions_not_seen": [
+            "Q8"
+          ],
+          "ending_reached": null,
+          "blocked_at": "Q7",
+          "quota_stopped": null,
+          "validation_messages_expected": [
+            {
+              "question_id": "Q7",
+              "rule": "mandatory",
+              "outcome": "violated",
+              "detail": "mandatory question left blank, progress should be blocked"
+            }
+          ],
+          "piped_text_visible": {
+            "Q6": "Yes"
+          },
+          "option_lists_visible": {}
+        }
+      },
+      "T-fffe27cc01": {
+        "witness_target_id": "",
+        "shown": [
+          "S1",
+          "S2",
+          "Q1",
+          "Q2",
+          "Q3",
+          "Q4",
+          "Q5",
+          "Q6",
+          "Q7",
+          "Q8"
+        ],
+        "hidden": [],
+        "validation_triggered": [
+          {
+            "question_id": "Q4",
+            "rule": "min_selections",
+            "outcome": "satisfied",
+            "detail": "1 selected, minimum 1 met"
+          },
+          {
+            "question_id": "Q6",
+            "rule": "length",
+            "outcome": "satisfied",
+            "detail": "length 10 within [10, 500]"
+          },
+          {
+            "question_id": "Q8",
+            "rule": "mandatory",
+            "outcome": "satisfied",
+            "detail": "optional question left blank, progress should be permitted"
+          }
+        ],
+        "ending": "COMPLETE",
+        "path": [
+          "__START__",
+          "S1",
+          "S2",
+          "Q1",
+          "Q2",
+          "Q3",
+          "Q4",
+          "Q5",
+          "Q6",
+          "Q7",
+          "Q8",
+          "COMPLETE"
+        ],
+        "piped_text": {
+          "Q6": "Yes"
+        },
+        "piped_options": {},
+        "unresolved": [],
+        "fired_rules": [],
+        "blocked_at": null,
+        "quota_stopped": null,
+        "semantics_used": [],
+        "observable": {
+          "questions_seen_in_order": [
+            "S1",
+            "S2",
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4",
+            "Q5",
+            "Q6",
+            "Q7",
+            "Q8"
+          ],
+          "questions_not_seen": [],
+          "ending_reached": "COMPLETE",
+          "blocked_at": null,
+          "quota_stopped": null,
+          "validation_messages_expected": [],
+          "piped_text_visible": {
+            "Q6": "Yes"
+          },
+          "option_lists_visible": {}
+        }
+      },
+      "T-9e8e92980a": {
+        "witness_target_id": "",
+        "shown": [
+          "S1",
+          "S2",
+          "Q1",
+          "Q2",
+          "Q3",
+          "Q4",
+          "Q5",
+          "Q6",
+          "Q7",
+          "Q8"
+        ],
+        "hidden": [],
+        "validation_triggered": [
+          {
+            "question_id": "Q4",
+            "rule": "min_selections",
+            "outcome": "satisfied",
+            "detail": "1 selected, minimum 1 met"
+          },
+          {
+            "question_id": "Q6",
+            "rule": "length",
+            "outcome": "satisfied",
+            "detail": "length 10 within [10, 500]"
+          }
+        ],
+        "ending": "COMPLETE",
+        "path": [
+          "__START__",
+          "S1",
+          "S2",
+          "Q1",
+          "Q2",
+          "Q3",
+          "Q4",
+          "Q5",
+          "Q6",
+          "Q7",
+          "Q8",
+          "COMPLETE"
+        ],
+        "piped_text": {
+          "Q6": "Yes"
+        },
+        "piped_options": {},
+        "unresolved": [],
+        "fired_rules": [],
+        "blocked_at": null,
+        "quota_stopped": null,
+        "semantics_used": [],
+        "observable": {
+          "questions_seen_in_order": [
+            "S1",
+            "S2",
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4",
+            "Q5",
+            "Q6",
+            "Q7",
+            "Q8"
+          ],
+          "questions_not_seen": [],
+          "ending_reached": "COMPLETE",
+          "blocked_at": null,
+          "quota_stopped": null,
+          "validation_messages_expected": [],
+          "piped_text_visible": {
+            "Q6": "Yes"
+          },
+          "option_lists_visible": {}
+        }
+      },
+      "T-84fe582a25": {
+        "witness_target_id": "",
+        "shown": [
+          "S1",
+          "S2",
+          "Q1",
+          "Q2",
+          "Q3",
+          "Q4",
+          "Q5",
+          "Q6",
+          "Q7",
+          "Q8"
+        ],
+        "hidden": [],
+        "validation_triggered": [
+          {
+            "question_id": "Q4",
+            "rule": "min_selections",
+            "outcome": "satisfied",
+            "detail": "1 selected, minimum 1 met"
+          },
+          {
+            "question_id": "Q6",
+            "rule": "length",
+            "outcome": "satisfied",
+            "detail": "length 10 within [10, 500]"
+          }
+        ],
+        "ending": "COMPLETE",
+        "path": [
+          "__START__",
+          "S1",
+          "S2",
+          "Q1",
+          "Q2",
+          "Q3",
+          "Q4",
+          "Q5",
+          "Q6",
+          "Q7",
+          "Q8",
+          "COMPLETE"
+        ],
+        "piped_text": {
+          "Q6": "Yes"
+        },
+        "piped_options": {},
+        "unresolved": [],
+        "fired_rules": [],
+        "blocked_at": null,
+        "quota_stopped": null,
+        "semantics_used": [],
+        "observable": {
+          "questions_seen_in_order": [
+            "S1",
+            "S2",
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4",
+            "Q5",
+            "Q6",
+            "Q7",
+            "Q8"
+          ],
+          "questions_not_seen": [],
+          "ending_reached": "COMPLETE",
+          "blocked_at": null,
+          "quota_stopped": null,
+          "validation_messages_expected": [],
+          "piped_text_visible": {
+            "Q6": "Yes"
+          },
+          "option_lists_visible": {}
+        }
+      }
+    }
+  }
+}

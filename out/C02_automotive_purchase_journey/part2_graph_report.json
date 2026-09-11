@@ -8,7 +8,7 @@
     "sha256": "112a39d23aaf16dcfd2cce8a9de380d8b289dd33645c2703b7f00ec49f7e69f2",
     "bytes": 43592
   },
-  "generated_at": "2026-09-11T16:46:45+00:00",
+  "generated_at": "2026-09-11T20:30:56+00:00",
   "item_count": null,
   "content": {
     "source": "C02_automotive_purchase_journey.docx",
@@ -20,7 +20,7 @@
     "rules_total": 20,
     "quotas_mapped": 2,
     "quotas_total": 2,
-    "dependency_edges": 14,
+    "dependency_edges": 15,
     "findings": [
       {
         "check": "termination",
@@ -63,8 +63,8 @@
         "result": 1.0
       },
       "dependency_coverage": {
-        "numerator": 5,
-        "denominator": 5,
+        "numerator": 6,
+        "denominator": 6,
         "result": 1.0
       },
       "quota_coverage": {

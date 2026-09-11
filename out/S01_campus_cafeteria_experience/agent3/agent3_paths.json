@@ -1,0 +1,244 @@
+{
+  "schema_version": "0.1.0",
+  "artifact": "agent3_paths",
+  "agent": 3,
+  "survey_id": "S01_campus_cafeteria_experience",
+  "source_document": {
+    "filename": "S01_campus_cafeteria_experience.docx",
+    "sha256": "2756cb3b6dc3f21cdc7c1d35b7cfb0e2270af2a918ba6fe682e72ae8e121a804"
+  },
+  "upstream": {
+    "canonical_schema_version": "1.0.0",
+    "canonical_generated_at": "2026-09-11T17:17:56+00:00"
+  },
+  "content": {
+    "report": {
+      "branches_total": 4,
+      "branch_states_total": 8,
+      "branch_states_covered": 7,
+      "branch_states_missing": [],
+      "branch_states_shadowed": [
+        {
+          "branch": "B-show-Q6=F",
+          "question": "Q6",
+          "guard": "Q5 == 'Yes'",
+          "shadowed_by": "R4",
+          "skip_condition": "Q5 == 'No'",
+          "finding": "Q6 carries a show-condition, and R4 jumps past it under the same circumstances. Whenever the show-condition would be false, the respondent has already been moved on, so the condition is never observed on its own. The two say the same thing. Worth confirming with the author that both are intended."
+        }
+      ],
+      "paths_selected": 4,
+      "exclusive": true,
+      "branch_exhaustive": true,
+      "exhaustive_note": "Every branch that can be reached on its own is reached, in both directions. 1 guard state(s) cannot be reached independently because a skip rule fires under the same condition; those are listed as shadowed, not as gaps.",
+      "not_enumerated": [
+        {
+          "family": "Every branch decision crossed with every other",
+          "combinations": "16 answer combinations across 4 independent branches",
+          "why_collapsed": "Almost every combination walks a question sequence that another combination already walks. Only distinct sequences are testable as distinct journeys.",
+          "residual_risk": "A defect that depends on two branch values at once, where no rule in the specification relates them. Where a rule does relate them, the interaction checks pick it up."
+        },
+        {
+          "family": "Quota state crossed with every completing journey",
+          "combinations": "1 quota states \u00d7 every completing path",
+          "why_collapsed": "The quota decision is taken at one question and does not change anything before it, so one path per quota is sufficient.",
+          "residual_risk": "Low. Note the quota behaviour itself is absent from the built survey, which the conformance report already flags."
+        },
+        {
+          "family": "Screening decisions crossed with anything after them",
+          "combinations": "Unreachable by construction",
+          "why_collapsed": "A respondent screened out never reaches a later question, so the combination does not exist.",
+          "residual_risk": "None."
+        }
+      ]
+    },
+    "branches": [
+      {
+        "branch_id": "B-R1",
+        "kind": "terminate",
+        "at_question": "S1",
+        "rule_id": "R1",
+        "condition": "S1 == 'No'",
+        "controls": [
+          "TERM_INELIGIBLE"
+        ]
+      },
+      {
+        "branch_id": "B-R2",
+        "kind": "terminate",
+        "at_question": "S2",
+        "rule_id": "R2",
+        "condition": "S2 == 'No'",
+        "controls": [
+          "TERM_INELIGIBLE"
+        ]
+      },
+      {
+        "branch_id": "B-R4",
+        "kind": "skip",
+        "at_question": "Q5",
+        "rule_id": "R4",
+        "condition": "Q5 == 'No'",
+        "controls": [
+          "Q7"
+        ]
+      },
+      {
+        "branch_id": "B-show-Q6",
+        "kind": "guard",
+        "at_question": "Q5",
+        "rule_id": null,
+        "condition": "Q5 == 'Yes'",
+        "controls": [
+          "Q6"
+        ]
+      }
+    ],
+    "paths": [
+      {
+        "path_id": "P01",
+        "name": "Screened out at S1 (TERM_INELIGIBLE)",
+        "route_class": "SCREENOUT",
+        "sequence": [
+          "S1"
+        ],
+        "disposition": "TERM_INELIGIBLE",
+        "decisions": {
+          "S2": "S2-O1",
+          "S1": "S1-O2"
+        },
+        "branch_values": [],
+        "skipped": [],
+        "hidden": [],
+        "rules_exercised": [
+          "R1"
+        ],
+        "branches_covered": [
+          "B-R1=T"
+        ],
+        "scenario": null,
+        "why_selected": "The only path that exercises R1, the rule that routes to TERM_INELIGIBLE.",
+        "what_it_adds": "Reaches TERM_INELIGIBLE by way of R1. No other path ends here through this rule.",
+        "preconditions": "Fresh respondent, no prior answers. Both quota cells open.",
+        "campaign": {},
+        "mechanism": "R1",
+        "sequence_text": "S1  ->  TERM_INELIGIBLE"
+      },
+      {
+        "path_id": "P02",
+        "name": "Screened out at S2 (TERM_INELIGIBLE)",
+        "route_class": "SCREENOUT",
+        "sequence": [
+          "S1",
+          "S2"
+        ],
+        "disposition": "TERM_INELIGIBLE",
+        "decisions": {
+          "S1": "S1-O1",
+          "S2": "S2-O2"
+        },
+        "branch_values": [],
+        "skipped": [],
+        "hidden": [],
+        "rules_exercised": [
+          "R2"
+        ],
+        "branches_covered": [
+          "B-R1=F",
+          "B-R2=T"
+        ],
+        "scenario": null,
+        "why_selected": "The only path that exercises R2, the rule that routes to TERM_INELIGIBLE.",
+        "what_it_adds": "Reaches TERM_INELIGIBLE by way of R2. No other path ends here through this rule.",
+        "preconditions": "Fresh respondent, no prior answers. Both quota cells open.",
+        "campaign": {},
+        "mechanism": "R2",
+        "sequence_text": "S1 -> S2  ->  TERM_INELIGIBLE"
+      },
+      {
+        "path_id": "P03",
+        "name": "Completing respondent \u2014 Q5=Yes",
+        "route_class": "MAIN",
+        "sequence": [
+          "S1",
+          "S2",
+          "Q1",
+          "Q2",
+          "Q3",
+          "Q4",
+          "Q5",
+          "Q6",
+          "Q7",
+          "Q8"
+        ],
+        "disposition": "COMPLETE",
+        "decisions": {
+          "S1": "S1-O1",
+          "S2": "S2-O1",
+          "Q5": "Q5-O1"
+        },
+        "branch_values": [],
+        "skipped": [],
+        "hidden": [],
+        "rules_exercised": [
+          "R3"
+        ],
+        "branches_covered": [
+          "B-R1=F",
+          "B-R2=F",
+          "B-R4=F",
+          "B-show-Q6=T"
+        ],
+        "scenario": "T2",
+        "why_selected": "This is the questionnaire's own worked example T2 (eligible with problem).",
+        "what_it_adds": "Represents acceptance scenario T2, so the author's stated expectation is tested as a journey rather than only as a rule.",
+        "preconditions": "Fresh respondent, no prior answers. Both quota cells open.",
+        "campaign": {},
+        "mechanism": "",
+        "sequence_text": "S1 -> S2 -> Q1 -> Q2 -> Q3 -> Q4 -> Q5 -> Q6 -> Q7 -> Q8  ->  COMPLETE"
+      },
+      {
+        "path_id": "P04",
+        "name": "Completing respondent \u2014 Q5=No",
+        "route_class": "MAIN",
+        "sequence": [
+          "S1",
+          "S2",
+          "Q1",
+          "Q2",
+          "Q3",
+          "Q4",
+          "Q5",
+          "Q7",
+          "Q8"
+        ],
+        "disposition": "COMPLETE",
+        "decisions": {
+          "S1": "S1-O1",
+          "S2": "S2-O1",
+          "Q5": "Q5-O2"
+        },
+        "branch_values": [],
+        "skipped": [
+          "Q6"
+        ],
+        "hidden": [],
+        "rules_exercised": [
+          "R4"
+        ],
+        "branches_covered": [
+          "B-R1=F",
+          "B-R2=F",
+          "B-R4=T"
+        ],
+        "scenario": "T3",
+        "why_selected": "This is the questionnaire's own worked example T3 (eligible without problem).",
+        "what_it_adds": "Represents acceptance scenario T3, so the author's stated expectation is tested as a journey rather than only as a rule.",
+        "preconditions": "Fresh respondent, no prior answers. Both quota cells open.",
+        "campaign": {},
+        "mechanism": "",
+        "sequence_text": "S1 -> S2 -> Q1 -> Q2 -> Q3 -> Q4 -> Q5 -> Q7 -> Q8  ->  COMPLETE"
+      }
+    ]
+  }
+}

@@ -1,0 +1,97 @@
+{
+  "schema_version": "0.1.0",
+  "artifact": "agent3_conformance",
+  "agent": 3,
+  "survey_id": "C02_automotive_purchase_journey",
+  "source_document": {
+    "filename": "C02_automotive_purchase_journey.docx",
+    "sha256": "112a39d23aaf16dcfd2cce8a9de380d8b289dd33645c2703b7f00ec49f7e69f2"
+  },
+  "upstream": {
+    "canonical_schema_version": "1.0.0",
+    "canonical_generated_at": "2026-09-11T20:30:56+00:00"
+  },
+  "content": {
+    "lss_sha256": "d509b2e92178ecdccfeee4db7744941e5e5ea93ab72526ed0b1b5a3c299b4c46",
+    "questions_specified": 31,
+    "questions_built": 31,
+    "options_bound": 126,
+    "findings": [
+      {
+        "kind": "SKIP_RULE_NOT_BUILT",
+        "severity": "NORMAL",
+        "subject": "R5",
+        "detail": "the builder treats a skip as the complement of a show rule and emits nothing; the behaviour is carried by the target question's relevance"
+      },
+      {
+        "kind": "REJECT_RULE_NOT_BUILT",
+        "severity": "HIGH",
+        "subject": "R18",
+        "detail": "the builder skips reject rules as restatements of question-level constraints; no separate behaviour exists to test"
+      },
+      {
+        "kind": "REJECT_RULE_NOT_BUILT",
+        "severity": "HIGH",
+        "subject": "R19",
+        "detail": "the builder skips reject rules as restatements of question-level constraints; no separate behaviour exists to test"
+      },
+      {
+        "kind": "REJECT_RULE_NOT_BUILT",
+        "severity": "HIGH",
+        "subject": "R20",
+        "detail": "the builder skips reject rules as restatements of question-level constraints; no separate behaviour exists to test"
+      },
+      {
+        "kind": "QUOTAS_NOT_BUILT",
+        "severity": "HIGH",
+        "subject": "QUOTA_REGION, QUOTA_AGE",
+        "detail": "the builder emits no quota tables, so no quota behaviour exists in the built survey"
+      },
+      {
+        "kind": "RANDOMIZATION_NOT_BUILT",
+        "severity": "HIGH",
+        "subject": "Q1",
+        "detail": "spec asks for randomization but the built question carries no randomization attribute"
+      },
+      {
+        "kind": "RANDOMIZATION_NOT_BUILT",
+        "severity": "HIGH",
+        "subject": "Q5",
+        "detail": "spec asks for randomization but the built question carries no randomization attribute"
+      },
+      {
+        "kind": "RANDOMIZATION_NOT_BUILT",
+        "severity": "HIGH",
+        "subject": "Q9",
+        "detail": "spec asks for randomization but the built question carries no randomization attribute"
+      },
+      {
+        "kind": "RANDOMIZATION_NOT_BUILT",
+        "severity": "HIGH",
+        "subject": "Q16",
+        "detail": "spec asks for randomization but the built question carries no randomization attribute"
+      },
+      {
+        "kind": "RANDOMIZATION_NOT_BUILT",
+        "severity": "HIGH",
+        "subject": "Q19",
+        "detail": "spec asks for randomization but the built question carries no randomization attribute"
+      },
+      {
+        "kind": "TERMINATION_MODEL_DIFFERS",
+        "severity": "NORMAL",
+        "subject": "TERM_AGE, TERM_CONFLICT, TERM_INVOLVEMENT, TERM_RECENT_RESEARCH",
+        "detail": "LimeSurvey has no terminate action. The build inverts every terminate rule into the main group's relevance and nests the disposition messages into one end screen. Message text recovered for 4 of 4 screenout destinations. Assertions must test 'main group suppressed' plus 'end screen shows this text', never a page named after the disposition."
+      },
+      {
+        "kind": "DISPOSITION_NOT_DISTINGUISHABLE",
+        "severity": "HIGH",
+        "subject": "TERM_AGE, TERM_CONFLICT, TERM_INVOLVEMENT, TERM_RECENT_RESEARCH",
+        "detail": "these 4 dispositions share identical end-screen text ('Thank you for your interest. You do not qualify for this survey.'), so Agent 4 sees the same words whichever rule fired. An end-text assertion proves a screenout occurred, not which one. To distinguish them the QRE must give each disposition its own wording."
+      }
+    ],
+    "blocking_count": 0,
+    "verdict": "CONFORMS_WITH_FINDINGS",
+    "note": "Derived from the emitted .lss, not from a self-reported build manifest. The .lss is what LimeSurvey actually imports, so it is stronger evidence than a manifest of intent."
+  }
+}

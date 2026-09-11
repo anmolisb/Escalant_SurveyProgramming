@@ -8,7 +8,7 @@
     "sha256": "112a39d23aaf16dcfd2cce8a9de380d8b289dd33645c2703b7f00ec49f7e69f2",
     "bytes": 43592
   },
-  "generated_at": "2026-09-11T16:46:45+00:00",
+  "generated_at": "2026-09-11T20:30:57+00:00",
   "item_count": null,
   "content": {
     "survey_id": "C02_automotive_purchase_journey",
@@ -20,7 +20,7 @@
       "route_graph": "part2_route_graph.json",
       "graph_report": "part2_graph_report.json",
       "schema_version": "1.0.0",
-      "generated_at": "2026-09-11T16:46:45+00:00"
+      "generated_at": "2026-09-11T20:30:56+00:00"
     },
     "validation_status": "READY",
     "graph_readiness": "READY_WITH_WARNINGS",
@@ -78,8 +78,8 @@
         "result": 1.0
       },
       "dependency_preservation": {
-        "numerator": 5,
-        "denominator": 5,
+        "numerator": 6,
+        "denominator": 6,
         "result": 1.0
       },
       "randomization_preservation": {
@@ -665,6 +665,20 @@
       },
       {
         "test_id": "G039",
+        "category": "dependency",
+        "check": "dependency_edge_present",
+        "rule_or_question": "Q19->Q21",
+        "source_reference": {
+          "from": "Q19",
+          "to": "Q21"
+        },
+        "input_state": null,
+        "expected": true,
+        "criticality": "HIGH",
+        "ground_truth_status": "VERIFIED"
+      },
+      {
+        "test_id": "G040",
         "category": "quota",
         "check": "quota_edge_present_structural_only",
         "rule_or_question": "QUOTA_REGION",
@@ -677,7 +691,7 @@
         "ground_truth_status": "UNVERIFIED"
       },
       {
-        "test_id": "G040",
+        "test_id": "G041",
         "category": "quota",
         "check": "quota_edge_present_structural_only",
         "rule_or_question": "QUOTA_AGE",
@@ -690,7 +704,7 @@
         "ground_truth_status": "UNVERIFIED"
       },
       {
-        "test_id": "G041",
+        "test_id": "G042",
         "category": "randomization",
         "check": "randomization_metadata_present",
         "rule_or_question": "Q1",
@@ -703,7 +717,7 @@
         "ground_truth_status": "VERIFIED"
       },
       {
-        "test_id": "G042",
+        "test_id": "G043",
         "category": "randomization",
         "check": "randomization_metadata_present",
         "rule_or_question": "Q5",
@@ -716,7 +730,7 @@
         "ground_truth_status": "VERIFIED"
       },
       {
-        "test_id": "G043",
+        "test_id": "G044",
         "category": "randomization",
         "check": "randomization_metadata_present",
         "rule_or_question": "Q9",
@@ -729,7 +743,7 @@
         "ground_truth_status": "VERIFIED"
       },
       {
-        "test_id": "G044",
+        "test_id": "G045",
         "category": "randomization",
         "check": "randomization_metadata_present",
         "rule_or_question": "Q16",
@@ -742,7 +756,7 @@
         "ground_truth_status": "VERIFIED"
       },
       {
-        "test_id": "G045",
+        "test_id": "G046",
         "category": "randomization",
         "check": "randomization_metadata_present",
         "rule_or_question": "Q19",
@@ -755,7 +769,7 @@
         "ground_truth_status": "VERIFIED"
       },
       {
-        "test_id": "G046",
+        "test_id": "G047",
         "category": "route",
         "check": "scenario_route_walk",
         "rule_or_question": "T1",
@@ -771,7 +785,7 @@
         "ground_truth_status": "VERIFIED"
       },
       {
-        "test_id": "G047",
+        "test_id": "G048",
         "category": "route",
         "check": "scenario_route_walk",
         "rule_or_question": "T2",
@@ -790,7 +804,7 @@
         "ground_truth_status": "VERIFIED"
       },
       {
-        "test_id": "G048",
+        "test_id": "G049",
         "category": "route",
         "check": "scenario_route_walk",
         "rule_or_question": "T3",
@@ -812,7 +826,7 @@
         "ground_truth_status": "VERIFIED"
       },
       {
-        "test_id": "G049",
+        "test_id": "G050",
         "category": "route",
         "check": "scenario_route_walk",
         "rule_or_question": "T4",
@@ -837,7 +851,7 @@
         "ground_truth_status": "VERIFIED"
       },
       {
-        "test_id": "G050",
+        "test_id": "G051",
         "category": "route",
         "check": "scenario_route_walk",
         "rule_or_question": "T5",
@@ -1247,6 +1261,16 @@
       },
       {
         "test_id": "G039",
+        "category": "dependency",
+        "status": "PASS",
+        "expected": true,
+        "actual": true,
+        "evidence": "Q19->Q21",
+        "rule_or_question": "Q19->Q21",
+        "explanation": "dependency preserved"
+      },
+      {
+        "test_id": "G040",
         "category": "quota",
         "status": "UNVERIFIED",
         "expected": "a structural edge exists; quota fill is not a per-respondent condition",
@@ -1256,7 +1280,7 @@
         "explanation": "no independent oracle exists for this condition, so the graph's behaviour here cannot be checked without a person"
       },
       {
-        "test_id": "G040",
+        "test_id": "G041",
         "category": "quota",
         "status": "UNVERIFIED",
         "expected": "a structural edge exists; quota fill is not a per-respondent condition",
@@ -1266,7 +1290,7 @@
         "explanation": "no independent oracle exists for this condition, so the graph's behaviour here cannot be checked without a person"
       },
       {
-        "test_id": "G041",
+        "test_id": "G042",
         "category": "randomization",
         "status": "PASS",
         "expected": true,
@@ -1276,7 +1300,7 @@
         "explanation": "metadata present on the node"
       },
       {
-        "test_id": "G042",
+        "test_id": "G043",
         "category": "randomization",
         "status": "PASS",
         "expected": true,
@@ -1286,7 +1310,7 @@
         "explanation": "metadata present on the node"
       },
       {
-        "test_id": "G043",
+        "test_id": "G044",
         "category": "randomization",
         "status": "PASS",
         "expected": true,
@@ -1296,7 +1320,7 @@
         "explanation": "metadata present on the node"
       },
       {
-        "test_id": "G044",
+        "test_id": "G045",
         "category": "randomization",
         "status": "PASS",
         "expected": true,
@@ -1306,7 +1330,7 @@
         "explanation": "metadata present on the node"
       },
       {
-        "test_id": "G045",
+        "test_id": "G046",
         "category": "randomization",
         "status": "PASS",
         "expected": true,
@@ -1316,7 +1340,7 @@
         "explanation": "metadata present on the node"
       },
       {
-        "test_id": "G046",
+        "test_id": "G047",
         "category": "route",
         "status": "PASS",
         "expected": "TERM_AGE",
@@ -1326,7 +1350,7 @@
         "explanation": "walking the graph from the scenario's own inputs reaches the ending the QRE itself says it should"
       },
       {
-        "test_id": "G047",
+        "test_id": "G048",
         "category": "route",
         "status": "PASS",
         "expected": "TERM_CONFLICT",
@@ -1336,7 +1360,7 @@
         "explanation": "walking the graph from the scenario's own inputs reaches the ending the QRE itself says it should"
       },
       {
-        "test_id": "G048",
+        "test_id": "G049",
         "category": "route",
         "status": "PASS",
         "expected": "COMPLETE",
@@ -1346,7 +1370,7 @@
         "explanation": "walking the graph from the scenario's own inputs reaches the ending the QRE itself says it should"
       },
       {
-        "test_id": "G049",
+        "test_id": "G050",
         "category": "route",
         "status": "PASS",
         "expected": "COMPLETE",
@@ -1356,7 +1380,7 @@
         "explanation": "walking the graph from the scenario's own inputs reaches the ending the QRE itself says it should"
       },
       {
-        "test_id": "G050",
+        "test_id": "G051",
         "category": "route",
         "status": "PASS",
         "expected": "COMPLETE",
@@ -1367,8 +1391,8 @@
       }
     ],
     "test_counts": {
-      "total": 50,
-      "PASS": 45,
+      "total": 51,
+      "PASS": 46,
       "FAIL": 0,
       "UNVERIFIED": 5,
       "BLOCKED": 0
@@ -1449,7 +1473,7 @@
         "explanation": "no independent oracle exists for this condition, so the graph's behaviour here cannot be checked without a person"
       },
       {
-        "test_id": "G039",
+        "test_id": "G040",
         "category": "quota",
         "status": "UNVERIFIED",
         "expected": "a structural edge exists; quota fill is not a per-respondent condition",
@@ -1459,7 +1483,7 @@
         "explanation": "no independent oracle exists for this condition, so the graph's behaviour here cannot be checked without a person"
       },
       {
-        "test_id": "G040",
+        "test_id": "G041",
         "category": "quota",
         "status": "UNVERIFIED",
         "expected": "a structural edge exists; quota fill is not a per-respondent condition",
