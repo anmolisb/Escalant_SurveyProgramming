@@ -388,29 +388,20 @@ if not has_run:
 survey = read_json(directory, "stage4_survey.json", {})
 questions = read_json(directory, "stage4_questionnaire.json", [])
 routing = read_json(directory, "stage4_routing.json", [])
-gate = read_json(directory, "agent1_stage9_gate.json", {})
 design = st.session_state.get("design") or load_design_summary(design_dir)
 
 title = survey.get("title") or run_name
 st.subheader(title)
 
-approval = gate.get("status", "Unknown")
 strip(
     [
         ("Questions", str(len(questions)), ""),
         ("Routing rules", str(len(routing)), ""),
         ("Survey file", "Built" if has_lss else "Not built", "ok" if has_lss else "idle"),
         ("Test cases", str(design.get("logical_tests", "—")) if design else "—", ""),
-        (
-            "Downstream approval",
-            approval,
-            "warn" if approval not in {"READY", "Unknown"} else "idle",
-        ),
     ]
 )
 
-if gate.get("blocked_by"):
-    st.warning("Blocked by: " + ", ".join(gate["blocked_by"]))
 
 tab_q, tab_r, tab_g, tab_s, tab_t, tab_f = st.tabs(
     ["Questions", "Routing", "Flow graph", "Survey Builder", "Test Design", "Artifacts"]
