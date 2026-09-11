@@ -1,14 +1,19 @@
-"""Build a LimeSurvey .lss file from a stage 4 output files.
-    python -m src.agents.survey_builder.build out/C02
+"""Build a LimeSurvey .lss file from a stage 4 output directory.
 
-The input is checked before anything is built. The loader raises on the first
-problem it meets, which means fixing gaps one rerun at a time; preflight walks
-the whole input first so a new QRE reports every gap at once.
+    python -m src.agents.survey_builder.build tests/survey_builder/stage4-outputs/C02
+
+The input is checked before anything is built, because the loader raises on the
+first problem it meets and a new QRE usually has several. A build that cannot
+go ahead says why.
+
+Some inputs build correctly but carry fields LimeSurvey has no equivalent for,
+which are dropped. Those are not errors and are not printed here: pass --notes
+to see them, or run preflight, which reports everything it finds.
 """
 
 from __future__ import annotations
 
-import sys
+import argparse
 from pathlib import Path
 
 from src.agents.survey_builder.emitter import write
@@ -19,16 +24,19 @@ OUTPUT_DIR = Path("out")
 
 
 def main() -> int:
-    if len(sys.argv) != 2:
-        print(__doc__)
-        return 2
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("directory", help="a stage 4 output folder")
+    parser.add_argument("--notes", action="store_true",
+                        help="also list input the builder is ignoring")
+    args = parser.parse_args()
 
-    directory = Path(sys.argv[1])
-
+    directory = Path(args.directory)
     gaps = check(directory)
-    if gaps:
-        print(f"{directory}: cannot build, {len(gaps)} unsupported thing(s)\n")
-        for gap in gaps:
+
+    blocking = [gap for gap in gaps if gap.blocking]
+    if blocking:
+        print(f"{directory}: cannot build, {len(blocking)} unsupported thing(s)\n")
+        for gap in blocking:
             print(gap)
         return 1
 
@@ -39,6 +47,13 @@ def main() -> int:
 
     questions = sum(len(group.questions) for group in survey.groups)
     print(f"{path}  ({len(survey.groups)} groups, {questions} questions)")
+
+    if args.notes:
+        notes = [gap for gap in gaps if not gap.blocking]
+        if notes:
+            print()
+            for gap in notes:
+                print(gap)
     return 0
 
 

@@ -59,7 +59,7 @@
     <admin><![CDATA[admin]]></admin>
     <adminemail><![CDATA[admin@example.com]]></adminemail>
     <anonymized><![CDATA[N]]></anonymized>
-    <format><![CDATA[G]]></format>
+    <format><![CDATA[S]]></format>
     <savetimings><![CDATA[N]]></savetimings>
     <template><![CDATA[fruity_twentythree]]></template>
     <language><![CDATA[en]]></language>
@@ -217,7 +217,7 @@
     <question_order><![CDATA[2]]></question_order>
     <scale_id><![CDATA[0]]></scale_id>
     <same_default><![CDATA[0]]></same_default>
-    <relevance><![CDATA[1]]></relevance>
+    <relevance><![CDATA[(S1.NAOK != "A002")]]></relevance>
     <question_theme_name><![CDATA[listradio]]></question_theme_name>
     <same_script><![CDATA[0]]></same_script>
    </row>

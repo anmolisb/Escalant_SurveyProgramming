@@ -45,6 +45,12 @@ _CONTAINS_INFIX = re.compile(
     re.IGNORECASE,
 )
 
+# "S3 < 18", "S3 >= 18". A numeric question holds a typed-in number, so the
+# value is compared directly rather than looked up as an answer code.
+_NUMERIC_COMPARISON = re.compile(
+    r"^\s*(\w+)\s*(<=|>=|<|>|==|!=)\s*(-?\d+(?:\.\d+)?)\s*$"
+)
+
 _QUOTED = re.compile(r"'([^']*)'")
 
 #: A ticked checkbox stores this, and each option is its own field.
@@ -57,7 +63,12 @@ _TYPE_MAP = {
     "text": "T",  # S, a single-line box, is available but never inferred
     "matrix": "F",
     "constant_sum": "K",
+    "integer": "N",
+    "number": "N",
 }
+
+#: Types that take a typed-in number rather than a choice.
+_NUMERIC_TYPES = {"N", "K"}
 
 #: Types whose options are stored as subquestions rather than answers.
 _SUBQUESTION_TYPES = {"M", "K"}
@@ -68,6 +79,12 @@ _SOURCE_QUESTION = re.compile(r"\b([A-Z]{1,3}\d+)\b")
 
 class ConditionError(ValueError):
     """A routing condition could not be resolved against the questionnaire."""
+
+
+def _number(value) -> str:
+    """Stage 4 writes numbers as floats; LimeSurvey wants 18, not 18.0."""
+    number = float(value)
+    return str(int(number)) if number.is_integer() else str(number)
 
 
 def _code_for(index: int) -> str:
@@ -133,6 +150,20 @@ def _build_question(raw: dict, order: int) -> Question:
     else:
         question.options = _options(raw_options)
 
+    if question.type in _NUMERIC_TYPES:
+        # LimeSurvey names the bounds on a numeric question with an _n suffix;
+        # min_num_value and max_num_value without it are a different setting.
+        if raw.get("min_value") is not None:
+            question.attributes["min_num_value_n"] = _number(raw["min_value"])
+        if raw.get("max_value") is not None:
+            question.attributes["max_num_value_n"] = _number(raw["max_value"])
+        if (raw.get("type") or "").strip().lower() == "integer":
+            question.attributes["num_value_int_only"] = "1"
+
+    if raw.get("randomize"):
+        # answer_order takes a word, not a flag; "normal" is the default.
+        question.attributes["answer_order"] = "random"
+
     exclusive = raw.get("exclusive_option")
     if exclusive:
         # LimeSurvey addresses the option by its subquestion code, not its label.
@@ -193,6 +224,7 @@ def _relevance(condition: str, by_title: dict[str, Question]) -> str:
     """Turn a neutral condition into a LimeSurvey relevance expression.
 
         Q5 == 'Yes'                 ->  (Q5.NAOK == "A001")
+        S3 < 18                     ->  (S3.NAOK < 18)
         Q12 IN ['Fully','Partly']   ->  (Q12.NAOK == "A001" or Q12.NAOK == "A002")
         CONTAINS_ANY(Q1, 'A', 'B')  ->  (Q1_SQ001.NAOK == "Y" or Q1_SQ002.NAOK == "Y")
 
@@ -206,6 +238,12 @@ def _relevance(condition: str, by_title: dict[str, Question]) -> str:
         question = _question(question_id, by_title)
         code = _code_of_label(question, label)
         return f'({question_id}.NAOK {operator} "{code}")'
+
+    match = _NUMERIC_COMPARISON.match(condition)
+    if match:
+        question_id, operator, value = match.groups()
+        _question(question_id, by_title)
+        return f"({question_id}.NAOK {operator} {_number(value)})"
 
     match = _CONTAINS_CALL.match(condition) or _CONTAINS_INFIX.match(condition)
     if match:
@@ -313,6 +351,7 @@ def load(directory: str | Path) -> Survey:
     # already satisfied by it, so it needs nothing emitted.
     proceed: list[str] = []
     terminate: list[tuple[str, str]] = []
+    terminate_at: list[tuple[str, str]] = []
     skipped_rejects: list[str] = []
     shown: dict[str, str] = {}
     for rule in routing_raw:
@@ -327,6 +366,9 @@ def load(directory: str | Path) -> Survey:
             expression = _relevance(condition, by_title)
             terminate.append((expression, rule["destination"]))
             proceed.append(_invert(expression))
+            named = _COMPARISON.match(condition) or _MEMBERSHIP.match(condition)
+            if named:
+                terminate_at.append((expression, named.group(1)))
         elif action == "reject":
             # A reject rule bars the respondent from continuing, which is
             # validation rather than routing. Every one seen so far restates a
@@ -345,6 +387,27 @@ def load(directory: str | Path) -> Survey:
             question.relevance = shown[raw["id"]]
         elif raw.get("display_condition"):
             question.relevance = _relevance(raw["display_condition"], by_title)
+
+    # A terminate rule ends the interview at the question it names, so nothing
+    # after that question should be asked. Gating the main group is not enough:
+    # that stops the main survey but still shows the remaining screeners, so a
+    # respondent who fails S1 is asked S2 before being let go. Each question
+    # therefore also carries the negation of every terminate rule attached to a
+    # question that comes before it.
+    # Only questions sharing a group with the terminating question need this.
+    # Anything in a later group is already covered by that group's own gate,
+    # and repeating it on every question would say the same thing twice.
+    screening_ids = [q.title for q in screening]
+    for expression, question_id in terminate_at:
+        if question_id not in screening_ids:
+            continue
+        gate = _invert(expression)
+        for later in screening_ids[screening_ids.index(question_id) + 1:]:
+            question = by_title[later]
+            if question.relevance == "1":
+                question.relevance = gate
+            elif gate not in question.relevance:
+                question.relevance = f"{question.relevance} and {gate}"
 
     # A question whose options are carried from an earlier question uses
     # array_filter, which names the source question by code.

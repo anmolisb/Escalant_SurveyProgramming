@@ -6,19 +6,31 @@ survey in one step.
 
 ## Running it
 
-Check that the input can be built:
-
-```bash
-python -m src.agents.survey_builder.preflight fixtures/stage4-outputs/S01
-```
-
 Build it:
 
 ```bash
-python -m src.agents.survey_builder.build fixtures/stage4-outputs/S01
+python -m src.agents.survey_builder.build tests/survey_builder/stage4-outputs/S01
 ```
 
 The file lands in `out/`. In LimeSurvey, go to Surveys, Import, and upload it.
+
+A build prints one line saying where the file went. If it cannot go ahead it
+says why instead.
+
+Some inputs build correctly but contain fields LimeSurvey has no equivalent
+for, which are dropped. Those are not errors, so they are not printed by
+default. To see them:
+
+```bash
+python -m src.agents.survey_builder.build tests/survey_builder/stage4-outputs/S01 --notes
+```
+
+When meeting a new QRE, run preflight first. It checks the input without
+building anything and reports everything it finds in one pass:
+
+```bash
+python -m src.agents.survey_builder.preflight tests/survey_builder/stage4-outputs/S01
+```
 
 ## What goes in
 
@@ -80,18 +92,34 @@ happens to be 5, the rule is corrupted. Ids here start at 1000 to avoid that.
 **Some settings need a language tag.** Anything holding text shown to the
 respondent is dropped on import without one, silently.
 
-**There is no "terminate" in LimeSurvey.** Two rules saying "stop if S1 is No"
-and "stop if S2 is No" become one rule on the main section saying "only show
-this if S1 is not No and S2 is not No". The logic is inverted and combined.
+**There is no "terminate" in LimeSurvey.** A rule saying "stop if S1 is No"
+becomes two things: every later question in the same group gets a condition
+saying "only show this if S1 is not No", and the main section gets the same
+condition for every terminate rule, combined. The respondent is not stopped,
+they simply run out of questions and reach the end screen.
+
+**The survey shows one question per page.** With a whole group per page,
+nothing is evaluated until the page is submitted, so a respondent who fails the
+first screening question still works through the rest of the screener before
+being let go. The setting is `format` in `emitter.py`.
+
+**Randomising answers is a word, not a flag.** The `answer_order` attribute
+takes `random` or `normal`.
+
+**Numeric bounds have an `_n` suffix.** They are `min_num_value_n` and
+`max_num_value_n`. There are similarly named settings without the suffix that
+do something else.
 
 ## What is not supported yet
 
-- Question types other than single choice, multiple choice, free text, array
-  and constant sum. Preflight will name any others it finds.
+- Question types other than single choice, multiple choice, free text, array,
+  constant sum and numeric. Preflight will name any others it finds.
 - Quota controls. The QRE Interpreter does not extract them.
 - Rules combining several conditions with AND and OR in one expression.
 - Rules comparing one question against another rather than against a fixed
   answer.
+- Anything the QRE Interpreter puts in `other_attributes`, which is dropped.
+  Preflight lists it so you can check whether it mattered.
 
 Preflight reports all of these before building rather than failing partway.
 

@@ -24,6 +24,12 @@ from src.agents.survey_builder.models import Survey
 DB_VERSION = "710"
 LANGUAGE = "en"
 
+#: "S" shows one question per page, so a terminate rule takes effect as soon as
+#: the question that triggers it is answered. "G" shows a whole group at a
+#: time, which makes a screened-out respondent work through the rest of the
+#: screener before the survey lets them go.
+PRESENTATION = "S"
+
 #: A real export names the rendering theme on every question. The simple types
 #: import without it, but F and K rely on it to render at all.
 _QUESTION_THEME = {
@@ -33,6 +39,7 @@ _QUESTION_THEME = {
     "S": "shortfreetext",
     "F": "arrays/array",
     "K": "multiplenumeric",
+    "N": "numerical",
 }
 
 _SURVEY_FIELDS = [
@@ -50,7 +57,7 @@ _SURVEY_FIELDS = [
 
 _SURVEY_DEFAULTS = {
     "gsid": "1", "admin": "admin", "adminemail": "admin@example.com",
-    "anonymized": "N", "format": "G", "savetimings": "N",
+    "anonymized": "N", "format": PRESENTATION, "savetimings": "N",
     "template": "fruity_twentythree", "language": LANGUAGE, "datestamp": "N",
     "usecookie": "N", "allowregister": "N", "allowsave": "Y", "autoredirect": "N",
     "allowprev": "Y", "printanswers": "N", "ipaddr": "N", "ipanonymize": "N",
