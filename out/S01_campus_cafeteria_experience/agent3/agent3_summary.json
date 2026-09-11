@@ -1,0 +1,42 @@
+{
+  "survey_id": "S01_campus_cafeteria_experience",
+  "sample_size_supplied": null,
+  "anchors_supplied": [],
+  "covered_without_a_separate_run": 0,
+  "targets": 35,
+  "per_dimension": {
+    "D1": 14,
+    "D2": 3,
+    "D3": 6,
+    "D4": 10,
+    "D5": 0,
+    "D6": 1,
+    "D7": 0,
+    "D8": 0,
+    "D9": 1
+  },
+  "feasible_witnesses": 35,
+  "covered": 35,
+  "logical_tests": 35,
+  "coverage_floor_pct": 100.0,
+  "coverage_floor_dimension": "D1",
+  "executable_tests": 35,
+  "executable_coverage_pct": 100.0,
+  "compilation_refused": 0,
+  "conformance_verdict": "CONFORMS_WITH_FINDINGS",
+  "conformance_blocking": 0,
+  "semantics_provisional": [
+    "rule_precedence",
+    "unasked_reference"
+  ],
+  "specification_replay": "3 agree / 0 disagree / 0 unresolved of 3",
+  "output_dir": "out/S01_campus_cafeteria_experience/agent3",
+  "coverage_vector": {
+    "D1": "14/14 (100.0%) EXHAUSTIVE",
+    "D2": "3/3 (100.0%) EXHAUSTIVE",
+    "D3": "6/6 (100.0%) EXHAUSTIVE",
+    "D4": "10/10 (100.0%) EXHAUSTIVE",
+    "D6": "1/1 (100.0%) EXHAUSTIVE",
+    "D9": "1/1 (100.0%) BOUNDED"
+  }
+}

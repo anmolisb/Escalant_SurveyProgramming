@@ -1,0 +1,258 @@
+{
+  "schema_version": "0.1.0",
+  "artifact": "agent3_coverage",
+  "agent": 3,
+  "survey_id": "S01_campus_cafeteria_experience",
+  "source_document": {
+    "filename": "S01_campus_cafeteria_experience.docx",
+    "sha256": "2756cb3b6dc3f21cdc7c1d35b7cfb0e2270af2a918ba6fe682e72ae8e121a804"
+  },
+  "upstream": {
+    "canonical_schema_version": "1.0.0",
+    "canonical_generated_at": "2026-09-11T17:17:56+00:00"
+  },
+  "content": {
+    "project_inputs": {},
+    "semantics": {
+      "unasked_reference": {
+        "value": "condition_false",
+        "origin": "inferred",
+        "status": "PROVISIONAL",
+        "blocking": true,
+        "decision_id": "134511cac21dfa7d"
+      },
+      "rule_precedence": {
+        "value": "document_order_first_match",
+        "origin": "inferred",
+        "status": "PROVISIONAL",
+        "blocking": true,
+        "decision_id": "3c988435446a4710"
+      },
+      "multi_equality": {
+        "value": "set_equality",
+        "origin": "derived",
+        "status": "CONFIRMED",
+        "blocking": false,
+        "decision_id": null
+      },
+      "default_mandatory": {
+        "value": true,
+        "origin": "derived",
+        "status": "CONFIRMED",
+        "blocking": false,
+        "decision_id": null
+      }
+    },
+    "semantics_all_resolved": false,
+    "upstream_gate": {
+      "graph_input_sufficiency": "READY",
+      "status": "BLOCKED",
+      "canonical_validation_clear": true,
+      "human_decision_gate_clear": false,
+      "graph_validation_passed": true,
+      "blocked_by": [
+        "human_decision_gate=PENDING_BLOCKING_DECISIONS"
+      ]
+    },
+    "b1": {
+      "per_dimension": {
+        "D1": 14,
+        "D2": 3,
+        "D3": 6,
+        "D4": 10,
+        "D5": 0,
+        "D6": 1,
+        "D7": 0,
+        "D8": 0,
+        "D9": 1
+      },
+      "records_enumerated": 35,
+      "predetermined_unresolvable": 0,
+      "orphan_rules": [],
+      "note": "Dimensions are reported side by side and never summed. records_enumerated counts records, not coverage."
+    },
+    "coverage": {
+      "coverage_vector": {
+        "D1": {
+          "name": "Visibility",
+          "enumerated": 14,
+          "covered": 14,
+          "uncovered": 0,
+          "reasons": {},
+          "provisional": 2,
+          "enumeration_status": "EXHAUSTIVE",
+          "logical_coverage_pct": 100.0
+        },
+        "D2": {
+          "name": "Terminal outcome",
+          "enumerated": 3,
+          "covered": 3,
+          "uncovered": 0,
+          "reasons": {},
+          "provisional": 2,
+          "enumeration_status": "EXHAUSTIVE",
+          "logical_coverage_pct": 100.0
+        },
+        "D3": {
+          "name": "Validation (explicit)",
+          "enumerated": 6,
+          "covered": 6,
+          "uncovered": 0,
+          "reasons": {},
+          "provisional": 0,
+          "enumeration_status": "EXHAUSTIVE",
+          "logical_coverage_pct": 100.0
+        },
+        "D4": {
+          "name": "Validation (mandatory)",
+          "enumerated": 10,
+          "covered": 10,
+          "uncovered": 0,
+          "reasons": {},
+          "provisional": 0,
+          "enumeration_status": "EXHAUSTIVE",
+          "logical_coverage_pct": 100.0
+        },
+        "D6": {
+          "name": "Text-pipe dependency",
+          "enumerated": 1,
+          "covered": 1,
+          "uncovered": 0,
+          "reasons": {},
+          "provisional": 0,
+          "enumeration_status": "EXHAUSTIVE",
+          "logical_coverage_pct": 100.0
+        },
+        "D9": {
+          "name": "Interaction",
+          "enumerated": 1,
+          "covered": 1,
+          "uncovered": 0,
+          "reasons": {},
+          "provisional": 0,
+          "enumeration_status": "BOUNDED",
+          "logical_coverage_pct": 100.0
+        }
+      },
+      "single_figure": {
+        "value_pct": 100.0,
+        "dimension": "D1",
+        "label": "FLOOR - lowest dimension. Never a sum or an average."
+      },
+      "executable_coverage_pct": 0.0,
+      "executable_coverage_note": "0% for every target and every survey. Block C cannot bind a canonical id to a LimeSurvey field without Agent 2's build manifest, which is not published yet. Logical and executable coverage are tracked separately precisely so this gap is visible.",
+      "known_blind_spot": "B4 compares, it does not re-derive. Two independently-wrong components that happen to agree will pass. Mitigated by B2/B3 structural independence, not by a check in B4."
+    },
+    "specification_replay": {
+      "total": 3,
+      "agreed": 3,
+      "unresolved": 0,
+      "disagreed": 0,
+      "note": "UNRESOLVED means B3 declined to evaluate a condition it cannot read, which is not the same as disagreeing with the QRE. Only DISAGREE indicates a real conflict.",
+      "results": [
+        {
+          "scenario_id": "T1",
+          "purpose": "recent-use screenout",
+          "inputs": {
+            "S1": "No"
+          },
+          "outcome": "AGREE",
+          "checks": [
+            {
+              "kind": "expected_end",
+              "expected": "TERM_INELIGIBLE",
+              "actual": "TERM_INELIGIBLE",
+              "verdict": "AGREE"
+            }
+          ],
+          "problem_checks": [],
+          "path": [
+            "__START__",
+            "S1",
+            "TERM_INELIGIBLE"
+          ],
+          "unresolved": []
+        },
+        {
+          "scenario_id": "T2",
+          "purpose": "eligible with problem",
+          "inputs": {
+            "S1": "Yes",
+            "S2": "Yes",
+            "Q5": "Yes"
+          },
+          "outcome": "AGREE",
+          "checks": [
+            {
+              "kind": "expected_end",
+              "expected": "COMPLETE",
+              "actual": "COMPLETE",
+              "verdict": "AGREE"
+            },
+            {
+              "kind": "expected_visible",
+              "target": "Q6",
+              "actual": "visible",
+              "verdict": "AGREE"
+            }
+          ],
+          "problem_checks": [],
+          "path": [
+            "__START__",
+            "S1",
+            "S2",
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4",
+            "Q5",
+            "Q6",
+            "Q7",
+            "Q8",
+            "COMPLETE"
+          ],
+          "unresolved": []
+        },
+        {
+          "scenario_id": "T3",
+          "purpose": "eligible without problem",
+          "inputs": {
+            "S1": "Yes",
+            "S2": "Yes",
+            "Q5": "No"
+          },
+          "outcome": "AGREE",
+          "checks": [
+            {
+              "kind": "expected_end",
+              "expected": "COMPLETE",
+              "actual": "COMPLETE",
+              "verdict": "AGREE"
+            },
+            {
+              "kind": "expected_hidden",
+              "target": "Q6",
+              "actual": "hidden",
+              "verdict": "AGREE"
+            }
+          ],
+          "problem_checks": [],
+          "path": [
+            "__START__",
+            "S1",
+            "S2",
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4",
+            "Q5",
+            "Q7",
+            "Q8",
+            "COMPLETE"
+          ],
+          "unresolved": []
+        }
+      ]
+    }
+  }
+}

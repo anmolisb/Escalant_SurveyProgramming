@@ -146,8 +146,8 @@
   {
     "rule": "R19",
     "condition_raw": "exclusive option selected with another response at Q1 or Q5",
-    "condition_expression": "(Q1 contains_any ['None of these'] or Q5 contains_any ['None of these'])",
-    "condition_expression_origin": "inferred",
+    "condition_expression": null,
+    "condition_expression_origin": null,
     "action": "reject",
     "destination": "CURRENT_QUESTION"
   },

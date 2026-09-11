@@ -1,0 +1,789 @@
+{
+  "schema_version": "0.1.0",
+  "artifact": "agent3_witnesses",
+  "agent": 3,
+  "survey_id": "S01_campus_cafeteria_experience",
+  "source_document": {
+    "filename": "S01_campus_cafeteria_experience.docx",
+    "sha256": "2756cb3b6dc3f21cdc7c1d35b7cfb0e2270af2a918ba6fe682e72ae8e121a804"
+  },
+  "upstream": {
+    "canonical_schema_version": "1.0.0",
+    "canonical_generated_at": "2026-09-11T17:17:56+00:00"
+  },
+  "content": {
+    "feasible": 35,
+    "total": 35,
+    "witnesses": [
+      {
+        "target_id": "T-94ce2e5d20",
+        "feasible": true,
+        "answers": {
+          "S1": "S1-O1",
+          "S2": "S2-O1",
+          "Q1": "Q1-O1",
+          "Q2": "Q2-O1",
+          "Q3": "Q3-O1",
+          "Q4": [
+            "Q4-O1"
+          ],
+          "Q5": "Q5-O1",
+          "Q6": "xxxxxxxxxx",
+          "Q7": "Q7-O1"
+        },
+        "method": "answered normally, nothing forced to fire",
+        "evidence": "S1 is reached and answered validly, so the respondent should continue rather than stop here [leaned on provisional semantics: ['rule_precedence']]",
+        "reason": null,
+        "preconditions": {},
+        "campaign": {}
+      },
+      {
+        "target_id": "T-9b21d71193",
+        "feasible": true,
+        "answers": {
+          "S1": "S1-O1",
+          "S2": "S2-O1",
+          "Q1": "Q1-O1",
+          "Q2": "Q2-O1",
+          "Q3": "Q3-O1",
+          "Q4": [
+            "Q4-O1"
+          ],
+          "Q5": "Q5-O1",
+          "Q6": "xxxxxxxxxx",
+          "Q7": "Q7-O1"
+        },
+        "method": "answered normally, nothing forced to fire",
+        "evidence": "S2 is reached and answered validly, so the respondent should continue rather than stop here [leaned on provisional semantics: ['rule_precedence']]",
+        "reason": null,
+        "preconditions": {},
+        "campaign": {}
+      },
+      {
+        "target_id": "T-f325a4a781",
+        "feasible": true,
+        "answers": {
+          "S1": "S1-O1",
+          "S2": "S2-O1",
+          "Q1": "Q1-O1",
+          "Q2": "Q2-O1",
+          "Q3": "Q3-O1",
+          "Q4": [
+            "Q4-O1"
+          ],
+          "Q5": "Q5-O1",
+          "Q6": "xxxxxxxxxx",
+          "Q7": "Q7-O1"
+        },
+        "method": "answered normally, nothing forced to fire",
+        "evidence": "Q1 is reached and answered validly, so the respondent should continue rather than stop here [leaned on provisional semantics: ['rule_precedence']]",
+        "reason": null,
+        "preconditions": {},
+        "campaign": {}
+      },
+      {
+        "target_id": "T-ea15e888c6",
+        "feasible": true,
+        "answers": {
+          "S1": "S1-O1",
+          "S2": "S2-O1",
+          "Q1": "Q1-O1",
+          "Q2": "Q2-O1",
+          "Q3": "Q3-O1",
+          "Q4": [
+            "Q4-O1"
+          ],
+          "Q5": "Q5-O1",
+          "Q6": "xxxxxxxxxx",
+          "Q7": "Q7-O1"
+        },
+        "method": "answered normally, nothing forced to fire",
+        "evidence": "Q2 is reached and answered validly, so the respondent should continue rather than stop here [leaned on provisional semantics: ['rule_precedence']]",
+        "reason": null,
+        "preconditions": {},
+        "campaign": {}
+      },
+      {
+        "target_id": "T-d182c884c0",
+        "feasible": true,
+        "answers": {
+          "S1": "S1-O1",
+          "S2": "S2-O1",
+          "Q1": "Q1-O1",
+          "Q2": "Q2-O1",
+          "Q3": "Q3-O1",
+          "Q4": [
+            "Q4-O1"
+          ],
+          "Q5": "Q5-O1",
+          "Q6": "xxxxxxxxxx",
+          "Q7": "Q7-O1"
+        },
+        "method": "answered normally, nothing forced to fire",
+        "evidence": "Q3 is reached and answered validly, so the respondent should continue rather than stop here [leaned on provisional semantics: ['rule_precedence']]",
+        "reason": null,
+        "preconditions": {},
+        "campaign": {}
+      },
+      {
+        "target_id": "T-460e9ac790",
+        "feasible": true,
+        "answers": {
+          "S1": "S1-O1",
+          "S2": "S2-O1",
+          "Q1": "Q1-O1",
+          "Q2": "Q2-O1",
+          "Q3": "Q3-O1",
+          "Q4": [
+            "Q4-O1"
+          ],
+          "Q5": "Q5-O1",
+          "Q6": "xxxxxxxxxx",
+          "Q7": "Q7-O1"
+        },
+        "method": "answered normally, nothing forced to fire",
+        "evidence": "Q4 is reached and answered validly, so the respondent should continue rather than stop here [leaned on provisional semantics: ['rule_precedence']]",
+        "reason": null,
+        "preconditions": {},
+        "campaign": {}
+      },
+      {
+        "target_id": "T-4a81ad1c54",
+        "feasible": true,
+        "answers": {
+          "S1": "S1-O1",
+          "S2": "S2-O1",
+          "Q1": "Q1-O1",
+          "Q2": "Q2-O1",
+          "Q3": "Q3-O1",
+          "Q4": [
+            "Q4-O1"
+          ],
+          "Q5": "Q5-O1",
+          "Q6": "xxxxxxxxxx",
+          "Q7": "Q7-O1"
+        },
+        "method": "answered normally, nothing forced to fire",
+        "evidence": "Q5 is reached and answered validly, so the respondent should continue rather than stop here [leaned on provisional semantics: ['rule_precedence']]",
+        "reason": null,
+        "preconditions": {},
+        "campaign": {}
+      },
+      {
+        "target_id": "T-a31d9e36e7",
+        "feasible": true,
+        "answers": {
+          "Q5": "Q5-O1",
+          "S1": "S1-O1",
+          "S2": "S2-O1",
+          "Q1": "Q1-O1",
+          "Q2": "Q2-O1",
+          "Q3": "Q3-O1",
+          "Q4": [
+            "Q4-O1"
+          ],
+          "Q6": "xxxxxxxxxx",
+          "Q7": "Q7-O1"
+        },
+        "method": "answered normally, nothing forced to fire",
+        "evidence": "Q6 is reached and answered validly, so the respondent should continue rather than stop here [leaned on provisional semantics: ['rule_precedence']]",
+        "reason": null,
+        "preconditions": {},
+        "campaign": {}
+      },
+      {
+        "target_id": "T-a25fbf002c",
+        "feasible": true,
+        "answers": {
+          "S1": "S1-O1",
+          "S2": "S2-O1",
+          "Q1": "Q1-O1",
+          "Q2": "Q2-O1",
+          "Q3": "Q3-O1",
+          "Q4": [
+            "Q4-O1"
+          ],
+          "Q5": "Q5-O1",
+          "Q6": "xxxxxxxxxx",
+          "Q7": "Q7-O1"
+        },
+        "method": "answered normally, nothing forced to fire",
+        "evidence": "Q7 is reached and answered validly, so the respondent should continue rather than stop here [leaned on provisional semantics: ['rule_precedence']]",
+        "reason": null,
+        "preconditions": {},
+        "campaign": {}
+      },
+      {
+        "target_id": "T-b3b76ca11a",
+        "feasible": true,
+        "answers": {
+          "S1": "S1-O1",
+          "S2": "S2-O1",
+          "Q1": "Q1-O1",
+          "Q2": "Q2-O1",
+          "Q3": "Q3-O1",
+          "Q4": [
+            "Q4-O1"
+          ],
+          "Q5": "Q5-O1",
+          "Q6": "xxxxxxxxxx",
+          "Q7": "Q7-O1"
+        },
+        "method": "answered normally, nothing forced to fire",
+        "evidence": "Q8 is reached and answered validly, so the respondent should continue rather than stop here [leaned on provisional semantics: ['rule_precedence']]",
+        "reason": null,
+        "preconditions": {},
+        "campaign": {}
+      },
+      {
+        "target_id": "T-46ad0b9227",
+        "feasible": true,
+        "answers": {
+          "Q5": "Q5-O1",
+          "S1": "S1-O1",
+          "S2": "S2-O1",
+          "Q1": "Q1-O1",
+          "Q2": "Q2-O1",
+          "Q3": "Q3-O1",
+          "Q4": [
+            "Q4-O1"
+          ],
+          "Q6": "xxxxxxxxxx",
+          "Q7": "Q7-O1"
+        },
+        "method": "guard solved backwards",
+        "evidence": "guard of Q6 forced true: Q5 == 'Yes' [leaned on provisional semantics: ['rule_precedence']]",
+        "reason": null,
+        "preconditions": {},
+        "campaign": {}
+      },
+      {
+        "target_id": "T-836bcea7a3",
+        "feasible": true,
+        "answers": {
+          "Q5": "Q5-O2",
+          "S1": "S1-O1",
+          "S2": "S2-O1",
+          "Q1": "Q1-O1",
+          "Q2": "Q2-O1",
+          "Q3": "Q3-O1",
+          "Q4": [
+            "Q4-O1"
+          ],
+          "Q6": "xxxxxxxxxx",
+          "Q7": "Q7-O1"
+        },
+        "method": "guard solved backwards",
+        "evidence": "guard of Q6 forced false: Q5 == 'Yes' [leaned on provisional semantics: ['rule_precedence']]",
+        "reason": null,
+        "preconditions": {},
+        "campaign": {}
+      },
+      {
+        "target_id": "T-42c434e9a8",
+        "feasible": true,
+        "answers": {
+          "Q5": "Q5-O2",
+          "S1": "S1-O1",
+          "S2": "S2-O1",
+          "Q1": "Q1-O1",
+          "Q2": "Q2-O1",
+          "Q3": "Q3-O1",
+          "Q4": [
+            "Q4-O1"
+          ],
+          "Q6": "xxxxxxxxxx",
+          "Q7": "Q7-O1"
+        },
+        "method": "skip condition solved backwards",
+        "evidence": "R4 condition forced true: Q5 == 'No' [leaned on provisional semantics: ['rule_precedence']]",
+        "reason": null,
+        "preconditions": {},
+        "campaign": {}
+      },
+      {
+        "target_id": "T-bb19b20b74",
+        "feasible": true,
+        "answers": {
+          "Q5": "Q5-O1",
+          "S1": "S1-O1",
+          "S2": "S2-O1",
+          "Q1": "Q1-O1",
+          "Q2": "Q2-O1",
+          "Q3": "Q3-O1",
+          "Q4": [
+            "Q4-O1"
+          ],
+          "Q6": "xxxxxxxxxx",
+          "Q7": "Q7-O1"
+        },
+        "method": "skip condition solved backwards",
+        "evidence": "R4 condition forced false: Q5 == 'No' [leaned on provisional semantics: ['rule_precedence']]",
+        "reason": null,
+        "preconditions": {},
+        "campaign": {}
+      },
+      {
+        "target_id": "T-05b0993ae8",
+        "feasible": true,
+        "answers": {
+          "S1": "S1-O1",
+          "S2": "S2-O1",
+          "Q1": "Q1-O1",
+          "Q2": "Q2-O1",
+          "Q3": "Q3-O1",
+          "Q4": [
+            "Q4-O1"
+          ],
+          "Q5": "Q5-O1",
+          "Q6": "xxxxxxxxxx",
+          "Q7": "Q7-O1"
+        },
+        "method": "all terminations forced false",
+        "evidence": "respondent answers through without triggering any screenout [leaned on provisional semantics: ['rule_precedence']]",
+        "reason": null,
+        "preconditions": {},
+        "campaign": {}
+      },
+      {
+        "target_id": "T-ad81bd1fb8",
+        "feasible": true,
+        "answers": {
+          "S1": "S1-O2",
+          "S2": "S2-O1",
+          "Q1": "Q1-O1",
+          "Q2": "Q2-O1",
+          "Q3": "Q3-O1",
+          "Q4": [
+            "Q4-O1"
+          ],
+          "Q5": "Q5-O1",
+          "Q6": "xxxxxxxxxx",
+          "Q7": "Q7-O1"
+        },
+        "method": "rule R1 satisfied",
+        "evidence": "R1, evaluated at S1, routes to TERM_INELIGIBLE: S1 == 'No' [leaned on provisional semantics: ['rule_precedence']]",
+        "reason": null,
+        "preconditions": {},
+        "campaign": {}
+      },
+      {
+        "target_id": "T-b13742d625",
+        "feasible": true,
+        "answers": {
+          "S1": "S1-O1",
+          "S2": "S2-O2",
+          "Q1": "Q1-O1",
+          "Q2": "Q2-O1",
+          "Q3": "Q3-O1",
+          "Q4": [
+            "Q4-O1"
+          ],
+          "Q5": "Q5-O1",
+          "Q6": "xxxxxxxxxx",
+          "Q7": "Q7-O1"
+        },
+        "method": "rule R2 satisfied",
+        "evidence": "R2, evaluated at S2, routes to TERM_INELIGIBLE: S2 == 'No' [leaned on provisional semantics: ['rule_precedence']]",
+        "reason": null,
+        "preconditions": {},
+        "campaign": {}
+      },
+      {
+        "target_id": "T-91f64c7737",
+        "feasible": true,
+        "answers": {
+          "S1": "S1-O1",
+          "S2": "S2-O1",
+          "Q1": "Q1-O1",
+          "Q2": "Q2-O1",
+          "Q3": "Q3-O1",
+          "Q4": [
+            "Q4-O1"
+          ],
+          "Q5": "Q5-O1",
+          "Q6": "xxxxxxxxxx",
+          "Q7": "Q7-O1"
+        },
+        "method": "validation bound probed",
+        "evidence": "Q4: exactly 1 selections, the stated minimum [leaned on provisional semantics: ['rule_precedence']]",
+        "reason": null,
+        "preconditions": {},
+        "campaign": {}
+      },
+      {
+        "target_id": "T-bf3e461be3",
+        "feasible": true,
+        "answers": {
+          "S1": "S1-O1",
+          "S2": "S2-O1",
+          "Q1": "Q1-O1",
+          "Q2": "Q2-O1",
+          "Q3": "Q3-O1",
+          "Q4": [],
+          "Q5": "Q5-O1",
+          "Q6": "xxxxxxxxxx",
+          "Q7": "Q7-O1"
+        },
+        "method": "validation bound probed",
+        "evidence": "Q4: no selection, under the stated minimum [leaned on provisional semantics: ['rule_precedence']]",
+        "reason": null,
+        "preconditions": {},
+        "campaign": {}
+      },
+      {
+        "target_id": "T-5763469416",
+        "feasible": true,
+        "answers": {
+          "Q5": "Q5-O1",
+          "S1": "S1-O1",
+          "S2": "S2-O1",
+          "Q1": "Q1-O1",
+          "Q2": "Q2-O1",
+          "Q3": "Q3-O1",
+          "Q4": [
+            "Q4-O1"
+          ],
+          "Q6": "xxxxxxxxxx",
+          "Q7": "Q7-O1"
+        },
+        "method": "validation bound probed",
+        "evidence": "Q6: length 10 meets [10, 500] [leaned on provisional semantics: ['rule_precedence']]",
+        "reason": null,
+        "preconditions": {},
+        "campaign": {}
+      },
+      {
+        "target_id": "T-3ba88a35fd",
+        "feasible": true,
+        "answers": {
+          "Q5": "Q5-O1",
+          "S1": "S1-O1",
+          "S2": "S2-O1",
+          "Q1": "Q1-O1",
+          "Q2": "Q2-O1",
+          "Q3": "Q3-O1",
+          "Q4": [
+            "Q4-O1"
+          ],
+          "Q6": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "Q7": "Q7-O1"
+        },
+        "method": "validation bound probed",
+        "evidence": "Q6: length 501, one over max 500 [leaned on provisional semantics: ['rule_precedence']]",
+        "reason": null,
+        "preconditions": {},
+        "campaign": {}
+      },
+      {
+        "target_id": "T-9363260523",
+        "feasible": true,
+        "answers": {
+          "S1": "S1-O1",
+          "S2": "S2-O1",
+          "Q1": "Q1-O1",
+          "Q2": "Q2-O1",
+          "Q3": "Q3-O1",
+          "Q4": [
+            "Q4-O1"
+          ],
+          "Q5": "Q5-O1",
+          "Q6": "xxxxxxxxxx",
+          "Q7": "Q7-O1",
+          "Q8": "x"
+        },
+        "method": "validation bound probed",
+        "evidence": "Q8: length 1 meets [0, 500] [leaned on provisional semantics: ['rule_precedence']]",
+        "reason": null,
+        "preconditions": {},
+        "campaign": {}
+      },
+      {
+        "target_id": "T-b073440eac",
+        "feasible": true,
+        "answers": {
+          "S1": "S1-O1",
+          "S2": "S2-O1",
+          "Q1": "Q1-O1",
+          "Q2": "Q2-O1",
+          "Q3": "Q3-O1",
+          "Q4": [
+            "Q4-O1"
+          ],
+          "Q5": "Q5-O1",
+          "Q6": "xxxxxxxxxx",
+          "Q7": "Q7-O1",
+          "Q8": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+        },
+        "method": "validation bound probed",
+        "evidence": "Q8: length 501, one over max 500 [leaned on provisional semantics: ['rule_precedence']]",
+        "reason": null,
+        "preconditions": {},
+        "campaign": {}
+      },
+      {
+        "target_id": "T-04f1f82dbc",
+        "feasible": true,
+        "answers": {
+          "S1": null,
+          "S2": "S2-O1",
+          "Q1": "Q1-O1",
+          "Q2": "Q2-O1",
+          "Q3": "Q3-O1",
+          "Q4": [
+            "Q4-O1"
+          ],
+          "Q5": "Q5-O1",
+          "Q6": "xxxxxxxxxx",
+          "Q7": "Q7-O1"
+        },
+        "method": "blank answer probe",
+        "evidence": "S1 left blank, expect it blocks progress [leaned on provisional semantics: ['rule_precedence']]",
+        "reason": null,
+        "preconditions": {},
+        "campaign": {}
+      },
+      {
+        "target_id": "T-f3c7bd7103",
+        "feasible": true,
+        "answers": {
+          "S1": "S1-O1",
+          "S2": null,
+          "Q1": "Q1-O1",
+          "Q2": "Q2-O1",
+          "Q3": "Q3-O1",
+          "Q4": [
+            "Q4-O1"
+          ],
+          "Q5": "Q5-O1",
+          "Q6": "xxxxxxxxxx",
+          "Q7": "Q7-O1"
+        },
+        "method": "blank answer probe",
+        "evidence": "S2 left blank, expect it blocks progress [leaned on provisional semantics: ['rule_precedence']]",
+        "reason": null,
+        "preconditions": {},
+        "campaign": {}
+      },
+      {
+        "target_id": "T-e12aace78c",
+        "feasible": true,
+        "answers": {
+          "S1": "S1-O1",
+          "S2": "S2-O1",
+          "Q1": null,
+          "Q2": "Q2-O1",
+          "Q3": "Q3-O1",
+          "Q4": [
+            "Q4-O1"
+          ],
+          "Q5": "Q5-O1",
+          "Q6": "xxxxxxxxxx",
+          "Q7": "Q7-O1"
+        },
+        "method": "blank answer probe",
+        "evidence": "Q1 left blank, expect it blocks progress [leaned on provisional semantics: ['rule_precedence']]",
+        "reason": null,
+        "preconditions": {},
+        "campaign": {}
+      },
+      {
+        "target_id": "T-727f5e7cc5",
+        "feasible": true,
+        "answers": {
+          "S1": "S1-O1",
+          "S2": "S2-O1",
+          "Q1": "Q1-O1",
+          "Q2": null,
+          "Q3": "Q3-O1",
+          "Q4": [
+            "Q4-O1"
+          ],
+          "Q5": "Q5-O1",
+          "Q6": "xxxxxxxxxx",
+          "Q7": "Q7-O1"
+        },
+        "method": "blank answer probe",
+        "evidence": "Q2 left blank, expect it blocks progress [leaned on provisional semantics: ['rule_precedence']]",
+        "reason": null,
+        "preconditions": {},
+        "campaign": {}
+      },
+      {
+        "target_id": "T-4bdf659dfa",
+        "feasible": true,
+        "answers": {
+          "S1": "S1-O1",
+          "S2": "S2-O1",
+          "Q1": "Q1-O1",
+          "Q2": "Q2-O1",
+          "Q3": null,
+          "Q4": [
+            "Q4-O1"
+          ],
+          "Q5": "Q5-O1",
+          "Q6": "xxxxxxxxxx",
+          "Q7": "Q7-O1"
+        },
+        "method": "blank answer probe",
+        "evidence": "Q3 left blank, expect it blocks progress [leaned on provisional semantics: ['rule_precedence']]",
+        "reason": null,
+        "preconditions": {},
+        "campaign": {}
+      },
+      {
+        "target_id": "T-9a87b3907e",
+        "feasible": true,
+        "answers": {
+          "S1": "S1-O1",
+          "S2": "S2-O1",
+          "Q1": "Q1-O1",
+          "Q2": "Q2-O1",
+          "Q3": "Q3-O1",
+          "Q4": null,
+          "Q5": "Q5-O1",
+          "Q6": "xxxxxxxxxx",
+          "Q7": "Q7-O1"
+        },
+        "method": "blank answer probe",
+        "evidence": "Q4 left blank, expect it blocks progress [leaned on provisional semantics: ['rule_precedence']]",
+        "reason": null,
+        "preconditions": {},
+        "campaign": {}
+      },
+      {
+        "target_id": "T-0249397b0f",
+        "feasible": true,
+        "answers": {
+          "S1": "S1-O1",
+          "S2": "S2-O1",
+          "Q1": "Q1-O1",
+          "Q2": "Q2-O1",
+          "Q3": "Q3-O1",
+          "Q4": [
+            "Q4-O1"
+          ],
+          "Q5": null,
+          "Q6": "xxxxxxxxxx",
+          "Q7": "Q7-O1"
+        },
+        "method": "blank answer probe",
+        "evidence": "Q5 left blank, expect it blocks progress [leaned on provisional semantics: ['rule_precedence']]",
+        "reason": null,
+        "preconditions": {},
+        "campaign": {}
+      },
+      {
+        "target_id": "T-e98006aa3a",
+        "feasible": true,
+        "answers": {
+          "Q5": "Q5-O1",
+          "S1": "S1-O1",
+          "S2": "S2-O1",
+          "Q1": "Q1-O1",
+          "Q2": "Q2-O1",
+          "Q3": "Q3-O1",
+          "Q4": [
+            "Q4-O1"
+          ],
+          "Q6": null,
+          "Q7": "Q7-O1"
+        },
+        "method": "blank answer probe",
+        "evidence": "Q6 left blank, expect it blocks progress [leaned on provisional semantics: ['rule_precedence']]",
+        "reason": null,
+        "preconditions": {},
+        "campaign": {}
+      },
+      {
+        "target_id": "T-fdb731cc7b",
+        "feasible": true,
+        "answers": {
+          "S1": "S1-O1",
+          "S2": "S2-O1",
+          "Q1": "Q1-O1",
+          "Q2": "Q2-O1",
+          "Q3": "Q3-O1",
+          "Q4": [
+            "Q4-O1"
+          ],
+          "Q5": "Q5-O1",
+          "Q6": "xxxxxxxxxx",
+          "Q7": null
+        },
+        "method": "blank answer probe",
+        "evidence": "Q7 left blank, expect it blocks progress [leaned on provisional semantics: ['rule_precedence']]",
+        "reason": null,
+        "preconditions": {},
+        "campaign": {}
+      },
+      {
+        "target_id": "T-fffe27cc01",
+        "feasible": true,
+        "answers": {
+          "S1": "S1-O1",
+          "S2": "S2-O1",
+          "Q1": "Q1-O1",
+          "Q2": "Q2-O1",
+          "Q3": "Q3-O1",
+          "Q4": [
+            "Q4-O1"
+          ],
+          "Q5": "Q5-O1",
+          "Q6": "xxxxxxxxxx",
+          "Q7": "Q7-O1",
+          "Q8": null
+        },
+        "method": "blank answer probe",
+        "evidence": "Q8 left blank, expect it permits progress [leaned on provisional semantics: ['rule_precedence']]",
+        "reason": null,
+        "preconditions": {},
+        "campaign": {}
+      },
+      {
+        "target_id": "T-9e8e92980a",
+        "feasible": true,
+        "answers": {
+          "Q5": "Q5-O1",
+          "S1": "S1-O1",
+          "S2": "S2-O1",
+          "Q1": "Q1-O1",
+          "Q2": "Q2-O1",
+          "Q3": "Q3-O1",
+          "Q4": [
+            "Q4-O1"
+          ],
+          "Q6": "xxxxxxxxxx",
+          "Q7": "Q7-O1"
+        },
+        "method": "source answered, dependent question shown",
+        "evidence": "Q5 answered so Q6's wording can reflect it [leaned on provisional semantics: ['rule_precedence']]",
+        "reason": null,
+        "preconditions": {},
+        "campaign": {}
+      },
+      {
+        "target_id": "T-84fe582a25",
+        "feasible": true,
+        "answers": {
+          "Q5": "Q5-O1",
+          "S1": "S1-O1",
+          "S2": "S2-O1",
+          "Q1": "Q1-O1",
+          "Q2": "Q2-O1",
+          "Q3": "Q3-O1",
+          "Q4": [
+            "Q4-O1"
+          ],
+          "Q6": "xxxxxxxxxx",
+          "Q7": "Q7-O1"
+        },
+        "method": "guard satisfied with dependency present",
+        "evidence": "Q6 shown while dependent on Q5 [leaned on provisional semantics: ['rule_precedence']]",
+        "reason": null,
+        "preconditions": {},
+        "campaign": {}
+      }
+    ]
+  }
+}

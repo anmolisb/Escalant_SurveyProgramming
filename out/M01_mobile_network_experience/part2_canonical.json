@@ -8,7 +8,7 @@
     "sha256": "1be6ec051fbc914680d8add2a2c9e85c568f5468d8f39f5b6e915eb5bfe6f3b5",
     "bytes": 41874
   },
-  "generated_at": "2026-09-11T17:03:17+00:00",
+  "generated_at": "2026-09-11T20:24:03+00:00",
   "item_count": null,
   "content": {
     "source": "M01_mobile_network_experience.docx",
@@ -796,7 +796,7 @@
             "operands": [],
             "source_text": "Q7 contains any problem",
             "origin": "inferred",
-            "confidence": 0.95
+            "confidence": 0.99
           },
           "agreement": "agree",
           "sources": [
@@ -909,7 +909,7 @@
             "operands": [],
             "source_text": "Q7 contains any problem",
             "origin": "inferred",
-            "confidence": 0.95
+            "confidence": 0.99
           },
           "agreement": "agree",
           "sources": [
@@ -1713,7 +1713,7 @@
           "operands": [],
           "source_text": "Q7 contains any problem",
           "origin": "inferred",
-          "confidence": 0.95
+          "confidence": 0.99
         },
         "when_unread": null,
         "destination": {
@@ -1770,7 +1770,7 @@
           "operands": [],
           "source_text": "Q7 contains any problem",
           "origin": "inferred",
-          "confidence": 0.95
+          "confidence": 0.99
         },
         "when_unread": null,
         "destination": {
@@ -2011,7 +2011,7 @@
           ],
           "source_text": "Q7 includes 'None of these' plus another option",
           "origin": "inferred",
-          "confidence": 1.0
+          "confidence": 0.99
         },
         "when_unread": null,
         "destination": {
@@ -2057,7 +2057,7 @@
         "kind": "text_pipe",
         "detail": "the experience",
         "origin": "inferred",
-        "confidence": 0.99,
+        "confidence": 0.98,
         "source_reference": {
           "document": "M01_mobile_network_experience.docx",
           "section": "Questionnaire",
@@ -2074,7 +2074,7 @@
         "kind": "text_pipe",
         "detail": "the experience",
         "origin": "inferred",
-        "confidence": 0.99,
+        "confidence": 0.98,
         "source_reference": {
           "document": "M01_mobile_network_experience.docx",
           "section": "Questionnaire",
@@ -2117,6 +2117,57 @@
           "row_index": 11,
           "source_kind": "table",
           "text": "Q9 | Was the main problem resolved? | single | Yes, fully; Yes, partly; No | Show if: Q7 contains any problem"
+        }
+      },
+      {
+        "from_question": "Q9",
+        "to_question": "Q10",
+        "kind": "text_pipe",
+        "detail": "the resolution",
+        "origin": "inferred",
+        "confidence": 0.99,
+        "source_reference": {
+          "document": "M01_mobile_network_experience.docx",
+          "section": "Questionnaire",
+          "heading_text": "Questionnaire",
+          "block_order": 10,
+          "row_index": 12,
+          "source_kind": "table",
+          "text": "Q10 | How satisfied were you with the resolution? | single | 1 - Very poor; 2 - Poor; 3 - Fair; 4 - Good; 5 - Excellent | Show if: Q9 in ['Yes, fully','Yes, partly']"
+        }
+      },
+      {
+        "from_question": "Q1",
+        "to_question": "Q11",
+        "kind": "text_pipe",
+        "detail": "the provider",
+        "origin": "inferred",
+        "confidence": 0.99,
+        "source_reference": {
+          "document": "M01_mobile_network_experience.docx",
+          "section": "Questionnaire",
+          "heading_text": "Questionnaire",
+          "block_order": 10,
+          "row_index": 13,
+          "source_kind": "table",
+          "text": "Q11 | How likely are you to recommend the provider? | single | 0; 1; 2; 3; 4; 5; 6; 7; 8; 9; 10 | Always show"
+        }
+      },
+      {
+        "from_question": "Q1",
+        "to_question": "Q12",
+        "kind": "text_pipe",
+        "detail": "the provider",
+        "origin": "inferred",
+        "confidence": 0.99,
+        "source_reference": {
+          "document": "M01_mobile_network_experience.docx",
+          "section": "Questionnaire",
+          "heading_text": "Questionnaire",
+          "block_order": 10,
+          "row_index": 14,
+          "source_kind": "table",
+          "text": "Q12 | How likely are you to continue using the provider? | single | Definitely not; Probably not; Unsure; Probably; Definitely | Always show"
         }
       }
     ],
@@ -2213,7 +2264,7 @@
         "on_full": "TERM_QUOTA_FULL",
         "evaluation_point": "D1",
         "origin": "inferred",
-        "confidence": 1.0,
+        "confidence": 0.99,
         "source_text": "QUOTA_REGION: soft quota on D1: North=20%, South=20%, East=20%, West=20%, Central=20%"
       }
     ],
@@ -2775,7 +2826,7 @@
           "kind": "question",
           "id": "Q3"
         },
-        "evidence": "'the experience' (confidence 0.99)",
+        "evidence": "'the experience' (confidence 0.98)",
         "source_reference": null
       },
       {
@@ -2786,7 +2837,7 @@
           "kind": "question",
           "id": "Q5"
         },
-        "evidence": "'the experience' (confidence 0.99)",
+        "evidence": "'the experience' (confidence 0.98)",
         "source_reference": null
       },
       {
@@ -2798,6 +2849,39 @@
           "id": "Q9"
         },
         "evidence": "'the main problem' (confidence 0.99)",
+        "source_reference": null
+      },
+      {
+        "check": "text_pipe_inferred",
+        "severity": "WARNING",
+        "finding": "Q10's wording appears to quote the answer given at Q9. No table states this; it was read out of the sentence, so it is worth confirming.",
+        "target": {
+          "kind": "question",
+          "id": "Q10"
+        },
+        "evidence": "'the resolution' (confidence 0.99)",
+        "source_reference": null
+      },
+      {
+        "check": "text_pipe_inferred",
+        "severity": "WARNING",
+        "finding": "Q11's wording appears to quote the answer given at Q1. No table states this; it was read out of the sentence, so it is worth confirming.",
+        "target": {
+          "kind": "question",
+          "id": "Q11"
+        },
+        "evidence": "'the provider' (confidence 0.99)",
+        "source_reference": null
+      },
+      {
+        "check": "text_pipe_inferred",
+        "severity": "WARNING",
+        "finding": "Q12's wording appears to quote the answer given at Q1. No table states this; it was read out of the sentence, so it is worth confirming.",
+        "target": {
+          "kind": "question",
+          "id": "Q12"
+        },
+        "evidence": "'the provider' (confidence 0.99)",
         "source_reference": null
       },
       {

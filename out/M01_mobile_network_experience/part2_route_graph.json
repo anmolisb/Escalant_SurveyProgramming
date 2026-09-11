@@ -8,7 +8,7 @@
     "sha256": "1be6ec051fbc914680d8add2a2c9e85c568f5468d8f39f5b6e915eb5bfe6f3b5",
     "bytes": 41874
   },
-  "generated_at": "2026-09-11T17:03:18+00:00",
+  "generated_at": "2026-09-11T20:24:03+00:00",
   "item_count": null,
   "content": {
     "source": "M01_mobile_network_experience.docx",
@@ -560,6 +560,18 @@
           "target": "Q5"
         },
         {
+          "kind": "text_pipe",
+          "origin": "inferred",
+          "source": "Q1",
+          "target": "Q11"
+        },
+        {
+          "kind": "text_pipe",
+          "origin": "inferred",
+          "source": "Q1",
+          "target": "Q12"
+        },
+        {
           "kind": "option_source",
           "origin": "derived",
           "source": "Q7",
@@ -577,7 +589,8 @@
           "target": "Q9"
         },
         {
-          "kind": "guard",
+          "kind": "text_pipe",
+          "origin": "inferred",
           "source": "Q9",
           "target": "Q10"
         }

@@ -1,0 +1,52 @@
+{
+  "survey_id": "C02_automotive_purchase_journey",
+  "sample_size_supplied": 1200,
+  "anchors_supplied": [
+    "Q1",
+    "Q16",
+    "Q19",
+    "Q5",
+    "Q9"
+  ],
+  "covered_without_a_separate_run": 1,
+  "targets": 163,
+  "per_dimension": {
+    "D1": 59,
+    "D2": 6,
+    "D3": 24,
+    "D4": 31,
+    "D5": 2,
+    "D6": 4,
+    "D7": 13,
+    "D8": 20,
+    "D9": 4
+  },
+  "feasible_witnesses": 162,
+  "covered": 162,
+  "logical_tests": 162,
+  "coverage_floor_pct": 98.3,
+  "coverage_floor_dimension": "D1",
+  "executable_tests": 162,
+  "executable_coverage_pct": 99.4,
+  "compilation_refused": 0,
+  "conformance_verdict": "CONFORMS_WITH_FINDINGS",
+  "conformance_blocking": 0,
+  "semantics_provisional": [
+    "multi_equality",
+    "rule_precedence",
+    "unasked_reference"
+  ],
+  "specification_replay": "6 agree / 0 disagree / 1 unresolved of 7",
+  "output_dir": "out/C02_automotive_purchase_journey/agent3",
+  "coverage_vector": {
+    "D1": "58/59 (98.3%) PARTIAL",
+    "D2": "6/6 (100.0%) EXHAUSTIVE",
+    "D3": "24/24 (100.0%) EXHAUSTIVE",
+    "D4": "31/31 (100.0%) EXHAUSTIVE",
+    "D5": "2/2 (100.0%) EXHAUSTIVE",
+    "D6": "4/4 (100.0%) EXHAUSTIVE",
+    "D7": "13/13 (100.0%) EXHAUSTIVE",
+    "D8": "20/20 (100.0%) EXHAUSTIVE",
+    "D9": "4/4 (100.0%) BOUNDED"
+  }
+}
