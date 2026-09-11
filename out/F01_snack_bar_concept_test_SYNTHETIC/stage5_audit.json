@@ -1,0 +1,241 @@
+{
+  "schema_version": "1.0.0",
+  "artifact": "stage5_audit",
+  "stage": 5,
+  "survey_id": "F01_snack_bar_concept_test_SYNTHETIC",
+  "source_document": {
+    "filename": "F01_snack_bar_concept_test_SYNTHETIC.docx",
+    "sha256": "12b02e04b203b53d98ed23b8cb6682b07040aceede01a08428174d0783e5c069",
+    "bytes": 43735
+  },
+  "generated_at": "2026-09-11T11:25:46+00:00",
+  "item_count": null,
+  "content": {
+    "source": "F01_snack_bar_concept_test_SYNTHETIC.docx",
+    "checks_run": [
+      "source_coverage",
+      "row_accounting",
+      "reference_integrity",
+      "condition_consistency",
+      "piping_symmetry"
+    ],
+    "sections": [
+      {
+        "target": "Questionnaire",
+        "rows_in": 7,
+        "objects_out": 7,
+        "identified": 0,
+        "score": 0.0,
+        "threshold": 0.95,
+        "passed": false
+      },
+      {
+        "target": "Routing and termination",
+        "rows_in": 6,
+        "objects_out": 6,
+        "identified": 0,
+        "score": 0.0,
+        "threshold": 0.95,
+        "passed": false
+      },
+      {
+        "target": "Quota controls",
+        "rows_in": 5,
+        "objects_out": 0,
+        "identified": 0,
+        "score": 0.0,
+        "threshold": 1.0,
+        "passed": false
+      },
+      {
+        "target": "Programming and QA requirements",
+        "rows_in": 6,
+        "objects_out": 6,
+        "identified": 6,
+        "score": 1.0,
+        "threshold": 1.0,
+        "passed": true
+      }
+    ],
+    "findings": [
+      {
+        "check": "source_coverage",
+        "severity": "WARNING",
+        "finding": "Section '1. Project overview' matched no target. Its 2 block(s) are preserved but nothing has parsed them.",
+        "target": {
+          "kind": "section",
+          "id": "1. Project overview"
+        },
+        "evidence": "; ",
+        "source_reference": null
+      },
+      {
+        "check": "source_coverage",
+        "severity": "WARNING",
+        "finding": "Section '4. Concept and main questionnaire' matched no target. Its 2 block(s) are preserved but nothing has parsed them.",
+        "target": {
+          "kind": "section",
+          "id": "4. Concept and main questionnaire"
+        },
+        "evidence": "; ",
+        "source_reference": null
+      },
+      {
+        "check": "source_coverage",
+        "severity": "WARNING",
+        "finding": "Section '5. Demographics' matched no target. Its 2 block(s) are preserved but nothing has parsed them.",
+        "target": {
+          "kind": "section",
+          "id": "5. Demographics"
+        },
+        "evidence": "; ",
+        "source_reference": null
+      },
+      {
+        "check": "source_coverage",
+        "severity": "WARNING",
+        "finding": "Section '8. Test paths' matched no target. Its 2 block(s) are preserved but nothing has parsed them.",
+        "target": {
+          "kind": "section",
+          "id": "8. Test paths"
+        },
+        "evidence": "; ",
+        "source_reference": null
+      },
+      {
+        "check": "source_coverage",
+        "severity": "WARNING",
+        "finding": "5 block(s) sit outside every heading and reached no stage. Content before the first heading is not captured by any target.",
+        "target": {
+          "kind": "document",
+          "id": "F01_snack_bar_concept_test_SYNTHETIC.docx"
+        },
+        "evidence": "Oat & Seed Snack Bar Concept Test; Questionnaire specification - version 1.2 - 4 September 2026; Project ESC-SYN-2601  |  Client: Northfield Foods (fictional; (table)",
+        "source_reference": null
+      },
+      {
+        "check": "row_accounting",
+        "severity": "BLOCKING",
+        "finding": "Questionnaire: 0 of 7 transcribed rows produced an identified object (0%, threshold 95%).",
+        "target": {
+          "kind": "section",
+          "id": "Questionnaire"
+        },
+        "evidence": null,
+        "source_reference": null
+      },
+      {
+        "check": "row_accounting",
+        "severity": "BLOCKING",
+        "finding": "Routing and termination: 0 of 6 transcribed rows produced an identified object (0%, threshold 95%).",
+        "target": {
+          "kind": "section",
+          "id": "Routing and termination"
+        },
+        "evidence": null,
+        "source_reference": null
+      },
+      {
+        "check": "row_accounting",
+        "severity": "BLOCKING",
+        "finding": "Quota controls: 0 of 5 transcribed rows produced an identified object (0%, threshold 100%).",
+        "target": {
+          "kind": "section",
+          "id": "Quota controls"
+        },
+        "evidence": null,
+        "source_reference": null
+      },
+      {
+        "check": "reference_integrity",
+        "severity": "BLOCKING",
+        "finding": "No endings were extracted, so no destination or expected outcome that names one can be resolved. Checks needing them were skipped rather than reported as broken references.",
+        "target": {
+          "kind": "section",
+          "id": "Completion messages"
+        },
+        "evidence": null,
+        "source_reference": null
+      },
+      {
+        "check": "reference_integrity",
+        "severity": "BLOCKING",
+        "finding": "Rule  has no destination.",
+        "target": {
+          "kind": "rule",
+          "id": ""
+        },
+        "evidence": null,
+        "source_reference": null
+      },
+      {
+        "check": "reference_integrity",
+        "severity": "BLOCKING",
+        "finding": "Rule  has no destination.",
+        "target": {
+          "kind": "rule",
+          "id": ""
+        },
+        "evidence": null,
+        "source_reference": null
+      },
+      {
+        "check": "reference_integrity",
+        "severity": "BLOCKING",
+        "finding": "Rule  has no destination.",
+        "target": {
+          "kind": "rule",
+          "id": ""
+        },
+        "evidence": null,
+        "source_reference": null
+      },
+      {
+        "check": "reference_integrity",
+        "severity": "BLOCKING",
+        "finding": "Rule  has no destination.",
+        "target": {
+          "kind": "rule",
+          "id": ""
+        },
+        "evidence": null,
+        "source_reference": null
+      },
+      {
+        "check": "reference_integrity",
+        "severity": "BLOCKING",
+        "finding": "Rule  has no destination.",
+        "target": {
+          "kind": "rule",
+          "id": ""
+        },
+        "evidence": null,
+        "source_reference": null
+      },
+      {
+        "check": "reference_integrity",
+        "severity": "BLOCKING",
+        "finding": "Rule  has no destination.",
+        "target": {
+          "kind": "rule",
+          "id": ""
+        },
+        "evidence": null,
+        "source_reference": null
+      },
+      {
+        "check": "reference_integrity",
+        "severity": "WARNING",
+        "finding": "'RANDOMIZE' is named in a programming statement but is not a question or an ending in this QRE.",
+        "target": {
+          "kind": "statement",
+          "id": "RANDOMIZE"
+        },
+        "evidence": "RANDOMIZE means randomise the order of the listed codes for each respondent. Anchored codes keep their position.",
+        "source_reference": null
+      }
+    ],
+    "blocking": 10,
+    "passed": false
+  }
+}

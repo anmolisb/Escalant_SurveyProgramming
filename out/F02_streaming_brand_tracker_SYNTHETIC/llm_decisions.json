@@ -1,0 +1,903 @@
+{
+  "entries": {
+    "649ba44e1913750d4b44eeb0f2c354757e35def030d43ed88713122644c7bf32": {
+      "response_model": "LLMHeadingCandidate",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-09-11T11:25:47+00:00",
+      "asked": "Target section: Questionnaire\nTarget content looks like: a table whose columns identify survey questions \u2014 an id or reference column, a question wording column, and usually a type and options column\n\nCandidate heading: Wave 7 overview\nCandidate content:\nPARAGRAPH: Purpose: Track awareness, usage, consideration and advertising recall for six streaming services, wave on wave.\nPARAGRAPH: Method: Onli ...",
+      "response": {
+        "is_match": false,
+        "confidence": 0.99,
+        "reasoning": "The content consists only of paragraph text and lacks a table with question ID, wording, type, and options columns."
+      }
+    },
+    "83bd7d7bfddc541e03adb532176fb1367c0ac939cbda7cefec5658f8e4855f8e": {
+      "response_model": "LLMHeadingCandidate",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-09-11T11:25:52+00:00",
+      "asked": "Target section: Questionnaire\nTarget content looks like: a table whose columns identify survey questions \u2014 an id or reference column, a question wording column, and usually a type and options column\n\nCandidate heading: Changes from Wave 6\nCandidate content:\nPARAGRAPH: A2 to A4 added for the new Corvo campaign.\nPARAGRAPH: B9 (price perception) removed.\nPARAGRAPH: The brand loop is now capped at thr ...",
+      "response": {
+        "is_match": false,
+        "confidence": 0.99,
+        "reasoning": "The content consists of plain paragraphs, not a table with question ID, wording, type, and options columns."
+      }
+    },
+    "f52ad5d1598e1a0e43531eaacfc1255a1c9df0d4044ae31bea8b3a95ffc8db5a": {
+      "response_model": "LLMHeadingCandidate",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-09-11T11:25:56+00:00",
+      "asked": "Target section: Questionnaire\nTarget content looks like: a table whose columns identify survey questions \u2014 an id or reference column, a question wording column, and usually a type and options column\n\nCandidate heading: Scripting conventions\nCandidate content:\nPARAGRAPH: Question type tags: [SC] single code, [MC] multi code, [NUM] numeric, [OE] open end, [GRID] grid, [INFO] information scr\nPARAGRAP ...",
+      "response": {
+        "is_match": false,
+        "confidence": 0.98,
+        "reasoning": "The content is a series of paragraphs describing tags and conventions, not a table with question ID, wording, type, and options columns."
+      }
+    },
+    "2ff7c0a9fdcccde6f78709e21c4f19e0b4f6ce021e982f7a96f2302bbce949b8": {
+      "response_model": "LLMHeadingCandidate",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-09-11T11:26:01+00:00",
+      "asked": "Target section: Questionnaire\nTarget content looks like: a table whose columns identify survey questions \u2014 an id or reference column, a question wording column, and usually a type and options column\n\nCandidate heading: Part A - Screening\nCandidate content:\nPARAGRAPH: ASK ALL\nPARAGRAPH: S1. [NUM] How old are you?\nPARAGRAPH: RANGE 16-99. IF S1 < 18, CLOSE - SO1.\nPARAGRAPH: ASK ALL\nPARAGRAPH: S2. [MC ...",
+      "response": {
+        "is_match": false,
+        "confidence": 0.98,
+        "reasoning": "The content consists of sequential paragraph lines describing questions, not a tabular structure with columns for ID, wording, type, and options."
+      }
+    },
+    "0b746b5fde8c8fda798a917d4ece9dd01f8c6e09e2ce3fc6fca13ee6dbe75fe4": {
+      "response_model": "LLMHeadingCandidate",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-09-11T11:26:07+00:00",
+      "asked": "Target section: Questionnaire\nTarget content looks like: a table whose columns identify survey questions \u2014 an id or reference column, a question wording column, and usually a type and options column\n\nCandidate heading: Part B - Brand funnel\nCandidate content:\nPARAGRAPH: ASK ALL\nPARAGRAPH: B1. [OE] When you think of streaming services for films and series, which ones come to mind? Please type each  ...",
+      "response": {
+        "is_match": false,
+        "confidence": 0.97,
+        "reasoning": "Content consists of sequential paragraph directives rather than a tabular structure with id, wording, type, and options columns."
+      }
+    },
+    "d7f6eb5f2ef182c948029c2b30f2a504c5e35382be32d35a8b2a6f8084039a80": {
+      "response_model": "LLMHeadingCandidate",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-09-11T11:26:12+00:00",
+      "asked": "Target section: Questionnaire\nTarget content looks like: a table whose columns identify survey questions \u2014 an id or reference column, a question wording column, and usually a type and options column\n\nCandidate heading: Brand loop (B5 to B7)\nCandidate content:\nPARAGRAPH: LOOP FOR EACH BRAND SELECTED AT B3 (CODES 1-6). IF MORE THAN 3 BRANDS WERE SELECTED, LOOP ON THE 3 WITH THE LOWEST NUMBE\nPARAGRAP ...",
+      "response": {
+        "is_match": false,
+        "confidence": 0.97,
+        "reasoning": "The content consists of sequential paragraph entries describing questions, not a tabular structure with columns for ID, wording, type, and options."
+      }
+    },
+    "8ec8d8ede62d5a555121e260d3b48be6a26d7292fead62f26a6e336ff3306d2d": {
+      "response_model": "LLMHeadingCandidate",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-09-11T11:26:15+00:00",
+      "asked": "Target section: Questionnaire\nTarget content looks like: a table whose columns identify survey questions \u2014 an id or reference column, a question wording column, and usually a type and options column\n\nCandidate heading: Part C - Advertising\nCandidate content:\nPARAGRAPH: ASK ALL\nPARAGRAPH: A1. [MC] In the past 4 weeks, have you seen or heard any advertising for these streaming services?\nPARAGRAPH: S ...",
+      "response": {
+        "is_match": false,
+        "confidence": 0.97,
+        "reasoning": "Content consists of sequential paragraph entries, not a tabular structure with columns for ID, wording, type, and options."
+      }
+    },
+    "2778d207f3f8468bc8098504f6c01711613a36256d76b29e6d4592da9267d472": {
+      "response_model": "LLMHeadingCandidate",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-09-11T11:26:21+00:00",
+      "asked": "Target section: Questionnaire\nTarget content looks like: a table whose columns identify survey questions \u2014 an id or reference column, a question wording column, and usually a type and options column\n\nCandidate heading: Part D - About you\nCandidate content:\nPARAGRAPH: ASK ALL\nPARAGRAPH: D1. [SC] How would you describe your gender?\nPARAGRAPH: 1 Male\nPARAGRAPH: 2 Female\nPARAGRAPH: 3 In another way\nPA ...",
+      "response": {
+        "is_match": false,
+        "confidence": 0.97,
+        "reasoning": "The content consists of sequential paragraph lines rather than a tabular structure with columns for ID, wording, type, and options."
+      }
+    },
+    "1934fa399304a03a4b15b04eed73e59d93fbb6a339194099c48f17a1f5fd9636": {
+      "response_model": "LLMHeadingCandidate",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-09-11T11:26:26+00:00",
+      "asked": "Target section: Questionnaire\nTarget content looks like: a table whose columns identify survey questions \u2014 an id or reference column, a question wording column, and usually a type and options column\n\nCandidate heading: Part E - Quotas\nCandidate content:\nPARAGRAPH: Region (S4) - HARD: North 24%, Midlands 17%, South 41%, Scotland 8%, Wales 5%, Northern Ireland 5%. Close at SO5 when a \nPARAGRAPH: Age ...",
+      "response": {
+        "is_match": false,
+        "confidence": 0.97,
+        "reasoning": "The content consists of plain paragraphs about quotas, not a table with question ID, wording, type, and options columns."
+      }
+    },
+    "b0eec2bbc453cb8ef94d5fc13252d88d9083394da12373d3e1886a5179d9d8a3": {
+      "response_model": "LLMHeadingCandidate",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-09-11T11:26:28+00:00",
+      "asked": "Target section: Questionnaire\nTarget content looks like: a table whose columns identify survey questions \u2014 an id or reference column, a question wording column, and usually a type and options column\n\nCandidate heading: Closing and redirects\nCandidate content:\nPARAGRAPH: SO1 to SO4 (screen-outs): \"Thank you for your interest. Based on your answers, you are not eligible for this survey.\" Re\nPARAGRAP ...",
+      "response": {
+        "is_match": false,
+        "confidence": 0.99,
+        "reasoning": "The content consists of paragraph entries for screen-outs and redirects, not a table with question ID, wording, type, and options columns."
+      }
+    },
+    "caa7f36285170a98b24ef5e75c407a24f584ab0ae8af0ab7e09019c6995aadf4": {
+      "response_model": "LLMHeadingCandidate",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-09-11T11:26:33+00:00",
+      "asked": "Target section: Questionnaire\nTarget content looks like: a table whose columns identify survey questions \u2014 an id or reference column, a question wording column, and usually a type and options column\n\nCandidate heading: Checking notes\nCandidate content:\nPARAGRAPH: Save the respondent's brand order and loop order as hidden variables.\nPARAGRAPH: Store B1 and B7 verbatims exactly as typed.\nPARAGRAPH:  ...",
+      "response": {
+        "is_match": false,
+        "confidence": 0.99,
+        "reasoning": "The content consists only of paragraph statements and lacks a table with question ID, wording, type, and options columns."
+      }
+    },
+    "a23e2e85c6aaed162b751f135357b82924264a6062f89d2d6d3db88158529fd9": {
+      "response_model": "LLMHeadingCandidate",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-09-11T11:26:38+00:00",
+      "asked": "Target section: Routing and termination\nTarget content looks like: a table of routing rules \u2014 a rule id, a condition, an action such as show/skip/terminate, and a destination\n\nCandidate heading: Wave 7 overview\nCandidate content:\nPARAGRAPH: Purpose: Track awareness, usage, consideration and advertising recall for six streaming services, wave on wave.\nPARAGRAPH: Method: Online self-completion. Cont ...",
+      "response": {
+        "is_match": false,
+        "confidence": 0.99,
+        "reasoning": "The content consists of plain paragraphs, not a table with rule id, condition, action, and destination columns."
+      }
+    },
+    "39055a32631ef266d55544e367880d58c9d29e87fe2e6e5d2ab63dbc5b32a4fe": {
+      "response_model": "LLMHeadingCandidate",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-09-11T11:26:41+00:00",
+      "asked": "Target section: Routing and termination\nTarget content looks like: a table of routing rules \u2014 a rule id, a condition, an action such as show/skip/terminate, and a destination\n\nCandidate heading: Changes from Wave 6\nCandidate content:\nPARAGRAPH: A2 to A4 added for the new Corvo campaign.\nPARAGRAPH: B9 (price perception) removed.\nPARAGRAPH: The brand loop is now capped at three brands (previously ev ...",
+      "response": {
+        "is_match": false,
+        "confidence": 0.99,
+        "reasoning": "The content consists of plain paragraphs, not a table with rule id, condition, action, and destination columns."
+      }
+    },
+    "539542de8e6707693ea2f6493d3ca9e3bd667ab622cb98a932fdec7b87ce1e41": {
+      "response_model": "LLMHeadingCandidate",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-09-11T11:26:46+00:00",
+      "asked": "Target section: Routing and termination\nTarget content looks like: a table of routing rules \u2014 a rule id, a condition, an action such as show/skip/terminate, and a destination\n\nCandidate heading: Scripting conventions\nCandidate content:\nPARAGRAPH: Question type tags: [SC] single code, [MC] multi code, [NUM] numeric, [OE] open end, [GRID] grid, [INFO] information scr\nPARAGRAPH: Each question is prec ...",
+      "response": {
+        "is_match": false,
+        "confidence": 0.99,
+        "reasoning": "The content consists of plain paragraphs describing tags and conventions, not a table with rule id, condition, action, and destination columns."
+      }
+    },
+    "d36cadddd337c8381fdc21d4d2a237fbf287b7e8f683fdf613b0856352a59918": {
+      "response_model": "LLMHeadingCandidate",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-09-11T11:26:52+00:00",
+      "asked": "Target section: Routing and termination\nTarget content looks like: a table of routing rules \u2014 a rule id, a condition, an action such as show/skip/terminate, and a destination\n\nCandidate heading: Part A - Screening\nCandidate content:\nPARAGRAPH: ASK ALL\nPARAGRAPH: S1. [NUM] How old are you?\nPARAGRAPH: RANGE 16-99. IF S1 < 18, CLOSE - SO1.\nPARAGRAPH: ASK ALL\nPARAGRAPH: S2. [MC] Do you, or does anyone ...",
+      "response": {
+        "is_match": false,
+        "confidence": 0.99,
+        "reasoning": "The content consists of paragraph-style question definitions and inline IF statements, not a tabular structure with rule id, condition, action, and destination columns."
+      }
+    },
+    "3ae7c64ae2ced8304825b5fdd630f9bb9928fd856ad9b2351f250ed10b72754f": {
+      "response_model": "LLMHeadingCandidate",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-09-11T11:26:57+00:00",
+      "asked": "Target section: Routing and termination\nTarget content looks like: a table of routing rules \u2014 a rule id, a condition, an action such as show/skip/terminate, and a destination\n\nCandidate heading: Part B - Brand funnel\nCandidate content:\nPARAGRAPH: ASK ALL\nPARAGRAPH: B1. [OE] When you think of streaming services for films and series, which ones come to mind? Please type each one in a s\nPARAGRAPH: PR ...",
+      "response": {
+        "is_match": false,
+        "confidence": 0.97,
+        "reasoning": "Content consists of paragraph directives for survey items, not a tabular list of routing rules with columns like rule id, condition, action, destination."
+      }
+    },
+    "55404b2876066de66ff96d7bcbcb91a48745db318365804079ca6a70b00d552d": {
+      "response_model": "LLMHeadingCandidate",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-09-11T11:27:02+00:00",
+      "asked": "Target section: Routing and termination\nTarget content looks like: a table of routing rules \u2014 a rule id, a condition, an action such as show/skip/terminate, and a destination\n\nCandidate heading: Brand loop (B5 to B7)\nCandidate content:\nPARAGRAPH: LOOP FOR EACH BRAND SELECTED AT B3 (CODES 1-6). IF MORE THAN 3 BRANDS WERE SELECTED, LOOP ON THE 3 WITH THE LOWEST NUMBE\nPARAGRAPH: ASK IF ANY OF CODES 1 ...",
+      "response": {
+        "is_match": false,
+        "confidence": 0.99,
+        "reasoning": "The content is a series of paragraphs describing a brand loop, not a table of routing rules with columns like rule id, condition, action, and destination."
+      }
+    },
+    "1b428ebbaefbc169da2268825090901257613f39dd65f53aa4f5af344d4e6474": {
+      "response_model": "LLMHeadingCandidate",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-09-11T11:27:06+00:00",
+      "asked": "Target section: Routing and termination\nTarget content looks like: a table of routing rules \u2014 a rule id, a condition, an action such as show/skip/terminate, and a destination\n\nCandidate heading: Part C - Advertising\nCandidate content:\nPARAGRAPH: ASK ALL\nPARAGRAPH: A1. [MC] In the past 4 weeks, have you seen or heard any advertising for these streaming services?\nPARAGRAPH: SHOW BRAND LIST + 98 Don' ...",
+      "response": {
+        "is_match": false,
+        "confidence": 0.99,
+        "reasoning": "The content consists of paragraph-style question definitions, not a table with rule id, condition, action, and destination columns."
+      }
+    },
+    "0a23a99f5fdb10def67e5ed1c294e53728dbcbebb68ed659e34946b97c17f1aa": {
+      "response_model": "LLMHeadingCandidate",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-09-11T11:27:12+00:00",
+      "asked": "Target section: Routing and termination\nTarget content looks like: a table of routing rules \u2014 a rule id, a condition, an action such as show/skip/terminate, and a destination\n\nCandidate heading: Part D - About you\nCandidate content:\nPARAGRAPH: ASK ALL\nPARAGRAPH: D1. [SC] How would you describe your gender?\nPARAGRAPH: 1 Male\nPARAGRAPH: 2 Female\nPARAGRAPH: 3 In another way\nPARAGRAPH: 4 Prefer not to ...",
+      "response": {
+        "is_match": false,
+        "confidence": 0.99,
+        "reasoning": "The content is a series of paragraph question items, not a table with rule id, condition, action, and destination columns."
+      }
+    },
+    "b73a1487ba65e13334ebc1b1f8a051e8e04985261d6735e27bd1410d0a134500": {
+      "response_model": "LLMHeadingCandidate",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-09-11T16:00:56+00:00",
+      "asked": "Target section: Routing and termination\nTarget content looks like: a table of routing rules \u2014 a rule id, a condition, an action such as show/skip/terminate, and a destination\n\nCandidate heading: Part E - Quotas\nCandidate content:\nPARAGRAPH: Region (S4) - HARD: North 24%, Midlands 17%, South 41%, Scotland 8%, Wales 5%, Northern Ireland 5%. Close at SO5 when a \nPARAGRAPH: Age (S1) - HARD: 18-34 40%, ...",
+      "response": {
+        "is_match": false,
+        "confidence": 0.99,
+        "reasoning": "The content consists of plain paragraphs about quotas, not a table with rule id, condition, action, and destination columns."
+      }
+    },
+    "f704616c68a85b94c7c4656edc1ffe98e304ab3d67ca774323cd29dde6fdb245": {
+      "response_model": "LLMHeadingCandidate",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-09-11T16:00:57+00:00",
+      "asked": "Target section: Routing and termination\nTarget content looks like: a table of routing rules \u2014 a rule id, a condition, an action such as show/skip/terminate, and a destination\n\nCandidate heading: Closing and redirects\nCandidate content:\nPARAGRAPH: SO1 to SO4 (screen-outs): \"Thank you for your interest. Based on your answers, you are not eligible for this survey.\" Re\nPARAGRAPH: SO5 (quota full): \"Th ...",
+      "response": {
+        "is_match": false,
+        "confidence": 0.98,
+        "reasoning": "The content consists of free-form paragraphs, not a table with columns like rule id, condition, action, and destination."
+      }
+    },
+    "8381188faa7b3f530cc99357f00e43ed38ebbf079770fa8ea98c5200f83d921b": {
+      "response_model": "LLMHeadingCandidate",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-09-11T16:00:57+00:00",
+      "asked": "Target section: Routing and termination\nTarget content looks like: a table of routing rules \u2014 a rule id, a condition, an action such as show/skip/terminate, and a destination\n\nCandidate heading: Checking notes\nCandidate content:\nPARAGRAPH: Save the respondent's brand order and loop order as hidden variables.\nPARAGRAPH: Store B1 and B7 verbatims exactly as typed.\nPARAGRAPH: Test at least one respon ...",
+      "response": {
+        "is_match": false,
+        "confidence": 0.99,
+        "reasoning": "The content consists of plain paragraphs, not a table with rule id, condition, action, and destination columns."
+      }
+    },
+    "07352f60226247b24c0c1bddb1c6d89830a5b817f4a70db7f32eb8804363e064": {
+      "response_model": "LLMHeadingCandidate",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-09-11T16:00:58+00:00",
+      "asked": "Target section: Acceptance test scenarios\nTarget content looks like: a table of test cases \u2014 a scenario id, a purpose, input values and an expected outcome, often with JSON in the input and outcome cells\n\nCandidate heading: Wave 7 overview\nCandidate content:\nPARAGRAPH: Purpose: Track awareness, usage, consideration and advertising recall for six streaming services, wave on wave.\nPARAGRAPH: Method: ...",
+      "response": {
+        "is_match": false,
+        "confidence": 0.99,
+        "reasoning": "The content consists of plain paragraphs, not a table of test cases with scenario ID, purpose, inputs, and expected outcomes."
+      }
+    },
+    "50c91d6fa9089c6ba7f1ddd80715c6f64a52a5f15019b237b47beb5fe8ec9b72": {
+      "response_model": "LLMHeadingCandidate",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-09-11T16:00:59+00:00",
+      "asked": "Target section: Acceptance test scenarios\nTarget content looks like: a table of test cases \u2014 a scenario id, a purpose, input values and an expected outcome, often with JSON in the input and outcome cells\n\nCandidate heading: Changes from Wave 6\nCandidate content:\nPARAGRAPH: A2 to A4 added for the new Corvo campaign.\nPARAGRAPH: B9 (price perception) removed.\nPARAGRAPH: The brand loop is now capped a ...",
+      "response": {
+        "is_match": false,
+        "confidence": 0.99,
+        "reasoning": "The content consists of plain paragraphs, not a table of test cases with scenario IDs, inputs, and expected outcomes."
+      }
+    },
+    "761339173cce3359344d98616d2de1ed58ee534b1365d947cc6d515032a1851a": {
+      "response_model": "LLMHeadingCandidate",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-09-11T16:00:59+00:00",
+      "asked": "Target section: Acceptance test scenarios\nTarget content looks like: a table of test cases \u2014 a scenario id, a purpose, input values and an expected outcome, often with JSON in the input and outcome cells\n\nCandidate heading: Scripting conventions\nCandidate content:\nPARAGRAPH: Question type tags: [SC] single code, [MC] multi code, [NUM] numeric, [OE] open end, [GRID] grid, [INFO] information scr\nPAR ...",
+      "response": {
+        "is_match": false,
+        "confidence": 0.99,
+        "reasoning": "The content consists of plain paragraphs, not a table of test cases with scenario IDs, inputs, and expected outcomes."
+      }
+    },
+    "f5aa6092b56f96d8915dea39739649f31ad365b4d4fa57dcdd4f96b652373eae": {
+      "response_model": "LLMHeadingCandidate",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-09-11T16:01:00+00:00",
+      "asked": "Target section: Acceptance test scenarios\nTarget content looks like: a table of test cases \u2014 a scenario id, a purpose, input values and an expected outcome, often with JSON in the input and outcome cells\n\nCandidate heading: Part A - Screening\nCandidate content:\nPARAGRAPH: ASK ALL\nPARAGRAPH: S1. [NUM] How old are you?\nPARAGRAPH: RANGE 16-99. IF S1 < 18, CLOSE - SO1.\nPARAGRAPH: ASK ALL\nPARAGRAPH: S2 ...",
+      "response": {
+        "is_match": false,
+        "confidence": 0.99,
+        "reasoning": "The content consists of sequential paragraph statements for screening questions, not a tabular list of test case scenarios with IDs, inputs, and expected outcomes."
+      }
+    },
+    "b0593d10930ff9e9a41dbbc44fe64a1f85dddf3e646ffa12f64b2b27bd2c96c5": {
+      "response_model": "LLMHeadingCandidate",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-09-11T16:01:03+00:00",
+      "asked": "Target section: Acceptance test scenarios\nTarget content looks like: a table of test cases \u2014 a scenario id, a purpose, input values and an expected outcome, often with JSON in the input and outcome cells\n\nCandidate heading: Part B - Brand funnel\nCandidate content:\nPARAGRAPH: ASK ALL\nPARAGRAPH: B1. [OE] When you think of streaming services for films and series, which ones come to mind? Please type  ...",
+      "response": {
+        "is_match": false,
+        "confidence": 0.98,
+        "reasoning": "The content is a series of paragraph instructions for survey questions, not a tabular list of test cases with scenario IDs, inputs, and expected outcomes."
+      }
+    },
+    "40a4d3c7f64e238df5ccd15f9ad6ac303d27a0780ebf498931fd073edec09e61": {
+      "response_model": "LLMHeadingCandidate",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-09-11T16:01:03+00:00",
+      "asked": "Target section: Acceptance test scenarios\nTarget content looks like: a table of test cases \u2014 a scenario id, a purpose, input values and an expected outcome, often with JSON in the input and outcome cells\n\nCandidate heading: Brand loop (B5 to B7)\nCandidate content:\nPARAGRAPH: LOOP FOR EACH BRAND SELECTED AT B3 (CODES 1-6). IF MORE THAN 3 BRANDS WERE SELECTED, LOOP ON THE 3 WITH THE LOWEST NUMBE\nPAR ...",
+      "response": {
+        "is_match": false,
+        "confidence": 0.97,
+        "reasoning": "The content consists of sequential paragraphs describing survey logic, not a tabular list of test cases with scenario IDs, inputs, and expected outcomes."
+      }
+    },
+    "d1794c0e8ed7ffd7529dbf0ef36fa3f8cd7564971b2915d6fa45b9695ff19da0": {
+      "response_model": "LLMHeadingCandidate",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-09-11T16:01:04+00:00",
+      "asked": "Target section: Acceptance test scenarios\nTarget content looks like: a table of test cases \u2014 a scenario id, a purpose, input values and an expected outcome, often with JSON in the input and outcome cells\n\nCandidate heading: Part C - Advertising\nCandidate content:\nPARAGRAPH: ASK ALL\nPARAGRAPH: A1. [MC] In the past 4 weeks, have you seen or heard any advertising for these streaming services?\nPARAGRA ...",
+      "response": {
+        "is_match": false,
+        "confidence": 0.98,
+        "reasoning": "The content consists of sequential paragraph directives for survey questions, not a tabular list of test case scenarios with columns like scenario id, purpose, inputs, and expected outcomes."
+      }
+    },
+    "3fa6a8f5a76723fa91fc20593284574b15be23337a51bc657010aa3b1693f9cb": {
+      "response_model": "LLMHeadingCandidate",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-09-11T16:01:05+00:00",
+      "asked": "Target section: Acceptance test scenarios\nTarget content looks like: a table of test cases \u2014 a scenario id, a purpose, input values and an expected outcome, often with JSON in the input and outcome cells\n\nCandidate heading: Part D - About you\nCandidate content:\nPARAGRAPH: ASK ALL\nPARAGRAPH: D1. [SC] How would you describe your gender?\nPARAGRAPH: 1 Male\nPARAGRAPH: 2 Female\nPARAGRAPH: 3 In another w ...",
+      "response": {
+        "is_match": false,
+        "confidence": 0.99,
+        "reasoning": "The content consists of paragraph-style survey questions, not a table of test cases with scenario IDs, inputs, and expected outcomes."
+      }
+    },
+    "f4514643e7b4dcc0e0f8741fd48e9b2eb8c8c2ba11b36c8640ed07acdb436511": {
+      "response_model": "LLMHeadingCandidate",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-09-11T16:01:07+00:00",
+      "asked": "Target section: Acceptance test scenarios\nTarget content looks like: a table of test cases \u2014 a scenario id, a purpose, input values and an expected outcome, often with JSON in the input and outcome cells\n\nCandidate heading: Part E - Quotas\nCandidate content:\nPARAGRAPH: Region (S4) - HARD: North 24%, Midlands 17%, South 41%, Scotland 8%, Wales 5%, Northern Ireland 5%. Close at SO5 when a \nPARAGRAPH ...",
+      "response": {
+        "is_match": false,
+        "confidence": 0.97,
+        "reasoning": "Content consists of plain paragraphs describing quotas, not a table of test cases with scenario ID, purpose, inputs, and expected outcomes."
+      }
+    },
+    "51fa7b1b6e03bb740f76863bf7b7d8c246ce7a07215dc9c574dad362e27a60f1": {
+      "response_model": "LLMHeadingCandidate",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-09-11T16:01:10+00:00",
+      "asked": "Target section: Acceptance test scenarios\nTarget content looks like: a table of test cases \u2014 a scenario id, a purpose, input values and an expected outcome, often with JSON in the input and outcome cells\n\nCandidate heading: Closing and redirects\nCandidate content:\nPARAGRAPH: SO1 to SO4 (screen-outs): \"Thank you for your interest. Based on your answers, you are not eligible for this survey.\" Re\nPAR ...",
+      "response": {
+        "is_match": false,
+        "confidence": 0.98,
+        "reasoning": "The content consists of plain paragraphs describing screen-out messages and redirects, not a table of test cases with scenario IDs, purposes, inputs, and expected outcomes."
+      }
+    },
+    "22cae07541a5bc5a342a6dc5e1523fe1aaf5d098535ad2b8f85ee2bbcf004248": {
+      "response_model": "LLMHeadingCandidate",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-09-11T16:01:14+00:00",
+      "asked": "Target section: Acceptance test scenarios\nTarget content looks like: a table of test cases \u2014 a scenario id, a purpose, input values and an expected outcome, often with JSON in the input and outcome cells\n\nCandidate heading: Checking notes\nCandidate content:\nPARAGRAPH: Save the respondent's brand order and loop order as hidden variables.\nPARAGRAPH: Store B1 and B7 verbatims exactly as typed.\nPARAGR ...",
+      "response": {
+        "is_match": false,
+        "confidence": 0.99,
+        "reasoning": "The content consists of plain paragraphs, not a table of test cases with scenario ID, purpose, inputs, and expected outcomes."
+      }
+    },
+    "d25fbc78048efb2b16d2eb1061d95a15e2bb54ed6b95689acd828837e2ef6496": {
+      "response_model": "LLMHeadingCandidate",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-09-11T16:01:19+00:00",
+      "asked": "Target section: Completion messages\nTarget content looks like: prose or a short table pairing a disposition code such as COMPLETE or TERM_INELIGIBLE with the message text shown to the respondent\n\nCandidate heading: Wave 7 overview\nCandidate content:\nPARAGRAPH: Purpose: Track awareness, usage, consideration and advertising recall for six streaming services, wave on wave.\nPARAGRAPH: Method: Online s ...",
+      "response": {
+        "is_match": false,
+        "confidence": 0.99,
+        "reasoning": "The content consists of descriptive paragraphs about the study, not a disposition code paired with a response message."
+      }
+    },
+    "da18b441e1d32e385475426ac86761b668606956d0e5831e399be68808e1a7a7": {
+      "response_model": "LLMHeadingCandidate",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-09-11T16:01:25+00:00",
+      "asked": "Target section: Completion messages\nTarget content looks like: prose or a short table pairing a disposition code such as COMPLETE or TERM_INELIGIBLE with the message text shown to the respondent\n\nCandidate heading: Changes from Wave 6\nCandidate content:\nPARAGRAPH: A2 to A4 added for the new Corvo campaign.\nPARAGRAPH: B9 (price perception) removed.\nPARAGRAPH: The brand loop is now capped at three b ...",
+      "response": {
+        "is_match": false,
+        "confidence": 0.99,
+        "reasoning": "Content consists of unrelated paragraphs without disposition codes or a table, not matching the expected prose or short table of disposition/message pairs."
+      }
+    },
+    "75d23ab2294a37c07924055893bae4c71c7aabbb42e9c6f36d0e445256b71b5b": {
+      "response_model": "LLMHeadingCandidate",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-09-11T16:01:31+00:00",
+      "asked": "Target section: Completion messages\nTarget content looks like: prose or a short table pairing a disposition code such as COMPLETE or TERM_INELIGIBLE with the message text shown to the respondent\n\nCandidate heading: Scripting conventions\nCandidate content:\nPARAGRAPH: Question type tags: [SC] single code, [MC] multi code, [NUM] numeric, [OE] open end, [GRID] grid, [INFO] information scr\nPARAGRAPH: E ...",
+      "response": {
+        "is_match": false,
+        "confidence": 0.97,
+        "reasoning": "Content consists of multiple explanatory paragraphs and a brand list, not a table or prose pairing disposition codes with respondent messages."
+      }
+    },
+    "14687f16580cdb9862a0a8a871b686fceca7495b2347f9e3d1fb22a1cd594d19": {
+      "response_model": "LLMHeadingCandidate",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-09-11T16:01:38+00:00",
+      "asked": "Target section: Completion messages\nTarget content looks like: prose or a short table pairing a disposition code such as COMPLETE or TERM_INELIGIBLE with the message text shown to the respondent\n\nCandidate heading: Part A - Screening\nCandidate content:\nPARAGRAPH: ASK ALL\nPARAGRAPH: S1. [NUM] How old are you?\nPARAGRAPH: RANGE 16-99. IF S1 < 18, CLOSE - SO1.\nPARAGRAPH: ASK ALL\nPARAGRAPH: S2. [MC] Do ...",
+      "response": {
+        "is_match": false,
+        "confidence": 0.99,
+        "reasoning": "The content consists of screening question paragraphs, not a prose or short table pairing disposition codes with respondent messages."
+      }
+    },
+    "dce4fb80ccd525b45343f88ff2244b098c22e43d01a5d4996c4779dad4f1c271": {
+      "response_model": "LLMHeadingCandidate",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-09-11T16:01:45+00:00",
+      "asked": "Target section: Completion messages\nTarget content looks like: prose or a short table pairing a disposition code such as COMPLETE or TERM_INELIGIBLE with the message text shown to the respondent\n\nCandidate heading: Part B - Brand funnel\nCandidate content:\nPARAGRAPH: ASK ALL\nPARAGRAPH: B1. [OE] When you think of streaming services for films and series, which ones come to mind? Please type each one  ...",
+      "response": {
+        "is_match": false,
+        "confidence": 0.99,
+        "reasoning": "The content is a series of survey question paragraphs, not a short table pairing disposition codes with messages."
+      }
+    },
+    "bb3a34adf49be88870815a46fba662e90dc40c8d097b76da4f08ae64389b5abf": {
+      "response_model": "LLMHeadingCandidate",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-09-11T16:01:50+00:00",
+      "asked": "Target section: Completion messages\nTarget content looks like: prose or a short table pairing a disposition code such as COMPLETE or TERM_INELIGIBLE with the message text shown to the respondent\n\nCandidate heading: Brand loop (B5 to B7)\nCandidate content:\nPARAGRAPH: LOOP FOR EACH BRAND SELECTED AT B3 (CODES 1-6). IF MORE THAN 3 BRANDS WERE SELECTED, LOOP ON THE 3 WITH THE LOWEST NUMBE\nPARAGRAPH: A ...",
+      "response": {
+        "is_match": false,
+        "confidence": 0.97,
+        "reasoning": "The content consists of multiple paragraphs with survey questions and answer options, not a prose or short table mapping disposition codes to messages."
+      }
+    },
+    "987f3d0c99a4ffa54c85cf6ddbe3d3b1dec4ed091a39a7f0204305e50f5b07cc": {
+      "response_model": "LLMHeadingCandidate",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-09-11T16:01:57+00:00",
+      "asked": "Target section: Completion messages\nTarget content looks like: prose or a short table pairing a disposition code such as COMPLETE or TERM_INELIGIBLE with the message text shown to the respondent\n\nCandidate heading: Part C - Advertising\nCandidate content:\nPARAGRAPH: ASK ALL\nPARAGRAPH: A1. [MC] In the past 4 weeks, have you seen or heard any advertising for these streaming services?\nPARAGRAPH: SHOW  ...",
+      "response": {
+        "is_match": false,
+        "confidence": 0.99,
+        "reasoning": "The content consists of questionnaire items and flow logic, not a prose or short table of disposition codes and messages."
+      }
+    },
+    "558c1aece8d4bf022c3d6c26f71e389518ab419b235164bcfeacbb36b1d34eb4": {
+      "response_model": "LLMHeadingCandidate",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-09-11T16:02:02+00:00",
+      "asked": "Target section: Completion messages\nTarget content looks like: prose or a short table pairing a disposition code such as COMPLETE or TERM_INELIGIBLE with the message text shown to the respondent\n\nCandidate heading: Part D - About you\nCandidate content:\nPARAGRAPH: ASK ALL\nPARAGRAPH: D1. [SC] How would you describe your gender?\nPARAGRAPH: 1 Male\nPARAGRAPH: 2 Female\nPARAGRAPH: 3 In another way\nPARAGR ...",
+      "response": {
+        "is_match": false,
+        "confidence": 0.99,
+        "reasoning": "The content consists of questionnaire paragraphs and answer options, not a disposition code/message pair or short table as required for completion messages."
+      }
+    },
+    "49cf93b983c724ba9ebc4bf32c374fb41f998a8b262b61b4305356c2569c38aa": {
+      "response_model": "LLMHeadingCandidate",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-09-11T16:02:06+00:00",
+      "asked": "Target section: Completion messages\nTarget content looks like: prose or a short table pairing a disposition code such as COMPLETE or TERM_INELIGIBLE with the message text shown to the respondent\n\nCandidate heading: Part E - Quotas\nCandidate content:\nPARAGRAPH: Region (S4) - HARD: North 24%, Midlands 17%, South 41%, Scotland 8%, Wales 5%, Northern Ireland 5%. Close at SO5 when a \nPARAGRAPH: Age (S1 ...",
+      "response": {
+        "is_match": false,
+        "confidence": 0.97,
+        "reasoning": "Content consists of quota paragraphs, not a disposition code-message pairing."
+      }
+    },
+    "6c655d5f479b383165922daf9bfbca0de38fb83bc3b793d79ea4156789193ccb": {
+      "response_model": "LLMHeadingCandidate",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-09-11T16:02:13+00:00",
+      "asked": "Target section: Completion messages\nTarget content looks like: prose or a short table pairing a disposition code such as COMPLETE or TERM_INELIGIBLE with the message text shown to the respondent\n\nCandidate heading: Closing and redirects\nCandidate content:\nPARAGRAPH: SO1 to SO4 (screen-outs): \"Thank you for your interest. Based on your answers, you are not eligible for this survey.\" Re\nPARAGRAPH: S ...",
+      "response": {
+        "is_match": true,
+        "confidence": 0.95,
+        "reasoning": "Content lists disposition codes (e.g., COMPLETE, SO1) paired with the respondent-facing message, matching the expected code\u2011message pairing shape."
+      }
+    },
+    "9b2a8eab566e06553db1ab0a72a1a88601212a7e85d4af6db6f1fac7c831d437": {
+      "response_model": "LLMHeadingCandidate",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-09-11T16:02:15+00:00",
+      "asked": "Target section: Completion messages\nTarget content looks like: prose or a short table pairing a disposition code such as COMPLETE or TERM_INELIGIBLE with the message text shown to the respondent\n\nCandidate heading: Checking notes\nCandidate content:\nPARAGRAPH: Save the respondent's brand order and loop order as hidden variables.\nPARAGRAPH: Store B1 and B7 verbatims exactly as typed.\nPARAGRAPH: Test ...",
+      "response": {
+        "is_match": false,
+        "confidence": 0.99,
+        "reasoning": "The content consists of multiple instructional paragraphs and lacks any disposition code/message pairing or short table format."
+      }
+    },
+    "3502c1a8c66ac0b11d8fb0acc75f63ded6e867c7914c1a38d00564a3444a99c2": {
+      "response_model": "LLMHeadingCandidate",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-09-11T16:02:20+00:00",
+      "asked": "Target section: Quota controls\nTarget content looks like: prose or a table describing sampling quotas \u2014 named quota groups, the question or demographic each is measured on, target shares or counts per cell, and what happens to a respondent whose cell is already full\n\nCandidate heading: Wave 7 overview\nCandidate content:\nPARAGRAPH: Purpose: Track awareness, usage, consideration and advertising reca ...",
+      "response": {
+        "is_match": false,
+        "confidence": 0.99,
+        "reasoning": "The content consists of general overview paragraphs (purpose, method, sample, length) and lacks any quota group definitions, demographic cells, target shares, or handling rules expected for quota controls."
+      }
+    },
+    "3853d8e34d86fded9ac5d9c99c7a422658da9102bd6d67cc14a020a6b75f5dc9": {
+      "response_model": "LLMHeadingCandidate",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-09-11T16:02:23+00:00",
+      "asked": "Target section: Quota controls\nTarget content looks like: prose or a table describing sampling quotas \u2014 named quota groups, the question or demographic each is measured on, target shares or counts per cell, and what happens to a respondent whose cell is already full\n\nCandidate heading: Changes from Wave 6\nCandidate content:\nPARAGRAPH: A2 to A4 added for the new Corvo campaign.\nPARAGRAPH: B9 (price ...",
+      "response": {
+        "is_match": false,
+        "confidence": 0.99,
+        "reasoning": "Content consists of brief change notes without quota groups, demographics, or target shares, not matching the quota controls structure."
+      }
+    },
+    "8cb2fbd449807e3979438933a87ba47ac1ff503529753d6d27652b57133efca6": {
+      "response_model": "LLMHeadingCandidate",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-09-11T16:02:30+00:00",
+      "asked": "Target section: Quota controls\nTarget content looks like: prose or a table describing sampling quotas \u2014 named quota groups, the question or demographic each is measured on, target shares or counts per cell, and what happens to a respondent whose cell is already full\n\nCandidate heading: Scripting conventions\nCandidate content:\nPARAGRAPH: Question type tags: [SC] single code, [MC] multi code, [NUM]  ...",
+      "response": {
+        "is_match": false,
+        "confidence": 0.99,
+        "reasoning": "Content consists of scripting conventions and brand list paragraphs, not quota groups, demographics, or target shares"
+      }
+    },
+    "7bfa4f127aeced025270c2df6a98680a4f74f292f4a37d765432acd51e893516": {
+      "response_model": "LLMHeadingCandidate",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-09-11T16:02:35+00:00",
+      "asked": "Target section: Quota controls\nTarget content looks like: prose or a table describing sampling quotas \u2014 named quota groups, the question or demographic each is measured on, target shares or counts per cell, and what happens to a respondent whose cell is already full\n\nCandidate heading: Part A - Screening\nCandidate content:\nPARAGRAPH: ASK ALL\nPARAGRAPH: S1. [NUM] How old are you?\nPARAGRAPH: RANGE 1 ...",
+      "response": {
+        "is_match": false,
+        "confidence": 0.99,
+        "reasoning": "The content consists of screening questions and conditional logic, not a table or prose describing quota groups, target shares, or handling of full cells."
+      }
+    },
+    "380a85c98e6b22d21fef3d16d3f31b770218b1175fea40f343462151a2bc1b64": {
+      "response_model": "LLMHeadingCandidate",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-09-11T16:02:42+00:00",
+      "asked": "Target section: Quota controls\nTarget content looks like: prose or a table describing sampling quotas \u2014 named quota groups, the question or demographic each is measured on, target shares or counts per cell, and what happens to a respondent whose cell is already full\n\nCandidate heading: Part B - Brand funnel\nCandidate content:\nPARAGRAPH: ASK ALL\nPARAGRAPH: B1. [OE] When you think of streaming servi ...",
+      "response": {
+        "is_match": false,
+        "confidence": 0.99,
+        "reasoning": "The content lists survey questions and response options, not a quota table or prose describing sampling quotas."
+      }
+    },
+    "5b0ecf60ea1ee3979c8a412c5121a67a02be201ce2d15d5f141db5c8c0ba456e": {
+      "response_model": "LLMHeadingCandidate",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-09-11T16:02:50+00:00",
+      "asked": "Target section: Quota controls\nTarget content looks like: prose or a table describing sampling quotas \u2014 named quota groups, the question or demographic each is measured on, target shares or counts per cell, and what happens to a respondent whose cell is already full\n\nCandidate heading: Brand loop (B5 to B7)\nCandidate content:\nPARAGRAPH: LOOP FOR EACH BRAND SELECTED AT B3 (CODES 1-6). IF MORE THAN  ...",
+      "response": {
+        "is_match": false,
+        "confidence": 0.99,
+        "reasoning": "The content consists of paragraph-style survey questions and loops, not a table or prose describing quota groups, target shares, or handling of full cells."
+      }
+    },
+    "00d369ee6a41929069ec47af337300c0fada6aa7469ea81c7a50fb297758fc1c": {
+      "response_model": "LLMHeadingCandidate",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-09-11T16:02:55+00:00",
+      "asked": "Target section: Quota controls\nTarget content looks like: prose or a table describing sampling quotas \u2014 named quota groups, the question or demographic each is measured on, target shares or counts per cell, and what happens to a respondent whose cell is already full\n\nCandidate heading: Part C - Advertising\nCandidate content:\nPARAGRAPH: ASK ALL\nPARAGRAPH: A1. [MC] In the past 4 weeks, have you seen ...",
+      "response": {
+        "is_match": false,
+        "confidence": 0.99,
+        "reasoning": "The content consists of survey question paragraphs, not a quota table or prose describing sampling quotas."
+      }
+    },
+    "d009cf756caafe6eb8a9235e829ce8f2a41ea04e55eca32d3003454e5f6c446e": {
+      "response_model": "LLMHeadingCandidate",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-09-11T16:02:58+00:00",
+      "asked": "Target section: Quota controls\nTarget content looks like: prose or a table describing sampling quotas \u2014 named quota groups, the question or demographic each is measured on, target shares or counts per cell, and what happens to a respondent whose cell is already full\n\nCandidate heading: Part D - About you\nCandidate content:\nPARAGRAPH: ASK ALL\nPARAGRAPH: D1. [SC] How would you describe your gender?\n ...",
+      "response": {
+        "is_match": false,
+        "confidence": 0.97,
+        "reasoning": "Content consists of survey questions and answer options, not a quota table or description of sampling quotas"
+      }
+    },
+    "60803c71e77275fc638e1c4995d4c4896b48b11edfdbfad3e8eb66a92d674d37": {
+      "response_model": "LLMHeadingCandidate",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-09-11T16:03:04+00:00",
+      "asked": "Target section: Quota controls\nTarget content looks like: prose or a table describing sampling quotas \u2014 named quota groups, the question or demographic each is measured on, target shares or counts per cell, and what happens to a respondent whose cell is already full\n\nCandidate heading: Part E - Quotas\nCandidate content:\nPARAGRAPH: Region (S4) - HARD: North 24%, Midlands 17%, South 41%, Scotland 8% ...",
+      "response": {
+        "is_match": true,
+        "confidence": 0.96,
+        "reasoning": "The content lists quota groups (Region, Age, Gender) with associated demographics, target percentages/counts, and closure rules, matching the prose/table shape of quota controls."
+      }
+    },
+    "e7368a33e5544a54b9c22b30518c432681706aa2da38deca8738085e6db6a54c": {
+      "response_model": "LLMHeadingCandidate",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-09-11T16:03:08+00:00",
+      "asked": "Target section: Quota controls\nTarget content looks like: prose or a table describing sampling quotas \u2014 named quota groups, the question or demographic each is measured on, target shares or counts per cell, and what happens to a respondent whose cell is already full\n\nCandidate heading: Checking notes\nCandidate content:\nPARAGRAPH: Save the respondent's brand order and loop order as hidden variables ...",
+      "response": {
+        "is_match": false,
+        "confidence": 0.99,
+        "reasoning": "Content consists of unrelated procedural paragraphs, lacking any quota group, demographic, target share/count, or quota\u2011full handling structure."
+      }
+    },
+    "de36e7f8fe796ad788bd53a28b70d35c2a76bdcc59789db273488fb16fe2d021": {
+      "response_model": "LLMHeadingCandidate",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-09-11T16:03:11+00:00",
+      "asked": "Target section: Study specification\nTarget content looks like: prose stating study-level facts \u2014 the business objective, the target population, the interviewing mode, expected length, and instructions that apply to the questionnaire as a whole\n\nCandidate heading: Wave 7 overview\nCandidate content:\nPARAGRAPH: Purpose: Track awareness, usage, consideration and advertising recall for six streaming se ...",
+      "response": {
+        "is_match": true,
+        "confidence": 0.97,
+        "reasoning": "The content consists of several prose paragraphs detailing purpose, method, sample, and interview length, which matches the study specification shape."
+      }
+    },
+    "b4ed49f1331d19df533e96fc10e8da1b1bd5675775187c645eb8f2cd64d370ee": {
+      "response_model": "LLMHeadingCandidate",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-09-11T16:03:17+00:00",
+      "asked": "Target section: Study specification\nTarget content looks like: prose stating study-level facts \u2014 the business objective, the target population, the interviewing mode, expected length, and instructions that apply to the questionnaire as a whole\n\nCandidate heading: Changes from Wave 6\nCandidate content:\nPARAGRAPH: A2 to A4 added for the new Corvo campaign.\nPARAGRAPH: B9 (price perception) removed.\nP ...",
+      "response": {
+        "is_match": false,
+        "confidence": 0.98,
+        "reasoning": "The content lists specific questionnaire changes (additions/removals) rather than study-level facts like objectives or population, so its shape does not match the study specification section."
+      }
+    },
+    "5ebb1ee7b2e4366331501c0b183d1f7bcdf025f65788636e0f6510ba3124af0e": {
+      "response_model": "LLMHeadingCandidate",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-09-11T16:03:21+00:00",
+      "asked": "Target section: Study specification\nTarget content looks like: prose stating study-level facts \u2014 the business objective, the target population, the interviewing mode, expected length, and instructions that apply to the questionnaire as a whole\n\nCandidate heading: Scripting conventions\nCandidate content:\nPARAGRAPH: Question type tags: [SC] single code, [MC] multi code, [NUM] numeric, [OE] open end, ...",
+      "response": {
+        "is_match": false,
+        "confidence": 0.99,
+        "reasoning": "The content consists of technical scripting conventions and brand lists, not prose describing study objectives, population, mode, length, or overall instructions."
+      }
+    },
+    "c257c062c573ea08d426cd12f292d755ed5c592d33f87f79ee4107ef00b3a65b": {
+      "response_model": "LLMHeadingCandidate",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-09-11T16:03:28+00:00",
+      "asked": "Target section: Study specification\nTarget content looks like: prose stating study-level facts \u2014 the business objective, the target population, the interviewing mode, expected length, and instructions that apply to the questionnaire as a whole\n\nCandidate heading: Part A - Screening\nCandidate content:\nPARAGRAPH: ASK ALL\nPARAGRAPH: S1. [NUM] How old are you?\nPARAGRAPH: RANGE 16-99. IF S1 < 18, CLOSE ...",
+      "response": {
+        "is_match": false,
+        "confidence": 0.99,
+        "reasoning": "The content is a list of screening questions and logic, not prose describing study-level facts such as objectives or overall instructions."
+      }
+    },
+    "d3b1624a90cad307bd15475998dc51b71c7733d2519b8ad49733916d78dd7cde": {
+      "response_model": "LLMHeadingCandidate",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-09-11T16:03:33+00:00",
+      "asked": "Target section: Study specification\nTarget content looks like: prose stating study-level facts \u2014 the business objective, the target population, the interviewing mode, expected length, and instructions that apply to the questionnaire as a whole\n\nCandidate heading: Part B - Brand funnel\nCandidate content:\nPARAGRAPH: ASK ALL\nPARAGRAPH: B1. [OE] When you think of streaming services for films and serie ...",
+      "response": {
+        "is_match": false,
+        "confidence": 0.99,
+        "reasoning": "Content consists of question directives and field specifications, not prose describing study-level facts"
+      }
+    },
+    "1a0968013a01757b55c1adc5551f34aab41d4a8a6109d6920b56fedad93d7bfb": {
+      "response_model": "LLMHeadingCandidate",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-09-11T16:03:39+00:00",
+      "asked": "Target section: Study specification\nTarget content looks like: prose stating study-level facts \u2014 the business objective, the target population, the interviewing mode, expected length, and instructions that apply to the questionnaire as a whole\n\nCandidate heading: Brand loop (B5 to B7)\nCandidate content:\nPARAGRAPH: LOOP FOR EACH BRAND SELECTED AT B3 (CODES 1-6). IF MORE THAN 3 BRANDS WERE SELECTED, ...",
+      "response": {
+        "is_match": false,
+        "confidence": 0.99,
+        "reasoning": "The content consists of questionnaire item definitions and looping instructions, not prose describing study objectives, population, mode, length, or overall instructions."
+      }
+    },
+    "cd77b0c74a866fb8252e320ee6a89066adbba137d03b8035f0d8d936b91a35ab": {
+      "response_model": "LLMHeadingCandidate",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-09-11T16:03:46+00:00",
+      "asked": "Target section: Study specification\nTarget content looks like: prose stating study-level facts \u2014 the business objective, the target population, the interviewing mode, expected length, and instructions that apply to the questionnaire as a whole\n\nCandidate heading: Part C - Advertising\nCandidate content:\nPARAGRAPH: ASK ALL\nPARAGRAPH: A1. [MC] In the past 4 weeks, have you seen or heard any advertisi ...",
+      "response": {
+        "is_match": false,
+        "confidence": 0.99,
+        "reasoning": "The content consists of questionnaire items and logic statements, not prose describing study objectives, population, mode, length, or overall instructions."
+      }
+    },
+    "5a8c12af655222123c0b54ab896a09aa4018362ef736519e1ff551e8aec9be7d": {
+      "response_model": "LLMHeadingCandidate",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-09-11T16:03:52+00:00",
+      "asked": "Target section: Study specification\nTarget content looks like: prose stating study-level facts \u2014 the business objective, the target population, the interviewing mode, expected length, and instructions that apply to the questionnaire as a whole\n\nCandidate heading: Part D - About you\nCandidate content:\nPARAGRAPH: ASK ALL\nPARAGRAPH: D1. [SC] How would you describe your gender?\nPARAGRAPH: 1 Male\nPARAG ...",
+      "response": {
+        "is_match": false,
+        "confidence": 0.99,
+        "reasoning": "The content consists of questionnaire items and response options, not prose describing study objectives, population, mode, length, or overall instructions."
+      }
+    },
+    "312ac0bd37cd6dd5277bdbe79cb3fc418125d8de8683ef18df42926462fb1989": {
+      "response_model": "LLMHeadingCandidate",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-09-11T16:03:57+00:00",
+      "asked": "Target section: Study specification\nTarget content looks like: prose stating study-level facts \u2014 the business objective, the target population, the interviewing mode, expected length, and instructions that apply to the questionnaire as a whole\n\nCandidate heading: Checking notes\nCandidate content:\nPARAGRAPH: Save the respondent's brand order and loop order as hidden variables.\nPARAGRAPH: Store B1 a ...",
+      "response": {
+        "is_match": false,
+        "confidence": 0.98,
+        "reasoning": "The content consists of procedural checklist paragraphs rather than prose describing study objectives, population, mode, length, or overall questionnaire instructions."
+      }
+    },
+    "f58482ab92fbdd63a1210cbdd2358d37184ed21a4eca8e8f4248ceb3f6c6e9ae": {
+      "response_model": "LLMHeadingCandidate",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-09-11T16:04:00+00:00",
+      "asked": "Target section: Programming and QA requirements\nTarget content looks like: prose listing instructions to whoever programs or tests the survey \u2014 what identifiers to store, what to log or capture, what to reject, and what evidence a test run must produce\n\nCandidate heading: Changes from Wave 6\nCandidate content:\nPARAGRAPH: A2 to A4 added for the new Corvo campaign.\nPARAGRAPH: B9 (price perception) r ...",
+      "response": {
+        "is_match": false,
+        "confidence": 0.98,
+        "reasoning": "The content consists of change log paragraphs, not programming or QA instruction prose."
+      }
+    },
+    "ed1ec68776aebad9534446d6d6e69057fa3b943d1e9f6af2db673077a31f475a": {
+      "response_model": "LLMHeadingCandidate",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-09-11T16:04:05+00:00",
+      "asked": "Target section: Programming and QA requirements\nTarget content looks like: prose listing instructions to whoever programs or tests the survey \u2014 what identifiers to store, what to log or capture, what to reject, and what evidence a test run must produce\n\nCandidate heading: Scripting conventions\nCandidate content:\nPARAGRAPH: Question type tags: [SC] single code, [MC] multi code, [NUM] numeric, [OE]  ...",
+      "response": {
+        "is_match": false,
+        "confidence": 0.96,
+        "reasoning": "The content consists of tag definitions, brand list items, and scripting notes rather than programming or QA instructions about identifiers, logging, rejection criteria, or test evidence."
+      }
+    },
+    "2f23c71977616aff8623ba2f9642446a57385af7fcf1fee3cc3a946ce3bd93ff": {
+      "response_model": "LLMHeadingCandidate",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-09-11T16:04:12+00:00",
+      "asked": "Target section: Programming and QA requirements\nTarget content looks like: prose listing instructions to whoever programs or tests the survey \u2014 what identifiers to store, what to log or capture, what to reject, and what evidence a test run must produce\n\nCandidate heading: Part A - Screening\nCandidate content:\nPARAGRAPH: ASK ALL\nPARAGRAPH: S1. [NUM] How old are you?\nPARAGRAPH: RANGE 16-99. IF S1 <  ...",
+      "response": {
+        "is_match": false,
+        "confidence": 0.99,
+        "reasoning": "The content consists of survey questions and branching logic, not prose describing programming or QA instructions."
+      }
+    },
+    "a344acf44fbaeb5a7b3fa5afb19c8a7e4b5f15812d4d65e09a1b290e4804a85b": {
+      "response_model": "LLMHeadingCandidate",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-09-11T16:04:15+00:00",
+      "asked": "Target section: Programming and QA requirements\nTarget content looks like: prose listing instructions to whoever programs or tests the survey \u2014 what identifiers to store, what to log or capture, what to reject, and what evidence a test run must produce\n\nCandidate heading: Part B - Brand funnel\nCandidate content:\nPARAGRAPH: ASK ALL\nPARAGRAPH: B1. [OE] When you think of streaming services for films  ...",
+      "response": {
+        "is_match": true,
+        "confidence": 0.85,
+        "reasoning": "The content consists of directive statements about storing identifiers, conditional flow, and rejection criteria, matching the shape of programming and QA requirements."
+      }
+    },
+    "44c79063f6ecbee63589679bbdf518749fa857bff05093a5925d48cc1daba320": {
+      "response_model": "LLMHeadingCandidate",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-09-11T16:04:20+00:00",
+      "asked": "Target section: Programming and QA requirements\nTarget content looks like: prose listing instructions to whoever programs or tests the survey \u2014 what identifiers to store, what to log or capture, what to reject, and what evidence a test run must produce\n\nCandidate heading: Brand loop (B5 to B7)\nCandidate content:\nPARAGRAPH: LOOP FOR EACH BRAND SELECTED AT B3 (CODES 1-6). IF MORE THAN 3 BRANDS WERE  ...",
+      "response": {
+        "is_match": false,
+        "confidence": 0.97,
+        "reasoning": "The content consists of survey question paragraphs and looping logic, not prose describing programming or QA instructions."
+      }
+    },
+    "c8545d1e96eae48a0d00851fba6edd064ed3e323b3c536239bd5ac8f0d429242": {
+      "response_model": "LLMHeadingCandidate",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-09-11T16:04:27+00:00",
+      "asked": "Target section: Programming and QA requirements\nTarget content looks like: prose listing instructions to whoever programs or tests the survey \u2014 what identifiers to store, what to log or capture, what to reject, and what evidence a test run must produce\n\nCandidate heading: Part C - Advertising\nCandidate content:\nPARAGRAPH: ASK ALL\nPARAGRAPH: A1. [MC] In the past 4 weeks, have you seen or heard any  ...",
+      "response": {
+        "is_match": false,
+        "confidence": 0.99,
+        "reasoning": "The content consists of survey question definitions and flow logic, not prose instructions for programming or QA testing."
+      }
+    },
+    "6f8962cd28437c4566437df0064c5d43cae9b03a94c2127bc23b022c5e4aeae1": {
+      "response_model": "LLMHeadingCandidate",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-09-11T16:04:33+00:00",
+      "asked": "Target section: Programming and QA requirements\nTarget content looks like: prose listing instructions to whoever programs or tests the survey \u2014 what identifiers to store, what to log or capture, what to reject, and what evidence a test run must produce\n\nCandidate heading: Part D - About you\nCandidate content:\nPARAGRAPH: ASK ALL\nPARAGRAPH: D1. [SC] How would you describe your gender?\nPARAGRAPH: 1 M ...",
+      "response": {
+        "is_match": false,
+        "confidence": 0.99,
+        "reasoning": "The content consists of questionnaire items and response options, not prose describing programming or QA instructions."
+      }
+    },
+    "f4b1e772aefd0845de4e55cb1b858c43d29a4be73f092cbefed229e3982fdecf": {
+      "response_model": "LLMHeadingCandidate",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-09-11T16:04:37+00:00",
+      "asked": "Target section: Programming and QA requirements\nTarget content looks like: prose listing instructions to whoever programs or tests the survey \u2014 what identifiers to store, what to log or capture, what to reject, and what evidence a test run must produce\n\nCandidate heading: Checking notes\nCandidate content:\nPARAGRAPH: Save the respondent's brand order and loop order as hidden variables.\nPARAGRAPH: S ...",
+      "response": {
+        "is_match": true,
+        "confidence": 0.97,
+        "reasoning": "The content consists of multiple instructional paragraphs about storing variables, logging data, and test conditions, matching the prose format of programming and QA requirements."
+      }
+    },
+    "4624610af619d376e1fb62b389afbbc77278881f51d3f81432f7903953b8f011": {
+      "response_model": "LLMCompletionMessages",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-09-11T16:04:41+00:00",
+      "asked": "Section: Completion messages\n\nSource text:\nSO1 to SO4 (screen-outs): \"Thank you for your interest. Based on your answers, you are not eligible for this survey.\" Redirect with status=2.\nSO5 (quota full): \"Thank you. This survey already has enough people in your group.\" Redirect with status=3.\nCOMPLETE: \"Thank you for taking part in StreamScope. Your answers have been saved.\" Redirect with status=1.",
+      "response": {
+        "rows": [
+          {
+            "code": "SO1 to SO4 (screen-outs)",
+            "message": "Thank you for your interest. Based on your answers, you are not eligible for this survey."
+          },
+          {
+            "code": "SO5 (quota full)",
+            "message": "Thank you. This survey already has enough people in your group."
+          },
+          {
+            "code": "COMPLETE",
+            "message": "Thank you for taking part in StreamScope. Your answers have been saved."
+          }
+        ]
+      }
+    },
+    "bfe1e20198d469d3f0fa4fe05575b27caa5b00a2089050d897b6ff704b5e2a06": {
+      "response_model": "LLMQuota",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-09-11T16:04:54+00:00",
+      "asked": "Whole quota section, for context:\nRegion (S4) - HARD: North 24%, Midlands 17%, South 41%, Scotland 8%, Wales 5%, Northern Ireland 5%. Close at SO5 when a cell is full.\nAge (S1) - HARD: 18-34 40%, 35-54 35%, 55 and over 25%. Close at SO5 when a cell is full.\nGender (D1) - SOFT: at least 280 Male and at least 280 Female. Monitor only; D1 is asked at the end of the interview.\nPercentages are of 600 c ...",
+      "response": {
+        "is_quota": true,
+        "quota_id": "Region",
+        "enforcement": "HARD",
+        "variable_question_id": "S4",
+        "cell_labels": [
+          "North",
+          "Midlands",
+          "South",
+          "Scotland",
+          "Wales",
+          "Northern Ireland"
+        ],
+        "cell_percents": [
+          24.0,
+          17.0,
+          41.0,
+          8.0,
+          5.0,
+          5.0
+        ],
+        "on_full": "SO5",
+        "confidence": 1.0,
+        "reasoning": "The sentence defines a hard quota for question S4 (Region) with specified percentages for each region. The quota id is taken as the label before the question id, i.e., 'Region'. The enforcement is 'HARD'. The on\u2011full action is stated as 'Close at SO5 when a cell is full', so the ending code is 'SO5'."
+      }
+    },
+    "f4f12495eb78e01fbe535e681994de398fac536ebe35f944c0e3e9619e1600a6": {
+      "response_model": "LLMQuota",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-09-11T16:05:07+00:00",
+      "asked": "Whole quota section, for context:\nRegion (S4) - HARD: North 24%, Midlands 17%, South 41%, Scotland 8%, Wales 5%, Northern Ireland 5%. Close at SO5 when a cell is full.\nAge (S1) - HARD: 18-34 40%, 35-54 35%, 55 and over 25%. Close at SO5 when a cell is full.\nGender (D1) - SOFT: at least 280 Male and at least 280 Female. Monitor only; D1 is asked at the end of the interview.\nPercentages are of 600 c ...",
+      "response": {
+        "is_quota": true,
+        "quota_id": "Age",
+        "enforcement": "HARD",
+        "variable_question_id": "S1",
+        "cell_labels": [
+          "18-34",
+          "35-54",
+          "55 and over"
+        ],
+        "cell_percents": [
+          40.0,
+          35.0,
+          25.0
+        ],
+        "on_full": "SO5",
+        "confidence": 0.99,
+        "reasoning": "The sentence defines a quota for the question Age (S1) with enforcement HARD. It lists three answer groups (18-34, 35-54, 55 and over) and their target percentages (40%, 35%, 25%). The closing rule states to close at SO5 when a cell is full, which provides the on_full code. All required fields are filled accordingly."
+      }
+    },
+    "6f67ffeb73b8c076896122f28217bc5d9f83e8c9d1a9b23f3a30bd6831d0278b": {
+      "response_model": "LLMQuota",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-09-11T16:05:24+00:00",
+      "asked": "Whole quota section, for context:\nRegion (S4) - HARD: North 24%, Midlands 17%, South 41%, Scotland 8%, Wales 5%, Northern Ireland 5%. Close at SO5 when a cell is full.\nAge (S1) - HARD: 18-34 40%, 35-54 35%, 55 and over 25%. Close at SO5 when a cell is full.\nGender (D1) - SOFT: at least 280 Male and at least 280 Female. Monitor only; D1 is asked at the end of the interview.\nPercentages are of 600 c ...",
+      "response": {
+        "is_quota": true,
+        "quota_id": "Gender",
+        "enforcement": "SOFT",
+        "variable_question_id": "D1",
+        "cell_labels": [
+          "Male",
+          "Female"
+        ],
+        "cell_percents": [
+          46.6666666667,
+          46.6666666667
+        ],
+        "on_full": "SO5",
+        "confidence": 0.99,
+        "reasoning": "The sentence defines a soft quota for the question D1 (Gender) with minimum targets of 280 respondents for each label Male and Female. Converting the absolute target to a percentage of the 600\u2011respondent wave gives 280/600 \u2248 46.67% for each label. No specific ending code is mentioned in this sentence, but the surrounding section states that quotas close at SO5 when a cell is full, so that code is applied. All required fields are filled accordingly."
+      }
+    },
+    "6ebf1ef4b173dd6b77c27258900ed20ba04af2a3c02206ef417a562880a5c172": {
+      "response_model": "LLMQuota",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-09-11T16:05:31+00:00",
+      "asked": "Whole quota section, for context:\nRegion (S4) - HARD: North 24%, Midlands 17%, South 41%, Scotland 8%, Wales 5%, Northern Ireland 5%. Close at SO5 when a cell is full.\nAge (S1) - HARD: 18-34 40%, 35-54 35%, 55 and over 25%. Close at SO5 when a cell is full.\nGender (D1) - SOFT: at least 280 Male and at least 280 Female. Monitor only; D1 is asked at the end of the interview.\nPercentages are of 600 c ...",
+      "response": {
+        "is_quota": false,
+        "quota_id": null,
+        "enforcement": null,
+        "variable_question_id": null,
+        "cell_labels": [],
+        "cell_percents": [],
+        "on_full": null,
+        "confidence": 1.0,
+        "reasoning": "The sentence \"Percentages are of 600 completes per wave.\" merely provides a reference for the percentages and does not define a quota, its enforcement, question, groups, or a full\u2011cell action. Therefore it is not a quota statement."
+      }
+    }
+  }
+}

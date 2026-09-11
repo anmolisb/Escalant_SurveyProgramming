@@ -1,0 +1,307 @@
+{
+  "schema_version": "1.0.0",
+  "artifact": "part2_validation",
+  "stage": 7,
+  "survey_id": "F01_snack_bar_concept_test_SYNTHETIC",
+  "source_document": {
+    "filename": "F01_snack_bar_concept_test_SYNTHETIC.docx",
+    "sha256": "12b02e04b203b53d98ed23b8cb6682b07040aceede01a08428174d0783e5c069",
+    "bytes": 43735
+  },
+  "generated_at": "2026-09-11T11:25:46+00:00",
+  "item_count": null,
+  "content": {
+    "cross_source": [
+      {
+        "check": "invented_question",
+        "severity": "BLOCKING",
+        "finding": " is in the specification and the QRE does not ask it.",
+        "target": ""
+      },
+      {
+        "check": "unsupported_rule",
+        "severity": "BLOCKING",
+        "finding": "Rule  is in the specification and not in the routing table.",
+        "target": ""
+      },
+      {
+        "check": "unsupported_randomization",
+        "severity": "BLOCKING",
+        "finding": " is randomised in the specification and not in the QRE.",
+        "target": ""
+      },
+      {
+        "check": "unsupported_randomization",
+        "severity": "BLOCKING",
+        "finding": " is randomised in the specification and not in the QRE.",
+        "target": ""
+      }
+    ],
+    "reproducibility": {
+      "runs": 2,
+      "exact_reproducible": true,
+      "semantic_reproducible": true,
+      "meaningful_differences": [],
+      "note": "Formatting and ordering are excluded from the semantic comparison; routing, destinations, conditions, validation, termination, dependencies, quotas and randomization are not."
+    },
+    "graph": {
+      "nodes": 2,
+      "edges": 7,
+      "rules_mapped": "0/6",
+      "quotas_mapped": "0/0",
+      "dependency_edges": 0,
+      "passed": false,
+      "blocking": 7,
+      "findings": [
+        {
+          "check": "rule_coverage",
+          "severity": "BLOCKING",
+          "finding": "Rule  reached neither an edge nor a guard nor a constraint, so nothing in the graph represents it.",
+          "target": {
+            "kind": "rule",
+            "id": ""
+          },
+          "evidence": "",
+          "source_reference": null
+        },
+        {
+          "check": "rule_coverage",
+          "severity": "BLOCKING",
+          "finding": "Rule  reached neither an edge nor a guard nor a constraint, so nothing in the graph represents it.",
+          "target": {
+            "kind": "rule",
+            "id": ""
+          },
+          "evidence": "",
+          "source_reference": null
+        },
+        {
+          "check": "rule_coverage",
+          "severity": "BLOCKING",
+          "finding": "Rule  reached neither an edge nor a guard nor a constraint, so nothing in the graph represents it.",
+          "target": {
+            "kind": "rule",
+            "id": ""
+          },
+          "evidence": "",
+          "source_reference": null
+        },
+        {
+          "check": "rule_coverage",
+          "severity": "BLOCKING",
+          "finding": "Rule  reached neither an edge nor a guard nor a constraint, so nothing in the graph represents it.",
+          "target": {
+            "kind": "rule",
+            "id": ""
+          },
+          "evidence": "",
+          "source_reference": null
+        },
+        {
+          "check": "rule_coverage",
+          "severity": "BLOCKING",
+          "finding": "Rule  reached neither an edge nor a guard nor a constraint, so nothing in the graph represents it.",
+          "target": {
+            "kind": "rule",
+            "id": ""
+          },
+          "evidence": "",
+          "source_reference": null
+        },
+        {
+          "check": "rule_coverage",
+          "severity": "BLOCKING",
+          "finding": "Rule  reached neither an edge nor a guard nor a constraint, so nothing in the graph represents it.",
+          "target": {
+            "kind": "rule",
+            "id": ""
+          },
+          "evidence": "",
+          "source_reference": null
+        },
+        {
+          "check": "cycle",
+          "severity": "BLOCKING",
+          "finding": "The route graph loops, so a respondent could go round forever.",
+          "target": null,
+          "evidence": "",
+          "source_reference": null
+        }
+      ]
+    },
+    "confirmation_required": [
+      {
+        "status": "CONFIRMATION_REQUIRED",
+        "issue": "semantics_unconfirmed",
+        "why_it_matters": "The semantics block records three decisions the QRE never states: that a condition naming an unasked question is false, that the first matching rule wins, and that '==' against a multi-select compares the whole answer set. Each changes which questions appear on many routes and needs confirming.",
+        "affected": [
+          "F01_snack_bar_concept_test_SYNTHETIC.docx",
+          "semantics",
+          "semantics.default_mandatory"
+        ],
+        "changes_downstream": "Which questions appear on many routes, which rule wins when two apply, and whether an 'is exactly' test passes on a multi-select answer.",
+        "decision_ids": []
+      },
+      {
+        "status": "CONFIRMATION_REQUIRED",
+        "issue": "mandatory_unknown",
+        "why_it_matters": "7 questions say nothing about whether an answer is required, and no statement in the document sets a default, so it is left unknown rather than assumed.",
+        "affected": [
+          "F01_snack_bar_concept_test_SYNTHETIC.docx"
+        ],
+        "changes_downstream": "Whether an answer is required, so whether a skip-without-answering test should expect a validation error.",
+        "decision_ids": [
+          "89356eb6c770f97d"
+        ]
+      }
+    ],
+    "decisions": {
+      "register": "agent1_decisions.json",
+      "human_readable": "agent1_decision_register.md",
+      "summary": {
+        "total": 2,
+        "raised_this_run": 2,
+        "resolved_reused": 0,
+        "pending": 2,
+        "resolved": 0,
+        "not_required": 0,
+        "newly_transitioned_not_required": 0,
+        "context_changed": 0,
+        "blocking_pending": [
+          "5d5d04a61c182f21",
+          "89356eb6c770f97d"
+        ]
+      }
+    },
+    "verdict": {
+      "canonical_status": "FAILED",
+      "graph_ready": "NO",
+      "graph_evidence": {
+        "nodes": 2,
+        "edges": 7,
+        "rules_mapped": "0/6",
+        "quotas_mapped": "0/0",
+        "dependency_edges": 0,
+        "passed": false,
+        "blocking": 7,
+        "findings": [
+          {
+            "check": "rule_coverage",
+            "severity": "BLOCKING",
+            "finding": "Rule  reached neither an edge nor a guard nor a constraint, so nothing in the graph represents it.",
+            "target": {
+              "kind": "rule",
+              "id": ""
+            },
+            "evidence": "",
+            "source_reference": null
+          },
+          {
+            "check": "rule_coverage",
+            "severity": "BLOCKING",
+            "finding": "Rule  reached neither an edge nor a guard nor a constraint, so nothing in the graph represents it.",
+            "target": {
+              "kind": "rule",
+              "id": ""
+            },
+            "evidence": "",
+            "source_reference": null
+          },
+          {
+            "check": "rule_coverage",
+            "severity": "BLOCKING",
+            "finding": "Rule  reached neither an edge nor a guard nor a constraint, so nothing in the graph represents it.",
+            "target": {
+              "kind": "rule",
+              "id": ""
+            },
+            "evidence": "",
+            "source_reference": null
+          },
+          {
+            "check": "rule_coverage",
+            "severity": "BLOCKING",
+            "finding": "Rule  reached neither an edge nor a guard nor a constraint, so nothing in the graph represents it.",
+            "target": {
+              "kind": "rule",
+              "id": ""
+            },
+            "evidence": "",
+            "source_reference": null
+          },
+          {
+            "check": "rule_coverage",
+            "severity": "BLOCKING",
+            "finding": "Rule  reached neither an edge nor a guard nor a constraint, so nothing in the graph represents it.",
+            "target": {
+              "kind": "rule",
+              "id": ""
+            },
+            "evidence": "",
+            "source_reference": null
+          },
+          {
+            "check": "rule_coverage",
+            "severity": "BLOCKING",
+            "finding": "Rule  reached neither an edge nor a guard nor a constraint, so nothing in the graph represents it.",
+            "target": {
+              "kind": "rule",
+              "id": ""
+            },
+            "evidence": "",
+            "source_reference": null
+          },
+          {
+            "check": "cycle",
+            "severity": "BLOCKING",
+            "finding": "The route graph loops, so a respondent could go round forever.",
+            "target": null,
+            "evidence": "",
+            "source_reference": null
+          }
+        ]
+      },
+      "human_decision_gate": "PENDING_BLOCKING_DECISIONS",
+      "pending_blocking_decisions": [
+        "5d5d04a61c182f21",
+        "89356eb6c770f97d"
+      ],
+      "agent3_ready": "NO",
+      "agent3_blocked_by": [
+        "mandatory_unknown",
+        "rule_precedence"
+      ],
+      "what_is_incorrect": [
+        "T002 [routing_logic] rule counts disagree \u2014 expected 0, found 6",
+        "T003 [quotas] a quota sentence the QRE states is not carried anywhere \u2014 expected 'Percentages are of the total sample of 400 completes.', found ', , , , , ,  {\"unasked_reference\":\"condition_false\",\"unasked_reference_origin\":\"inferred\",\"rule_precedence\":\"document_order_first_match\",\"rule_precedence_origin'",
+        "T001 [question_extraction] the specification carries a different number of questions \u2014 expected 0, found 7",
+        "invented_question:  is in the specification and the QRE does not ask it.",
+        "unsupported_rule: Rule  is in the specification and not in the routing table.",
+        "unsupported_randomization:  is randomised in the specification and not in the QRE.",
+        "unsupported_randomization:  is randomised in the specification and not in the QRE."
+      ],
+      "what_is_missing": [],
+      "what_is_ambiguous": [
+        "semantics_unconfirmed \u2014 Which questions appear on many routes, which rule wins when two apply, and whether an 'is exactly' test passes on a multi-select answer.",
+        "mandatory_unknown \u2014 Whether an answer is required, so whether a skip-without-answering test should expect a validation error."
+      ],
+      "what_must_change": [
+        "Correct the 2 critical test failures listed above.",
+        "Resolve the 4 cross-source findings: the specification and the document disagree."
+      ],
+      "affected_ids": [
+        "F01_snack_bar_concept_test_SYNTHETIC.docx",
+        "semantics",
+        "semantics.default_mandatory"
+      ],
+      "counts": {
+        "critical_failures": 2,
+        "other_failures": 1,
+        "blocked": 0,
+        "cross_source_blocking": 4,
+        "confirmation_required": 2,
+        "decisions_pending_blocking": 2
+      }
+    }
+  }
+}

@@ -71,7 +71,8 @@ def get_client() -> instructor.Instructor:
     api_key = os.environ.get("GROQ_API_KEY", "")
     if not api_key:
         raise LLMUnavailable(
-            "GROQ_API_KEY is not set. Copy .env.example to .env and add your key."
+            "GROQ_API_KEY is not set. Copy config/.env.example to .env in the "
+            "repository root and add your key."
         )
     return instructor.from_groq(Groq(api_key=api_key), mode=instructor.Mode.JSON)
 

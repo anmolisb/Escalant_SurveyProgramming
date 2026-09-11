@@ -1,0 +1,100 @@
+{
+  "schema_version": "1.0.0",
+  "artifact": "stage3_programming",
+  "stage": 3,
+  "survey_id": "F01_snack_bar_concept_test_SYNTHETIC",
+  "source_document": {
+    "filename": "F01_snack_bar_concept_test_SYNTHETIC.docx",
+    "sha256": "12b02e04b203b53d98ed23b8cb6682b07040aceede01a08428174d0783e5c069",
+    "bytes": 43735
+  },
+  "generated_at": "2026-09-11T11:24:39+00:00",
+  "item_count": null,
+  "content": {
+    "target": "Programming and QA requirements",
+    "source_kind": "prose",
+    "rows": [
+      {
+        "raw_text": "All questions are mandatory and single response unless the Format column says otherwise.",
+        "text": "All questions are mandatory and single response unless the Format column says otherwise."
+      },
+      {
+        "raw_text": "Codes 98 (Don't know) and 99 (None of these / Nothing) are exclusive: selecting one clears any other answer. Always show them last, even when the list is randomised.",
+        "text": "Codes 98 (Don't know) and 99 (None of these / Nothing) are exclusive: selecting one clears any other answer. Always show them last, even when the list is randomised."
+      },
+      {
+        "raw_text": "RANDOMIZE means randomise the order of the listed codes for each respondent. Anchored codes keep their position.",
+        "text": "RANDOMIZE means randomise the order of the listed codes for each respondent. Anchored codes keep their position."
+      },
+      {
+        "raw_text": "One question per screen. Respondents may not go back during the screener.",
+        "text": "One question per screen. Respondents may not go back during the screener."
+      },
+      {
+        "raw_text": "Speeders: flag anyone who completes in under 40% of the median length. Do not end the interview; flagged cases are removed at data cleaning.",
+        "label": "Speeders",
+        "text": "flag anyone who completes in under 40% of the median length. Do not end the interview; flagged cases are removed at data cleaning."
+      },
+      {
+        "raw_text": "Store hCELL, every randomised order and the timestamp of each screen.",
+        "text": "Store hCELL, every randomised order and the timestamp of each screen."
+      }
+    ],
+    "row_sources": [
+      {
+        "document": "F01_snack_bar_concept_test_SYNTHETIC.docx",
+        "section": "Programming and QA requirements",
+        "heading_text": "2. General programming instructions",
+        "block_order": 9,
+        "row_index": null,
+        "source_kind": "prose",
+        "text": "All questions are mandatory and single response unless the Format column says otherwise."
+      },
+      {
+        "document": "F01_snack_bar_concept_test_SYNTHETIC.docx",
+        "section": "Programming and QA requirements",
+        "heading_text": "2. General programming instructions",
+        "block_order": 10,
+        "row_index": null,
+        "source_kind": "prose",
+        "text": "Codes 98 (Don't know) and 99 (None of these / Nothing) are exclusive: selecting one clears any other answer. Always show them last, even when the list is randomised."
+      },
+      {
+        "document": "F01_snack_bar_concept_test_SYNTHETIC.docx",
+        "section": "Programming and QA requirements",
+        "heading_text": "2. General programming instructions",
+        "block_order": 11,
+        "row_index": null,
+        "source_kind": "prose",
+        "text": "RANDOMIZE means randomise the order of the listed codes for each respondent. Anchored codes keep their position."
+      },
+      {
+        "document": "F01_snack_bar_concept_test_SYNTHETIC.docx",
+        "section": "Programming and QA requirements",
+        "heading_text": "2. General programming instructions",
+        "block_order": 12,
+        "row_index": null,
+        "source_kind": "prose",
+        "text": "One question per screen. Respondents may not go back during the screener."
+      },
+      {
+        "document": "F01_snack_bar_concept_test_SYNTHETIC.docx",
+        "section": "Programming and QA requirements",
+        "heading_text": "2. General programming instructions",
+        "block_order": 13,
+        "row_index": null,
+        "source_kind": "prose",
+        "text": "Speeders: flag anyone who completes in under 40% of the median length. Do not end the interview; flagged cases are removed at data cleaning."
+      },
+      {
+        "document": "F01_snack_bar_concept_test_SYNTHETIC.docx",
+        "section": "Programming and QA requirements",
+        "heading_text": "2. General programming instructions",
+        "block_order": 14,
+        "row_index": null,
+        "source_kind": "prose",
+        "text": "Store hCELL, every randomised order and the timestamp of each screen."
+      }
+    ]
+  }
+}

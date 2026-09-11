@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='utf-8'?>
+<gexf xmlns="http://www.gexf.net/1.2draft" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.gexf.net/1.2draft http://www.gexf.net/1.2draft/gexf.xsd" version="1.2">
+  <meta lastmodifieddate="2026-09-11">
+    <creator>NetworkX 3.6.1</creator>
+  </meta>
+  <graph defaultedgetype="directed" mode="static" name="">
+    <attributes mode="static" class="node">
+      <attribute id="0" title="kind" type="string" />
+      <attribute id="1" title="terminal" type="boolean" />
+      <attribute id="2" title="disposition_kind" type="string" />
+      <attribute id="3" title="defined_in_source" type="boolean" />
+    </attributes>
+    <nodes>
+      <node id="__START__" label="__START__">
+        <attvalues>
+          <attvalue for="0" value="start" />
+        </attvalues>
+      </node>
+      <node id="COMPLETE" label="COMPLETE">
+        <attvalues>
+          <attvalue for="0" value="disposition" />
+          <attvalue for="1" value="true" />
+          <attvalue for="2" value="complete" />
+          <attvalue for="3" value="true" />
+        </attvalues>
+      </node>
+      <node id="SO1 to SO4 (screen-outs)" label="SO1 to SO4 (screen-outs)">
+        <attvalues>
+          <attvalue for="0" value="disposition" />
+          <attvalue for="1" value="true" />
+          <attvalue for="2" value="screenout" />
+          <attvalue for="3" value="true" />
+        </attvalues>
+      </node>
+      <node id="SO5 (quota full)" label="SO5 (quota full)">
+        <attvalues>
+          <attvalue for="0" value="disposition" />
+          <attvalue for="1" value="true" />
+          <attvalue for="2" value="quota_full" />
+          <attvalue for="3" value="true" />
+        </attvalues>
+      </node>
+    </nodes>
+    <edges />
+  </graph>
+</gexf>
