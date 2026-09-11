@@ -14,6 +14,7 @@ from pydantic import BaseModel, Field
 # LimeSurvey question types used by the current fixtures.
 #   L = list (radio), M = multiple choice, T = long free text, S = short free text
 #   F = array, K = multiple numerical input (used for constant sum)
+#   N = numerical input
 QuestionType = str
 
 
