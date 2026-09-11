@@ -1,0 +1,75 @@
+{
+  "schema_version": "1.0.0",
+  "artifact": "agent1_decisions",
+  "survey_id": "S02_e_commerce_checkout_experience",
+  "source_document": {
+    "filename": "S02_e_commerce_checkout_experience.docx",
+    "sha256": "f02204a21d2522bc03d5d535c38c5c38f37056124dee93af6e32cfd0a1740810",
+    "bytes": 40573
+  },
+  "generated_at": "2026-09-11T17:18:49+00:00",
+  "entries": {
+    "4d7ebc8b83731dea": {
+      "decision_id": "4d7ebc8b83731dea",
+      "survey_id": "S02_e_commerce_checkout_experience",
+      "source_document": {
+        "filename": "S02_e_commerce_checkout_experience.docx",
+        "sha256": "f02204a21d2522bc03d5d535c38c5c38f37056124dee93af6e32cfd0a1740810"
+      },
+      "affected": [
+        "semantics"
+      ],
+      "category": "semantic_assumption",
+      "issue": "unasked_question_semantics",
+      "source_evidence": "unasked_reference='condition_false', origin=inferred",
+      "current_interpretation": "A condition naming a question the respondent was never asked is treated as false, so the rule or guard does not fire.",
+      "alternative_interpretations": [
+        "Treat it as true instead, so the rule fires.",
+        "Treat it as an error state needing its own handling."
+      ],
+      "downstream_impact": "Changes which questions are shown and which ending is reached whenever a condition names a question that was skipped.",
+      "recommendation": "Confirm the intended reading with the project owner. Once recorded here it applies to every rule in this survey and does not need asking again unless the document changes.",
+      "severity": "BLOCKING",
+      "context_key": "450036bdd1d10606",
+      "last_seen_at": "2026-09-11T17:18:49+00:00",
+      "status": "PENDING_CONFIRMATION",
+      "created_at": "2026-09-11T17:18:49+00:00",
+      "resolved_at": null,
+      "decision": null,
+      "decision_provenance": null,
+      "previous_decision": null,
+      "context_changed": false
+    },
+    "ef0c285fb8451312": {
+      "decision_id": "ef0c285fb8451312",
+      "survey_id": "S02_e_commerce_checkout_experience",
+      "source_document": {
+        "filename": "S02_e_commerce_checkout_experience.docx",
+        "sha256": "f02204a21d2522bc03d5d535c38c5c38f37056124dee93af6e32cfd0a1740810"
+      },
+      "affected": [
+        "semantics"
+      ],
+      "category": "semantic_assumption",
+      "issue": "rule_precedence",
+      "source_evidence": "rule_precedence='document_order_first_match', origin=inferred",
+      "current_interpretation": "The first rule in document order whose condition is true is the one that applies.",
+      "alternative_interpretations": [
+        "The most specific matching condition wins.",
+        "Every matching rule applies, and a later one can override an earlier one."
+      ],
+      "downstream_impact": "Changes which destination is used whenever more than one rule's condition can be true for the same respondent.",
+      "recommendation": "Confirm the intended precedence with the project owner.",
+      "severity": "BLOCKING",
+      "context_key": "450036bdd1d10606",
+      "last_seen_at": "2026-09-11T17:18:49+00:00",
+      "status": "PENDING_CONFIRMATION",
+      "created_at": "2026-09-11T17:18:49+00:00",
+      "resolved_at": null,
+      "decision": null,
+      "decision_provenance": null,
+      "previous_decision": null,
+      "context_changed": false
+    }
+  }
+}

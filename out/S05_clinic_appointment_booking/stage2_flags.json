@@ -1,0 +1,27 @@
+{
+  "schema_version": "1.0.0",
+  "artifact": "stage2_flags",
+  "stage": 2,
+  "survey_id": "S05_clinic_appointment_booking",
+  "source_document": {
+    "filename": "S05_clinic_appointment_booking.docx",
+    "sha256": "70248459ff35bb4084ed242e858b8bcfe68f16a4283c80120e6af46089f836aa",
+    "bytes": 40565
+  },
+  "generated_at": "2026-09-11T17:20:30+00:00",
+  "item_count": 1,
+  "content": [
+    {
+      "target_heading": "Quota controls",
+      "status": "NOT_PRESENT",
+      "candidate_heading": null,
+      "confidence": null,
+      "reasoning": "No heading matched by name, and no unmatched heading's content had this section's shape.",
+      "severity": "WARNING",
+      "target": {
+        "kind": "section",
+        "id": "Quota controls"
+      }
+    }
+  ]
+}

@@ -1,0 +1,355 @@
+{
+  "schema_version": "1.0.0",
+  "artifact": "agent1_evaluation_results",
+  "stage": 7,
+  "survey_id": "Z02_different_naming_SYNTHETIC",
+  "source_document": {
+    "filename": "Z02_different_naming_SYNTHETIC.docx",
+    "sha256": "67c042bd3b112118649bf43305e302b483e6427246d18e22af070c73bbab719f",
+    "bytes": 37625
+  },
+  "generated_at": "2026-09-11T17:21:37+00:00",
+  "item_count": null,
+  "content": {
+    "counts": {
+      "PASS": 6,
+      "FAIL": 4,
+      "UNVERIFIED": 4,
+      "BLOCKED": 0
+    },
+    "coverage": {
+      "question_coverage": {
+        "definition": "questions the QRE asks that the specification carries, in the right order",
+        "numerator": 1,
+        "denominator": 1,
+        "unverified_excluded": 0,
+        "result": 1.0,
+        "target": 1.0,
+        "meets_target": true
+      },
+      "question_type_coverage": {
+        "definition": "questions whose type is carried as the QRE wrote it",
+        "numerator": 0,
+        "denominator": 0,
+        "unverified_excluded": 0,
+        "result": null,
+        "target": 1.0,
+        "meets_target": null
+      },
+      "option_coverage": {
+        "definition": "answer lists, codes and matrix rows carried exactly",
+        "numerator": 0,
+        "denominator": 0,
+        "unverified_excluded": 0,
+        "result": null,
+        "target": 1.0,
+        "meets_target": null
+      },
+      "display_rule_coverage": {
+        "definition": "display conditions carried, and behaving as the QRE's own condition does",
+        "numerator": 0,
+        "denominator": 0,
+        "unverified_excluded": 0,
+        "result": null,
+        "target": 1.0,
+        "meets_target": null
+      },
+      "skip_rule_coverage": {
+        "definition": "skip rules carried with their condition, action and destination",
+        "numerator": 0,
+        "denominator": 0,
+        "unverified_excluded": 0,
+        "result": null,
+        "target": 1.0,
+        "meets_target": null
+      },
+      "routing_rule_coverage": {
+        "definition": "routing rules carried with their condition, action and destination",
+        "numerator": 1,
+        "denominator": 1,
+        "unverified_excluded": 0,
+        "result": 1.0,
+        "target": 1.0,
+        "meets_target": true
+      },
+      "termination_coverage": {
+        "definition": "terminate rules carried, and their endings accounted for",
+        "numerator": 0,
+        "denominator": 0,
+        "unverified_excluded": 0,
+        "result": null,
+        "target": 1.0,
+        "meets_target": null
+      },
+      "validation_coverage": {
+        "definition": "validation instructions carried, including whether an answer is required",
+        "numerator": 0,
+        "denominator": 0,
+        "unverified_excluded": 0,
+        "result": null,
+        "target": 1.0,
+        "meets_target": null
+      },
+      "dependency_piping_coverage": {
+        "definition": "piped option lists recorded on the question and as a dependency",
+        "numerator": 0,
+        "denominator": 0,
+        "unverified_excluded": 0,
+        "result": null,
+        "target": 1.0,
+        "meets_target": null
+      },
+      "randomization_coverage": {
+        "definition": "questions the QRE randomises that the specification records",
+        "numerator": 0,
+        "denominator": 0,
+        "unverified_excluded": 0,
+        "result": null,
+        "target": 1.0,
+        "meets_target": null
+      },
+      "quota_coverage": {
+        "definition": "quotas carried with their question, enforcement and cells",
+        "numerator": 0,
+        "denominator": 0,
+        "unverified_excluded": 0,
+        "result": null,
+        "target": 1.0,
+        "meets_target": null
+      },
+      "disposition_coverage": {
+        "definition": "endings carried with the message the document gives them",
+        "numerator": 0,
+        "denominator": 0,
+        "unverified_excluded": 0,
+        "result": null,
+        "target": 1.0,
+        "meets_target": null
+      },
+      "acceptance_scenario_coverage": {
+        "definition": "the QRE's own tests carried with inputs and expected outcome intact",
+        "numerator": 0,
+        "denominator": 0,
+        "unverified_excluded": 0,
+        "result": null,
+        "target": 1.0,
+        "meets_target": null
+      },
+      "programming_requirement_coverage": {
+        "definition": "programming and QA requirements carried",
+        "numerator": 0,
+        "denominator": 0,
+        "unverified_excluded": 0,
+        "result": null,
+        "target": 1.0,
+        "meets_target": null
+      },
+      "study_metadata_coverage": {
+        "definition": "study statements carried",
+        "numerator": 0,
+        "denominator": 4,
+        "unverified_excluded": 0,
+        "result": 0.0,
+        "target": 1.0,
+        "meets_target": false
+      },
+      "provenance_coverage": {
+        "definition": "element kinds where every member points back at the document",
+        "numerator": 4,
+        "denominator": 4,
+        "unverified_excluded": 0,
+        "result": 1.0,
+        "target": 1.0,
+        "meets_target": true
+      },
+      "critical_rule_recall": {
+        "definition": "executable logic - display, skip, routing, termination, validation, dependencies, quotas, randomization - carried correctly",
+        "numerator": 1,
+        "denominator": 1,
+        "unverified_excluded": 4,
+        "result": 1.0,
+        "target": 1.0,
+        "meets_target": true
+      }
+    },
+    "results": [
+      {
+        "test_id": "T001",
+        "category": "question_extraction",
+        "criticality": "HIGH",
+        "status": "PASS",
+        "expected": 0,
+        "actual": 0,
+        "evidence": "0 rows in the questionnaire table",
+        "canonical_reference": "questions[]",
+        "explanation": "counts agree",
+        "severity": "none"
+      },
+      {
+        "test_id": "T002",
+        "category": "routing_logic",
+        "criticality": "CRITICAL",
+        "status": "PASS",
+        "expected": 0,
+        "actual": 0,
+        "evidence": "0 rows in the routing table",
+        "canonical_reference": "rules[]",
+        "explanation": "counts agree",
+        "severity": "none"
+      },
+      {
+        "test_id": "T003",
+        "category": "study_metadata",
+        "criticality": "NORMAL",
+        "status": "FAIL",
+        "expected": "Track loyalty programme awareness among pharmacy shoppers.",
+        "actual": false,
+        "evidence": "Track loyalty programme awareness among pharmacy shoppers.",
+        "canonical_reference": "metadata[]",
+        "explanation": "a study statement is not carried",
+        "severity": "warning"
+      },
+      {
+        "test_id": "T004",
+        "category": "study_metadata",
+        "criticality": "NORMAL",
+        "status": "FAIL",
+        "expected": "Adults 25+ who filled a prescription in past 90 days",
+        "actual": false,
+        "evidence": "Adults 25+ who filled a prescription in past 90 days",
+        "canonical_reference": "metadata[]",
+        "explanation": "a study statement is not carried",
+        "severity": "warning"
+      },
+      {
+        "test_id": "T005",
+        "category": "study_metadata",
+        "criticality": "NORMAL",
+        "status": "FAIL",
+        "expected": "CATI telephone interview",
+        "actual": false,
+        "evidence": "CATI telephone interview",
+        "canonical_reference": "metadata[]",
+        "explanation": "a study statement is not carried",
+        "severity": "warning"
+      },
+      {
+        "test_id": "T006",
+        "category": "study_metadata",
+        "criticality": "NORMAL",
+        "status": "FAIL",
+        "expected": "12 minutes",
+        "actual": false,
+        "evidence": "12 minutes",
+        "canonical_reference": "metadata[]",
+        "explanation": "a study statement is not carried",
+        "severity": "warning"
+      },
+      {
+        "test_id": "T007",
+        "category": "provenance",
+        "criticality": "NORMAL",
+        "status": "PASS",
+        "expected": "every element carries a source reference",
+        "actual": "all present",
+        "evidence": "CLAUDE.md \u00a715",
+        "canonical_reference": "questions[].source_reference",
+        "explanation": "every element points back at the document",
+        "severity": "none"
+      },
+      {
+        "test_id": "T008",
+        "category": "provenance",
+        "criticality": "NORMAL",
+        "status": "PASS",
+        "expected": "every element carries a source reference",
+        "actual": "all present",
+        "evidence": "CLAUDE.md \u00a715",
+        "canonical_reference": "rules[].source_reference",
+        "explanation": "every element points back at the document",
+        "severity": "none"
+      },
+      {
+        "test_id": "T009",
+        "category": "provenance",
+        "criticality": "NORMAL",
+        "status": "PASS",
+        "expected": "every element carries a source reference",
+        "actual": "all present",
+        "evidence": "CLAUDE.md \u00a715",
+        "canonical_reference": "dispositions[].source_reference",
+        "explanation": "every element points back at the document",
+        "severity": "none"
+      },
+      {
+        "test_id": "T010",
+        "category": "provenance",
+        "criticality": "NORMAL",
+        "status": "PASS",
+        "expected": "every element carries a source reference",
+        "actual": "all present",
+        "evidence": "CLAUDE.md \u00a715",
+        "canonical_reference": "scenarios[].source_reference",
+        "explanation": "every element points back at the document",
+        "severity": "none"
+      },
+      {
+        "test_id": "T011",
+        "category": "semantic_assumptions",
+        "criticality": "CRITICAL",
+        "status": "UNVERIFIED",
+        "expected": "marked inferred or derived, never extracted",
+        "actual": {
+          "value": "condition_false",
+          "origin": "inferred"
+        },
+        "evidence": "the QRE states nothing about this",
+        "canonical_reference": "semantics",
+        "explanation": "the QRE states nothing here; the specification records a decision, marked inferred, which a person has to confirm",
+        "severity": "review"
+      },
+      {
+        "test_id": "T012",
+        "category": "semantic_assumptions",
+        "criticality": "CRITICAL",
+        "status": "UNVERIFIED",
+        "expected": "marked inferred or derived, never extracted",
+        "actual": {
+          "value": "document_order_first_match",
+          "origin": "inferred"
+        },
+        "evidence": "the QRE states nothing about this",
+        "canonical_reference": "semantics",
+        "explanation": "the QRE states nothing here; the specification records a decision, marked inferred, which a person has to confirm",
+        "severity": "review"
+      },
+      {
+        "test_id": "T013",
+        "category": "semantic_assumptions",
+        "criticality": "CRITICAL",
+        "status": "UNVERIFIED",
+        "expected": "marked inferred or derived, never extracted",
+        "actual": {
+          "value": "set_equality",
+          "origin": "derived"
+        },
+        "evidence": "the QRE states nothing about this",
+        "canonical_reference": "semantics",
+        "explanation": "the QRE states nothing here; the specification records a decision, marked derived, which a person has to confirm",
+        "severity": "review"
+      },
+      {
+        "test_id": "T014",
+        "category": "semantic_assumptions",
+        "criticality": "CRITICAL",
+        "status": "UNVERIFIED",
+        "expected": "traceable to a statement in the document",
+        "actual": null,
+        "evidence": "a general instruction in the study section, if there is one",
+        "canonical_reference": "semantics.default_mandatory",
+        "explanation": "no statement in the document sets a default, and none was assumed",
+        "severity": "review"
+      }
+    ]
+  }
+}

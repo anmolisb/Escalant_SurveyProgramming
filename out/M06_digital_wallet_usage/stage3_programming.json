@@ -1,0 +1,99 @@
+{
+  "schema_version": "1.0.0",
+  "artifact": "stage3_programming",
+  "stage": 3,
+  "survey_id": "M06_digital_wallet_usage",
+  "source_document": {
+    "filename": "M06_digital_wallet_usage.docx",
+    "sha256": "546fc6e23a42b87d4668c2bc827f2423d9aba96e146850cdd7e2dc5ad9d829cd",
+    "bytes": 41867
+  },
+  "generated_at": "2026-09-11T17:13:45+00:00",
+  "item_count": null,
+  "content": {
+    "target": "Programming and QA requirements",
+    "source_kind": "prose",
+    "rows": [
+      {
+        "raw_text": "Store stable question, option, route and test-run identifiers.",
+        "text": "Store stable question, option, route and test-run identifiers."
+      },
+      {
+        "raw_text": "Capture displayed random order for every randomized item.",
+        "text": "Capture displayed random order for every randomized item."
+      },
+      {
+        "raw_text": "Record expected and observed destination for every routing transition.",
+        "text": "Record expected and observed destination for every routing transition."
+      },
+      {
+        "raw_text": "Reject mutually exclusive selections and invalid numeric/text responses before progression.",
+        "text": "Reject mutually exclusive selections and invalid numeric/text responses before progression."
+      },
+      {
+        "raw_text": "Produce an audit record containing inputs, timestamps, route, assertions, screenshots on failure and final disposition.",
+        "text": "Produce an audit record containing inputs, timestamps, route, assertions, screenshots on failure and final disposition."
+      },
+      {
+        "raw_text": "Do not send synthetic test responses into live operational reporting.",
+        "text": "Do not send synthetic test responses into live operational reporting."
+      }
+    ],
+    "row_sources": [
+      {
+        "document": "M06_digital_wallet_usage.docx",
+        "section": "Programming and QA requirements",
+        "heading_text": "Programming and QA requirements",
+        "block_order": 17,
+        "row_index": null,
+        "source_kind": "prose",
+        "text": "Store stable question, option, route and test-run identifiers."
+      },
+      {
+        "document": "M06_digital_wallet_usage.docx",
+        "section": "Programming and QA requirements",
+        "heading_text": "Programming and QA requirements",
+        "block_order": 18,
+        "row_index": null,
+        "source_kind": "prose",
+        "text": "Capture displayed random order for every randomized item."
+      },
+      {
+        "document": "M06_digital_wallet_usage.docx",
+        "section": "Programming and QA requirements",
+        "heading_text": "Programming and QA requirements",
+        "block_order": 19,
+        "row_index": null,
+        "source_kind": "prose",
+        "text": "Record expected and observed destination for every routing transition."
+      },
+      {
+        "document": "M06_digital_wallet_usage.docx",
+        "section": "Programming and QA requirements",
+        "heading_text": "Programming and QA requirements",
+        "block_order": 20,
+        "row_index": null,
+        "source_kind": "prose",
+        "text": "Reject mutually exclusive selections and invalid numeric/text responses before progression."
+      },
+      {
+        "document": "M06_digital_wallet_usage.docx",
+        "section": "Programming and QA requirements",
+        "heading_text": "Programming and QA requirements",
+        "block_order": 21,
+        "row_index": null,
+        "source_kind": "prose",
+        "text": "Produce an audit record containing inputs, timestamps, route, assertions, screenshots on failure and final disposition."
+      },
+      {
+        "document": "M06_digital_wallet_usage.docx",
+        "section": "Programming and QA requirements",
+        "heading_text": "Programming and QA requirements",
+        "block_order": 22,
+        "row_index": null,
+        "source_kind": "prose",
+        "text": "Do not send synthetic test responses into live operational reporting."
+      }
+    ]
+  }
+}

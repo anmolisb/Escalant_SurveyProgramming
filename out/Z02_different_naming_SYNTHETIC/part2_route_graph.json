@@ -1,0 +1,36 @@
+{
+  "schema_version": "1.0.0",
+  "artifact": "part2_route_graph",
+  "stage": 8,
+  "survey_id": "Z02_different_naming_SYNTHETIC",
+  "source_document": {
+    "filename": "Z02_different_naming_SYNTHETIC.docx",
+    "sha256": "67c042bd3b112118649bf43305e302b483e6427246d18e22af070c73bbab719f",
+    "bytes": 37625
+  },
+  "generated_at": "2026-09-11T17:21:37+00:00",
+  "item_count": null,
+  "content": {
+    "source": "Z02_different_naming_SYNTHETIC.docx",
+    "route_graph": {
+      "directed": true,
+      "multigraph": true,
+      "graph": {},
+      "nodes": [
+        {
+          "kind": "start",
+          "id": "__START__"
+        }
+      ],
+      "edges": []
+    },
+    "dependency_graph": {
+      "directed": true,
+      "multigraph": false,
+      "graph": {},
+      "nodes": [],
+      "edges": []
+    },
+    "rule_edge_map": {}
+  }
+}

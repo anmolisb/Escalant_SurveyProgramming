@@ -1,0 +1,23 @@
+{
+  "schema_version": "1.0.0",
+  "artifact": "agent1_stage9_gate",
+  "stage": 9,
+  "survey_id": "C02_automotive_purchase_journey",
+  "source_document": {
+    "filename": "C02_automotive_purchase_journey.docx",
+    "sha256": "112a39d23aaf16dcfd2cce8a9de380d8b289dd33645c2703b7f00ec49f7e69f2",
+    "bytes": 43592
+  },
+  "generated_at": "2026-09-11T16:46:45+00:00",
+  "item_count": null,
+  "content": {
+    "graph_input_sufficiency": "READY",
+    "status": "BLOCKED",
+    "canonical_validation_clear": true,
+    "human_decision_gate_clear": false,
+    "graph_validation_passed": true,
+    "blocked_by": [
+      "human_decision_gate=PENDING_BLOCKING_DECISIONS"
+    ]
+  }
+}

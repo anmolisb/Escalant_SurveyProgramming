@@ -1,0 +1,80 @@
+{
+  "schema_version": "1.0.0",
+  "artifact": "part2_graph_report",
+  "stage": 8,
+  "survey_id": "S03_employee_training_feedback",
+  "source_document": {
+    "filename": "S03_employee_training_feedback.docx",
+    "sha256": "dd283ca690fd6496ad111b2c4816a00a1d55f8064277a3e9376c9da557b8f33f",
+    "bytes": 40562
+  },
+  "generated_at": "2026-09-11T17:19:35+00:00",
+  "item_count": null,
+  "content": {
+    "source": "S03_employee_training_feedback.docx",
+    "nodes": 13,
+    "edges": 14,
+    "questions": 10,
+    "dispositions": 2,
+    "rules_mapped": 4,
+    "rules_total": 4,
+    "quotas_mapped": 0,
+    "quotas_total": 0,
+    "dependency_edges": 3,
+    "findings": [],
+    "blocking": 0,
+    "passed": true,
+    "coverage": {
+      "node_coverage": {
+        "numerator": 12,
+        "denominator": 12,
+        "result": 1.0
+      },
+      "routing_rule_coverage": {
+        "numerator": 4,
+        "denominator": 4,
+        "result": 1.0
+      },
+      "termination_coverage": {
+        "numerator": 2,
+        "denominator": 2,
+        "result": 1.0
+      },
+      "skip_display_representation": {
+        "numerator": 2,
+        "denominator": 2,
+        "result": 1.0
+      },
+      "validation_reject_representation": {
+        "numerator": 0,
+        "denominator": 0,
+        "result": null
+      },
+      "dependency_coverage": {
+        "numerator": 3,
+        "denominator": 3,
+        "result": 1.0
+      },
+      "quota_coverage": {
+        "numerator": 0,
+        "denominator": 0,
+        "result": null
+      },
+      "randomization_coverage": {
+        "numerator": 0,
+        "denominator": 0,
+        "result": null
+      },
+      "traceability_coverage": {
+        "numerator": 4,
+        "denominator": 4,
+        "result": 1.0
+      }
+    },
+    "structurally_buildable": true,
+    "behaviorally_approved": false,
+    "approval_blocked_by": [
+      "human_decision_gate=PENDING_BLOCKING_DECISIONS"
+    ]
+  }
+}

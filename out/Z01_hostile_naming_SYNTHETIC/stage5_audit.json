@@ -1,0 +1,60 @@
+{
+  "schema_version": "1.0.0",
+  "artifact": "stage5_audit",
+  "stage": 5,
+  "survey_id": "Z01_hostile_naming_SYNTHETIC",
+  "source_document": {
+    "filename": "Z01_hostile_naming_SYNTHETIC.docx",
+    "sha256": "8bdbf584606f4512f5c6653ef15d9ab4bc4a07276a85fa3f550ccd32d49160f6",
+    "bytes": 37078
+  },
+  "generated_at": "2026-09-11T17:21:31+00:00",
+  "item_count": null,
+  "content": {
+    "source": "Z01_hostile_naming_SYNTHETIC.docx",
+    "checks_run": [
+      "source_coverage",
+      "row_accounting",
+      "reference_integrity",
+      "condition_consistency",
+      "piping_symmetry"
+    ],
+    "sections": [
+      {
+        "target": "Questionnaire",
+        "rows_in": 3,
+        "objects_out": 3,
+        "identified": 3,
+        "score": 1.0,
+        "threshold": 0.95,
+        "passed": true
+      }
+    ],
+    "findings": [
+      {
+        "check": "source_coverage",
+        "severity": "WARNING",
+        "finding": "2 block(s) sit outside every heading and reached no stage. Content before the first heading is not captured by any target.",
+        "target": {
+          "kind": "document",
+          "id": "Z01_hostile_naming_SYNTHETIC.docx"
+        },
+        "evidence": "C03 / HOSTILE; Instrument Blueprint",
+        "source_reference": null
+      },
+      {
+        "check": "reference_integrity",
+        "severity": "BLOCKING",
+        "finding": "No endings were extracted, so no destination or expected outcome that names one can be resolved. Checks needing them were skipped rather than reported as broken references.",
+        "target": {
+          "kind": "section",
+          "id": "Completion messages"
+        },
+        "evidence": null,
+        "source_reference": null
+      }
+    ],
+    "blocking": 1,
+    "passed": false
+  }
+}

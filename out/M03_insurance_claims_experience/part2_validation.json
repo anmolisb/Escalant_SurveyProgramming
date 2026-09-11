@@ -1,0 +1,251 @@
+{
+  "schema_version": "1.0.0",
+  "artifact": "part2_validation",
+  "stage": 7,
+  "survey_id": "M03_insurance_claims_experience",
+  "source_document": {
+    "filename": "M03_insurance_claims_experience.docx",
+    "sha256": "5c5f62986f95a3eb8fcc957d9d89a43098b96ed2bfda8745a7bbc94b928b929b",
+    "bytes": 41852
+  },
+  "generated_at": "2026-09-11T17:10:34+00:00",
+  "item_count": null,
+  "content": {
+    "cross_source": [
+      {
+        "check": "invented_validation",
+        "severity": "BLOCKING",
+        "finding": "S3 carries min_value, which the QRE does not state for it.",
+        "target": "S3"
+      },
+      {
+        "check": "invented_validation",
+        "severity": "BLOCKING",
+        "finding": "S3 carries max_value, which the QRE does not state for it.",
+        "target": "S3"
+      }
+    ],
+    "reproducibility": {
+      "runs": 2,
+      "exact_reproducible": true,
+      "semantic_reproducible": true,
+      "meaningful_differences": [],
+      "note": "Formatting and ordering are excluded from the semantic comparison; routing, destinations, conditions, validation, termination, dependencies, quotas and randomization are not."
+    },
+    "graph": {
+      "nodes": 23,
+      "edges": 25,
+      "rules_mapped": "9/9",
+      "quotas_mapped": "1/1",
+      "dependency_edges": 7,
+      "passed": true,
+      "blocking": 0,
+      "findings": [
+        {
+          "check": "termination",
+          "severity": "WARNING",
+          "finding": "Ending TERM_QUOTA_FULL is reachable but the QRE never says what it shows the respondent.",
+          "target": {
+            "kind": "disposition",
+            "id": "TERM_QUOTA_FULL"
+          },
+          "evidence": null,
+          "source_reference": null
+        }
+      ]
+    },
+    "confirmation_required": [
+      {
+        "status": "CONFIRMATION_REQUIRED",
+        "issue": "text_pipe_inferred",
+        "why_it_matters": "Q2's wording appears to quote the answer given at Q1. No table states this; it was read out of the sentence, so it is worth confirming.",
+        "affected": [
+          "Q10",
+          "Q2",
+          "Q3",
+          "Q5",
+          "Q8",
+          "Q9"
+        ],
+        "changes_downstream": "Whether this question's wording depends on an earlier answer, which decides the order a bot must answer in and what text it should expect on screen.",
+        "decision_ids": []
+      },
+      {
+        "status": "CONFIRMATION_REQUIRED",
+        "issue": "randomization_anchoring",
+        "why_it_matters": "Q7 shuffles its options and has 'None of these' as an exclusive option. Convention keeps such an option at the bottom, but the QRE does not say so.",
+        "affected": [
+          "Q13",
+          "Q3",
+          "Q7"
+        ],
+        "changes_downstream": "Where an exclusive option appears when the list is shuffled, which decides whether a displayed-order assertion is right.",
+        "decision_ids": [
+          "ce3c0a11224f3dc3"
+        ]
+      },
+      {
+        "status": "CONFIRMATION_REQUIRED",
+        "issue": "condition_inferred",
+        "why_it_matters": "Q8's display condition was prose, so a model proposed a reading which the parser then accepted. Worth a human eye.",
+        "affected": [
+          "Q8",
+          "R9"
+        ],
+        "changes_downstream": "Whether this rule fires for a given respondent, so which questions they see and which ending they reach.",
+        "decision_ids": []
+      },
+      {
+        "status": "CONFIRMATION_REQUIRED",
+        "issue": "semantics_unconfirmed",
+        "why_it_matters": "The semantics block records three decisions the QRE never states: that a condition naming an unasked question is false, that the first matching rule wins, and that '==' against a multi-select compares the whole answer set. Each changes which questions appear on many routes and needs confirming.",
+        "affected": [
+          "M03_insurance_claims_experience.docx",
+          "semantics"
+        ],
+        "changes_downstream": "Which questions appear on many routes, which rule wins when two apply, and whether an 'is exactly' test passes on a multi-select answer.",
+        "decision_ids": []
+      },
+      {
+        "status": "CONFIRMATION_REQUIRED",
+        "issue": "quota_ending_missing",
+        "why_it_matters": "Quota QUOTA_REGION sends a full group to 'TERM_QUOTA_FULL', which no completion message defines. Nothing can show that respondent anything.",
+        "affected": [
+          "TERM_QUOTA_FULL"
+        ],
+        "changes_downstream": "Nothing can be asserted about what a quota-full respondent is shown.",
+        "decision_ids": []
+      },
+      {
+        "status": "CONFIRMATION_REQUIRED",
+        "issue": "quota_inferred",
+        "why_it_matters": "Quota QUOTA_REGION was read out of a sentence by a model and passed the checks. Worth a human eye.",
+        "affected": [
+          "QUOTA_REGION"
+        ],
+        "changes_downstream": "Which respondents are counted against which quota, and when they are turned away.",
+        "decision_ids": []
+      }
+    ],
+    "decisions": {
+      "register": "agent1_decisions.json",
+      "human_readable": "agent1_decision_register.md",
+      "summary": {
+        "total": 14,
+        "raised_this_run": 14,
+        "resolved_reused": 0,
+        "pending": 14,
+        "resolved": 0,
+        "not_required": 0,
+        "newly_transitioned_not_required": 0,
+        "context_changed": 0,
+        "blocking_pending": [
+          "2350627bd04efeed",
+          "2656b2c344db698e",
+          "39e3d2d951736d56",
+          "48c37c06595b8933",
+          "5692de0f5e87fb76",
+          "7b99d7ca5d83dc54",
+          "8e93ea201b49f80c",
+          "903fe18c56a698ea",
+          "99193a53f9ee40b6",
+          "b892e8803682e0f9",
+          "d9928352767b088f",
+          "ec5eb8063e75820d"
+        ]
+      }
+    },
+    "verdict": {
+      "canonical_status": "FAILED",
+      "graph_ready": "NO",
+      "graph_evidence": {
+        "nodes": 23,
+        "edges": 25,
+        "rules_mapped": "9/9",
+        "quotas_mapped": "1/1",
+        "dependency_edges": 7,
+        "passed": true,
+        "blocking": 0,
+        "findings": [
+          {
+            "check": "termination",
+            "severity": "WARNING",
+            "finding": "Ending TERM_QUOTA_FULL is reachable but the QRE never says what it shows the respondent.",
+            "target": {
+              "kind": "disposition",
+              "id": "TERM_QUOTA_FULL"
+            },
+            "evidence": null,
+            "source_reference": null
+          }
+        ]
+      },
+      "human_decision_gate": "PENDING_BLOCKING_DECISIONS",
+      "pending_blocking_decisions": [
+        "2350627bd04efeed",
+        "2656b2c344db698e",
+        "39e3d2d951736d56",
+        "48c37c06595b8933",
+        "5692de0f5e87fb76",
+        "7b99d7ca5d83dc54",
+        "8e93ea201b49f80c",
+        "903fe18c56a698ea",
+        "99193a53f9ee40b6",
+        "b892e8803682e0f9",
+        "d9928352767b088f",
+        "ec5eb8063e75820d"
+      ],
+      "agent3_ready": "NO",
+      "agent3_blocked_by": [
+        "ambiguous_piping",
+        "ambiguous_routing_condition",
+        "multi_select_equality",
+        "quota_behaviour",
+        "rule_precedence",
+        "unasked_question_semantics"
+      ],
+      "what_is_incorrect": [
+        "T016 [validation_rules] a setting the QRE states was dropped \u2014 expected 18, found None",
+        "T017 [validation_rules] a setting the QRE states was dropped \u2014 expected 80, found None",
+        "invented_validation: S3 carries min_value, which the QRE does not state for it.",
+        "invented_validation: S3 carries max_value, which the QRE does not state for it."
+      ],
+      "what_is_missing": [],
+      "what_is_ambiguous": [
+        "text_pipe_inferred \u2014 Whether this question's wording depends on an earlier answer, which decides the order a bot must answer in and what text it should expect on screen.",
+        "randomization_anchoring \u2014 Where an exclusive option appears when the list is shuffled, which decides whether a displayed-order assertion is right.",
+        "condition_inferred \u2014 Whether this rule fires for a given respondent, so which questions they see and which ending they reach.",
+        "semantics_unconfirmed \u2014 Which questions appear on many routes, which rule wins when two apply, and whether an 'is exactly' test passes on a multi-select answer.",
+        "quota_ending_missing \u2014 Nothing can be asserted about what a quota-full respondent is shown.",
+        "quota_inferred \u2014 Which respondents are counted against which quota, and when they are turned away."
+      ],
+      "what_must_change": [
+        "Resolve the 2 cross-source findings: the specification and the document disagree."
+      ],
+      "affected_ids": [
+        "M03_insurance_claims_experience.docx",
+        "Q10",
+        "Q13",
+        "Q2",
+        "Q3",
+        "Q5",
+        "Q7",
+        "Q8",
+        "Q9",
+        "QUOTA_REGION",
+        "R9",
+        "S3",
+        "TERM_QUOTA_FULL",
+        "semantics"
+      ],
+      "counts": {
+        "critical_failures": 0,
+        "other_failures": 2,
+        "blocked": 0,
+        "cross_source_blocking": 2,
+        "confirmation_required": 6,
+        "decisions_pending_blocking": 12
+      }
+    }
+  }
+}

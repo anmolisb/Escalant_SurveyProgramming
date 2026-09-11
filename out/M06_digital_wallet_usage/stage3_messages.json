@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0.0",
+  "artifact": "stage3_messages",
+  "stage": 3,
+  "survey_id": "M06_digital_wallet_usage",
+  "source_document": {
+    "filename": "M06_digital_wallet_usage.docx",
+    "sha256": "546fc6e23a42b87d4668c2bc827f2423d9aba96e146850cdd7e2dc5ad9d829cd",
+    "bytes": 41867
+  },
+  "generated_at": "2026-09-11T17:13:45+00:00",
+  "item_count": null,
+  "content": {
+    "target": "Completion messages",
+    "source_kind": "prose",
+    "rows": [
+      {
+        "code": "TERM_INELIGIBLE",
+        "message": "Thank you for your interest. You do not qualify for this survey."
+      },
+      {
+        "code": "COMPLETE",
+        "message": "Thank you. Your response has been recorded."
+      }
+    ],
+    "row_sources": [
+      {
+        "document": "M06_digital_wallet_usage.docx",
+        "section": "Completion messages",
+        "heading_text": "Completion messages",
+        "block_order": 26,
+        "row_index": null,
+        "source_kind": "prose",
+        "text": "TERM_INELIGIBLE: Thank you for your interest. You do not qualify for this survey."
+      },
+      {
+        "document": "M06_digital_wallet_usage.docx",
+        "section": "Completion messages",
+        "heading_text": "Completion messages",
+        "block_order": 27,
+        "row_index": null,
+        "source_kind": "prose",
+        "text": "COMPLETE: Thank you. Your response has been recorded."
+      }
+    ]
+  }
+}

@@ -1,0 +1,86 @@
+{
+  "schema_version": "1.0.0",
+  "artifact": "stage3_messages",
+  "stage": 3,
+  "survey_id": "C04_retail_banking_brand_tracker",
+  "source_document": {
+    "filename": "C04_retail_banking_brand_tracker.docx",
+    "sha256": "2d882a73f9de982ee774cc4cead8657370d293dd047f6feb40fc4062bd3c8ae8",
+    "bytes": 43559
+  },
+  "generated_at": "2026-09-11T16:57:13+00:00",
+  "item_count": null,
+  "content": {
+    "target": "Completion messages",
+    "source_kind": "prose",
+    "rows": [
+      {
+        "code": "TERM_AGE",
+        "message": "Thank you for your interest. You do not qualify for this survey."
+      },
+      {
+        "code": "TERM_CONFLICT",
+        "message": "Thank you for your interest. You do not qualify for this survey."
+      },
+      {
+        "code": "TERM_INVOLVEMENT",
+        "message": "Thank you for your interest. You do not qualify for this survey."
+      },
+      {
+        "code": "TERM_RECENT_RESEARCH",
+        "message": "Thank you for your interest. You do not qualify for this survey."
+      },
+      {
+        "code": "COMPLETE",
+        "message": "Thank you. Your response has been recorded."
+      }
+    ],
+    "row_sources": [
+      {
+        "document": "C04_retail_banking_brand_tracker.docx",
+        "section": "Completion messages",
+        "heading_text": "Completion messages",
+        "block_order": 27,
+        "row_index": null,
+        "source_kind": "prose",
+        "text": "TERM_AGE: Thank you for your interest. You do not qualify for this survey."
+      },
+      {
+        "document": "C04_retail_banking_brand_tracker.docx",
+        "section": "Completion messages",
+        "heading_text": "Completion messages",
+        "block_order": 28,
+        "row_index": null,
+        "source_kind": "prose",
+        "text": "TERM_CONFLICT: Thank you for your interest. You do not qualify for this survey."
+      },
+      {
+        "document": "C04_retail_banking_brand_tracker.docx",
+        "section": "Completion messages",
+        "heading_text": "Completion messages",
+        "block_order": 29,
+        "row_index": null,
+        "source_kind": "prose",
+        "text": "TERM_INVOLVEMENT: Thank you for your interest. You do not qualify for this survey."
+      },
+      {
+        "document": "C04_retail_banking_brand_tracker.docx",
+        "section": "Completion messages",
+        "heading_text": "Completion messages",
+        "block_order": 30,
+        "row_index": null,
+        "source_kind": "prose",
+        "text": "TERM_RECENT_RESEARCH: Thank you for your interest. You do not qualify for this survey."
+      },
+      {
+        "document": "C04_retail_banking_brand_tracker.docx",
+        "section": "Completion messages",
+        "heading_text": "Completion messages",
+        "block_order": 31,
+        "row_index": null,
+        "source_kind": "prose",
+        "text": "COMPLETE: Thank you. Your response has been recorded."
+      }
+    ]
+  }
+}

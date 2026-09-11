@@ -1,0 +1,23 @@
+{
+  "schema_version": "1.0.0",
+  "artifact": "agent1_stage9_gate",
+  "stage": 9,
+  "survey_id": "S04_bank_branch_visit",
+  "source_document": {
+    "filename": "S04_bank_branch_visit.docx",
+    "sha256": "62d8642d29ecf6a0b34d74e04d689009996d74a9b00dc6b0717d4652dc1bd8b3",
+    "bytes": 40557
+  },
+  "generated_at": "2026-09-11T17:20:30+00:00",
+  "item_count": null,
+  "content": {
+    "graph_input_sufficiency": "READY",
+    "status": "BLOCKED",
+    "canonical_validation_clear": true,
+    "human_decision_gate_clear": false,
+    "graph_validation_passed": true,
+    "blocked_by": [
+      "human_decision_gate=PENDING_BLOCKING_DECISIONS"
+    ]
+  }
+}

@@ -1,0 +1,147 @@
+{
+  "schema_version": "1.0.0",
+  "artifact": "part2_validation",
+  "stage": 7,
+  "survey_id": "Z01_hostile_naming_SYNTHETIC",
+  "source_document": {
+    "filename": "Z01_hostile_naming_SYNTHETIC.docx",
+    "sha256": "8bdbf584606f4512f5c6653ef15d9ab4bc4a07276a85fa3f550ccd32d49160f6",
+    "bytes": 37078
+  },
+  "generated_at": "2026-09-11T17:21:32+00:00",
+  "item_count": null,
+  "content": {
+    "cross_source": [
+      {
+        "check": "invented_question",
+        "severity": "BLOCKING",
+        "finding": "A_01 is in the specification and the QRE does not ask it.",
+        "target": "A_01"
+      },
+      {
+        "check": "invented_question",
+        "severity": "BLOCKING",
+        "finding": "A_02 is in the specification and the QRE does not ask it.",
+        "target": "A_02"
+      },
+      {
+        "check": "invented_question",
+        "severity": "BLOCKING",
+        "finding": "A_03 is in the specification and the QRE does not ask it.",
+        "target": "A_03"
+      }
+    ],
+    "reproducibility": {
+      "runs": 2,
+      "exact_reproducible": false,
+      "semantic_reproducible": true,
+      "meaningful_differences": [],
+      "note": "Formatting and ordering are excluded from the semantic comparison; routing, destinations, conditions, validation, termination, dependencies, quotas and randomization are not."
+    },
+    "graph": {
+      "nodes": 4,
+      "edges": 3,
+      "rules_mapped": "0/0",
+      "quotas_mapped": "0/0",
+      "dependency_edges": 0,
+      "passed": true,
+      "blocking": 0,
+      "findings": []
+    },
+    "confirmation_required": [
+      {
+        "status": "CONFIRMATION_REQUIRED",
+        "issue": "semantics_unconfirmed",
+        "why_it_matters": "The semantics block records three decisions the QRE never states: that a condition naming an unasked question is false, that the first matching rule wins, and that '==' against a multi-select compares the whole answer set. Each changes which questions appear on many routes and needs confirming.",
+        "affected": [
+          "Z01_hostile_naming_SYNTHETIC.docx",
+          "semantics",
+          "semantics.default_mandatory"
+        ],
+        "changes_downstream": "Which questions appear on many routes, which rule wins when two apply, and whether an 'is exactly' test passes on a multi-select answer.",
+        "decision_ids": []
+      },
+      {
+        "status": "CONFIRMATION_REQUIRED",
+        "issue": "mandatory_unknown",
+        "why_it_matters": "3 questions say nothing about whether an answer is required, and no statement in the document sets a default, so it is left unknown rather than assumed.",
+        "affected": [
+          "Z01_hostile_naming_SYNTHETIC.docx"
+        ],
+        "changes_downstream": "Whether an answer is required, so whether a skip-without-answering test should expect a validation error.",
+        "decision_ids": [
+          "19a45b17f09c4cc3"
+        ]
+      }
+    ],
+    "decisions": {
+      "register": "agent1_decisions.json",
+      "human_readable": "agent1_decision_register.md",
+      "summary": {
+        "total": 1,
+        "raised_this_run": 1,
+        "resolved_reused": 0,
+        "pending": 1,
+        "resolved": 0,
+        "not_required": 0,
+        "newly_transitioned_not_required": 0,
+        "context_changed": 0,
+        "blocking_pending": [
+          "19a45b17f09c4cc3"
+        ]
+      }
+    },
+    "verdict": {
+      "canonical_status": "FAILED",
+      "graph_ready": "NO",
+      "graph_evidence": {
+        "nodes": 4,
+        "edges": 3,
+        "rules_mapped": "0/0",
+        "quotas_mapped": "0/0",
+        "dependency_edges": 0,
+        "passed": true,
+        "blocking": 0,
+        "findings": []
+      },
+      "human_decision_gate": "PENDING_BLOCKING_DECISIONS",
+      "pending_blocking_decisions": [
+        "19a45b17f09c4cc3"
+      ],
+      "agent3_ready": "NO",
+      "agent3_blocked_by": [
+        "mandatory_unknown"
+      ],
+      "what_is_incorrect": [
+        "T001 [question_extraction] the specification carries a different number of questions \u2014 expected 0, found 3",
+        "invented_question: A_01 is in the specification and the QRE does not ask it.",
+        "invented_question: A_02 is in the specification and the QRE does not ask it.",
+        "invented_question: A_03 is in the specification and the QRE does not ask it."
+      ],
+      "what_is_missing": [],
+      "what_is_ambiguous": [
+        "semantics_unconfirmed \u2014 Which questions appear on many routes, which rule wins when two apply, and whether an 'is exactly' test passes on a multi-select answer.",
+        "mandatory_unknown \u2014 Whether an answer is required, so whether a skip-without-answering test should expect a validation error."
+      ],
+      "what_must_change": [
+        "Resolve the 3 cross-source findings: the specification and the document disagree."
+      ],
+      "affected_ids": [
+        "A_01",
+        "A_02",
+        "A_03",
+        "Z01_hostile_naming_SYNTHETIC.docx",
+        "semantics",
+        "semantics.default_mandatory"
+      ],
+      "counts": {
+        "critical_failures": 0,
+        "other_failures": 1,
+        "blocked": 0,
+        "cross_source_blocking": 3,
+        "confirmation_required": 2,
+        "decisions_pending_blocking": 1
+      }
+    }
+  }
+}

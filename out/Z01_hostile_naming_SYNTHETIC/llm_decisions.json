@@ -1,0 +1,15 @@
+{
+  "entries": {
+    "fd4e04da15ac2233e5d8b79ab688ce5a5f0bd09118f4eb181a4a98245e61b022": {
+      "response_model": "LLMHeadingCandidate",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-09-11T17:21:31+00:00",
+      "asked": "Target section: Questionnaire\nTarget content looks like: a table whose columns identify survey questions \u2014 an id or reference column, a question wording column, and usually a type and options column\n\nCandidate heading: Blueprint Content Grid\nCandidate content:\nTABLE 4x6 columns: [Marker | Verbatim shown to participant | Capture mode | Permitted replies | Gating rule | Localisation memo] first row: ...",
+      "response": {
+        "is_match": true,
+        "confidence": 0.96,
+        "reasoning": "The table contains a marker (ID), verbatim (question text), capture mode (type) and permitted replies (options), matching the expected questionnaire shape."
+      }
+    }
+  }
+}

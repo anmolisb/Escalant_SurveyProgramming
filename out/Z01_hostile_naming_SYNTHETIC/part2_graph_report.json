@@ -1,0 +1,81 @@
+{
+  "schema_version": "1.0.0",
+  "artifact": "part2_graph_report",
+  "stage": 8,
+  "survey_id": "Z01_hostile_naming_SYNTHETIC",
+  "source_document": {
+    "filename": "Z01_hostile_naming_SYNTHETIC.docx",
+    "sha256": "8bdbf584606f4512f5c6653ef15d9ab4bc4a07276a85fa3f550ccd32d49160f6",
+    "bytes": 37078
+  },
+  "generated_at": "2026-09-11T17:21:32+00:00",
+  "item_count": null,
+  "content": {
+    "source": "Z01_hostile_naming_SYNTHETIC.docx",
+    "nodes": 4,
+    "edges": 3,
+    "questions": 3,
+    "dispositions": 0,
+    "rules_mapped": 0,
+    "rules_total": 0,
+    "quotas_mapped": 0,
+    "quotas_total": 0,
+    "dependency_edges": 0,
+    "findings": [],
+    "blocking": 0,
+    "passed": true,
+    "coverage": {
+      "node_coverage": {
+        "numerator": 3,
+        "denominator": 3,
+        "result": 1.0
+      },
+      "routing_rule_coverage": {
+        "numerator": 0,
+        "denominator": 0,
+        "result": null
+      },
+      "termination_coverage": {
+        "numerator": 0,
+        "denominator": 0,
+        "result": null
+      },
+      "skip_display_representation": {
+        "numerator": 0,
+        "denominator": 0,
+        "result": null
+      },
+      "validation_reject_representation": {
+        "numerator": 0,
+        "denominator": 0,
+        "result": null
+      },
+      "dependency_coverage": {
+        "numerator": 0,
+        "denominator": 0,
+        "result": null
+      },
+      "quota_coverage": {
+        "numerator": 0,
+        "denominator": 0,
+        "result": null
+      },
+      "randomization_coverage": {
+        "numerator": 0,
+        "denominator": 0,
+        "result": null
+      },
+      "traceability_coverage": {
+        "numerator": 0,
+        "denominator": 0,
+        "result": null
+      }
+    },
+    "structurally_buildable": true,
+    "behaviorally_approved": false,
+    "approval_blocked_by": [
+      "canonical_status=FAILED",
+      "human_decision_gate=PENDING_BLOCKING_DECISIONS"
+    ]
+  }
+}

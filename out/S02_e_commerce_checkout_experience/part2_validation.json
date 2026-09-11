@@ -1,0 +1,106 @@
+{
+  "schema_version": "1.0.0",
+  "artifact": "part2_validation",
+  "stage": 7,
+  "survey_id": "S02_e_commerce_checkout_experience",
+  "source_document": {
+    "filename": "S02_e_commerce_checkout_experience.docx",
+    "sha256": "f02204a21d2522bc03d5d535c38c5c38f37056124dee93af6e32cfd0a1740810",
+    "bytes": 40573
+  },
+  "generated_at": "2026-09-11T17:18:49+00:00",
+  "item_count": null,
+  "content": {
+    "cross_source": [],
+    "reproducibility": {
+      "runs": 2,
+      "exact_reproducible": true,
+      "semantic_reproducible": true,
+      "meaningful_differences": [],
+      "note": "Formatting and ordering are excluded from the semantic comparison; routing, destinations, conditions, validation, termination, dependencies, quotas and randomization are not."
+    },
+    "graph": {
+      "nodes": 13,
+      "edges": 14,
+      "rules_mapped": "4/4",
+      "quotas_mapped": "0/0",
+      "dependency_edges": 1,
+      "passed": true,
+      "blocking": 0,
+      "findings": []
+    },
+    "confirmation_required": [
+      {
+        "status": "CONFIRMATION_REQUIRED",
+        "issue": "semantics_unconfirmed",
+        "why_it_matters": "The semantics block records three decisions the QRE never states: that a condition naming an unasked question is false, that the first matching rule wins, and that '==' against a multi-select compares the whole answer set. Each changes which questions appear on many routes and needs confirming.",
+        "affected": [
+          "S02_e_commerce_checkout_experience.docx",
+          "semantics"
+        ],
+        "changes_downstream": "Which questions appear on many routes, which rule wins when two apply, and whether an 'is exactly' test passes on a multi-select answer.",
+        "decision_ids": []
+      }
+    ],
+    "decisions": {
+      "register": "agent1_decisions.json",
+      "human_readable": "agent1_decision_register.md",
+      "summary": {
+        "total": 2,
+        "raised_this_run": 2,
+        "resolved_reused": 0,
+        "pending": 2,
+        "resolved": 0,
+        "not_required": 0,
+        "newly_transitioned_not_required": 0,
+        "context_changed": 0,
+        "blocking_pending": [
+          "4d7ebc8b83731dea",
+          "ef0c285fb8451312"
+        ]
+      }
+    },
+    "verdict": {
+      "canonical_status": "PASSED_WITH_WARNINGS",
+      "graph_ready": "YES",
+      "graph_evidence": {
+        "nodes": 13,
+        "edges": 14,
+        "rules_mapped": "4/4",
+        "quotas_mapped": "0/0",
+        "dependency_edges": 1,
+        "passed": true,
+        "blocking": 0,
+        "findings": []
+      },
+      "human_decision_gate": "PENDING_BLOCKING_DECISIONS",
+      "pending_blocking_decisions": [
+        "4d7ebc8b83731dea",
+        "ef0c285fb8451312"
+      ],
+      "agent3_ready": "NO",
+      "agent3_blocked_by": [
+        "rule_precedence",
+        "unasked_question_semantics"
+      ],
+      "what_is_incorrect": [],
+      "what_is_missing": [],
+      "what_is_ambiguous": [
+        "semantics_unconfirmed \u2014 Which questions appear on many routes, which rule wins when two apply, and whether an 'is exactly' test passes on a multi-select answer."
+      ],
+      "what_must_change": [],
+      "affected_ids": [
+        "S02_e_commerce_checkout_experience.docx",
+        "semantics"
+      ],
+      "counts": {
+        "critical_failures": 0,
+        "other_failures": 0,
+        "blocked": 0,
+        "cross_source_blocking": 0,
+        "confirmation_required": 1,
+        "decisions_pending_blocking": 2
+      }
+    }
+  }
+}

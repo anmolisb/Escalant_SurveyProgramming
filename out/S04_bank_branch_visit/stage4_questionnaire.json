@@ -1,0 +1,446 @@
+[
+  {
+    "id": "S1",
+    "seq": 1,
+    "wording": "Have you visited a bank branch in the past 30 days?",
+    "type": "single",
+    "options": [
+      {
+        "option_id": "S1-O1",
+        "code": null,
+        "label": "Yes",
+        "numeric_value": null
+      },
+      {
+        "option_id": "S1-O2",
+        "code": null,
+        "label": "No",
+        "numeric_value": null
+      }
+    ],
+    "matrix_rows": [],
+    "display_condition": null,
+    "display_condition_expression": null,
+    "display_condition_expression_origin": null,
+    "min_length": null,
+    "max_length": null,
+    "min_value": null,
+    "max_value": null,
+    "min_selections": null,
+    "exclusive_option": null,
+    "sum_to": null,
+    "randomize": false,
+    "optional": false,
+    "dynamic_option_source": null,
+    "other_attributes": {}
+  },
+  {
+    "id": "S2",
+    "seq": 2,
+    "wording": "Are you 18 years of age or older?",
+    "type": "single",
+    "options": [
+      {
+        "option_id": "S2-O1",
+        "code": null,
+        "label": "Yes",
+        "numeric_value": null
+      },
+      {
+        "option_id": "S2-O2",
+        "code": null,
+        "label": "No",
+        "numeric_value": null
+      }
+    ],
+    "matrix_rows": [],
+    "display_condition": null,
+    "display_condition_expression": null,
+    "display_condition_expression_origin": null,
+    "min_length": null,
+    "max_length": null,
+    "min_value": null,
+    "max_value": null,
+    "min_selections": null,
+    "exclusive_option": null,
+    "sum_to": null,
+    "randomize": false,
+    "optional": false,
+    "dynamic_option_source": null,
+    "other_attributes": {}
+  },
+  {
+    "id": "Q1",
+    "seq": 3,
+    "wording": "Which channel did you primarily use for this branch visit?",
+    "type": "single",
+    "options": [
+      {
+        "option_id": "Q1-O1",
+        "code": null,
+        "label": "Teller counter",
+        "numeric_value": null
+      },
+      {
+        "option_id": "Q1-O2",
+        "code": null,
+        "label": "Service desk",
+        "numeric_value": null
+      },
+      {
+        "option_id": "Q1-O3",
+        "code": null,
+        "label": "Self-service kiosk",
+        "numeric_value": null
+      }
+    ],
+    "matrix_rows": [],
+    "display_condition": null,
+    "display_condition_expression": null,
+    "display_condition_expression_origin": null,
+    "min_length": null,
+    "max_length": null,
+    "min_value": null,
+    "max_value": null,
+    "min_selections": null,
+    "exclusive_option": null,
+    "sum_to": null,
+    "randomize": false,
+    "optional": false,
+    "dynamic_option_source": null,
+    "other_attributes": {}
+  },
+  {
+    "id": "Q2",
+    "seq": 4,
+    "wording": "Overall, how satisfied were you with the branch visit?",
+    "type": "single",
+    "options": [
+      {
+        "option_id": "Q2-O1",
+        "code": "1",
+        "label": "Very poor",
+        "numeric_value": 1.0
+      },
+      {
+        "option_id": "Q2-O2",
+        "code": "2",
+        "label": "Poor",
+        "numeric_value": 2.0
+      },
+      {
+        "option_id": "Q2-O3",
+        "code": "3",
+        "label": "Fair",
+        "numeric_value": 3.0
+      },
+      {
+        "option_id": "Q2-O4",
+        "code": "4",
+        "label": "Good",
+        "numeric_value": 4.0
+      },
+      {
+        "option_id": "Q2-O5",
+        "code": "5",
+        "label": "Excellent",
+        "numeric_value": 5.0
+      }
+    ],
+    "matrix_rows": [],
+    "display_condition": null,
+    "display_condition_expression": null,
+    "display_condition_expression_origin": null,
+    "min_length": null,
+    "max_length": null,
+    "min_value": null,
+    "max_value": null,
+    "min_selections": null,
+    "exclusive_option": null,
+    "sum_to": null,
+    "randomize": false,
+    "optional": false,
+    "dynamic_option_source": null,
+    "other_attributes": {}
+  },
+  {
+    "id": "Q3",
+    "seq": 5,
+    "wording": "How easy was it to complete what you wanted to do?",
+    "type": "single",
+    "options": [
+      {
+        "option_id": "Q3-O1",
+        "code": "1",
+        "label": "Very poor",
+        "numeric_value": 1.0
+      },
+      {
+        "option_id": "Q3-O2",
+        "code": "2",
+        "label": "Poor",
+        "numeric_value": 2.0
+      },
+      {
+        "option_id": "Q3-O3",
+        "code": "3",
+        "label": "Fair",
+        "numeric_value": 3.0
+      },
+      {
+        "option_id": "Q3-O4",
+        "code": "4",
+        "label": "Good",
+        "numeric_value": 4.0
+      },
+      {
+        "option_id": "Q3-O5",
+        "code": "5",
+        "label": "Excellent",
+        "numeric_value": 5.0
+      }
+    ],
+    "matrix_rows": [],
+    "display_condition": null,
+    "display_condition_expression": null,
+    "display_condition_expression_origin": null,
+    "min_length": null,
+    "max_length": null,
+    "min_value": null,
+    "max_value": null,
+    "min_selections": null,
+    "exclusive_option": null,
+    "sum_to": null,
+    "randomize": false,
+    "optional": false,
+    "dynamic_option_source": null,
+    "other_attributes": {}
+  },
+  {
+    "id": "Q4",
+    "seq": 6,
+    "wording": "Which aspects influenced your rating? Select all that apply.",
+    "type": "multi",
+    "options": [
+      {
+        "option_id": "Q4-O1",
+        "code": null,
+        "label": "Waiting time",
+        "numeric_value": null
+      },
+      {
+        "option_id": "Q4-O2",
+        "code": null,
+        "label": "Staff knowledge",
+        "numeric_value": null
+      },
+      {
+        "option_id": "Q4-O3",
+        "code": null,
+        "label": "Courtesy",
+        "numeric_value": null
+      },
+      {
+        "option_id": "Q4-O4",
+        "code": null,
+        "label": "Resolution",
+        "numeric_value": null
+      },
+      {
+        "option_id": "Q4-O5",
+        "code": null,
+        "label": "Privacy",
+        "numeric_value": null
+      },
+      {
+        "option_id": "Q4-O6",
+        "code": null,
+        "label": "Branch environment",
+        "numeric_value": null
+      }
+    ],
+    "matrix_rows": [],
+    "display_condition": null,
+    "display_condition_expression": null,
+    "display_condition_expression_origin": null,
+    "min_length": null,
+    "max_length": null,
+    "min_value": null,
+    "max_value": null,
+    "min_selections": 1,
+    "exclusive_option": null,
+    "sum_to": null,
+    "randomize": false,
+    "optional": false,
+    "dynamic_option_source": null,
+    "other_attributes": {}
+  },
+  {
+    "id": "Q5",
+    "seq": 7,
+    "wording": "Did you encounter a problem?",
+    "type": "single",
+    "options": [
+      {
+        "option_id": "Q5-O1",
+        "code": null,
+        "label": "Yes",
+        "numeric_value": null
+      },
+      {
+        "option_id": "Q5-O2",
+        "code": null,
+        "label": "No",
+        "numeric_value": null
+      }
+    ],
+    "matrix_rows": [],
+    "display_condition": null,
+    "display_condition_expression": null,
+    "display_condition_expression_origin": null,
+    "min_length": null,
+    "max_length": null,
+    "min_value": null,
+    "max_value": null,
+    "min_selections": null,
+    "exclusive_option": null,
+    "sum_to": null,
+    "randomize": false,
+    "optional": false,
+    "dynamic_option_source": null,
+    "other_attributes": {}
+  },
+  {
+    "id": "Q6",
+    "seq": 8,
+    "wording": "Please describe the main problem.",
+    "type": "text",
+    "options": [],
+    "matrix_rows": [],
+    "display_condition": "Q5 == 'Yes'",
+    "display_condition_expression": "Q5 == 'Yes'",
+    "display_condition_expression_origin": "derived",
+    "min_length": 10,
+    "max_length": 500,
+    "min_value": null,
+    "max_value": null,
+    "min_selections": null,
+    "exclusive_option": null,
+    "sum_to": null,
+    "randomize": false,
+    "optional": false,
+    "dynamic_option_source": null,
+    "other_attributes": {}
+  },
+  {
+    "id": "Q7",
+    "seq": 9,
+    "wording": "How likely are you to recommend this service?",
+    "type": "single",
+    "options": [
+      {
+        "option_id": "Q7-O1",
+        "code": null,
+        "label": "0",
+        "numeric_value": 0.0
+      },
+      {
+        "option_id": "Q7-O2",
+        "code": null,
+        "label": "1",
+        "numeric_value": 1.0
+      },
+      {
+        "option_id": "Q7-O3",
+        "code": null,
+        "label": "2",
+        "numeric_value": 2.0
+      },
+      {
+        "option_id": "Q7-O4",
+        "code": null,
+        "label": "3",
+        "numeric_value": 3.0
+      },
+      {
+        "option_id": "Q7-O5",
+        "code": null,
+        "label": "4",
+        "numeric_value": 4.0
+      },
+      {
+        "option_id": "Q7-O6",
+        "code": null,
+        "label": "5",
+        "numeric_value": 5.0
+      },
+      {
+        "option_id": "Q7-O7",
+        "code": null,
+        "label": "6",
+        "numeric_value": 6.0
+      },
+      {
+        "option_id": "Q7-O8",
+        "code": null,
+        "label": "7",
+        "numeric_value": 7.0
+      },
+      {
+        "option_id": "Q7-O9",
+        "code": null,
+        "label": "8",
+        "numeric_value": 8.0
+      },
+      {
+        "option_id": "Q7-O10",
+        "code": null,
+        "label": "9",
+        "numeric_value": 9.0
+      },
+      {
+        "option_id": "Q7-O11",
+        "code": null,
+        "label": "10",
+        "numeric_value": 10.0
+      }
+    ],
+    "matrix_rows": [],
+    "display_condition": null,
+    "display_condition_expression": null,
+    "display_condition_expression_origin": null,
+    "min_length": null,
+    "max_length": null,
+    "min_value": null,
+    "max_value": null,
+    "min_selections": null,
+    "exclusive_option": null,
+    "sum_to": null,
+    "randomize": false,
+    "optional": false,
+    "dynamic_option_source": null,
+    "other_attributes": {}
+  },
+  {
+    "id": "Q8",
+    "seq": 10,
+    "wording": "What is the single most important improvement you would suggest?",
+    "type": "text",
+    "options": [],
+    "matrix_rows": [],
+    "display_condition": null,
+    "display_condition_expression": null,
+    "display_condition_expression_origin": null,
+    "min_length": null,
+    "max_length": 500,
+    "min_value": null,
+    "max_value": null,
+    "min_selections": null,
+    "exclusive_option": null,
+    "sum_to": null,
+    "randomize": false,
+    "optional": true,
+    "dynamic_option_source": null,
+    "other_attributes": {}
+  }
+]

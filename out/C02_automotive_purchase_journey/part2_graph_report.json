@@ -1,0 +1,92 @@
+{
+  "schema_version": "1.0.0",
+  "artifact": "part2_graph_report",
+  "stage": 8,
+  "survey_id": "C02_automotive_purchase_journey",
+  "source_document": {
+    "filename": "C02_automotive_purchase_journey.docx",
+    "sha256": "112a39d23aaf16dcfd2cce8a9de380d8b289dd33645c2703b7f00ec49f7e69f2",
+    "bytes": 43592
+  },
+  "generated_at": "2026-09-11T16:46:45+00:00",
+  "item_count": null,
+  "content": {
+    "source": "C02_automotive_purchase_journey.docx",
+    "nodes": 38,
+    "edges": 39,
+    "questions": 31,
+    "dispositions": 6,
+    "rules_mapped": 20,
+    "rules_total": 20,
+    "quotas_mapped": 2,
+    "quotas_total": 2,
+    "dependency_edges": 14,
+    "findings": [
+      {
+        "check": "termination",
+        "severity": "WARNING",
+        "finding": "Ending TERM_QUOTA_FULL is reachable but the QRE never says what it shows the respondent.",
+        "target": {
+          "kind": "disposition",
+          "id": "TERM_QUOTA_FULL"
+        },
+        "evidence": null,
+        "source_reference": null
+      }
+    ],
+    "blocking": 0,
+    "passed": true,
+    "coverage": {
+      "node_coverage": {
+        "numerator": 37,
+        "denominator": 37,
+        "result": 1.0
+      },
+      "routing_rule_coverage": {
+        "numerator": 17,
+        "denominator": 17,
+        "result": 1.0
+      },
+      "termination_coverage": {
+        "numerator": 4,
+        "denominator": 4,
+        "result": 1.0
+      },
+      "skip_display_representation": {
+        "numerator": 13,
+        "denominator": 13,
+        "result": 1.0
+      },
+      "validation_reject_representation": {
+        "numerator": 3,
+        "denominator": 3,
+        "result": 1.0
+      },
+      "dependency_coverage": {
+        "numerator": 5,
+        "denominator": 5,
+        "result": 1.0
+      },
+      "quota_coverage": {
+        "numerator": 2,
+        "denominator": 2,
+        "result": 1.0
+      },
+      "randomization_coverage": {
+        "numerator": 5,
+        "denominator": 5,
+        "result": 1.0
+      },
+      "traceability_coverage": {
+        "numerator": 22,
+        "denominator": 22,
+        "result": 1.0
+      }
+    },
+    "structurally_buildable": true,
+    "behaviorally_approved": false,
+    "approval_blocked_by": [
+      "human_decision_gate=PENDING_BLOCKING_DECISIONS"
+    ]
+  }
+}

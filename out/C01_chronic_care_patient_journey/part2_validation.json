@@ -1,0 +1,311 @@
+{
+  "schema_version": "1.0.0",
+  "artifact": "part2_validation",
+  "stage": 7,
+  "survey_id": "C01_chronic_care_patient_journey",
+  "source_document": {
+    "filename": "C01_chronic_care_patient_journey.docx",
+    "sha256": "319e6b78a2a1e36ef712ce421e6d2c1db3325a087a07d8d0e93ec38b39207e4b",
+    "bytes": 43612
+  },
+  "generated_at": "2026-09-11T16:40:48+00:00",
+  "item_count": null,
+  "content": {
+    "cross_source": [],
+    "reproducibility": {
+      "runs": 2,
+      "exact_reproducible": true,
+      "semantic_reproducible": true,
+      "meaningful_differences": [],
+      "note": "Formatting and ordering are excluded from the semantic comparison; routing, destinations, conditions, validation, termination, dependencies, quotas and randomization are not."
+    },
+    "graph": {
+      "nodes": 38,
+      "edges": 39,
+      "rules_mapped": "20/20",
+      "quotas_mapped": "2/2",
+      "dependency_edges": 15,
+      "passed": true,
+      "blocking": 0,
+      "findings": [
+        {
+          "check": "termination",
+          "severity": "WARNING",
+          "finding": "Ending TERM_QUOTA_FULL is reachable but the QRE never says what it shows the respondent.",
+          "target": {
+            "kind": "disposition",
+            "id": "TERM_QUOTA_FULL"
+          },
+          "evidence": null,
+          "source_reference": null
+        }
+      ]
+    },
+    "confirmation_required": [
+      {
+        "status": "CONFIRMATION_REQUIRED",
+        "issue": "randomization_anchoring",
+        "why_it_matters": "Q1 shuffles its options and has 'None of these' as an exclusive option. Convention keeps such an option at the bottom, but the QRE does not say so.",
+        "affected": [
+          "Q1",
+          "Q16",
+          "Q19",
+          "Q5",
+          "Q9"
+        ],
+        "changes_downstream": "Where an exclusive option appears when the list is shuffled, which decides whether a displayed-order assertion is right.",
+        "decision_ids": [
+          "95eaab2b4ebfe62e"
+        ]
+      },
+      {
+        "status": "CONFIRMATION_REQUIRED",
+        "issue": "inferred_condition_partial_options",
+        "why_it_matters": "Rule R6 was read as naming 3 of Q1's 4 selectable answers, leaving out ['Independent provider']. A model chose which ones count and the QRE does not say.",
+        "affected": [
+          "Q2",
+          "Q3",
+          "R6",
+          "R7"
+        ],
+        "changes_downstream": "Which answers satisfy the rule. Respondents choosing an omitted answer take a different path than they should.",
+        "decision_ids": [
+          "756d035e6abbdf43"
+        ]
+      },
+      {
+        "status": "CONFIRMATION_REQUIRED",
+        "issue": "text_pipe_inferred",
+        "why_it_matters": "Q8's wording appears to quote the answer given at Q3. No table states this; it was read out of the sentence, so it is worth confirming.",
+        "affected": [
+          "Q20",
+          "Q21",
+          "Q8",
+          "Q9"
+        ],
+        "changes_downstream": "Whether this question's wording depends on an earlier answer, which decides the order a bot must answer in and what text it should expect on screen.",
+        "decision_ids": []
+      },
+      {
+        "status": "CONFIRMATION_REQUIRED",
+        "issue": "condition_inferred",
+        "why_it_matters": "Q2's display condition was prose, so a model proposed a reading which the parser then accepted. Worth a human eye.",
+        "affected": [
+          "Q2",
+          "R19",
+          "R20"
+        ],
+        "changes_downstream": "Whether this rule fires for a given respondent, so which questions they see and which ending they reach.",
+        "decision_ids": []
+      },
+      {
+        "status": "CONFIRMATION_REQUIRED",
+        "issue": "quota_inferred",
+        "why_it_matters": "Quota QUOTA_REGION was read out of a sentence by a model and passed the checks. Worth a human eye.",
+        "affected": [
+          "QUOTA_AGE",
+          "QUOTA_REGION"
+        ],
+        "changes_downstream": "Which respondents are counted against which quota, and when they are turned away.",
+        "decision_ids": []
+      },
+      {
+        "status": "CONFIRMATION_REQUIRED",
+        "issue": "semantics_unconfirmed",
+        "why_it_matters": "The semantics block records three decisions the QRE never states: that a condition naming an unasked question is false, that the first matching rule wins, and that '==' against a multi-select compares the whole answer set. Each changes which questions appear on many routes and needs confirming.",
+        "affected": [
+          "C01_chronic_care_patient_journey.docx",
+          "semantics"
+        ],
+        "changes_downstream": "Which questions appear on many routes, which rule wins when two apply, and whether an 'is exactly' test passes on a multi-select answer.",
+        "decision_ids": []
+      },
+      {
+        "status": "CONFIRMATION_REQUIRED",
+        "issue": "condition_unread",
+        "why_it_matters": "Q6's display condition could not be read as a condition: model declined: The phrase \"Q5 contains any touchpoint\" is ambiguous: it is unclear whether it refers to any of the specific listed touchpoint options (excluding 'None of these') or to any selection at all. The grammar requires an explicit list for the contains_any operator, and without a definitive interpretation we cannot safely construct a precise expression. Returning null avoids routing errors.",
+        "affected": [
+          "Q6"
+        ],
+        "changes_downstream": "The rule has no machine-readable form, so nothing downstream can evaluate it.",
+        "decision_ids": []
+      },
+      {
+        "status": "CONFIRMATION_REQUIRED",
+        "issue": "guard_single_source",
+        "why_it_matters": "Q15 has a display condition in the questionnaire but no matching rule in the routing table, so reading only the routing table would miss it.",
+        "affected": [
+          "Q15"
+        ],
+        "changes_downstream": "A display condition stated in only one place. Anyone reading the other place builds a survey without it.",
+        "decision_ids": [
+          "74f6f819e190cab4"
+        ]
+      },
+      {
+        "status": "CONFIRMATION_REQUIRED",
+        "issue": "guard_unread",
+        "why_it_matters": "Q6's display condition is prose and could not be read as a condition.",
+        "affected": [
+          "Q6"
+        ],
+        "changes_downstream": "The question's display condition cannot be evaluated, so no test can decide whether it should have appeared.",
+        "decision_ids": []
+      },
+      {
+        "status": "CONFIRMATION_REQUIRED",
+        "issue": "partial_option_codes",
+        "why_it_matters": "Q13 has codes on 2 of 5 options. A bot told to answer by code cannot resolve the rest, and inventing the missing codes is not allowed.",
+        "affected": [
+          "Q13"
+        ],
+        "changes_downstream": "A bot told to answer by code cannot resolve the uncoded options.",
+        "decision_ids": []
+      },
+      {
+        "status": "CONFIRMATION_REQUIRED",
+        "issue": "quota_ending_missing",
+        "why_it_matters": "Quota QUOTA_REGION sends a full group to 'TERM_QUOTA_FULL', which no completion message defines. Nothing can show that respondent anything.",
+        "affected": [
+          "TERM_QUOTA_FULL"
+        ],
+        "changes_downstream": "Nothing can be asserted about what a quota-full respondent is shown.",
+        "decision_ids": []
+      }
+    ],
+    "decisions": {
+      "register": "agent1_decisions.json",
+      "human_readable": "agent1_decision_register.md",
+      "summary": {
+        "total": 18,
+        "raised_this_run": 18,
+        "resolved_reused": 0,
+        "pending": 18,
+        "resolved": 0,
+        "not_required": 0,
+        "newly_transitioned_not_required": 0,
+        "context_changed": 0,
+        "blocking_pending": [
+          "00db7d74442cb17d",
+          "0430c3303a173c36",
+          "22546d6fb2aa7b38",
+          "5c5b9104ff079c25",
+          "70e04d836cb40d1b",
+          "756d035e6abbdf43",
+          "8009e053dcf0c019",
+          "8c69b2c506c9955a",
+          "a4544d4f6623ba59",
+          "ae7f9449c4271f16",
+          "c417f67cdc3ab8cb",
+          "c5f3dfc6dfabf018",
+          "d1c767adabb142b1",
+          "e4c971197a4cd683",
+          "f6de93712798f5f5"
+        ]
+      }
+    },
+    "verdict": {
+      "canonical_status": "PASSED_WITH_WARNINGS",
+      "graph_ready": "YES",
+      "graph_evidence": {
+        "nodes": 38,
+        "edges": 39,
+        "rules_mapped": "20/20",
+        "quotas_mapped": "2/2",
+        "dependency_edges": 15,
+        "passed": true,
+        "blocking": 0,
+        "findings": [
+          {
+            "check": "termination",
+            "severity": "WARNING",
+            "finding": "Ending TERM_QUOTA_FULL is reachable but the QRE never says what it shows the respondent.",
+            "target": {
+              "kind": "disposition",
+              "id": "TERM_QUOTA_FULL"
+            },
+            "evidence": null,
+            "source_reference": null
+          }
+        ]
+      },
+      "human_decision_gate": "PENDING_BLOCKING_DECISIONS",
+      "pending_blocking_decisions": [
+        "00db7d74442cb17d",
+        "0430c3303a173c36",
+        "22546d6fb2aa7b38",
+        "5c5b9104ff079c25",
+        "70e04d836cb40d1b",
+        "756d035e6abbdf43",
+        "8009e053dcf0c019",
+        "8c69b2c506c9955a",
+        "a4544d4f6623ba59",
+        "ae7f9449c4271f16",
+        "c417f67cdc3ab8cb",
+        "c5f3dfc6dfabf018",
+        "d1c767adabb142b1",
+        "e4c971197a4cd683",
+        "f6de93712798f5f5"
+      ],
+      "agent3_ready": "NO",
+      "agent3_blocked_by": [
+        "ambiguous_piping",
+        "ambiguous_routing_condition",
+        "inferred_condition_partial_options",
+        "missing_option_codes",
+        "multi_select_equality",
+        "quota_behaviour",
+        "rule_precedence",
+        "unasked_question_semantics"
+      ],
+      "what_is_incorrect": [],
+      "what_is_missing": [],
+      "what_is_ambiguous": [
+        "randomization_anchoring \u2014 Where an exclusive option appears when the list is shuffled, which decides whether a displayed-order assertion is right.",
+        "inferred_condition_partial_options \u2014 Which answers satisfy the rule. Respondents choosing an omitted answer take a different path than they should.",
+        "text_pipe_inferred \u2014 Whether this question's wording depends on an earlier answer, which decides the order a bot must answer in and what text it should expect on screen.",
+        "condition_inferred \u2014 Whether this rule fires for a given respondent, so which questions they see and which ending they reach.",
+        "quota_inferred \u2014 Which respondents are counted against which quota, and when they are turned away.",
+        "semantics_unconfirmed \u2014 Which questions appear on many routes, which rule wins when two apply, and whether an 'is exactly' test passes on a multi-select answer.",
+        "condition_unread \u2014 The rule has no machine-readable form, so nothing downstream can evaluate it.",
+        "guard_single_source \u2014 A display condition stated in only one place. Anyone reading the other place builds a survey without it.",
+        "guard_unread \u2014 The question's display condition cannot be evaluated, so no test can decide whether it should have appeared.",
+        "partial_option_codes \u2014 A bot told to answer by code cannot resolve the uncoded options.",
+        "quota_ending_missing \u2014 Nothing can be asserted about what a quota-full respondent is shown."
+      ],
+      "what_must_change": [],
+      "affected_ids": [
+        "C01_chronic_care_patient_journey.docx",
+        "Q1",
+        "Q13",
+        "Q15",
+        "Q16",
+        "Q19",
+        "Q2",
+        "Q20",
+        "Q21",
+        "Q3",
+        "Q5",
+        "Q6",
+        "Q8",
+        "Q9",
+        "QUOTA_AGE",
+        "QUOTA_REGION",
+        "R19",
+        "R20",
+        "R6",
+        "R7",
+        "TERM_QUOTA_FULL",
+        "semantics"
+      ],
+      "counts": {
+        "critical_failures": 0,
+        "other_failures": 0,
+        "blocked": 0,
+        "cross_source_blocking": 0,
+        "confirmation_required": 11,
+        "decisions_pending_blocking": 15
+      }
+    }
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0.0",
+  "artifact": "stage3_messages",
+  "stage": 3,
+  "survey_id": "M03_insurance_claims_experience",
+  "source_document": {
+    "filename": "M03_insurance_claims_experience.docx",
+    "sha256": "5c5f62986f95a3eb8fcc957d9d89a43098b96ed2bfda8745a7bbc94b928b929b",
+    "bytes": 41852
+  },
+  "generated_at": "2026-09-11T17:07:19+00:00",
+  "item_count": null,
+  "content": {
+    "target": "Completion messages",
+    "source_kind": "prose",
+    "rows": [
+      {
+        "code": "TERM_INELIGIBLE",
+        "message": "Thank you for your interest. You do not qualify for this survey."
+      },
+      {
+        "code": "COMPLETE",
+        "message": "Thank you. Your response has been recorded."
+      }
+    ],
+    "row_sources": [
+      {
+        "document": "M03_insurance_claims_experience.docx",
+        "section": "Completion messages",
+        "heading_text": "Completion messages",
+        "block_order": 26,
+        "row_index": null,
+        "source_kind": "prose",
+        "text": "TERM_INELIGIBLE: Thank you for your interest. You do not qualify for this survey."
+      },
+      {
+        "document": "M03_insurance_claims_experience.docx",
+        "section": "Completion messages",
+        "heading_text": "Completion messages",
+        "block_order": 27,
+        "row_index": null,
+        "source_kind": "prose",
+        "text": "COMPLETE: Thank you. Your response has been recorded."
+      }
+    ]
+  }
+}

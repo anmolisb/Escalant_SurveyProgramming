@@ -1,0 +1,114 @@
+{
+  "schema_version": "1.0.0",
+  "artifact": "stage5_audit",
+  "stage": 5,
+  "survey_id": "M06_digital_wallet_usage",
+  "source_document": {
+    "filename": "M06_digital_wallet_usage.docx",
+    "sha256": "546fc6e23a42b87d4668c2bc827f2423d9aba96e146850cdd7e2dc5ad9d829cd",
+    "bytes": 41867
+  },
+  "generated_at": "2026-09-11T17:15:51+00:00",
+  "item_count": null,
+  "content": {
+    "source": "M06_digital_wallet_usage.docx",
+    "checks_run": [
+      "source_coverage",
+      "row_accounting",
+      "reference_integrity",
+      "condition_consistency",
+      "piping_symmetry"
+    ],
+    "sections": [
+      {
+        "target": "Questionnaire",
+        "rows_in": 19,
+        "objects_out": 19,
+        "identified": 19,
+        "score": 1.0,
+        "threshold": 0.95,
+        "passed": true
+      },
+      {
+        "target": "Routing and termination",
+        "rows_in": 9,
+        "objects_out": 9,
+        "identified": 9,
+        "score": 1.0,
+        "threshold": 0.95,
+        "passed": true
+      },
+      {
+        "target": "Acceptance test scenarios",
+        "rows_in": 5,
+        "objects_out": 5,
+        "identified": 5,
+        "score": 1.0,
+        "threshold": 1.0,
+        "passed": true
+      },
+      {
+        "target": "Completion messages",
+        "rows_in": 2,
+        "objects_out": 2,
+        "identified": 2,
+        "score": 1.0,
+        "threshold": 1.0,
+        "passed": true
+      },
+      {
+        "target": "Quota controls",
+        "rows_in": 2,
+        "objects_out": 2,
+        "identified": 2,
+        "score": 1.0,
+        "threshold": 1.0,
+        "passed": true
+      },
+      {
+        "target": "Study specification",
+        "rows_in": 5,
+        "objects_out": 5,
+        "identified": 5,
+        "score": 1.0,
+        "threshold": 1.0,
+        "passed": true
+      },
+      {
+        "target": "Programming and QA requirements",
+        "rows_in": 6,
+        "objects_out": 6,
+        "identified": 6,
+        "score": 1.0,
+        "threshold": 1.0,
+        "passed": true
+      }
+    ],
+    "findings": [
+      {
+        "check": "source_coverage",
+        "severity": "WARNING",
+        "finding": "3 block(s) sit outside every heading and reached no stage. Content before the first heading is not captured by any target.",
+        "target": {
+          "kind": "document",
+          "id": "M06_digital_wallet_usage.docx"
+        },
+        "evidence": "M06 \u2022 MEDIUM; Digital Wallet Usage; Questionnaire Requirement Document (QRE)",
+        "source_reference": null
+      },
+      {
+        "check": "reference_integrity",
+        "severity": "WARNING",
+        "finding": "'TERM_QUOTA_FULL' is named in a quotas statement but is not a question or an ending in this QRE.",
+        "target": {
+          "kind": "statement",
+          "id": "TERM_QUOTA_FULL"
+        },
+        "evidence": "Quota-full respondents terminate at TERM_QUOTA_FULL before the next substantive question. Quota status must be logged.",
+        "source_reference": null
+      }
+    ],
+    "blocking": 0,
+    "passed": true
+  }
+}

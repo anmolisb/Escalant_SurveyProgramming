@@ -1,0 +1,105 @@
+{
+  "schema_version": "1.0.0",
+  "artifact": "stage5_audit",
+  "stage": 5,
+  "survey_id": "Z02_different_naming_SYNTHETIC",
+  "source_document": {
+    "filename": "Z02_different_naming_SYNTHETIC.docx",
+    "sha256": "67c042bd3b112118649bf43305e302b483e6427246d18e22af070c73bbab719f",
+    "bytes": 37625
+  },
+  "generated_at": "2026-09-11T17:21:37+00:00",
+  "item_count": null,
+  "content": {
+    "source": "Z02_different_naming_SYNTHETIC.docx",
+    "checks_run": [
+      "source_coverage",
+      "row_accounting",
+      "reference_integrity",
+      "condition_consistency",
+      "piping_symmetry"
+    ],
+    "sections": [],
+    "findings": [
+      {
+        "check": "source_coverage",
+        "severity": "WARNING",
+        "finding": "Section 'Study Aims And Sample' matched no target. Its 4 block(s) are preserved but nothing has parsed them.",
+        "target": {
+          "kind": "section",
+          "id": "Study Aims And Sample"
+        },
+        "evidence": "Research goal: Track loyalty programme awareness among pharmacy shoppers.; Who we need: Adults 25+ who filled a prescription in past 90 days; Method: CATI telephone interview",
+        "source_reference": null
+      },
+      {
+        "check": "source_coverage",
+        "severity": "WARNING",
+        "finding": "Section 'Item Bank' matched no target. Its 1 block(s) are preserved but nothing has parsed them.",
+        "target": {
+          "kind": "section",
+          "id": "Item Bank"
+        },
+        "evidence": "",
+        "source_reference": null
+      },
+      {
+        "check": "source_coverage",
+        "severity": "WARNING",
+        "finding": "Section 'Interview Flow Control' matched no target. Its 1 block(s) are preserved but nothing has parsed them.",
+        "target": {
+          "kind": "section",
+          "id": "Interview Flow Control"
+        },
+        "evidence": "",
+        "source_reference": null
+      },
+      {
+        "check": "source_coverage",
+        "severity": "WARNING",
+        "finding": "Section 'Weighting And Analysis Plan' matched no target. Its 1 block(s) are preserved but nothing has parsed them.",
+        "target": {
+          "kind": "section",
+          "id": "Weighting And Analysis Plan"
+        },
+        "evidence": "Weight to RIM targets on age, gender, region.",
+        "source_reference": null
+      },
+      {
+        "check": "source_coverage",
+        "severity": "WARNING",
+        "finding": "Section 'Fieldwork Timings' matched no target. Its 1 block(s) are preserved but nothing has parsed them.",
+        "target": {
+          "kind": "section",
+          "id": "Fieldwork Timings"
+        },
+        "evidence": "Pilot 4 Nov, full launch 8 Nov.",
+        "source_reference": null
+      },
+      {
+        "check": "source_coverage",
+        "severity": "WARNING",
+        "finding": "3 block(s) sit outside every heading and reached no stage. Content before the first heading is not captured by any target.",
+        "target": {
+          "kind": "document",
+          "id": "Z02_different_naming_SYNTHETIC.docx"
+        },
+        "evidence": "B07 / COMPLEX; Pharmacy Loyalty Tracker \u2014 Wave 3; Survey Scripting Brief",
+        "source_reference": null
+      },
+      {
+        "check": "reference_integrity",
+        "severity": "BLOCKING",
+        "finding": "No endings were extracted, so no destination or expected outcome that names one can be resolved. Checks needing them were skipped rather than reported as broken references.",
+        "target": {
+          "kind": "section",
+          "id": "Completion messages"
+        },
+        "evidence": null,
+        "source_reference": null
+      }
+    ],
+    "blocking": 1,
+    "passed": false
+  }
+}

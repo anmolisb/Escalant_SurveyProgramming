@@ -1,0 +1,62 @@
+[
+  {
+    "target_heading": "Questionnaire",
+    "status": "POSSIBLE_MATCH",
+    "candidate_heading": "A_01",
+    "confidence": null,
+    "reasoning": "Inline attributes not split: The provider's daily token budget is used up. Retrying will not help until it resets. Reduce the work, wait for the reset, or raise the quota. Provider said: Error code: 429 - {'error': {'message': 'Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m07vd5fjetc93h7pzdm0qay0` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 198632, Requested 1695. Please try again in 2m21.264s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",
+    "severity": "BLOCKING",
+    "target": {
+      "kind": "question",
+      "id": "A_01"
+    }
+  },
+  {
+    "target_heading": "Questionnaire",
+    "status": "POSSIBLE_MATCH",
+    "candidate_heading": "A_02",
+    "confidence": null,
+    "reasoning": "Inline attributes not split: The provider's daily token budget is used up. Retrying will not help until it resets. Reduce the work, wait for the reset, or raise the quota. Provider said: Error code: 429 - {'error': {'message': 'Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m07vd5fjetc93h7pzdm0qay0` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 198632, Requested 1695. Please try again in 2m21.264s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",
+    "severity": "BLOCKING",
+    "target": {
+      "kind": "question",
+      "id": "A_02"
+    }
+  },
+  {
+    "target_heading": "Questionnaire",
+    "status": "POSSIBLE_MATCH",
+    "candidate_heading": "A_03",
+    "confidence": null,
+    "reasoning": "Inline attributes not split: The provider's daily token budget is used up. Retrying will not help until it resets. Reduce the work, wait for the reset, or raise the quota. Provider said: Error code: 429 - {'error': {'message': 'Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m07vd5fjetc93h7pzdm0qay0` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 198632, Requested 1701. Please try again in 2m23.856s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}",
+    "severity": "BLOCKING",
+    "target": {
+      "kind": "question",
+      "id": "A_03"
+    }
+  },
+  {
+    "target_heading": "Study specification",
+    "status": "NOT_PRESENT",
+    "candidate_heading": null,
+    "confidence": null,
+    "reasoning": "The survey's description is not stated: no line is labelled as a description or an objective.",
+    "severity": "WARNING",
+    "target": {
+      "kind": "survey_information",
+      "id": "description"
+    }
+  },
+  {
+    "target_heading": "Study specification",
+    "status": "NOT_PRESENT",
+    "candidate_heading": null,
+    "confidence": null,
+    "reasoning": "The survey's welcome text is not stated: the document never states what a respondent is shown before the first question.",
+    "severity": "WARNING",
+    "target": {
+      "kind": "survey_information",
+      "id": "welcome_text"
+    }
+  }
+]

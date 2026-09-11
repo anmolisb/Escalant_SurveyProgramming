@@ -1,0 +1,72 @@
+{
+  "schema_version": "1.0.0",
+  "artifact": "stage3_questionnaire",
+  "stage": 3,
+  "survey_id": "Z01_hostile_naming_SYNTHETIC",
+  "source_document": {
+    "filename": "Z01_hostile_naming_SYNTHETIC.docx",
+    "sha256": "8bdbf584606f4512f5c6653ef15d9ab4bc4a07276a85fa3f550ccd32d49160f6",
+    "bytes": 37078
+  },
+  "generated_at": "2026-09-11T17:21:31+00:00",
+  "item_count": null,
+  "content": {
+    "target": "Questionnaire",
+    "source_kind": "table",
+    "rows": [
+      {
+        "Marker": "A_01",
+        "Verbatim shown to participant": "In which year were you born?",
+        "Capture mode": "numeric entry",
+        "Permitted replies": "1900-2010",
+        "Gating rule": "everyone",
+        "Localisation memo": "keep numerals"
+      },
+      {
+        "Marker": "A_02",
+        "Verbatim shown to participant": "Which of these have you used?",
+        "Capture mode": "pick many",
+        "Permitted replies": "App; Web; Phone; None",
+        "Gating rule": "everyone",
+        "Localisation memo": "translate list"
+      },
+      {
+        "Marker": "A_03",
+        "Verbatim shown to participant": "Why did you stop using it?",
+        "Capture mode": "free response",
+        "Permitted replies": "\u2014",
+        "Gating rule": "only if A_02 excludes None",
+        "Localisation memo": "verbatim capture"
+      }
+    ],
+    "row_sources": [
+      {
+        "document": "Z01_hostile_naming_SYNTHETIC.docx",
+        "section": "Questionnaire",
+        "heading_text": "Blueprint Content Grid",
+        "block_order": 3,
+        "row_index": 0,
+        "source_kind": "table",
+        "text": "A_01 | In which year were you born? | numeric entry | 1900-2010 | everyone | keep numerals"
+      },
+      {
+        "document": "Z01_hostile_naming_SYNTHETIC.docx",
+        "section": "Questionnaire",
+        "heading_text": "Blueprint Content Grid",
+        "block_order": 3,
+        "row_index": 1,
+        "source_kind": "table",
+        "text": "A_02 | Which of these have you used? | pick many | App; Web; Phone; None | everyone | translate list"
+      },
+      {
+        "document": "Z01_hostile_naming_SYNTHETIC.docx",
+        "section": "Questionnaire",
+        "heading_text": "Blueprint Content Grid",
+        "block_order": 3,
+        "row_index": 2,
+        "source_kind": "table",
+        "text": "A_03 | Why did you stop using it? | free response | \u2014 | only if A_02 excludes None | verbatim capture"
+      }
+    ]
+  }
+}

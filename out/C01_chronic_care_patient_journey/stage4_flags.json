@@ -1,0 +1,38 @@
+[
+  {
+    "target_heading": "Routing and termination",
+    "status": "POSSIBLE_MATCH",
+    "candidate_heading": "R19",
+    "confidence": null,
+    "reasoning": "The condition 'exclusive option selected with another response at Q1 or Q5' refers to a logical pattern (an exclusive option like 'None of these' selected together with any other option) that cannot be expressed with the available operators (eq, ne, lt, le, gt, ge, in, not_in, set_eq, contains_any, contains_all, answered, unanswered) without additional information about the full set of selected answers. Since the required comparison cannot be resolved from the given option labels alone, no comparisons are returned.",
+    "severity": "WARNING",
+    "target": {
+      "kind": "rule",
+      "id": "R19"
+    }
+  },
+  {
+    "target_heading": "Study specification",
+    "status": "NOT_PRESENT",
+    "candidate_heading": null,
+    "confidence": null,
+    "reasoning": "No line is labelled as the survey description; the line labelled 'Business objective' is being read as it.",
+    "severity": "INFO",
+    "target": {
+      "kind": "survey_information",
+      "id": "description"
+    }
+  },
+  {
+    "target_heading": "Study specification",
+    "status": "NOT_PRESENT",
+    "candidate_heading": null,
+    "confidence": null,
+    "reasoning": "The survey's welcome text is not stated: the document never states what a respondent is shown before the first question.",
+    "severity": "WARNING",
+    "target": {
+      "kind": "survey_information",
+      "id": "welcome_text"
+    }
+  }
+]

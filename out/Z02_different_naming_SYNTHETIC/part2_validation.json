@@ -1,0 +1,104 @@
+{
+  "schema_version": "1.0.0",
+  "artifact": "part2_validation",
+  "stage": 7,
+  "survey_id": "Z02_different_naming_SYNTHETIC",
+  "source_document": {
+    "filename": "Z02_different_naming_SYNTHETIC.docx",
+    "sha256": "67c042bd3b112118649bf43305e302b483e6427246d18e22af070c73bbab719f",
+    "bytes": 37625
+  },
+  "generated_at": "2026-09-11T17:21:37+00:00",
+  "item_count": null,
+  "content": {
+    "cross_source": [],
+    "reproducibility": {
+      "runs": 2,
+      "exact_reproducible": true,
+      "semantic_reproducible": true,
+      "meaningful_differences": [],
+      "note": "Formatting and ordering are excluded from the semantic comparison; routing, destinations, conditions, validation, termination, dependencies, quotas and randomization are not."
+    },
+    "graph": {
+      "nodes": 1,
+      "edges": 0,
+      "rules_mapped": "0/0",
+      "quotas_mapped": "0/0",
+      "dependency_edges": 0,
+      "passed": true,
+      "blocking": 0,
+      "findings": []
+    },
+    "confirmation_required": [
+      {
+        "status": "CONFIRMATION_REQUIRED",
+        "issue": "semantics_unconfirmed",
+        "why_it_matters": "The semantics block records three decisions the QRE never states: that a condition naming an unasked question is false, that the first matching rule wins, and that '==' against a multi-select compares the whole answer set. Each changes which questions appear on many routes and needs confirming.",
+        "affected": [
+          "Z02_different_naming_SYNTHETIC.docx",
+          "semantics",
+          "semantics.default_mandatory"
+        ],
+        "changes_downstream": "Which questions appear on many routes, which rule wins when two apply, and whether an 'is exactly' test passes on a multi-select answer.",
+        "decision_ids": []
+      }
+    ],
+    "decisions": {
+      "register": "agent1_decisions.json",
+      "human_readable": "agent1_decision_register.md",
+      "summary": {
+        "total": 0,
+        "raised_this_run": 0,
+        "resolved_reused": 0,
+        "pending": 0,
+        "resolved": 0,
+        "not_required": 0,
+        "newly_transitioned_not_required": 0,
+        "context_changed": 0,
+        "blocking_pending": []
+      }
+    },
+    "verdict": {
+      "canonical_status": "PASSED_WITH_WARNINGS",
+      "graph_ready": "YES",
+      "graph_evidence": {
+        "nodes": 1,
+        "edges": 0,
+        "rules_mapped": "0/0",
+        "quotas_mapped": "0/0",
+        "dependency_edges": 0,
+        "passed": true,
+        "blocking": 0,
+        "findings": []
+      },
+      "human_decision_gate": "CLEAR",
+      "pending_blocking_decisions": [],
+      "agent3_ready": "YES",
+      "agent3_blocked_by": [],
+      "what_is_incorrect": [
+        "T003 [study_metadata] a study statement is not carried \u2014 expected 'Track loyalty programme awareness among pharmacy shoppers.', found False",
+        "T004 [study_metadata] a study statement is not carried \u2014 expected 'Adults 25+ who filled a prescription in past 90 days', found False",
+        "T005 [study_metadata] a study statement is not carried \u2014 expected 'CATI telephone interview', found False",
+        "T006 [study_metadata] a study statement is not carried \u2014 expected '12 minutes', found False"
+      ],
+      "what_is_missing": [],
+      "what_is_ambiguous": [
+        "semantics_unconfirmed \u2014 Which questions appear on many routes, which rule wins when two apply, and whether an 'is exactly' test passes on a multi-select answer."
+      ],
+      "what_must_change": [],
+      "affected_ids": [
+        "Z02_different_naming_SYNTHETIC.docx",
+        "semantics",
+        "semantics.default_mandatory"
+      ],
+      "counts": {
+        "critical_failures": 0,
+        "other_failures": 4,
+        "blocked": 0,
+        "cross_source_blocking": 0,
+        "confirmation_required": 1,
+        "decisions_pending_blocking": 0
+      }
+    }
+  }
+}

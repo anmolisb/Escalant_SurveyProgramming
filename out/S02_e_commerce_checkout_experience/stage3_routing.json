@@ -1,0 +1,81 @@
+{
+  "schema_version": "1.0.0",
+  "artifact": "stage3_routing",
+  "stage": 3,
+  "survey_id": "S02_e_commerce_checkout_experience",
+  "source_document": {
+    "filename": "S02_e_commerce_checkout_experience.docx",
+    "sha256": "f02204a21d2522bc03d5d535c38c5c38f37056124dee93af6e32cfd0a1740810",
+    "bytes": 40573
+  },
+  "generated_at": "2026-09-11T17:17:59+00:00",
+  "item_count": null,
+  "content": {
+    "target": "Routing and termination",
+    "source_kind": "table",
+    "rows": [
+      {
+        "Rule": "R1",
+        "Condition": "S1 == 'No'",
+        "Action": "terminate",
+        "Destination": "TERM_INELIGIBLE"
+      },
+      {
+        "Rule": "R2",
+        "Condition": "S2 == 'No'",
+        "Action": "terminate",
+        "Destination": "TERM_INELIGIBLE"
+      },
+      {
+        "Rule": "R3",
+        "Condition": "Q5 == 'Yes'",
+        "Action": "show",
+        "Destination": "Q6"
+      },
+      {
+        "Rule": "R4",
+        "Condition": "Q5 == 'No'",
+        "Action": "skip",
+        "Destination": "Q7"
+      }
+    ],
+    "row_sources": [
+      {
+        "document": "S02_e_commerce_checkout_experience.docx",
+        "section": "Routing and termination",
+        "heading_text": "Routing and termination",
+        "block_order": 12,
+        "row_index": 0,
+        "source_kind": "table",
+        "text": "R1 | S1 == 'No' | terminate | TERM_INELIGIBLE"
+      },
+      {
+        "document": "S02_e_commerce_checkout_experience.docx",
+        "section": "Routing and termination",
+        "heading_text": "Routing and termination",
+        "block_order": 12,
+        "row_index": 1,
+        "source_kind": "table",
+        "text": "R2 | S2 == 'No' | terminate | TERM_INELIGIBLE"
+      },
+      {
+        "document": "S02_e_commerce_checkout_experience.docx",
+        "section": "Routing and termination",
+        "heading_text": "Routing and termination",
+        "block_order": 12,
+        "row_index": 2,
+        "source_kind": "table",
+        "text": "R3 | Q5 == 'Yes' | show | Q6"
+      },
+      {
+        "document": "S02_e_commerce_checkout_experience.docx",
+        "section": "Routing and termination",
+        "heading_text": "Routing and termination",
+        "block_order": 12,
+        "row_index": 3,
+        "source_kind": "table",
+        "text": "R4 | Q5 == 'No' | skip | Q7"
+      }
+    ]
+  }
+}

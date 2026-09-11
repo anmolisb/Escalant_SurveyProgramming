@@ -1,0 +1,48 @@
+{
+  "schema_version": "1.0.0",
+  "artifact": "stage3_quotas",
+  "stage": 3,
+  "survey_id": "M06_digital_wallet_usage",
+  "source_document": {
+    "filename": "M06_digital_wallet_usage.docx",
+    "sha256": "546fc6e23a42b87d4668c2bc827f2423d9aba96e146850cdd7e2dc5ad9d829cd",
+    "bytes": 41867
+  },
+  "generated_at": "2026-09-11T17:13:45+00:00",
+  "item_count": null,
+  "content": {
+    "target": "Quota controls",
+    "source_kind": "prose",
+    "rows": [
+      {
+        "raw_text": "QUOTA_REGION: soft quota on D1: North=20%, South=20%, East=20%, West=20%, Central=20%",
+        "code": "QUOTA_REGION",
+        "text": "soft quota on D1: North=20%, South=20%, East=20%, West=20%, Central=20%"
+      },
+      {
+        "raw_text": "Quota-full respondents terminate at TERM_QUOTA_FULL before the next substantive question. Quota status must be logged.",
+        "text": "Quota-full respondents terminate at TERM_QUOTA_FULL before the next substantive question. Quota status must be logged."
+      }
+    ],
+    "row_sources": [
+      {
+        "document": "M06_digital_wallet_usage.docx",
+        "section": "Quota controls",
+        "heading_text": "Quota controls",
+        "block_order": 14,
+        "row_index": null,
+        "source_kind": "prose",
+        "text": "QUOTA_REGION: soft quota on D1: North=20%, South=20%, East=20%, West=20%, Central=20%"
+      },
+      {
+        "document": "M06_digital_wallet_usage.docx",
+        "section": "Quota controls",
+        "heading_text": "Quota controls",
+        "block_order": 15,
+        "row_index": null,
+        "source_kind": "prose",
+        "text": "Quota-full respondents terminate at TERM_QUOTA_FULL before the next substantive question. Quota status must be logged."
+      }
+    ]
+  }
+}
