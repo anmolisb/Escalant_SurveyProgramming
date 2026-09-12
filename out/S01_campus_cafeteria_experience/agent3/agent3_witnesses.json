@@ -12,8 +12,8 @@
     "canonical_generated_at": "2026-09-11T17:17:56+00:00"
   },
   "content": {
-    "feasible": 35,
-    "total": 35,
+    "feasible": 41,
+    "total": 41,
     "witnesses": [
       {
         "target_id": "T-94ce2e5d20",
@@ -517,6 +517,141 @@
         },
         "method": "validation bound probed",
         "evidence": "Q8: length 501, one over max 500 [leaned on provisional semantics: ['rule_precedence']]",
+        "reason": null,
+        "preconditions": {},
+        "campaign": {}
+      },
+      {
+        "target_id": "T-4ad35b8ed5",
+        "feasible": true,
+        "answers": {
+          "Q5": "Q5-O1",
+          "S1": "S1-O1",
+          "S2": "S2-O1",
+          "Q1": "Q1-O1",
+          "Q2": "Q2-O1",
+          "Q3": "Q3-O1",
+          "Q4": [
+            "Q4-O1"
+          ],
+          "Q6": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "Q7": "Q7-O1"
+        },
+        "method": "validation bound probed",
+        "evidence": "Q6: exactly 500 characters, the stated maximum, which must be accepted [leaned on provisional semantics: ['rule_precedence']]",
+        "reason": null,
+        "preconditions": {},
+        "campaign": {}
+      },
+      {
+        "target_id": "T-8a57cf56a3",
+        "feasible": true,
+        "answers": {
+          "Q5": "Q5-O1",
+          "S1": "S1-O1",
+          "S2": "S2-O1",
+          "Q1": "Q1-O1",
+          "Q2": "Q2-O1",
+          "Q3": "Q3-O1",
+          "Q4": [
+            "Q4-O1"
+          ],
+          "Q6": "O'Brien said \"yes\" <50% & more",
+          "Q7": "Q7-O1"
+        },
+        "method": "validation bound probed",
+        "evidence": "Q6: punctuation and quotation marks within the stated length, which the rule does not forbid [leaned on provisional semantics: ['rule_precedence']]",
+        "reason": null,
+        "preconditions": {},
+        "campaign": {}
+      },
+      {
+        "target_id": "T-81f7201b2b",
+        "feasible": true,
+        "answers": {
+          "S1": "S1-O1",
+          "S2": "S2-O1",
+          "Q1": "Q1-O1",
+          "Q2": "Q2-O1",
+          "Q3": "Q3-O1",
+          "Q4": [
+            "Q4-O1"
+          ],
+          "Q5": "Q5-O1",
+          "Q6": "xxxxxxxxxx",
+          "Q7": "Q7-O1",
+          "Q8": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+        },
+        "method": "validation bound probed",
+        "evidence": "Q8: exactly 500 characters, the stated maximum, which must be accepted [leaned on provisional semantics: ['rule_precedence']]",
+        "reason": null,
+        "preconditions": {},
+        "campaign": {}
+      },
+      {
+        "target_id": "T-5bf7c9d7a3",
+        "feasible": true,
+        "answers": {
+          "S1": "S1-O1",
+          "S2": "S2-O1",
+          "Q1": "Q1-O1",
+          "Q2": "Q2-O1",
+          "Q3": "Q3-O1",
+          "Q4": [
+            "Q4-O1"
+          ],
+          "Q5": "Q5-O1",
+          "Q6": "xxxxxxxxxx",
+          "Q7": "Q7-O1",
+          "Q8": "O'Brien said \"yes\" <50% & more"
+        },
+        "method": "validation bound probed",
+        "evidence": "Q8: punctuation and quotation marks within the stated length, which the rule does not forbid [leaned on provisional semantics: ['rule_precedence']]",
+        "reason": null,
+        "preconditions": {},
+        "campaign": {}
+      },
+      {
+        "target_id": "T-a7c5528feb",
+        "feasible": true,
+        "answers": {
+          "Q5": "Q5-O1",
+          "S1": "S1-O1",
+          "S2": "S2-O1",
+          "Q1": "Q1-O1",
+          "Q2": "Q2-O1",
+          "Q3": "Q3-O1",
+          "Q4": [
+            "Q4-O1"
+          ],
+          "Q6": "   ",
+          "Q7": "Q7-O1"
+        },
+        "method": "whitespace answer probe",
+        "evidence": "Q6 given three spaces and nothing else, expect it refuses progress [leaned on provisional semantics: ['rule_precedence']]",
+        "reason": null,
+        "preconditions": {},
+        "campaign": {}
+      },
+      {
+        "target_id": "T-a7eaf4230c",
+        "feasible": true,
+        "answers": {
+          "S1": "S1-O1",
+          "S2": "S2-O1",
+          "Q1": "Q1-O1",
+          "Q2": "Q2-O1",
+          "Q3": "Q3-O1",
+          "Q4": [
+            "Q4-O1"
+          ],
+          "Q5": "Q5-O1",
+          "Q6": "xxxxxxxxxx",
+          "Q7": "Q7-O1",
+          "Q8": "   "
+        },
+        "method": "whitespace answer probe",
+        "evidence": "Q8 given three spaces and nothing else, expect it permits progress [leaned on provisional semantics: ['rule_precedence']]",
         "reason": null,
         "preconditions": {},
         "campaign": {}

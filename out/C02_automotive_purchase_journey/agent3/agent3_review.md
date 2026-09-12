@@ -216,6 +216,7 @@ Derived from the emitted `.lss` (sha `451a0ebbfaf2`), not from a self-reported m
 
 | Finding | Severity | Count | Subjects |
 |---|---|---|---|
+| CARRY_FORWARD_CODE_MISMATCH | HIGH | 1 | Q5->Q6 |
 | DISPOSITION_NOT_DISTINGUISHABLE | HIGH | 1 | TERM_AGE, TERM_CONFLICT, TERM_INVOLVEMENT, TERM_RECENT_RESEARCH |
 | GUARD_CANNOT_BE_FALSIFIED | HIGH | 1 | Q6 |
 | QUOTAS_NOT_BUILT | HIGH | 1 | QUOTA_REGION, QUOTA_AGE |

@@ -9,10 +9,10 @@
   },
   "upstream": {
     "canonical_schema_version": "1.0.0",
-    "canonical_generated_at": "2026-09-09T08:14:17+00:00"
+    "canonical_generated_at": "2026-09-11T16:40:48+00:00"
   },
   "content": {
-    "lss_sha256": "1b25ace7e7cde83fed9225de6cad5545ad2008422b91b36699d6907c1968194e",
+    "lss_sha256": "1ef79bfc08e1495cc19ae0333dd5498fda9b29a8ec51d4b1a395e5f968229373",
     "questions_specified": 31,
     "questions_built": 31,
     "options_bound": 126,
@@ -88,6 +88,12 @@
         "severity": "HIGH",
         "subject": "TERM_AGE, TERM_CONFLICT, TERM_INVOLVEMENT, TERM_RECENT_RESEARCH",
         "detail": "these 4 dispositions share identical end-screen text ('Thank you for your interest. You do not qualify for this survey.'), so Agent 4 sees the same words whichever rule fired. An end-text assertion proves a screenout occurred, not which one. To distinguish them the QRE must give each disposition its own wording."
+      },
+      {
+        "kind": "CARRY_FORWARD_CODE_MISMATCH",
+        "severity": "HIGH",
+        "subject": "Q5->Q6",
+        "detail": "6 of 6 carried-forward options have a different code at each end. 'Primary-care physician' is SQ001 at Q5 and A001 at Q6; 'Specialist' is SQ002 at Q5 and A002 at Q6. LimeSurvey matches a carry-forward filter by code rather than by text, so the labels reading correctly at both ends does not mean the filter works. Worth confirming against a hand-built survey before treating as a defect"
       }
     ],
     "blocking_count": 0,

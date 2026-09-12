@@ -49,6 +49,7 @@
           "ending_reached": "COMPLETE",
           "blocked_at": null,
           "quota_stopped": null,
+          "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
             "Q6": "Yes"
@@ -97,6 +98,7 @@
           "ending_reached": "COMPLETE",
           "blocked_at": null,
           "quota_stopped": null,
+          "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
             "Q6": "Yes"
@@ -145,6 +147,7 @@
           "ending_reached": "COMPLETE",
           "blocked_at": null,
           "quota_stopped": null,
+          "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
             "Q6": "Yes"
@@ -193,6 +196,7 @@
           "ending_reached": "COMPLETE",
           "blocked_at": null,
           "quota_stopped": null,
+          "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
             "Q6": "Yes"
@@ -241,6 +245,7 @@
           "ending_reached": "COMPLETE",
           "blocked_at": null,
           "quota_stopped": null,
+          "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
             "Q6": "Yes"
@@ -289,6 +294,7 @@
           "ending_reached": "COMPLETE",
           "blocked_at": null,
           "quota_stopped": null,
+          "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
             "Q6": "Yes"
@@ -338,6 +344,7 @@
           "ending_reached": "COMPLETE",
           "blocked_at": null,
           "quota_stopped": null,
+          "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {},
           "option_lists_visible": {}
@@ -386,6 +393,7 @@
           "ending_reached": "COMPLETE",
           "blocked_at": null,
           "quota_stopped": null,
+          "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
             "Q6": "Yes"
@@ -434,6 +442,7 @@
           "ending_reached": "COMPLETE",
           "blocked_at": null,
           "quota_stopped": null,
+          "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
             "Q6": "Yes"
@@ -482,6 +491,7 @@
           "ending_reached": "COMPLETE",
           "blocked_at": null,
           "quota_stopped": null,
+          "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
             "Q6": "Yes"
@@ -531,6 +541,7 @@
           "ending_reached": "COMPLETE",
           "blocked_at": null,
           "quota_stopped": null,
+          "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {},
           "option_lists_visible": {}
@@ -579,6 +590,7 @@
           "ending_reached": "COMPLETE",
           "blocked_at": null,
           "quota_stopped": null,
+          "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
             "Q6": "Yes"
@@ -627,6 +639,7 @@
           "ending_reached": "COMPLETE",
           "blocked_at": null,
           "quota_stopped": null,
+          "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
             "Q6": "Yes"
@@ -675,6 +688,7 @@
           "ending_reached": "COMPLETE",
           "blocked_at": null,
           "quota_stopped": null,
+          "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
             "Q6": "Yes"
@@ -723,6 +737,7 @@
           "ending_reached": "COMPLETE",
           "blocked_at": null,
           "quota_stopped": null,
+          "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
             "Q6": "Yes"
@@ -762,6 +777,7 @@
           "ending_reached": "TERM_INELIGIBLE",
           "blocked_at": null,
           "quota_stopped": null,
+          "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {},
           "option_lists_visible": {}
@@ -802,6 +818,7 @@
           "ending_reached": "TERM_INELIGIBLE",
           "blocked_at": null,
           "quota_stopped": null,
+          "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {},
           "option_lists_visible": {}
@@ -850,6 +867,7 @@
           "ending_reached": "COMPLETE",
           "blocked_at": null,
           "quota_stopped": null,
+          "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
             "Q6": "Yes"
@@ -897,6 +915,7 @@
           "ending_reached": null,
           "blocked_at": "Q4",
           "quota_stopped": null,
+          "quota_over_target": null,
           "validation_messages_expected": [
             {
               "question_id": "Q4",
@@ -909,6 +928,55 @@
           "option_lists_visible": {}
         },
         "proof": "a validation message is predicted for Q4",
+        "provisional_semantics": [],
+        "preconditions": {},
+        "campaign": {},
+        "covered_by": null
+      },
+      {
+        "scenario_id": "SC-651ab6ebee",
+        "target_id": "T-4ad35b8ed5",
+        "dimension": "D3",
+        "status": "COVERED",
+        "reason": null,
+        "answers": {
+          "Q5": "Q5-O1",
+          "S1": "S1-O1",
+          "S2": "S2-O1",
+          "Q1": "Q1-O1",
+          "Q2": "Q2-O1",
+          "Q3": "Q3-O1",
+          "Q4": [
+            "Q4-O1"
+          ],
+          "Q6": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "Q7": "Q7-O1"
+        },
+        "expected": {
+          "questions_seen_in_order": [
+            "S1",
+            "S2",
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4",
+            "Q5",
+            "Q6",
+            "Q7",
+            "Q8"
+          ],
+          "questions_not_seen": [],
+          "ending_reached": "COMPLETE",
+          "blocked_at": null,
+          "quota_stopped": null,
+          "quota_over_target": null,
+          "validation_messages_expected": [],
+          "piped_text_visible": {
+            "Q6": "Yes"
+          },
+          "option_lists_visible": {}
+        },
+        "proof": "Q6 accepted the answer with no validation message",
         "provisional_semantics": [],
         "preconditions": {},
         "campaign": {},
@@ -950,6 +1018,56 @@
           "ending_reached": "COMPLETE",
           "blocked_at": null,
           "quota_stopped": null,
+          "quota_over_target": null,
+          "validation_messages_expected": [],
+          "piped_text_visible": {
+            "Q6": "Yes"
+          },
+          "option_lists_visible": {}
+        },
+        "proof": "Q6 accepted the answer with no validation message",
+        "provisional_semantics": [],
+        "preconditions": {},
+        "campaign": {},
+        "covered_by": null
+      },
+      {
+        "scenario_id": "SC-f38e3bd2ad",
+        "target_id": "T-8a57cf56a3",
+        "dimension": "D3",
+        "status": "COVERED",
+        "reason": null,
+        "answers": {
+          "Q5": "Q5-O1",
+          "S1": "S1-O1",
+          "S2": "S2-O1",
+          "Q1": "Q1-O1",
+          "Q2": "Q2-O1",
+          "Q3": "Q3-O1",
+          "Q4": [
+            "Q4-O1"
+          ],
+          "Q6": "O'Brien said \"yes\" <50% & more",
+          "Q7": "Q7-O1"
+        },
+        "expected": {
+          "questions_seen_in_order": [
+            "S1",
+            "S2",
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4",
+            "Q5",
+            "Q6",
+            "Q7",
+            "Q8"
+          ],
+          "questions_not_seen": [],
+          "ending_reached": "COMPLETE",
+          "blocked_at": null,
+          "quota_stopped": null,
+          "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
             "Q6": "Yes"
@@ -999,6 +1117,7 @@
           "ending_reached": null,
           "blocked_at": "Q6",
           "quota_stopped": null,
+          "quota_over_target": null,
           "validation_messages_expected": [
             {
               "question_id": "Q6",
@@ -1013,6 +1132,56 @@
           "option_lists_visible": {}
         },
         "proof": "a validation message is predicted for Q6",
+        "provisional_semantics": [],
+        "preconditions": {},
+        "campaign": {},
+        "covered_by": null
+      },
+      {
+        "scenario_id": "SC-6e6d0201c6",
+        "target_id": "T-81f7201b2b",
+        "dimension": "D3",
+        "status": "COVERED",
+        "reason": null,
+        "answers": {
+          "S1": "S1-O1",
+          "S2": "S2-O1",
+          "Q1": "Q1-O1",
+          "Q2": "Q2-O1",
+          "Q3": "Q3-O1",
+          "Q4": [
+            "Q4-O1"
+          ],
+          "Q5": "Q5-O1",
+          "Q6": "xxxxxxxxxx",
+          "Q7": "Q7-O1",
+          "Q8": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+        },
+        "expected": {
+          "questions_seen_in_order": [
+            "S1",
+            "S2",
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4",
+            "Q5",
+            "Q6",
+            "Q7",
+            "Q8"
+          ],
+          "questions_not_seen": [],
+          "ending_reached": "COMPLETE",
+          "blocked_at": null,
+          "quota_stopped": null,
+          "quota_over_target": null,
+          "validation_messages_expected": [],
+          "piped_text_visible": {
+            "Q6": "Yes"
+          },
+          "option_lists_visible": {}
+        },
+        "proof": "Q8 accepted the answer with no validation message",
         "provisional_semantics": [],
         "preconditions": {},
         "campaign": {},
@@ -1055,6 +1224,57 @@
           "ending_reached": "COMPLETE",
           "blocked_at": null,
           "quota_stopped": null,
+          "quota_over_target": null,
+          "validation_messages_expected": [],
+          "piped_text_visible": {
+            "Q6": "Yes"
+          },
+          "option_lists_visible": {}
+        },
+        "proof": "Q8 accepted the answer with no validation message",
+        "provisional_semantics": [],
+        "preconditions": {},
+        "campaign": {},
+        "covered_by": null
+      },
+      {
+        "scenario_id": "SC-a04649bd93",
+        "target_id": "T-5bf7c9d7a3",
+        "dimension": "D3",
+        "status": "COVERED",
+        "reason": null,
+        "answers": {
+          "S1": "S1-O1",
+          "S2": "S2-O1",
+          "Q1": "Q1-O1",
+          "Q2": "Q2-O1",
+          "Q3": "Q3-O1",
+          "Q4": [
+            "Q4-O1"
+          ],
+          "Q5": "Q5-O1",
+          "Q6": "xxxxxxxxxx",
+          "Q7": "Q7-O1",
+          "Q8": "O'Brien said \"yes\" <50% & more"
+        },
+        "expected": {
+          "questions_seen_in_order": [
+            "S1",
+            "S2",
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4",
+            "Q5",
+            "Q6",
+            "Q7",
+            "Q8"
+          ],
+          "questions_not_seen": [],
+          "ending_reached": "COMPLETE",
+          "blocked_at": null,
+          "quota_stopped": null,
+          "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
             "Q6": "Yes"
@@ -1104,6 +1324,7 @@
           "ending_reached": null,
           "blocked_at": "Q8",
           "quota_stopped": null,
+          "quota_over_target": null,
           "validation_messages_expected": [
             {
               "question_id": "Q8",
@@ -1160,6 +1381,7 @@
           "ending_reached": null,
           "blocked_at": "Q1",
           "quota_stopped": null,
+          "quota_over_target": null,
           "validation_messages_expected": [
             {
               "question_id": "Q1",
@@ -1214,6 +1436,7 @@
           "ending_reached": null,
           "blocked_at": "Q2",
           "quota_stopped": null,
+          "quota_over_target": null,
           "validation_messages_expected": [
             {
               "question_id": "Q2",
@@ -1268,6 +1491,7 @@
           "ending_reached": null,
           "blocked_at": "Q3",
           "quota_stopped": null,
+          "quota_over_target": null,
           "validation_messages_expected": [
             {
               "question_id": "Q3",
@@ -1320,6 +1544,7 @@
           "ending_reached": null,
           "blocked_at": "Q4",
           "quota_stopped": null,
+          "quota_over_target": null,
           "validation_messages_expected": [
             {
               "question_id": "Q4",
@@ -1374,6 +1599,7 @@
           "ending_reached": null,
           "blocked_at": "Q5",
           "quota_stopped": null,
+          "quota_over_target": null,
           "validation_messages_expected": [
             {
               "question_id": "Q5",
@@ -1428,6 +1654,7 @@
           "ending_reached": null,
           "blocked_at": "Q6",
           "quota_stopped": null,
+          "quota_over_target": null,
           "validation_messages_expected": [
             {
               "question_id": "Q6",
@@ -1443,6 +1670,65 @@
         },
         "proof": "Q6 blocked the blank answer as required",
         "provisional_semantics": [],
+        "preconditions": {},
+        "campaign": {},
+        "covered_by": null
+      },
+      {
+        "scenario_id": "SC-c6156bd179",
+        "target_id": "T-a7c5528feb",
+        "dimension": "D4",
+        "status": "COVERED",
+        "reason": null,
+        "answers": {
+          "Q5": "Q5-O1",
+          "S1": "S1-O1",
+          "S2": "S2-O1",
+          "Q1": "Q1-O1",
+          "Q2": "Q2-O1",
+          "Q3": "Q3-O1",
+          "Q4": [
+            "Q4-O1"
+          ],
+          "Q6": "   ",
+          "Q7": "Q7-O1"
+        },
+        "expected": {
+          "questions_seen_in_order": [
+            "S1",
+            "S2",
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4",
+            "Q5",
+            "Q6"
+          ],
+          "questions_not_seen": [
+            "Q7",
+            "Q8"
+          ],
+          "ending_reached": null,
+          "blocked_at": "Q6",
+          "quota_stopped": null,
+          "quota_over_target": null,
+          "validation_messages_expected": [
+            {
+              "question_id": "Q6",
+              "rule": "mandatory",
+              "outcome": "violated",
+              "detail": "mandatory question left blank, progress should be blocked"
+            }
+          ],
+          "piped_text_visible": {
+            "Q6": "Yes"
+          },
+          "option_lists_visible": {}
+        },
+        "proof": "Q6 refused an answer of spaces alone",
+        "provisional_semantics": [
+          "whitespace_is_an_answer"
+        ],
         "preconditions": {},
         "campaign": {},
         "covered_by": null
@@ -1484,6 +1770,7 @@
           "ending_reached": null,
           "blocked_at": "Q7",
           "quota_stopped": null,
+          "quota_over_target": null,
           "validation_messages_expected": [
             {
               "question_id": "Q7",
@@ -1540,6 +1827,7 @@
           "ending_reached": "COMPLETE",
           "blocked_at": null,
           "quota_stopped": null,
+          "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
             "Q6": "Yes"
@@ -1548,6 +1836,58 @@
         },
         "proof": "Q8 permitted a blank answer, as an optional question should",
         "provisional_semantics": [],
+        "preconditions": {},
+        "campaign": {},
+        "covered_by": null
+      },
+      {
+        "scenario_id": "SC-887e9fec91",
+        "target_id": "T-a7eaf4230c",
+        "dimension": "D4",
+        "status": "COVERED",
+        "reason": null,
+        "answers": {
+          "S1": "S1-O1",
+          "S2": "S2-O1",
+          "Q1": "Q1-O1",
+          "Q2": "Q2-O1",
+          "Q3": "Q3-O1",
+          "Q4": [
+            "Q4-O1"
+          ],
+          "Q5": "Q5-O1",
+          "Q6": "xxxxxxxxxx",
+          "Q7": "Q7-O1",
+          "Q8": "   "
+        },
+        "expected": {
+          "questions_seen_in_order": [
+            "S1",
+            "S2",
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4",
+            "Q5",
+            "Q6",
+            "Q7",
+            "Q8"
+          ],
+          "questions_not_seen": [],
+          "ending_reached": "COMPLETE",
+          "blocked_at": null,
+          "quota_stopped": null,
+          "quota_over_target": null,
+          "validation_messages_expected": [],
+          "piped_text_visible": {
+            "Q6": "Yes"
+          },
+          "option_lists_visible": {}
+        },
+        "proof": "Q8 accepted spaces, as an optional question should",
+        "provisional_semantics": [
+          "whitespace_is_an_answer"
+        ],
         "preconditions": {},
         "campaign": {},
         "covered_by": null
@@ -1589,6 +1929,7 @@
           "ending_reached": null,
           "blocked_at": "S1",
           "quota_stopped": null,
+          "quota_over_target": null,
           "validation_messages_expected": [
             {
               "question_id": "S1",
@@ -1643,6 +1984,7 @@
           "ending_reached": null,
           "blocked_at": "S2",
           "quota_stopped": null,
+          "quota_over_target": null,
           "validation_messages_expected": [
             {
               "question_id": "S2",
@@ -1696,6 +2038,7 @@
           "ending_reached": "COMPLETE",
           "blocked_at": null,
           "quota_stopped": null,
+          "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
             "Q6": "Yes"
@@ -1744,6 +2087,7 @@
           "ending_reached": "COMPLETE",
           "blocked_at": null,
           "quota_stopped": null,
+          "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
             "Q6": "Yes"

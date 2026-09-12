@@ -550,6 +550,63 @@ def conformance(spec: CanonicalSpec, snap: ImplementationSnapshot) -> dict:
                            "distinguish them the QRE must give each "
                            "disposition its own wording.")})
 
+    # ---- carrying options forward from one question to another -----------
+    #
+    # LimeSurvey filters a destination question by matching codes against the
+    # source. Two things can go wrong, both invisible on screen until a
+    # respondent hits them, and neither was checked.
+    for dep in spec.dependencies:
+        if dep.kind != "option_source":
+            continue
+        src_q = spec.question(dep.from_question)
+        dst_q = spec.question(dep.to_question)
+        src_b = snap.questions.get(dep.from_question)
+        dst_b = snap.questions.get(dep.to_question)
+        if not (src_q and dst_q and src_b and dst_b):
+            continue
+
+        src_codes = {**src_b.option_codes, **src_b.subquestion_codes}
+        dst_codes = {**dst_b.option_codes, **dst_b.subquestion_codes}
+
+        # The exclusive option must not travel. Carrying "None of these" into a
+        # follow-up asks the respondent which of their selections mattered most
+        # and offers them the one that meant they selected nothing.
+        excl_label = (src_q.validation.get("exclusive_option_label") or "")
+        if not excl_label:
+            excl = next((o for o in src_q.options if o.exclusive), None)
+            excl_label = excl.label if excl else ""
+        if excl_label and excl_label in dst_codes:
+            findings.append({
+                "kind": "EXCLUSIVE_OPTION_CARRIED_FORWARD", "severity": "HIGH",
+                "subject": f"{dep.from_question}->{dep.to_question}",
+                "detail": (f"{dep.to_question} offers {excl_label!r}, which is "
+                           f"{dep.from_question}'s exclusive option. Choosing "
+                           f"it at {dep.from_question} means the respondent "
+                           f"selected nothing, so it cannot be one of the "
+                           f"things they selected")})
+
+        # Shared labels must carry the same code at both ends. LimeSurvey
+        # matches the filter by code, not by text, so a label that reads
+        # correctly at both ends but is coded differently silently filters to
+        # nothing.
+        shared = [lbl for lbl in dst_codes if lbl in src_codes]
+        differing = [(lbl, src_codes[lbl], dst_codes[lbl])
+                     for lbl in shared if src_codes[lbl] != dst_codes[lbl]]
+        if differing:
+            examples = "; ".join(f"{lbl!r} is {a} at {dep.from_question} and "
+                                 f"{b} at {dep.to_question}"
+                                 for lbl, a, b in differing[:2])
+            findings.append({
+                "kind": "CARRY_FORWARD_CODE_MISMATCH", "severity": "HIGH",
+                "subject": f"{dep.from_question}->{dep.to_question}",
+                "detail": (f"{len(differing)} of {len(shared)} carried-forward "
+                           f"options have a different code at each end. "
+                           f"{examples}. LimeSurvey matches a carry-forward "
+                           f"filter by code rather than by text, so the labels "
+                           f"reading correctly at both ends does not mean the "
+                           f"filter works. Worth confirming against a "
+                           f"hand-built survey before treating as a defect")})
+
     # ---- the order the respondent meets the questions in -----------------
     #
     # LimeSurvey numbers questions within a group and the questionnaire numbers

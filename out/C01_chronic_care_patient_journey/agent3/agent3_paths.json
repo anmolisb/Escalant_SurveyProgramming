@@ -9,23 +9,23 @@
   },
   "upstream": {
     "canonical_schema_version": "1.0.0",
-    "canonical_generated_at": "2026-09-09T08:14:17+00:00"
+    "canonical_generated_at": "2026-09-11T16:40:48+00:00"
   },
   "content": {
     "report": {
-      "branches_total": 20,
-      "branch_states_total": 36,
-      "branch_states_covered": 36,
+      "branches_total": 19,
+      "branch_states_total": 34,
+      "branch_states_covered": 34,
       "branch_states_missing": [],
       "branch_states_shadowed": [],
-      "paths_selected": 12,
+      "paths_selected": 11,
       "exclusive": true,
       "branch_exhaustive": true,
       "exhaustive_note": "Every branch that can be reached on its own is reached, in both directions.",
       "not_enumerated": [
         {
           "family": "Every branch decision crossed with every other",
-          "combinations": "262,144 answer combinations across 18 independent branches",
+          "combinations": "131,072 answer combinations across 17 independent branches",
           "why_collapsed": "Almost every combination walks a question sequence that another combination already walks. Only distinct sequences are testable as distinct journeys.",
           "residual_risk": "A defect that depends on two branch values at once, where no rule in the specification relates them. Where a rule does relate them, the interaction checks pick it up."
         },
@@ -152,16 +152,6 @@
         "condition": "Q3 != 'None/currently not using'",
         "controls": [
           "Q9"
-        ]
-      },
-      {
-        "branch_id": "B-show-Q6",
-        "kind": "guard",
-        "at_question": "Q5",
-        "rule_id": null,
-        "condition": "Q5 contains any touchpoint",
-        "controls": [
-          "Q6"
         ]
       },
       {
@@ -451,7 +441,6 @@
           "B-R5=F",
           "B-show-Q2=T",
           "B-show-Q3=T",
-          "B-show-Q6=T",
           "B-show-Q7=T",
           "B-show-Q8=T",
           "B-show-Q9=T",
@@ -544,7 +533,6 @@
           "B-R5=F",
           "B-show-Q2=T",
           "B-show-Q3=T",
-          "B-show-Q6=T",
           "B-show-Q7=T",
           "B-show-Q8=T",
           "B-show-Q9=T",
@@ -633,7 +621,6 @@
           "B-R3=F",
           "B-R4=F",
           "B-R5=T",
-          "B-show-Q6=T",
           "B-show-Q7=F",
           "B-show-Q8=F",
           "B-show-Q9=F",
@@ -723,7 +710,6 @@
           "B-R5=F",
           "B-show-Q2=T",
           "B-show-Q3=T",
-          "B-show-Q6=T",
           "B-show-Q7=T",
           "B-show-Q8=T",
           "B-show-Q9=T",
@@ -820,7 +806,6 @@
           "B-R5=F",
           "B-show-Q2=T",
           "B-show-Q3=T",
-          "B-show-Q6=T",
           "B-show-Q7=T",
           "B-show-Q8=T",
           "B-show-Q9=T",
@@ -842,96 +827,6 @@
       },
       {
         "path_id": "P10",
-        "name": "Completing respondent \u2014 Q5=None of these",
-        "route_class": "MAIN",
-        "sequence": [
-          "S1",
-          "S2",
-          "S3",
-          "S4",
-          "Q1",
-          "Q2",
-          "Q3",
-          "Q4",
-          "Q5",
-          "Q7",
-          "Q8",
-          "Q9",
-          "Q10",
-          "Q11",
-          "Q12",
-          "Q13",
-          "Q15",
-          "Q16",
-          "Q18",
-          "Q19",
-          "Q20",
-          "Q21",
-          "D1",
-          "D2",
-          "D3",
-          "D4",
-          "Q22",
-          "Q23"
-        ],
-        "disposition": "COMPLETE",
-        "decisions": {
-          "S1": "S1-O1",
-          "S2": "S2-O1",
-          "S3": "S3-O2",
-          "S4": "S4-O2",
-          "Q5": [
-            "Q5-O7"
-          ]
-        },
-        "branch_values": [],
-        "skipped": [],
-        "hidden": [
-          "Q6",
-          "Q14",
-          "Q17"
-        ],
-        "rules_exercised": [
-          "R10",
-          "R11",
-          "R12",
-          "R13",
-          "R14",
-          "R16",
-          "R6",
-          "R7",
-          "R9"
-        ],
-        "branches_covered": [
-          "B-R1=F",
-          "B-R2=F",
-          "B-R3=F",
-          "B-R4=F",
-          "B-R5=F",
-          "B-show-Q2=T",
-          "B-show-Q3=T",
-          "B-show-Q6=F",
-          "B-show-Q7=T",
-          "B-show-Q8=T",
-          "B-show-Q9=T",
-          "B-show-Q11=T",
-          "B-show-Q12=T",
-          "B-show-Q13=T",
-          "B-show-Q14=F",
-          "B-show-Q15=T",
-          "B-show-Q16=T",
-          "B-show-Q17=F"
-        ],
-        "scenario": null,
-        "why_selected": "Added to cover B-show-Q6 in the broken direction, which no earlier path reaches.",
-        "what_it_adds": "First path where Q5 contains any touchpoint is false, so Q6 is not shown here for the first time.",
-        "preconditions": "Fresh respondent, no prior answers. Both quota cells open.",
-        "campaign": {},
-        "mechanism": "",
-        "sequence_text": "S1 -> S2 -> S3 -> S4 -> Q1 -> Q2 -> Q3 -> Q4 -> Q5 -> Q7 -> Q8 -> Q9 -> Q10 -> Q11 -> Q12 -> Q13 -> Q15 -> Q16 -> Q18 -> Q19 -> Q20 -> Q21 -> D1 -> D2 -> D3 -> D4 -> Q22 -> Q23  ->  COMPLETE"
-      },
-      {
-        "path_id": "P11",
         "name": "Completing respondent \u2014 Q1=Independent provider; Q10=No; Q12=Not resolved",
         "route_class": "MAIN",
         "sequence": [
@@ -942,6 +837,7 @@
           "Q1",
           "Q4",
           "Q5",
+          "Q6",
           "Q10",
           "Q14",
           "Q18",
@@ -964,9 +860,6 @@
           "Q1": [
             "Q1-O4"
           ],
-          "Q5": [
-            "Q5-O7"
-          ],
           "Q3": "Q3-O5",
           "Q10": "Q10-O2",
           "Q12": "Q12-O3",
@@ -978,7 +871,6 @@
         "hidden": [
           "Q2",
           "Q3",
-          "Q6",
           "Q7",
           "Q8",
           "Q9",
@@ -990,7 +882,8 @@
           "Q17"
         ],
         "rules_exercised": [
-          "R15"
+          "R15",
+          "R8"
         ],
         "branches_covered": [
           "B-R1=F",
@@ -1000,7 +893,6 @@
           "B-R5=F",
           "B-show-Q2=F",
           "B-show-Q3=F",
-          "B-show-Q6=F",
           "B-show-Q7=F",
           "B-show-Q8=F",
           "B-show-Q9=F",
@@ -1014,14 +906,14 @@
         ],
         "scenario": null,
         "why_selected": "The shortest completing journey. Branch coverage reaches every switch on its own; this is the one where they are all off together.",
-        "what_it_adds": "12 question(s) absent at once. No other path turns this many off simultaneously, so it is the only place two display rules could interfere.",
+        "what_it_adds": "11 question(s) absent at once. No other path turns this many off simultaneously, so it is the only place two display rules could interfere.",
         "preconditions": "Fresh respondent, no prior answers. Both quota cells open.",
         "campaign": {},
         "mechanism": "",
-        "sequence_text": "S1 -> S2 -> S3 -> S4 -> Q1 -> Q4 -> Q5 -> Q10 -> Q14 -> Q18 -> Q19 -> Q20 -> Q21 -> D1 -> D2 -> D3 -> D4 -> Q22 -> Q23  ->  COMPLETE"
+        "sequence_text": "S1 -> S2 -> S3 -> S4 -> Q1 -> Q4 -> Q5 -> Q6 -> Q10 -> Q14 -> Q18 -> Q19 -> Q20 -> Q21 -> D1 -> D2 -> D3 -> D4 -> Q22 -> Q23  ->  COMPLETE"
       },
       {
-        "path_id": "P12",
+        "path_id": "P11",
         "name": "Completing respondent \u2014 Q1=Care Network A; Q10=Yes; Q12=Fully",
         "route_class": "MAIN",
         "sequence": [
@@ -1065,9 +957,6 @@
           "Q1": [
             "Q1-O1"
           ],
-          "Q5": [
-            "Q5-O1"
-          ],
           "Q3": "Q3-O1",
           "Q10": "Q10-O1",
           "Q12": "Q12-O1",
@@ -1100,7 +989,6 @@
           "B-R5=F",
           "B-show-Q2=T",
           "B-show-Q3=T",
-          "B-show-Q6=T",
           "B-show-Q7=T",
           "B-show-Q8=T",
           "B-show-Q9=T",

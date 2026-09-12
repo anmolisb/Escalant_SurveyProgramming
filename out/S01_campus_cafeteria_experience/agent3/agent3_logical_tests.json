@@ -12,7 +12,7 @@
     "canonical_generated_at": "2026-09-11T17:17:56+00:00"
   },
   "content": {
-    "count": 35,
+    "count": 41,
     "tests": [
       {
         "test_id": "TC-611fbac190",
@@ -2422,6 +2422,135 @@
         "blocks": true
       },
       {
+        "test_id": "TC-ad86701f00",
+        "target_id": "T-4ad35b8ed5",
+        "dimension": "D3",
+        "title": "Q6 accepts an answer of exactly 500 characters, its stated maximum",
+        "steps": [
+          {
+            "question_id": "S1",
+            "question_kind": "single",
+            "value": "S1-O1",
+            "step": 1
+          },
+          {
+            "question_id": "S2",
+            "question_kind": "single",
+            "value": "S2-O1",
+            "step": 2
+          },
+          {
+            "question_id": "Q1",
+            "question_kind": "single",
+            "value": "Q1-O1",
+            "step": 3
+          },
+          {
+            "question_id": "Q2",
+            "question_kind": "single",
+            "value": "Q2-O1",
+            "step": 4
+          },
+          {
+            "question_id": "Q3",
+            "question_kind": "single",
+            "value": "Q3-O1",
+            "step": 5
+          },
+          {
+            "question_id": "Q4",
+            "question_kind": "multi",
+            "value": [
+              "Q4-O1"
+            ],
+            "step": 6
+          },
+          {
+            "question_id": "Q5",
+            "question_kind": "single",
+            "value": "Q5-O1",
+            "step": 7
+          },
+          {
+            "question_id": "Q6",
+            "question_kind": "text",
+            "value": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+            "step": 8
+          }
+        ],
+        "assertions": [
+          {
+            "kind": "answer_accepted",
+            "target": "Q6",
+            "expected": true,
+            "detail": "an answer sitting exactly on the stated maximum is inside the rule, not outside it"
+          }
+        ],
+        "traces_to": [
+          "Q6"
+        ],
+        "executable": false,
+        "non_executable_reason": "NO_BUILD_MANIFEST",
+        "provisional_semantics": [],
+        "campaign": {},
+        "setup": [
+          {
+            "question_id": "S1",
+            "question_kind": "single",
+            "value": "S1-O1",
+            "step": 1
+          },
+          {
+            "question_id": "S2",
+            "question_kind": "single",
+            "value": "S2-O1",
+            "step": 2
+          },
+          {
+            "question_id": "Q1",
+            "question_kind": "single",
+            "value": "Q1-O1",
+            "step": 3
+          },
+          {
+            "question_id": "Q2",
+            "question_kind": "single",
+            "value": "Q2-O1",
+            "step": 4
+          },
+          {
+            "question_id": "Q3",
+            "question_kind": "single",
+            "value": "Q3-O1",
+            "step": 5
+          },
+          {
+            "question_id": "Q4",
+            "question_kind": "multi",
+            "value": [
+              "Q4-O1"
+            ],
+            "step": 6
+          },
+          {
+            "question_id": "Q5",
+            "question_kind": "single",
+            "value": "Q5-O1",
+            "step": 7
+          }
+        ],
+        "action": [
+          {
+            "question_id": "Q6",
+            "question_kind": "text",
+            "value": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+          }
+        ],
+        "action_text": "At Q6, type a 500-character answer, then submit.",
+        "focus": "Q6",
+        "blocks": false
+      },
+      {
         "test_id": "TC-1381ffa1c7",
         "target_id": "T-5763469416",
         "dimension": "D3",
@@ -2547,6 +2676,135 @@
           }
         ],
         "action_text": "At Q6, type \u201cxxxxxxxxxx\u201d, then submit.",
+        "focus": "Q6",
+        "blocks": false
+      },
+      {
+        "test_id": "TC-566303fa26",
+        "target_id": "T-8a57cf56a3",
+        "dimension": "D3",
+        "title": "Q6 accepts punctuation and quotation marks, because its rule constrains length and not content",
+        "steps": [
+          {
+            "question_id": "S1",
+            "question_kind": "single",
+            "value": "S1-O1",
+            "step": 1
+          },
+          {
+            "question_id": "S2",
+            "question_kind": "single",
+            "value": "S2-O1",
+            "step": 2
+          },
+          {
+            "question_id": "Q1",
+            "question_kind": "single",
+            "value": "Q1-O1",
+            "step": 3
+          },
+          {
+            "question_id": "Q2",
+            "question_kind": "single",
+            "value": "Q2-O1",
+            "step": 4
+          },
+          {
+            "question_id": "Q3",
+            "question_kind": "single",
+            "value": "Q3-O1",
+            "step": 5
+          },
+          {
+            "question_id": "Q4",
+            "question_kind": "multi",
+            "value": [
+              "Q4-O1"
+            ],
+            "step": 6
+          },
+          {
+            "question_id": "Q5",
+            "question_kind": "single",
+            "value": "Q5-O1",
+            "step": 7
+          },
+          {
+            "question_id": "Q6",
+            "question_kind": "text",
+            "value": "O'Brien said \"yes\" <50% & more",
+            "step": 8
+          }
+        ],
+        "assertions": [
+          {
+            "kind": "answer_accepted",
+            "target": "Q6",
+            "expected": true,
+            "detail": "the rule constrains length and says nothing about content, so punctuation must be accepted"
+          }
+        ],
+        "traces_to": [
+          "Q6"
+        ],
+        "executable": false,
+        "non_executable_reason": "NO_BUILD_MANIFEST",
+        "provisional_semantics": [],
+        "campaign": {},
+        "setup": [
+          {
+            "question_id": "S1",
+            "question_kind": "single",
+            "value": "S1-O1",
+            "step": 1
+          },
+          {
+            "question_id": "S2",
+            "question_kind": "single",
+            "value": "S2-O1",
+            "step": 2
+          },
+          {
+            "question_id": "Q1",
+            "question_kind": "single",
+            "value": "Q1-O1",
+            "step": 3
+          },
+          {
+            "question_id": "Q2",
+            "question_kind": "single",
+            "value": "Q2-O1",
+            "step": 4
+          },
+          {
+            "question_id": "Q3",
+            "question_kind": "single",
+            "value": "Q3-O1",
+            "step": 5
+          },
+          {
+            "question_id": "Q4",
+            "question_kind": "multi",
+            "value": [
+              "Q4-O1"
+            ],
+            "step": 6
+          },
+          {
+            "question_id": "Q5",
+            "question_kind": "single",
+            "value": "Q5-O1",
+            "step": 7
+          }
+        ],
+        "action": [
+          {
+            "question_id": "Q6",
+            "question_kind": "text",
+            "value": "O'Brien said \"yes\" <50% & more"
+          }
+        ],
+        "action_text": "At Q6, type \u201cO'Brien said \"yes\" <50% & more\u201d, then submit.",
         "focus": "Q6",
         "blocks": false
       },
@@ -2678,6 +2936,159 @@
         "action_text": "At Q6, type a 501-character answer, then submit.",
         "focus": "Q6",
         "blocks": true
+      },
+      {
+        "test_id": "TC-75945e73bd",
+        "target_id": "T-81f7201b2b",
+        "dimension": "D3",
+        "title": "Q8 accepts an answer of exactly 500 characters, its stated maximum",
+        "steps": [
+          {
+            "question_id": "S1",
+            "question_kind": "single",
+            "value": "S1-O1",
+            "step": 1
+          },
+          {
+            "question_id": "S2",
+            "question_kind": "single",
+            "value": "S2-O1",
+            "step": 2
+          },
+          {
+            "question_id": "Q1",
+            "question_kind": "single",
+            "value": "Q1-O1",
+            "step": 3
+          },
+          {
+            "question_id": "Q2",
+            "question_kind": "single",
+            "value": "Q2-O1",
+            "step": 4
+          },
+          {
+            "question_id": "Q3",
+            "question_kind": "single",
+            "value": "Q3-O1",
+            "step": 5
+          },
+          {
+            "question_id": "Q4",
+            "question_kind": "multi",
+            "value": [
+              "Q4-O1"
+            ],
+            "step": 6
+          },
+          {
+            "question_id": "Q5",
+            "question_kind": "single",
+            "value": "Q5-O1",
+            "step": 7
+          },
+          {
+            "question_id": "Q6",
+            "question_kind": "text",
+            "value": "xxxxxxxxxx",
+            "step": 8
+          },
+          {
+            "question_id": "Q7",
+            "question_kind": "single",
+            "value": "Q7-O1",
+            "step": 9
+          },
+          {
+            "question_id": "Q8",
+            "question_kind": "text",
+            "value": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+            "step": 10
+          }
+        ],
+        "assertions": [
+          {
+            "kind": "answer_accepted",
+            "target": "Q8",
+            "expected": true,
+            "detail": "an answer sitting exactly on the stated maximum is inside the rule, not outside it"
+          }
+        ],
+        "traces_to": [
+          "Q8"
+        ],
+        "executable": false,
+        "non_executable_reason": "NO_BUILD_MANIFEST",
+        "provisional_semantics": [],
+        "campaign": {},
+        "setup": [
+          {
+            "question_id": "S1",
+            "question_kind": "single",
+            "value": "S1-O1",
+            "step": 1
+          },
+          {
+            "question_id": "S2",
+            "question_kind": "single",
+            "value": "S2-O1",
+            "step": 2
+          },
+          {
+            "question_id": "Q1",
+            "question_kind": "single",
+            "value": "Q1-O1",
+            "step": 3
+          },
+          {
+            "question_id": "Q2",
+            "question_kind": "single",
+            "value": "Q2-O1",
+            "step": 4
+          },
+          {
+            "question_id": "Q3",
+            "question_kind": "single",
+            "value": "Q3-O1",
+            "step": 5
+          },
+          {
+            "question_id": "Q4",
+            "question_kind": "multi",
+            "value": [
+              "Q4-O1"
+            ],
+            "step": 6
+          },
+          {
+            "question_id": "Q5",
+            "question_kind": "single",
+            "value": "Q5-O1",
+            "step": 7
+          },
+          {
+            "question_id": "Q6",
+            "question_kind": "text",
+            "value": "xxxxxxxxxx",
+            "step": 8
+          },
+          {
+            "question_id": "Q7",
+            "question_kind": "single",
+            "value": "Q7-O1",
+            "step": 9
+          }
+        ],
+        "action": [
+          {
+            "question_id": "Q8",
+            "question_kind": "text",
+            "value": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+          }
+        ],
+        "action_text": "At Q8, type a 500-character answer, then submit.",
+        "focus": "Q8",
+        "blocks": false
       },
       {
         "test_id": "TC-785a9414c4",
@@ -2829,6 +3240,159 @@
           }
         ],
         "action_text": "At Q8, type \u201cx\u201d, then submit.",
+        "focus": "Q8",
+        "blocks": false
+      },
+      {
+        "test_id": "TC-4d9f269943",
+        "target_id": "T-5bf7c9d7a3",
+        "dimension": "D3",
+        "title": "Q8 accepts punctuation and quotation marks, because its rule constrains length and not content",
+        "steps": [
+          {
+            "question_id": "S1",
+            "question_kind": "single",
+            "value": "S1-O1",
+            "step": 1
+          },
+          {
+            "question_id": "S2",
+            "question_kind": "single",
+            "value": "S2-O1",
+            "step": 2
+          },
+          {
+            "question_id": "Q1",
+            "question_kind": "single",
+            "value": "Q1-O1",
+            "step": 3
+          },
+          {
+            "question_id": "Q2",
+            "question_kind": "single",
+            "value": "Q2-O1",
+            "step": 4
+          },
+          {
+            "question_id": "Q3",
+            "question_kind": "single",
+            "value": "Q3-O1",
+            "step": 5
+          },
+          {
+            "question_id": "Q4",
+            "question_kind": "multi",
+            "value": [
+              "Q4-O1"
+            ],
+            "step": 6
+          },
+          {
+            "question_id": "Q5",
+            "question_kind": "single",
+            "value": "Q5-O1",
+            "step": 7
+          },
+          {
+            "question_id": "Q6",
+            "question_kind": "text",
+            "value": "xxxxxxxxxx",
+            "step": 8
+          },
+          {
+            "question_id": "Q7",
+            "question_kind": "single",
+            "value": "Q7-O1",
+            "step": 9
+          },
+          {
+            "question_id": "Q8",
+            "question_kind": "text",
+            "value": "O'Brien said \"yes\" <50% & more",
+            "step": 10
+          }
+        ],
+        "assertions": [
+          {
+            "kind": "answer_accepted",
+            "target": "Q8",
+            "expected": true,
+            "detail": "the rule constrains length and says nothing about content, so punctuation must be accepted"
+          }
+        ],
+        "traces_to": [
+          "Q8"
+        ],
+        "executable": false,
+        "non_executable_reason": "NO_BUILD_MANIFEST",
+        "provisional_semantics": [],
+        "campaign": {},
+        "setup": [
+          {
+            "question_id": "S1",
+            "question_kind": "single",
+            "value": "S1-O1",
+            "step": 1
+          },
+          {
+            "question_id": "S2",
+            "question_kind": "single",
+            "value": "S2-O1",
+            "step": 2
+          },
+          {
+            "question_id": "Q1",
+            "question_kind": "single",
+            "value": "Q1-O1",
+            "step": 3
+          },
+          {
+            "question_id": "Q2",
+            "question_kind": "single",
+            "value": "Q2-O1",
+            "step": 4
+          },
+          {
+            "question_id": "Q3",
+            "question_kind": "single",
+            "value": "Q3-O1",
+            "step": 5
+          },
+          {
+            "question_id": "Q4",
+            "question_kind": "multi",
+            "value": [
+              "Q4-O1"
+            ],
+            "step": 6
+          },
+          {
+            "question_id": "Q5",
+            "question_kind": "single",
+            "value": "Q5-O1",
+            "step": 7
+          },
+          {
+            "question_id": "Q6",
+            "question_kind": "text",
+            "value": "xxxxxxxxxx",
+            "step": 8
+          },
+          {
+            "question_id": "Q7",
+            "question_kind": "single",
+            "value": "Q7-O1",
+            "step": 9
+          }
+        ],
+        "action": [
+          {
+            "question_id": "Q8",
+            "question_kind": "text",
+            "value": "O'Brien said \"yes\" <50% & more"
+          }
+        ],
+        "action_text": "At Q8, type \u201cO'Brien said \"yes\" <50% & more\u201d, then submit.",
         "focus": "Q8",
         "blocks": false
       },
@@ -3564,6 +4128,137 @@
         "blocks": true
       },
       {
+        "test_id": "TC-2587d31b15",
+        "target_id": "T-a7c5528feb",
+        "dimension": "D4",
+        "title": "Q6 refuses an answer of spaces alone, being compulsory",
+        "steps": [
+          {
+            "question_id": "S1",
+            "question_kind": "single",
+            "value": "S1-O1",
+            "step": 1
+          },
+          {
+            "question_id": "S2",
+            "question_kind": "single",
+            "value": "S2-O1",
+            "step": 2
+          },
+          {
+            "question_id": "Q1",
+            "question_kind": "single",
+            "value": "Q1-O1",
+            "step": 3
+          },
+          {
+            "question_id": "Q2",
+            "question_kind": "single",
+            "value": "Q2-O1",
+            "step": 4
+          },
+          {
+            "question_id": "Q3",
+            "question_kind": "single",
+            "value": "Q3-O1",
+            "step": 5
+          },
+          {
+            "question_id": "Q4",
+            "question_kind": "multi",
+            "value": [
+              "Q4-O1"
+            ],
+            "step": 6
+          },
+          {
+            "question_id": "Q5",
+            "question_kind": "single",
+            "value": "Q5-O1",
+            "step": 7
+          },
+          {
+            "question_id": "Q6",
+            "question_kind": "text",
+            "value": "   ",
+            "step": 8
+          }
+        ],
+        "assertions": [
+          {
+            "kind": "answer_rejected",
+            "target": "Q6",
+            "expected": true,
+            "detail": "spaces alone are not an answer, and the questionnaire marks this question compulsory"
+          }
+        ],
+        "traces_to": [
+          "Q6"
+        ],
+        "executable": false,
+        "non_executable_reason": "NO_BUILD_MANIFEST",
+        "provisional_semantics": [
+          "whitespace_is_an_answer"
+        ],
+        "campaign": {},
+        "setup": [
+          {
+            "question_id": "S1",
+            "question_kind": "single",
+            "value": "S1-O1",
+            "step": 1
+          },
+          {
+            "question_id": "S2",
+            "question_kind": "single",
+            "value": "S2-O1",
+            "step": 2
+          },
+          {
+            "question_id": "Q1",
+            "question_kind": "single",
+            "value": "Q1-O1",
+            "step": 3
+          },
+          {
+            "question_id": "Q2",
+            "question_kind": "single",
+            "value": "Q2-O1",
+            "step": 4
+          },
+          {
+            "question_id": "Q3",
+            "question_kind": "single",
+            "value": "Q3-O1",
+            "step": 5
+          },
+          {
+            "question_id": "Q4",
+            "question_kind": "multi",
+            "value": [
+              "Q4-O1"
+            ],
+            "step": 6
+          },
+          {
+            "question_id": "Q5",
+            "question_kind": "single",
+            "value": "Q5-O1",
+            "step": 7
+          }
+        ],
+        "action": [
+          {
+            "question_id": "Q6",
+            "question_kind": "text",
+            "value": "   "
+          }
+        ],
+        "action_text": "At Q6, type 3 spaces and nothing else, then submit.",
+        "focus": "Q6",
+        "blocks": false
+      },
+      {
         "test_id": "TC-3af13688c6",
         "target_id": "T-fdb731cc7b",
         "dimension": "D4",
@@ -3854,6 +4549,161 @@
           }
         ],
         "action_text": "At Q8, type nothing, then submit.",
+        "focus": "Q8",
+        "blocks": false
+      },
+      {
+        "test_id": "TC-a7509385dc",
+        "target_id": "T-a7eaf4230c",
+        "dimension": "D4",
+        "title": "Q8 accepts an answer of spaces alone, being optional",
+        "steps": [
+          {
+            "question_id": "S1",
+            "question_kind": "single",
+            "value": "S1-O1",
+            "step": 1
+          },
+          {
+            "question_id": "S2",
+            "question_kind": "single",
+            "value": "S2-O1",
+            "step": 2
+          },
+          {
+            "question_id": "Q1",
+            "question_kind": "single",
+            "value": "Q1-O1",
+            "step": 3
+          },
+          {
+            "question_id": "Q2",
+            "question_kind": "single",
+            "value": "Q2-O1",
+            "step": 4
+          },
+          {
+            "question_id": "Q3",
+            "question_kind": "single",
+            "value": "Q3-O1",
+            "step": 5
+          },
+          {
+            "question_id": "Q4",
+            "question_kind": "multi",
+            "value": [
+              "Q4-O1"
+            ],
+            "step": 6
+          },
+          {
+            "question_id": "Q5",
+            "question_kind": "single",
+            "value": "Q5-O1",
+            "step": 7
+          },
+          {
+            "question_id": "Q6",
+            "question_kind": "text",
+            "value": "xxxxxxxxxx",
+            "step": 8
+          },
+          {
+            "question_id": "Q7",
+            "question_kind": "single",
+            "value": "Q7-O1",
+            "step": 9
+          },
+          {
+            "question_id": "Q8",
+            "question_kind": "text",
+            "value": "   ",
+            "step": 10
+          }
+        ],
+        "assertions": [
+          {
+            "kind": "answer_accepted",
+            "target": "Q8",
+            "expected": true,
+            "detail": "the questionnaire marks this question optional, so spaces must not block progress"
+          }
+        ],
+        "traces_to": [
+          "Q8"
+        ],
+        "executable": false,
+        "non_executable_reason": "NO_BUILD_MANIFEST",
+        "provisional_semantics": [
+          "whitespace_is_an_answer"
+        ],
+        "campaign": {},
+        "setup": [
+          {
+            "question_id": "S1",
+            "question_kind": "single",
+            "value": "S1-O1",
+            "step": 1
+          },
+          {
+            "question_id": "S2",
+            "question_kind": "single",
+            "value": "S2-O1",
+            "step": 2
+          },
+          {
+            "question_id": "Q1",
+            "question_kind": "single",
+            "value": "Q1-O1",
+            "step": 3
+          },
+          {
+            "question_id": "Q2",
+            "question_kind": "single",
+            "value": "Q2-O1",
+            "step": 4
+          },
+          {
+            "question_id": "Q3",
+            "question_kind": "single",
+            "value": "Q3-O1",
+            "step": 5
+          },
+          {
+            "question_id": "Q4",
+            "question_kind": "multi",
+            "value": [
+              "Q4-O1"
+            ],
+            "step": 6
+          },
+          {
+            "question_id": "Q5",
+            "question_kind": "single",
+            "value": "Q5-O1",
+            "step": 7
+          },
+          {
+            "question_id": "Q6",
+            "question_kind": "text",
+            "value": "xxxxxxxxxx",
+            "step": 8
+          },
+          {
+            "question_id": "Q7",
+            "question_kind": "single",
+            "value": "Q7-O1",
+            "step": 9
+          }
+        ],
+        "action": [
+          {
+            "question_id": "Q8",
+            "question_kind": "text",
+            "value": "   "
+          }
+        ],
+        "action_text": "At Q8, type 3 spaces and nothing else, then submit.",
         "focus": "Q8",
         "blocks": false
       },

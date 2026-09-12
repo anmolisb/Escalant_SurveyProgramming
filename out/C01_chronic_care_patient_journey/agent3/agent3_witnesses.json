@@ -9,11 +9,11 @@
   },
   "upstream": {
     "canonical_schema_version": "1.0.0",
-    "canonical_generated_at": "2026-09-09T08:14:17+00:00"
+    "canonical_generated_at": "2026-09-11T16:40:48+00:00"
   },
   "content": {
-    "feasible": 149,
-    "total": 165,
+    "feasible": 158,
+    "total": 174,
     "witnesses": [
       {
         "target_id": "T-94ce2e5d20",
@@ -577,9 +577,6 @@
         "target_id": "T-a31d9e36e7",
         "feasible": true,
         "answers": {
-          "Q5": [
-            "Q5-O1"
-          ],
           "S1": "S1-O1",
           "S2": "S2-O1",
           "S3": "S3-O2",
@@ -592,6 +589,9 @@
           ],
           "Q3": "Q3-O1",
           "Q4": "Q4-O1",
+          "Q5": [
+            "Q5-O1"
+          ],
           "Q6": "Q6-O1",
           "Q7": "Q7-O1",
           "Q8": "Q8-O1",
@@ -2181,130 +2181,6 @@
         },
         "method": "guard solved backwards",
         "evidence": "guard of Q3 forced false: Q1 contains at least one brand [leaned on provisional semantics: ['rule_precedence']]",
-        "reason": null,
-        "preconditions": {},
-        "campaign": {}
-      },
-      {
-        "target_id": "T-46ad0b9227",
-        "feasible": true,
-        "answers": {
-          "Q5": [
-            "Q5-O1"
-          ],
-          "S1": "S1-O1",
-          "S2": "S2-O1",
-          "S3": "S3-O2",
-          "S4": "S4-O2",
-          "Q1": [
-            "Q1-O1"
-          ],
-          "Q2": [
-            "Q2-O1"
-          ],
-          "Q3": "Q3-O1",
-          "Q4": "Q4-O1",
-          "Q6": "Q6-O1",
-          "Q7": "Q7-O1",
-          "Q8": "Q8-O1",
-          "Q9": {
-            "Q9-R1": "Q9-O1",
-            "Q9-R2": "Q9-O1",
-            "Q9-R3": "Q9-O1",
-            "Q9-R4": "Q9-O1",
-            "Q9-R5": "Q9-O1",
-            "Q9-R6": "Q9-O1"
-          },
-          "Q10": "Q10-O1",
-          "Q11": [
-            "Q11-O1"
-          ],
-          "Q12": "Q12-O1",
-          "Q13": "Q13-O1",
-          "Q14": "xxxxxxxxxx",
-          "Q15": "Q15-O1",
-          "Q16": "Q16-O1",
-          "Q17": "xxx",
-          "Q18": {
-            "Q18-O1": 20,
-            "Q18-O2": 20,
-            "Q18-O3": 20,
-            "Q18-O4": 20,
-            "Q18-O5": 20
-          },
-          "Q19": "Q19-O1",
-          "Q20": "Q20-O1",
-          "Q21": "xxxxx",
-          "D1": "D1-O1",
-          "D2": "D2-O1",
-          "D3": "D3-O1",
-          "D4": "D4-O1",
-          "Q22": "Q22-O1"
-        },
-        "method": "guard solved backwards",
-        "evidence": "guard of Q6 forced true: Q5 contains any touchpoint [leaned on provisional semantics: ['rule_precedence']]",
-        "reason": null,
-        "preconditions": {},
-        "campaign": {}
-      },
-      {
-        "target_id": "T-836bcea7a3",
-        "feasible": true,
-        "answers": {
-          "Q5": [
-            "Q5-O7"
-          ],
-          "S1": "S1-O1",
-          "S2": "S2-O1",
-          "S3": "S3-O2",
-          "S4": "S4-O2",
-          "Q1": [
-            "Q1-O1"
-          ],
-          "Q2": [
-            "Q2-O1"
-          ],
-          "Q3": "Q3-O1",
-          "Q4": "Q4-O1",
-          "Q6": "Q6-O1",
-          "Q7": "Q7-O1",
-          "Q8": "Q8-O1",
-          "Q9": {
-            "Q9-R1": "Q9-O1",
-            "Q9-R2": "Q9-O1",
-            "Q9-R3": "Q9-O1",
-            "Q9-R4": "Q9-O1",
-            "Q9-R5": "Q9-O1",
-            "Q9-R6": "Q9-O1"
-          },
-          "Q10": "Q10-O1",
-          "Q11": [
-            "Q11-O1"
-          ],
-          "Q12": "Q12-O1",
-          "Q13": "Q13-O1",
-          "Q14": "xxxxxxxxxx",
-          "Q15": "Q15-O1",
-          "Q16": "Q16-O1",
-          "Q17": "xxx",
-          "Q18": {
-            "Q18-O1": 20,
-            "Q18-O2": 20,
-            "Q18-O3": 20,
-            "Q18-O4": 20,
-            "Q18-O5": 20
-          },
-          "Q19": "Q19-O1",
-          "Q20": "Q20-O1",
-          "Q21": "xxxxx",
-          "D1": "D1-O1",
-          "D2": "D2-O1",
-          "D3": "D3-O1",
-          "D4": "D4-O1",
-          "Q22": "Q22-O1"
-        },
-        "method": "guard solved backwards",
-        "evidence": "guard of Q6 forced false: Q5 contains any touchpoint [leaned on provisional semantics: ['rule_precedence']]",
         "reason": null,
         "preconditions": {},
         "campaign": {}
@@ -5354,7 +5230,7 @@
           "Q22": "Q22-O1"
         },
         "method": "reject-rule condition solved",
-        "evidence": "R19 forced true [leaned on provisional semantics: ['multi_equality', 'rule_precedence']]",
+        "evidence": "R19 forced true [leaned on provisional semantics: ['rule_precedence']]",
         "reason": null,
         "preconditions": {},
         "campaign": {}
@@ -5479,6 +5355,753 @@
         },
         "method": "reject-rule condition solved",
         "evidence": "R20 forced true [leaned on provisional semantics: ['rule_precedence']]",
+        "reason": null,
+        "preconditions": {},
+        "campaign": {}
+      },
+      {
+        "target_id": "T-f6726b3e96",
+        "feasible": true,
+        "answers": {
+          "Q12": "Q12-O3",
+          "S1": "S1-O1",
+          "S2": "S2-O1",
+          "S3": "S3-O2",
+          "S4": "S4-O2",
+          "Q1": [
+            "Q1-O1"
+          ],
+          "Q2": [
+            "Q2-O1"
+          ],
+          "Q3": "Q3-O1",
+          "Q4": "Q4-O1",
+          "Q5": [
+            "Q5-O1"
+          ],
+          "Q6": "Q6-O1",
+          "Q7": "Q7-O1",
+          "Q8": "Q8-O1",
+          "Q9": {
+            "Q9-R1": "Q9-O1",
+            "Q9-R2": "Q9-O1",
+            "Q9-R3": "Q9-O1",
+            "Q9-R4": "Q9-O1",
+            "Q9-R5": "Q9-O1",
+            "Q9-R6": "Q9-O1"
+          },
+          "Q10": "Q10-O1",
+          "Q11": [
+            "Q11-O1"
+          ],
+          "Q13": "Q13-O1",
+          "Q14": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "Q15": "Q15-O1",
+          "Q16": "Q16-O1",
+          "Q17": "xxx",
+          "Q18": {
+            "Q18-O1": 20,
+            "Q18-O2": 20,
+            "Q18-O3": 20,
+            "Q18-O4": 20,
+            "Q18-O5": 20
+          },
+          "Q19": "Q19-O1",
+          "Q20": "Q20-O1",
+          "Q21": "xxxxx",
+          "D1": "D1-O1",
+          "D2": "D2-O1",
+          "D3": "D3-O1",
+          "D4": "D4-O1",
+          "Q22": "Q22-O1"
+        },
+        "method": "validation bound probed",
+        "evidence": "Q14: exactly 500 characters, the stated maximum, which must be accepted [leaned on provisional semantics: ['rule_precedence']]",
+        "reason": null,
+        "preconditions": {},
+        "campaign": {}
+      },
+      {
+        "target_id": "T-2b7da8cff1",
+        "feasible": true,
+        "answers": {
+          "Q12": "Q12-O3",
+          "S1": "S1-O1",
+          "S2": "S2-O1",
+          "S3": "S3-O2",
+          "S4": "S4-O2",
+          "Q1": [
+            "Q1-O1"
+          ],
+          "Q2": [
+            "Q2-O1"
+          ],
+          "Q3": "Q3-O1",
+          "Q4": "Q4-O1",
+          "Q5": [
+            "Q5-O1"
+          ],
+          "Q6": "Q6-O1",
+          "Q7": "Q7-O1",
+          "Q8": "Q8-O1",
+          "Q9": {
+            "Q9-R1": "Q9-O1",
+            "Q9-R2": "Q9-O1",
+            "Q9-R3": "Q9-O1",
+            "Q9-R4": "Q9-O1",
+            "Q9-R5": "Q9-O1",
+            "Q9-R6": "Q9-O1"
+          },
+          "Q10": "Q10-O1",
+          "Q11": [
+            "Q11-O1"
+          ],
+          "Q13": "Q13-O1",
+          "Q14": "O'Brien said \"yes\" <50% & more",
+          "Q15": "Q15-O1",
+          "Q16": "Q16-O1",
+          "Q17": "xxx",
+          "Q18": {
+            "Q18-O1": 20,
+            "Q18-O2": 20,
+            "Q18-O3": 20,
+            "Q18-O4": 20,
+            "Q18-O5": 20
+          },
+          "Q19": "Q19-O1",
+          "Q20": "Q20-O1",
+          "Q21": "xxxxx",
+          "D1": "D1-O1",
+          "D2": "D2-O1",
+          "D3": "D3-O1",
+          "D4": "D4-O1",
+          "Q22": "Q22-O1"
+        },
+        "method": "validation bound probed",
+        "evidence": "Q14: punctuation and quotation marks within the stated length, which the rule does not forbid [leaned on provisional semantics: ['rule_precedence']]",
+        "reason": null,
+        "preconditions": {},
+        "campaign": {}
+      },
+      {
+        "target_id": "T-2d0768947c",
+        "feasible": true,
+        "answers": {
+          "Q16": "Q16-O6",
+          "S1": "S1-O1",
+          "S2": "S2-O1",
+          "S3": "S3-O2",
+          "S4": "S4-O2",
+          "Q1": [
+            "Q1-O1"
+          ],
+          "Q2": [
+            "Q2-O1"
+          ],
+          "Q3": "Q3-O1",
+          "Q4": "Q4-O1",
+          "Q5": [
+            "Q5-O1"
+          ],
+          "Q6": "Q6-O1",
+          "Q7": "Q7-O1",
+          "Q8": "Q8-O1",
+          "Q9": {
+            "Q9-R1": "Q9-O1",
+            "Q9-R2": "Q9-O1",
+            "Q9-R3": "Q9-O1",
+            "Q9-R4": "Q9-O1",
+            "Q9-R5": "Q9-O1",
+            "Q9-R6": "Q9-O1"
+          },
+          "Q10": "Q10-O1",
+          "Q11": [
+            "Q11-O1"
+          ],
+          "Q12": "Q12-O1",
+          "Q13": "Q13-O1",
+          "Q14": "xxxxxxxxxx",
+          "Q15": "Q15-O1",
+          "Q17": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "Q18": {
+            "Q18-O1": 20,
+            "Q18-O2": 20,
+            "Q18-O3": 20,
+            "Q18-O4": 20,
+            "Q18-O5": 20
+          },
+          "Q19": "Q19-O1",
+          "Q20": "Q20-O1",
+          "Q21": "xxxxx",
+          "D1": "D1-O1",
+          "D2": "D2-O1",
+          "D3": "D3-O1",
+          "D4": "D4-O1",
+          "Q22": "Q22-O1"
+        },
+        "method": "validation bound probed",
+        "evidence": "Q17: exactly 200 characters, the stated maximum, which must be accepted [leaned on provisional semantics: ['rule_precedence']]",
+        "reason": null,
+        "preconditions": {},
+        "campaign": {}
+      },
+      {
+        "target_id": "T-08dd173f52",
+        "feasible": true,
+        "answers": {
+          "Q16": "Q16-O6",
+          "S1": "S1-O1",
+          "S2": "S2-O1",
+          "S3": "S3-O2",
+          "S4": "S4-O2",
+          "Q1": [
+            "Q1-O1"
+          ],
+          "Q2": [
+            "Q2-O1"
+          ],
+          "Q3": "Q3-O1",
+          "Q4": "Q4-O1",
+          "Q5": [
+            "Q5-O1"
+          ],
+          "Q6": "Q6-O1",
+          "Q7": "Q7-O1",
+          "Q8": "Q8-O1",
+          "Q9": {
+            "Q9-R1": "Q9-O1",
+            "Q9-R2": "Q9-O1",
+            "Q9-R3": "Q9-O1",
+            "Q9-R4": "Q9-O1",
+            "Q9-R5": "Q9-O1",
+            "Q9-R6": "Q9-O1"
+          },
+          "Q10": "Q10-O1",
+          "Q11": [
+            "Q11-O1"
+          ],
+          "Q12": "Q12-O1",
+          "Q13": "Q13-O1",
+          "Q14": "xxxxxxxxxx",
+          "Q15": "Q15-O1",
+          "Q17": "O'Brien said \"yes\" <50% & more",
+          "Q18": {
+            "Q18-O1": 20,
+            "Q18-O2": 20,
+            "Q18-O3": 20,
+            "Q18-O4": 20,
+            "Q18-O5": 20
+          },
+          "Q19": "Q19-O1",
+          "Q20": "Q20-O1",
+          "Q21": "xxxxx",
+          "D1": "D1-O1",
+          "D2": "D2-O1",
+          "D3": "D3-O1",
+          "D4": "D4-O1",
+          "Q22": "Q22-O1"
+        },
+        "method": "validation bound probed",
+        "evidence": "Q17: punctuation and quotation marks within the stated length, which the rule does not forbid [leaned on provisional semantics: ['rule_precedence']]",
+        "reason": null,
+        "preconditions": {},
+        "campaign": {}
+      },
+      {
+        "target_id": "T-56550a97dd",
+        "feasible": true,
+        "answers": {
+          "S1": "S1-O1",
+          "S2": "S2-O1",
+          "S3": "S3-O2",
+          "S4": "S4-O2",
+          "Q1": [
+            "Q1-O1"
+          ],
+          "Q2": [
+            "Q2-O1"
+          ],
+          "Q3": "Q3-O1",
+          "Q4": "Q4-O1",
+          "Q5": [
+            "Q5-O1"
+          ],
+          "Q6": "Q6-O1",
+          "Q7": "Q7-O1",
+          "Q8": "Q8-O1",
+          "Q9": {
+            "Q9-R1": "Q9-O1",
+            "Q9-R2": "Q9-O1",
+            "Q9-R3": "Q9-O1",
+            "Q9-R4": "Q9-O1",
+            "Q9-R5": "Q9-O1",
+            "Q9-R6": "Q9-O1"
+          },
+          "Q10": "Q10-O1",
+          "Q11": [
+            "Q11-O1"
+          ],
+          "Q12": "Q12-O1",
+          "Q13": "Q13-O1",
+          "Q14": "xxxxxxxxxx",
+          "Q15": "Q15-O1",
+          "Q16": "Q16-O1",
+          "Q17": "xxx",
+          "Q18": {
+            "Q18-O1": 20,
+            "Q18-O2": 20,
+            "Q18-O3": 20,
+            "Q18-O4": 20,
+            "Q18-O5": 20
+          },
+          "Q19": "Q19-O1",
+          "Q20": "Q20-O1",
+          "Q21": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          "D1": "D1-O1",
+          "D2": "D2-O1",
+          "D3": "D3-O1",
+          "D4": "D4-O1",
+          "Q22": "Q22-O1"
+        },
+        "method": "validation bound probed",
+        "evidence": "Q21: exactly 500 characters, the stated maximum, which must be accepted [leaned on provisional semantics: ['rule_precedence']]",
+        "reason": null,
+        "preconditions": {},
+        "campaign": {}
+      },
+      {
+        "target_id": "T-bc16d50ae1",
+        "feasible": true,
+        "answers": {
+          "S1": "S1-O1",
+          "S2": "S2-O1",
+          "S3": "S3-O2",
+          "S4": "S4-O2",
+          "Q1": [
+            "Q1-O1"
+          ],
+          "Q2": [
+            "Q2-O1"
+          ],
+          "Q3": "Q3-O1",
+          "Q4": "Q4-O1",
+          "Q5": [
+            "Q5-O1"
+          ],
+          "Q6": "Q6-O1",
+          "Q7": "Q7-O1",
+          "Q8": "Q8-O1",
+          "Q9": {
+            "Q9-R1": "Q9-O1",
+            "Q9-R2": "Q9-O1",
+            "Q9-R3": "Q9-O1",
+            "Q9-R4": "Q9-O1",
+            "Q9-R5": "Q9-O1",
+            "Q9-R6": "Q9-O1"
+          },
+          "Q10": "Q10-O1",
+          "Q11": [
+            "Q11-O1"
+          ],
+          "Q12": "Q12-O1",
+          "Q13": "Q13-O1",
+          "Q14": "xxxxxxxxxx",
+          "Q15": "Q15-O1",
+          "Q16": "Q16-O1",
+          "Q17": "xxx",
+          "Q18": {
+            "Q18-O1": 20,
+            "Q18-O2": 20,
+            "Q18-O3": 20,
+            "Q18-O4": 20,
+            "Q18-O5": 20
+          },
+          "Q19": "Q19-O1",
+          "Q20": "Q20-O1",
+          "Q21": "O'Brien said \"yes\" <50% & more",
+          "D1": "D1-O1",
+          "D2": "D2-O1",
+          "D3": "D3-O1",
+          "D4": "D4-O1",
+          "Q22": "Q22-O1"
+        },
+        "method": "validation bound probed",
+        "evidence": "Q21: punctuation and quotation marks within the stated length, which the rule does not forbid [leaned on provisional semantics: ['rule_precedence']]",
+        "reason": null,
+        "preconditions": {},
+        "campaign": {}
+      },
+      {
+        "target_id": "T-636f0d6630",
+        "feasible": true,
+        "answers": {
+          "S1": "S1-O1",
+          "S2": "S2-O1",
+          "S3": "S3-O2",
+          "S4": "S4-O2",
+          "Q1": [
+            "Q1-O1"
+          ],
+          "Q2": [
+            "Q2-O1"
+          ],
+          "Q3": "Q3-O1",
+          "Q4": "Q4-O1",
+          "Q5": [
+            "Q5-O1"
+          ],
+          "Q6": "Q6-O1",
+          "Q7": "Q7-O1",
+          "Q8": "Q8-O1",
+          "Q9": {
+            "Q9-R1": "Q9-O1",
+            "Q9-R2": "Q9-O1",
+            "Q9-R3": "Q9-O1",
+            "Q9-R4": "Q9-O1",
+            "Q9-R5": "Q9-O1",
+            "Q9-R6": "Q9-O1"
+          },
+          "Q10": "Q10-O1",
+          "Q11": [
+            "Q11-O1"
+          ],
+          "Q12": "Q12-O1",
+          "Q13": "Q13-O1",
+          "Q14": "xxxxxxxxxx",
+          "Q15": "Q15-O1",
+          "Q16": "Q16-O1",
+          "Q17": "xxx",
+          "Q18": {
+            "Q18-O1": 20,
+            "Q18-O2": 20,
+            "Q18-O3": 20,
+            "Q18-O4": 20,
+            "Q18-O5": 20
+          },
+          "Q19": "Q19-O1",
+          "Q20": "Q20-O1",
+          "Q21": "xxxxx",
+          "D1": "D1-O1",
+          "D2": "D2-O1",
+          "D3": "D3-O1",
+          "D4": "D4-O1",
+          "Q22": "Q22-O1",
+          "Q23": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+        },
+        "method": "validation bound probed",
+        "evidence": "Q23: exactly 1000 characters, the stated maximum, which must be accepted [leaned on provisional semantics: ['rule_precedence']]",
+        "reason": null,
+        "preconditions": {},
+        "campaign": {}
+      },
+      {
+        "target_id": "T-3a4a7d62e9",
+        "feasible": true,
+        "answers": {
+          "S1": "S1-O1",
+          "S2": "S2-O1",
+          "S3": "S3-O2",
+          "S4": "S4-O2",
+          "Q1": [
+            "Q1-O1"
+          ],
+          "Q2": [
+            "Q2-O1"
+          ],
+          "Q3": "Q3-O1",
+          "Q4": "Q4-O1",
+          "Q5": [
+            "Q5-O1"
+          ],
+          "Q6": "Q6-O1",
+          "Q7": "Q7-O1",
+          "Q8": "Q8-O1",
+          "Q9": {
+            "Q9-R1": "Q9-O1",
+            "Q9-R2": "Q9-O1",
+            "Q9-R3": "Q9-O1",
+            "Q9-R4": "Q9-O1",
+            "Q9-R5": "Q9-O1",
+            "Q9-R6": "Q9-O1"
+          },
+          "Q10": "Q10-O1",
+          "Q11": [
+            "Q11-O1"
+          ],
+          "Q12": "Q12-O1",
+          "Q13": "Q13-O1",
+          "Q14": "xxxxxxxxxx",
+          "Q15": "Q15-O1",
+          "Q16": "Q16-O1",
+          "Q17": "xxx",
+          "Q18": {
+            "Q18-O1": 20,
+            "Q18-O2": 20,
+            "Q18-O3": 20,
+            "Q18-O4": 20,
+            "Q18-O5": 20
+          },
+          "Q19": "Q19-O1",
+          "Q20": "Q20-O1",
+          "Q21": "xxxxx",
+          "D1": "D1-O1",
+          "D2": "D2-O1",
+          "D3": "D3-O1",
+          "D4": "D4-O1",
+          "Q22": "Q22-O1",
+          "Q23": "O'Brien said \"yes\" <50% & more"
+        },
+        "method": "validation bound probed",
+        "evidence": "Q23: punctuation and quotation marks within the stated length, which the rule does not forbid [leaned on provisional semantics: ['rule_precedence']]",
+        "reason": null,
+        "preconditions": {},
+        "campaign": {}
+      },
+      {
+        "target_id": "T-538bb13bb8",
+        "feasible": true,
+        "answers": {
+          "Q12": "Q12-O3",
+          "S1": "S1-O1",
+          "S2": "S2-O1",
+          "S3": "S3-O2",
+          "S4": "S4-O2",
+          "Q1": [
+            "Q1-O1"
+          ],
+          "Q2": [
+            "Q2-O1"
+          ],
+          "Q3": "Q3-O1",
+          "Q4": "Q4-O1",
+          "Q5": [
+            "Q5-O1"
+          ],
+          "Q6": "Q6-O1",
+          "Q7": "Q7-O1",
+          "Q8": "Q8-O1",
+          "Q9": {
+            "Q9-R1": "Q9-O1",
+            "Q9-R2": "Q9-O1",
+            "Q9-R3": "Q9-O1",
+            "Q9-R4": "Q9-O1",
+            "Q9-R5": "Q9-O1",
+            "Q9-R6": "Q9-O1"
+          },
+          "Q10": "Q10-O1",
+          "Q11": [
+            "Q11-O1"
+          ],
+          "Q13": "Q13-O1",
+          "Q14": "   ",
+          "Q15": "Q15-O1",
+          "Q16": "Q16-O1",
+          "Q17": "xxx",
+          "Q18": {
+            "Q18-O1": 20,
+            "Q18-O2": 20,
+            "Q18-O3": 20,
+            "Q18-O4": 20,
+            "Q18-O5": 20
+          },
+          "Q19": "Q19-O1",
+          "Q20": "Q20-O1",
+          "Q21": "xxxxx",
+          "D1": "D1-O1",
+          "D2": "D2-O1",
+          "D3": "D3-O1",
+          "D4": "D4-O1",
+          "Q22": "Q22-O1"
+        },
+        "method": "whitespace answer probe",
+        "evidence": "Q14 given three spaces and nothing else, expect it refuses progress [leaned on provisional semantics: ['rule_precedence']]",
+        "reason": null,
+        "preconditions": {},
+        "campaign": {}
+      },
+      {
+        "target_id": "T-66d084b45e",
+        "feasible": true,
+        "answers": {
+          "Q16": "Q16-O6",
+          "S1": "S1-O1",
+          "S2": "S2-O1",
+          "S3": "S3-O2",
+          "S4": "S4-O2",
+          "Q1": [
+            "Q1-O1"
+          ],
+          "Q2": [
+            "Q2-O1"
+          ],
+          "Q3": "Q3-O1",
+          "Q4": "Q4-O1",
+          "Q5": [
+            "Q5-O1"
+          ],
+          "Q6": "Q6-O1",
+          "Q7": "Q7-O1",
+          "Q8": "Q8-O1",
+          "Q9": {
+            "Q9-R1": "Q9-O1",
+            "Q9-R2": "Q9-O1",
+            "Q9-R3": "Q9-O1",
+            "Q9-R4": "Q9-O1",
+            "Q9-R5": "Q9-O1",
+            "Q9-R6": "Q9-O1"
+          },
+          "Q10": "Q10-O1",
+          "Q11": [
+            "Q11-O1"
+          ],
+          "Q12": "Q12-O1",
+          "Q13": "Q13-O1",
+          "Q14": "xxxxxxxxxx",
+          "Q15": "Q15-O1",
+          "Q17": "   ",
+          "Q18": {
+            "Q18-O1": 20,
+            "Q18-O2": 20,
+            "Q18-O3": 20,
+            "Q18-O4": 20,
+            "Q18-O5": 20
+          },
+          "Q19": "Q19-O1",
+          "Q20": "Q20-O1",
+          "Q21": "xxxxx",
+          "D1": "D1-O1",
+          "D2": "D2-O1",
+          "D3": "D3-O1",
+          "D4": "D4-O1",
+          "Q22": "Q22-O1"
+        },
+        "method": "whitespace answer probe",
+        "evidence": "Q17 given three spaces and nothing else, expect it refuses progress [leaned on provisional semantics: ['rule_precedence']]",
+        "reason": null,
+        "preconditions": {},
+        "campaign": {}
+      },
+      {
+        "target_id": "T-ccc57c78ea",
+        "feasible": true,
+        "answers": {
+          "S1": "S1-O1",
+          "S2": "S2-O1",
+          "S3": "S3-O2",
+          "S4": "S4-O2",
+          "Q1": [
+            "Q1-O1"
+          ],
+          "Q2": [
+            "Q2-O1"
+          ],
+          "Q3": "Q3-O1",
+          "Q4": "Q4-O1",
+          "Q5": [
+            "Q5-O1"
+          ],
+          "Q6": "Q6-O1",
+          "Q7": "Q7-O1",
+          "Q8": "Q8-O1",
+          "Q9": {
+            "Q9-R1": "Q9-O1",
+            "Q9-R2": "Q9-O1",
+            "Q9-R3": "Q9-O1",
+            "Q9-R4": "Q9-O1",
+            "Q9-R5": "Q9-O1",
+            "Q9-R6": "Q9-O1"
+          },
+          "Q10": "Q10-O1",
+          "Q11": [
+            "Q11-O1"
+          ],
+          "Q12": "Q12-O1",
+          "Q13": "Q13-O1",
+          "Q14": "xxxxxxxxxx",
+          "Q15": "Q15-O1",
+          "Q16": "Q16-O1",
+          "Q17": "xxx",
+          "Q18": {
+            "Q18-O1": 20,
+            "Q18-O2": 20,
+            "Q18-O3": 20,
+            "Q18-O4": 20,
+            "Q18-O5": 20
+          },
+          "Q19": "Q19-O1",
+          "Q20": "Q20-O1",
+          "Q21": "   ",
+          "D1": "D1-O1",
+          "D2": "D2-O1",
+          "D3": "D3-O1",
+          "D4": "D4-O1",
+          "Q22": "Q22-O1"
+        },
+        "method": "whitespace answer probe",
+        "evidence": "Q21 given three spaces and nothing else, expect it refuses progress [leaned on provisional semantics: ['rule_precedence']]",
+        "reason": null,
+        "preconditions": {},
+        "campaign": {}
+      },
+      {
+        "target_id": "T-c9acd65128",
+        "feasible": true,
+        "answers": {
+          "S1": "S1-O1",
+          "S2": "S2-O1",
+          "S3": "S3-O2",
+          "S4": "S4-O2",
+          "Q1": [
+            "Q1-O1"
+          ],
+          "Q2": [
+            "Q2-O1"
+          ],
+          "Q3": "Q3-O1",
+          "Q4": "Q4-O1",
+          "Q5": [
+            "Q5-O1"
+          ],
+          "Q6": "Q6-O1",
+          "Q7": "Q7-O1",
+          "Q8": "Q8-O1",
+          "Q9": {
+            "Q9-R1": "Q9-O1",
+            "Q9-R2": "Q9-O1",
+            "Q9-R3": "Q9-O1",
+            "Q9-R4": "Q9-O1",
+            "Q9-R5": "Q9-O1",
+            "Q9-R6": "Q9-O1"
+          },
+          "Q10": "Q10-O1",
+          "Q11": [
+            "Q11-O1"
+          ],
+          "Q12": "Q12-O1",
+          "Q13": "Q13-O1",
+          "Q14": "xxxxxxxxxx",
+          "Q15": "Q15-O1",
+          "Q16": "Q16-O1",
+          "Q17": "xxx",
+          "Q18": {
+            "Q18-O1": 20,
+            "Q18-O2": 20,
+            "Q18-O3": 20,
+            "Q18-O4": 20,
+            "Q18-O5": 20
+          },
+          "Q19": "Q19-O1",
+          "Q20": "Q20-O1",
+          "Q21": "xxxxx",
+          "D1": "D1-O1",
+          "D2": "D2-O1",
+          "D3": "D3-O1",
+          "D4": "D4-O1",
+          "Q22": "Q22-O1",
+          "Q23": "   "
+        },
+        "method": "whitespace answer probe",
+        "evidence": "Q23 given three spaces and nothing else, expect it permits progress [leaned on provisional semantics: ['rule_precedence']]",
         "reason": null,
         "preconditions": {},
         "campaign": {}
@@ -6039,9 +6662,6 @@
         "target_id": "T-e98006aa3a",
         "feasible": true,
         "answers": {
-          "Q5": [
-            "Q5-O1"
-          ],
           "S1": "S1-O1",
           "S2": "S2-O1",
           "S3": "S3-O2",
@@ -6054,6 +6674,9 @@
           ],
           "Q3": "Q3-O1",
           "Q4": "Q4-O1",
+          "Q5": [
+            "Q5-O1"
+          ],
           "Q6": null,
           "Q7": "Q7-O1",
           "Q8": "Q8-O1",
@@ -8870,7 +9493,7 @@
         "campaign": {}
       },
       {
-        "target_id": "T-72e06754d3",
+        "target_id": "T-a26fe3e634",
         "feasible": false,
         "answers": {},
         "method": "predetermined",
@@ -8942,7 +9565,7 @@
         "campaign": {}
       },
       {
-        "target_id": "T-4b2ac7a87a",
+        "target_id": "T-56b195b179",
         "feasible": false,
         "answers": {},
         "method": "predetermined",
@@ -9014,7 +9637,7 @@
         "campaign": {}
       },
       {
-        "target_id": "T-c3d6893ad6",
+        "target_id": "T-5efc254642",
         "feasible": false,
         "answers": {},
         "method": "predetermined",
@@ -9086,7 +9709,7 @@
         "campaign": {}
       },
       {
-        "target_id": "T-3f747a12d1",
+        "target_id": "T-456cb4feaa",
         "feasible": false,
         "answers": {},
         "method": "predetermined",
@@ -9158,7 +9781,7 @@
         "campaign": {}
       },
       {
-        "target_id": "T-03c8dc51cb",
+        "target_id": "T-3951f9eeeb",
         "feasible": false,
         "answers": {},
         "method": "predetermined",
@@ -9349,68 +9972,6 @@
         },
         "method": "guard satisfied with dependency present",
         "evidence": "Q9 shown while dependent on Q3 [leaned on provisional semantics: ['rule_precedence']]",
-        "reason": null,
-        "preconditions": {},
-        "campaign": {}
-      },
-      {
-        "target_id": "T-84fe582a25",
-        "feasible": true,
-        "answers": {
-          "Q5": [
-            "Q5-O1"
-          ],
-          "S1": "S1-O1",
-          "S2": "S2-O1",
-          "S3": "S3-O2",
-          "S4": "S4-O2",
-          "Q1": [
-            "Q1-O1"
-          ],
-          "Q2": [
-            "Q2-O1"
-          ],
-          "Q3": "Q3-O1",
-          "Q4": "Q4-O1",
-          "Q6": "Q6-O1",
-          "Q7": "Q7-O1",
-          "Q8": "Q8-O1",
-          "Q9": {
-            "Q9-R1": "Q9-O1",
-            "Q9-R2": "Q9-O1",
-            "Q9-R3": "Q9-O1",
-            "Q9-R4": "Q9-O1",
-            "Q9-R5": "Q9-O1",
-            "Q9-R6": "Q9-O1"
-          },
-          "Q10": "Q10-O1",
-          "Q11": [
-            "Q11-O1"
-          ],
-          "Q12": "Q12-O1",
-          "Q13": "Q13-O1",
-          "Q14": "xxxxxxxxxx",
-          "Q15": "Q15-O1",
-          "Q16": "Q16-O1",
-          "Q17": "xxx",
-          "Q18": {
-            "Q18-O1": 20,
-            "Q18-O2": 20,
-            "Q18-O3": 20,
-            "Q18-O4": 20,
-            "Q18-O5": 20
-          },
-          "Q19": "Q19-O1",
-          "Q20": "Q20-O1",
-          "Q21": "xxxxx",
-          "D1": "D1-O1",
-          "D2": "D2-O1",
-          "D3": "D3-O1",
-          "D4": "D4-O1",
-          "Q22": "Q22-O1"
-        },
-        "method": "guard satisfied with dependency present",
-        "evidence": "Q6 shown while dependent on Q5 [leaned on provisional semantics: ['rule_precedence']]",
         "reason": null,
         "preconditions": {},
         "campaign": {}

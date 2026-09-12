@@ -9,20 +9,20 @@
   },
   "upstream": {
     "canonical_schema_version": "1.0.0",
-    "canonical_generated_at": "2026-09-09T08:14:17+00:00"
+    "canonical_generated_at": "2026-09-11T16:40:48+00:00"
   },
   "content": {
     "report": {
-      "logically_covered": 149,
-      "compiled_executable": 149,
+      "logically_covered": 158,
+      "compiled_executable": 158,
       "refused": 0,
-      "executable_coverage_pct": 90.3,
+      "executable_coverage_pct": 90.8,
       "refusals": [],
       "note": "Block C refuses rather than guessing a missing identifier. A refusal is a specific named gap, not a silent omission."
     },
     "tests": [
       {
-        "test_id": "EX-16eb69e6a1",
+        "test_id": "EX-865ccb3f80",
         "target_id": "T-28dda6de6e",
         "dimension": "D1",
         "title": "answering D1 normally moves the respondent on to the question that should come next",
@@ -449,7 +449,7 @@
         ]
       },
       {
-        "test_id": "EX-3f3f3bf8e6",
+        "test_id": "EX-aa06eec7dc",
         "target_id": "T-0a8c593040",
         "dimension": "D1",
         "title": "answering D2 normally moves the respondent on to the question that should come next",
@@ -876,7 +876,7 @@
         ]
       },
       {
-        "test_id": "EX-9607ce441f",
+        "test_id": "EX-967f9bfde2",
         "target_id": "T-fa7ae79fa5",
         "dimension": "D1",
         "title": "answering D3 normally moves the respondent on to the question that should come next",
@@ -1303,7 +1303,7 @@
         ]
       },
       {
-        "test_id": "EX-c2299edfa3",
+        "test_id": "EX-7e482ef857",
         "target_id": "T-3f0092978e",
         "dimension": "D1",
         "title": "answering D4 normally moves the respondent on to the question that should come next",
@@ -1730,7 +1730,7 @@
         ]
       },
       {
-        "test_id": "EX-95eb9c36f7",
+        "test_id": "EX-079c968189",
         "target_id": "T-f325a4a781",
         "dimension": "D1",
         "title": "answering Q1 normally moves the respondent on to the question that should come next",
@@ -2157,7 +2157,7 @@
         ]
       },
       {
-        "test_id": "EX-d8f0619f15",
+        "test_id": "EX-6341a26ab8",
         "target_id": "T-d5aef33769",
         "dimension": "D1",
         "title": "answering Q10 normally moves the respondent on to the question that should come next",
@@ -2584,7 +2584,7 @@
         ]
       },
       {
-        "test_id": "EX-cffa314537",
+        "test_id": "EX-2c3871170b",
         "target_id": "T-11d51719ce",
         "dimension": "D1",
         "title": "answering Q11 normally moves the respondent on to the question that should come next",
@@ -3011,7 +3011,7 @@
         ]
       },
       {
-        "test_id": "EX-e4eded9564",
+        "test_id": "EX-b26d3dabf3",
         "target_id": "T-c15cef88bd",
         "dimension": "D1",
         "title": "Q11 is not displayed when its guard fails",
@@ -3259,7 +3259,7 @@
         ]
       },
       {
-        "test_id": "EX-1bded01333",
+        "test_id": "EX-10c061e096",
         "target_id": "T-52fcaa827e",
         "dimension": "D1",
         "title": "Q11 is displayed when its guard holds",
@@ -3509,7 +3509,7 @@
         ]
       },
       {
-        "test_id": "EX-4cc4f9ceef",
+        "test_id": "EX-e1b078f946",
         "target_id": "T-3907421364",
         "dimension": "D1",
         "title": "answering Q12 normally moves the respondent on to the question that should come next",
@@ -3936,7 +3936,7 @@
         ]
       },
       {
-        "test_id": "EX-a772f05868",
+        "test_id": "EX-36c2043c3f",
         "target_id": "T-75fbb3de72",
         "dimension": "D1",
         "title": "Q12 is not displayed when its guard fails",
@@ -4184,7 +4184,7 @@
         ]
       },
       {
-        "test_id": "EX-9a05d20019",
+        "test_id": "EX-441516a3f4",
         "target_id": "T-9c982f1c81",
         "dimension": "D1",
         "title": "Q12 is displayed when its guard holds",
@@ -4444,7 +4444,7 @@
         ]
       },
       {
-        "test_id": "EX-77424285d6",
+        "test_id": "EX-ed80c44054",
         "target_id": "T-a1c44561a6",
         "dimension": "D1",
         "title": "answering Q13 normally moves the respondent on to the question that should come next",
@@ -4871,7 +4871,7 @@
         ]
       },
       {
-        "test_id": "EX-f490f4cee5",
+        "test_id": "EX-1378b3b850",
         "target_id": "T-7a3c1221d9",
         "dimension": "D1",
         "title": "Q13 is not displayed when its guard fails",
@@ -5139,7 +5139,7 @@
         ]
       },
       {
-        "test_id": "EX-648c71497d",
+        "test_id": "EX-ef7362422c",
         "target_id": "T-527abdf025",
         "dimension": "D1",
         "title": "Q13 is displayed when its guard holds",
@@ -5409,7 +5409,7 @@
         ]
       },
       {
-        "test_id": "EX-2be8aee5f5",
+        "test_id": "EX-1ebac0bc22",
         "target_id": "T-da4659818e",
         "dimension": "D1",
         "title": "answering Q14 normally moves the respondent on to the question that should come next",
@@ -5836,7 +5836,7 @@
         ]
       },
       {
-        "test_id": "EX-79d7b633ae",
+        "test_id": "EX-b3e881fccf",
         "target_id": "T-a25a32f99a",
         "dimension": "D1",
         "title": "Q14 is not displayed when its guard fails",
@@ -6114,7 +6114,7 @@
         ]
       },
       {
-        "test_id": "EX-4959b7412d",
+        "test_id": "EX-cbe1cb7a2a",
         "target_id": "T-96aad234ca",
         "dimension": "D1",
         "title": "Q14 is displayed when its guard holds",
@@ -6384,7 +6384,7 @@
         ]
       },
       {
-        "test_id": "EX-df67f4ec44",
+        "test_id": "EX-5ab47482df",
         "target_id": "T-19d2bb8d63",
         "dimension": "D1",
         "title": "answering Q15 normally moves the respondent on to the question that should come next",
@@ -6811,7 +6811,7 @@
         ]
       },
       {
-        "test_id": "EX-f46c6027fa",
+        "test_id": "EX-ba4228bb8c",
         "target_id": "T-5a1c63d00b",
         "dimension": "D1",
         "title": "Q15 is not displayed when its guard fails",
@@ -7008,7 +7008,7 @@
         ]
       },
       {
-        "test_id": "EX-c7e14fd4bb",
+        "test_id": "EX-e248f25f31",
         "target_id": "T-8754622236",
         "dimension": "D1",
         "title": "Q15 is displayed when its guard holds",
@@ -7287,7 +7287,7 @@
         ]
       },
       {
-        "test_id": "EX-0603abc238",
+        "test_id": "EX-4925894109",
         "target_id": "T-d23f2bd82f",
         "dimension": "D1",
         "title": "answering Q16 normally moves the respondent on to the question that should come next",
@@ -7714,7 +7714,7 @@
         ]
       },
       {
-        "test_id": "EX-0da265591c",
+        "test_id": "EX-e8e2bed470",
         "target_id": "T-42b635fb7b",
         "dimension": "D1",
         "title": "Q16 is not displayed when its guard fails",
@@ -8002,7 +8002,7 @@
         ]
       },
       {
-        "test_id": "EX-24f3cab7d9",
+        "test_id": "EX-97ffdf5870",
         "target_id": "T-926f113e74",
         "dimension": "D1",
         "title": "Q16 is displayed when its guard holds",
@@ -8292,7 +8292,7 @@
         ]
       },
       {
-        "test_id": "EX-f2125dc140",
+        "test_id": "EX-776a6d45c4",
         "target_id": "T-4e1cad7a3b",
         "dimension": "D1",
         "title": "answering Q17 normally moves the respondent on to the question that should come next",
@@ -8729,7 +8729,7 @@
         ]
       },
       {
-        "test_id": "EX-58fc600914",
+        "test_id": "EX-d25e97e534",
         "target_id": "T-de5c572d8c",
         "dimension": "D1",
         "title": "Q17 is not displayed when its guard fails",
@@ -9027,7 +9027,7 @@
         ]
       },
       {
-        "test_id": "EX-6361424be8",
+        "test_id": "EX-096f1dcf94",
         "target_id": "T-82b516f812",
         "dimension": "D1",
         "title": "Q17 is displayed when its guard holds",
@@ -9327,7 +9327,7 @@
         ]
       },
       {
-        "test_id": "EX-a12f69f69c",
+        "test_id": "EX-6ee3bd1544",
         "target_id": "T-dfa61ef090",
         "dimension": "D1",
         "title": "answering Q18 normally moves the respondent on to the question that should come next",
@@ -9754,7 +9754,7 @@
         ]
       },
       {
-        "test_id": "EX-4e709fa300",
+        "test_id": "EX-5766bdcad5",
         "target_id": "T-d17654526e",
         "dimension": "D1",
         "title": "answering Q19 normally moves the respondent on to the question that should come next",
@@ -10181,7 +10181,7 @@
         ]
       },
       {
-        "test_id": "EX-0e75679c5c",
+        "test_id": "EX-adaeb90a71",
         "target_id": "T-ea15e888c6",
         "dimension": "D1",
         "title": "answering Q2 normally moves the respondent on to the question that should come next",
@@ -10608,7 +10608,7 @@
         ]
       },
       {
-        "test_id": "EX-d41c807ee3",
+        "test_id": "EX-ed86f2b7f9",
         "target_id": "T-63d8afff5b",
         "dimension": "D1",
         "title": "Q2 is not displayed when its guard fails",
@@ -10716,7 +10716,7 @@
         ]
       },
       {
-        "test_id": "EX-40c4f8e223",
+        "test_id": "EX-a38e585290",
         "target_id": "T-a72cd3409f",
         "dimension": "D1",
         "title": "Q2 is displayed when its guard holds",
@@ -10826,7 +10826,7 @@
         ]
       },
       {
-        "test_id": "EX-3b8bbc2321",
+        "test_id": "EX-a63c1fa79b",
         "target_id": "T-20a79cced5",
         "dimension": "D1",
         "title": "answering Q20 normally moves the respondent on to the question that should come next",
@@ -11253,7 +11253,7 @@
         ]
       },
       {
-        "test_id": "EX-baa2e67dc0",
+        "test_id": "EX-eb26ae589b",
         "target_id": "T-8782697728",
         "dimension": "D1",
         "title": "answering Q21 normally moves the respondent on to the question that should come next",
@@ -11680,7 +11680,7 @@
         ]
       },
       {
-        "test_id": "EX-e4017dbfec",
+        "test_id": "EX-1ea3e8b558",
         "target_id": "T-82b2e57efa",
         "dimension": "D1",
         "title": "answering Q22 normally moves the respondent on to the question that should come next",
@@ -12107,7 +12107,7 @@
         ]
       },
       {
-        "test_id": "EX-5fee3d9e2d",
+        "test_id": "EX-a64b33612a",
         "target_id": "T-4e33a23d9e",
         "dimension": "D1",
         "title": "answering Q23 normally moves the respondent on to the question that should come next",
@@ -12534,7 +12534,7 @@
         ]
       },
       {
-        "test_id": "EX-58ce56ea61",
+        "test_id": "EX-401cd84e6b",
         "target_id": "T-d182c884c0",
         "dimension": "D1",
         "title": "answering Q3 normally moves the respondent on to the question that should come next",
@@ -12961,7 +12961,7 @@
         ]
       },
       {
-        "test_id": "EX-4ed3f70813",
+        "test_id": "EX-ca2a181643",
         "target_id": "T-5cee4295f8",
         "dimension": "D1",
         "title": "Q3 is not displayed when its guard fails",
@@ -13069,7 +13069,7 @@
         ]
       },
       {
-        "test_id": "EX-a29dee90f6",
+        "test_id": "EX-651b57cbfe",
         "target_id": "T-1f07f052e1",
         "dimension": "D1",
         "title": "Q3 is displayed when its guard holds",
@@ -13189,7 +13189,7 @@
         ]
       },
       {
-        "test_id": "EX-a711518ebe",
+        "test_id": "EX-1d6d2e438f",
         "target_id": "T-460e9ac790",
         "dimension": "D1",
         "title": "answering Q4 normally moves the respondent on to the question that should come next",
@@ -13616,7 +13616,7 @@
         ]
       },
       {
-        "test_id": "EX-4d12d1d40c",
+        "test_id": "EX-b63b3f3c57",
         "target_id": "T-4a81ad1c54",
         "dimension": "D1",
         "title": "answering Q5 normally moves the respondent on to the question that should come next",
@@ -14043,7 +14043,7 @@
         ]
       },
       {
-        "test_id": "EX-2b8a2313b3",
+        "test_id": "EX-578770fc31",
         "target_id": "T-a31d9e36e7",
         "dimension": "D1",
         "title": "answering Q6 normally moves the respondent on to the question that should come next",
@@ -14470,305 +14470,7 @@
         ]
       },
       {
-        "test_id": "EX-f786792a0a",
-        "target_id": "T-836bcea7a3",
-        "dimension": "D1",
-        "title": "Q6 is not displayed when its guard fails",
-        "sid": 900001,
-        "steps": [
-          {
-            "step": 1,
-            "action": "set_field",
-            "field_name": "S1",
-            "sgqa": "900001X100X1000",
-            "value": "A001",
-            "value_kind": "answer_code",
-            "canonical": "S1/S1-O1",
-            "human": "select A001 (Yes) on S1"
-          },
-          {
-            "step": 2,
-            "action": "set_field",
-            "field_name": "S2",
-            "sgqa": "900001X100X1001",
-            "value": "A001",
-            "value_kind": "answer_code",
-            "canonical": "S2/S2-O1",
-            "human": "select A001 (Personally manage an ongoing chronic health condition) on S2"
-          },
-          {
-            "step": 3,
-            "action": "set_field",
-            "field_name": "S3",
-            "sgqa": "900001X100X1002",
-            "value": "A002",
-            "value_kind": "answer_code",
-            "canonical": "S3/S3-O2",
-            "human": "select A002 (No) on S3"
-          },
-          {
-            "step": 4,
-            "action": "set_field",
-            "field_name": "S4",
-            "sgqa": "900001X100X1003",
-            "value": "A002",
-            "value_kind": "answer_code",
-            "canonical": "S4/S4-O2",
-            "human": "select A002 (No) on S4"
-          },
-          {
-            "step": 5,
-            "action": "submit_page",
-            "field_name": null,
-            "sgqa": null,
-            "value": null,
-            "value_kind": null,
-            "canonical": null,
-            "human": "submit the Screening page"
-          },
-          {
-            "step": 6,
-            "action": "set_field",
-            "field_name": "Q1_SQ001",
-            "sgqa": "900001X101X1004SQ001",
-            "value": "Y",
-            "value_kind": "checkbox",
-            "canonical": "Q1/Q1-O1",
-            "human": "tick Q1_SQ001 (Care Network A)"
-          },
-          {
-            "step": 7,
-            "action": "set_field",
-            "field_name": "Q2_SQ001",
-            "sgqa": "900001X101X1010SQ001",
-            "value": "Y",
-            "value_kind": "checkbox",
-            "canonical": "Q2/Q2-O1",
-            "human": "tick Q2_SQ001 (Care Network A)"
-          },
-          {
-            "step": 8,
-            "action": "set_field",
-            "field_name": "Q3",
-            "sgqa": "900001X101X1015",
-            "value": "A001",
-            "value_kind": "answer_code",
-            "canonical": "Q3/Q3-O1",
-            "human": "select A001 (Care Network A) on Q3"
-          },
-          {
-            "step": 9,
-            "action": "set_field",
-            "field_name": "Q4",
-            "sgqa": "900001X101X1016",
-            "value": "A001",
-            "value_kind": "answer_code",
-            "canonical": "Q4/Q4-O1",
-            "human": "select A001 (Recently diagnosed) on Q4"
-          },
-          {
-            "step": 10,
-            "action": "set_field",
-            "field_name": "Q5_SQ007",
-            "sgqa": "900001X101X1017SQ007",
-            "value": "Y",
-            "value_kind": "checkbox",
-            "canonical": "Q5/Q5-O7",
-            "human": "tick Q5_SQ007 (None of these)"
-          },
-          {
-            "step": 11,
-            "action": "submit_page",
-            "field_name": null,
-            "sgqa": null,
-            "value": null,
-            "value_kind": null,
-            "canonical": null,
-            "human": "submit the final page and observe the end screen"
-          }
-        ],
-        "assertions": [
-          {
-            "kind": "field_present",
-            "expected": false,
-            "field_name": "Q6",
-            "sgqa": "900001X101X1025",
-            "canonical": "Q6",
-            "detail": "the question must not be rendered, and the respondent must continue to the next question rather than being stopped or ended"
-          },
-          {
-            "kind": "not_on_end_page",
-            "expected": true,
-            "field_name": null,
-            "sgqa": null,
-            "canonical": null,
-            "detail": "proves the absence is the show-condition working, not the respondent having been screened out earlier"
-          }
-        ],
-        "traces_to": [
-          "Q6",
-          "R8"
-        ],
-        "campaign": {},
-        "executable": true,
-        "refusal_reason": null,
-        "missing_bindings": [],
-        "provisional_semantics": [
-          "multi_equality"
-        ]
-      },
-      {
-        "test_id": "EX-f6642962df",
-        "target_id": "T-46ad0b9227",
-        "dimension": "D1",
-        "title": "Q6 is displayed when its guard holds",
-        "sid": 900001,
-        "steps": [
-          {
-            "step": 1,
-            "action": "set_field",
-            "field_name": "S1",
-            "sgqa": "900001X100X1000",
-            "value": "A001",
-            "value_kind": "answer_code",
-            "canonical": "S1/S1-O1",
-            "human": "select A001 (Yes) on S1"
-          },
-          {
-            "step": 2,
-            "action": "set_field",
-            "field_name": "S2",
-            "sgqa": "900001X100X1001",
-            "value": "A001",
-            "value_kind": "answer_code",
-            "canonical": "S2/S2-O1",
-            "human": "select A001 (Personally manage an ongoing chronic health condition) on S2"
-          },
-          {
-            "step": 3,
-            "action": "set_field",
-            "field_name": "S3",
-            "sgqa": "900001X100X1002",
-            "value": "A002",
-            "value_kind": "answer_code",
-            "canonical": "S3/S3-O2",
-            "human": "select A002 (No) on S3"
-          },
-          {
-            "step": 4,
-            "action": "set_field",
-            "field_name": "S4",
-            "sgqa": "900001X100X1003",
-            "value": "A002",
-            "value_kind": "answer_code",
-            "canonical": "S4/S4-O2",
-            "human": "select A002 (No) on S4"
-          },
-          {
-            "step": 5,
-            "action": "submit_page",
-            "field_name": null,
-            "sgqa": null,
-            "value": null,
-            "value_kind": null,
-            "canonical": null,
-            "human": "submit the Screening page"
-          },
-          {
-            "step": 6,
-            "action": "set_field",
-            "field_name": "Q1_SQ001",
-            "sgqa": "900001X101X1004SQ001",
-            "value": "Y",
-            "value_kind": "checkbox",
-            "canonical": "Q1/Q1-O1",
-            "human": "tick Q1_SQ001 (Care Network A)"
-          },
-          {
-            "step": 7,
-            "action": "set_field",
-            "field_name": "Q2_SQ001",
-            "sgqa": "900001X101X1010SQ001",
-            "value": "Y",
-            "value_kind": "checkbox",
-            "canonical": "Q2/Q2-O1",
-            "human": "tick Q2_SQ001 (Care Network A)"
-          },
-          {
-            "step": 8,
-            "action": "set_field",
-            "field_name": "Q3",
-            "sgqa": "900001X101X1015",
-            "value": "A001",
-            "value_kind": "answer_code",
-            "canonical": "Q3/Q3-O1",
-            "human": "select A001 (Care Network A) on Q3"
-          },
-          {
-            "step": 9,
-            "action": "set_field",
-            "field_name": "Q4",
-            "sgqa": "900001X101X1016",
-            "value": "A001",
-            "value_kind": "answer_code",
-            "canonical": "Q4/Q4-O1",
-            "human": "select A001 (Recently diagnosed) on Q4"
-          },
-          {
-            "step": 10,
-            "action": "set_field",
-            "field_name": "Q5_SQ001",
-            "sgqa": "900001X101X1017SQ001",
-            "value": "Y",
-            "value_kind": "checkbox",
-            "canonical": "Q5/Q5-O1",
-            "human": "tick Q5_SQ001 (Primary-care physician)"
-          },
-          {
-            "step": 11,
-            "action": "set_field",
-            "field_name": "Q6",
-            "sgqa": "900001X101X1025",
-            "value": "A001",
-            "value_kind": "answer_code",
-            "canonical": "Q6/Q6-O1",
-            "human": "select A001 (Primary-care physician) on Q6"
-          },
-          {
-            "step": 12,
-            "action": "submit_page",
-            "field_name": null,
-            "sgqa": null,
-            "value": null,
-            "value_kind": null,
-            "canonical": null,
-            "human": "submit the final page and observe the end screen"
-          }
-        ],
-        "assertions": [
-          {
-            "kind": "field_present",
-            "expected": true,
-            "field_name": "Q6",
-            "sgqa": "900001X101X1025",
-            "canonical": "Q6",
-            "detail": "the question must be rendered on the page it belongs to"
-          }
-        ],
-        "traces_to": [
-          "Q6",
-          "R8"
-        ],
-        "campaign": {},
-        "executable": true,
-        "refusal_reason": null,
-        "missing_bindings": [],
-        "provisional_semantics": [
-          "multi_equality"
-        ]
-      },
-      {
-        "test_id": "EX-b9b3dbbded",
+        "test_id": "EX-e6db9882d3",
         "target_id": "T-a25fbf002c",
         "dimension": "D1",
         "title": "answering Q7 normally moves the respondent on to the question that should come next",
@@ -15195,7 +14897,7 @@
         ]
       },
       {
-        "test_id": "EX-a3356aae39",
+        "test_id": "EX-f384cd3777",
         "target_id": "T-567c52fd5d",
         "dimension": "D1",
         "title": "Q7 is not displayed when its guard fails",
@@ -15353,7 +15055,7 @@
         ]
       },
       {
-        "test_id": "EX-96847d9b98",
+        "test_id": "EX-e308481a12",
         "target_id": "T-6959e7ba58",
         "dimension": "D1",
         "title": "Q7 is displayed when its guard holds",
@@ -15513,7 +15215,7 @@
         ]
       },
       {
-        "test_id": "EX-5c126c437c",
+        "test_id": "EX-7cb4ea19de",
         "target_id": "T-b3b76ca11a",
         "dimension": "D1",
         "title": "answering Q8 normally moves the respondent on to the question that should come next",
@@ -15940,7 +15642,7 @@
         ]
       },
       {
-        "test_id": "EX-acf8d77a69",
+        "test_id": "EX-7ebdf9d536",
         "target_id": "T-21fd637902",
         "dimension": "D1",
         "title": "Q8 is not displayed when its guard fails",
@@ -16098,7 +15800,7 @@
         ]
       },
       {
-        "test_id": "EX-670025bc2e",
+        "test_id": "EX-b609f48d4d",
         "target_id": "T-0e25b5f453",
         "dimension": "D1",
         "title": "Q8 is displayed when its guard holds",
@@ -16268,7 +15970,7 @@
         ]
       },
       {
-        "test_id": "EX-da028b104b",
+        "test_id": "EX-d8e98cfd23",
         "target_id": "T-2d38100fad",
         "dimension": "D1",
         "title": "answering Q9 normally moves the respondent on to the question that should come next",
@@ -16695,7 +16397,7 @@
         ]
       },
       {
-        "test_id": "EX-1cbda35535",
+        "test_id": "EX-d53c2b791f",
         "target_id": "T-38fdb69243",
         "dimension": "D1",
         "title": "Q9 is not displayed when its guard fails",
@@ -16853,7 +16555,7 @@
         ]
       },
       {
-        "test_id": "EX-0db07b931e",
+        "test_id": "EX-f666906313",
         "target_id": "T-b4a5f414c4",
         "dimension": "D1",
         "title": "Q9 is displayed when its guard holds",
@@ -17083,7 +16785,7 @@
         ]
       },
       {
-        "test_id": "EX-1eae8c399a",
+        "test_id": "EX-76cabd9ef4",
         "target_id": "T-8a3f6119c2",
         "dimension": "D1",
         "title": "R5 jumps to Q4 when its condition holds",
@@ -17183,7 +16885,7 @@
         ]
       },
       {
-        "test_id": "EX-c107853562",
+        "test_id": "EX-7df22a292c",
         "target_id": "T-8e6acd1f8d",
         "dimension": "D1",
         "title": "R5 does not jump when its condition fails, so the respondent continues in sequence",
@@ -17282,7 +16984,7 @@
         ]
       },
       {
-        "test_id": "EX-16dcfac4ed",
+        "test_id": "EX-baa18c546f",
         "target_id": "T-94ce2e5d20",
         "dimension": "D1",
         "title": "answering S1 normally moves the respondent on to the question that should come next",
@@ -17709,7 +17411,7 @@
         ]
       },
       {
-        "test_id": "EX-e840a18af8",
+        "test_id": "EX-d119a7f136",
         "target_id": "T-9b21d71193",
         "dimension": "D1",
         "title": "answering S2 normally moves the respondent on to the question that should come next",
@@ -18136,7 +17838,7 @@
         ]
       },
       {
-        "test_id": "EX-88cf55f6c3",
+        "test_id": "EX-18b93da6da",
         "target_id": "T-4b5b9751c7",
         "dimension": "D1",
         "title": "answering S3 normally moves the respondent on to the question that should come next",
@@ -18563,7 +18265,7 @@
         ]
       },
       {
-        "test_id": "EX-23d7529716",
+        "test_id": "EX-052578d92f",
         "target_id": "T-8820ac5d47",
         "dimension": "D1",
         "title": "answering S4 normally moves the respondent on to the question that should come next",
@@ -18990,7 +18692,7 @@
         ]
       },
       {
-        "test_id": "EX-4084743246",
+        "test_id": "EX-a0f0db3fab",
         "target_id": "T-05b0993ae8",
         "dimension": "D2",
         "title": "a respondent can reach ending COMPLETE",
@@ -19407,7 +19109,7 @@
         ]
       },
       {
-        "test_id": "EX-196da02a25",
+        "test_id": "EX-1f7dabd97f",
         "target_id": "T-9c7815569c",
         "dimension": "D2",
         "title": "ending TERM_AGE is reached by rule R1, evaluated at S1",
@@ -19465,7 +19167,7 @@
         ]
       },
       {
-        "test_id": "EX-2118ca9cba",
+        "test_id": "EX-fa3bb157ca",
         "target_id": "T-a998295c93",
         "dimension": "D2",
         "title": "ending TERM_CONFLICT is reached by rule R4, evaluated at S4",
@@ -19553,7 +19255,7 @@
         ]
       },
       {
-        "test_id": "EX-ba5b0804d7",
+        "test_id": "EX-adb10086b1",
         "target_id": "T-bb9908a756",
         "dimension": "D2",
         "title": "ending TERM_INVOLVEMENT is reached by rule R2, evaluated at S2",
@@ -19621,7 +19323,7 @@
         ]
       },
       {
-        "test_id": "EX-3fa450d7a7",
+        "test_id": "EX-4e26559cb0",
         "target_id": "T-57e35e6386",
         "dimension": "D2",
         "title": "ending TERM_RECENT_RESEARCH is reached by rule R3, evaluated at S3",
@@ -19699,7 +19401,7 @@
         ]
       },
       {
-        "test_id": "EX-e4dc48ff6f",
+        "test_id": "EX-1a382649c6",
         "target_id": "T-64d8be217a",
         "dimension": "D3",
         "title": "Q1 accepts an answer meeting ['exclusive_option_id']",
@@ -19799,7 +19501,7 @@
         ]
       },
       {
-        "test_id": "EX-b26350a78d",
+        "test_id": "EX-3118ade50d",
         "target_id": "T-b922005f72",
         "dimension": "D3",
         "title": "Q1 rejects an answer breaking ['exclusive_option_id']",
@@ -19914,7 +19616,7 @@
         "provisional_semantics": []
       },
       {
-        "test_id": "EX-6b35141eca",
+        "test_id": "EX-c59e54e05e",
         "target_id": "T-6d888b4f8a",
         "dimension": "D3",
         "title": "Q11 accepts an answer meeting ['min_selections']",
@@ -20163,7 +19865,7 @@
         ]
       },
       {
-        "test_id": "EX-f65e5ba484",
+        "test_id": "EX-2f0f6e2cbc",
         "target_id": "T-5901081e3b",
         "dimension": "D3",
         "title": "Q11 rejects an answer breaking ['min_selections']",
@@ -20420,7 +20122,276 @@
         ]
       },
       {
-        "test_id": "EX-f80fdedf5a",
+        "test_id": "EX-5f9d1c4e1d",
+        "target_id": "T-f6726b3e96",
+        "dimension": "D3",
+        "title": "Q14 accepts an answer of exactly 500 characters, its stated maximum",
+        "sid": 900001,
+        "steps": [
+          {
+            "step": 1,
+            "action": "set_field",
+            "field_name": "S1",
+            "sgqa": "900001X100X1000",
+            "value": "A001",
+            "value_kind": "answer_code",
+            "canonical": "S1/S1-O1",
+            "human": "select A001 (Yes) on S1"
+          },
+          {
+            "step": 2,
+            "action": "set_field",
+            "field_name": "S2",
+            "sgqa": "900001X100X1001",
+            "value": "A001",
+            "value_kind": "answer_code",
+            "canonical": "S2/S2-O1",
+            "human": "select A001 (Personally manage an ongoing chronic health condition) on S2"
+          },
+          {
+            "step": 3,
+            "action": "set_field",
+            "field_name": "S3",
+            "sgqa": "900001X100X1002",
+            "value": "A002",
+            "value_kind": "answer_code",
+            "canonical": "S3/S3-O2",
+            "human": "select A002 (No) on S3"
+          },
+          {
+            "step": 4,
+            "action": "set_field",
+            "field_name": "S4",
+            "sgqa": "900001X100X1003",
+            "value": "A002",
+            "value_kind": "answer_code",
+            "canonical": "S4/S4-O2",
+            "human": "select A002 (No) on S4"
+          },
+          {
+            "step": 5,
+            "action": "submit_page",
+            "field_name": null,
+            "sgqa": null,
+            "value": null,
+            "value_kind": null,
+            "canonical": null,
+            "human": "submit the Screening page"
+          },
+          {
+            "step": 6,
+            "action": "set_field",
+            "field_name": "Q1_SQ001",
+            "sgqa": "900001X101X1004SQ001",
+            "value": "Y",
+            "value_kind": "checkbox",
+            "canonical": "Q1/Q1-O1",
+            "human": "tick Q1_SQ001 (Care Network A)"
+          },
+          {
+            "step": 7,
+            "action": "set_field",
+            "field_name": "Q2_SQ001",
+            "sgqa": "900001X101X1010SQ001",
+            "value": "Y",
+            "value_kind": "checkbox",
+            "canonical": "Q2/Q2-O1",
+            "human": "tick Q2_SQ001 (Care Network A)"
+          },
+          {
+            "step": 8,
+            "action": "set_field",
+            "field_name": "Q3",
+            "sgqa": "900001X101X1015",
+            "value": "A001",
+            "value_kind": "answer_code",
+            "canonical": "Q3/Q3-O1",
+            "human": "select A001 (Care Network A) on Q3"
+          },
+          {
+            "step": 9,
+            "action": "set_field",
+            "field_name": "Q4",
+            "sgqa": "900001X101X1016",
+            "value": "A001",
+            "value_kind": "answer_code",
+            "canonical": "Q4/Q4-O1",
+            "human": "select A001 (Recently diagnosed) on Q4"
+          },
+          {
+            "step": 10,
+            "action": "set_field",
+            "field_name": "Q5_SQ001",
+            "sgqa": "900001X101X1017SQ001",
+            "value": "Y",
+            "value_kind": "checkbox",
+            "canonical": "Q5/Q5-O1",
+            "human": "tick Q5_SQ001 (Primary-care physician)"
+          },
+          {
+            "step": 11,
+            "action": "set_field",
+            "field_name": "Q6",
+            "sgqa": "900001X101X1025",
+            "value": "A001",
+            "value_kind": "answer_code",
+            "canonical": "Q6/Q6-O1",
+            "human": "select A001 (Primary-care physician) on Q6"
+          },
+          {
+            "step": 12,
+            "action": "set_field",
+            "field_name": "Q7",
+            "sgqa": "900001X101X1026",
+            "value": "1",
+            "value_kind": "answer_code",
+            "canonical": "Q7/Q7-O1",
+            "human": "select 1 (Very poor) on Q7"
+          },
+          {
+            "step": 13,
+            "action": "set_field",
+            "field_name": "Q8",
+            "sgqa": "900001X101X1027",
+            "value": "A001",
+            "value_kind": "answer_code",
+            "canonical": "Q8/Q8-O1",
+            "human": "select A001 (0) on Q8"
+          },
+          {
+            "step": 14,
+            "action": "set_field",
+            "field_name": "Q9_SQ001",
+            "sgqa": "900001X101X1028SQ001",
+            "value": "1",
+            "value_kind": "answer_code",
+            "canonical": "Q9/Q9-R1=Q9-O1",
+            "human": "set Q9_SQ001 to 1"
+          },
+          {
+            "step": 15,
+            "action": "set_field",
+            "field_name": "Q9_SQ002",
+            "sgqa": "900001X101X1028SQ002",
+            "value": "1",
+            "value_kind": "answer_code",
+            "canonical": "Q9/Q9-R2=Q9-O1",
+            "human": "set Q9_SQ002 to 1"
+          },
+          {
+            "step": 16,
+            "action": "set_field",
+            "field_name": "Q9_SQ003",
+            "sgqa": "900001X101X1028SQ003",
+            "value": "1",
+            "value_kind": "answer_code",
+            "canonical": "Q9/Q9-R3=Q9-O1",
+            "human": "set Q9_SQ003 to 1"
+          },
+          {
+            "step": 17,
+            "action": "set_field",
+            "field_name": "Q9_SQ004",
+            "sgqa": "900001X101X1028SQ004",
+            "value": "1",
+            "value_kind": "answer_code",
+            "canonical": "Q9/Q9-R4=Q9-O1",
+            "human": "set Q9_SQ004 to 1"
+          },
+          {
+            "step": 18,
+            "action": "set_field",
+            "field_name": "Q9_SQ005",
+            "sgqa": "900001X101X1028SQ005",
+            "value": "1",
+            "value_kind": "answer_code",
+            "canonical": "Q9/Q9-R5=Q9-O1",
+            "human": "set Q9_SQ005 to 1"
+          },
+          {
+            "step": 19,
+            "action": "set_field",
+            "field_name": "Q9_SQ006",
+            "sgqa": "900001X101X1028SQ006",
+            "value": "1",
+            "value_kind": "answer_code",
+            "canonical": "Q9/Q9-R6=Q9-O1",
+            "human": "set Q9_SQ006 to 1"
+          },
+          {
+            "step": 20,
+            "action": "set_field",
+            "field_name": "Q10",
+            "sgqa": "900001X101X1035",
+            "value": "A001",
+            "value_kind": "answer_code",
+            "canonical": "Q10/Q10-O1",
+            "human": "select A001 (Yes) on Q10"
+          },
+          {
+            "step": 21,
+            "action": "set_field",
+            "field_name": "Q11_SQ001",
+            "sgqa": "900001X101X1036SQ001",
+            "value": "Y",
+            "value_kind": "checkbox",
+            "canonical": "Q11/Q11-O1",
+            "human": "tick Q11_SQ001 (Phone)"
+          },
+          {
+            "step": 22,
+            "action": "set_field",
+            "field_name": "Q12",
+            "sgqa": "900001X101X1042",
+            "value": "A003",
+            "value_kind": "answer_code",
+            "canonical": "Q12/Q12-O3",
+            "human": "select A003 (Not resolved) on Q12"
+          },
+          {
+            "step": 23,
+            "action": "set_field",
+            "field_name": "Q14",
+            "sgqa": "900001X101X1044",
+            "value": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+            "value_kind": "text",
+            "canonical": "Q14",
+            "human": "type 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx' into Q14"
+          },
+          {
+            "step": 24,
+            "action": "submit_page",
+            "field_name": null,
+            "sgqa": null,
+            "value": null,
+            "value_kind": null,
+            "canonical": null,
+            "human": "submit the final page and observe the end screen"
+          }
+        ],
+        "assertions": [
+          {
+            "kind": "page_advances",
+            "expected": true,
+            "field_name": "Q14",
+            "sgqa": "900001X101X1044",
+            "canonical": "Q14",
+            "detail": "an answer sitting exactly on the stated maximum is inside the rule, not outside it"
+          }
+        ],
+        "traces_to": [
+          "Q14"
+        ],
+        "campaign": {},
+        "executable": true,
+        "refusal_reason": null,
+        "missing_bindings": [],
+        "provisional_semantics": [
+          "multi_equality"
+        ]
+      },
+      {
+        "test_id": "EX-e5bf07a213",
         "target_id": "T-ffc0366e37",
         "dimension": "D3",
         "title": "Q14 accepts an answer meeting ['max_length', 'min_length']",
@@ -20689,7 +20660,276 @@
         ]
       },
       {
-        "test_id": "EX-d7103d6cb4",
+        "test_id": "EX-e4377ef58e",
+        "target_id": "T-2b7da8cff1",
+        "dimension": "D3",
+        "title": "Q14 accepts punctuation and quotation marks, because its rule constrains length and not content",
+        "sid": 900001,
+        "steps": [
+          {
+            "step": 1,
+            "action": "set_field",
+            "field_name": "S1",
+            "sgqa": "900001X100X1000",
+            "value": "A001",
+            "value_kind": "answer_code",
+            "canonical": "S1/S1-O1",
+            "human": "select A001 (Yes) on S1"
+          },
+          {
+            "step": 2,
+            "action": "set_field",
+            "field_name": "S2",
+            "sgqa": "900001X100X1001",
+            "value": "A001",
+            "value_kind": "answer_code",
+            "canonical": "S2/S2-O1",
+            "human": "select A001 (Personally manage an ongoing chronic health condition) on S2"
+          },
+          {
+            "step": 3,
+            "action": "set_field",
+            "field_name": "S3",
+            "sgqa": "900001X100X1002",
+            "value": "A002",
+            "value_kind": "answer_code",
+            "canonical": "S3/S3-O2",
+            "human": "select A002 (No) on S3"
+          },
+          {
+            "step": 4,
+            "action": "set_field",
+            "field_name": "S4",
+            "sgqa": "900001X100X1003",
+            "value": "A002",
+            "value_kind": "answer_code",
+            "canonical": "S4/S4-O2",
+            "human": "select A002 (No) on S4"
+          },
+          {
+            "step": 5,
+            "action": "submit_page",
+            "field_name": null,
+            "sgqa": null,
+            "value": null,
+            "value_kind": null,
+            "canonical": null,
+            "human": "submit the Screening page"
+          },
+          {
+            "step": 6,
+            "action": "set_field",
+            "field_name": "Q1_SQ001",
+            "sgqa": "900001X101X1004SQ001",
+            "value": "Y",
+            "value_kind": "checkbox",
+            "canonical": "Q1/Q1-O1",
+            "human": "tick Q1_SQ001 (Care Network A)"
+          },
+          {
+            "step": 7,
+            "action": "set_field",
+            "field_name": "Q2_SQ001",
+            "sgqa": "900001X101X1010SQ001",
+            "value": "Y",
+            "value_kind": "checkbox",
+            "canonical": "Q2/Q2-O1",
+            "human": "tick Q2_SQ001 (Care Network A)"
+          },
+          {
+            "step": 8,
+            "action": "set_field",
+            "field_name": "Q3",
+            "sgqa": "900001X101X1015",
+            "value": "A001",
+            "value_kind": "answer_code",
+            "canonical": "Q3/Q3-O1",
+            "human": "select A001 (Care Network A) on Q3"
+          },
+          {
+            "step": 9,
+            "action": "set_field",
+            "field_name": "Q4",
+            "sgqa": "900001X101X1016",
+            "value": "A001",
+            "value_kind": "answer_code",
+            "canonical": "Q4/Q4-O1",
+            "human": "select A001 (Recently diagnosed) on Q4"
+          },
+          {
+            "step": 10,
+            "action": "set_field",
+            "field_name": "Q5_SQ001",
+            "sgqa": "900001X101X1017SQ001",
+            "value": "Y",
+            "value_kind": "checkbox",
+            "canonical": "Q5/Q5-O1",
+            "human": "tick Q5_SQ001 (Primary-care physician)"
+          },
+          {
+            "step": 11,
+            "action": "set_field",
+            "field_name": "Q6",
+            "sgqa": "900001X101X1025",
+            "value": "A001",
+            "value_kind": "answer_code",
+            "canonical": "Q6/Q6-O1",
+            "human": "select A001 (Primary-care physician) on Q6"
+          },
+          {
+            "step": 12,
+            "action": "set_field",
+            "field_name": "Q7",
+            "sgqa": "900001X101X1026",
+            "value": "1",
+            "value_kind": "answer_code",
+            "canonical": "Q7/Q7-O1",
+            "human": "select 1 (Very poor) on Q7"
+          },
+          {
+            "step": 13,
+            "action": "set_field",
+            "field_name": "Q8",
+            "sgqa": "900001X101X1027",
+            "value": "A001",
+            "value_kind": "answer_code",
+            "canonical": "Q8/Q8-O1",
+            "human": "select A001 (0) on Q8"
+          },
+          {
+            "step": 14,
+            "action": "set_field",
+            "field_name": "Q9_SQ001",
+            "sgqa": "900001X101X1028SQ001",
+            "value": "1",
+            "value_kind": "answer_code",
+            "canonical": "Q9/Q9-R1=Q9-O1",
+            "human": "set Q9_SQ001 to 1"
+          },
+          {
+            "step": 15,
+            "action": "set_field",
+            "field_name": "Q9_SQ002",
+            "sgqa": "900001X101X1028SQ002",
+            "value": "1",
+            "value_kind": "answer_code",
+            "canonical": "Q9/Q9-R2=Q9-O1",
+            "human": "set Q9_SQ002 to 1"
+          },
+          {
+            "step": 16,
+            "action": "set_field",
+            "field_name": "Q9_SQ003",
+            "sgqa": "900001X101X1028SQ003",
+            "value": "1",
+            "value_kind": "answer_code",
+            "canonical": "Q9/Q9-R3=Q9-O1",
+            "human": "set Q9_SQ003 to 1"
+          },
+          {
+            "step": 17,
+            "action": "set_field",
+            "field_name": "Q9_SQ004",
+            "sgqa": "900001X101X1028SQ004",
+            "value": "1",
+            "value_kind": "answer_code",
+            "canonical": "Q9/Q9-R4=Q9-O1",
+            "human": "set Q9_SQ004 to 1"
+          },
+          {
+            "step": 18,
+            "action": "set_field",
+            "field_name": "Q9_SQ005",
+            "sgqa": "900001X101X1028SQ005",
+            "value": "1",
+            "value_kind": "answer_code",
+            "canonical": "Q9/Q9-R5=Q9-O1",
+            "human": "set Q9_SQ005 to 1"
+          },
+          {
+            "step": 19,
+            "action": "set_field",
+            "field_name": "Q9_SQ006",
+            "sgqa": "900001X101X1028SQ006",
+            "value": "1",
+            "value_kind": "answer_code",
+            "canonical": "Q9/Q9-R6=Q9-O1",
+            "human": "set Q9_SQ006 to 1"
+          },
+          {
+            "step": 20,
+            "action": "set_field",
+            "field_name": "Q10",
+            "sgqa": "900001X101X1035",
+            "value": "A001",
+            "value_kind": "answer_code",
+            "canonical": "Q10/Q10-O1",
+            "human": "select A001 (Yes) on Q10"
+          },
+          {
+            "step": 21,
+            "action": "set_field",
+            "field_name": "Q11_SQ001",
+            "sgqa": "900001X101X1036SQ001",
+            "value": "Y",
+            "value_kind": "checkbox",
+            "canonical": "Q11/Q11-O1",
+            "human": "tick Q11_SQ001 (Phone)"
+          },
+          {
+            "step": 22,
+            "action": "set_field",
+            "field_name": "Q12",
+            "sgqa": "900001X101X1042",
+            "value": "A003",
+            "value_kind": "answer_code",
+            "canonical": "Q12/Q12-O3",
+            "human": "select A003 (Not resolved) on Q12"
+          },
+          {
+            "step": 23,
+            "action": "set_field",
+            "field_name": "Q14",
+            "sgqa": "900001X101X1044",
+            "value": "O'Brien said \"yes\" <50% & more",
+            "value_kind": "text",
+            "canonical": "Q14",
+            "human": "type 'O\\'Brien said \"yes\" <50% & more' into Q14"
+          },
+          {
+            "step": 24,
+            "action": "submit_page",
+            "field_name": null,
+            "sgqa": null,
+            "value": null,
+            "value_kind": null,
+            "canonical": null,
+            "human": "submit the final page and observe the end screen"
+          }
+        ],
+        "assertions": [
+          {
+            "kind": "page_advances",
+            "expected": true,
+            "field_name": "Q14",
+            "sgqa": "900001X101X1044",
+            "canonical": "Q14",
+            "detail": "the rule constrains length and says nothing about content, so punctuation must be accepted"
+          }
+        ],
+        "traces_to": [
+          "Q14"
+        ],
+        "campaign": {},
+        "executable": true,
+        "refusal_reason": null,
+        "missing_bindings": [],
+        "provisional_semantics": [
+          "multi_equality"
+        ]
+      },
+      {
+        "test_id": "EX-7df2258a73",
         "target_id": "T-71252ee14c",
         "dimension": "D3",
         "title": "Q14 rejects an answer breaking ['max_length', 'min_length']",
@@ -20966,7 +21206,306 @@
         ]
       },
       {
-        "test_id": "EX-9b7b5c392d",
+        "test_id": "EX-fe49b8174f",
+        "target_id": "T-2d0768947c",
+        "dimension": "D3",
+        "title": "Q17 accepts an answer of exactly 200 characters, its stated maximum",
+        "sid": 900001,
+        "steps": [
+          {
+            "step": 1,
+            "action": "set_field",
+            "field_name": "S1",
+            "sgqa": "900001X100X1000",
+            "value": "A001",
+            "value_kind": "answer_code",
+            "canonical": "S1/S1-O1",
+            "human": "select A001 (Yes) on S1"
+          },
+          {
+            "step": 2,
+            "action": "set_field",
+            "field_name": "S2",
+            "sgqa": "900001X100X1001",
+            "value": "A001",
+            "value_kind": "answer_code",
+            "canonical": "S2/S2-O1",
+            "human": "select A001 (Personally manage an ongoing chronic health condition) on S2"
+          },
+          {
+            "step": 3,
+            "action": "set_field",
+            "field_name": "S3",
+            "sgqa": "900001X100X1002",
+            "value": "A002",
+            "value_kind": "answer_code",
+            "canonical": "S3/S3-O2",
+            "human": "select A002 (No) on S3"
+          },
+          {
+            "step": 4,
+            "action": "set_field",
+            "field_name": "S4",
+            "sgqa": "900001X100X1003",
+            "value": "A002",
+            "value_kind": "answer_code",
+            "canonical": "S4/S4-O2",
+            "human": "select A002 (No) on S4"
+          },
+          {
+            "step": 5,
+            "action": "submit_page",
+            "field_name": null,
+            "sgqa": null,
+            "value": null,
+            "value_kind": null,
+            "canonical": null,
+            "human": "submit the Screening page"
+          },
+          {
+            "step": 6,
+            "action": "set_field",
+            "field_name": "Q1_SQ001",
+            "sgqa": "900001X101X1004SQ001",
+            "value": "Y",
+            "value_kind": "checkbox",
+            "canonical": "Q1/Q1-O1",
+            "human": "tick Q1_SQ001 (Care Network A)"
+          },
+          {
+            "step": 7,
+            "action": "set_field",
+            "field_name": "Q2_SQ001",
+            "sgqa": "900001X101X1010SQ001",
+            "value": "Y",
+            "value_kind": "checkbox",
+            "canonical": "Q2/Q2-O1",
+            "human": "tick Q2_SQ001 (Care Network A)"
+          },
+          {
+            "step": 8,
+            "action": "set_field",
+            "field_name": "Q3",
+            "sgqa": "900001X101X1015",
+            "value": "A001",
+            "value_kind": "answer_code",
+            "canonical": "Q3/Q3-O1",
+            "human": "select A001 (Care Network A) on Q3"
+          },
+          {
+            "step": 9,
+            "action": "set_field",
+            "field_name": "Q4",
+            "sgqa": "900001X101X1016",
+            "value": "A001",
+            "value_kind": "answer_code",
+            "canonical": "Q4/Q4-O1",
+            "human": "select A001 (Recently diagnosed) on Q4"
+          },
+          {
+            "step": 10,
+            "action": "set_field",
+            "field_name": "Q5_SQ001",
+            "sgqa": "900001X101X1017SQ001",
+            "value": "Y",
+            "value_kind": "checkbox",
+            "canonical": "Q5/Q5-O1",
+            "human": "tick Q5_SQ001 (Primary-care physician)"
+          },
+          {
+            "step": 11,
+            "action": "set_field",
+            "field_name": "Q6",
+            "sgqa": "900001X101X1025",
+            "value": "A001",
+            "value_kind": "answer_code",
+            "canonical": "Q6/Q6-O1",
+            "human": "select A001 (Primary-care physician) on Q6"
+          },
+          {
+            "step": 12,
+            "action": "set_field",
+            "field_name": "Q7",
+            "sgqa": "900001X101X1026",
+            "value": "1",
+            "value_kind": "answer_code",
+            "canonical": "Q7/Q7-O1",
+            "human": "select 1 (Very poor) on Q7"
+          },
+          {
+            "step": 13,
+            "action": "set_field",
+            "field_name": "Q8",
+            "sgqa": "900001X101X1027",
+            "value": "A001",
+            "value_kind": "answer_code",
+            "canonical": "Q8/Q8-O1",
+            "human": "select A001 (0) on Q8"
+          },
+          {
+            "step": 14,
+            "action": "set_field",
+            "field_name": "Q9_SQ001",
+            "sgqa": "900001X101X1028SQ001",
+            "value": "1",
+            "value_kind": "answer_code",
+            "canonical": "Q9/Q9-R1=Q9-O1",
+            "human": "set Q9_SQ001 to 1"
+          },
+          {
+            "step": 15,
+            "action": "set_field",
+            "field_name": "Q9_SQ002",
+            "sgqa": "900001X101X1028SQ002",
+            "value": "1",
+            "value_kind": "answer_code",
+            "canonical": "Q9/Q9-R2=Q9-O1",
+            "human": "set Q9_SQ002 to 1"
+          },
+          {
+            "step": 16,
+            "action": "set_field",
+            "field_name": "Q9_SQ003",
+            "sgqa": "900001X101X1028SQ003",
+            "value": "1",
+            "value_kind": "answer_code",
+            "canonical": "Q9/Q9-R3=Q9-O1",
+            "human": "set Q9_SQ003 to 1"
+          },
+          {
+            "step": 17,
+            "action": "set_field",
+            "field_name": "Q9_SQ004",
+            "sgqa": "900001X101X1028SQ004",
+            "value": "1",
+            "value_kind": "answer_code",
+            "canonical": "Q9/Q9-R4=Q9-O1",
+            "human": "set Q9_SQ004 to 1"
+          },
+          {
+            "step": 18,
+            "action": "set_field",
+            "field_name": "Q9_SQ005",
+            "sgqa": "900001X101X1028SQ005",
+            "value": "1",
+            "value_kind": "answer_code",
+            "canonical": "Q9/Q9-R5=Q9-O1",
+            "human": "set Q9_SQ005 to 1"
+          },
+          {
+            "step": 19,
+            "action": "set_field",
+            "field_name": "Q9_SQ006",
+            "sgqa": "900001X101X1028SQ006",
+            "value": "1",
+            "value_kind": "answer_code",
+            "canonical": "Q9/Q9-R6=Q9-O1",
+            "human": "set Q9_SQ006 to 1"
+          },
+          {
+            "step": 20,
+            "action": "set_field",
+            "field_name": "Q10",
+            "sgqa": "900001X101X1035",
+            "value": "A001",
+            "value_kind": "answer_code",
+            "canonical": "Q10/Q10-O1",
+            "human": "select A001 (Yes) on Q10"
+          },
+          {
+            "step": 21,
+            "action": "set_field",
+            "field_name": "Q11_SQ001",
+            "sgqa": "900001X101X1036SQ001",
+            "value": "Y",
+            "value_kind": "checkbox",
+            "canonical": "Q11/Q11-O1",
+            "human": "tick Q11_SQ001 (Phone)"
+          },
+          {
+            "step": 22,
+            "action": "set_field",
+            "field_name": "Q12",
+            "sgqa": "900001X101X1042",
+            "value": "A001",
+            "value_kind": "answer_code",
+            "canonical": "Q12/Q12-O1",
+            "human": "select A001 (Fully) on Q12"
+          },
+          {
+            "step": 23,
+            "action": "set_field",
+            "field_name": "Q13",
+            "sgqa": "900001X101X1043",
+            "value": "1",
+            "value_kind": "answer_code",
+            "canonical": "Q13/Q13-O1",
+            "human": "select 1 (Very low) on Q13"
+          },
+          {
+            "step": 24,
+            "action": "set_field",
+            "field_name": "Q15",
+            "sgqa": "900001X101X1045",
+            "value": "A001",
+            "value_kind": "answer_code",
+            "canonical": "Q15/Q15-O1",
+            "human": "select A001 (Yes) on Q15"
+          },
+          {
+            "step": 25,
+            "action": "set_field",
+            "field_name": "Q16",
+            "sgqa": "900001X101X1046",
+            "value": "A006",
+            "value_kind": "answer_code",
+            "canonical": "Q16/Q16-O6",
+            "human": "select A006 (Other) on Q16"
+          },
+          {
+            "step": 26,
+            "action": "set_field",
+            "field_name": "Q17",
+            "sgqa": "900001X101X1047",
+            "value": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+            "value_kind": "text",
+            "canonical": "Q17",
+            "human": "type 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx' into Q17"
+          },
+          {
+            "step": 27,
+            "action": "submit_page",
+            "field_name": null,
+            "sgqa": null,
+            "value": null,
+            "value_kind": null,
+            "canonical": null,
+            "human": "submit the final page and observe the end screen"
+          }
+        ],
+        "assertions": [
+          {
+            "kind": "page_advances",
+            "expected": true,
+            "field_name": "Q17",
+            "sgqa": "900001X101X1047",
+            "canonical": "Q17",
+            "detail": "an answer sitting exactly on the stated maximum is inside the rule, not outside it"
+          }
+        ],
+        "traces_to": [
+          "Q17"
+        ],
+        "campaign": {},
+        "executable": true,
+        "refusal_reason": null,
+        "missing_bindings": [],
+        "provisional_semantics": [
+          "multi_equality"
+        ]
+      },
+      {
+        "test_id": "EX-ec3a6e2ac6",
         "target_id": "T-a4f9951894",
         "dimension": "D3",
         "title": "Q17 accepts an answer meeting ['max_length', 'min_length']",
@@ -21265,7 +21804,306 @@
         ]
       },
       {
-        "test_id": "EX-8c749ccfb0",
+        "test_id": "EX-6e1e46901a",
+        "target_id": "T-08dd173f52",
+        "dimension": "D3",
+        "title": "Q17 accepts punctuation and quotation marks, because its rule constrains length and not content",
+        "sid": 900001,
+        "steps": [
+          {
+            "step": 1,
+            "action": "set_field",
+            "field_name": "S1",
+            "sgqa": "900001X100X1000",
+            "value": "A001",
+            "value_kind": "answer_code",
+            "canonical": "S1/S1-O1",
+            "human": "select A001 (Yes) on S1"
+          },
+          {
+            "step": 2,
+            "action": "set_field",
+            "field_name": "S2",
+            "sgqa": "900001X100X1001",
+            "value": "A001",
+            "value_kind": "answer_code",
+            "canonical": "S2/S2-O1",
+            "human": "select A001 (Personally manage an ongoing chronic health condition) on S2"
+          },
+          {
+            "step": 3,
+            "action": "set_field",
+            "field_name": "S3",
+            "sgqa": "900001X100X1002",
+            "value": "A002",
+            "value_kind": "answer_code",
+            "canonical": "S3/S3-O2",
+            "human": "select A002 (No) on S3"
+          },
+          {
+            "step": 4,
+            "action": "set_field",
+            "field_name": "S4",
+            "sgqa": "900001X100X1003",
+            "value": "A002",
+            "value_kind": "answer_code",
+            "canonical": "S4/S4-O2",
+            "human": "select A002 (No) on S4"
+          },
+          {
+            "step": 5,
+            "action": "submit_page",
+            "field_name": null,
+            "sgqa": null,
+            "value": null,
+            "value_kind": null,
+            "canonical": null,
+            "human": "submit the Screening page"
+          },
+          {
+            "step": 6,
+            "action": "set_field",
+            "field_name": "Q1_SQ001",
+            "sgqa": "900001X101X1004SQ001",
+            "value": "Y",
+            "value_kind": "checkbox",
+            "canonical": "Q1/Q1-O1",
+            "human": "tick Q1_SQ001 (Care Network A)"
+          },
+          {
+            "step": 7,
+            "action": "set_field",
+            "field_name": "Q2_SQ001",
+            "sgqa": "900001X101X1010SQ001",
+            "value": "Y",
+            "value_kind": "checkbox",
+            "canonical": "Q2/Q2-O1",
+            "human": "tick Q2_SQ001 (Care Network A)"
+          },
+          {
+            "step": 8,
+            "action": "set_field",
+            "field_name": "Q3",
+            "sgqa": "900001X101X1015",
+            "value": "A001",
+            "value_kind": "answer_code",
+            "canonical": "Q3/Q3-O1",
+            "human": "select A001 (Care Network A) on Q3"
+          },
+          {
+            "step": 9,
+            "action": "set_field",
+            "field_name": "Q4",
+            "sgqa": "900001X101X1016",
+            "value": "A001",
+            "value_kind": "answer_code",
+            "canonical": "Q4/Q4-O1",
+            "human": "select A001 (Recently diagnosed) on Q4"
+          },
+          {
+            "step": 10,
+            "action": "set_field",
+            "field_name": "Q5_SQ001",
+            "sgqa": "900001X101X1017SQ001",
+            "value": "Y",
+            "value_kind": "checkbox",
+            "canonical": "Q5/Q5-O1",
+            "human": "tick Q5_SQ001 (Primary-care physician)"
+          },
+          {
+            "step": 11,
+            "action": "set_field",
+            "field_name": "Q6",
+            "sgqa": "900001X101X1025",
+            "value": "A001",
+            "value_kind": "answer_code",
+            "canonical": "Q6/Q6-O1",
+            "human": "select A001 (Primary-care physician) on Q6"
+          },
+          {
+            "step": 12,
+            "action": "set_field",
+            "field_name": "Q7",
+            "sgqa": "900001X101X1026",
+            "value": "1",
+            "value_kind": "answer_code",
+            "canonical": "Q7/Q7-O1",
+            "human": "select 1 (Very poor) on Q7"
+          },
+          {
+            "step": 13,
+            "action": "set_field",
+            "field_name": "Q8",
+            "sgqa": "900001X101X1027",
+            "value": "A001",
+            "value_kind": "answer_code",
+            "canonical": "Q8/Q8-O1",
+            "human": "select A001 (0) on Q8"
+          },
+          {
+            "step": 14,
+            "action": "set_field",
+            "field_name": "Q9_SQ001",
+            "sgqa": "900001X101X1028SQ001",
+            "value": "1",
+            "value_kind": "answer_code",
+            "canonical": "Q9/Q9-R1=Q9-O1",
+            "human": "set Q9_SQ001 to 1"
+          },
+          {
+            "step": 15,
+            "action": "set_field",
+            "field_name": "Q9_SQ002",
+            "sgqa": "900001X101X1028SQ002",
+            "value": "1",
+            "value_kind": "answer_code",
+            "canonical": "Q9/Q9-R2=Q9-O1",
+            "human": "set Q9_SQ002 to 1"
+          },
+          {
+            "step": 16,
+            "action": "set_field",
+            "field_name": "Q9_SQ003",
+            "sgqa": "900001X101X1028SQ003",
+            "value": "1",
+            "value_kind": "answer_code",
+            "canonical": "Q9/Q9-R3=Q9-O1",
+            "human": "set Q9_SQ003 to 1"
+          },
+          {
+            "step": 17,
+            "action": "set_field",
+            "field_name": "Q9_SQ004",
+            "sgqa": "900001X101X1028SQ004",
+            "value": "1",
+            "value_kind": "answer_code",
+            "canonical": "Q9/Q9-R4=Q9-O1",
+            "human": "set Q9_SQ004 to 1"
+          },
+          {
+            "step": 18,
+            "action": "set_field",
+            "field_name": "Q9_SQ005",
+            "sgqa": "900001X101X1028SQ005",
+            "value": "1",
+            "value_kind": "answer_code",
+            "canonical": "Q9/Q9-R5=Q9-O1",
+            "human": "set Q9_SQ005 to 1"
+          },
+          {
+            "step": 19,
+            "action": "set_field",
+            "field_name": "Q9_SQ006",
+            "sgqa": "900001X101X1028SQ006",
+            "value": "1",
+            "value_kind": "answer_code",
+            "canonical": "Q9/Q9-R6=Q9-O1",
+            "human": "set Q9_SQ006 to 1"
+          },
+          {
+            "step": 20,
+            "action": "set_field",
+            "field_name": "Q10",
+            "sgqa": "900001X101X1035",
+            "value": "A001",
+            "value_kind": "answer_code",
+            "canonical": "Q10/Q10-O1",
+            "human": "select A001 (Yes) on Q10"
+          },
+          {
+            "step": 21,
+            "action": "set_field",
+            "field_name": "Q11_SQ001",
+            "sgqa": "900001X101X1036SQ001",
+            "value": "Y",
+            "value_kind": "checkbox",
+            "canonical": "Q11/Q11-O1",
+            "human": "tick Q11_SQ001 (Phone)"
+          },
+          {
+            "step": 22,
+            "action": "set_field",
+            "field_name": "Q12",
+            "sgqa": "900001X101X1042",
+            "value": "A001",
+            "value_kind": "answer_code",
+            "canonical": "Q12/Q12-O1",
+            "human": "select A001 (Fully) on Q12"
+          },
+          {
+            "step": 23,
+            "action": "set_field",
+            "field_name": "Q13",
+            "sgqa": "900001X101X1043",
+            "value": "1",
+            "value_kind": "answer_code",
+            "canonical": "Q13/Q13-O1",
+            "human": "select 1 (Very low) on Q13"
+          },
+          {
+            "step": 24,
+            "action": "set_field",
+            "field_name": "Q15",
+            "sgqa": "900001X101X1045",
+            "value": "A001",
+            "value_kind": "answer_code",
+            "canonical": "Q15/Q15-O1",
+            "human": "select A001 (Yes) on Q15"
+          },
+          {
+            "step": 25,
+            "action": "set_field",
+            "field_name": "Q16",
+            "sgqa": "900001X101X1046",
+            "value": "A006",
+            "value_kind": "answer_code",
+            "canonical": "Q16/Q16-O6",
+            "human": "select A006 (Other) on Q16"
+          },
+          {
+            "step": 26,
+            "action": "set_field",
+            "field_name": "Q17",
+            "sgqa": "900001X101X1047",
+            "value": "O'Brien said \"yes\" <50% & more",
+            "value_kind": "text",
+            "canonical": "Q17",
+            "human": "type 'O\\'Brien said \"yes\" <50% & more' into Q17"
+          },
+          {
+            "step": 27,
+            "action": "submit_page",
+            "field_name": null,
+            "sgqa": null,
+            "value": null,
+            "value_kind": null,
+            "canonical": null,
+            "human": "submit the final page and observe the end screen"
+          }
+        ],
+        "assertions": [
+          {
+            "kind": "page_advances",
+            "expected": true,
+            "field_name": "Q17",
+            "sgqa": "900001X101X1047",
+            "canonical": "Q17",
+            "detail": "the rule constrains length and says nothing about content, so punctuation must be accepted"
+          }
+        ],
+        "traces_to": [
+          "Q17"
+        ],
+        "campaign": {},
+        "executable": true,
+        "refusal_reason": null,
+        "missing_bindings": [],
+        "provisional_semantics": [
+          "multi_equality"
+        ]
+      },
+      {
+        "test_id": "EX-45ab9e374c",
         "target_id": "T-0b7e13d6e1",
         "dimension": "D3",
         "title": "Q17 rejects an answer breaking ['max_length', 'min_length']",
@@ -21572,7 +22410,7 @@
         ]
       },
       {
-        "test_id": "EX-969e74c772",
+        "test_id": "EX-7a249b6b86",
         "target_id": "T-d9f9a89514",
         "dimension": "D3",
         "title": "Q18 accepts an answer meeting ['sum_to']",
@@ -21911,7 +22749,7 @@
         ]
       },
       {
-        "test_id": "EX-0901ac0011",
+        "test_id": "EX-fd60be3610",
         "target_id": "T-f869cc61e4",
         "dimension": "D3",
         "title": "Q18 rejects an answer breaking ['sum_to']",
@@ -22258,7 +23096,376 @@
         ]
       },
       {
-        "test_id": "EX-e588304492",
+        "test_id": "EX-1aa18c8324",
+        "target_id": "T-56550a97dd",
+        "dimension": "D3",
+        "title": "Q21 accepts an answer of exactly 500 characters, its stated maximum",
+        "sid": 900001,
+        "steps": [
+          {
+            "step": 1,
+            "action": "set_field",
+            "field_name": "S1",
+            "sgqa": "900001X100X1000",
+            "value": "A001",
+            "value_kind": "answer_code",
+            "canonical": "S1/S1-O1",
+            "human": "select A001 (Yes) on S1"
+          },
+          {
+            "step": 2,
+            "action": "set_field",
+            "field_name": "S2",
+            "sgqa": "900001X100X1001",
+            "value": "A001",
+            "value_kind": "answer_code",
+            "canonical": "S2/S2-O1",
+            "human": "select A001 (Personally manage an ongoing chronic health condition) on S2"
+          },
+          {
+            "step": 3,
+            "action": "set_field",
+            "field_name": "S3",
+            "sgqa": "900001X100X1002",
+            "value": "A002",
+            "value_kind": "answer_code",
+            "canonical": "S3/S3-O2",
+            "human": "select A002 (No) on S3"
+          },
+          {
+            "step": 4,
+            "action": "set_field",
+            "field_name": "S4",
+            "sgqa": "900001X100X1003",
+            "value": "A002",
+            "value_kind": "answer_code",
+            "canonical": "S4/S4-O2",
+            "human": "select A002 (No) on S4"
+          },
+          {
+            "step": 5,
+            "action": "submit_page",
+            "field_name": null,
+            "sgqa": null,
+            "value": null,
+            "value_kind": null,
+            "canonical": null,
+            "human": "submit the Screening page"
+          },
+          {
+            "step": 6,
+            "action": "set_field",
+            "field_name": "Q1_SQ001",
+            "sgqa": "900001X101X1004SQ001",
+            "value": "Y",
+            "value_kind": "checkbox",
+            "canonical": "Q1/Q1-O1",
+            "human": "tick Q1_SQ001 (Care Network A)"
+          },
+          {
+            "step": 7,
+            "action": "set_field",
+            "field_name": "Q2_SQ001",
+            "sgqa": "900001X101X1010SQ001",
+            "value": "Y",
+            "value_kind": "checkbox",
+            "canonical": "Q2/Q2-O1",
+            "human": "tick Q2_SQ001 (Care Network A)"
+          },
+          {
+            "step": 8,
+            "action": "set_field",
+            "field_name": "Q3",
+            "sgqa": "900001X101X1015",
+            "value": "A001",
+            "value_kind": "answer_code",
+            "canonical": "Q3/Q3-O1",
+            "human": "select A001 (Care Network A) on Q3"
+          },
+          {
+            "step": 9,
+            "action": "set_field",
+            "field_name": "Q4",
+            "sgqa": "900001X101X1016",
+            "value": "A001",
+            "value_kind": "answer_code",
+            "canonical": "Q4/Q4-O1",
+            "human": "select A001 (Recently diagnosed) on Q4"
+          },
+          {
+            "step": 10,
+            "action": "set_field",
+            "field_name": "Q5_SQ001",
+            "sgqa": "900001X101X1017SQ001",
+            "value": "Y",
+            "value_kind": "checkbox",
+            "canonical": "Q5/Q5-O1",
+            "human": "tick Q5_SQ001 (Primary-care physician)"
+          },
+          {
+            "step": 11,
+            "action": "set_field",
+            "field_name": "Q6",
+            "sgqa": "900001X101X1025",
+            "value": "A001",
+            "value_kind": "answer_code",
+            "canonical": "Q6/Q6-O1",
+            "human": "select A001 (Primary-care physician) on Q6"
+          },
+          {
+            "step": 12,
+            "action": "set_field",
+            "field_name": "Q7",
+            "sgqa": "900001X101X1026",
+            "value": "1",
+            "value_kind": "answer_code",
+            "canonical": "Q7/Q7-O1",
+            "human": "select 1 (Very poor) on Q7"
+          },
+          {
+            "step": 13,
+            "action": "set_field",
+            "field_name": "Q8",
+            "sgqa": "900001X101X1027",
+            "value": "A001",
+            "value_kind": "answer_code",
+            "canonical": "Q8/Q8-O1",
+            "human": "select A001 (0) on Q8"
+          },
+          {
+            "step": 14,
+            "action": "set_field",
+            "field_name": "Q9_SQ001",
+            "sgqa": "900001X101X1028SQ001",
+            "value": "1",
+            "value_kind": "answer_code",
+            "canonical": "Q9/Q9-R1=Q9-O1",
+            "human": "set Q9_SQ001 to 1"
+          },
+          {
+            "step": 15,
+            "action": "set_field",
+            "field_name": "Q9_SQ002",
+            "sgqa": "900001X101X1028SQ002",
+            "value": "1",
+            "value_kind": "answer_code",
+            "canonical": "Q9/Q9-R2=Q9-O1",
+            "human": "set Q9_SQ002 to 1"
+          },
+          {
+            "step": 16,
+            "action": "set_field",
+            "field_name": "Q9_SQ003",
+            "sgqa": "900001X101X1028SQ003",
+            "value": "1",
+            "value_kind": "answer_code",
+            "canonical": "Q9/Q9-R3=Q9-O1",
+            "human": "set Q9_SQ003 to 1"
+          },
+          {
+            "step": 17,
+            "action": "set_field",
+            "field_name": "Q9_SQ004",
+            "sgqa": "900001X101X1028SQ004",
+            "value": "1",
+            "value_kind": "answer_code",
+            "canonical": "Q9/Q9-R4=Q9-O1",
+            "human": "set Q9_SQ004 to 1"
+          },
+          {
+            "step": 18,
+            "action": "set_field",
+            "field_name": "Q9_SQ005",
+            "sgqa": "900001X101X1028SQ005",
+            "value": "1",
+            "value_kind": "answer_code",
+            "canonical": "Q9/Q9-R5=Q9-O1",
+            "human": "set Q9_SQ005 to 1"
+          },
+          {
+            "step": 19,
+            "action": "set_field",
+            "field_name": "Q9_SQ006",
+            "sgqa": "900001X101X1028SQ006",
+            "value": "1",
+            "value_kind": "answer_code",
+            "canonical": "Q9/Q9-R6=Q9-O1",
+            "human": "set Q9_SQ006 to 1"
+          },
+          {
+            "step": 20,
+            "action": "set_field",
+            "field_name": "Q10",
+            "sgqa": "900001X101X1035",
+            "value": "A001",
+            "value_kind": "answer_code",
+            "canonical": "Q10/Q10-O1",
+            "human": "select A001 (Yes) on Q10"
+          },
+          {
+            "step": 21,
+            "action": "set_field",
+            "field_name": "Q11_SQ001",
+            "sgqa": "900001X101X1036SQ001",
+            "value": "Y",
+            "value_kind": "checkbox",
+            "canonical": "Q11/Q11-O1",
+            "human": "tick Q11_SQ001 (Phone)"
+          },
+          {
+            "step": 22,
+            "action": "set_field",
+            "field_name": "Q12",
+            "sgqa": "900001X101X1042",
+            "value": "A001",
+            "value_kind": "answer_code",
+            "canonical": "Q12/Q12-O1",
+            "human": "select A001 (Fully) on Q12"
+          },
+          {
+            "step": 23,
+            "action": "set_field",
+            "field_name": "Q13",
+            "sgqa": "900001X101X1043",
+            "value": "1",
+            "value_kind": "answer_code",
+            "canonical": "Q13/Q13-O1",
+            "human": "select 1 (Very low) on Q13"
+          },
+          {
+            "step": 24,
+            "action": "set_field",
+            "field_name": "Q15",
+            "sgqa": "900001X101X1045",
+            "value": "A001",
+            "value_kind": "answer_code",
+            "canonical": "Q15/Q15-O1",
+            "human": "select A001 (Yes) on Q15"
+          },
+          {
+            "step": 25,
+            "action": "set_field",
+            "field_name": "Q16",
+            "sgqa": "900001X101X1046",
+            "value": "A001",
+            "value_kind": "answer_code",
+            "canonical": "Q16/Q16-O1",
+            "human": "select A001 (Price) on Q16"
+          },
+          {
+            "step": 26,
+            "action": "set_field",
+            "field_name": "Q18_SQ001",
+            "sgqa": "900001X101X1048SQ001",
+            "value": "20",
+            "value_kind": "number",
+            "canonical": "Q18/Q18-O1",
+            "human": "enter 20 into Q18_SQ001"
+          },
+          {
+            "step": 27,
+            "action": "set_field",
+            "field_name": "Q18_SQ002",
+            "sgqa": "900001X101X1048SQ002",
+            "value": "20",
+            "value_kind": "number",
+            "canonical": "Q18/Q18-O2",
+            "human": "enter 20 into Q18_SQ002"
+          },
+          {
+            "step": 28,
+            "action": "set_field",
+            "field_name": "Q18_SQ003",
+            "sgqa": "900001X101X1048SQ003",
+            "value": "20",
+            "value_kind": "number",
+            "canonical": "Q18/Q18-O3",
+            "human": "enter 20 into Q18_SQ003"
+          },
+          {
+            "step": 29,
+            "action": "set_field",
+            "field_name": "Q18_SQ004",
+            "sgqa": "900001X101X1048SQ004",
+            "value": "20",
+            "value_kind": "number",
+            "canonical": "Q18/Q18-O4",
+            "human": "enter 20 into Q18_SQ004"
+          },
+          {
+            "step": 30,
+            "action": "set_field",
+            "field_name": "Q18_SQ005",
+            "sgqa": "900001X101X1048SQ005",
+            "value": "20",
+            "value_kind": "number",
+            "canonical": "Q18/Q18-O5",
+            "human": "enter 20 into Q18_SQ005"
+          },
+          {
+            "step": 31,
+            "action": "set_field",
+            "field_name": "Q19",
+            "sgqa": "900001X101X1054",
+            "value": "A001",
+            "value_kind": "answer_code",
+            "canonical": "Q19/Q19-O1",
+            "human": "select A001 (Concept A) on Q19"
+          },
+          {
+            "step": 32,
+            "action": "set_field",
+            "field_name": "Q20",
+            "sgqa": "900001X101X1055",
+            "value": "1",
+            "value_kind": "answer_code",
+            "canonical": "Q20/Q20-O1",
+            "human": "select 1 (Very poor) on Q20"
+          },
+          {
+            "step": 33,
+            "action": "set_field",
+            "field_name": "Q21",
+            "sgqa": "900001X101X1056",
+            "value": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+            "value_kind": "text",
+            "canonical": "Q21",
+            "human": "type 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx' into Q21"
+          },
+          {
+            "step": 34,
+            "action": "submit_page",
+            "field_name": null,
+            "sgqa": null,
+            "value": null,
+            "value_kind": null,
+            "canonical": null,
+            "human": "submit the final page and observe the end screen"
+          }
+        ],
+        "assertions": [
+          {
+            "kind": "page_advances",
+            "expected": true,
+            "field_name": "Q21",
+            "sgqa": "900001X101X1056",
+            "canonical": "Q21",
+            "detail": "an answer sitting exactly on the stated maximum is inside the rule, not outside it"
+          }
+        ],
+        "traces_to": [
+          "Q21"
+        ],
+        "campaign": {},
+        "executable": true,
+        "refusal_reason": null,
+        "missing_bindings": [],
+        "provisional_semantics": [
+          "multi_equality"
+        ]
+      },
+      {
+        "test_id": "EX-56be01d052",
         "target_id": "T-6a8d9edecd",
         "dimension": "D3",
         "title": "Q21 accepts an answer meeting ['max_length', 'min_length']",
@@ -22627,7 +23834,376 @@
         ]
       },
       {
-        "test_id": "EX-89f2b1509b",
+        "test_id": "EX-e20e90debc",
+        "target_id": "T-bc16d50ae1",
+        "dimension": "D3",
+        "title": "Q21 accepts punctuation and quotation marks, because its rule constrains length and not content",
+        "sid": 900001,
+        "steps": [
+          {
+            "step": 1,
+            "action": "set_field",
+            "field_name": "S1",
+            "sgqa": "900001X100X1000",
+            "value": "A001",
+            "value_kind": "answer_code",
+            "canonical": "S1/S1-O1",
+            "human": "select A001 (Yes) on S1"
+          },
+          {
+            "step": 2,
+            "action": "set_field",
+            "field_name": "S2",
+            "sgqa": "900001X100X1001",
+            "value": "A001",
+            "value_kind": "answer_code",
+            "canonical": "S2/S2-O1",
+            "human": "select A001 (Personally manage an ongoing chronic health condition) on S2"
+          },
+          {
+            "step": 3,
+            "action": "set_field",
+            "field_name": "S3",
+            "sgqa": "900001X100X1002",
+            "value": "A002",
+            "value_kind": "answer_code",
+            "canonical": "S3/S3-O2",
+            "human": "select A002 (No) on S3"
+          },
+          {
+            "step": 4,
+            "action": "set_field",
+            "field_name": "S4",
+            "sgqa": "900001X100X1003",
+            "value": "A002",
+            "value_kind": "answer_code",
+            "canonical": "S4/S4-O2",
+            "human": "select A002 (No) on S4"
+          },
+          {
+            "step": 5,
+            "action": "submit_page",
+            "field_name": null,
+            "sgqa": null,
+            "value": null,
+            "value_kind": null,
+            "canonical": null,
+            "human": "submit the Screening page"
+          },
+          {
+            "step": 6,
+            "action": "set_field",
+            "field_name": "Q1_SQ001",
+            "sgqa": "900001X101X1004SQ001",
+            "value": "Y",
+            "value_kind": "checkbox",
+            "canonical": "Q1/Q1-O1",
+            "human": "tick Q1_SQ001 (Care Network A)"
+          },
+          {
+            "step": 7,
+            "action": "set_field",
+            "field_name": "Q2_SQ001",
+            "sgqa": "900001X101X1010SQ001",
+            "value": "Y",
+            "value_kind": "checkbox",
+            "canonical": "Q2/Q2-O1",
+            "human": "tick Q2_SQ001 (Care Network A)"
+          },
+          {
+            "step": 8,
+            "action": "set_field",
+            "field_name": "Q3",
+            "sgqa": "900001X101X1015",
+            "value": "A001",
+            "value_kind": "answer_code",
+            "canonical": "Q3/Q3-O1",
+            "human": "select A001 (Care Network A) on Q3"
+          },
+          {
+            "step": 9,
+            "action": "set_field",
+            "field_name": "Q4",
+            "sgqa": "900001X101X1016",
+            "value": "A001",
+            "value_kind": "answer_code",
+            "canonical": "Q4/Q4-O1",
+            "human": "select A001 (Recently diagnosed) on Q4"
+          },
+          {
+            "step": 10,
+            "action": "set_field",
+            "field_name": "Q5_SQ001",
+            "sgqa": "900001X101X1017SQ001",
+            "value": "Y",
+            "value_kind": "checkbox",
+            "canonical": "Q5/Q5-O1",
+            "human": "tick Q5_SQ001 (Primary-care physician)"
+          },
+          {
+            "step": 11,
+            "action": "set_field",
+            "field_name": "Q6",
+            "sgqa": "900001X101X1025",
+            "value": "A001",
+            "value_kind": "answer_code",
+            "canonical": "Q6/Q6-O1",
+            "human": "select A001 (Primary-care physician) on Q6"
+          },
+          {
+            "step": 12,
+            "action": "set_field",
+            "field_name": "Q7",
+            "sgqa": "900001X101X1026",
+            "value": "1",
+            "value_kind": "answer_code",
+            "canonical": "Q7/Q7-O1",
+            "human": "select 1 (Very poor) on Q7"
+          },
+          {
+            "step": 13,
+            "action": "set_field",
+            "field_name": "Q8",
+            "sgqa": "900001X101X1027",
+            "value": "A001",
+            "value_kind": "answer_code",
+            "canonical": "Q8/Q8-O1",
+            "human": "select A001 (0) on Q8"
+          },
+          {
+            "step": 14,
+            "action": "set_field",
+            "field_name": "Q9_SQ001",
+            "sgqa": "900001X101X1028SQ001",
+            "value": "1",
+            "value_kind": "answer_code",
+            "canonical": "Q9/Q9-R1=Q9-O1",
+            "human": "set Q9_SQ001 to 1"
+          },
+          {
+            "step": 15,
+            "action": "set_field",
+            "field_name": "Q9_SQ002",
+            "sgqa": "900001X101X1028SQ002",
+            "value": "1",
+            "value_kind": "answer_code",
+            "canonical": "Q9/Q9-R2=Q9-O1",
+            "human": "set Q9_SQ002 to 1"
+          },
+          {
+            "step": 16,
+            "action": "set_field",
+            "field_name": "Q9_SQ003",
+            "sgqa": "900001X101X1028SQ003",
+            "value": "1",
+            "value_kind": "answer_code",
+            "canonical": "Q9/Q9-R3=Q9-O1",
+            "human": "set Q9_SQ003 to 1"
+          },
+          {
+            "step": 17,
+            "action": "set_field",
+            "field_name": "Q9_SQ004",
+            "sgqa": "900001X101X1028SQ004",
+            "value": "1",
+            "value_kind": "answer_code",
+            "canonical": "Q9/Q9-R4=Q9-O1",
+            "human": "set Q9_SQ004 to 1"
+          },
+          {
+            "step": 18,
+            "action": "set_field",
+            "field_name": "Q9_SQ005",
+            "sgqa": "900001X101X1028SQ005",
+            "value": "1",
+            "value_kind": "answer_code",
+            "canonical": "Q9/Q9-R5=Q9-O1",
+            "human": "set Q9_SQ005 to 1"
+          },
+          {
+            "step": 19,
+            "action": "set_field",
+            "field_name": "Q9_SQ006",
+            "sgqa": "900001X101X1028SQ006",
+            "value": "1",
+            "value_kind": "answer_code",
+            "canonical": "Q9/Q9-R6=Q9-O1",
+            "human": "set Q9_SQ006 to 1"
+          },
+          {
+            "step": 20,
+            "action": "set_field",
+            "field_name": "Q10",
+            "sgqa": "900001X101X1035",
+            "value": "A001",
+            "value_kind": "answer_code",
+            "canonical": "Q10/Q10-O1",
+            "human": "select A001 (Yes) on Q10"
+          },
+          {
+            "step": 21,
+            "action": "set_field",
+            "field_name": "Q11_SQ001",
+            "sgqa": "900001X101X1036SQ001",
+            "value": "Y",
+            "value_kind": "checkbox",
+            "canonical": "Q11/Q11-O1",
+            "human": "tick Q11_SQ001 (Phone)"
+          },
+          {
+            "step": 22,
+            "action": "set_field",
+            "field_name": "Q12",
+            "sgqa": "900001X101X1042",
+            "value": "A001",
+            "value_kind": "answer_code",
+            "canonical": "Q12/Q12-O1",
+            "human": "select A001 (Fully) on Q12"
+          },
+          {
+            "step": 23,
+            "action": "set_field",
+            "field_name": "Q13",
+            "sgqa": "900001X101X1043",
+            "value": "1",
+            "value_kind": "answer_code",
+            "canonical": "Q13/Q13-O1",
+            "human": "select 1 (Very low) on Q13"
+          },
+          {
+            "step": 24,
+            "action": "set_field",
+            "field_name": "Q15",
+            "sgqa": "900001X101X1045",
+            "value": "A001",
+            "value_kind": "answer_code",
+            "canonical": "Q15/Q15-O1",
+            "human": "select A001 (Yes) on Q15"
+          },
+          {
+            "step": 25,
+            "action": "set_field",
+            "field_name": "Q16",
+            "sgqa": "900001X101X1046",
+            "value": "A001",
+            "value_kind": "answer_code",
+            "canonical": "Q16/Q16-O1",
+            "human": "select A001 (Price) on Q16"
+          },
+          {
+            "step": 26,
+            "action": "set_field",
+            "field_name": "Q18_SQ001",
+            "sgqa": "900001X101X1048SQ001",
+            "value": "20",
+            "value_kind": "number",
+            "canonical": "Q18/Q18-O1",
+            "human": "enter 20 into Q18_SQ001"
+          },
+          {
+            "step": 27,
+            "action": "set_field",
+            "field_name": "Q18_SQ002",
+            "sgqa": "900001X101X1048SQ002",
+            "value": "20",
+            "value_kind": "number",
+            "canonical": "Q18/Q18-O2",
+            "human": "enter 20 into Q18_SQ002"
+          },
+          {
+            "step": 28,
+            "action": "set_field",
+            "field_name": "Q18_SQ003",
+            "sgqa": "900001X101X1048SQ003",
+            "value": "20",
+            "value_kind": "number",
+            "canonical": "Q18/Q18-O3",
+            "human": "enter 20 into Q18_SQ003"
+          },
+          {
+            "step": 29,
+            "action": "set_field",
+            "field_name": "Q18_SQ004",
+            "sgqa": "900001X101X1048SQ004",
+            "value": "20",
+            "value_kind": "number",
+            "canonical": "Q18/Q18-O4",
+            "human": "enter 20 into Q18_SQ004"
+          },
+          {
+            "step": 30,
+            "action": "set_field",
+            "field_name": "Q18_SQ005",
+            "sgqa": "900001X101X1048SQ005",
+            "value": "20",
+            "value_kind": "number",
+            "canonical": "Q18/Q18-O5",
+            "human": "enter 20 into Q18_SQ005"
+          },
+          {
+            "step": 31,
+            "action": "set_field",
+            "field_name": "Q19",
+            "sgqa": "900001X101X1054",
+            "value": "A001",
+            "value_kind": "answer_code",
+            "canonical": "Q19/Q19-O1",
+            "human": "select A001 (Concept A) on Q19"
+          },
+          {
+            "step": 32,
+            "action": "set_field",
+            "field_name": "Q20",
+            "sgqa": "900001X101X1055",
+            "value": "1",
+            "value_kind": "answer_code",
+            "canonical": "Q20/Q20-O1",
+            "human": "select 1 (Very poor) on Q20"
+          },
+          {
+            "step": 33,
+            "action": "set_field",
+            "field_name": "Q21",
+            "sgqa": "900001X101X1056",
+            "value": "O'Brien said \"yes\" <50% & more",
+            "value_kind": "text",
+            "canonical": "Q21",
+            "human": "type 'O\\'Brien said \"yes\" <50% & more' into Q21"
+          },
+          {
+            "step": 34,
+            "action": "submit_page",
+            "field_name": null,
+            "sgqa": null,
+            "value": null,
+            "value_kind": null,
+            "canonical": null,
+            "human": "submit the final page and observe the end screen"
+          }
+        ],
+        "assertions": [
+          {
+            "kind": "page_advances",
+            "expected": true,
+            "field_name": "Q21",
+            "sgqa": "900001X101X1056",
+            "canonical": "Q21",
+            "detail": "the rule constrains length and says nothing about content, so punctuation must be accepted"
+          }
+        ],
+        "traces_to": [
+          "Q21"
+        ],
+        "campaign": {},
+        "executable": true,
+        "refusal_reason": null,
+        "missing_bindings": [],
+        "provisional_semantics": [
+          "multi_equality"
+        ]
+      },
+      {
+        "test_id": "EX-890665b360",
         "target_id": "T-fd51bdcea7",
         "dimension": "D3",
         "title": "Q21 rejects an answer breaking ['max_length', 'min_length']",
@@ -23004,7 +24580,436 @@
         ]
       },
       {
-        "test_id": "EX-6bb0c5970b",
+        "test_id": "EX-ec252a8fc3",
+        "target_id": "T-636f0d6630",
+        "dimension": "D3",
+        "title": "Q23 accepts an answer of exactly 1000 characters, its stated maximum",
+        "sid": 900001,
+        "steps": [
+          {
+            "step": 1,
+            "action": "set_field",
+            "field_name": "S1",
+            "sgqa": "900001X100X1000",
+            "value": "A001",
+            "value_kind": "answer_code",
+            "canonical": "S1/S1-O1",
+            "human": "select A001 (Yes) on S1"
+          },
+          {
+            "step": 2,
+            "action": "set_field",
+            "field_name": "S2",
+            "sgqa": "900001X100X1001",
+            "value": "A001",
+            "value_kind": "answer_code",
+            "canonical": "S2/S2-O1",
+            "human": "select A001 (Personally manage an ongoing chronic health condition) on S2"
+          },
+          {
+            "step": 3,
+            "action": "set_field",
+            "field_name": "S3",
+            "sgqa": "900001X100X1002",
+            "value": "A002",
+            "value_kind": "answer_code",
+            "canonical": "S3/S3-O2",
+            "human": "select A002 (No) on S3"
+          },
+          {
+            "step": 4,
+            "action": "set_field",
+            "field_name": "S4",
+            "sgqa": "900001X100X1003",
+            "value": "A002",
+            "value_kind": "answer_code",
+            "canonical": "S4/S4-O2",
+            "human": "select A002 (No) on S4"
+          },
+          {
+            "step": 5,
+            "action": "submit_page",
+            "field_name": null,
+            "sgqa": null,
+            "value": null,
+            "value_kind": null,
+            "canonical": null,
+            "human": "submit the Screening page"
+          },
+          {
+            "step": 6,
+            "action": "set_field",
+            "field_name": "Q1_SQ001",
+            "sgqa": "900001X101X1004SQ001",
+            "value": "Y",
+            "value_kind": "checkbox",
+            "canonical": "Q1/Q1-O1",
+            "human": "tick Q1_SQ001 (Care Network A)"
+          },
+          {
+            "step": 7,
+            "action": "set_field",
+            "field_name": "Q2_SQ001",
+            "sgqa": "900001X101X1010SQ001",
+            "value": "Y",
+            "value_kind": "checkbox",
+            "canonical": "Q2/Q2-O1",
+            "human": "tick Q2_SQ001 (Care Network A)"
+          },
+          {
+            "step": 8,
+            "action": "set_field",
+            "field_name": "Q3",
+            "sgqa": "900001X101X1015",
+            "value": "A001",
+            "value_kind": "answer_code",
+            "canonical": "Q3/Q3-O1",
+            "human": "select A001 (Care Network A) on Q3"
+          },
+          {
+            "step": 9,
+            "action": "set_field",
+            "field_name": "Q4",
+            "sgqa": "900001X101X1016",
+            "value": "A001",
+            "value_kind": "answer_code",
+            "canonical": "Q4/Q4-O1",
+            "human": "select A001 (Recently diagnosed) on Q4"
+          },
+          {
+            "step": 10,
+            "action": "set_field",
+            "field_name": "Q5_SQ001",
+            "sgqa": "900001X101X1017SQ001",
+            "value": "Y",
+            "value_kind": "checkbox",
+            "canonical": "Q5/Q5-O1",
+            "human": "tick Q5_SQ001 (Primary-care physician)"
+          },
+          {
+            "step": 11,
+            "action": "set_field",
+            "field_name": "Q6",
+            "sgqa": "900001X101X1025",
+            "value": "A001",
+            "value_kind": "answer_code",
+            "canonical": "Q6/Q6-O1",
+            "human": "select A001 (Primary-care physician) on Q6"
+          },
+          {
+            "step": 12,
+            "action": "set_field",
+            "field_name": "Q7",
+            "sgqa": "900001X101X1026",
+            "value": "1",
+            "value_kind": "answer_code",
+            "canonical": "Q7/Q7-O1",
+            "human": "select 1 (Very poor) on Q7"
+          },
+          {
+            "step": 13,
+            "action": "set_field",
+            "field_name": "Q8",
+            "sgqa": "900001X101X1027",
+            "value": "A001",
+            "value_kind": "answer_code",
+            "canonical": "Q8/Q8-O1",
+            "human": "select A001 (0) on Q8"
+          },
+          {
+            "step": 14,
+            "action": "set_field",
+            "field_name": "Q9_SQ001",
+            "sgqa": "900001X101X1028SQ001",
+            "value": "1",
+            "value_kind": "answer_code",
+            "canonical": "Q9/Q9-R1=Q9-O1",
+            "human": "set Q9_SQ001 to 1"
+          },
+          {
+            "step": 15,
+            "action": "set_field",
+            "field_name": "Q9_SQ002",
+            "sgqa": "900001X101X1028SQ002",
+            "value": "1",
+            "value_kind": "answer_code",
+            "canonical": "Q9/Q9-R2=Q9-O1",
+            "human": "set Q9_SQ002 to 1"
+          },
+          {
+            "step": 16,
+            "action": "set_field",
+            "field_name": "Q9_SQ003",
+            "sgqa": "900001X101X1028SQ003",
+            "value": "1",
+            "value_kind": "answer_code",
+            "canonical": "Q9/Q9-R3=Q9-O1",
+            "human": "set Q9_SQ003 to 1"
+          },
+          {
+            "step": 17,
+            "action": "set_field",
+            "field_name": "Q9_SQ004",
+            "sgqa": "900001X101X1028SQ004",
+            "value": "1",
+            "value_kind": "answer_code",
+            "canonical": "Q9/Q9-R4=Q9-O1",
+            "human": "set Q9_SQ004 to 1"
+          },
+          {
+            "step": 18,
+            "action": "set_field",
+            "field_name": "Q9_SQ005",
+            "sgqa": "900001X101X1028SQ005",
+            "value": "1",
+            "value_kind": "answer_code",
+            "canonical": "Q9/Q9-R5=Q9-O1",
+            "human": "set Q9_SQ005 to 1"
+          },
+          {
+            "step": 19,
+            "action": "set_field",
+            "field_name": "Q9_SQ006",
+            "sgqa": "900001X101X1028SQ006",
+            "value": "1",
+            "value_kind": "answer_code",
+            "canonical": "Q9/Q9-R6=Q9-O1",
+            "human": "set Q9_SQ006 to 1"
+          },
+          {
+            "step": 20,
+            "action": "set_field",
+            "field_name": "Q10",
+            "sgqa": "900001X101X1035",
+            "value": "A001",
+            "value_kind": "answer_code",
+            "canonical": "Q10/Q10-O1",
+            "human": "select A001 (Yes) on Q10"
+          },
+          {
+            "step": 21,
+            "action": "set_field",
+            "field_name": "Q11_SQ001",
+            "sgqa": "900001X101X1036SQ001",
+            "value": "Y",
+            "value_kind": "checkbox",
+            "canonical": "Q11/Q11-O1",
+            "human": "tick Q11_SQ001 (Phone)"
+          },
+          {
+            "step": 22,
+            "action": "set_field",
+            "field_name": "Q12",
+            "sgqa": "900001X101X1042",
+            "value": "A001",
+            "value_kind": "answer_code",
+            "canonical": "Q12/Q12-O1",
+            "human": "select A001 (Fully) on Q12"
+          },
+          {
+            "step": 23,
+            "action": "set_field",
+            "field_name": "Q13",
+            "sgqa": "900001X101X1043",
+            "value": "1",
+            "value_kind": "answer_code",
+            "canonical": "Q13/Q13-O1",
+            "human": "select 1 (Very low) on Q13"
+          },
+          {
+            "step": 24,
+            "action": "set_field",
+            "field_name": "Q15",
+            "sgqa": "900001X101X1045",
+            "value": "A001",
+            "value_kind": "answer_code",
+            "canonical": "Q15/Q15-O1",
+            "human": "select A001 (Yes) on Q15"
+          },
+          {
+            "step": 25,
+            "action": "set_field",
+            "field_name": "Q16",
+            "sgqa": "900001X101X1046",
+            "value": "A001",
+            "value_kind": "answer_code",
+            "canonical": "Q16/Q16-O1",
+            "human": "select A001 (Price) on Q16"
+          },
+          {
+            "step": 26,
+            "action": "set_field",
+            "field_name": "Q18_SQ001",
+            "sgqa": "900001X101X1048SQ001",
+            "value": "20",
+            "value_kind": "number",
+            "canonical": "Q18/Q18-O1",
+            "human": "enter 20 into Q18_SQ001"
+          },
+          {
+            "step": 27,
+            "action": "set_field",
+            "field_name": "Q18_SQ002",
+            "sgqa": "900001X101X1048SQ002",
+            "value": "20",
+            "value_kind": "number",
+            "canonical": "Q18/Q18-O2",
+            "human": "enter 20 into Q18_SQ002"
+          },
+          {
+            "step": 28,
+            "action": "set_field",
+            "field_name": "Q18_SQ003",
+            "sgqa": "900001X101X1048SQ003",
+            "value": "20",
+            "value_kind": "number",
+            "canonical": "Q18/Q18-O3",
+            "human": "enter 20 into Q18_SQ003"
+          },
+          {
+            "step": 29,
+            "action": "set_field",
+            "field_name": "Q18_SQ004",
+            "sgqa": "900001X101X1048SQ004",
+            "value": "20",
+            "value_kind": "number",
+            "canonical": "Q18/Q18-O4",
+            "human": "enter 20 into Q18_SQ004"
+          },
+          {
+            "step": 30,
+            "action": "set_field",
+            "field_name": "Q18_SQ005",
+            "sgqa": "900001X101X1048SQ005",
+            "value": "20",
+            "value_kind": "number",
+            "canonical": "Q18/Q18-O5",
+            "human": "enter 20 into Q18_SQ005"
+          },
+          {
+            "step": 31,
+            "action": "set_field",
+            "field_name": "Q19",
+            "sgqa": "900001X101X1054",
+            "value": "A001",
+            "value_kind": "answer_code",
+            "canonical": "Q19/Q19-O1",
+            "human": "select A001 (Concept A) on Q19"
+          },
+          {
+            "step": 32,
+            "action": "set_field",
+            "field_name": "Q20",
+            "sgqa": "900001X101X1055",
+            "value": "1",
+            "value_kind": "answer_code",
+            "canonical": "Q20/Q20-O1",
+            "human": "select 1 (Very poor) on Q20"
+          },
+          {
+            "step": 33,
+            "action": "set_field",
+            "field_name": "Q21",
+            "sgqa": "900001X101X1056",
+            "value": "xxxxx",
+            "value_kind": "text",
+            "canonical": "Q21",
+            "human": "type 'xxxxx' into Q21"
+          },
+          {
+            "step": 34,
+            "action": "set_field",
+            "field_name": "D1",
+            "sgqa": "900001X101X1057",
+            "value": "A001",
+            "value_kind": "answer_code",
+            "canonical": "D1/D1-O1",
+            "human": "select A001 (North) on D1"
+          },
+          {
+            "step": 35,
+            "action": "set_field",
+            "field_name": "D2",
+            "sgqa": "900001X101X1058",
+            "value": "A001",
+            "value_kind": "answer_code",
+            "canonical": "D2/D2-O1",
+            "human": "select A001 (21-29) on D2"
+          },
+          {
+            "step": 36,
+            "action": "set_field",
+            "field_name": "D3",
+            "sgqa": "900001X101X1059",
+            "value": "A001",
+            "value_kind": "answer_code",
+            "canonical": "D3/D3-O1",
+            "human": "select A001 (Woman) on D3"
+          },
+          {
+            "step": 37,
+            "action": "set_field",
+            "field_name": "D4",
+            "sgqa": "900001X101X1060",
+            "value": "A001",
+            "value_kind": "answer_code",
+            "canonical": "D4/D4-O1",
+            "human": "select A001 (Band 1) on D4"
+          },
+          {
+            "step": 38,
+            "action": "set_field",
+            "field_name": "Q22",
+            "sgqa": "900001X101X1061",
+            "value": "A001",
+            "value_kind": "answer_code",
+            "canonical": "Q22/Q22-O1",
+            "human": "select A001 (Yes) on Q22"
+          },
+          {
+            "step": 39,
+            "action": "set_field",
+            "field_name": "Q23",
+            "sgqa": "900001X101X1062",
+            "value": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+            "value_kind": "text",
+            "canonical": "Q23",
+            "human": "type 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx' into Q23"
+          },
+          {
+            "step": 40,
+            "action": "submit_page",
+            "field_name": null,
+            "sgqa": null,
+            "value": null,
+            "value_kind": null,
+            "canonical": null,
+            "human": "submit the final page and observe the end screen"
+          }
+        ],
+        "assertions": [
+          {
+            "kind": "page_advances",
+            "expected": true,
+            "field_name": "Q23",
+            "sgqa": "900001X101X1062",
+            "canonical": "Q23",
+            "detail": "an answer sitting exactly on the stated maximum is inside the rule, not outside it"
+          }
+        ],
+        "traces_to": [
+          "Q23"
+        ],
+        "campaign": {},
+        "executable": true,
+        "refusal_reason": null,
+        "missing_bindings": [],
+        "provisional_semantics": [
+          "multi_equality"
+        ]
+      },
+      {
+        "test_id": "EX-50009e8693",
         "target_id": "T-29e4d99dd7",
         "dimension": "D3",
         "title": "Q23 accepts an answer meeting ['max_length']",
@@ -23433,7 +25438,436 @@
         ]
       },
       {
-        "test_id": "EX-6f6398c3d2",
+        "test_id": "EX-ddecd91a1b",
+        "target_id": "T-3a4a7d62e9",
+        "dimension": "D3",
+        "title": "Q23 accepts punctuation and quotation marks, because its rule constrains length and not content",
+        "sid": 900001,
+        "steps": [
+          {
+            "step": 1,
+            "action": "set_field",
+            "field_name": "S1",
+            "sgqa": "900001X100X1000",
+            "value": "A001",
+            "value_kind": "answer_code",
+            "canonical": "S1/S1-O1",
+            "human": "select A001 (Yes) on S1"
+          },
+          {
+            "step": 2,
+            "action": "set_field",
+            "field_name": "S2",
+            "sgqa": "900001X100X1001",
+            "value": "A001",
+            "value_kind": "answer_code",
+            "canonical": "S2/S2-O1",
+            "human": "select A001 (Personally manage an ongoing chronic health condition) on S2"
+          },
+          {
+            "step": 3,
+            "action": "set_field",
+            "field_name": "S3",
+            "sgqa": "900001X100X1002",
+            "value": "A002",
+            "value_kind": "answer_code",
+            "canonical": "S3/S3-O2",
+            "human": "select A002 (No) on S3"
+          },
+          {
+            "step": 4,
+            "action": "set_field",
+            "field_name": "S4",
+            "sgqa": "900001X100X1003",
+            "value": "A002",
+            "value_kind": "answer_code",
+            "canonical": "S4/S4-O2",
+            "human": "select A002 (No) on S4"
+          },
+          {
+            "step": 5,
+            "action": "submit_page",
+            "field_name": null,
+            "sgqa": null,
+            "value": null,
+            "value_kind": null,
+            "canonical": null,
+            "human": "submit the Screening page"
+          },
+          {
+            "step": 6,
+            "action": "set_field",
+            "field_name": "Q1_SQ001",
+            "sgqa": "900001X101X1004SQ001",
+            "value": "Y",
+            "value_kind": "checkbox",
+            "canonical": "Q1/Q1-O1",
+            "human": "tick Q1_SQ001 (Care Network A)"
+          },
+          {
+            "step": 7,
+            "action": "set_field",
+            "field_name": "Q2_SQ001",
+            "sgqa": "900001X101X1010SQ001",
+            "value": "Y",
+            "value_kind": "checkbox",
+            "canonical": "Q2/Q2-O1",
+            "human": "tick Q2_SQ001 (Care Network A)"
+          },
+          {
+            "step": 8,
+            "action": "set_field",
+            "field_name": "Q3",
+            "sgqa": "900001X101X1015",
+            "value": "A001",
+            "value_kind": "answer_code",
+            "canonical": "Q3/Q3-O1",
+            "human": "select A001 (Care Network A) on Q3"
+          },
+          {
+            "step": 9,
+            "action": "set_field",
+            "field_name": "Q4",
+            "sgqa": "900001X101X1016",
+            "value": "A001",
+            "value_kind": "answer_code",
+            "canonical": "Q4/Q4-O1",
+            "human": "select A001 (Recently diagnosed) on Q4"
+          },
+          {
+            "step": 10,
+            "action": "set_field",
+            "field_name": "Q5_SQ001",
+            "sgqa": "900001X101X1017SQ001",
+            "value": "Y",
+            "value_kind": "checkbox",
+            "canonical": "Q5/Q5-O1",
+            "human": "tick Q5_SQ001 (Primary-care physician)"
+          },
+          {
+            "step": 11,
+            "action": "set_field",
+            "field_name": "Q6",
+            "sgqa": "900001X101X1025",
+            "value": "A001",
+            "value_kind": "answer_code",
+            "canonical": "Q6/Q6-O1",
+            "human": "select A001 (Primary-care physician) on Q6"
+          },
+          {
+            "step": 12,
+            "action": "set_field",
+            "field_name": "Q7",
+            "sgqa": "900001X101X1026",
+            "value": "1",
+            "value_kind": "answer_code",
+            "canonical": "Q7/Q7-O1",
+            "human": "select 1 (Very poor) on Q7"
+          },
+          {
+            "step": 13,
+            "action": "set_field",
+            "field_name": "Q8",
+            "sgqa": "900001X101X1027",
+            "value": "A001",
+            "value_kind": "answer_code",
+            "canonical": "Q8/Q8-O1",
+            "human": "select A001 (0) on Q8"
+          },
+          {
+            "step": 14,
+            "action": "set_field",
+            "field_name": "Q9_SQ001",
+            "sgqa": "900001X101X1028SQ001",
+            "value": "1",
+            "value_kind": "answer_code",
+            "canonical": "Q9/Q9-R1=Q9-O1",
+            "human": "set Q9_SQ001 to 1"
+          },
+          {
+            "step": 15,
+            "action": "set_field",
+            "field_name": "Q9_SQ002",
+            "sgqa": "900001X101X1028SQ002",
+            "value": "1",
+            "value_kind": "answer_code",
+            "canonical": "Q9/Q9-R2=Q9-O1",
+            "human": "set Q9_SQ002 to 1"
+          },
+          {
+            "step": 16,
+            "action": "set_field",
+            "field_name": "Q9_SQ003",
+            "sgqa": "900001X101X1028SQ003",
+            "value": "1",
+            "value_kind": "answer_code",
+            "canonical": "Q9/Q9-R3=Q9-O1",
+            "human": "set Q9_SQ003 to 1"
+          },
+          {
+            "step": 17,
+            "action": "set_field",
+            "field_name": "Q9_SQ004",
+            "sgqa": "900001X101X1028SQ004",
+            "value": "1",
+            "value_kind": "answer_code",
+            "canonical": "Q9/Q9-R4=Q9-O1",
+            "human": "set Q9_SQ004 to 1"
+          },
+          {
+            "step": 18,
+            "action": "set_field",
+            "field_name": "Q9_SQ005",
+            "sgqa": "900001X101X1028SQ005",
+            "value": "1",
+            "value_kind": "answer_code",
+            "canonical": "Q9/Q9-R5=Q9-O1",
+            "human": "set Q9_SQ005 to 1"
+          },
+          {
+            "step": 19,
+            "action": "set_field",
+            "field_name": "Q9_SQ006",
+            "sgqa": "900001X101X1028SQ006",
+            "value": "1",
+            "value_kind": "answer_code",
+            "canonical": "Q9/Q9-R6=Q9-O1",
+            "human": "set Q9_SQ006 to 1"
+          },
+          {
+            "step": 20,
+            "action": "set_field",
+            "field_name": "Q10",
+            "sgqa": "900001X101X1035",
+            "value": "A001",
+            "value_kind": "answer_code",
+            "canonical": "Q10/Q10-O1",
+            "human": "select A001 (Yes) on Q10"
+          },
+          {
+            "step": 21,
+            "action": "set_field",
+            "field_name": "Q11_SQ001",
+            "sgqa": "900001X101X1036SQ001",
+            "value": "Y",
+            "value_kind": "checkbox",
+            "canonical": "Q11/Q11-O1",
+            "human": "tick Q11_SQ001 (Phone)"
+          },
+          {
+            "step": 22,
+            "action": "set_field",
+            "field_name": "Q12",
+            "sgqa": "900001X101X1042",
+            "value": "A001",
+            "value_kind": "answer_code",
+            "canonical": "Q12/Q12-O1",
+            "human": "select A001 (Fully) on Q12"
+          },
+          {
+            "step": 23,
+            "action": "set_field",
+            "field_name": "Q13",
+            "sgqa": "900001X101X1043",
+            "value": "1",
+            "value_kind": "answer_code",
+            "canonical": "Q13/Q13-O1",
+            "human": "select 1 (Very low) on Q13"
+          },
+          {
+            "step": 24,
+            "action": "set_field",
+            "field_name": "Q15",
+            "sgqa": "900001X101X1045",
+            "value": "A001",
+            "value_kind": "answer_code",
+            "canonical": "Q15/Q15-O1",
+            "human": "select A001 (Yes) on Q15"
+          },
+          {
+            "step": 25,
+            "action": "set_field",
+            "field_name": "Q16",
+            "sgqa": "900001X101X1046",
+            "value": "A001",
+            "value_kind": "answer_code",
+            "canonical": "Q16/Q16-O1",
+            "human": "select A001 (Price) on Q16"
+          },
+          {
+            "step": 26,
+            "action": "set_field",
+            "field_name": "Q18_SQ001",
+            "sgqa": "900001X101X1048SQ001",
+            "value": "20",
+            "value_kind": "number",
+            "canonical": "Q18/Q18-O1",
+            "human": "enter 20 into Q18_SQ001"
+          },
+          {
+            "step": 27,
+            "action": "set_field",
+            "field_name": "Q18_SQ002",
+            "sgqa": "900001X101X1048SQ002",
+            "value": "20",
+            "value_kind": "number",
+            "canonical": "Q18/Q18-O2",
+            "human": "enter 20 into Q18_SQ002"
+          },
+          {
+            "step": 28,
+            "action": "set_field",
+            "field_name": "Q18_SQ003",
+            "sgqa": "900001X101X1048SQ003",
+            "value": "20",
+            "value_kind": "number",
+            "canonical": "Q18/Q18-O3",
+            "human": "enter 20 into Q18_SQ003"
+          },
+          {
+            "step": 29,
+            "action": "set_field",
+            "field_name": "Q18_SQ004",
+            "sgqa": "900001X101X1048SQ004",
+            "value": "20",
+            "value_kind": "number",
+            "canonical": "Q18/Q18-O4",
+            "human": "enter 20 into Q18_SQ004"
+          },
+          {
+            "step": 30,
+            "action": "set_field",
+            "field_name": "Q18_SQ005",
+            "sgqa": "900001X101X1048SQ005",
+            "value": "20",
+            "value_kind": "number",
+            "canonical": "Q18/Q18-O5",
+            "human": "enter 20 into Q18_SQ005"
+          },
+          {
+            "step": 31,
+            "action": "set_field",
+            "field_name": "Q19",
+            "sgqa": "900001X101X1054",
+            "value": "A001",
+            "value_kind": "answer_code",
+            "canonical": "Q19/Q19-O1",
+            "human": "select A001 (Concept A) on Q19"
+          },
+          {
+            "step": 32,
+            "action": "set_field",
+            "field_name": "Q20",
+            "sgqa": "900001X101X1055",
+            "value": "1",
+            "value_kind": "answer_code",
+            "canonical": "Q20/Q20-O1",
+            "human": "select 1 (Very poor) on Q20"
+          },
+          {
+            "step": 33,
+            "action": "set_field",
+            "field_name": "Q21",
+            "sgqa": "900001X101X1056",
+            "value": "xxxxx",
+            "value_kind": "text",
+            "canonical": "Q21",
+            "human": "type 'xxxxx' into Q21"
+          },
+          {
+            "step": 34,
+            "action": "set_field",
+            "field_name": "D1",
+            "sgqa": "900001X101X1057",
+            "value": "A001",
+            "value_kind": "answer_code",
+            "canonical": "D1/D1-O1",
+            "human": "select A001 (North) on D1"
+          },
+          {
+            "step": 35,
+            "action": "set_field",
+            "field_name": "D2",
+            "sgqa": "900001X101X1058",
+            "value": "A001",
+            "value_kind": "answer_code",
+            "canonical": "D2/D2-O1",
+            "human": "select A001 (21-29) on D2"
+          },
+          {
+            "step": 36,
+            "action": "set_field",
+            "field_name": "D3",
+            "sgqa": "900001X101X1059",
+            "value": "A001",
+            "value_kind": "answer_code",
+            "canonical": "D3/D3-O1",
+            "human": "select A001 (Woman) on D3"
+          },
+          {
+            "step": 37,
+            "action": "set_field",
+            "field_name": "D4",
+            "sgqa": "900001X101X1060",
+            "value": "A001",
+            "value_kind": "answer_code",
+            "canonical": "D4/D4-O1",
+            "human": "select A001 (Band 1) on D4"
+          },
+          {
+            "step": 38,
+            "action": "set_field",
+            "field_name": "Q22",
+            "sgqa": "900001X101X1061",
+            "value": "A001",
+            "value_kind": "answer_code",
+            "canonical": "Q22/Q22-O1",
+            "human": "select A001 (Yes) on Q22"
+          },
+          {
+            "step": 39,
+            "action": "set_field",
+            "field_name": "Q23",
+            "sgqa": "900001X101X1062",
+            "value": "O'Brien said \"yes\" <50% & more",
+            "value_kind": "text",
+            "canonical": "Q23",
+            "human": "type 'O\\'Brien said \"yes\" <50% & more' into Q23"
+          },
+          {
+            "step": 40,
+            "action": "submit_page",
+            "field_name": null,
+            "sgqa": null,
+            "value": null,
+            "value_kind": null,
+            "canonical": null,
+            "human": "submit the final page and observe the end screen"
+          }
+        ],
+        "assertions": [
+          {
+            "kind": "page_advances",
+            "expected": true,
+            "field_name": "Q23",
+            "sgqa": "900001X101X1062",
+            "canonical": "Q23",
+            "detail": "the rule constrains length and says nothing about content, so punctuation must be accepted"
+          }
+        ],
+        "traces_to": [
+          "Q23"
+        ],
+        "campaign": {},
+        "executable": true,
+        "refusal_reason": null,
+        "missing_bindings": [],
+        "provisional_semantics": [
+          "multi_equality"
+        ]
+      },
+      {
+        "test_id": "EX-33dc6da8bb",
         "target_id": "T-4638329ce4",
         "dimension": "D3",
         "title": "Q23 rejects an answer breaking ['max_length']",
@@ -23870,7 +26304,7 @@
         ]
       },
       {
-        "test_id": "EX-80d63eea70",
+        "test_id": "EX-681af46624",
         "target_id": "T-1ccc2b2a02",
         "dimension": "D3",
         "title": "Q5 accepts an answer meeting ['exclusive_option_id']",
@@ -24009,7 +26443,7 @@
         ]
       },
       {
-        "test_id": "EX-72245af10d",
+        "test_id": "EX-ec43072d0b",
         "target_id": "T-0ebf80f9a4",
         "dimension": "D3",
         "title": "Q5 rejects an answer breaking ['exclusive_option_id']",
@@ -24166,7 +26600,7 @@
         ]
       },
       {
-        "test_id": "EX-2c72b11cf0",
+        "test_id": "EX-ef73e4316e",
         "target_id": "T-a62c2ce604",
         "dimension": "D3",
         "title": "Q9 accepts an answer meeting ['require_each_row']",
@@ -24395,7 +26829,7 @@
         ]
       },
       {
-        "test_id": "EX-e65ca470f1",
+        "test_id": "EX-5cd095594c",
         "target_id": "T-d59d4c9e33",
         "dimension": "D3",
         "title": "Q9 rejects an answer breaking ['require_each_row']",
@@ -24622,7 +27056,7 @@
         ]
       },
       {
-        "test_id": "EX-7188c14633",
+        "test_id": "EX-37662379c3",
         "target_id": "T-7c28ecb52e",
         "dimension": "D4",
         "title": "D1 blocks progress when left blank",
@@ -25009,7 +27443,7 @@
         ]
       },
       {
-        "test_id": "EX-c3188c32fc",
+        "test_id": "EX-b03897f65b",
         "target_id": "T-dbfdeade73",
         "dimension": "D4",
         "title": "D2 blocks progress when left blank",
@@ -25406,7 +27840,7 @@
         ]
       },
       {
-        "test_id": "EX-710f6ab4c2",
+        "test_id": "EX-93c004ddc6",
         "target_id": "T-d10e62a757",
         "dimension": "D4",
         "title": "D3 blocks progress when left blank",
@@ -25813,7 +28247,7 @@
         ]
       },
       {
-        "test_id": "EX-723269d23e",
+        "test_id": "EX-456257079e",
         "target_id": "T-b9cdbaed9b",
         "dimension": "D4",
         "title": "D4 blocks progress when left blank",
@@ -26230,7 +28664,7 @@
         ]
       },
       {
-        "test_id": "EX-1d141137e6",
+        "test_id": "EX-d3cf165d96",
         "target_id": "T-e12aace78c",
         "dimension": "D4",
         "title": "Q1 blocks progress when left blank",
@@ -26335,7 +28769,7 @@
         "provisional_semantics": []
       },
       {
-        "test_id": "EX-9695d2b69b",
+        "test_id": "EX-2caf96ea55",
         "target_id": "T-68390df668",
         "dimension": "D4",
         "title": "Q10 blocks progress when left blank",
@@ -26582,7 +29016,7 @@
         ]
       },
       {
-        "test_id": "EX-d990c02cdb",
+        "test_id": "EX-357129b4ce",
         "target_id": "T-b5d13c56c1",
         "dimension": "D4",
         "title": "Q11 blocks progress when left blank",
@@ -26839,7 +29273,7 @@
         ]
       },
       {
-        "test_id": "EX-3f56e64d8b",
+        "test_id": "EX-44bbf6cde6",
         "target_id": "T-90ff9bb975",
         "dimension": "D4",
         "title": "Q12 blocks progress when left blank",
@@ -27106,7 +29540,7 @@
         ]
       },
       {
-        "test_id": "EX-db0689a63d",
+        "test_id": "EX-73f572f97e",
         "target_id": "T-c0d2efa11b",
         "dimension": "D4",
         "title": "Q13 blocks progress when left blank",
@@ -27383,7 +29817,7 @@
         ]
       },
       {
-        "test_id": "EX-3c60a3780c",
+        "test_id": "EX-c0b02995db",
         "target_id": "T-2e4c055027",
         "dimension": "D4",
         "title": "Q14 blocks progress when left blank",
@@ -27660,7 +30094,285 @@
         ]
       },
       {
-        "test_id": "EX-42a07ec1e1",
+        "test_id": "EX-d56fb505e9",
+        "target_id": "T-538bb13bb8",
+        "dimension": "D4",
+        "title": "Q14 refuses an answer of spaces alone, being compulsory",
+        "sid": 900001,
+        "steps": [
+          {
+            "step": 1,
+            "action": "set_field",
+            "field_name": "S1",
+            "sgqa": "900001X100X1000",
+            "value": "A001",
+            "value_kind": "answer_code",
+            "canonical": "S1/S1-O1",
+            "human": "select A001 (Yes) on S1"
+          },
+          {
+            "step": 2,
+            "action": "set_field",
+            "field_name": "S2",
+            "sgqa": "900001X100X1001",
+            "value": "A001",
+            "value_kind": "answer_code",
+            "canonical": "S2/S2-O1",
+            "human": "select A001 (Personally manage an ongoing chronic health condition) on S2"
+          },
+          {
+            "step": 3,
+            "action": "set_field",
+            "field_name": "S3",
+            "sgqa": "900001X100X1002",
+            "value": "A002",
+            "value_kind": "answer_code",
+            "canonical": "S3/S3-O2",
+            "human": "select A002 (No) on S3"
+          },
+          {
+            "step": 4,
+            "action": "set_field",
+            "field_name": "S4",
+            "sgqa": "900001X100X1003",
+            "value": "A002",
+            "value_kind": "answer_code",
+            "canonical": "S4/S4-O2",
+            "human": "select A002 (No) on S4"
+          },
+          {
+            "step": 5,
+            "action": "submit_page",
+            "field_name": null,
+            "sgqa": null,
+            "value": null,
+            "value_kind": null,
+            "canonical": null,
+            "human": "submit the Screening page"
+          },
+          {
+            "step": 6,
+            "action": "set_field",
+            "field_name": "Q1_SQ001",
+            "sgqa": "900001X101X1004SQ001",
+            "value": "Y",
+            "value_kind": "checkbox",
+            "canonical": "Q1/Q1-O1",
+            "human": "tick Q1_SQ001 (Care Network A)"
+          },
+          {
+            "step": 7,
+            "action": "set_field",
+            "field_name": "Q2_SQ001",
+            "sgqa": "900001X101X1010SQ001",
+            "value": "Y",
+            "value_kind": "checkbox",
+            "canonical": "Q2/Q2-O1",
+            "human": "tick Q2_SQ001 (Care Network A)"
+          },
+          {
+            "step": 8,
+            "action": "set_field",
+            "field_name": "Q3",
+            "sgqa": "900001X101X1015",
+            "value": "A001",
+            "value_kind": "answer_code",
+            "canonical": "Q3/Q3-O1",
+            "human": "select A001 (Care Network A) on Q3"
+          },
+          {
+            "step": 9,
+            "action": "set_field",
+            "field_name": "Q4",
+            "sgqa": "900001X101X1016",
+            "value": "A001",
+            "value_kind": "answer_code",
+            "canonical": "Q4/Q4-O1",
+            "human": "select A001 (Recently diagnosed) on Q4"
+          },
+          {
+            "step": 10,
+            "action": "set_field",
+            "field_name": "Q5_SQ001",
+            "sgqa": "900001X101X1017SQ001",
+            "value": "Y",
+            "value_kind": "checkbox",
+            "canonical": "Q5/Q5-O1",
+            "human": "tick Q5_SQ001 (Primary-care physician)"
+          },
+          {
+            "step": 11,
+            "action": "set_field",
+            "field_name": "Q6",
+            "sgqa": "900001X101X1025",
+            "value": "A001",
+            "value_kind": "answer_code",
+            "canonical": "Q6/Q6-O1",
+            "human": "select A001 (Primary-care physician) on Q6"
+          },
+          {
+            "step": 12,
+            "action": "set_field",
+            "field_name": "Q7",
+            "sgqa": "900001X101X1026",
+            "value": "1",
+            "value_kind": "answer_code",
+            "canonical": "Q7/Q7-O1",
+            "human": "select 1 (Very poor) on Q7"
+          },
+          {
+            "step": 13,
+            "action": "set_field",
+            "field_name": "Q8",
+            "sgqa": "900001X101X1027",
+            "value": "A001",
+            "value_kind": "answer_code",
+            "canonical": "Q8/Q8-O1",
+            "human": "select A001 (0) on Q8"
+          },
+          {
+            "step": 14,
+            "action": "set_field",
+            "field_name": "Q9_SQ001",
+            "sgqa": "900001X101X1028SQ001",
+            "value": "1",
+            "value_kind": "answer_code",
+            "canonical": "Q9/Q9-R1=Q9-O1",
+            "human": "set Q9_SQ001 to 1"
+          },
+          {
+            "step": 15,
+            "action": "set_field",
+            "field_name": "Q9_SQ002",
+            "sgqa": "900001X101X1028SQ002",
+            "value": "1",
+            "value_kind": "answer_code",
+            "canonical": "Q9/Q9-R2=Q9-O1",
+            "human": "set Q9_SQ002 to 1"
+          },
+          {
+            "step": 16,
+            "action": "set_field",
+            "field_name": "Q9_SQ003",
+            "sgqa": "900001X101X1028SQ003",
+            "value": "1",
+            "value_kind": "answer_code",
+            "canonical": "Q9/Q9-R3=Q9-O1",
+            "human": "set Q9_SQ003 to 1"
+          },
+          {
+            "step": 17,
+            "action": "set_field",
+            "field_name": "Q9_SQ004",
+            "sgqa": "900001X101X1028SQ004",
+            "value": "1",
+            "value_kind": "answer_code",
+            "canonical": "Q9/Q9-R4=Q9-O1",
+            "human": "set Q9_SQ004 to 1"
+          },
+          {
+            "step": 18,
+            "action": "set_field",
+            "field_name": "Q9_SQ005",
+            "sgqa": "900001X101X1028SQ005",
+            "value": "1",
+            "value_kind": "answer_code",
+            "canonical": "Q9/Q9-R5=Q9-O1",
+            "human": "set Q9_SQ005 to 1"
+          },
+          {
+            "step": 19,
+            "action": "set_field",
+            "field_name": "Q9_SQ006",
+            "sgqa": "900001X101X1028SQ006",
+            "value": "1",
+            "value_kind": "answer_code",
+            "canonical": "Q9/Q9-R6=Q9-O1",
+            "human": "set Q9_SQ006 to 1"
+          },
+          {
+            "step": 20,
+            "action": "set_field",
+            "field_name": "Q10",
+            "sgqa": "900001X101X1035",
+            "value": "A001",
+            "value_kind": "answer_code",
+            "canonical": "Q10/Q10-O1",
+            "human": "select A001 (Yes) on Q10"
+          },
+          {
+            "step": 21,
+            "action": "set_field",
+            "field_name": "Q11_SQ001",
+            "sgqa": "900001X101X1036SQ001",
+            "value": "Y",
+            "value_kind": "checkbox",
+            "canonical": "Q11/Q11-O1",
+            "human": "tick Q11_SQ001 (Phone)"
+          },
+          {
+            "step": 22,
+            "action": "set_field",
+            "field_name": "Q12",
+            "sgqa": "900001X101X1042",
+            "value": "A003",
+            "value_kind": "answer_code",
+            "canonical": "Q12/Q12-O3",
+            "human": "select A003 (Not resolved) on Q12"
+          },
+          {
+            "step": 23,
+            "action": "set_field",
+            "field_name": "Q14",
+            "sgqa": "900001X101X1044",
+            "value": "   ",
+            "value_kind": "text",
+            "canonical": "Q14",
+            "human": "type '   ' into Q14"
+          },
+          {
+            "step": 24,
+            "action": "submit_page",
+            "field_name": null,
+            "sgqa": null,
+            "value": null,
+            "value_kind": null,
+            "canonical": null,
+            "human": "submit the final page and observe the end screen"
+          }
+        ],
+        "assertions": [
+          {
+            "kind": "page_does_not_advance",
+            "expected": true,
+            "field_name": "Q14",
+            "sgqa": "900001X101X1044",
+            "canonical": "Q14",
+            "detail": "spaces alone are not an answer, and the questionnaire marks this question compulsory"
+          },
+          {
+            "kind": "error_shown_on_question",
+            "expected": true,
+            "field_name": "Q14",
+            "sgqa": "900001X101X1044",
+            "canonical": "Q14",
+            "detail": "LimeSurvey redisplays the page with the message against the offending question"
+          }
+        ],
+        "traces_to": [
+          "Q14"
+        ],
+        "campaign": {},
+        "executable": true,
+        "refusal_reason": null,
+        "missing_bindings": [],
+        "provisional_semantics": [
+          "multi_equality",
+          "whitespace_is_an_answer"
+        ]
+      },
+      {
+        "test_id": "EX-832059a1c6",
         "target_id": "T-f3a91deb36",
         "dimension": "D4",
         "title": "Q15 blocks progress when left blank",
@@ -27947,7 +30659,7 @@
         ]
       },
       {
-        "test_id": "EX-6b6c5452b0",
+        "test_id": "EX-933785e70b",
         "target_id": "T-4d60314582",
         "dimension": "D4",
         "title": "Q16 blocks progress when left blank",
@@ -28244,7 +30956,7 @@
         ]
       },
       {
-        "test_id": "EX-e36fc2a9f7",
+        "test_id": "EX-79da5a1fea",
         "target_id": "T-f7dbbbe44a",
         "dimension": "D4",
         "title": "Q17 blocks progress when left blank",
@@ -28551,7 +31263,315 @@
         ]
       },
       {
-        "test_id": "EX-4ad57aa1e8",
+        "test_id": "EX-639b092881",
+        "target_id": "T-66d084b45e",
+        "dimension": "D4",
+        "title": "Q17 refuses an answer of spaces alone, being compulsory",
+        "sid": 900001,
+        "steps": [
+          {
+            "step": 1,
+            "action": "set_field",
+            "field_name": "S1",
+            "sgqa": "900001X100X1000",
+            "value": "A001",
+            "value_kind": "answer_code",
+            "canonical": "S1/S1-O1",
+            "human": "select A001 (Yes) on S1"
+          },
+          {
+            "step": 2,
+            "action": "set_field",
+            "field_name": "S2",
+            "sgqa": "900001X100X1001",
+            "value": "A001",
+            "value_kind": "answer_code",
+            "canonical": "S2/S2-O1",
+            "human": "select A001 (Personally manage an ongoing chronic health condition) on S2"
+          },
+          {
+            "step": 3,
+            "action": "set_field",
+            "field_name": "S3",
+            "sgqa": "900001X100X1002",
+            "value": "A002",
+            "value_kind": "answer_code",
+            "canonical": "S3/S3-O2",
+            "human": "select A002 (No) on S3"
+          },
+          {
+            "step": 4,
+            "action": "set_field",
+            "field_name": "S4",
+            "sgqa": "900001X100X1003",
+            "value": "A002",
+            "value_kind": "answer_code",
+            "canonical": "S4/S4-O2",
+            "human": "select A002 (No) on S4"
+          },
+          {
+            "step": 5,
+            "action": "submit_page",
+            "field_name": null,
+            "sgqa": null,
+            "value": null,
+            "value_kind": null,
+            "canonical": null,
+            "human": "submit the Screening page"
+          },
+          {
+            "step": 6,
+            "action": "set_field",
+            "field_name": "Q1_SQ001",
+            "sgqa": "900001X101X1004SQ001",
+            "value": "Y",
+            "value_kind": "checkbox",
+            "canonical": "Q1/Q1-O1",
+            "human": "tick Q1_SQ001 (Care Network A)"
+          },
+          {
+            "step": 7,
+            "action": "set_field",
+            "field_name": "Q2_SQ001",
+            "sgqa": "900001X101X1010SQ001",
+            "value": "Y",
+            "value_kind": "checkbox",
+            "canonical": "Q2/Q2-O1",
+            "human": "tick Q2_SQ001 (Care Network A)"
+          },
+          {
+            "step": 8,
+            "action": "set_field",
+            "field_name": "Q3",
+            "sgqa": "900001X101X1015",
+            "value": "A001",
+            "value_kind": "answer_code",
+            "canonical": "Q3/Q3-O1",
+            "human": "select A001 (Care Network A) on Q3"
+          },
+          {
+            "step": 9,
+            "action": "set_field",
+            "field_name": "Q4",
+            "sgqa": "900001X101X1016",
+            "value": "A001",
+            "value_kind": "answer_code",
+            "canonical": "Q4/Q4-O1",
+            "human": "select A001 (Recently diagnosed) on Q4"
+          },
+          {
+            "step": 10,
+            "action": "set_field",
+            "field_name": "Q5_SQ001",
+            "sgqa": "900001X101X1017SQ001",
+            "value": "Y",
+            "value_kind": "checkbox",
+            "canonical": "Q5/Q5-O1",
+            "human": "tick Q5_SQ001 (Primary-care physician)"
+          },
+          {
+            "step": 11,
+            "action": "set_field",
+            "field_name": "Q6",
+            "sgqa": "900001X101X1025",
+            "value": "A001",
+            "value_kind": "answer_code",
+            "canonical": "Q6/Q6-O1",
+            "human": "select A001 (Primary-care physician) on Q6"
+          },
+          {
+            "step": 12,
+            "action": "set_field",
+            "field_name": "Q7",
+            "sgqa": "900001X101X1026",
+            "value": "1",
+            "value_kind": "answer_code",
+            "canonical": "Q7/Q7-O1",
+            "human": "select 1 (Very poor) on Q7"
+          },
+          {
+            "step": 13,
+            "action": "set_field",
+            "field_name": "Q8",
+            "sgqa": "900001X101X1027",
+            "value": "A001",
+            "value_kind": "answer_code",
+            "canonical": "Q8/Q8-O1",
+            "human": "select A001 (0) on Q8"
+          },
+          {
+            "step": 14,
+            "action": "set_field",
+            "field_name": "Q9_SQ001",
+            "sgqa": "900001X101X1028SQ001",
+            "value": "1",
+            "value_kind": "answer_code",
+            "canonical": "Q9/Q9-R1=Q9-O1",
+            "human": "set Q9_SQ001 to 1"
+          },
+          {
+            "step": 15,
+            "action": "set_field",
+            "field_name": "Q9_SQ002",
+            "sgqa": "900001X101X1028SQ002",
+            "value": "1",
+            "value_kind": "answer_code",
+            "canonical": "Q9/Q9-R2=Q9-O1",
+            "human": "set Q9_SQ002 to 1"
+          },
+          {
+            "step": 16,
+            "action": "set_field",
+            "field_name": "Q9_SQ003",
+            "sgqa": "900001X101X1028SQ003",
+            "value": "1",
+            "value_kind": "answer_code",
+            "canonical": "Q9/Q9-R3=Q9-O1",
+            "human": "set Q9_SQ003 to 1"
+          },
+          {
+            "step": 17,
+            "action": "set_field",
+            "field_name": "Q9_SQ004",
+            "sgqa": "900001X101X1028SQ004",
+            "value": "1",
+            "value_kind": "answer_code",
+            "canonical": "Q9/Q9-R4=Q9-O1",
+            "human": "set Q9_SQ004 to 1"
+          },
+          {
+            "step": 18,
+            "action": "set_field",
+            "field_name": "Q9_SQ005",
+            "sgqa": "900001X101X1028SQ005",
+            "value": "1",
+            "value_kind": "answer_code",
+            "canonical": "Q9/Q9-R5=Q9-O1",
+            "human": "set Q9_SQ005 to 1"
+          },
+          {
+            "step": 19,
+            "action": "set_field",
+            "field_name": "Q9_SQ006",
+            "sgqa": "900001X101X1028SQ006",
+            "value": "1",
+            "value_kind": "answer_code",
+            "canonical": "Q9/Q9-R6=Q9-O1",
+            "human": "set Q9_SQ006 to 1"
+          },
+          {
+            "step": 20,
+            "action": "set_field",
+            "field_name": "Q10",
+            "sgqa": "900001X101X1035",
+            "value": "A001",
+            "value_kind": "answer_code",
+            "canonical": "Q10/Q10-O1",
+            "human": "select A001 (Yes) on Q10"
+          },
+          {
+            "step": 21,
+            "action": "set_field",
+            "field_name": "Q11_SQ001",
+            "sgqa": "900001X101X1036SQ001",
+            "value": "Y",
+            "value_kind": "checkbox",
+            "canonical": "Q11/Q11-O1",
+            "human": "tick Q11_SQ001 (Phone)"
+          },
+          {
+            "step": 22,
+            "action": "set_field",
+            "field_name": "Q12",
+            "sgqa": "900001X101X1042",
+            "value": "A001",
+            "value_kind": "answer_code",
+            "canonical": "Q12/Q12-O1",
+            "human": "select A001 (Fully) on Q12"
+          },
+          {
+            "step": 23,
+            "action": "set_field",
+            "field_name": "Q13",
+            "sgqa": "900001X101X1043",
+            "value": "1",
+            "value_kind": "answer_code",
+            "canonical": "Q13/Q13-O1",
+            "human": "select 1 (Very low) on Q13"
+          },
+          {
+            "step": 24,
+            "action": "set_field",
+            "field_name": "Q15",
+            "sgqa": "900001X101X1045",
+            "value": "A001",
+            "value_kind": "answer_code",
+            "canonical": "Q15/Q15-O1",
+            "human": "select A001 (Yes) on Q15"
+          },
+          {
+            "step": 25,
+            "action": "set_field",
+            "field_name": "Q16",
+            "sgqa": "900001X101X1046",
+            "value": "A006",
+            "value_kind": "answer_code",
+            "canonical": "Q16/Q16-O6",
+            "human": "select A006 (Other) on Q16"
+          },
+          {
+            "step": 26,
+            "action": "set_field",
+            "field_name": "Q17",
+            "sgqa": "900001X101X1047",
+            "value": "   ",
+            "value_kind": "text",
+            "canonical": "Q17",
+            "human": "type '   ' into Q17"
+          },
+          {
+            "step": 27,
+            "action": "submit_page",
+            "field_name": null,
+            "sgqa": null,
+            "value": null,
+            "value_kind": null,
+            "canonical": null,
+            "human": "submit the final page and observe the end screen"
+          }
+        ],
+        "assertions": [
+          {
+            "kind": "page_does_not_advance",
+            "expected": true,
+            "field_name": "Q17",
+            "sgqa": "900001X101X1047",
+            "canonical": "Q17",
+            "detail": "spaces alone are not an answer, and the questionnaire marks this question compulsory"
+          },
+          {
+            "kind": "error_shown_on_question",
+            "expected": true,
+            "field_name": "Q17",
+            "sgqa": "900001X101X1047",
+            "canonical": "Q17",
+            "detail": "LimeSurvey redisplays the page with the message against the offending question"
+          }
+        ],
+        "traces_to": [
+          "Q17"
+        ],
+        "campaign": {},
+        "executable": true,
+        "refusal_reason": null,
+        "missing_bindings": [],
+        "provisional_semantics": [
+          "multi_equality",
+          "whitespace_is_an_answer"
+        ]
+      },
+      {
+        "test_id": "EX-94354fc06e",
         "target_id": "T-3d89191a22",
         "dimension": "D4",
         "title": "Q18 blocks progress when left blank",
@@ -28858,7 +31878,7 @@
         ]
       },
       {
-        "test_id": "EX-a93d8aafee",
+        "test_id": "EX-e4c5275bf6",
         "target_id": "T-6ac057a591",
         "dimension": "D4",
         "title": "Q19 blocks progress when left blank",
@@ -29215,7 +32235,7 @@
         ]
       },
       {
-        "test_id": "EX-fb6bdc2b58",
+        "test_id": "EX-7269ba3561",
         "target_id": "T-727f5e7cc5",
         "dimension": "D4",
         "title": "Q2 blocks progress when left blank",
@@ -29332,7 +32352,7 @@
         ]
       },
       {
-        "test_id": "EX-312bbf777e",
+        "test_id": "EX-aa949cfb61",
         "target_id": "T-ac047e7b7e",
         "dimension": "D4",
         "title": "Q20 blocks progress when left blank",
@@ -29699,7 +32719,7 @@
         ]
       },
       {
-        "test_id": "EX-549c03ae94",
+        "test_id": "EX-facafb353f",
         "target_id": "T-90ea8c04ea",
         "dimension": "D4",
         "title": "Q21 blocks progress when left blank",
@@ -30076,7 +33096,385 @@
         ]
       },
       {
-        "test_id": "EX-e1e77780df",
+        "test_id": "EX-d19fdf5b47",
+        "target_id": "T-ccc57c78ea",
+        "dimension": "D4",
+        "title": "Q21 refuses an answer of spaces alone, being compulsory",
+        "sid": 900001,
+        "steps": [
+          {
+            "step": 1,
+            "action": "set_field",
+            "field_name": "S1",
+            "sgqa": "900001X100X1000",
+            "value": "A001",
+            "value_kind": "answer_code",
+            "canonical": "S1/S1-O1",
+            "human": "select A001 (Yes) on S1"
+          },
+          {
+            "step": 2,
+            "action": "set_field",
+            "field_name": "S2",
+            "sgqa": "900001X100X1001",
+            "value": "A001",
+            "value_kind": "answer_code",
+            "canonical": "S2/S2-O1",
+            "human": "select A001 (Personally manage an ongoing chronic health condition) on S2"
+          },
+          {
+            "step": 3,
+            "action": "set_field",
+            "field_name": "S3",
+            "sgqa": "900001X100X1002",
+            "value": "A002",
+            "value_kind": "answer_code",
+            "canonical": "S3/S3-O2",
+            "human": "select A002 (No) on S3"
+          },
+          {
+            "step": 4,
+            "action": "set_field",
+            "field_name": "S4",
+            "sgqa": "900001X100X1003",
+            "value": "A002",
+            "value_kind": "answer_code",
+            "canonical": "S4/S4-O2",
+            "human": "select A002 (No) on S4"
+          },
+          {
+            "step": 5,
+            "action": "submit_page",
+            "field_name": null,
+            "sgqa": null,
+            "value": null,
+            "value_kind": null,
+            "canonical": null,
+            "human": "submit the Screening page"
+          },
+          {
+            "step": 6,
+            "action": "set_field",
+            "field_name": "Q1_SQ001",
+            "sgqa": "900001X101X1004SQ001",
+            "value": "Y",
+            "value_kind": "checkbox",
+            "canonical": "Q1/Q1-O1",
+            "human": "tick Q1_SQ001 (Care Network A)"
+          },
+          {
+            "step": 7,
+            "action": "set_field",
+            "field_name": "Q2_SQ001",
+            "sgqa": "900001X101X1010SQ001",
+            "value": "Y",
+            "value_kind": "checkbox",
+            "canonical": "Q2/Q2-O1",
+            "human": "tick Q2_SQ001 (Care Network A)"
+          },
+          {
+            "step": 8,
+            "action": "set_field",
+            "field_name": "Q3",
+            "sgqa": "900001X101X1015",
+            "value": "A001",
+            "value_kind": "answer_code",
+            "canonical": "Q3/Q3-O1",
+            "human": "select A001 (Care Network A) on Q3"
+          },
+          {
+            "step": 9,
+            "action": "set_field",
+            "field_name": "Q4",
+            "sgqa": "900001X101X1016",
+            "value": "A001",
+            "value_kind": "answer_code",
+            "canonical": "Q4/Q4-O1",
+            "human": "select A001 (Recently diagnosed) on Q4"
+          },
+          {
+            "step": 10,
+            "action": "set_field",
+            "field_name": "Q5_SQ001",
+            "sgqa": "900001X101X1017SQ001",
+            "value": "Y",
+            "value_kind": "checkbox",
+            "canonical": "Q5/Q5-O1",
+            "human": "tick Q5_SQ001 (Primary-care physician)"
+          },
+          {
+            "step": 11,
+            "action": "set_field",
+            "field_name": "Q6",
+            "sgqa": "900001X101X1025",
+            "value": "A001",
+            "value_kind": "answer_code",
+            "canonical": "Q6/Q6-O1",
+            "human": "select A001 (Primary-care physician) on Q6"
+          },
+          {
+            "step": 12,
+            "action": "set_field",
+            "field_name": "Q7",
+            "sgqa": "900001X101X1026",
+            "value": "1",
+            "value_kind": "answer_code",
+            "canonical": "Q7/Q7-O1",
+            "human": "select 1 (Very poor) on Q7"
+          },
+          {
+            "step": 13,
+            "action": "set_field",
+            "field_name": "Q8",
+            "sgqa": "900001X101X1027",
+            "value": "A001",
+            "value_kind": "answer_code",
+            "canonical": "Q8/Q8-O1",
+            "human": "select A001 (0) on Q8"
+          },
+          {
+            "step": 14,
+            "action": "set_field",
+            "field_name": "Q9_SQ001",
+            "sgqa": "900001X101X1028SQ001",
+            "value": "1",
+            "value_kind": "answer_code",
+            "canonical": "Q9/Q9-R1=Q9-O1",
+            "human": "set Q9_SQ001 to 1"
+          },
+          {
+            "step": 15,
+            "action": "set_field",
+            "field_name": "Q9_SQ002",
+            "sgqa": "900001X101X1028SQ002",
+            "value": "1",
+            "value_kind": "answer_code",
+            "canonical": "Q9/Q9-R2=Q9-O1",
+            "human": "set Q9_SQ002 to 1"
+          },
+          {
+            "step": 16,
+            "action": "set_field",
+            "field_name": "Q9_SQ003",
+            "sgqa": "900001X101X1028SQ003",
+            "value": "1",
+            "value_kind": "answer_code",
+            "canonical": "Q9/Q9-R3=Q9-O1",
+            "human": "set Q9_SQ003 to 1"
+          },
+          {
+            "step": 17,
+            "action": "set_field",
+            "field_name": "Q9_SQ004",
+            "sgqa": "900001X101X1028SQ004",
+            "value": "1",
+            "value_kind": "answer_code",
+            "canonical": "Q9/Q9-R4=Q9-O1",
+            "human": "set Q9_SQ004 to 1"
+          },
+          {
+            "step": 18,
+            "action": "set_field",
+            "field_name": "Q9_SQ005",
+            "sgqa": "900001X101X1028SQ005",
+            "value": "1",
+            "value_kind": "answer_code",
+            "canonical": "Q9/Q9-R5=Q9-O1",
+            "human": "set Q9_SQ005 to 1"
+          },
+          {
+            "step": 19,
+            "action": "set_field",
+            "field_name": "Q9_SQ006",
+            "sgqa": "900001X101X1028SQ006",
+            "value": "1",
+            "value_kind": "answer_code",
+            "canonical": "Q9/Q9-R6=Q9-O1",
+            "human": "set Q9_SQ006 to 1"
+          },
+          {
+            "step": 20,
+            "action": "set_field",
+            "field_name": "Q10",
+            "sgqa": "900001X101X1035",
+            "value": "A001",
+            "value_kind": "answer_code",
+            "canonical": "Q10/Q10-O1",
+            "human": "select A001 (Yes) on Q10"
+          },
+          {
+            "step": 21,
+            "action": "set_field",
+            "field_name": "Q11_SQ001",
+            "sgqa": "900001X101X1036SQ001",
+            "value": "Y",
+            "value_kind": "checkbox",
+            "canonical": "Q11/Q11-O1",
+            "human": "tick Q11_SQ001 (Phone)"
+          },
+          {
+            "step": 22,
+            "action": "set_field",
+            "field_name": "Q12",
+            "sgqa": "900001X101X1042",
+            "value": "A001",
+            "value_kind": "answer_code",
+            "canonical": "Q12/Q12-O1",
+            "human": "select A001 (Fully) on Q12"
+          },
+          {
+            "step": 23,
+            "action": "set_field",
+            "field_name": "Q13",
+            "sgqa": "900001X101X1043",
+            "value": "1",
+            "value_kind": "answer_code",
+            "canonical": "Q13/Q13-O1",
+            "human": "select 1 (Very low) on Q13"
+          },
+          {
+            "step": 24,
+            "action": "set_field",
+            "field_name": "Q15",
+            "sgqa": "900001X101X1045",
+            "value": "A001",
+            "value_kind": "answer_code",
+            "canonical": "Q15/Q15-O1",
+            "human": "select A001 (Yes) on Q15"
+          },
+          {
+            "step": 25,
+            "action": "set_field",
+            "field_name": "Q16",
+            "sgqa": "900001X101X1046",
+            "value": "A001",
+            "value_kind": "answer_code",
+            "canonical": "Q16/Q16-O1",
+            "human": "select A001 (Price) on Q16"
+          },
+          {
+            "step": 26,
+            "action": "set_field",
+            "field_name": "Q18_SQ001",
+            "sgqa": "900001X101X1048SQ001",
+            "value": "20",
+            "value_kind": "number",
+            "canonical": "Q18/Q18-O1",
+            "human": "enter 20 into Q18_SQ001"
+          },
+          {
+            "step": 27,
+            "action": "set_field",
+            "field_name": "Q18_SQ002",
+            "sgqa": "900001X101X1048SQ002",
+            "value": "20",
+            "value_kind": "number",
+            "canonical": "Q18/Q18-O2",
+            "human": "enter 20 into Q18_SQ002"
+          },
+          {
+            "step": 28,
+            "action": "set_field",
+            "field_name": "Q18_SQ003",
+            "sgqa": "900001X101X1048SQ003",
+            "value": "20",
+            "value_kind": "number",
+            "canonical": "Q18/Q18-O3",
+            "human": "enter 20 into Q18_SQ003"
+          },
+          {
+            "step": 29,
+            "action": "set_field",
+            "field_name": "Q18_SQ004",
+            "sgqa": "900001X101X1048SQ004",
+            "value": "20",
+            "value_kind": "number",
+            "canonical": "Q18/Q18-O4",
+            "human": "enter 20 into Q18_SQ004"
+          },
+          {
+            "step": 30,
+            "action": "set_field",
+            "field_name": "Q18_SQ005",
+            "sgqa": "900001X101X1048SQ005",
+            "value": "20",
+            "value_kind": "number",
+            "canonical": "Q18/Q18-O5",
+            "human": "enter 20 into Q18_SQ005"
+          },
+          {
+            "step": 31,
+            "action": "set_field",
+            "field_name": "Q19",
+            "sgqa": "900001X101X1054",
+            "value": "A001",
+            "value_kind": "answer_code",
+            "canonical": "Q19/Q19-O1",
+            "human": "select A001 (Concept A) on Q19"
+          },
+          {
+            "step": 32,
+            "action": "set_field",
+            "field_name": "Q20",
+            "sgqa": "900001X101X1055",
+            "value": "1",
+            "value_kind": "answer_code",
+            "canonical": "Q20/Q20-O1",
+            "human": "select 1 (Very poor) on Q20"
+          },
+          {
+            "step": 33,
+            "action": "set_field",
+            "field_name": "Q21",
+            "sgqa": "900001X101X1056",
+            "value": "   ",
+            "value_kind": "text",
+            "canonical": "Q21",
+            "human": "type '   ' into Q21"
+          },
+          {
+            "step": 34,
+            "action": "submit_page",
+            "field_name": null,
+            "sgqa": null,
+            "value": null,
+            "value_kind": null,
+            "canonical": null,
+            "human": "submit the final page and observe the end screen"
+          }
+        ],
+        "assertions": [
+          {
+            "kind": "page_does_not_advance",
+            "expected": true,
+            "field_name": "Q21",
+            "sgqa": "900001X101X1056",
+            "canonical": "Q21",
+            "detail": "spaces alone are not an answer, and the questionnaire marks this question compulsory"
+          },
+          {
+            "kind": "error_shown_on_question",
+            "expected": true,
+            "field_name": "Q21",
+            "sgqa": "900001X101X1056",
+            "canonical": "Q21",
+            "detail": "LimeSurvey redisplays the page with the message against the offending question"
+          }
+        ],
+        "traces_to": [
+          "Q21"
+        ],
+        "campaign": {},
+        "executable": true,
+        "refusal_reason": null,
+        "missing_bindings": [],
+        "provisional_semantics": [
+          "multi_equality",
+          "whitespace_is_an_answer"
+        ]
+      },
+      {
+        "test_id": "EX-9db0429a72",
         "target_id": "T-c9577209e2",
         "dimension": "D4",
         "title": "Q22 blocks progress when left blank",
@@ -30503,7 +33901,7 @@
         ]
       },
       {
-        "test_id": "EX-f9fd3554ae",
+        "test_id": "EX-f8d9ca5a5e",
         "target_id": "T-eee113ba16",
         "dimension": "D4",
         "title": "Q23 is optional and permits progress when left blank",
@@ -30932,7 +34330,437 @@
         ]
       },
       {
-        "test_id": "EX-291a3bd78e",
+        "test_id": "EX-987509ce51",
+        "target_id": "T-c9acd65128",
+        "dimension": "D4",
+        "title": "Q23 accepts an answer of spaces alone, being optional",
+        "sid": 900001,
+        "steps": [
+          {
+            "step": 1,
+            "action": "set_field",
+            "field_name": "S1",
+            "sgqa": "900001X100X1000",
+            "value": "A001",
+            "value_kind": "answer_code",
+            "canonical": "S1/S1-O1",
+            "human": "select A001 (Yes) on S1"
+          },
+          {
+            "step": 2,
+            "action": "set_field",
+            "field_name": "S2",
+            "sgqa": "900001X100X1001",
+            "value": "A001",
+            "value_kind": "answer_code",
+            "canonical": "S2/S2-O1",
+            "human": "select A001 (Personally manage an ongoing chronic health condition) on S2"
+          },
+          {
+            "step": 3,
+            "action": "set_field",
+            "field_name": "S3",
+            "sgqa": "900001X100X1002",
+            "value": "A002",
+            "value_kind": "answer_code",
+            "canonical": "S3/S3-O2",
+            "human": "select A002 (No) on S3"
+          },
+          {
+            "step": 4,
+            "action": "set_field",
+            "field_name": "S4",
+            "sgqa": "900001X100X1003",
+            "value": "A002",
+            "value_kind": "answer_code",
+            "canonical": "S4/S4-O2",
+            "human": "select A002 (No) on S4"
+          },
+          {
+            "step": 5,
+            "action": "submit_page",
+            "field_name": null,
+            "sgqa": null,
+            "value": null,
+            "value_kind": null,
+            "canonical": null,
+            "human": "submit the Screening page"
+          },
+          {
+            "step": 6,
+            "action": "set_field",
+            "field_name": "Q1_SQ001",
+            "sgqa": "900001X101X1004SQ001",
+            "value": "Y",
+            "value_kind": "checkbox",
+            "canonical": "Q1/Q1-O1",
+            "human": "tick Q1_SQ001 (Care Network A)"
+          },
+          {
+            "step": 7,
+            "action": "set_field",
+            "field_name": "Q2_SQ001",
+            "sgqa": "900001X101X1010SQ001",
+            "value": "Y",
+            "value_kind": "checkbox",
+            "canonical": "Q2/Q2-O1",
+            "human": "tick Q2_SQ001 (Care Network A)"
+          },
+          {
+            "step": 8,
+            "action": "set_field",
+            "field_name": "Q3",
+            "sgqa": "900001X101X1015",
+            "value": "A001",
+            "value_kind": "answer_code",
+            "canonical": "Q3/Q3-O1",
+            "human": "select A001 (Care Network A) on Q3"
+          },
+          {
+            "step": 9,
+            "action": "set_field",
+            "field_name": "Q4",
+            "sgqa": "900001X101X1016",
+            "value": "A001",
+            "value_kind": "answer_code",
+            "canonical": "Q4/Q4-O1",
+            "human": "select A001 (Recently diagnosed) on Q4"
+          },
+          {
+            "step": 10,
+            "action": "set_field",
+            "field_name": "Q5_SQ001",
+            "sgqa": "900001X101X1017SQ001",
+            "value": "Y",
+            "value_kind": "checkbox",
+            "canonical": "Q5/Q5-O1",
+            "human": "tick Q5_SQ001 (Primary-care physician)"
+          },
+          {
+            "step": 11,
+            "action": "set_field",
+            "field_name": "Q6",
+            "sgqa": "900001X101X1025",
+            "value": "A001",
+            "value_kind": "answer_code",
+            "canonical": "Q6/Q6-O1",
+            "human": "select A001 (Primary-care physician) on Q6"
+          },
+          {
+            "step": 12,
+            "action": "set_field",
+            "field_name": "Q7",
+            "sgqa": "900001X101X1026",
+            "value": "1",
+            "value_kind": "answer_code",
+            "canonical": "Q7/Q7-O1",
+            "human": "select 1 (Very poor) on Q7"
+          },
+          {
+            "step": 13,
+            "action": "set_field",
+            "field_name": "Q8",
+            "sgqa": "900001X101X1027",
+            "value": "A001",
+            "value_kind": "answer_code",
+            "canonical": "Q8/Q8-O1",
+            "human": "select A001 (0) on Q8"
+          },
+          {
+            "step": 14,
+            "action": "set_field",
+            "field_name": "Q9_SQ001",
+            "sgqa": "900001X101X1028SQ001",
+            "value": "1",
+            "value_kind": "answer_code",
+            "canonical": "Q9/Q9-R1=Q9-O1",
+            "human": "set Q9_SQ001 to 1"
+          },
+          {
+            "step": 15,
+            "action": "set_field",
+            "field_name": "Q9_SQ002",
+            "sgqa": "900001X101X1028SQ002",
+            "value": "1",
+            "value_kind": "answer_code",
+            "canonical": "Q9/Q9-R2=Q9-O1",
+            "human": "set Q9_SQ002 to 1"
+          },
+          {
+            "step": 16,
+            "action": "set_field",
+            "field_name": "Q9_SQ003",
+            "sgqa": "900001X101X1028SQ003",
+            "value": "1",
+            "value_kind": "answer_code",
+            "canonical": "Q9/Q9-R3=Q9-O1",
+            "human": "set Q9_SQ003 to 1"
+          },
+          {
+            "step": 17,
+            "action": "set_field",
+            "field_name": "Q9_SQ004",
+            "sgqa": "900001X101X1028SQ004",
+            "value": "1",
+            "value_kind": "answer_code",
+            "canonical": "Q9/Q9-R4=Q9-O1",
+            "human": "set Q9_SQ004 to 1"
+          },
+          {
+            "step": 18,
+            "action": "set_field",
+            "field_name": "Q9_SQ005",
+            "sgqa": "900001X101X1028SQ005",
+            "value": "1",
+            "value_kind": "answer_code",
+            "canonical": "Q9/Q9-R5=Q9-O1",
+            "human": "set Q9_SQ005 to 1"
+          },
+          {
+            "step": 19,
+            "action": "set_field",
+            "field_name": "Q9_SQ006",
+            "sgqa": "900001X101X1028SQ006",
+            "value": "1",
+            "value_kind": "answer_code",
+            "canonical": "Q9/Q9-R6=Q9-O1",
+            "human": "set Q9_SQ006 to 1"
+          },
+          {
+            "step": 20,
+            "action": "set_field",
+            "field_name": "Q10",
+            "sgqa": "900001X101X1035",
+            "value": "A001",
+            "value_kind": "answer_code",
+            "canonical": "Q10/Q10-O1",
+            "human": "select A001 (Yes) on Q10"
+          },
+          {
+            "step": 21,
+            "action": "set_field",
+            "field_name": "Q11_SQ001",
+            "sgqa": "900001X101X1036SQ001",
+            "value": "Y",
+            "value_kind": "checkbox",
+            "canonical": "Q11/Q11-O1",
+            "human": "tick Q11_SQ001 (Phone)"
+          },
+          {
+            "step": 22,
+            "action": "set_field",
+            "field_name": "Q12",
+            "sgqa": "900001X101X1042",
+            "value": "A001",
+            "value_kind": "answer_code",
+            "canonical": "Q12/Q12-O1",
+            "human": "select A001 (Fully) on Q12"
+          },
+          {
+            "step": 23,
+            "action": "set_field",
+            "field_name": "Q13",
+            "sgqa": "900001X101X1043",
+            "value": "1",
+            "value_kind": "answer_code",
+            "canonical": "Q13/Q13-O1",
+            "human": "select 1 (Very low) on Q13"
+          },
+          {
+            "step": 24,
+            "action": "set_field",
+            "field_name": "Q15",
+            "sgqa": "900001X101X1045",
+            "value": "A001",
+            "value_kind": "answer_code",
+            "canonical": "Q15/Q15-O1",
+            "human": "select A001 (Yes) on Q15"
+          },
+          {
+            "step": 25,
+            "action": "set_field",
+            "field_name": "Q16",
+            "sgqa": "900001X101X1046",
+            "value": "A001",
+            "value_kind": "answer_code",
+            "canonical": "Q16/Q16-O1",
+            "human": "select A001 (Price) on Q16"
+          },
+          {
+            "step": 26,
+            "action": "set_field",
+            "field_name": "Q18_SQ001",
+            "sgqa": "900001X101X1048SQ001",
+            "value": "20",
+            "value_kind": "number",
+            "canonical": "Q18/Q18-O1",
+            "human": "enter 20 into Q18_SQ001"
+          },
+          {
+            "step": 27,
+            "action": "set_field",
+            "field_name": "Q18_SQ002",
+            "sgqa": "900001X101X1048SQ002",
+            "value": "20",
+            "value_kind": "number",
+            "canonical": "Q18/Q18-O2",
+            "human": "enter 20 into Q18_SQ002"
+          },
+          {
+            "step": 28,
+            "action": "set_field",
+            "field_name": "Q18_SQ003",
+            "sgqa": "900001X101X1048SQ003",
+            "value": "20",
+            "value_kind": "number",
+            "canonical": "Q18/Q18-O3",
+            "human": "enter 20 into Q18_SQ003"
+          },
+          {
+            "step": 29,
+            "action": "set_field",
+            "field_name": "Q18_SQ004",
+            "sgqa": "900001X101X1048SQ004",
+            "value": "20",
+            "value_kind": "number",
+            "canonical": "Q18/Q18-O4",
+            "human": "enter 20 into Q18_SQ004"
+          },
+          {
+            "step": 30,
+            "action": "set_field",
+            "field_name": "Q18_SQ005",
+            "sgqa": "900001X101X1048SQ005",
+            "value": "20",
+            "value_kind": "number",
+            "canonical": "Q18/Q18-O5",
+            "human": "enter 20 into Q18_SQ005"
+          },
+          {
+            "step": 31,
+            "action": "set_field",
+            "field_name": "Q19",
+            "sgqa": "900001X101X1054",
+            "value": "A001",
+            "value_kind": "answer_code",
+            "canonical": "Q19/Q19-O1",
+            "human": "select A001 (Concept A) on Q19"
+          },
+          {
+            "step": 32,
+            "action": "set_field",
+            "field_name": "Q20",
+            "sgqa": "900001X101X1055",
+            "value": "1",
+            "value_kind": "answer_code",
+            "canonical": "Q20/Q20-O1",
+            "human": "select 1 (Very poor) on Q20"
+          },
+          {
+            "step": 33,
+            "action": "set_field",
+            "field_name": "Q21",
+            "sgqa": "900001X101X1056",
+            "value": "xxxxx",
+            "value_kind": "text",
+            "canonical": "Q21",
+            "human": "type 'xxxxx' into Q21"
+          },
+          {
+            "step": 34,
+            "action": "set_field",
+            "field_name": "D1",
+            "sgqa": "900001X101X1057",
+            "value": "A001",
+            "value_kind": "answer_code",
+            "canonical": "D1/D1-O1",
+            "human": "select A001 (North) on D1"
+          },
+          {
+            "step": 35,
+            "action": "set_field",
+            "field_name": "D2",
+            "sgqa": "900001X101X1058",
+            "value": "A001",
+            "value_kind": "answer_code",
+            "canonical": "D2/D2-O1",
+            "human": "select A001 (21-29) on D2"
+          },
+          {
+            "step": 36,
+            "action": "set_field",
+            "field_name": "D3",
+            "sgqa": "900001X101X1059",
+            "value": "A001",
+            "value_kind": "answer_code",
+            "canonical": "D3/D3-O1",
+            "human": "select A001 (Woman) on D3"
+          },
+          {
+            "step": 37,
+            "action": "set_field",
+            "field_name": "D4",
+            "sgqa": "900001X101X1060",
+            "value": "A001",
+            "value_kind": "answer_code",
+            "canonical": "D4/D4-O1",
+            "human": "select A001 (Band 1) on D4"
+          },
+          {
+            "step": 38,
+            "action": "set_field",
+            "field_name": "Q22",
+            "sgqa": "900001X101X1061",
+            "value": "A001",
+            "value_kind": "answer_code",
+            "canonical": "Q22/Q22-O1",
+            "human": "select A001 (Yes) on Q22"
+          },
+          {
+            "step": 39,
+            "action": "set_field",
+            "field_name": "Q23",
+            "sgqa": "900001X101X1062",
+            "value": "   ",
+            "value_kind": "text",
+            "canonical": "Q23",
+            "human": "type '   ' into Q23"
+          },
+          {
+            "step": 40,
+            "action": "submit_page",
+            "field_name": null,
+            "sgqa": null,
+            "value": null,
+            "value_kind": null,
+            "canonical": null,
+            "human": "submit the final page and observe the end screen"
+          }
+        ],
+        "assertions": [
+          {
+            "kind": "page_advances",
+            "expected": true,
+            "field_name": "Q23",
+            "sgqa": "900001X101X1062",
+            "canonical": "Q23",
+            "detail": "the questionnaire marks this question optional, so spaces must not block progress"
+          }
+        ],
+        "traces_to": [
+          "Q23"
+        ],
+        "campaign": {},
+        "executable": true,
+        "refusal_reason": null,
+        "missing_bindings": [],
+        "provisional_semantics": [
+          "multi_equality",
+          "whitespace_is_an_answer"
+        ]
+      },
+      {
+        "test_id": "EX-ffe1069725",
         "target_id": "T-4bdf659dfa",
         "dimension": "D4",
         "title": "Q3 blocks progress when left blank",
@@ -31059,7 +34887,7 @@
         ]
       },
       {
-        "test_id": "EX-a052180e6c",
+        "test_id": "EX-0ce5dd7f05",
         "target_id": "T-9a87b3907e",
         "dimension": "D4",
         "title": "Q4 blocks progress when left blank",
@@ -31196,7 +35024,7 @@
         ]
       },
       {
-        "test_id": "EX-16e8f97dc3",
+        "test_id": "EX-3846f6ba52",
         "target_id": "T-0249397b0f",
         "dimension": "D4",
         "title": "Q5 blocks progress when left blank",
@@ -31343,7 +35171,7 @@
         ]
       },
       {
-        "test_id": "EX-f47f9fe485",
+        "test_id": "EX-538b360310",
         "target_id": "T-e98006aa3a",
         "dimension": "D4",
         "title": "Q6 blocks progress when left blank",
@@ -31500,7 +35328,7 @@
         ]
       },
       {
-        "test_id": "EX-00e0100660",
+        "test_id": "EX-987cfa8f08",
         "target_id": "T-fdb731cc7b",
         "dimension": "D4",
         "title": "Q7 blocks progress when left blank",
@@ -31667,7 +35495,7 @@
         ]
       },
       {
-        "test_id": "EX-a3c9416581",
+        "test_id": "EX-39b3e565b1",
         "target_id": "T-f5b246159d",
         "dimension": "D4",
         "title": "Q8 blocks progress when left blank",
@@ -31844,7 +35672,7 @@
         ]
       },
       {
-        "test_id": "EX-4adebba6b9",
+        "test_id": "EX-44c478b54c",
         "target_id": "T-eb5ef7c538",
         "dimension": "D4",
         "title": "Q9 blocks progress when left blank",
@@ -32031,7 +35859,7 @@
         ]
       },
       {
-        "test_id": "EX-1e543429c0",
+        "test_id": "EX-6f8d12c57b",
         "target_id": "T-04f1f82dbc",
         "dimension": "D4",
         "title": "S1 blocks progress when left blank",
@@ -32086,7 +35914,7 @@
         "provisional_semantics": []
       },
       {
-        "test_id": "EX-2d68474d82",
+        "test_id": "EX-64903c9630",
         "target_id": "T-f3c7bd7103",
         "dimension": "D4",
         "title": "S2 blocks progress when left blank",
@@ -32151,7 +35979,7 @@
         "provisional_semantics": []
       },
       {
-        "test_id": "EX-b2b9052cae",
+        "test_id": "EX-bb593dc488",
         "target_id": "T-c3fc047030",
         "dimension": "D4",
         "title": "S3 blocks progress when left blank",
@@ -32226,7 +36054,7 @@
         "provisional_semantics": []
       },
       {
-        "test_id": "EX-d98524d126",
+        "test_id": "EX-b6e49032c3",
         "target_id": "T-cbb1204084",
         "dimension": "D4",
         "title": "S4 blocks progress when left blank",
@@ -32311,7 +36139,7 @@
         "provisional_semantics": []
       },
       {
-        "test_id": "EX-21aaec6691",
+        "test_id": "EX-60c44fd2cf",
         "target_id": "T-beeb7a1cb6",
         "dimension": "D5",
         "title": "Q2's option list is narrowed to what was chosen at Q1",
@@ -32423,7 +36251,7 @@
         ]
       },
       {
-        "test_id": "EX-a18b217bc7",
+        "test_id": "EX-bafbc04d6b",
         "target_id": "T-953114b8fc",
         "dimension": "D5",
         "title": "Q6's option list is narrowed to what was chosen at Q5",
@@ -32575,7 +36403,7 @@
         ]
       },
       {
-        "test_id": "EX-6c1811f1c3",
+        "test_id": "EX-9b8c92fa11",
         "target_id": "T-ec63a3b3b0",
         "dimension": "D6",
         "title": "Q20's wording renders the answer given at Q19",
@@ -32935,7 +36763,7 @@
         ]
       },
       {
-        "test_id": "EX-7cea0638e4",
+        "test_id": "EX-8510433b29",
         "target_id": "T-197a13d6a0",
         "dimension": "D6",
         "title": "Q21's wording renders the answer given at Q19",
@@ -33305,7 +37133,7 @@
         ]
       },
       {
-        "test_id": "EX-8771103d77",
+        "test_id": "EX-0e223b3c65",
         "target_id": "T-87e77431ff",
         "dimension": "D6",
         "title": "Q8's wording renders the answer given at Q3",
@@ -33475,7 +37303,7 @@
         ]
       },
       {
-        "test_id": "EX-eacea519c5",
+        "test_id": "EX-839760fe49",
         "target_id": "T-7600190035",
         "dimension": "D6",
         "title": "Q9's wording renders the answer given at Q3",
@@ -33705,7 +37533,7 @@
         ]
       },
       {
-        "test_id": "EX-7e805436cc",
+        "test_id": "EX-af61b38755",
         "target_id": "T-8ef0dbe284",
         "dimension": "D7",
         "title": "Q1 presents all 5 items exactly once, with none missing and none repeated",
@@ -33818,7 +37646,7 @@
         ]
       },
       {
-        "test_id": "EX-067edf8f87",
+        "test_id": "EX-aed87d5fb1",
         "target_id": "T-9a16912391",
         "dimension": "D7",
         "title": "Q1 presents its items in a different order to different respondents, proving shuffling is switched on",
@@ -33921,7 +37749,7 @@
         ]
       },
       {
-        "test_id": "EX-988134c14f",
+        "test_id": "EX-b854b05832",
         "target_id": "T-fbc8e30f0b",
         "dimension": "D7",
         "title": "Q16 presents all 6 items exactly once, with none missing and none repeated",
@@ -34225,7 +38053,7 @@
         ]
       },
       {
-        "test_id": "EX-a78631e116",
+        "test_id": "EX-c606b043a8",
         "target_id": "T-2aa30145c2",
         "dimension": "D7",
         "title": "Q16 presents its items in a different order to different respondents, proving shuffling is switched on",
@@ -34518,7 +38346,7 @@
         ]
       },
       {
-        "test_id": "EX-ef62b57c86",
+        "test_id": "EX-da4e274562",
         "target_id": "T-e1c58d8b6d",
         "dimension": "D7",
         "title": "Q19 presents all 3 items exactly once, with none missing and none repeated",
@@ -34879,7 +38707,7 @@
         ]
       },
       {
-        "test_id": "EX-f445be57d7",
+        "test_id": "EX-d1a929c27a",
         "target_id": "T-1c93215387",
         "dimension": "D7",
         "title": "Q19 presents its items in a different order to different respondents, proving shuffling is switched on",
@@ -35232,7 +39060,7 @@
         ]
       },
       {
-        "test_id": "EX-4b916778ba",
+        "test_id": "EX-08ce761d16",
         "target_id": "T-b0954aa1e5",
         "dimension": "D7",
         "title": "Q5 presents all 7 items exactly once, with none missing and none repeated",
@@ -35387,7 +39215,7 @@
         ]
       },
       {
-        "test_id": "EX-1582af8e27",
+        "test_id": "EX-a9787b215e",
         "target_id": "T-05b0370cb0",
         "dimension": "D7",
         "title": "Q5 presents its items in a different order to different respondents, proving shuffling is switched on",
@@ -35530,7 +39358,7 @@
         ]
       },
       {
-        "test_id": "EX-e433350b4e",
+        "test_id": "EX-2d8aba6ac3",
         "target_id": "T-9cc32b009e",
         "dimension": "D7",
         "title": "Q9 presents all 5 items exactly once, with none missing and none repeated",
@@ -35773,7 +39601,7 @@
         ]
       },
       {
-        "test_id": "EX-33ee6ce2c8",
+        "test_id": "EX-5d81401af1",
         "target_id": "T-fcf8d64445",
         "dimension": "D7",
         "title": "Q9 presents its items in a different order to different respondents, proving shuffling is switched on",
@@ -36006,7 +39834,7 @@
         ]
       },
       {
-        "test_id": "EX-1ac51dcdfa",
+        "test_id": "EX-6e7fea4c1f",
         "target_id": "T-8df3f85e9c",
         "dimension": "D8",
         "title": "QUOTA_AGE:D2-O1 (21-29) admits a respondent while below target",
@@ -36395,7 +40223,7 @@
         ]
       },
       {
-        "test_id": "EX-550f37f094",
+        "test_id": "EX-0f95675db8",
         "target_id": "T-7161d904f8",
         "dimension": "D8",
         "title": "QUOTA_AGE:D2-O2 (30-39) admits a respondent while below target",
@@ -36784,7 +40612,7 @@
         ]
       },
       {
-        "test_id": "EX-0b1ed105af",
+        "test_id": "EX-6e0db87c33",
         "target_id": "T-1996e6ad8a",
         "dimension": "D8",
         "title": "QUOTA_AGE:D2-O3 (40-49) admits a respondent while below target",
@@ -37173,7 +41001,7 @@
         ]
       },
       {
-        "test_id": "EX-011a916af9",
+        "test_id": "EX-f3acad9433",
         "target_id": "T-9f1ddcac4e",
         "dimension": "D8",
         "title": "QUOTA_AGE:D2-O4 (50-59) admits a respondent while below target",
@@ -37562,7 +41390,7 @@
         ]
       },
       {
-        "test_id": "EX-d528fddd4b",
+        "test_id": "EX-be0c5658a3",
         "target_id": "T-427582f42c",
         "dimension": "D8",
         "title": "QUOTA_AGE:D2-O5 (60+) admits a respondent while below target",
@@ -37951,7 +41779,7 @@
         ]
       },
       {
-        "test_id": "EX-1c60ed96f6",
+        "test_id": "EX-8ad202163e",
         "target_id": "T-0afd1d6279",
         "dimension": "D8",
         "title": "QUOTA_REGION:D1-O1 (North) admits a respondent while below target",
@@ -38330,7 +42158,7 @@
         ]
       },
       {
-        "test_id": "EX-ec5897f2dd",
+        "test_id": "EX-af0cc12165",
         "target_id": "T-7a95930f2f",
         "dimension": "D8",
         "title": "QUOTA_REGION:D1-O2 (South) admits a respondent while below target",
@@ -38709,7 +42537,7 @@
         ]
       },
       {
-        "test_id": "EX-968864da35",
+        "test_id": "EX-9e5f6b14c1",
         "target_id": "T-b0edda32be",
         "dimension": "D8",
         "title": "QUOTA_REGION:D1-O3 (East) admits a respondent while below target",
@@ -39088,7 +42916,7 @@
         ]
       },
       {
-        "test_id": "EX-7562bf0787",
+        "test_id": "EX-28a18ec32a",
         "target_id": "T-f399598e21",
         "dimension": "D8",
         "title": "QUOTA_REGION:D1-O4 (West) admits a respondent while below target",
@@ -39467,7 +43295,7 @@
         ]
       },
       {
-        "test_id": "EX-c379a8f4fe",
+        "test_id": "EX-840d8f26c3",
         "target_id": "T-f2a7b18b9d",
         "dimension": "D8",
         "title": "QUOTA_REGION:D1-O5 (Central) admits a respondent while below target",
@@ -39846,7 +43674,7 @@
         ]
       },
       {
-        "test_id": "EX-5afa391a6a",
+        "test_id": "EX-01464681df",
         "target_id": "T-3967205a86",
         "dimension": "D9",
         "title": "Q2 is shown by its guard and simultaneously reflects its dependency on Q1",
@@ -39964,7 +43792,7 @@
         ]
       },
       {
-        "test_id": "EX-e240adc51e",
+        "test_id": "EX-d0b1962ff2",
         "target_id": "T-46a8d52129",
         "dimension": "D9",
         "title": "Q8 is shown by its guard and simultaneously reflects its dependency on Q3",
@@ -40142,7 +43970,7 @@
         ]
       },
       {
-        "test_id": "EX-7bba0de260",
+        "test_id": "EX-b6f85057dd",
         "target_id": "T-9b537ecefd",
         "dimension": "D9",
         "title": "Q9 is shown by its guard and simultaneously reflects its dependency on Q3",
@@ -40380,165 +44208,7 @@
         ]
       },
       {
-        "test_id": "EX-ee1c26547a",
-        "target_id": "T-84fe582a25",
-        "dimension": "D9",
-        "title": "Q6 is shown by its guard and simultaneously reflects its dependency on Q5",
-        "sid": 900001,
-        "steps": [
-          {
-            "step": 1,
-            "action": "set_field",
-            "field_name": "S1",
-            "sgqa": "900001X100X1000",
-            "value": "A001",
-            "value_kind": "answer_code",
-            "canonical": "S1/S1-O1",
-            "human": "select A001 (Yes) on S1"
-          },
-          {
-            "step": 2,
-            "action": "set_field",
-            "field_name": "S2",
-            "sgqa": "900001X100X1001",
-            "value": "A001",
-            "value_kind": "answer_code",
-            "canonical": "S2/S2-O1",
-            "human": "select A001 (Personally manage an ongoing chronic health condition) on S2"
-          },
-          {
-            "step": 3,
-            "action": "set_field",
-            "field_name": "S3",
-            "sgqa": "900001X100X1002",
-            "value": "A002",
-            "value_kind": "answer_code",
-            "canonical": "S3/S3-O2",
-            "human": "select A002 (No) on S3"
-          },
-          {
-            "step": 4,
-            "action": "set_field",
-            "field_name": "S4",
-            "sgqa": "900001X100X1003",
-            "value": "A002",
-            "value_kind": "answer_code",
-            "canonical": "S4/S4-O2",
-            "human": "select A002 (No) on S4"
-          },
-          {
-            "step": 5,
-            "action": "submit_page",
-            "field_name": null,
-            "sgqa": null,
-            "value": null,
-            "value_kind": null,
-            "canonical": null,
-            "human": "submit the Screening page"
-          },
-          {
-            "step": 6,
-            "action": "set_field",
-            "field_name": "Q1_SQ001",
-            "sgqa": "900001X101X1004SQ001",
-            "value": "Y",
-            "value_kind": "checkbox",
-            "canonical": "Q1/Q1-O1",
-            "human": "tick Q1_SQ001 (Care Network A)"
-          },
-          {
-            "step": 7,
-            "action": "set_field",
-            "field_name": "Q2_SQ001",
-            "sgqa": "900001X101X1010SQ001",
-            "value": "Y",
-            "value_kind": "checkbox",
-            "canonical": "Q2/Q2-O1",
-            "human": "tick Q2_SQ001 (Care Network A)"
-          },
-          {
-            "step": 8,
-            "action": "set_field",
-            "field_name": "Q3",
-            "sgqa": "900001X101X1015",
-            "value": "A001",
-            "value_kind": "answer_code",
-            "canonical": "Q3/Q3-O1",
-            "human": "select A001 (Care Network A) on Q3"
-          },
-          {
-            "step": 9,
-            "action": "set_field",
-            "field_name": "Q4",
-            "sgqa": "900001X101X1016",
-            "value": "A001",
-            "value_kind": "answer_code",
-            "canonical": "Q4/Q4-O1",
-            "human": "select A001 (Recently diagnosed) on Q4"
-          },
-          {
-            "step": 10,
-            "action": "set_field",
-            "field_name": "Q5_SQ001",
-            "sgqa": "900001X101X1017SQ001",
-            "value": "Y",
-            "value_kind": "checkbox",
-            "canonical": "Q5/Q5-O1",
-            "human": "tick Q5_SQ001 (Primary-care physician)"
-          },
-          {
-            "step": 11,
-            "action": "set_field",
-            "field_name": "Q6",
-            "sgqa": "900001X101X1025",
-            "value": "A001",
-            "value_kind": "answer_code",
-            "canonical": "Q6/Q6-O1",
-            "human": "select A001 (Primary-care physician) on Q6"
-          },
-          {
-            "step": 12,
-            "action": "submit_page",
-            "field_name": null,
-            "sgqa": null,
-            "value": null,
-            "value_kind": null,
-            "canonical": null,
-            "human": "submit the final page and observe the end screen"
-          }
-        ],
-        "assertions": [
-          {
-            "kind": "field_present",
-            "expected": true,
-            "field_name": "Q6",
-            "sgqa": "900001X101X1025",
-            "canonical": "Q6",
-            "detail": "the question must appear, proving its show-condition"
-          },
-          {
-            "kind": "question_text_contains",
-            "expected": "Primary-care physician",
-            "field_name": "Q6",
-            "sgqa": "900001X101X1025",
-            "canonical": "Q6",
-            "detail": "and must simultaneously reflect its dependency on Q5"
-          }
-        ],
-        "traces_to": [
-          "Q5",
-          "Q6"
-        ],
-        "campaign": {},
-        "executable": true,
-        "refusal_reason": null,
-        "missing_bindings": [],
-        "provisional_semantics": [
-          "multi_equality"
-        ]
-      },
-      {
-        "test_id": "EX-3298977a20",
+        "test_id": "EX-735479f305",
         "target_id": "T-0fb8533a84",
         "dimension": "D3",
         "title": "reject rule R18 does not fire when its condition fails",
@@ -40877,7 +44547,7 @@
         ]
       },
       {
-        "test_id": "EX-6d38a97b74",
+        "test_id": "EX-3050431193",
         "target_id": "T-4c737d629d",
         "dimension": "D3",
         "title": "reject rule R18 fires when its condition holds",
@@ -41224,7 +44894,7 @@
         ]
       },
       {
-        "test_id": "EX-2af2cb57fa",
+        "test_id": "EX-ef80af06b9",
         "target_id": "T-d6b9ff6c62",
         "dimension": "D3",
         "title": "reject rule R19 does not fire when its condition fails",
@@ -41363,7 +45033,7 @@
         ]
       },
       {
-        "test_id": "EX-7ae0367a08",
+        "test_id": "EX-47b2b9de48",
         "target_id": "T-5a5002c9d4",
         "dimension": "D3",
         "title": "reject rule R19 fires when its condition holds",
@@ -41478,7 +45148,7 @@
         "provisional_semantics": []
       },
       {
-        "test_id": "EX-f53bd28e67",
+        "test_id": "EX-a47adaaa7b",
         "target_id": "T-4d806a0038",
         "dimension": "D3",
         "title": "reject rule R20 does not fire when its condition fails",
@@ -41627,7 +45297,7 @@
         ]
       },
       {
-        "test_id": "EX-e7ced83688",
+        "test_id": "EX-8f68382e68",
         "target_id": "T-45f363eac2",
         "dimension": "D3",
         "title": "reject rule R20 fires when its condition holds",

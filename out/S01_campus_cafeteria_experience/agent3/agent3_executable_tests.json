@@ -13,8 +13,8 @@
   },
   "content": {
     "report": {
-      "logically_covered": 35,
-      "compiled_executable": 35,
+      "logically_covered": 41,
+      "compiled_executable": 41,
       "refused": 0,
       "executable_coverage_pct": 100.0,
       "refusals": [],
@@ -22,7 +22,7 @@
     },
     "tests": [
       {
-        "test_id": "EX-2684e791b9",
+        "test_id": "EX-e444d15cd5",
         "target_id": "T-f325a4a781",
         "dimension": "D1",
         "title": "answering Q1 normally moves the respondent on to the question that should come next",
@@ -167,7 +167,7 @@
         "provisional_semantics": []
       },
       {
-        "test_id": "EX-b0a887ff8e",
+        "test_id": "EX-13ff676266",
         "target_id": "T-ea15e888c6",
         "dimension": "D1",
         "title": "answering Q2 normally moves the respondent on to the question that should come next",
@@ -312,7 +312,7 @@
         "provisional_semantics": []
       },
       {
-        "test_id": "EX-bbd51477ad",
+        "test_id": "EX-36fbba288b",
         "target_id": "T-d182c884c0",
         "dimension": "D1",
         "title": "answering Q3 normally moves the respondent on to the question that should come next",
@@ -457,7 +457,7 @@
         "provisional_semantics": []
       },
       {
-        "test_id": "EX-62933ba446",
+        "test_id": "EX-f7fceef0cf",
         "target_id": "T-460e9ac790",
         "dimension": "D1",
         "title": "answering Q4 normally moves the respondent on to the question that should come next",
@@ -602,7 +602,7 @@
         "provisional_semantics": []
       },
       {
-        "test_id": "EX-b27034493c",
+        "test_id": "EX-a214f02dcd",
         "target_id": "T-4a81ad1c54",
         "dimension": "D1",
         "title": "answering Q5 normally moves the respondent on to the question that should come next",
@@ -747,7 +747,7 @@
         "provisional_semantics": []
       },
       {
-        "test_id": "EX-a209a0010b",
+        "test_id": "EX-f02a205850",
         "target_id": "T-a31d9e36e7",
         "dimension": "D1",
         "title": "answering Q6 normally moves the respondent on to the question that should come next",
@@ -892,7 +892,7 @@
         "provisional_semantics": []
       },
       {
-        "test_id": "EX-9bf8c685af",
+        "test_id": "EX-17f2db79d6",
         "target_id": "T-836bcea7a3",
         "dimension": "D1",
         "title": "Q6 is not displayed when its guard fails",
@@ -1020,7 +1020,7 @@
         ]
       },
       {
-        "test_id": "EX-0da2c2077e",
+        "test_id": "EX-0406c0b88e",
         "target_id": "T-46ad0b9227",
         "dimension": "D1",
         "title": "Q6 is displayed when its guard holds",
@@ -1148,7 +1148,7 @@
         "provisional_semantics": []
       },
       {
-        "test_id": "EX-5cce827e7f",
+        "test_id": "EX-2f1c4f80c4",
         "target_id": "T-a25fbf002c",
         "dimension": "D1",
         "title": "answering Q7 normally moves the respondent on to the question that should come next",
@@ -1293,7 +1293,7 @@
         "provisional_semantics": []
       },
       {
-        "test_id": "EX-aa8e415053",
+        "test_id": "EX-49c22f3c37",
         "target_id": "T-b3b76ca11a",
         "dimension": "D1",
         "title": "answering Q8 normally moves the respondent on to the question that should come next",
@@ -1438,7 +1438,7 @@
         "provisional_semantics": []
       },
       {
-        "test_id": "EX-ce3d453c32",
+        "test_id": "EX-cf838aa662",
         "target_id": "T-42c434e9a8",
         "dimension": "D1",
         "title": "R4 jumps to Q7 when its condition holds",
@@ -1557,7 +1557,7 @@
         ]
       },
       {
-        "test_id": "EX-4930820f52",
+        "test_id": "EX-10faac68cf",
         "target_id": "T-bb19b20b74",
         "dimension": "D1",
         "title": "R4 does not jump when its condition fails, so the respondent continues in sequence",
@@ -1674,7 +1674,7 @@
         "provisional_semantics": []
       },
       {
-        "test_id": "EX-170a1c4959",
+        "test_id": "EX-515f124356",
         "target_id": "T-94ce2e5d20",
         "dimension": "D1",
         "title": "answering S1 normally moves the respondent on to the question that should come next",
@@ -1819,7 +1819,7 @@
         "provisional_semantics": []
       },
       {
-        "test_id": "EX-b7ff9f9bb5",
+        "test_id": "EX-16ed1bf3d2",
         "target_id": "T-9b21d71193",
         "dimension": "D1",
         "title": "answering S2 normally moves the respondent on to the question that should come next",
@@ -1964,7 +1964,7 @@
         "provisional_semantics": []
       },
       {
-        "test_id": "EX-b405ac990b",
+        "test_id": "EX-80d557c8c4",
         "target_id": "T-05b0993ae8",
         "dimension": "D2",
         "title": "a respondent can reach ending COMPLETE",
@@ -2099,7 +2099,7 @@
         "provisional_semantics": []
       },
       {
-        "test_id": "EX-fafe9cdfbe",
+        "test_id": "EX-1e9bf99444",
         "target_id": "T-ad81bd1fb8",
         "dimension": "D2",
         "title": "ending TERM_INELIGIBLE is reached by rule R1, evaluated at S1",
@@ -2157,7 +2157,7 @@
         ]
       },
       {
-        "test_id": "EX-ef5cc909bc",
+        "test_id": "EX-f7e5521a6e",
         "target_id": "T-b13742d625",
         "dimension": "D2",
         "title": "ending TERM_INELIGIBLE is reached by rule R2, evaluated at S2",
@@ -2225,7 +2225,7 @@
         ]
       },
       {
-        "test_id": "EX-5f4360d90a",
+        "test_id": "EX-e3802dba8c",
         "target_id": "T-91f64c7737",
         "dimension": "D3",
         "title": "Q4 accepts an answer meeting ['min_selections']",
@@ -2332,7 +2332,7 @@
         "provisional_semantics": []
       },
       {
-        "test_id": "EX-477ebaaa0c",
+        "test_id": "EX-8c6e88a595",
         "target_id": "T-bf3e461be3",
         "dimension": "D3",
         "title": "Q4 rejects an answer breaking ['min_selections']",
@@ -2447,7 +2447,134 @@
         "provisional_semantics": []
       },
       {
-        "test_id": "EX-539269266d",
+        "test_id": "EX-3fda782b0c",
+        "target_id": "T-4ad35b8ed5",
+        "dimension": "D3",
+        "title": "Q6 accepts an answer of exactly 500 characters, its stated maximum",
+        "sid": 900001,
+        "steps": [
+          {
+            "step": 1,
+            "action": "set_field",
+            "field_name": "S1",
+            "sgqa": "900001X100X1000",
+            "value": "A001",
+            "value_kind": "answer_code",
+            "canonical": "S1/S1-O1",
+            "human": "select A001 (Yes) on S1"
+          },
+          {
+            "step": 2,
+            "action": "set_field",
+            "field_name": "S2",
+            "sgqa": "900001X100X1001",
+            "value": "A001",
+            "value_kind": "answer_code",
+            "canonical": "S2/S2-O1",
+            "human": "select A001 (Yes) on S2"
+          },
+          {
+            "step": 3,
+            "action": "submit_page",
+            "field_name": null,
+            "sgqa": null,
+            "value": null,
+            "value_kind": null,
+            "canonical": null,
+            "human": "submit the Screening page"
+          },
+          {
+            "step": 4,
+            "action": "set_field",
+            "field_name": "Q1",
+            "sgqa": "900001X101X1002",
+            "value": "A001",
+            "value_kind": "answer_code",
+            "canonical": "Q1/Q1-O1",
+            "human": "select A001 (Counter) on Q1"
+          },
+          {
+            "step": 5,
+            "action": "set_field",
+            "field_name": "Q2",
+            "sgqa": "900001X101X1003",
+            "value": "1",
+            "value_kind": "answer_code",
+            "canonical": "Q2/Q2-O1",
+            "human": "select 1 (Very poor) on Q2"
+          },
+          {
+            "step": 6,
+            "action": "set_field",
+            "field_name": "Q3",
+            "sgqa": "900001X101X1004",
+            "value": "1",
+            "value_kind": "answer_code",
+            "canonical": "Q3/Q3-O1",
+            "human": "select 1 (Very poor) on Q3"
+          },
+          {
+            "step": 7,
+            "action": "set_field",
+            "field_name": "Q4_SQ001",
+            "sgqa": "900001X101X1005SQ001",
+            "value": "Y",
+            "value_kind": "checkbox",
+            "canonical": "Q4/Q4-O1",
+            "human": "tick Q4_SQ001 (Food quality)"
+          },
+          {
+            "step": 8,
+            "action": "set_field",
+            "field_name": "Q5",
+            "sgqa": "900001X101X1012",
+            "value": "A001",
+            "value_kind": "answer_code",
+            "canonical": "Q5/Q5-O1",
+            "human": "select A001 (Yes) on Q5"
+          },
+          {
+            "step": 9,
+            "action": "set_field",
+            "field_name": "Q6",
+            "sgqa": "900001X101X1013",
+            "value": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+            "value_kind": "text",
+            "canonical": "Q6",
+            "human": "type 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx' into Q6"
+          },
+          {
+            "step": 10,
+            "action": "submit_page",
+            "field_name": null,
+            "sgqa": null,
+            "value": null,
+            "value_kind": null,
+            "canonical": null,
+            "human": "submit the final page and observe the end screen"
+          }
+        ],
+        "assertions": [
+          {
+            "kind": "page_advances",
+            "expected": true,
+            "field_name": "Q6",
+            "sgqa": "900001X101X1013",
+            "canonical": "Q6",
+            "detail": "an answer sitting exactly on the stated maximum is inside the rule, not outside it"
+          }
+        ],
+        "traces_to": [
+          "Q6"
+        ],
+        "campaign": {},
+        "executable": true,
+        "refusal_reason": null,
+        "missing_bindings": [],
+        "provisional_semantics": []
+      },
+      {
+        "test_id": "EX-3dc3570d3d",
         "target_id": "T-5763469416",
         "dimension": "D3",
         "title": "Q6 accepts an answer meeting ['max_length', 'min_length']",
@@ -2574,7 +2701,134 @@
         "provisional_semantics": []
       },
       {
-        "test_id": "EX-bafecf03b6",
+        "test_id": "EX-c43adf7c1c",
+        "target_id": "T-8a57cf56a3",
+        "dimension": "D3",
+        "title": "Q6 accepts punctuation and quotation marks, because its rule constrains length and not content",
+        "sid": 900001,
+        "steps": [
+          {
+            "step": 1,
+            "action": "set_field",
+            "field_name": "S1",
+            "sgqa": "900001X100X1000",
+            "value": "A001",
+            "value_kind": "answer_code",
+            "canonical": "S1/S1-O1",
+            "human": "select A001 (Yes) on S1"
+          },
+          {
+            "step": 2,
+            "action": "set_field",
+            "field_name": "S2",
+            "sgqa": "900001X100X1001",
+            "value": "A001",
+            "value_kind": "answer_code",
+            "canonical": "S2/S2-O1",
+            "human": "select A001 (Yes) on S2"
+          },
+          {
+            "step": 3,
+            "action": "submit_page",
+            "field_name": null,
+            "sgqa": null,
+            "value": null,
+            "value_kind": null,
+            "canonical": null,
+            "human": "submit the Screening page"
+          },
+          {
+            "step": 4,
+            "action": "set_field",
+            "field_name": "Q1",
+            "sgqa": "900001X101X1002",
+            "value": "A001",
+            "value_kind": "answer_code",
+            "canonical": "Q1/Q1-O1",
+            "human": "select A001 (Counter) on Q1"
+          },
+          {
+            "step": 5,
+            "action": "set_field",
+            "field_name": "Q2",
+            "sgqa": "900001X101X1003",
+            "value": "1",
+            "value_kind": "answer_code",
+            "canonical": "Q2/Q2-O1",
+            "human": "select 1 (Very poor) on Q2"
+          },
+          {
+            "step": 6,
+            "action": "set_field",
+            "field_name": "Q3",
+            "sgqa": "900001X101X1004",
+            "value": "1",
+            "value_kind": "answer_code",
+            "canonical": "Q3/Q3-O1",
+            "human": "select 1 (Very poor) on Q3"
+          },
+          {
+            "step": 7,
+            "action": "set_field",
+            "field_name": "Q4_SQ001",
+            "sgqa": "900001X101X1005SQ001",
+            "value": "Y",
+            "value_kind": "checkbox",
+            "canonical": "Q4/Q4-O1",
+            "human": "tick Q4_SQ001 (Food quality)"
+          },
+          {
+            "step": 8,
+            "action": "set_field",
+            "field_name": "Q5",
+            "sgqa": "900001X101X1012",
+            "value": "A001",
+            "value_kind": "answer_code",
+            "canonical": "Q5/Q5-O1",
+            "human": "select A001 (Yes) on Q5"
+          },
+          {
+            "step": 9,
+            "action": "set_field",
+            "field_name": "Q6",
+            "sgqa": "900001X101X1013",
+            "value": "O'Brien said \"yes\" <50% & more",
+            "value_kind": "text",
+            "canonical": "Q6",
+            "human": "type 'O\\'Brien said \"yes\" <50% & more' into Q6"
+          },
+          {
+            "step": 10,
+            "action": "submit_page",
+            "field_name": null,
+            "sgqa": null,
+            "value": null,
+            "value_kind": null,
+            "canonical": null,
+            "human": "submit the final page and observe the end screen"
+          }
+        ],
+        "assertions": [
+          {
+            "kind": "page_advances",
+            "expected": true,
+            "field_name": "Q6",
+            "sgqa": "900001X101X1013",
+            "canonical": "Q6",
+            "detail": "the rule constrains length and says nothing about content, so punctuation must be accepted"
+          }
+        ],
+        "traces_to": [
+          "Q6"
+        ],
+        "campaign": {},
+        "executable": true,
+        "refusal_reason": null,
+        "missing_bindings": [],
+        "provisional_semantics": []
+      },
+      {
+        "test_id": "EX-30168f639d",
         "target_id": "T-3ba88a35fd",
         "dimension": "D3",
         "title": "Q6 rejects an answer breaking ['max_length', 'min_length']",
@@ -2709,7 +2963,154 @@
         "provisional_semantics": []
       },
       {
-        "test_id": "EX-5b5943a5a9",
+        "test_id": "EX-86dd65f493",
+        "target_id": "T-81f7201b2b",
+        "dimension": "D3",
+        "title": "Q8 accepts an answer of exactly 500 characters, its stated maximum",
+        "sid": 900001,
+        "steps": [
+          {
+            "step": 1,
+            "action": "set_field",
+            "field_name": "S1",
+            "sgqa": "900001X100X1000",
+            "value": "A001",
+            "value_kind": "answer_code",
+            "canonical": "S1/S1-O1",
+            "human": "select A001 (Yes) on S1"
+          },
+          {
+            "step": 2,
+            "action": "set_field",
+            "field_name": "S2",
+            "sgqa": "900001X100X1001",
+            "value": "A001",
+            "value_kind": "answer_code",
+            "canonical": "S2/S2-O1",
+            "human": "select A001 (Yes) on S2"
+          },
+          {
+            "step": 3,
+            "action": "submit_page",
+            "field_name": null,
+            "sgqa": null,
+            "value": null,
+            "value_kind": null,
+            "canonical": null,
+            "human": "submit the Screening page"
+          },
+          {
+            "step": 4,
+            "action": "set_field",
+            "field_name": "Q1",
+            "sgqa": "900001X101X1002",
+            "value": "A001",
+            "value_kind": "answer_code",
+            "canonical": "Q1/Q1-O1",
+            "human": "select A001 (Counter) on Q1"
+          },
+          {
+            "step": 5,
+            "action": "set_field",
+            "field_name": "Q2",
+            "sgqa": "900001X101X1003",
+            "value": "1",
+            "value_kind": "answer_code",
+            "canonical": "Q2/Q2-O1",
+            "human": "select 1 (Very poor) on Q2"
+          },
+          {
+            "step": 6,
+            "action": "set_field",
+            "field_name": "Q3",
+            "sgqa": "900001X101X1004",
+            "value": "1",
+            "value_kind": "answer_code",
+            "canonical": "Q3/Q3-O1",
+            "human": "select 1 (Very poor) on Q3"
+          },
+          {
+            "step": 7,
+            "action": "set_field",
+            "field_name": "Q4_SQ001",
+            "sgqa": "900001X101X1005SQ001",
+            "value": "Y",
+            "value_kind": "checkbox",
+            "canonical": "Q4/Q4-O1",
+            "human": "tick Q4_SQ001 (Food quality)"
+          },
+          {
+            "step": 8,
+            "action": "set_field",
+            "field_name": "Q5",
+            "sgqa": "900001X101X1012",
+            "value": "A001",
+            "value_kind": "answer_code",
+            "canonical": "Q5/Q5-O1",
+            "human": "select A001 (Yes) on Q5"
+          },
+          {
+            "step": 9,
+            "action": "set_field",
+            "field_name": "Q6",
+            "sgqa": "900001X101X1013",
+            "value": "xxxxxxxxxx",
+            "value_kind": "text",
+            "canonical": "Q6",
+            "human": "type 'xxxxxxxxxx' into Q6"
+          },
+          {
+            "step": 10,
+            "action": "set_field",
+            "field_name": "Q7",
+            "sgqa": "900001X101X1014",
+            "value": "A001",
+            "value_kind": "answer_code",
+            "canonical": "Q7/Q7-O1",
+            "human": "select A001 (0) on Q7"
+          },
+          {
+            "step": 11,
+            "action": "set_field",
+            "field_name": "Q8",
+            "sgqa": "900001X101X1015",
+            "value": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+            "value_kind": "text",
+            "canonical": "Q8",
+            "human": "type 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx' into Q8"
+          },
+          {
+            "step": 12,
+            "action": "submit_page",
+            "field_name": null,
+            "sgqa": null,
+            "value": null,
+            "value_kind": null,
+            "canonical": null,
+            "human": "submit the final page and observe the end screen"
+          }
+        ],
+        "assertions": [
+          {
+            "kind": "page_advances",
+            "expected": true,
+            "field_name": "Q8",
+            "sgqa": "900001X101X1015",
+            "canonical": "Q8",
+            "detail": "an answer sitting exactly on the stated maximum is inside the rule, not outside it"
+          }
+        ],
+        "traces_to": [
+          "Q8"
+        ],
+        "campaign": {},
+        "executable": true,
+        "refusal_reason": null,
+        "missing_bindings": [],
+        "provisional_semantics": []
+      },
+      {
+        "test_id": "EX-160486754b",
         "target_id": "T-9363260523",
         "dimension": "D3",
         "title": "Q8 accepts an answer meeting ['max_length']",
@@ -2856,7 +3257,154 @@
         "provisional_semantics": []
       },
       {
-        "test_id": "EX-0645e74690",
+        "test_id": "EX-c249fdc70c",
+        "target_id": "T-5bf7c9d7a3",
+        "dimension": "D3",
+        "title": "Q8 accepts punctuation and quotation marks, because its rule constrains length and not content",
+        "sid": 900001,
+        "steps": [
+          {
+            "step": 1,
+            "action": "set_field",
+            "field_name": "S1",
+            "sgqa": "900001X100X1000",
+            "value": "A001",
+            "value_kind": "answer_code",
+            "canonical": "S1/S1-O1",
+            "human": "select A001 (Yes) on S1"
+          },
+          {
+            "step": 2,
+            "action": "set_field",
+            "field_name": "S2",
+            "sgqa": "900001X100X1001",
+            "value": "A001",
+            "value_kind": "answer_code",
+            "canonical": "S2/S2-O1",
+            "human": "select A001 (Yes) on S2"
+          },
+          {
+            "step": 3,
+            "action": "submit_page",
+            "field_name": null,
+            "sgqa": null,
+            "value": null,
+            "value_kind": null,
+            "canonical": null,
+            "human": "submit the Screening page"
+          },
+          {
+            "step": 4,
+            "action": "set_field",
+            "field_name": "Q1",
+            "sgqa": "900001X101X1002",
+            "value": "A001",
+            "value_kind": "answer_code",
+            "canonical": "Q1/Q1-O1",
+            "human": "select A001 (Counter) on Q1"
+          },
+          {
+            "step": 5,
+            "action": "set_field",
+            "field_name": "Q2",
+            "sgqa": "900001X101X1003",
+            "value": "1",
+            "value_kind": "answer_code",
+            "canonical": "Q2/Q2-O1",
+            "human": "select 1 (Very poor) on Q2"
+          },
+          {
+            "step": 6,
+            "action": "set_field",
+            "field_name": "Q3",
+            "sgqa": "900001X101X1004",
+            "value": "1",
+            "value_kind": "answer_code",
+            "canonical": "Q3/Q3-O1",
+            "human": "select 1 (Very poor) on Q3"
+          },
+          {
+            "step": 7,
+            "action": "set_field",
+            "field_name": "Q4_SQ001",
+            "sgqa": "900001X101X1005SQ001",
+            "value": "Y",
+            "value_kind": "checkbox",
+            "canonical": "Q4/Q4-O1",
+            "human": "tick Q4_SQ001 (Food quality)"
+          },
+          {
+            "step": 8,
+            "action": "set_field",
+            "field_name": "Q5",
+            "sgqa": "900001X101X1012",
+            "value": "A001",
+            "value_kind": "answer_code",
+            "canonical": "Q5/Q5-O1",
+            "human": "select A001 (Yes) on Q5"
+          },
+          {
+            "step": 9,
+            "action": "set_field",
+            "field_name": "Q6",
+            "sgqa": "900001X101X1013",
+            "value": "xxxxxxxxxx",
+            "value_kind": "text",
+            "canonical": "Q6",
+            "human": "type 'xxxxxxxxxx' into Q6"
+          },
+          {
+            "step": 10,
+            "action": "set_field",
+            "field_name": "Q7",
+            "sgqa": "900001X101X1014",
+            "value": "A001",
+            "value_kind": "answer_code",
+            "canonical": "Q7/Q7-O1",
+            "human": "select A001 (0) on Q7"
+          },
+          {
+            "step": 11,
+            "action": "set_field",
+            "field_name": "Q8",
+            "sgqa": "900001X101X1015",
+            "value": "O'Brien said \"yes\" <50% & more",
+            "value_kind": "text",
+            "canonical": "Q8",
+            "human": "type 'O\\'Brien said \"yes\" <50% & more' into Q8"
+          },
+          {
+            "step": 12,
+            "action": "submit_page",
+            "field_name": null,
+            "sgqa": null,
+            "value": null,
+            "value_kind": null,
+            "canonical": null,
+            "human": "submit the final page and observe the end screen"
+          }
+        ],
+        "assertions": [
+          {
+            "kind": "page_advances",
+            "expected": true,
+            "field_name": "Q8",
+            "sgqa": "900001X101X1015",
+            "canonical": "Q8",
+            "detail": "the rule constrains length and says nothing about content, so punctuation must be accepted"
+          }
+        ],
+        "traces_to": [
+          "Q8"
+        ],
+        "campaign": {},
+        "executable": true,
+        "refusal_reason": null,
+        "missing_bindings": [],
+        "provisional_semantics": []
+      },
+      {
+        "test_id": "EX-da62ece9dc",
         "target_id": "T-b073440eac",
         "dimension": "D3",
         "title": "Q8 rejects an answer breaking ['max_length']",
@@ -3011,7 +3559,7 @@
         "provisional_semantics": []
       },
       {
-        "test_id": "EX-472a9d4598",
+        "test_id": "EX-4af3972b89",
         "target_id": "T-e12aace78c",
         "dimension": "D4",
         "title": "Q1 blocks progress when left blank",
@@ -3096,7 +3644,7 @@
         "provisional_semantics": []
       },
       {
-        "test_id": "EX-6d12c35fec",
+        "test_id": "EX-347070bcbc",
         "target_id": "T-727f5e7cc5",
         "dimension": "D4",
         "title": "Q2 blocks progress when left blank",
@@ -3191,7 +3739,7 @@
         "provisional_semantics": []
       },
       {
-        "test_id": "EX-0c2c347801",
+        "test_id": "EX-cdf82f12f0",
         "target_id": "T-4bdf659dfa",
         "dimension": "D4",
         "title": "Q3 blocks progress when left blank",
@@ -3296,7 +3844,7 @@
         "provisional_semantics": []
       },
       {
-        "test_id": "EX-3b2bb9b42a",
+        "test_id": "EX-fdc8ce52c7",
         "target_id": "T-9a87b3907e",
         "dimension": "D4",
         "title": "Q4 blocks progress when left blank",
@@ -3411,7 +3959,7 @@
         "provisional_semantics": []
       },
       {
-        "test_id": "EX-714d318243",
+        "test_id": "EX-db1b37b406",
         "target_id": "T-0249397b0f",
         "dimension": "D4",
         "title": "Q5 blocks progress when left blank",
@@ -3536,7 +4084,7 @@
         "provisional_semantics": []
       },
       {
-        "test_id": "EX-b87aff5fc3",
+        "test_id": "EX-e98f225bbc",
         "target_id": "T-e98006aa3a",
         "dimension": "D4",
         "title": "Q6 blocks progress when left blank",
@@ -3671,7 +4219,144 @@
         "provisional_semantics": []
       },
       {
-        "test_id": "EX-5be23599bf",
+        "test_id": "EX-5e5c61f781",
+        "target_id": "T-a7c5528feb",
+        "dimension": "D4",
+        "title": "Q6 refuses an answer of spaces alone, being compulsory",
+        "sid": 900001,
+        "steps": [
+          {
+            "step": 1,
+            "action": "set_field",
+            "field_name": "S1",
+            "sgqa": "900001X100X1000",
+            "value": "A001",
+            "value_kind": "answer_code",
+            "canonical": "S1/S1-O1",
+            "human": "select A001 (Yes) on S1"
+          },
+          {
+            "step": 2,
+            "action": "set_field",
+            "field_name": "S2",
+            "sgqa": "900001X100X1001",
+            "value": "A001",
+            "value_kind": "answer_code",
+            "canonical": "S2/S2-O1",
+            "human": "select A001 (Yes) on S2"
+          },
+          {
+            "step": 3,
+            "action": "submit_page",
+            "field_name": null,
+            "sgqa": null,
+            "value": null,
+            "value_kind": null,
+            "canonical": null,
+            "human": "submit the Screening page"
+          },
+          {
+            "step": 4,
+            "action": "set_field",
+            "field_name": "Q1",
+            "sgqa": "900001X101X1002",
+            "value": "A001",
+            "value_kind": "answer_code",
+            "canonical": "Q1/Q1-O1",
+            "human": "select A001 (Counter) on Q1"
+          },
+          {
+            "step": 5,
+            "action": "set_field",
+            "field_name": "Q2",
+            "sgqa": "900001X101X1003",
+            "value": "1",
+            "value_kind": "answer_code",
+            "canonical": "Q2/Q2-O1",
+            "human": "select 1 (Very poor) on Q2"
+          },
+          {
+            "step": 6,
+            "action": "set_field",
+            "field_name": "Q3",
+            "sgqa": "900001X101X1004",
+            "value": "1",
+            "value_kind": "answer_code",
+            "canonical": "Q3/Q3-O1",
+            "human": "select 1 (Very poor) on Q3"
+          },
+          {
+            "step": 7,
+            "action": "set_field",
+            "field_name": "Q4_SQ001",
+            "sgqa": "900001X101X1005SQ001",
+            "value": "Y",
+            "value_kind": "checkbox",
+            "canonical": "Q4/Q4-O1",
+            "human": "tick Q4_SQ001 (Food quality)"
+          },
+          {
+            "step": 8,
+            "action": "set_field",
+            "field_name": "Q5",
+            "sgqa": "900001X101X1012",
+            "value": "A001",
+            "value_kind": "answer_code",
+            "canonical": "Q5/Q5-O1",
+            "human": "select A001 (Yes) on Q5"
+          },
+          {
+            "step": 9,
+            "action": "set_field",
+            "field_name": "Q6",
+            "sgqa": "900001X101X1013",
+            "value": "   ",
+            "value_kind": "text",
+            "canonical": "Q6",
+            "human": "type '   ' into Q6"
+          },
+          {
+            "step": 10,
+            "action": "submit_page",
+            "field_name": null,
+            "sgqa": null,
+            "value": null,
+            "value_kind": null,
+            "canonical": null,
+            "human": "submit the final page and observe the end screen"
+          }
+        ],
+        "assertions": [
+          {
+            "kind": "page_does_not_advance",
+            "expected": true,
+            "field_name": "Q6",
+            "sgqa": "900001X101X1013",
+            "canonical": "Q6",
+            "detail": "spaces alone are not an answer, and the questionnaire marks this question compulsory"
+          },
+          {
+            "kind": "error_shown_on_question",
+            "expected": true,
+            "field_name": "Q6",
+            "sgqa": "900001X101X1013",
+            "canonical": "Q6",
+            "detail": "LimeSurvey redisplays the page with the message against the offending question"
+          }
+        ],
+        "traces_to": [
+          "Q6"
+        ],
+        "campaign": {},
+        "executable": true,
+        "refusal_reason": null,
+        "missing_bindings": [],
+        "provisional_semantics": [
+          "whitespace_is_an_answer"
+        ]
+      },
+      {
+        "test_id": "EX-1295616f39",
         "target_id": "T-fdb731cc7b",
         "dimension": "D4",
         "title": "Q7 blocks progress when left blank",
@@ -3816,7 +4501,7 @@
         "provisional_semantics": []
       },
       {
-        "test_id": "EX-d136452e65",
+        "test_id": "EX-942b12aff5",
         "target_id": "T-fffe27cc01",
         "dimension": "D4",
         "title": "Q8 is optional and permits progress when left blank",
@@ -3963,7 +4648,156 @@
         "provisional_semantics": []
       },
       {
-        "test_id": "EX-1c2cac07e5",
+        "test_id": "EX-e07989f4c8",
+        "target_id": "T-a7eaf4230c",
+        "dimension": "D4",
+        "title": "Q8 accepts an answer of spaces alone, being optional",
+        "sid": 900001,
+        "steps": [
+          {
+            "step": 1,
+            "action": "set_field",
+            "field_name": "S1",
+            "sgqa": "900001X100X1000",
+            "value": "A001",
+            "value_kind": "answer_code",
+            "canonical": "S1/S1-O1",
+            "human": "select A001 (Yes) on S1"
+          },
+          {
+            "step": 2,
+            "action": "set_field",
+            "field_name": "S2",
+            "sgqa": "900001X100X1001",
+            "value": "A001",
+            "value_kind": "answer_code",
+            "canonical": "S2/S2-O1",
+            "human": "select A001 (Yes) on S2"
+          },
+          {
+            "step": 3,
+            "action": "submit_page",
+            "field_name": null,
+            "sgqa": null,
+            "value": null,
+            "value_kind": null,
+            "canonical": null,
+            "human": "submit the Screening page"
+          },
+          {
+            "step": 4,
+            "action": "set_field",
+            "field_name": "Q1",
+            "sgqa": "900001X101X1002",
+            "value": "A001",
+            "value_kind": "answer_code",
+            "canonical": "Q1/Q1-O1",
+            "human": "select A001 (Counter) on Q1"
+          },
+          {
+            "step": 5,
+            "action": "set_field",
+            "field_name": "Q2",
+            "sgqa": "900001X101X1003",
+            "value": "1",
+            "value_kind": "answer_code",
+            "canonical": "Q2/Q2-O1",
+            "human": "select 1 (Very poor) on Q2"
+          },
+          {
+            "step": 6,
+            "action": "set_field",
+            "field_name": "Q3",
+            "sgqa": "900001X101X1004",
+            "value": "1",
+            "value_kind": "answer_code",
+            "canonical": "Q3/Q3-O1",
+            "human": "select 1 (Very poor) on Q3"
+          },
+          {
+            "step": 7,
+            "action": "set_field",
+            "field_name": "Q4_SQ001",
+            "sgqa": "900001X101X1005SQ001",
+            "value": "Y",
+            "value_kind": "checkbox",
+            "canonical": "Q4/Q4-O1",
+            "human": "tick Q4_SQ001 (Food quality)"
+          },
+          {
+            "step": 8,
+            "action": "set_field",
+            "field_name": "Q5",
+            "sgqa": "900001X101X1012",
+            "value": "A001",
+            "value_kind": "answer_code",
+            "canonical": "Q5/Q5-O1",
+            "human": "select A001 (Yes) on Q5"
+          },
+          {
+            "step": 9,
+            "action": "set_field",
+            "field_name": "Q6",
+            "sgqa": "900001X101X1013",
+            "value": "xxxxxxxxxx",
+            "value_kind": "text",
+            "canonical": "Q6",
+            "human": "type 'xxxxxxxxxx' into Q6"
+          },
+          {
+            "step": 10,
+            "action": "set_field",
+            "field_name": "Q7",
+            "sgqa": "900001X101X1014",
+            "value": "A001",
+            "value_kind": "answer_code",
+            "canonical": "Q7/Q7-O1",
+            "human": "select A001 (0) on Q7"
+          },
+          {
+            "step": 11,
+            "action": "set_field",
+            "field_name": "Q8",
+            "sgqa": "900001X101X1015",
+            "value": "   ",
+            "value_kind": "text",
+            "canonical": "Q8",
+            "human": "type '   ' into Q8"
+          },
+          {
+            "step": 12,
+            "action": "submit_page",
+            "field_name": null,
+            "sgqa": null,
+            "value": null,
+            "value_kind": null,
+            "canonical": null,
+            "human": "submit the final page and observe the end screen"
+          }
+        ],
+        "assertions": [
+          {
+            "kind": "page_advances",
+            "expected": true,
+            "field_name": "Q8",
+            "sgqa": "900001X101X1015",
+            "canonical": "Q8",
+            "detail": "the questionnaire marks this question optional, so spaces must not block progress"
+          }
+        ],
+        "traces_to": [
+          "Q8"
+        ],
+        "campaign": {},
+        "executable": true,
+        "refusal_reason": null,
+        "missing_bindings": [],
+        "provisional_semantics": [
+          "whitespace_is_an_answer"
+        ]
+      },
+      {
+        "test_id": "EX-5dca4371c2",
         "target_id": "T-04f1f82dbc",
         "dimension": "D4",
         "title": "S1 blocks progress when left blank",
@@ -4018,7 +4852,7 @@
         "provisional_semantics": []
       },
       {
-        "test_id": "EX-b3342337bc",
+        "test_id": "EX-840491d4e8",
         "target_id": "T-f3c7bd7103",
         "dimension": "D4",
         "title": "S2 blocks progress when left blank",
@@ -4083,7 +4917,7 @@
         "provisional_semantics": []
       },
       {
-        "test_id": "EX-bec3096e2a",
+        "test_id": "EX-9ffea583f0",
         "target_id": "T-9e8e92980a",
         "dimension": "D6",
         "title": "Q6's wording renders the answer given at Q5",
@@ -4211,7 +5045,7 @@
         "provisional_semantics": []
       },
       {
-        "test_id": "EX-02366dfc84",
+        "test_id": "EX-de17b99f9d",
         "target_id": "T-84fe582a25",
         "dimension": "D9",
         "title": "Q6 is shown by its guard and simultaneously reflects its dependency on Q5",

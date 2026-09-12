@@ -16,15 +16,15 @@
       "per_dimension": {
         "D1": 14,
         "D2": 3,
-        "D3": 6,
-        "D4": 10,
+        "D3": 10,
+        "D4": 12,
         "D5": 0,
         "D6": 1,
         "D7": 0,
         "D8": 0,
         "D9": 1
       },
-      "records_enumerated": 35,
+      "records_enumerated": 41,
       "predetermined_unresolvable": 0,
       "orphan_rules": [],
       "note": "Dimensions are reported side by side and never summed. records_enumerated counts records, not coverage."
@@ -307,6 +307,78 @@
         ],
         "predetermined_reason": null,
         "notes": null
+      },
+      {
+        "target_id": "T-4ad35b8ed5",
+        "dimension": "D3",
+        "subject": "Q6",
+        "polarity": "boundary_max_accepted",
+        "claim": "Q6 accepts an answer of exactly 500 characters, its stated maximum",
+        "traces_to": [
+          "Q6"
+        ],
+        "predetermined_reason": null,
+        "notes": "boundary case of the stated rule"
+      },
+      {
+        "target_id": "T-8a57cf56a3",
+        "dimension": "D3",
+        "subject": "Q6",
+        "polarity": "special_characters_accepted",
+        "claim": "Q6 accepts punctuation and quotation marks, because its rule constrains length and not content",
+        "traces_to": [
+          "Q6"
+        ],
+        "predetermined_reason": null,
+        "notes": "quotes and angle brackets are where survey tools most often break"
+      },
+      {
+        "target_id": "T-81f7201b2b",
+        "dimension": "D3",
+        "subject": "Q8",
+        "polarity": "boundary_max_accepted",
+        "claim": "Q8 accepts an answer of exactly 500 characters, its stated maximum",
+        "traces_to": [
+          "Q8"
+        ],
+        "predetermined_reason": null,
+        "notes": "boundary case of the stated rule"
+      },
+      {
+        "target_id": "T-5bf7c9d7a3",
+        "dimension": "D3",
+        "subject": "Q8",
+        "polarity": "special_characters_accepted",
+        "claim": "Q8 accepts punctuation and quotation marks, because its rule constrains length and not content",
+        "traces_to": [
+          "Q8"
+        ],
+        "predetermined_reason": null,
+        "notes": "quotes and angle brackets are where survey tools most often break"
+      },
+      {
+        "target_id": "T-a7c5528feb",
+        "dimension": "D4",
+        "subject": "Q6",
+        "polarity": "whitespace_rejected",
+        "claim": "Q6 refuses an answer of spaces alone, being compulsory",
+        "traces_to": [
+          "Q6"
+        ],
+        "predetermined_reason": null,
+        "notes": "question kind: text"
+      },
+      {
+        "target_id": "T-a7eaf4230c",
+        "dimension": "D4",
+        "subject": "Q8",
+        "polarity": "whitespace_accepted",
+        "claim": "Q8 accepts an answer of spaces alone, being optional",
+        "traces_to": [
+          "Q8"
+        ],
+        "predetermined_reason": null,
+        "notes": "question kind: text"
       },
       {
         "target_id": "T-04f1f82dbc",

@@ -41,6 +41,13 @@
         "status": "CONFIRMED",
         "blocking": false,
         "decision_id": null
+      },
+      "whitespace_is_an_answer": {
+        "value": "not_an_answer",
+        "origin": "agent3_fallback",
+        "status": "PROVISIONAL",
+        "blocking": false,
+        "decision_id": null
       }
     },
     "semantics_all_resolved": false,
@@ -58,15 +65,15 @@
       "per_dimension": {
         "D1": 14,
         "D2": 3,
-        "D3": 6,
-        "D4": 10,
+        "D3": 10,
+        "D4": 12,
         "D5": 0,
         "D6": 1,
         "D7": 0,
         "D8": 0,
         "D9": 1
       },
-      "records_enumerated": 35,
+      "records_enumerated": 41,
       "predetermined_unresolvable": 0,
       "orphan_rules": [],
       "note": "Dimensions are reported side by side and never summed. records_enumerated counts records, not coverage."
@@ -95,8 +102,8 @@
         },
         "D3": {
           "name": "Validation (explicit)",
-          "enumerated": 6,
-          "covered": 6,
+          "enumerated": 10,
+          "covered": 10,
           "uncovered": 0,
           "reasons": {},
           "provisional": 0,
@@ -105,11 +112,11 @@
         },
         "D4": {
           "name": "Validation (mandatory)",
-          "enumerated": 10,
-          "covered": 10,
+          "enumerated": 12,
+          "covered": 12,
           "uncovered": 0,
           "reasons": {},
-          "provisional": 0,
+          "provisional": 2,
           "enumeration_status": "EXHAUSTIVE",
           "logical_coverage_pct": 100.0
         },

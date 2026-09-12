@@ -4,9 +4,9 @@ Agent 3 v0.1. Blocks B1 to B4 implemented and run. Blocks A and C are blocked on
 
 ## Headline
 
-- **165 coverage targets** enumerated across nine dimensions
-- **149 logically covered**, each with an independently predicted outcome
-- **149 logical test cases** generated, with steps and assertions
+- **174 coverage targets** enumerated across nine dimensions
+- **158 logically covered**, each with an independently predicted outcome
+- **158 logical test cases** generated, with steps and assertions
 - **0 executable tests** - Block C cannot bind a canonical id to a LimeSurvey field without Agent 2's build manifest
 - **Coverage floor 50.0%** (D8). Reported as a floor, never a sum or an average
 - **Specification replay: 6 agree / 0 disagree / 1 unresolved of 7** against the QRE's own acceptance scenarios
@@ -17,15 +17,15 @@ Nine dimensions, reported side by side. They count different kinds of unit, so a
 
 | Dim | Measures | Enumerated | Covered | Logical % | Status | Why not covered |
 |---|---|---|---|---|---|---|
-| D1 | Visibility | 59 | 59 | 100.0% | EXHAUSTIVE | - |
+| D1 | Visibility | 57 | 57 | 100.0% | EXHAUSTIVE | - |
 | D2 | Terminal outcome | 6 | 5 | 83.3% | PARTIAL | `QUOTA_SIZE_UNDEFINED` x1 |
-| D3 | Validation (explicit) | 24 | 24 | 100.0% | EXHAUSTIVE | - |
-| D4 | Validation (mandatory) | 31 | 31 | 100.0% | EXHAUSTIVE | - |
+| D3 | Validation (explicit) | 32 | 32 | 100.0% | EXHAUSTIVE | - |
+| D4 | Validation (mandatory) | 35 | 35 | 100.0% | EXHAUSTIVE | - |
 | D5 | Option-source dependency | 2 | 2 | 100.0% | EXHAUSTIVE | - |
 | D6 | Text-pipe dependency | 4 | 4 | 100.0% | EXHAUSTIVE | - |
 | D7 | Randomization configuration | 15 | 10 | 66.7% | PARTIAL | `RANDOMIZATION_ANCHOR_UNDEFINED` x5 |
 | D8 | Quota cell state | 20 | 10 | 50.0% | PARTIAL | `QUOTA_SIZE_UNDEFINED` x10 |
-| D9 | Interaction | 4 | 4 | 100.0% | BOUNDED | - |
+| D9 | Interaction | 3 | 3 | 100.0% | BOUNDED | - |
 
 **Floor: 50.0% (D8).** FLOOR - lowest dimension. Never a sum or an average.
 
@@ -41,8 +41,9 @@ B3's interpreter cannot run without these. They are read from Agent 1's `semanti
 | rule_precedence | `document_order_first_match` | inferred | PROVISIONAL | yes | 00db7d74442cb17d |
 | multi_equality | `set_equality` | derived | PROVISIONAL | yes | 5c5b9104ff079c25 |
 | default_mandatory | `True` | derived | CONFIRMED | no | - |
+| whitespace_is_an_answer | `not_an_answer` | agent3_fallback | PROVISIONAL | no | - |
 
-3 reading(s) still provisional. **142 of 149 generated tests lean on at least one of them** and are tagged accordingly, so a change of ruling shows exactly which tests must be regenerated.
+4 reading(s) still provisional. **151 of 158 generated tests lean on at least one of them** and are tagged accordingly, so a change of ruling shows exactly which tests must be regenerated.
 
 ## Specification replay
 
@@ -203,11 +204,11 @@ No target is ever silently dropped. Each carries one specific reason.
 **`QUOTA_SIZE_UNDEFINED`** - 11 target(s)
 
 - D2 TERM_QUOTA_FULL / reachable
-- D8 QUOTA_AGE:D2-O1 / full
-- D8 QUOTA_AGE:D2-O2 / full
-- D8 QUOTA_AGE:D2-O3 / full
-- D8 QUOTA_AGE:D2-O4 / full
-- D8 QUOTA_AGE:D2-O5 / full
+- D8 QUOTA_AGE:D2-O1 / over_target_admits
+- D8 QUOTA_AGE:D2-O2 / over_target_admits
+- D8 QUOTA_AGE:D2-O3 / over_target_admits
+- D8 QUOTA_AGE:D2-O4 / over_target_admits
+- D8 QUOTA_AGE:D2-O5 / over_target_admits
 - D8 QUOTA_REGION:D1-O1 / full
 - D8 QUOTA_REGION:D1-O2 / full
 - D8 QUOTA_REGION:D1-O3 / full
@@ -224,7 +225,7 @@ No target is ever silently dropped. Each carries one specific reason.
 
 ## Block A - implementation conformance
 
-Derived from the emitted `.lss` (sha `1b25ace7e7cd`), not from a self-reported manifest.
+Derived from the emitted `.lss` (sha `1ef79bfc08e1`), not from a self-reported manifest.
 
 - Questions specified: 31
 - Questions built: 31
@@ -233,6 +234,7 @@ Derived from the emitted `.lss` (sha `1b25ace7e7cd`), not from a self-reported m
 
 | Finding | Severity | Count | Subjects |
 |---|---|---|---|
+| CARRY_FORWARD_CODE_MISMATCH | HIGH | 1 | Q5->Q6 |
 | DISPOSITION_NOT_DISTINGUISHABLE | HIGH | 1 | TERM_AGE, TERM_CONFLICT, TERM_INVOLVEMENT, TERM_RECENT_RESEARCH |
 | QUOTAS_NOT_BUILT | HIGH | 1 | QUOTA_REGION, QUOTA_AGE |
 | RANDOMIZATION_NOT_BUILT | HIGH | 5 | Q1, Q5, Q9, Q16, Q19 |
@@ -244,14 +246,14 @@ Derived from the emitted `.lss` (sha `1b25ace7e7cd`), not from a self-reported m
 
 ## Block C - executable compilation
 
-- Logically covered: 149
-- **Compiled to executable tests: 149**
+- Logically covered: 158
+- **Compiled to executable tests: 158**
 - Refused rather than guessed: 0
-- Executable coverage: **90.3%**
+- Executable coverage: **90.8%**
 
 ## Sample executable test
 
-### `EX-16eb69e6a1` - answering D1 normally moves the respondent on to the question that should come next
+### `EX-865ccb3f80` - answering D1 normally moves the respondent on to the question that should come next
 
 Survey id 900001. Dimension D1. Traces to D1.
 

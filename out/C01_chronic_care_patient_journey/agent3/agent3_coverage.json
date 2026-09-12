@@ -9,7 +9,7 @@
   },
   "upstream": {
     "canonical_schema_version": "1.0.0",
-    "canonical_generated_at": "2026-09-09T08:14:17+00:00"
+    "canonical_generated_at": "2026-09-11T16:40:48+00:00"
   },
   "content": {
     "project_inputs": {},
@@ -41,6 +41,13 @@
         "status": "CONFIRMED",
         "blocking": false,
         "decision_id": null
+      },
+      "whitespace_is_an_answer": {
+        "value": "not_an_answer",
+        "origin": "agent3_fallback",
+        "status": "PROVISIONAL",
+        "blocking": false,
+        "decision_id": null
       }
     },
     "semantics_all_resolved": false,
@@ -56,30 +63,32 @@
     },
     "b1": {
       "per_dimension": {
-        "D1": 59,
+        "D1": 57,
         "D2": 6,
-        "D3": 24,
-        "D4": 31,
+        "D3": 32,
+        "D4": 35,
         "D5": 2,
         "D6": 4,
         "D7": 15,
         "D8": 20,
-        "D9": 4
+        "D9": 3
       },
-      "records_enumerated": 165,
+      "records_enumerated": 174,
       "predetermined_unresolvable": 16,
-      "orphan_rules": [],
+      "orphan_rules": [
+        "R8"
+      ],
       "note": "Dimensions are reported side by side and never summed. records_enumerated counts records, not coverage."
     },
     "coverage": {
       "coverage_vector": {
         "D1": {
           "name": "Visibility",
-          "enumerated": 59,
-          "covered": 59,
+          "enumerated": 57,
+          "covered": 57,
           "uncovered": 0,
           "reasons": {},
-          "provisional": 59,
+          "provisional": 57,
           "enumeration_status": "EXHAUSTIVE",
           "logical_coverage_pct": 100.0
         },
@@ -97,21 +106,21 @@
         },
         "D3": {
           "name": "Validation (explicit)",
-          "enumerated": 24,
-          "covered": 24,
+          "enumerated": 32,
+          "covered": 32,
           "uncovered": 0,
           "reasons": {},
-          "provisional": 22,
+          "provisional": 30,
           "enumeration_status": "EXHAUSTIVE",
           "logical_coverage_pct": 100.0
         },
         "D4": {
           "name": "Validation (mandatory)",
-          "enumerated": 31,
-          "covered": 31,
+          "enumerated": 35,
+          "covered": 35,
           "uncovered": 0,
           "reasons": {},
-          "provisional": 26,
+          "provisional": 30,
           "enumeration_status": "EXHAUSTIVE",
           "logical_coverage_pct": 100.0
         },
@@ -161,11 +170,11 @@
         },
         "D9": {
           "name": "Interaction",
-          "enumerated": 4,
-          "covered": 4,
+          "enumerated": 3,
+          "covered": 3,
           "uncovered": 0,
           "reasons": {},
-          "provisional": 4,
+          "provisional": 3,
           "enumeration_status": "BOUNDED",
           "logical_coverage_pct": 100.0
         }
@@ -299,6 +308,7 @@
             "Q1",
             "Q4",
             "Q5",
+            "Q6",
             "Q10",
             "Q18",
             "Q19",
@@ -313,6 +323,7 @@
             "COMPLETE"
           ],
           "unresolved": [
+            "Q6: option source Q5 carries no answer to pipe",
             "Q20: text pipe from Q19 has nothing to render",
             "Q21: text pipe from Q19 has nothing to render"
           ]
@@ -389,6 +400,7 @@
             "Q3",
             "Q4",
             "Q5",
+            "Q6",
             "Q7",
             "Q8",
             "Q9",
@@ -407,6 +419,7 @@
             "COMPLETE"
           ],
           "unresolved": [
+            "Q6: option source Q5 carries no answer to pipe",
             "Q20: text pipe from Q19 has nothing to render",
             "Q21: text pipe from Q19 has nothing to render"
           ]
@@ -485,6 +498,7 @@
             "Q3",
             "Q4",
             "Q5",
+            "Q6",
             "Q7",
             "Q8",
             "Q9",
@@ -508,6 +522,7 @@
             "COMPLETE"
           ],
           "unresolved": [
+            "Q6: option source Q5 carries no answer to pipe",
             "Q20: text pipe from Q19 has nothing to render",
             "Q21: text pipe from Q19 has nothing to render"
           ]
@@ -543,11 +558,14 @@
             "Q1",
             "Q4",
             "Q5",
+            "Q6",
             "Q10",
             "Q18",
             "BLOCKED_AT:Q18"
           ],
-          "unresolved": []
+          "unresolved": [
+            "Q6: option source Q5 carries no answer to pipe"
+          ]
         },
         {
           "scenario_id": "T7",
