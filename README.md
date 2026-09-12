@@ -221,11 +221,3 @@ The key is read when an agent starts, so the next run — from the command line 
 | Client Mentor | Sameer Saurabh | sameer.saurabh@escalent.co |
 | Faculty Mentor | Ram Vempati | ramakrishna.vempati@gmail.com |
 
-## Milestones
-
-| Gate | Date | Due |
-|---|---|---|
-| M1 | 14 Aug | Scope agreed, platform feasibility proven |
-| M2 | 11 Sep | Full pipeline runs end to end |
-| M3 | 9 Oct | Every agent meets accuracy targets |
-| M4 | 16 Oct | Soft launch, UAT, final benchmark |
