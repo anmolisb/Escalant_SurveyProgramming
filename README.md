@@ -38,7 +38,7 @@ QRE (.docx)
 python -m src.agents.qre_interpretation.orchestrator fixtures/qre-samples/<file>.docx
 ```
 
-- Accepts `.docx` only. PDF ingestion was removed, so the two PDF fixtures cannot currently be run.
+- Accepts `.docx` only.
 - All nine stages run on every call. `--from-stage N` reloads stages 1–3 from disk; stage 4 onwards always re-runs.
 - Exits with code 2 when stage 7 marks the specification FAILED.
 
