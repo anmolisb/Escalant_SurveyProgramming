@@ -142,8 +142,73 @@ def structural_checks(
             rule.kind.value, "routing_transition_preservation")
 
         if rule.kind is RuleKind.SHOW:
-            # A show rule is the target question's own guard, never an edge -
-            # checked under guard preservation below, not here.
+            # A show rule is both the target question's guard and an explicit
+            # visibility relationship from the questions that guard reads. The
+            # node attribute is what an executor evaluates and is checked under
+            # guard preservation below; this checks the relationship, which used
+            # to be skipped outright and so was a ratio that could not fail.
+            target_question = rule.destination.id
+            guard = next((q.guard for q in survey.questions
+                          if q.question_id == target_question), None)
+            expected_condition = (
+                _condition_text(guard.condition)
+                if guard is not None and guard.condition is not None else None
+            )
+            sources = (
+                part2_graph._questions_in(guard.condition)
+                if guard is not None and guard.condition is not None else []
+            )
+            edges = [(u, v, d) for u, v, d in _edges_for_rule(route, rule.rule_id)
+                     if d.get("kind") == part2_graph.VISIBILITY]
+            if expected_condition is None:
+                # Nothing to project. The rule's condition is prose the pipeline
+                # declined to read, so the guard has no condition either and the
+                # canonical already reports that twice. Calling the absent
+                # relationship a defect here would blame the graph builder for a
+                # sentence nobody could read, and block a run over it.
+                if edges:
+                    findings.append(_finding(category, "visibility_edge_invented", INCORRECT,
+                                             f"Show rule {rule.rule_id}'s condition could not be read, "
+                                             f"yet a visibility relationship into {target_question!r} "
+                                             "exists; the graph states something the specification "
+                                             "does not.", target=rule.rule_id))
+                else:
+                    findings.append(_finding(category, "visibility_condition_unread", WARNING,
+                                             f"Show rule {rule.rule_id} has no visibility relationship "
+                                             f"into {target_question!r} because its condition could not "
+                                             "be read. A person must settle the wording before the "
+                                             "graph can say what decides this question.",
+                                             target=rule.rule_id, evidence=rule.when_unread or ""))
+                continue
+            if not edges:
+                findings.append(_finding(category, "visibility_edge_missing", MISSING,
+                                         f"Show rule {rule.rule_id} has no visibility relationship "
+                                         f"into {target_question!r}; nothing in the graph says which "
+                                         "answers decide whether it appears.",
+                                         target=rule.rule_id, evidence=rule.when_unread or ""))
+                continue
+            for source, target, data in edges:
+                if target != target_question:
+                    findings.append(_finding(category, "visibility_target_mismatch", INCORRECT,
+                                             f"Rule {rule.rule_id}'s visibility edge ends at "
+                                             f"{target!r}, the specification shows {target_question!r}.",
+                                             target=rule.rule_id))
+                if sources and source not in sources:
+                    findings.append(_finding(category, "visibility_source_mismatch", INCORRECT,
+                                             f"Rule {rule.rule_id}'s visibility edge starts at "
+                                             f"{source!r}, which the guard on {target_question} does "
+                                             f"not read; it reads {sources}.", target=rule.rule_id))
+                if data.get("navigational") is not False:
+                    findings.append(_finding(category, "visibility_is_navigational", INCORRECT,
+                                             f"Rule {rule.rule_id}'s visibility edge is not marked "
+                                             "non-navigational; a route walk could follow it and "
+                                             "move a respondent along a relationship that only says "
+                                             "whether a question is shown.", target=rule.rule_id))
+                if expected_condition is not None and data.get("condition") != expected_condition:
+                    findings.append(_finding(category, "condition_not_preserved", INCORRECT,
+                                             f"Rule {rule.rule_id}'s visibility edge carries "
+                                             f"{data.get('condition')!r}, the guard it projects reads "
+                                             f"{expected_condition!r}.", target=rule.rule_id))
             continue
 
         edges = _edges_for_rule(route, rule.rule_id)
@@ -208,19 +273,20 @@ def structural_checks(
             # unguarded question. An extra incoming edge here would mean the
             # guard had been compiled into a transition somewhere.
             incoming_kinds = {d.get("kind") for _, _, d in route.in_edges(question.question_id, data=True)}
-            if incoming_kinds - {"advance", "jump"}:
+            unexpected = incoming_kinds - {"advance", "jump", part2_graph.VISIBILITY}
+            if unexpected:
                 findings.append(_finding("guard_preservation", "guard_became_routing", INCORRECT,
                                          f"{question.question_id} has an unexpected incoming edge "
-                                         f"kind {incoming_kinds - {'advance', 'jump'}}; a guard must "
-                                         "stay a node attribute, never a transition.",
-                                         target=question.question_id))
+                                         f"kind {unexpected}; a guard may be projected as a "
+                                         "visibility relationship but must never become a "
+                                         "transition.", target=question.question_id))
 
     # -- F. validation / reject rules ------------------------------------------
     for rule in survey.rules:
         if rule.kind is not RuleKind.REJECT:
             continue
         mapped = rule_map.get(rule.rule_id, [])
-        if "constraint" not in mapped:
+        if not any(m.startswith("constraint") for m in mapped):
             findings.append(_finding("validation_reject_preservation", "reject_not_traced", MISSING,
                                      f"Reject rule {rule.rule_id} is not recorded as a constraint.",
                                      target=rule.rule_id))
@@ -273,8 +339,9 @@ def structural_checks(
                                      "the specification.", target=entry.question_id))
     # No edge kind exists for randomisation anywhere in this graph builder;
     # confirmed structurally rather than assumed.
+    defined = set(part2_graph.NAVIGATION_KINDS) | {part2_graph.VISIBILITY}
     invented = [d.get("kind") for _, _, d in route.edges(data=True)
-               if d.get("kind") not in ("advance", "jump", "terminate", "quota_terminate")]
+               if d.get("kind") not in defined]
     if invented:
         findings.append(_finding("randomization_preservation", "unsupported_edge_kind", INCORRECT,
                                  f"Edge kind(s) {sorted(set(invented))} have no defined meaning; "
@@ -310,6 +377,15 @@ def structural_checks(
                                      "walk would treat a quota-full termination as an ordinary, "
                                      "always-available transition rather than one that depends on "
                                      "how many other respondents already answered this way.",
+                                     target=quota.quota_id))
+        on_edge = {d.get("enforcement") for d in edge_data.values()
+                   if d.get("kind") == "quota_terminate"}
+        if on_edge != {quota.enforcement}:
+            findings.append(_finding("quota_preservation", "quota_enforcement_mismatch", INCORRECT,
+                                     f"Quota {quota.quota_id} is {quota.enforcement!r} in the "
+                                     f"specification and {sorted(on_edge)} on its edge. A hard quota "
+                                     "turns the respondent away and a soft one is a preference; an "
+                                     "edge that does not say which reads as a screenout either way.",
                                      target=quota.quota_id))
 
     # -- J. traceability -------------------------------------------------------
@@ -489,13 +565,36 @@ def build_behavioural_tests(
             True, "NORMAL", "VERIFIED", source_reference={"question_id": entry.question_id})
 
     for scenario in survey.scenarios:
-        ends = [e for e in scenario.expectations if e.kind == "expected_end" and e.targets]
-        if not ends:
-            continue
         state = {i.question_id: i.value for i in scenario.inputs if not i.unknown_question}
-        add("route", "scenario_route_walk", scenario.scenario_id, ends[0].targets[0],
-            "CRITICAL", "VERIFIED", input_state=state,
-            source_reference={"scenario_id": scenario.scenario_id, "purpose": scenario.purpose})
+        ref = {"scenario_id": scenario.scenario_id, "purpose": scenario.purpose}
+        by_kind: dict[str, list[str]] = {}
+        for expectation in scenario.expectations:
+            if expectation.targets:
+                by_kind.setdefault(expectation.kind, []).extend(expectation.targets)
+
+        ends = by_kind.get("expected_end")
+        if ends:
+            add("route", "scenario_route_walk", scenario.scenario_id, ends[0],
+                "CRITICAL", "VERIFIED", input_state=state, source_reference=ref)
+
+        # A scenario says which questions the respondent should and should not
+        # see, and until now nothing asked the graph about either. These are the
+        # expectations that catch a guard wired to the wrong question, which no
+        # end-of-route assertion can see.
+        for kind, check in (("expected_visible", "scenario_questions_visible"),
+                            ("expected_hidden", "scenario_questions_hidden")):
+            if by_kind.get(kind):
+                add("route", check, scenario.scenario_id, sorted(by_kind[kind]),
+                    "CRITICAL", "VERIFIED", input_state=state, source_reference=ref)
+
+        # No validation bound reaches the graph - rejects are constraints, by
+        # design. Recorded as UNVERIFIED so the scenario is visibly deferred to
+        # the canonical spec rather than silently dropped, which is what used to
+        # happen to any scenario that expected only a validation error.
+        if by_kind.get("expected_validation_error"):
+            add("validation", "scenario_validation_error", scenario.scenario_id,
+                sorted(by_kind["expected_validation_error"]), "CRITICAL", "UNVERIFIED",
+                input_state=state, source_reference=ref)
 
     return tests
 
@@ -505,7 +604,10 @@ def build_behavioural_tests(
 # ---------------------------------------------------------------------------
 
 
-def walk_route(route: nx.MultiDiGraph, rules_by_id: dict, state: dict):
+def walk_route(
+    route: nx.MultiDiGraph, rules_by_id: dict, state: dict,
+    guards_by_question: dict | None = None,
+):
     """Follow the graph from START the way a respondent actually would:
     advance by default, take a rule's edge the moment its condition is true,
     checked in document precedence order at each node.
@@ -515,27 +617,53 @@ def walk_route(route: nx.MultiDiGraph, rules_by_id: dict, state: dict):
     semantics the specification already declares, never inventing a new one,
     for the sole purpose of walking the graph a scenario names.
 
-    Returns (path, reached, uncertain): `uncertain` lists every rule the walk
-    had to skip because its condition could not be evaluated - unread prose,
-    or a question the scenario never answers - so the caller can tell a walk
-    that is genuinely wrong from one that merely passed through a gap this
-    layer is not entitled to fill in.
+    Returns (path, shown, reached, uncertain). `path` is every node the walk
+    crossed; `shown` is the subset a respondent would actually have seen, which
+    is the narrower and more useful of the two. The difference is the guard
+    plane: a question whose guard is false is still on the spine and still
+    walked through, and reporting the path as though it were the questionnaire
+    was how C02's T3 came to pass while its route crossed Q7, Q8 and Q9 - the
+    three questions that scenario exists to say are hidden.
+
+    `uncertain` lists every rule and guard the walk had to skip because its
+    condition could not be evaluated - unread prose, or a question the scenario
+    never answers - so the caller can tell a walk that is genuinely wrong from
+    one that merely passed through a gap this layer is not entitled to fill in.
     """
+    guards_by_question = guards_by_question or {}
     current = part2_graph.START
     path = [current]
+    shown: list[str] = []
     uncertain: list[str] = []
     seen: set[str] = set()
     while True:
         if current in seen:
-            return path, None, uncertain  # a cycle; reported separately by structural checks
+            return path, shown, None, uncertain  # a cycle; reported by structural checks
         seen.add(current)
         node = route.nodes[current]
         if node.get("kind") == "disposition":
-            return path, current, uncertain
+            return path, shown, current, uncertain
 
+        if node.get("kind") == "question":
+            guard = guards_by_question.get(current)
+            if guard is None:
+                visible = True
+            else:
+                visible = agent1_eval._canonical_eval(guard, state)
+                if visible is None:
+                    # Unreadable, or the scenario never answered what it needs.
+                    # Neither shown nor hidden, and never quietly called either.
+                    uncertain.append("guard:%s" % current)
+            if visible:
+                shown.append(current)
+
+        # Navigation only, and stated as a kind rather than inferred from which
+        # attributes happen to be set: a visibility edge also carries a
+        # `rule_id`, and filtering on that alone would have walked one.
         candidates = sorted(
             (e for e in route.out_edges(current, data=True)
-             if e[2].get("rule_id") and not e[2].get("stateful")),
+             if e[2].get("kind") in part2_graph.NAVIGATION_KINDS
+             and e[2].get("rule_id") and not e[2].get("stateful")),
             key=lambda e: e[2].get("precedence") or 0,
         )
         taken = None
@@ -554,7 +682,7 @@ def walk_route(route: nx.MultiDiGraph, rules_by_id: dict, state: dict):
         if taken is None:
             advance = [d[1] for d in route.out_edges(current, data=True) if d[2].get("kind") == "advance"]
             if not advance:
-                return path, None, uncertain
+                return path, shown, None, uncertain
             taken = advance[0]
         path.append(taken)
         current = taken
@@ -566,6 +694,11 @@ def run_behavioural_tests(
 ) -> list[GraphTestResult]:
     results: list[GraphTestResult] = []
     rules_by_id = {r.rule_id: r for r in survey.rules}
+    guards_by_question = {
+        q.question_id: q.guard.condition
+        for q in survey.questions
+        if q.guard is not None and q.guard.condition is not None
+    }
 
     def record(test, status, actual, evidence, explanation):
         results.append(GraphTestResult(
@@ -650,8 +783,30 @@ def run_behavioural_tests(
             record(test, PASS if ok else FAIL, ok, question_id,
                    "metadata present on the node" if ok else "randomisation metadata missing")
 
-        elif test.check == "scenario_route_walk":
-            path, reached, uncertain = walk_route(route, rules_by_id, test.input_state)
+        elif test.check in ("scenario_route_walk", "scenario_questions_visible",
+                            "scenario_questions_hidden"):
+            path, shown, reached, uncertain = walk_route(
+                route, rules_by_id, test.input_state, guards_by_question
+            )
+            if test.check != "scenario_route_walk":
+                wanted = set(test.expected)
+                seen_now = set(shown)
+                blocked = {q for q in wanted if "guard:%s" % q in uncertain}
+                actual = sorted(seen_now & wanted) if test.check.endswith("visible")                     else sorted(wanted - seen_now)
+                if blocked:
+                    record(test, UNVERIFIED, actual, " -> ".join(shown),
+                           "the guard on %s could not be evaluated from this scenario's "
+                           "inputs, so visibility cannot be confirmed independently"
+                           % ", ".join(sorted(blocked)))
+                elif set(actual) == wanted:
+                    record(test, PASS, actual, " -> ".join(shown),
+                           "walking the graph shows exactly the questions the QRE's own "
+                           "scenario says it should")
+                else:
+                    record(test, FAIL, actual, " -> ".join(shown),
+                           "walking the graph disagrees with the QRE's own scenario about "
+                           "which questions the respondent sees")
+                continue
             evidence = " -> ".join(path)
             if uncertain:
                 record(test, UNVERIFIED, reached, evidence,

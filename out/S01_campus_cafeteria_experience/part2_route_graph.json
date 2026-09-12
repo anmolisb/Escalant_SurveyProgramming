@@ -8,14 +8,24 @@
     "sha256": "2756cb3b6dc3f21cdc7c1d35b7cfb0e2270af2a918ba6fe682e72ae8e121a804",
     "bytes": 40578
   },
-  "generated_at": "2026-09-11T17:17:56+00:00",
+  "generated_at": "2026-09-12T03:56:09+00:00",
   "item_count": null,
   "content": {
     "source": "S01_campus_cafeteria_experience.docx",
     "route_graph": {
       "directed": true,
       "multigraph": true,
-      "graph": {},
+      "graph": {
+        "unasked_reference": "condition_false",
+        "unasked_reference_origin": "inferred",
+        "rule_precedence": "document_order_first_match",
+        "rule_precedence_origin": "inferred",
+        "multi_equality": "set_equality",
+        "multi_equality_origin": "derived",
+        "default_mandatory": true,
+        "default_mandatory_origin": "derived",
+        "default_mandatory_source": "All questions are mandatory unless explicitly marked optional. Do not infer unstated routing."
+      },
       "nodes": [
         {
           "kind": "start",
@@ -222,6 +232,16 @@
           "key": 0
         },
         {
+          "kind": "visibility",
+          "rule_id": "R3",
+          "condition": "Q5 eq 'Yes'",
+          "agreement": "agree",
+          "navigational": false,
+          "source": "Q5",
+          "target": "Q6",
+          "key": 1
+        },
+        {
           "kind": "jump",
           "rule_id": "R4",
           "condition": "Q5 eq 'No'",
@@ -313,6 +333,10 @@
         {
           "kind": "text_pipe",
           "origin": "inferred",
+          "kinds": [
+            "text_pipe",
+            "guard"
+          ],
           "source": "Q5",
           "target": "Q6"
         }
@@ -325,11 +349,12 @@
       "R2": [
         "S2->TERM_INELIGIBLE"
       ],
+      "R3": [
+        "visibility:Q5->Q6",
+        "guard:Q6"
+      ],
       "R4": [
         "Q5->Q7"
-      ],
-      "R3": [
-        "guard:Q6"
       ]
     }
   }

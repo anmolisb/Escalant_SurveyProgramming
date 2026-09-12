@@ -8,7 +8,7 @@
     "sha256": "2756cb3b6dc3f21cdc7c1d35b7cfb0e2270af2a918ba6fe682e72ae8e121a804",
     "bytes": 40578
   },
-  "generated_at": "2026-09-11T17:17:56+00:00",
+  "generated_at": "2026-09-12T03:56:09+00:00",
   "item_count": null,
   "content": {
     "survey_id": "S01_campus_cafeteria_experience",
@@ -20,7 +20,7 @@
       "route_graph": "part2_route_graph.json",
       "graph_report": "part2_graph_report.json",
       "schema_version": "1.0.0",
-      "generated_at": "2026-09-11T17:17:56+00:00"
+      "generated_at": "2026-09-12T03:56:09+00:00"
     },
     "validation_status": "READY",
     "graph_readiness": "READY",
@@ -270,6 +270,26 @@
       {
         "test_id": "G012",
         "category": "route",
+        "check": "scenario_questions_visible",
+        "rule_or_question": "T2",
+        "source_reference": {
+          "scenario_id": "T2",
+          "purpose": "eligible with problem"
+        },
+        "input_state": {
+          "S1": "Yes",
+          "S2": "Yes",
+          "Q5": "Yes"
+        },
+        "expected": [
+          "Q6"
+        ],
+        "criticality": "CRITICAL",
+        "ground_truth_status": "VERIFIED"
+      },
+      {
+        "test_id": "G013",
+        "category": "route",
         "check": "scenario_route_walk",
         "rule_or_question": "T3",
         "source_reference": {
@@ -282,6 +302,26 @@
           "Q5": "No"
         },
         "expected": "COMPLETE",
+        "criticality": "CRITICAL",
+        "ground_truth_status": "VERIFIED"
+      },
+      {
+        "test_id": "G014",
+        "category": "route",
+        "check": "scenario_questions_hidden",
+        "rule_or_question": "T3",
+        "source_reference": {
+          "scenario_id": "T3",
+          "purpose": "eligible without problem"
+        },
+        "input_state": {
+          "S1": "Yes",
+          "S2": "Yes",
+          "Q5": "No"
+        },
+        "expected": [
+          "Q6"
+        ],
         "criticality": "CRITICAL",
         "ground_truth_status": "VERIFIED"
       }
@@ -401,16 +441,44 @@
         "test_id": "G012",
         "category": "route",
         "status": "PASS",
+        "expected": [
+          "Q6"
+        ],
+        "actual": [
+          "Q6"
+        ],
+        "evidence": "S1 -> S2 -> Q1 -> Q2 -> Q3 -> Q4 -> Q5 -> Q6 -> Q7 -> Q8",
+        "rule_or_question": "T2",
+        "explanation": "walking the graph shows exactly the questions the QRE's own scenario says it should"
+      },
+      {
+        "test_id": "G013",
+        "category": "route",
+        "status": "PASS",
         "expected": "COMPLETE",
         "actual": "COMPLETE",
         "evidence": "__START__ -> S1 -> S2 -> Q1 -> Q2 -> Q3 -> Q4 -> Q5 -> Q7 -> Q8 -> COMPLETE",
         "rule_or_question": "T3",
         "explanation": "walking the graph from the scenario's own inputs reaches the ending the QRE itself says it should"
+      },
+      {
+        "test_id": "G014",
+        "category": "route",
+        "status": "PASS",
+        "expected": [
+          "Q6"
+        ],
+        "actual": [
+          "Q6"
+        ],
+        "evidence": "S1 -> S2 -> Q1 -> Q2 -> Q3 -> Q4 -> Q5 -> Q7 -> Q8",
+        "rule_or_question": "T3",
+        "explanation": "walking the graph shows exactly the questions the QRE's own scenario says it should"
       }
     ],
     "test_counts": {
-      "total": 12,
-      "PASS": 12,
+      "total": 14,
+      "PASS": 14,
       "FAIL": 0,
       "UNVERIFIED": 0,
       "BLOCKED": 0

@@ -17,11 +17,28 @@ alternative - compiling every guard into edge conditions - multiplies edges for
 no extra information and buries which rule each one came from. Route discovery
 walks the spine and skips nodes whose guard is false.
 
-Three things are deliberately NOT edges:
+Edges come in two families, and conflating them is the mistake this module
+exists to avoid:
 
-    show rules      already the target node's guard; an edge as well would
-                    state the same fact twice, in two places that can disagree
-    reject rules    a gate on progressing, not a change of destination
+    navigation      advance, jump, terminate, quota_terminate - a respondent is
+                    actually moved along one of these. Route walking follows
+                    these and only these.
+    behavioural     visibility - says what decides whether the target question
+                    is shown. Nobody is moved along one; the respondent reaches
+                    the question on the spine either way.
+
+A show rule is therefore both. It stays the target node's `guard`, which is what
+an executor evaluates, and it is also projected as an explicit `visibility` edge
+from the questions that guard reads to the question it gates, which is what
+makes the relationship legible to anyone reading the graph. The two cannot drift
+apart because they are the same condition object rendered by the same function;
+the guard remains authoritative and the edge is a view of it, never a second
+authoring.
+
+Two things remain deliberately NOT edges:
+
+    reject rules    a gate on progressing, not a change of destination, and not
+                    a statement about any one pair of questions
     randomisation   changes what a question looks like, never where it leads,
                     and is carried as metadata on the question's own node
 
@@ -59,6 +76,16 @@ from .models import (
 #: place to start rather than depending on which question happens to be first.
 START = "__START__"
 
+#: Edge kinds a respondent is actually moved along. Reachability, cycles and
+#: route walking are all questions about these and nothing else - naming them
+#: once, here, is what keeps a behavioural edge from being mistaken for a
+#: transition by some check that happened to enumerate every edge.
+NAVIGATION_KINDS = ("advance", "jump", "terminate", "quota_terminate")
+
+#: What decides whether a question is shown, as opposed to how anyone gets to
+#: it. Never traversed.
+VISIBILITY = "visibility"
+
 
 def _finding(check, severity, finding, *, target=None, evidence=None):
     return AuditFinding(
@@ -93,7 +120,19 @@ def build_route_graph(survey: CanonicalSurvey) -> nx.MultiDiGraph:
     lose which rule produced which, and the rule is the whole point of being
     able to trace a route back to the QRE.
     """
-    graph = nx.MultiDiGraph()
+    # The semantics the specification declares travel with the graph. A guard is
+    # stored as text, and text alone cannot say what happens when it names a
+    # question the respondent was never asked, or which rule wins when two
+    # match - so a reader holding only this file would have to guess at exactly
+    # the three decisions the canonical flags for review. Nulls are dropped
+    # because the shareable exports have no concept of one.
+    graph = nx.MultiDiGraph(
+        **{
+            key: value
+            for key, value in survey.semantics.model_dump(mode="json").items()
+            if value is not None
+        }
+    )
     graph.add_node(START, kind="start")
 
     ordered = sorted(
@@ -172,6 +211,34 @@ def build_route_graph(survey: CanonicalSurvey) -> nx.MultiDiGraph:
             precedence=rule.precedence,
         )
 
+    # Visibility, a projection of the guard already on each node. One edge per
+    # question the guard reads, per rule that states it - so a guard stated by
+    # two rules keeps both rather than one silently overwriting the other, and
+    # a guard the routing table never mentions (C02's Q15) still gets an edge,
+    # carrying no rule id because there is no rule to carry.
+    for question in ordered:
+        guard = question.guard
+        if guard is None or guard.condition is None:
+            continue
+        condition = _condition_summary(guard.condition)
+        rule_ids = [s for s in guard.sources if s != "questionnaire"] or [None]
+        for source in _questions_in(guard.condition):
+            if source not in graph or source == question.question_id:
+                continue
+            for rule_id in rule_ids:
+                graph.add_edge(
+                    source,
+                    question.question_id,
+                    kind=VISIBILITY,
+                    rule_id=rule_id,
+                    condition=condition,
+                    agreement=guard.agreement.value,
+                    # Stated on the edge as well as implied by its kind, so a
+                    # consumer that filters on one attribute cannot walk this
+                    # by accident.
+                    navigational=False,
+                )
+
     for quota in survey.quotas:
         if not quota.on_full or not quota.evaluation_point:
             continue
@@ -182,6 +249,10 @@ def build_route_graph(survey: CanonicalSurvey) -> nx.MultiDiGraph:
             quota.on_full,
             kind="quota_terminate",
             rule_id=quota.quota_id,
+            # hard turns the respondent away; soft is a preference. Without this
+            # both produce the same edge and a soft quota reads as a screenout,
+            # which is a different survey.
+            enforcement=quota.enforcement,
             # Depends on how many other people already answered this way, not on
             # anything this respondent did. Route discovery has to leave it out
             # of ordinary path enumeration or every route ends here.
@@ -218,8 +289,19 @@ def build_dependency_graph(survey: CanonicalSurvey) -> nx.DiGraph:
             continue
         for needed in _questions_in(guard.condition):
             if needed in graph and needed != question.question_id:
-                if not graph.has_edge(needed, question.question_id):
-                    graph.add_edge(needed, question.question_id, kind="guard")
+                if graph.has_edge(needed, question.question_id):
+                    # Q1 already feeds Q2's options and also guards it. One
+                    # DiGraph edge holds one `kind`, so the second relation used
+                    # to be dropped on the floor; `kinds` keeps both while `kind`
+                    # stays the primary this graph was built with.
+                    data = graph.edges[needed, question.question_id]
+                    data.setdefault("kinds", [data["kind"]])
+                    if "guard" not in data["kinds"]:
+                        data["kinds"].append("guard")
+                else:
+                    graph.add_edge(
+                        needed, question.question_id, kind="guard", kinds=["guard"]
+                    )
 
     return graph
 
@@ -250,8 +332,13 @@ def build_rule_edge_map(
     mapping: dict[str, list[str]] = {}
     for source, target, data in route.edges(data=True):
         rule_id = data.get("rule_id")
-        if rule_id:
-            mapping.setdefault(rule_id, []).append(f"{source}->{target}")
+        if not rule_id:
+            continue
+        # Tagged, because "R6 reached Q1->Q2" and "R5 reached Q1->Q4" are not
+        # the same claim: one says a respondent can be moved, the other says a
+        # question is conditionally shown.
+        prefix = "visibility:" if data.get("kind") == VISIBILITY else ""
+        mapping.setdefault(rule_id, []).append(f"{prefix}{source}->{target}")
 
     for question in survey.questions:
         guard = question.guard
@@ -265,7 +352,20 @@ def build_rule_edge_map(
         if rule.kind is RuleKind.REJECT:
             # Real, and deliberately not an edge. Recorded so the coverage check
             # can tell "represented as a constraint" from "lost".
-            mapping.setdefault(rule.rule_id, []).append("constraint")
+            #
+            # Named for the question it gates, so a reject is as traceable from
+            # this file as a guard already is. A reject the canonical could not
+            # anchor - one enforced at whichever question is being answered,
+            # naming several - is recorded against every question its condition
+            # depends on rather than against the last of them, which is the
+            # detail C02's R19 lost.
+            anchors = (
+                [rule.evaluation_point]
+                if rule.evaluation_point
+                else (_questions_in(rule.when) if rule.when else [])
+            )
+            entries = [f"constraint:{a}" for a in anchors] or ["constraint"]
+            mapping.setdefault(rule.rule_id, []).extend(entries)
 
     return mapping
 
@@ -357,7 +457,20 @@ def check(
                 )
             )
 
-    reachable = nx.descendants(route, START) | {START} if START in route else set()
+    # Navigation only. A visibility edge cannot carry a respondent anywhere, so
+    # letting one satisfy "is this reachable" would hide a question nobody can
+    # actually get to, and letting one close a loop would report a cycle that
+    # no respondent can travel.
+    navigation = nx.DiGraph()
+    navigation.add_nodes_from(route.nodes())
+    navigation.add_edges_from(
+        (u, v) for u, v, d in route.edges(data=True)
+        if d.get("kind") in NAVIGATION_KINDS
+    )
+
+    reachable = (
+        nx.descendants(navigation, START) | {START} if START in navigation else set()
+    )
     for node, data in route.nodes(data=True):
         if node not in reachable and data.get("kind") != "start":
             findings.append(
@@ -372,11 +485,8 @@ def check(
     # A cycle in the route graph would mean a respondent going round forever.
     # Reported rather than raised, since a genuine loop construct would show up
     # the same way and needs a person to tell the two apart.
-    simple = nx.DiGraph()
-    simple.add_nodes_from(route.nodes())
-    simple.add_edges_from((u, v) for u, v, _ in route.edges(keys=True))
     try:
-        cycle = nx.find_cycle(simple, orientation="original")
+        cycle = nx.find_cycle(navigation, orientation="original")
         findings.append(
             _finding(
                 "cycle",

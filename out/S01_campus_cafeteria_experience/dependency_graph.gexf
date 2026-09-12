@@ -1,12 +1,13 @@
 <?xml version='1.0' encoding='utf-8'?>
 <gexf xmlns="http://www.gexf.net/1.2draft" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.gexf.net/1.2draft http://www.gexf.net/1.2draft/gexf.xsd" version="1.2">
-  <meta lastmodifieddate="2026-09-11">
+  <meta lastmodifieddate="2026-09-12">
     <creator>NetworkX 3.6.1</creator>
   </meta>
   <graph defaultedgetype="directed" mode="static" name="">
     <attributes mode="static" class="edge">
       <attribute id="2" title="kind" type="string" />
       <attribute id="3" title="origin" type="string" />
+      <attribute id="4" title="kinds" type="string" />
     </attributes>
     <attributes mode="static" class="node">
       <attribute id="0" title="kind" type="string" />
@@ -79,6 +80,7 @@
         <attvalues>
           <attvalue for="2" value="text_pipe" />
           <attvalue for="3" value="inferred" />
+          <attvalue for="4" value="text_pipe|guard" />
         </attvalues>
       </edge>
     </edges>

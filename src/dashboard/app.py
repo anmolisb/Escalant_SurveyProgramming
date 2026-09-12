@@ -36,12 +36,6 @@ GROUPS = {
     "Decisions and gate": ("agent1_",),
 }
 
-NODE_STYLE = {
-    "start": ("ellipse", "#dcefe1"),
-    "question": ("box", "#e7eefb"),
-    "ending": ("ellipse", "#fbe4dc"),
-    "disposition": ("ellipse", "#fbe4dc"),
-}
 
 st.set_page_config(page_title="Survey Programming", layout="wide")
 
@@ -198,6 +192,21 @@ def file_rows(files: list[Path]) -> None:
             "Download", data=path.read_bytes(), file_name=path.name, key=str(path)
         )
 
+EDGE_STYLE = {
+    "advance": ("#8b95a3", "solid", "normal", ""),
+    "jump": ("#1b7f6b", "dashed", "normal", "Skip to"),
+    "terminate": ("#c0392b", "solid", "normal", "Terminate"),
+    "visibility": ("#3d6fa5", "dashed", "empty", "Visibility"),
+    "quota": ("#7b52a8", "dotted", "normal", "Quota"),
+}
+
+DISPOSITION_FILL = {
+    "complete": "#dcefe1",
+    "screenout": "#fbe4dc",
+    "quota_full": "#ece4f5",
+}
+
+
 def to_dot(graph: nx.DiGraph, zoom: float, vertical: bool = False) -> str:
     lines = [
         "digraph {",
@@ -207,20 +216,42 @@ def to_dot(graph: nx.DiGraph, zoom: float, vertical: bool = False) -> str:
         "  nodesep=0.35;",
         "  ranksep=0.7;",
         '  bgcolor="#ffffff";',
-        '  node [fontname="Helvetica" fontsize=13 height=0.5 width=1.5 '
-        'color="#c3ccd8" penwidth=1.2];',
-        '  edge [fontname="Helvetica" fontsize=11 color="#8b95a3"];',
+        '  node [fontname="Helvetica" fontsize=13 height=0.45 width=1.3];',
+        '  edge [fontname="Helvetica" fontsize=10];',
     ]
+
     for name, data in graph.nodes(data=True):
-        shape, fill = NODE_STYLE.get(data.get("kind", ""), ("box", "#ffffff"))
         label = data.get("label") or name
-        lines.append(
-            f'  "{name}" [label="{label}" shape={shape} style=filled fillcolor="{fill}"];'
-        )
+        kind = data.get("kind")
+        if kind == "start":
+            attrs = 'shape=ellipse style=filled fillcolor="#dcefe1" color="#6aa583"'
+        elif kind == "disposition":
+            fill = DISPOSITION_FILL.get(data.get("disposition_kind"), "#fbe4dc")
+            attrs = f'shape=ellipse style=filled fillcolor="{fill}" color="#c58d7a"'
+        else:
+            outline = "dashed" if str(data.get("has_guard")).lower() == "true" else "solid"
+            attrs = (
+                f'shape=box style="filled,{outline}" fillcolor="#e7eefb" '
+                'color="#8fa8cc"'
+            )
+        tip = data.get("guard") or ""
+        tooltip = f' tooltip="{tip}"' if tip else ""
+        lines.append(f'  "{name}" [label="{label}" {attrs}{tooltip}];')
+
     for source, target, data in graph.edges(data=True):
-        label = data.get("rule_id") or ""
-        dashed = " style=dashed" if data.get("kind") != "advance" else ""
-        lines.append(f'  "{source}" -> "{target}" [label="{label}"{dashed}];')
+        colour, style, arrow, prefix = EDGE_STYLE.get(
+            data.get("kind"), ("#8b95a3", "solid", "normal", "")
+        )
+        rule = data.get("rule_id") or ""
+        label = f"{prefix} ({rule})" if prefix and rule else prefix or rule
+        tip = (data.get("condition") or "").replace('"', "'")
+        lines.append(
+            f'  "{source}" -> "{target}" [label="{label}" color="{colour}" '
+            f'fontcolor="{colour}" style={style} arrowhead={arrow}'
+            + (f' tooltip="{tip}"' if tip else "")
+            + "];"
+        )
+
     lines.append("}")
     return "\n".join(lines)
 
@@ -228,7 +259,7 @@ def path_dot(path: dict) -> str:
     """One path drawn as a left-to-right chain, ending at its disposition."""
     sequence = list(path.get("sequence") or [])
     disposition = path.get("disposition")
-    skipped = set(path.get("skipped") or [])
+    #skipped = set(path.get("skipped") or [])
 
     lines = [
         "digraph {",
@@ -243,9 +274,11 @@ def path_dot(path: dict) -> str:
     ]
     for name in sequence:
         lines.append(f'  "{name}";')
+
+    fill = "#dcefe1" if path.get("route_class") == "MAIN" else "#fbe4dc"
     if disposition:
         lines.append(
-            f'  "{disposition}" [shape=ellipse fillcolor="#fbe4dc" width=1.4];'
+            f'  "{disposition}" [shape=ellipse fillcolor="{fill}" width=1.4];'
         )
     chain = sequence + ([disposition] if disposition else [])
     for source, target in zip(chain, chain[1:]):
@@ -514,11 +547,12 @@ with tab_g:
             f'<div class="graphwrap">{svg}</div>',
             unsafe_allow_html=True,
         )
-
         st.caption(
-            "Dashed edges are conditional and carry their rule ID. Green is the start, "
-            "orange is an ending."
+            "Grey is document order. Teal is a skip, red a termination, blue a "
+            "visibility guard, purple a quota. A dashed question box is shown "
+            "only when its guard holds. Hover an edge for its condition."
         )
+
         st.download_button(
             "Download the graph as SVG",
             data=svg,

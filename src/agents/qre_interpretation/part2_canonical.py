@@ -1316,15 +1316,47 @@ def run(source: str, parsed: dict) -> CanonicalSurvey:
             f"Rule {rule.rule}",
         )
         referenced = _referenced_questions(condition, rule.condition_raw)
-
-        # P3-05: check a rule once every question it depends on has been asked.
-        # The QRE never states this, and it says plainly not to infer unstated
-        # routing - so it is derived, marked inferred, and surfaced for review
-        # rather than buried.
         known = [q for q in referenced if q in seq_of and seq_of[q] is not None]
-        evaluation_point = max(known, key=lambda q: seq_of[q]) if known else None
-
         destination = _destination(rule.destination, question_ids, codes)
+        kind = _RULE_KINDS.get((rule.action or "").strip().lower(), RuleKind.OTHER)
+
+        if kind is RuleKind.REJECT:
+            # A reject gates the question being answered, which is its
+            # destination - not the last question its condition happens to
+            # name. C02's R19 reads "at Q1 or Q5": taking the later of the two
+            # left an exclusivity violation at Q1 with no anchor at all, and
+            # would have rejected Q5 for a mistake the respondent could only
+            # fix at Q1.
+            evaluation_point = (
+                destination.id
+                if destination.kind is DestinationKind.QUESTION
+                else None
+            )
+            if evaluation_point is None and len(known) > 1:
+                review.append(
+                    _review(
+                        "reject_anchor_ambiguous",
+                        FlagSeverity.BLOCKING,
+                        (
+                            f"Rule {rule.rule} rejects at whichever question is "
+                            f"being answered, and its condition names "
+                            f"{', '.join(known)}. It therefore has one anchor "
+                            "per question, and this field holds one. Say which "
+                            "questions enforce it."
+                        ),
+                        target=FlagTarget(kind="rule", id=rule.rule),
+                        evidence=rule.condition_raw or "",
+                    )
+                )
+        else:
+            # P3-05: check a rule once every question it depends on has been
+            # asked. The QRE never states this, and it says plainly not to
+            # infer unstated routing - so it is derived, marked inferred, and
+            # surfaced for review rather than buried.
+            evaluation_point = (
+                max(known, key=lambda q: seq_of[q]) if known else None
+            )
+
         if destination.kind is DestinationKind.UNKNOWN and codes:
             review.append(
                 _review(
@@ -1340,9 +1372,7 @@ def run(source: str, parsed: dict) -> CanonicalSurvey:
         rules.append(
             CanonicalRule(
                 rule_id=rule.rule,
-                kind=_RULE_KINDS.get(
-                    (rule.action or "").strip().lower(), RuleKind.OTHER
-                ),
+                kind=kind,
                 when=condition,
                 when_unread=None if condition else (rule.condition_raw or None),
                 destination=destination,
