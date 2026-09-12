@@ -134,6 +134,7 @@ class ExpectedState:
     fired_rules: list[str] = field(default_factory=list)
     blocked_at: str | None = None
     quota_stopped: str | None = None
+    quota_over_target: str | None = None
     semantics_used: list[str] = field(default_factory=list)
     observable: dict[str, Any] = field(default_factory=dict)
 

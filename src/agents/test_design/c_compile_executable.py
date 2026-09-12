@@ -307,6 +307,16 @@ def _translate_assertions(spec: CanonicalSpec, snap: ImplementationSnapshot,
                     f"{exp}: no message text for this ending appears on the "
                     f"built end page, so it cannot be distinguished")
 
+        elif kind == "quota_recorded_over_target":
+            out.append(ExecutableAssertion(
+                kind="quota_counter_over_target", expected=exp, canonical=qid,
+                detail=detail))
+
+        elif kind == "cell_count_unchanged":
+            out.append(ExecutableAssertion(
+                kind="quota_counter_unchanged", expected=exp, canonical=qid,
+                detail=detail))
+
         elif kind == "respondent_accepted":
             out.append(ExecutableAssertion(
                 kind="not_sent_to_quota_full", expected=True, canonical=qid,

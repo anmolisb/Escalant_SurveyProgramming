@@ -27,7 +27,7 @@ from typing import Any
 
 from .models import ExpectedState
 from .spec import CanonicalSpec, Cond, Question
-from .semantics import Semantics, UNASKED, PRECEDENCE, MULTI_EQ
+from .semantics import Semantics, WHITESPACE, UNASKED, PRECEDENCE, MULTI_EQ
 
 
 UNRESOLVED = "UNRESOLVED"
@@ -199,6 +199,14 @@ class Interpreter:
         raw = answers[q.id]
         blank = raw is None or raw == [] or raw == {} or raw == ""
 
+        # An answer of spaces alone. Whether that counts as an answer is a
+        # reading the questionnaire never states, so it is taken from the
+        # semantics rather than assumed here, and every test that depends on it
+        # is tagged. The default reading is that spaces are not an answer.
+        if not blank and isinstance(raw, str) and raw and not raw.strip():
+            self.used.add(WHITESPACE)
+            blank = self.sem.values.get(WHITESPACE) != "an_answer"
+
         if blank:
             if q.mandatory:
                 out.append({"question_id": q.id, "rule": "mandatory",
@@ -349,6 +357,15 @@ class Interpreter:
             for quota in self.spec.quotas:
                 if quota.variable_question_id != q.id or not quota.on_full:
                     continue
+                # A soft quota records the overflow and lets the respondent
+                # continue. Only a hard quota ends the journey.
+                if (quota.enforcement or "hard").lower() == "soft":
+                    chosen_soft = self._given(q.id, answers) or []
+                    for oid in chosen_soft:
+                        if f"{quota.id}:{oid}" in self.quota_full:
+                            state.quota_over_target = f"{quota.id}:{oid}"
+                    continue
+
                 chosen = self._given(q.id, answers) or []
                 for oid in chosen:
                     if f"{quota.id}:{oid}" in self.quota_full:
@@ -461,6 +478,7 @@ def _observable(state: ExpectedState) -> dict:
         "ending_reached": state.ending,
         "blocked_at": state.blocked_at,
         "quota_stopped": state.quota_stopped,
+        "quota_over_target": state.quota_over_target,
         "validation_messages_expected": [
             f for f in state.validation_triggered if f.get("outcome") == "violated"],
         "piped_text_visible": dict(state.piped_text),
