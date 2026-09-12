@@ -16,15 +16,15 @@
       "per_dimension": {
         "D1": 59,
         "D2": 6,
-        "D3": 24,
-        "D4": 31,
+        "D3": 32,
+        "D4": 35,
         "D5": 2,
         "D6": 4,
         "D7": 13,
-        "D8": 20,
+        "D8": 30,
         "D9": 4
       },
-      "records_enumerated": 163,
+      "records_enumerated": 185,
       "predetermined_unresolvable": 0,
       "orphan_rules": [],
       "note": "Dimensions are reported side by side and never summed. records_enumerated counts records, not coverage."
@@ -1126,6 +1126,150 @@
         "notes": null
       },
       {
+        "target_id": "T-f6726b3e96",
+        "dimension": "D3",
+        "subject": "Q14",
+        "polarity": "boundary_max_accepted",
+        "claim": "Q14 accepts an answer of exactly 500 characters, its stated maximum",
+        "traces_to": [
+          "Q14"
+        ],
+        "predetermined_reason": null,
+        "notes": "boundary case of the stated rule"
+      },
+      {
+        "target_id": "T-2b7da8cff1",
+        "dimension": "D3",
+        "subject": "Q14",
+        "polarity": "special_characters_accepted",
+        "claim": "Q14 accepts punctuation and quotation marks, because its rule constrains length and not content",
+        "traces_to": [
+          "Q14"
+        ],
+        "predetermined_reason": null,
+        "notes": "quotes and angle brackets are where survey tools most often break"
+      },
+      {
+        "target_id": "T-2d0768947c",
+        "dimension": "D3",
+        "subject": "Q17",
+        "polarity": "boundary_max_accepted",
+        "claim": "Q17 accepts an answer of exactly 200 characters, its stated maximum",
+        "traces_to": [
+          "Q17"
+        ],
+        "predetermined_reason": null,
+        "notes": "boundary case of the stated rule"
+      },
+      {
+        "target_id": "T-08dd173f52",
+        "dimension": "D3",
+        "subject": "Q17",
+        "polarity": "special_characters_accepted",
+        "claim": "Q17 accepts punctuation and quotation marks, because its rule constrains length and not content",
+        "traces_to": [
+          "Q17"
+        ],
+        "predetermined_reason": null,
+        "notes": "quotes and angle brackets are where survey tools most often break"
+      },
+      {
+        "target_id": "T-56550a97dd",
+        "dimension": "D3",
+        "subject": "Q21",
+        "polarity": "boundary_max_accepted",
+        "claim": "Q21 accepts an answer of exactly 500 characters, its stated maximum",
+        "traces_to": [
+          "Q21"
+        ],
+        "predetermined_reason": null,
+        "notes": "boundary case of the stated rule"
+      },
+      {
+        "target_id": "T-bc16d50ae1",
+        "dimension": "D3",
+        "subject": "Q21",
+        "polarity": "special_characters_accepted",
+        "claim": "Q21 accepts punctuation and quotation marks, because its rule constrains length and not content",
+        "traces_to": [
+          "Q21"
+        ],
+        "predetermined_reason": null,
+        "notes": "quotes and angle brackets are where survey tools most often break"
+      },
+      {
+        "target_id": "T-636f0d6630",
+        "dimension": "D3",
+        "subject": "Q23",
+        "polarity": "boundary_max_accepted",
+        "claim": "Q23 accepts an answer of exactly 1000 characters, its stated maximum",
+        "traces_to": [
+          "Q23"
+        ],
+        "predetermined_reason": null,
+        "notes": "boundary case of the stated rule"
+      },
+      {
+        "target_id": "T-3a4a7d62e9",
+        "dimension": "D3",
+        "subject": "Q23",
+        "polarity": "special_characters_accepted",
+        "claim": "Q23 accepts punctuation and quotation marks, because its rule constrains length and not content",
+        "traces_to": [
+          "Q23"
+        ],
+        "predetermined_reason": null,
+        "notes": "quotes and angle brackets are where survey tools most often break"
+      },
+      {
+        "target_id": "T-538bb13bb8",
+        "dimension": "D4",
+        "subject": "Q14",
+        "polarity": "whitespace_rejected",
+        "claim": "Q14 refuses an answer of spaces alone, being compulsory",
+        "traces_to": [
+          "Q14"
+        ],
+        "predetermined_reason": null,
+        "notes": "question kind: text"
+      },
+      {
+        "target_id": "T-66d084b45e",
+        "dimension": "D4",
+        "subject": "Q17",
+        "polarity": "whitespace_rejected",
+        "claim": "Q17 refuses an answer of spaces alone, being compulsory",
+        "traces_to": [
+          "Q17"
+        ],
+        "predetermined_reason": null,
+        "notes": "question kind: text"
+      },
+      {
+        "target_id": "T-ccc57c78ea",
+        "dimension": "D4",
+        "subject": "Q21",
+        "polarity": "whitespace_rejected",
+        "claim": "Q21 refuses an answer of spaces alone, being compulsory",
+        "traces_to": [
+          "Q21"
+        ],
+        "predetermined_reason": null,
+        "notes": "question kind: text"
+      },
+      {
+        "target_id": "T-c9acd65128",
+        "dimension": "D4",
+        "subject": "Q23",
+        "polarity": "whitespace_accepted",
+        "claim": "Q23 accepts an answer of spaces alone, being optional",
+        "traces_to": [
+          "Q23"
+        ],
+        "predetermined_reason": null,
+        "notes": "question kind: text"
+      },
+      {
         "target_id": "T-04f1f82dbc",
         "dimension": "D4",
         "subject": "S1",
@@ -1741,7 +1885,7 @@
           "QUOTA_REGION"
         ],
         "predetermined_reason": null,
-        "notes": null
+        "notes": "hard quota"
       },
       {
         "target_id": "T-29fe7efb9b",
@@ -1753,7 +1897,19 @@
           "QUOTA_REGION"
         ],
         "predetermined_reason": null,
-        "notes": "needs 240 respondents in this cell first, then one more"
+        "notes": "hard quota: needs 240 respondents in this cell first, then one more"
+      },
+      {
+        "target_id": "T-8449c001f3",
+        "dimension": "D8",
+        "subject": "QUOTA_REGION:D1-O1",
+        "polarity": "not_counted_by_other_cell",
+        "claim": "QUOTA_REGION:D1-O1 (North) is not incremented by a respondent who answers 'South'",
+        "traces_to": [
+          "QUOTA_REGION"
+        ],
+        "predetermined_reason": null,
+        "notes": "fill a different cell, then confirm this one is unchanged"
       },
       {
         "target_id": "T-7a95930f2f",
@@ -1765,7 +1921,7 @@
           "QUOTA_REGION"
         ],
         "predetermined_reason": null,
-        "notes": null
+        "notes": "hard quota"
       },
       {
         "target_id": "T-1ae0e28404",
@@ -1777,7 +1933,19 @@
           "QUOTA_REGION"
         ],
         "predetermined_reason": null,
-        "notes": "needs 240 respondents in this cell first, then one more"
+        "notes": "hard quota: needs 240 respondents in this cell first, then one more"
+      },
+      {
+        "target_id": "T-4c6e827377",
+        "dimension": "D8",
+        "subject": "QUOTA_REGION:D1-O2",
+        "polarity": "not_counted_by_other_cell",
+        "claim": "QUOTA_REGION:D1-O2 (South) is not incremented by a respondent who answers 'North'",
+        "traces_to": [
+          "QUOTA_REGION"
+        ],
+        "predetermined_reason": null,
+        "notes": "fill a different cell, then confirm this one is unchanged"
       },
       {
         "target_id": "T-b0edda32be",
@@ -1789,7 +1957,7 @@
           "QUOTA_REGION"
         ],
         "predetermined_reason": null,
-        "notes": null
+        "notes": "hard quota"
       },
       {
         "target_id": "T-8ca410a79b",
@@ -1801,7 +1969,19 @@
           "QUOTA_REGION"
         ],
         "predetermined_reason": null,
-        "notes": "needs 240 respondents in this cell first, then one more"
+        "notes": "hard quota: needs 240 respondents in this cell first, then one more"
+      },
+      {
+        "target_id": "T-3839d26d85",
+        "dimension": "D8",
+        "subject": "QUOTA_REGION:D1-O3",
+        "polarity": "not_counted_by_other_cell",
+        "claim": "QUOTA_REGION:D1-O3 (East) is not incremented by a respondent who answers 'North'",
+        "traces_to": [
+          "QUOTA_REGION"
+        ],
+        "predetermined_reason": null,
+        "notes": "fill a different cell, then confirm this one is unchanged"
       },
       {
         "target_id": "T-f399598e21",
@@ -1813,7 +1993,7 @@
           "QUOTA_REGION"
         ],
         "predetermined_reason": null,
-        "notes": null
+        "notes": "hard quota"
       },
       {
         "target_id": "T-39ced178db",
@@ -1825,7 +2005,19 @@
           "QUOTA_REGION"
         ],
         "predetermined_reason": null,
-        "notes": "needs 240 respondents in this cell first, then one more"
+        "notes": "hard quota: needs 240 respondents in this cell first, then one more"
+      },
+      {
+        "target_id": "T-445bc5e61a",
+        "dimension": "D8",
+        "subject": "QUOTA_REGION:D1-O4",
+        "polarity": "not_counted_by_other_cell",
+        "claim": "QUOTA_REGION:D1-O4 (West) is not incremented by a respondent who answers 'North'",
+        "traces_to": [
+          "QUOTA_REGION"
+        ],
+        "predetermined_reason": null,
+        "notes": "fill a different cell, then confirm this one is unchanged"
       },
       {
         "target_id": "T-f2a7b18b9d",
@@ -1837,7 +2029,7 @@
           "QUOTA_REGION"
         ],
         "predetermined_reason": null,
-        "notes": null
+        "notes": "hard quota"
       },
       {
         "target_id": "T-a69509de3e",
@@ -1849,7 +2041,19 @@
           "QUOTA_REGION"
         ],
         "predetermined_reason": null,
-        "notes": "needs 240 respondents in this cell first, then one more"
+        "notes": "hard quota: needs 240 respondents in this cell first, then one more"
+      },
+      {
+        "target_id": "T-b77ddc7191",
+        "dimension": "D8",
+        "subject": "QUOTA_REGION:D1-O5",
+        "polarity": "not_counted_by_other_cell",
+        "claim": "QUOTA_REGION:D1-O5 (Central) is not incremented by a respondent who answers 'North'",
+        "traces_to": [
+          "QUOTA_REGION"
+        ],
+        "predetermined_reason": null,
+        "notes": "fill a different cell, then confirm this one is unchanged"
       },
       {
         "target_id": "T-8df3f85e9c",
@@ -1861,19 +2065,31 @@
           "QUOTA_AGE"
         ],
         "predetermined_reason": null,
-        "notes": null
+        "notes": "soft quota"
       },
       {
-        "target_id": "T-72e06754d3",
+        "target_id": "T-a26fe3e634",
         "dimension": "D8",
         "subject": "QUOTA_AGE:D2-O1",
-        "polarity": "full",
-        "claim": "QUOTA_AGE:D2-O1 (21-29) turns a respondent away once at target",
+        "polarity": "over_target_admits",
+        "claim": "QUOTA_AGE:D2-O1 (21-29) still admits a respondent once over target, being a soft quota",
         "traces_to": [
           "QUOTA_AGE"
         ],
         "predetermined_reason": null,
-        "notes": "needs 240 respondents in this cell first, then one more"
+        "notes": "soft quota: needs 240 respondents in this cell first, then one more who must still be let through"
+      },
+      {
+        "target_id": "T-6d98c974cd",
+        "dimension": "D8",
+        "subject": "QUOTA_AGE:D2-O1",
+        "polarity": "not_counted_by_other_cell",
+        "claim": "QUOTA_AGE:D2-O1 (21-29) is not incremented by a respondent who answers '30-39'",
+        "traces_to": [
+          "QUOTA_AGE"
+        ],
+        "predetermined_reason": null,
+        "notes": "fill a different cell, then confirm this one is unchanged"
       },
       {
         "target_id": "T-7161d904f8",
@@ -1885,19 +2101,31 @@
           "QUOTA_AGE"
         ],
         "predetermined_reason": null,
-        "notes": null
+        "notes": "soft quota"
       },
       {
-        "target_id": "T-4b2ac7a87a",
+        "target_id": "T-56b195b179",
         "dimension": "D8",
         "subject": "QUOTA_AGE:D2-O2",
-        "polarity": "full",
-        "claim": "QUOTA_AGE:D2-O2 (30-39) turns a respondent away once at target",
+        "polarity": "over_target_admits",
+        "claim": "QUOTA_AGE:D2-O2 (30-39) still admits a respondent once over target, being a soft quota",
         "traces_to": [
           "QUOTA_AGE"
         ],
         "predetermined_reason": null,
-        "notes": "needs 300 respondents in this cell first, then one more"
+        "notes": "soft quota: needs 300 respondents in this cell first, then one more who must still be let through"
+      },
+      {
+        "target_id": "T-ca4b9e05de",
+        "dimension": "D8",
+        "subject": "QUOTA_AGE:D2-O2",
+        "polarity": "not_counted_by_other_cell",
+        "claim": "QUOTA_AGE:D2-O2 (30-39) is not incremented by a respondent who answers '21-29'",
+        "traces_to": [
+          "QUOTA_AGE"
+        ],
+        "predetermined_reason": null,
+        "notes": "fill a different cell, then confirm this one is unchanged"
       },
       {
         "target_id": "T-1996e6ad8a",
@@ -1909,19 +2137,31 @@
           "QUOTA_AGE"
         ],
         "predetermined_reason": null,
-        "notes": null
+        "notes": "soft quota"
       },
       {
-        "target_id": "T-c3d6893ad6",
+        "target_id": "T-5efc254642",
         "dimension": "D8",
         "subject": "QUOTA_AGE:D2-O3",
-        "polarity": "full",
-        "claim": "QUOTA_AGE:D2-O3 (40-49) turns a respondent away once at target",
+        "polarity": "over_target_admits",
+        "claim": "QUOTA_AGE:D2-O3 (40-49) still admits a respondent once over target, being a soft quota",
         "traces_to": [
           "QUOTA_AGE"
         ],
         "predetermined_reason": null,
-        "notes": "needs 300 respondents in this cell first, then one more"
+        "notes": "soft quota: needs 300 respondents in this cell first, then one more who must still be let through"
+      },
+      {
+        "target_id": "T-370c199782",
+        "dimension": "D8",
+        "subject": "QUOTA_AGE:D2-O3",
+        "polarity": "not_counted_by_other_cell",
+        "claim": "QUOTA_AGE:D2-O3 (40-49) is not incremented by a respondent who answers '21-29'",
+        "traces_to": [
+          "QUOTA_AGE"
+        ],
+        "predetermined_reason": null,
+        "notes": "fill a different cell, then confirm this one is unchanged"
       },
       {
         "target_id": "T-9f1ddcac4e",
@@ -1933,19 +2173,31 @@
           "QUOTA_AGE"
         ],
         "predetermined_reason": null,
-        "notes": null
+        "notes": "soft quota"
       },
       {
-        "target_id": "T-3f747a12d1",
+        "target_id": "T-456cb4feaa",
         "dimension": "D8",
         "subject": "QUOTA_AGE:D2-O4",
-        "polarity": "full",
-        "claim": "QUOTA_AGE:D2-O4 (50-59) turns a respondent away once at target",
+        "polarity": "over_target_admits",
+        "claim": "QUOTA_AGE:D2-O4 (50-59) still admits a respondent once over target, being a soft quota",
         "traces_to": [
           "QUOTA_AGE"
         ],
         "predetermined_reason": null,
-        "notes": "needs 240 respondents in this cell first, then one more"
+        "notes": "soft quota: needs 240 respondents in this cell first, then one more who must still be let through"
+      },
+      {
+        "target_id": "T-04fed43a2d",
+        "dimension": "D8",
+        "subject": "QUOTA_AGE:D2-O4",
+        "polarity": "not_counted_by_other_cell",
+        "claim": "QUOTA_AGE:D2-O4 (50-59) is not incremented by a respondent who answers '21-29'",
+        "traces_to": [
+          "QUOTA_AGE"
+        ],
+        "predetermined_reason": null,
+        "notes": "fill a different cell, then confirm this one is unchanged"
       },
       {
         "target_id": "T-427582f42c",
@@ -1957,19 +2209,31 @@
           "QUOTA_AGE"
         ],
         "predetermined_reason": null,
-        "notes": null
+        "notes": "soft quota"
       },
       {
-        "target_id": "T-03c8dc51cb",
+        "target_id": "T-3951f9eeeb",
         "dimension": "D8",
         "subject": "QUOTA_AGE:D2-O5",
-        "polarity": "full",
-        "claim": "QUOTA_AGE:D2-O5 (60+) turns a respondent away once at target",
+        "polarity": "over_target_admits",
+        "claim": "QUOTA_AGE:D2-O5 (60+) still admits a respondent once over target, being a soft quota",
         "traces_to": [
           "QUOTA_AGE"
         ],
         "predetermined_reason": null,
-        "notes": "needs 120 respondents in this cell first, then one more"
+        "notes": "soft quota: needs 120 respondents in this cell first, then one more who must still be let through"
+      },
+      {
+        "target_id": "T-576f943bbe",
+        "dimension": "D8",
+        "subject": "QUOTA_AGE:D2-O5",
+        "polarity": "not_counted_by_other_cell",
+        "claim": "QUOTA_AGE:D2-O5 (60+) is not incremented by a respondent who answers '21-29'",
+        "traces_to": [
+          "QUOTA_AGE"
+        ],
+        "predetermined_reason": null,
+        "notes": "fill a different cell, then confirm this one is unchanged"
       },
       {
         "target_id": "T-3967205a86",

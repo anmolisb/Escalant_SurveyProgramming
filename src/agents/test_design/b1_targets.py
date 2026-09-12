@@ -179,6 +179,52 @@ def d3_validation_explicit(spec: CanonicalSpec) -> list[CoverageTarget]:
 
 # D4 - Validation (mandatory) ------------------------------------------------
 
+def d3_input_robustness(spec: CanonicalSpec) -> list[CoverageTarget]:
+    """Input the questionnaire does not describe, but a respondent can still type.
+
+    The rules a QRE states are tested well. The gap is everything it does not
+    state and a respondent can do anyway: a run of spaces, an apostrophe, a
+    string sitting exactly on the maximum length. Survey tools break on these
+    far more often than on the stated rules, because nobody wrote them down and
+    so nobody tested them.
+
+    Every claim here is still derived from what the QRE says, not invented:
+
+      a length rule constrains length and says nothing about content, so a
+      string of punctuation within the limit must be accepted;
+
+      a maximum is a limit, so exactly the maximum must be accepted while one
+      character more must not.
+    """
+    out = []
+    for q in spec.in_order():
+        v = q.validation
+
+        # Exactly at the maximum. One over is already tested; the boundary
+        # itself was not, and an off-by-one in the build sits precisely here.
+        if v.get("max_length") is not None:
+            out.append(_t("D3", q.id, "boundary_max_accepted",
+                          f"{q.id} accepts an answer of exactly "
+                          f"{v.get('max_length')} characters, its stated maximum",
+                          [q.id], None, "boundary case of the stated rule"))
+        if v.get("max_selections") is not None:
+            out.append(_t("D3", q.id, "boundary_max_accepted",
+                          f"{q.id} accepts exactly {v.get('max_selections')} "
+                          f"selections, its stated maximum",
+                          [q.id], None, "boundary case of the stated rule"))
+
+        # Content the rule never restricted.
+        if q.kind in ("text", "open_text") and (
+                v.get("max_length") is not None or v.get("min_length") is not None):
+            out.append(_t("D3", q.id, "special_characters_accepted",
+                          f"{q.id} accepts punctuation and quotation marks, "
+                          f"because its rule constrains length and not content",
+                          [q.id], None,
+                          "quotes and angle brackets are where survey tools "
+                          "most often break"))
+    return out
+
+
 def d4_mandatory(spec: CanonicalSpec) -> list[CoverageTarget]:
     """One target per question, not per question type.
 
@@ -197,6 +243,22 @@ def d4_mandatory(spec: CanonicalSpec) -> list[CoverageTarget]:
     So every compulsory question now gets its own test with its own id.
     """
     out = []
+    # Whitespace is not an answer. A question the QRE marks compulsory must
+    # refuse a run of spaces, and an optional one must accept it. Neither was
+    # tested, and blank-versus-whitespace is the commoner real-world failure,
+    # because a respondent pressing the space bar looks like a respondent who
+    # answered.
+    for q in spec.in_order():
+        if q.kind not in ("text", "open_text"):
+            continue
+        out.append(_t("D4", q.id,
+                      "whitespace_rejected" if q.mandatory else "whitespace_accepted",
+                      f"{q.id} "
+                      + ("refuses an answer of spaces alone, being compulsory"
+                         if q.mandatory else
+                         "accepts an answer of spaces alone, being optional"),
+                      [q.id], None, f"question kind: {q.kind}"))
+
     for q in spec.in_order():
         if q.mandatory:
             out.append(_t("D4", q.id, "enforced",
@@ -299,23 +361,64 @@ def d7_randomization(spec: CanonicalSpec) -> list[CoverageTarget]:
 # D8 - Quota cell state ------------------------------------------------------
 
 def d8_quota(spec: CanonicalSpec) -> list[CoverageTarget]:
+    """Quota behaviour, and it is not the same behaviour for every quota.
+
+    A hard quota turns a respondent away once its cell is at target. A soft
+    quota does not: it records that the cell is over and lets the respondent
+    through, so the field team can see the imbalance and decide.
+
+    The specification carries that distinction in `enforcement` and an earlier
+    version never read it, so a soft quota was tested as though it terminated
+    the survey. That is a wrong test rather than a missing one, and a wrong
+    test is worse: it fails against a correct build and sends someone looking
+    for a defect that is not there.
+    """
     out = []
     for quota in spec.quotas:
+        hard = (quota.enforcement or "hard").lower() != "soft"
         for cell in quota.cells:
             subject = f"{quota.id}:{cell.option_id}"
             sized = cell.target_count is not None
+
             out.append(_t("D8", subject, "available",
                           f"{subject} ({cell.option_label}) admits a respondent "
-                          f"while below target", [quota.id]))
-            out.append(_t("D8", subject, "full",
-                          f"{subject} ({cell.option_label}) turns a respondent away "
-                          f"once at target", [quota.id],
-                          None if sized else QUOTA_SIZE_UNDEFINED,
-                          (f"needs {cell.target_count} respondents in this cell "
-                           f"first, then one more"
-                           if sized else
-                           f"target is {cell.target_percent}% with no stated "
-                           "sample size, so a fill campaign cannot be sized")))
+                          f"while below target", [quota.id], None,
+                          f"{quota.enforcement} quota"))
+
+            if hard:
+                out.append(_t("D8", subject, "full",
+                              f"{subject} ({cell.option_label}) turns a "
+                              f"respondent away once at target", [quota.id],
+                              None if sized else QUOTA_SIZE_UNDEFINED,
+                              (f"hard quota: needs {cell.target_count} "
+                               f"respondents in this cell first, then one more"
+                               if sized else
+                               f"target is {cell.target_percent}% with no stated "
+                               "sample size, so a fill campaign cannot be sized")))
+            else:
+                out.append(_t("D8", subject, "over_target_admits",
+                              f"{subject} ({cell.option_label}) still admits a "
+                              f"respondent once over target, being a soft quota",
+                              [quota.id],
+                              None if sized else QUOTA_SIZE_UNDEFINED,
+                              (f"soft quota: needs {cell.target_count} "
+                               f"respondents in this cell first, then one more "
+                               f"who must still be let through"
+                               if sized else
+                               f"target is {cell.target_percent}% with no stated "
+                               "sample size, so a fill campaign cannot be sized")))
+
+            # A respondent outside this cell must not count against it. Nothing
+            # proved that before, and getting it wrong silently mis-fills every
+            # cell in the quota.
+            others = [c for c in quota.cells if c.option_id != cell.option_id]
+            if others and sized:
+                out.append(_t("D8", subject, "not_counted_by_other_cell",
+                              f"{subject} ({cell.option_label}) is not "
+                              f"incremented by a respondent who answers "
+                              f"{others[0].option_label!r}", [quota.id], None,
+                              "fill a different cell, then confirm this one is "
+                              "unchanged"))
     return out
 
 
@@ -347,6 +450,7 @@ ENUMERATORS = [
     ("D1", d1_visibility),
     ("D2", d2_endings),
     ("D3", d3_validation_explicit),
+    ("D3", d3_input_robustness),
     ("D4", d4_mandatory),
     ("D5", d5_option_source),
     ("D6", d6_text_pipe),
@@ -361,7 +465,11 @@ def enumerate_targets(spec: CanonicalSpec) -> tuple[list[CoverageTarget], dict]:
     per_dimension: dict[str, int] = {}
     for code, fn in ENUMERATORS:
         produced = fn(spec)
-        per_dimension[code] = len(produced)
+        # Accumulate rather than assign. A dimension may have more than one
+        # enumerator, and overwriting here would under-report its size while
+        # the targets themselves were all present, which is the worst kind of
+        # wrong number: quietly too small.
+        per_dimension[code] = per_dimension.get(code, 0) + len(produced)
         targets.extend(produced)
 
     # Ids are content-derived, so a duplicate id is a duplicate claim. B1 is

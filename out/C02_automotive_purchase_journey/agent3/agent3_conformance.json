@@ -12,7 +12,7 @@
     "canonical_generated_at": "2026-09-11T20:30:56+00:00"
   },
   "content": {
-    "lss_sha256": "d509b2e92178ecdccfeee4db7744941e5e5ea93ab72526ed0b1b5a3c299b4c46",
+    "lss_sha256": "451a0ebbfaf246c3f6be44800f710bdd398a205175bdf96f85a8b4918dc5ebba",
     "questions_specified": 31,
     "questions_built": 31,
     "options_bound": 126,
@@ -88,6 +88,12 @@
         "severity": "HIGH",
         "subject": "TERM_AGE, TERM_CONFLICT, TERM_INVOLVEMENT, TERM_RECENT_RESEARCH",
         "detail": "these 4 dispositions share identical end-screen text ('Thank you for your interest. You do not qualify for this survey.'), so Agent 4 sees the same words whichever rule fired. An end-text assertion proves a screenout occurred, not which one. To distinguish them the QRE must give each disposition its own wording."
+      },
+      {
+        "kind": "GUARD_CANNOT_BE_FALSIFIED",
+        "severity": "HIGH",
+        "subject": "Q6",
+        "detail": "Q6 is shown when Q5 contains any of all 7 of its options, and Q5 must be answered, so the condition is always true and Q6 can never be hidden. The source line reads 'Q5 contains any touchpoint', which suggests the option list was over-extracted upstream"
       }
     ],
     "blocking_count": 0,

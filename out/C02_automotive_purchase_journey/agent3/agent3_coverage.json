@@ -56,6 +56,13 @@
         "status": "CONFIRMED",
         "blocking": false,
         "decision_id": null
+      },
+      "whitespace_is_an_answer": {
+        "value": "not_an_answer",
+        "origin": "agent3_fallback",
+        "status": "PROVISIONAL",
+        "blocking": false,
+        "decision_id": null
       }
     },
     "semantics_all_resolved": false,
@@ -73,15 +80,15 @@
       "per_dimension": {
         "D1": 59,
         "D2": 6,
-        "D3": 24,
-        "D4": 31,
+        "D3": 32,
+        "D4": 35,
         "D5": 2,
         "D6": 4,
         "D7": 13,
-        "D8": 20,
+        "D8": 30,
         "D9": 4
       },
-      "records_enumerated": 163,
+      "records_enumerated": 185,
       "predetermined_unresolvable": 0,
       "orphan_rules": [],
       "note": "Dimensions are reported side by side and never summed. records_enumerated counts records, not coverage."
@@ -112,21 +119,21 @@
         },
         "D3": {
           "name": "Validation (explicit)",
-          "enumerated": 24,
-          "covered": 24,
+          "enumerated": 32,
+          "covered": 32,
           "uncovered": 0,
           "reasons": {},
-          "provisional": 22,
+          "provisional": 30,
           "enumeration_status": "EXHAUSTIVE",
           "logical_coverage_pct": 100.0
         },
         "D4": {
           "name": "Validation (mandatory)",
-          "enumerated": 31,
-          "covered": 31,
+          "enumerated": 35,
+          "covered": 35,
           "uncovered": 0,
           "reasons": {},
-          "provisional": 26,
+          "provisional": 30,
           "enumeration_status": "EXHAUSTIVE",
           "logical_coverage_pct": 100.0
         },
@@ -162,11 +169,11 @@
         },
         "D8": {
           "name": "Quota cell state",
-          "enumerated": 20,
-          "covered": 20,
+          "enumerated": 30,
+          "covered": 30,
           "uncovered": 0,
           "reasons": {},
-          "provisional": 20,
+          "provisional": 30,
           "enumeration_status": "EXHAUSTIVE",
           "logical_coverage_pct": 100.0
         },
