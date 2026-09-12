@@ -1,0 +1,38 @@
+[
+  {
+    "target_heading": "Routing and termination",
+    "status": "POSSIBLE_MATCH",
+    "candidate_heading": "R19",
+    "confidence": null,
+    "reasoning": "The condition describes a composite rule (an exclusive option selected together with another response at Q1 or Q5). This requires checking two separate questions for a combination of selections (both the exclusive option and any other option) and then combining those checks with an OR. The provided schema only supports a flat list of comparisons joined by a single logical operator (and/or) and does not allow nested AND/OR groups needed to represent this rule accurately. Therefore the condition cannot be resolved into the required JSON structure without loss of meaning, so no comparisons are returned.",
+    "severity": "WARNING",
+    "target": {
+      "kind": "rule",
+      "id": "R19"
+    }
+  },
+  {
+    "target_heading": "Study specification",
+    "status": "NOT_PRESENT",
+    "candidate_heading": null,
+    "confidence": null,
+    "reasoning": "No line is labelled as the survey description; the line labelled 'Business objective' is being read as it.",
+    "severity": "INFO",
+    "target": {
+      "kind": "survey_information",
+      "id": "description"
+    }
+  },
+  {
+    "target_heading": "Study specification",
+    "status": "NOT_PRESENT",
+    "candidate_heading": null,
+    "confidence": null,
+    "reasoning": "The survey's welcome text is not stated: the document never states what a respondent is shown before the first question.",
+    "severity": "WARNING",
+    "target": {
+      "kind": "survey_information",
+      "id": "welcome_text"
+    }
+  }
+]

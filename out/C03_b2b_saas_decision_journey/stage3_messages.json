@@ -1,0 +1,86 @@
+{
+  "schema_version": "1.0.0",
+  "artifact": "stage3_messages",
+  "stage": 3,
+  "survey_id": "C03_b2b_saas_decision_journey",
+  "source_document": {
+    "filename": "C03_b2b_saas_decision_journey.docx",
+    "sha256": "4792343e1f98613292161217c998d06b1848e82f4d64f753715140f5cd6d532d",
+    "bytes": 43580
+  },
+  "generated_at": "2026-09-12T04:25:42+00:00",
+  "item_count": null,
+  "content": {
+    "target": "Completion messages",
+    "source_kind": "prose",
+    "rows": [
+      {
+        "code": "TERM_AGE",
+        "message": "Thank you for your interest. You do not qualify for this survey."
+      },
+      {
+        "code": "TERM_CONFLICT",
+        "message": "Thank you for your interest. You do not qualify for this survey."
+      },
+      {
+        "code": "TERM_INVOLVEMENT",
+        "message": "Thank you for your interest. You do not qualify for this survey."
+      },
+      {
+        "code": "TERM_RECENT_RESEARCH",
+        "message": "Thank you for your interest. You do not qualify for this survey."
+      },
+      {
+        "code": "COMPLETE",
+        "message": "Thank you. Your response has been recorded."
+      }
+    ],
+    "row_sources": [
+      {
+        "document": "C03_b2b_saas_decision_journey.docx",
+        "section": "Completion messages",
+        "heading_text": "Completion messages",
+        "block_order": 27,
+        "row_index": null,
+        "source_kind": "prose",
+        "text": "TERM_AGE: Thank you for your interest. You do not qualify for this survey."
+      },
+      {
+        "document": "C03_b2b_saas_decision_journey.docx",
+        "section": "Completion messages",
+        "heading_text": "Completion messages",
+        "block_order": 28,
+        "row_index": null,
+        "source_kind": "prose",
+        "text": "TERM_CONFLICT: Thank you for your interest. You do not qualify for this survey."
+      },
+      {
+        "document": "C03_b2b_saas_decision_journey.docx",
+        "section": "Completion messages",
+        "heading_text": "Completion messages",
+        "block_order": 29,
+        "row_index": null,
+        "source_kind": "prose",
+        "text": "TERM_INVOLVEMENT: Thank you for your interest. You do not qualify for this survey."
+      },
+      {
+        "document": "C03_b2b_saas_decision_journey.docx",
+        "section": "Completion messages",
+        "heading_text": "Completion messages",
+        "block_order": 30,
+        "row_index": null,
+        "source_kind": "prose",
+        "text": "TERM_RECENT_RESEARCH: Thank you for your interest. You do not qualify for this survey."
+      },
+      {
+        "document": "C03_b2b_saas_decision_journey.docx",
+        "section": "Completion messages",
+        "heading_text": "Completion messages",
+        "block_order": 31,
+        "row_index": null,
+        "source_kind": "prose",
+        "text": "COMPLETE: Thank you. Your response has been recorded."
+      }
+    ]
+  }
+}

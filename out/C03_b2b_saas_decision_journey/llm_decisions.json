@@ -1,0 +1,603 @@
+{
+  "entries": {
+    "414f609f6b68171c751b5408a0aa6eb4bec3e1fbb793ba7e3dfd634cd69cbe6e": {
+      "response_model": "LLMCompletionMessages",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-09-12T04:25:42+00:00",
+      "asked": "Section: Completion messages\n\nSource text:\nTERM_AGE: Thank you for your interest. You do not qualify for this survey.\nTERM_CONFLICT: Thank you for your interest. You do not qualify for this survey.\nTERM_INVOLVEMENT: Thank you for your interest. You do not qualify for this survey.\nTERM_RECENT_RESEARCH: Thank you for your interest. You do not qualify for this survey.\nCOMPLETE: Thank you. Your respon ...",
+      "response": {
+        "rows": [
+          {
+            "code": "TERM_AGE",
+            "message": "Thank you for your interest. You do not qualify for this survey."
+          },
+          {
+            "code": "TERM_CONFLICT",
+            "message": "Thank you for your interest. You do not qualify for this survey."
+          },
+          {
+            "code": "TERM_INVOLVEMENT",
+            "message": "Thank you for your interest. You do not qualify for this survey."
+          },
+          {
+            "code": "TERM_RECENT_RESEARCH",
+            "message": "Thank you for your interest. You do not qualify for this survey."
+          },
+          {
+            "code": "COMPLETE",
+            "message": "Thank you. Your response has been recorded."
+          }
+        ]
+      }
+    },
+    "65507e181f0cc5b82b44f8fcd5cad4664c2d5c7ee414f0c42a898a513b31028c": {
+      "response_model": "LLMQuestionFields",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-09-12T04:25:43+00:00",
+      "asked": "Question S1 cell:\nAlways show",
+      "response": {
+        "directives": [
+          {
+            "kind": "always_show",
+            "text": ""
+          }
+        ]
+      }
+    },
+    "845d13aaf86f3b89e49d4b959d728b13a4aef87516628a34bddefa0881c4d11d": {
+      "response_model": "LLMQuestionFields",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-09-12T04:25:43+00:00",
+      "asked": "Question S2 cell:\nAlways show",
+      "response": {
+        "directives": [
+          {
+            "kind": "always_show",
+            "text": ""
+          }
+        ]
+      }
+    },
+    "ef7a3228cd0c0fe1810bea8412678370037e6e2d25096edcf585bc749f6e7ace": {
+      "response_model": "LLMQuestionFields",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-09-12T04:25:44+00:00",
+      "asked": "Question S3 cell:\nAlways show",
+      "response": {
+        "directives": [
+          {
+            "kind": "always_show",
+            "text": ""
+          }
+        ]
+      }
+    },
+    "ab8bb8081b7bbd076841340129636fe6989b5bae1481210a1f55dd61e6f9c2cb": {
+      "response_model": "LLMQuestionFields",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-09-12T04:25:44+00:00",
+      "asked": "Question S4 cell:\nAlways show",
+      "response": {
+        "directives": [
+          {
+            "kind": "always_show",
+            "text": ""
+          }
+        ]
+      }
+    },
+    "014fa2ad10874c340c63530b5ea70b0ad26f21890959db373f7d529f49338e3f": {
+      "response_model": "LLMQuestionFields",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-09-12T04:25:45+00:00",
+      "asked": "Question Q1 cell:\nValidate: {\"exclusive_option\": \"None of these\"}\nRandomize",
+      "response": {
+        "directives": [
+          {
+            "kind": "validation",
+            "text": "{\"exclusive_option\": \"None of these\"}"
+          },
+          {
+            "kind": "randomize",
+            "text": ""
+          }
+        ]
+      }
+    },
+    "36e9438215de26e3c88ae993e66abbdde55c27e8704740a11a79d0e94b7ec1c3": {
+      "response_model": "LLMQuestionFields",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-09-12T04:25:45+00:00",
+      "asked": "Question Q2 cell:\nShow if: Q1 contains at least one brand\nShow only brands selected at Q1.",
+      "response": {
+        "directives": [
+          {
+            "kind": "display_condition",
+            "text": "Q1 contains at least one brand"
+          },
+          {
+            "kind": "option_source",
+            "text": "brands selected at Q1."
+          }
+        ]
+      }
+    },
+    "a9b92428618425e6e89aff41582a4169c3c76ccc6ced61902fece26a807da30f": {
+      "response_model": "LLMQuestionFields",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-09-12T04:25:47+00:00",
+      "asked": "Question Q4 cell:\nAlways show",
+      "response": {
+        "directives": [
+          {
+            "kind": "always_show",
+            "text": ""
+          }
+        ]
+      }
+    },
+    "dcceedc3109df288e833fe757cdd6f8eac2ffd4d1c56968316693ae60e78d706": {
+      "response_model": "LLMQuestionFields",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-09-12T04:25:57+00:00",
+      "asked": "Question Q5 cell:\nValidate: {\"exclusive_option\": \"None of these\"}\nRandomize",
+      "response": {
+        "directives": [
+          {
+            "kind": "validation",
+            "text": " {\"exclusive_option\": \"None of these\"}"
+          },
+          {
+            "kind": "randomize",
+            "text": ""
+          }
+        ]
+      }
+    },
+    "b7ac01d6230be66d10e979d3ad27703bf39d4fede7fcfe64ec16751e60c0719f": {
+      "response_model": "LLMQuestionFields",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-09-12T04:26:08+00:00",
+      "asked": "Question Q3 cell:\nShow if: Q1 contains at least one brand",
+      "response": {
+        "directives": [
+          {
+            "kind": "display_condition",
+            "text": "Q1 contains at least one brand"
+          }
+        ]
+      }
+    },
+    "15855af582a10d41364e77f406dff2862c4815e3457d59c3dd9243a0e4df158d": {
+      "response_model": "LLMQuestionFields",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-09-12T04:26:16+00:00",
+      "asked": "Question Q7 cell:\nShow if: Q3 != 'None/currently not using'",
+      "response": {
+        "directives": [
+          {
+            "kind": "display_condition",
+            "text": "Q3 != 'None/currently not using'"
+          }
+        ]
+      }
+    },
+    "ac0fb518bbc4ebf92749d24b82ff3ff693ba26e254c1a6a193f25d7d4a8ca78d": {
+      "response_model": "LLMQuestionFields",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-09-12T04:26:17+00:00",
+      "asked": "Question Q8 cell:\nShow if: Q3 != 'None/currently not using'",
+      "response": {
+        "directives": [
+          {
+            "kind": "display_condition",
+            "text": "Q3 != 'None/currently not using'"
+          }
+        ]
+      }
+    },
+    "dc16490a2ca9fd7b114235e1c5698b45602868b581813f1b2d96892c8191c1a9": {
+      "response_model": "LLMQuestionFields",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-09-12T04:26:27+00:00",
+      "asked": "Question Q9 cell:\nShow if: Q3 != 'None/currently not using'\nValidate: {\"scale\": [\"1 - Very poor\", \"2 - Poor\", \"3 - Fair\", \"4 - Good\", \"5 - Excellent\"], \"require_each_row\": true}\nRandomize",
+      "response": {
+        "directives": [
+          {
+            "kind": "display_condition",
+            "text": "Q3 != 'None/currently not using'"
+          },
+          {
+            "kind": "validation",
+            "text": "{\"scale\": [\"1 - Very poor\", \"2 - Poor\", \"3 - Fair\", \"4 - Good\", \"5 - Excellent\"], \"require_each_row\": true}"
+          },
+          {
+            "kind": "randomize",
+            "text": ""
+          }
+        ]
+      }
+    },
+    "6f4f10910e59a1d639ecfca4f3a06e78f85ef17c9cfb456591bd9f62639dcc26": {
+      "response_model": "LLMQuestionFields",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-09-12T04:26:32+00:00",
+      "asked": "Question Q10 cell:\nAlways show",
+      "response": {
+        "directives": [
+          {
+            "kind": "always_show",
+            "text": ""
+          }
+        ]
+      }
+    },
+    "c3097a45afb3e697b47a49c130a72f3576363d9ddbcb442f583b8439e1e3e97d": {
+      "response_model": "LLMQuestionFields",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-09-12T04:26:41+00:00",
+      "asked": "Question Q6 cell:\nShow if: Q5 contains any touchpoint\nShow only touchpoints selected at Q5.",
+      "response": {
+        "directives": [
+          {
+            "kind": "display_condition",
+            "text": "Q5 contains any touchpoint"
+          },
+          {
+            "kind": "option_source",
+            "text": "touchpoints selected at Q5."
+          }
+        ]
+      }
+    },
+    "656a994d02177742ec15f9c923eec57f2b486efac4a6377e818f9d1096053632": {
+      "response_model": "LLMQuestionFields",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-09-12T04:26:50+00:00",
+      "asked": "Question Q12 cell:\nShow if: Q10 == 'Yes'",
+      "response": {
+        "directives": [
+          {
+            "kind": "display_condition",
+            "text": "Q10 == 'Yes'"
+          }
+        ]
+      }
+    },
+    "5fd18324c07da142f7b866ee40b22d555397afb76f4baa304f170d8aca338081": {
+      "response_model": "LLMQuestionFields",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-09-12T04:26:58+00:00",
+      "asked": "Question Q13 cell:\nShow if: Q12 in ['Fully','Partly']",
+      "response": {
+        "directives": [
+          {
+            "kind": "display_condition",
+            "text": "Q12 in ['Fully','Partly']"
+          }
+        ]
+      }
+    },
+    "d2d86da4b8a0f5ca5369a8f651116a312a9bb3c0a8c3369dadb69a8414489f1d": {
+      "response_model": "LLMQuestionFields",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-09-12T04:27:05+00:00",
+      "asked": "Question Q14 cell:\nShow if: Q12 == 'Not resolved'\nValidate: {\"min_length\": 10, \"max_length\": 500}",
+      "response": {
+        "directives": [
+          {
+            "kind": "display_condition",
+            "text": "Q12 == 'Not resolved'"
+          },
+          {
+            "kind": "validation",
+            "text": "{\"min_length\": 10, \"max_length\": 500}"
+          }
+        ]
+      }
+    },
+    "65019f70ff24faab8836f74fe188a7abcde836bca7fb75b6e42ef697401bf679": {
+      "response_model": "LLMQuestionFields",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-09-12T04:27:10+00:00",
+      "asked": "Question Q15 cell:\nShow if: Q3 != 'None/currently not using'",
+      "response": {
+        "directives": [
+          {
+            "kind": "display_condition",
+            "text": "Q3 != 'None/currently not using'"
+          }
+        ]
+      }
+    },
+    "42c7107a8469c930dba1d81bb3f698709c89430b75ec25158726c4a26ce28459": {
+      "response_model": "LLMQuestionFields",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-09-12T04:27:19+00:00",
+      "asked": "Question Q11 cell:\nShow if: Q10 == 'Yes'\nValidate: {\"min_selections\": 1}",
+      "response": {
+        "directives": [
+          {
+            "kind": "display_condition",
+            "text": "Q10 == 'Yes'"
+          },
+          {
+            "kind": "validation",
+            "text": "{\"min_selections\": 1}"
+          }
+        ]
+      }
+    },
+    "7cb2afae4a143d7a79dd2b36fd22bf6a3efdd2951d96722589572346efdf0d58": {
+      "response_model": "LLMQuestionFields",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-09-12T04:27:28+00:00",
+      "asked": "Question Q17 cell:\nShow if: Q16 == 'Other'\nValidate: {\"min_length\": 3, \"max_length\": 200}",
+      "response": {
+        "directives": [
+          {
+            "kind": "display_condition",
+            "text": "Q16 == 'Other'"
+          },
+          {
+            "kind": "validation",
+            "text": "{\"min_length\": 3, \"max_length\": 200}"
+          }
+        ]
+      }
+    },
+    "0565dbe6a58a6760ae4bdf149b4ea0c774138e71de770d051e42f90d92e0833a": {
+      "response_model": "LLMQuestionFields",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-09-12T04:27:39+00:00",
+      "asked": "Question Q16 cell:\nShow if: Q15 == 'Yes'\nRandomize",
+      "response": {
+        "directives": [
+          {
+            "kind": "display_condition",
+            "text": "Q15 == 'Yes'"
+          },
+          {
+            "kind": "randomize",
+            "text": ""
+          }
+        ]
+      }
+    },
+    "29cf271043aa808dd8ba8dfd1e49907844fe5db19f3c376697758ba2dabd6ade": {
+      "response_model": "LLMQuestionFields",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-09-12T04:27:42+00:00",
+      "asked": "Question Q19 cell:\nRandomize\nConcept descriptions are displayed in randomized order; store display order.",
+      "response": {
+        "directives": [
+          {
+            "kind": "randomize",
+            "text": ""
+          },
+          {
+            "kind": "other",
+            "text": "Concept descriptions are displayed in randomized order; store display order."
+          }
+        ]
+      }
+    },
+    "993e9ab3485f5ea9e7322787de77d17f3891ec2442cc7d230acb77723a96a43d": {
+      "response_model": "LLMQuestionFields",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-09-12T04:27:44+00:00",
+      "asked": "Question Q20 cell:\nAlways show",
+      "response": {
+        "directives": [
+          {
+            "kind": "always_show",
+            "text": ""
+          }
+        ]
+      }
+    },
+    "9b29e5a855e33bc0c44eb73418233e396438a65c3743451dd1ed0cf4c57f710e": {
+      "response_model": "LLMQuestionFields",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-09-12T04:27:54+00:00",
+      "asked": "Question Q21 cell:\nValidate: {\"min_length\": 5, \"max_length\": 500}",
+      "response": {
+        "directives": [
+          {
+            "kind": "validation",
+            "text": " {\"min_length\": 5, \"max_length\": 500}"
+          }
+        ]
+      }
+    },
+    "8fdbd777a4405e42e1e9a420961214ae5f3dffd4931dd3d9e44d010c39500e44": {
+      "response_model": "LLMQuestionFields",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-09-12T04:28:04+00:00",
+      "asked": "Question Q18 cell:\nValidate: {\"sum\": 100}",
+      "response": {
+        "directives": [
+          {
+            "kind": "validation",
+            "text": "{\"sum\": 100}"
+          }
+        ]
+      }
+    },
+    "66915dc9c81ec1edf482068b3bfd8862390302699f8fcfd05777dc8bcf7cefdc": {
+      "response_model": "LLMQuestionFields",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-09-12T04:28:14+00:00",
+      "asked": "Question D2 cell:\nAlways show",
+      "response": {
+        "directives": [
+          {
+            "kind": "always_show",
+            "text": ""
+          }
+        ]
+      }
+    },
+    "68ad2df3a0c17dc461b12e7c03915707734233b1f2d983dec0dd2300bc31e39a": {
+      "response_model": "LLMQuestionFields",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-09-12T04:28:17+00:00",
+      "asked": "Question D3 cell:\nAlways show",
+      "response": {
+        "directives": [
+          {
+            "kind": "always_show",
+            "text": "Always show"
+          }
+        ]
+      }
+    },
+    "0f41b29950362d3956f3ddd087296c2482ee4b53df258f03deda2aa603a35626": {
+      "response_model": "LLMQuestionFields",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-09-12T04:28:26+00:00",
+      "asked": "Question D4 cell:\nAlways show",
+      "response": {
+        "directives": [
+          {
+            "kind": "always_show",
+            "text": ""
+          }
+        ]
+      }
+    },
+    "b38cf0b18ca952c6b6a69fcf65e9fd847d9b25994b4cf8787e36c025721fd4dc": {
+      "response_model": "LLMQuestionFields",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-09-12T04:28:36+00:00",
+      "asked": "Question Q22 cell:\nAlways show",
+      "response": {
+        "directives": [
+          {
+            "kind": "always_show",
+            "text": ""
+          }
+        ]
+      }
+    },
+    "20b1982f62ac427ad4eaf7e3783905d00baf0be47eb15630b81763a8e1427c56": {
+      "response_model": "LLMQuestionFields",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-09-12T04:28:45+00:00",
+      "asked": "Question Q23 cell:\nValidate: {\"max_length\": 1000}\nOptional",
+      "response": {
+        "directives": [
+          {
+            "kind": "validation",
+            "text": "{\"max_length\": 1000}"
+          },
+          {
+            "kind": "optional",
+            "text": ""
+          }
+        ]
+      }
+    },
+    "80358d18543a422a5b7dfc397e2b4e1e75b505b23b074a229276a0007b37d9bc": {
+      "response_model": "LLMQuestionFields",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-09-12T04:28:56+00:00",
+      "asked": "Question D1 cell:\nAlways show",
+      "response": {
+        "directives": [
+          {
+            "kind": "always_show",
+            "text": ""
+          }
+        ]
+      }
+    },
+    "ab82510427e59130abbb159e5d8790f75eb5c2d068d98745f7c9a6c93c5775cd": {
+      "response_model": "LLMRoutingExpression",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-09-12T04:29:27+00:00",
+      "asked": "Condition: Q1 contains at least one brand\n\nOption codes:\nQ1: SaaS Brand A, SaaS Brand B, SaaS Brand C, Open-source alternative, None of these   (no codes; refer to these by label)",
+      "response": {
+        "comparisons": [
+          {
+            "question_id": "Q1",
+            "operator": "contains_any",
+            "values": [
+              "SaaS Brand A",
+              "SaaS Brand B",
+              "SaaS Brand C"
+            ],
+            "compare_to_question": null
+          }
+        ],
+        "joiner": null,
+        "reasoning": "The condition states that Q1 must contain at least one brand. The brand options are the three SaaS Brand labels. This maps to a single comparison using the 'contains_any' operator with those labels as values."
+      }
+    },
+    "0f6906ad83b8bfaed6c4e546bdbb68e8e9a12f4824747de2ca95e259f09fda13": {
+      "response_model": "LLMRoutingExpression",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-09-12T04:29:14+00:00",
+      "asked": "Condition: Q5 contains any touchpoint\n\nOption codes:\nQ5: Vendor website, Sales demonstration, Peer recommendation, Analyst report, Trial, Procurement process, None of these   (no codes; refer to these by label)",
+      "response": {
+        "comparisons": [
+          {
+            "question_id": "Q5",
+            "operator": "contains_any",
+            "values": [
+              "Vendor website",
+              "Sales demonstration",
+              "Peer recommendation",
+              "Analyst report",
+              "Trial",
+              "Procurement process"
+            ],
+            "compare_to_question": null
+          }
+        ],
+        "joiner": null,
+        "reasoning": "The phrase 'contains any touchpoint' maps to a contains_any operator on Q5. Touchpoint options are all listed choices except the 'None of these' option, which is excluded per the guideline. No codes are provided, so the exact labels are used as values."
+      }
+    },
+    "f4062fea8dedd523a458be587842adcc3f0999343c69c3ecafdf3742c45502b7": {
+      "response_model": "LLMRoutingExpression",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-09-12T04:29:40+00:00",
+      "asked": "Condition: exclusive option selected with another response at Q1 or Q5\n\nOption codes:\nQ1: SaaS Brand A, SaaS Brand B, SaaS Brand C, Open-source alternative, None of these   (no codes; refer to these by label)\nQ5: Vendor website, Sales demonstration, Peer recommendation, Analyst report, Trial, Procurement process, None of these   (no codes; refer to these by label)",
+      "response": {
+        "comparisons": [],
+        "joiner": null,
+        "reasoning": "The condition describes a composite rule (an exclusive option selected together with another response at Q1 or Q5). This requires checking two separate questions for a combination of selections (both the exclusive option and any other option) and then combining those checks with an OR. The provided schema only supports a flat list of comparisons joined by a single logical operator (and/or) and does not allow nested AND/OR groups needed to represent this rule accurately. Therefore the condition cannot be resolved into the required JSON structure without loss of meaning, so no comparisons are returned."
+      }
+    },
+    "297c1898b3aeb6f5ab76ee271985f36a297fa7d2589269416ff1db9b1e20af15": {
+      "response_model": "LLMRoutingExpression",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-09-12T04:29:53+00:00",
+      "asked": "Condition: selected option at Q6 was not selected at Q5\n\nOption codes:\nQ6: Vendor website, Sales demonstration, Peer recommendation, Analyst report, Trial, Procurement process   (no codes; refer to these by label)\nQ5: Vendor website, Sales demonstration, Peer recommendation, Analyst report, Trial, Procurement process, None of these   (no codes; refer to these by label)",
+      "response": {
+        "comparisons": [
+          {
+            "question_id": "Q6",
+            "operator": "not_in",
+            "values": [],
+            "compare_to_question": "Q5"
+          }
+        ],
+        "joiner": null,
+        "reasoning": "The condition states that any option selected in Q6 must not be among the options selected in Q5. This is a comparison between two answer sets, so we use the 'not_in' operator with Q6 as the primary question and Q5 as the compare_to_question. No explicit values are needed because the comparison is against another question's answers."
+      }
+    },
+    "b38855ad26e36cde7db4e71f45c8bbc4c8c2492e98fccc97db0198fd8e542767": {
+      "response_model": "LLMConditionProposal",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-09-12T04:29:54+00:00",
+      "asked": "Condition as written: Q1 contains at least one brand\n\nAnswer options:\nQ1: 'SaaS Brand A', 'SaaS Brand B', 'SaaS Brand C', 'Open-source alternative', 'None of these'",
+      "response": {
+        "expression": "Q1 contains_any ['SaaS Brand A','SaaS Brand B','SaaS Brand C']",
+        "confidence": 0.96,
+        "reasoning": "The phrase 'contains at least one brand' maps to the membership operator 'contains_any' with the list of brand answer labels. The grammar supports this operator, and the answer labels are taken exactly as provided."
+      }
+    }
+  }
+}

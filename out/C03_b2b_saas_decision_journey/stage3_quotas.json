@@ -1,0 +1,62 @@
+{
+  "schema_version": "1.0.0",
+  "artifact": "stage3_quotas",
+  "stage": 3,
+  "survey_id": "C03_b2b_saas_decision_journey",
+  "source_document": {
+    "filename": "C03_b2b_saas_decision_journey.docx",
+    "sha256": "4792343e1f98613292161217c998d06b1848e82f4d64f753715140f5cd6d532d",
+    "bytes": 43580
+  },
+  "generated_at": "2026-09-12T04:25:42+00:00",
+  "item_count": null,
+  "content": {
+    "target": "Quota controls",
+    "source_kind": "prose",
+    "rows": [
+      {
+        "raw_text": "QUOTA_REGION: hard quota on D1: North=20%, South=20%, East=20%, West=20%, Central=20%",
+        "code": "QUOTA_REGION",
+        "text": "hard quota on D1: North=20%, South=20%, East=20%, West=20%, Central=20%"
+      },
+      {
+        "raw_text": "QUOTA_AGE: soft quota on D2: 21-29=20%, 30-39=25%, 40-49=25%, 50-59=20%, 60+=10%",
+        "code": "QUOTA_AGE",
+        "text": "soft quota on D2: 21-29=20%, 30-39=25%, 40-49=25%, 50-59=20%, 60+=10%"
+      },
+      {
+        "raw_text": "Quota-full respondents terminate at TERM_QUOTA_FULL before the next substantive question. Quota status must be logged.",
+        "text": "Quota-full respondents terminate at TERM_QUOTA_FULL before the next substantive question. Quota status must be logged."
+      }
+    ],
+    "row_sources": [
+      {
+        "document": "C03_b2b_saas_decision_journey.docx",
+        "section": "Quota controls",
+        "heading_text": "Quota controls",
+        "block_order": 14,
+        "row_index": null,
+        "source_kind": "prose",
+        "text": "QUOTA_REGION: hard quota on D1: North=20%, South=20%, East=20%, West=20%, Central=20%"
+      },
+      {
+        "document": "C03_b2b_saas_decision_journey.docx",
+        "section": "Quota controls",
+        "heading_text": "Quota controls",
+        "block_order": 15,
+        "row_index": null,
+        "source_kind": "prose",
+        "text": "QUOTA_AGE: soft quota on D2: 21-29=20%, 30-39=25%, 40-49=25%, 50-59=20%, 60+=10%"
+      },
+      {
+        "document": "C03_b2b_saas_decision_journey.docx",
+        "section": "Quota controls",
+        "heading_text": "Quota controls",
+        "block_order": 16,
+        "row_index": null,
+        "source_kind": "prose",
+        "text": "Quota-full respondents terminate at TERM_QUOTA_FULL before the next substantive question. Quota status must be logged."
+      }
+    ]
+  }
+}
