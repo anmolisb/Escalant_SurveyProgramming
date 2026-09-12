@@ -101,6 +101,7 @@ class BuiltQuestion:
     group_name: str
     type: str
     title: str
+    wording: str
     mandatory: bool
     relevance: str
     order: int
@@ -212,6 +213,7 @@ def parse_lss(lss_path: str | Path, spec: CanonicalSpec) -> ImplementationSnapsh
             group_name=groups.get(gid, ""),
             type=qtype,
             title=title,
+            wording=q_labels.get(qid, ""),
             mandatory=(q.get("mandatory", "Y") == "Y"),
             relevance=q.get("relevance", "1"),
             order=int(q.get("question_order", 0) or 0),
@@ -364,6 +366,29 @@ def shared_messages(messages: dict[str, str]) -> dict[str, list[str]]:
 # Conformance: does the build match the specification?
 # --------------------------------------------------------------------------
 
+def _norm(text: str) -> str:
+    """Compare what a respondent reads, not how it was typed.
+
+    Whitespace and surrounding punctuation differ harmlessly between a Word
+    document and rendered HTML. Anything beyond that is a real difference.
+    """
+    return " ".join((text or "").split()).strip().casefold().rstrip(":.?! ")
+
+
+def _closest(needle: str, haystack: list[str]) -> str | None:
+    """The nearest label by word overlap, to make a mismatch quick to diagnose."""
+    want = set(_norm(needle).split())
+    best, score = None, 0.0
+    for candidate in haystack:
+        have = set(_norm(candidate).split())
+        if not want or not have:
+            continue
+        overlap = len(want & have) / len(want | have)
+        if overlap > score:
+            best, score = candidate, overlap
+    return best if score >= 0.4 else None
+
+
 def conformance(spec: CanonicalSpec, snap: ImplementationSnapshot) -> dict:
     """Every place the implementation disagrees with the specification.
 
@@ -406,6 +431,37 @@ def conformance(spec: CanonicalSpec, snap: ImplementationSnapshot) -> dict:
 
         # Every canonical option must have a physical binding, or no test can
         # ever select it.
+        # ---- what the question SAYS, not just that it exists -------------
+        #
+        # Everything above this point checks structure: the question is there,
+        # it is the right type, it has the right number of options. None of it
+        # would notice a question reading "Lorem ipsum". Text is what the
+        # respondent actually reads, so a build that gets it wrong is wrong in
+        # the way that matters most, and it was going entirely unchecked.
+        if q.wording and built.wording:
+            if _norm(q.wording) != _norm(built.wording):
+                findings.append({
+                    "kind": "WORDING_MISMATCH", "severity": "HIGH",
+                    "subject": q.id,
+                    "detail": (f"the questionnaire says {q.wording!r} and the "
+                               f"build says {built.wording!r}")})
+
+        # A single-choice question keeps its labels in the answer table and a
+        # multi-select keeps them as subquestions, so both have to be consulted.
+        # Looking at only one silently skipped every tick-box question.
+        offered = {**built.option_codes, **built.subquestion_codes}
+        for opt in q.options:
+            if offered and opt.label not in offered:
+                # The option is bound by position but its text differs, so the
+                # respondent is being offered something the QRE never wrote.
+                closest = _closest(opt.label, list(offered))
+                findings.append({
+                    "kind": "OPTION_LABEL_MISMATCH", "severity": "HIGH",
+                    "subject": f"{q.id}/{opt.option_id}",
+                    "detail": (f"the questionnaire lists {opt.label!r}; the "
+                               f"build offers nothing with that text"
+                               + (f". Closest is {closest!r}" if closest else ""))})
+
         for opt in q.options:
             if snap.binding(q.id, opt.option_id) is None:
                 findings.append({"kind": "OPTION_NOT_BOUND", "severity": "BLOCKING",
@@ -493,6 +549,132 @@ def conformance(spec: CanonicalSpec, snap: ImplementationSnapshot) -> dict:
                            "proves a screenout occurred, not which one. To "
                            "distinguish them the QRE must give each "
                            "disposition its own wording.")})
+
+    # ---- carrying options forward from one question to another -----------
+    #
+    # LimeSurvey filters a destination question by matching codes against the
+    # source. Two things can go wrong, both invisible on screen until a
+    # respondent hits them, and neither was checked.
+    for dep in spec.dependencies:
+        if dep.kind != "option_source":
+            continue
+        src_q = spec.question(dep.from_question)
+        dst_q = spec.question(dep.to_question)
+        src_b = snap.questions.get(dep.from_question)
+        dst_b = snap.questions.get(dep.to_question)
+        if not (src_q and dst_q and src_b and dst_b):
+            continue
+
+        src_codes = {**src_b.option_codes, **src_b.subquestion_codes}
+        dst_codes = {**dst_b.option_codes, **dst_b.subquestion_codes}
+
+        # The exclusive option must not travel. Carrying "None of these" into a
+        # follow-up asks the respondent which of their selections mattered most
+        # and offers them the one that meant they selected nothing.
+        excl_label = (src_q.validation.get("exclusive_option_label") or "")
+        if not excl_label:
+            excl = next((o for o in src_q.options if o.exclusive), None)
+            excl_label = excl.label if excl else ""
+        if excl_label and excl_label in dst_codes:
+            findings.append({
+                "kind": "EXCLUSIVE_OPTION_CARRIED_FORWARD", "severity": "HIGH",
+                "subject": f"{dep.from_question}->{dep.to_question}",
+                "detail": (f"{dep.to_question} offers {excl_label!r}, which is "
+                           f"{dep.from_question}'s exclusive option. Choosing "
+                           f"it at {dep.from_question} means the respondent "
+                           f"selected nothing, so it cannot be one of the "
+                           f"things they selected")})
+
+        # Shared labels must carry the same code at both ends. LimeSurvey
+        # matches the filter by code, not by text, so a label that reads
+        # correctly at both ends but is coded differently silently filters to
+        # nothing.
+        shared = [lbl for lbl in dst_codes if lbl in src_codes]
+        differing = [(lbl, src_codes[lbl], dst_codes[lbl])
+                     for lbl in shared if src_codes[lbl] != dst_codes[lbl]]
+        if differing:
+            examples = "; ".join(f"{lbl!r} is {a} at {dep.from_question} and "
+                                 f"{b} at {dep.to_question}"
+                                 for lbl, a, b in differing[:2])
+            findings.append({
+                "kind": "CARRY_FORWARD_CODE_MISMATCH", "severity": "HIGH",
+                "subject": f"{dep.from_question}->{dep.to_question}",
+                "detail": (f"{len(differing)} of {len(shared)} carried-forward "
+                           f"options have a different code at each end. "
+                           f"{examples}. LimeSurvey matches a carry-forward "
+                           f"filter by code rather than by text, so the labels "
+                           f"reading correctly at both ends does not mean the "
+                           f"filter works. Worth confirming against a "
+                           f"hand-built survey before treating as a defect")})
+
+    # ---- the order the respondent meets the questions in -----------------
+    #
+    # LimeSurvey numbers questions within a group and the questionnaire numbers
+    # them across the whole document, so the raw numbers are not comparable.
+    # The sequences are. A build can contain every question, each correct in
+    # isolation, and still ask them in an order that changes what the survey
+    # means.
+    built_sequence = [b.canonical_id for b in
+                      sorted(snap.questions.values(),
+                             key=lambda x: (x.gid, x.order))]
+    spec_sequence = [q.id for q in spec.in_order() if q.id in snap.questions]
+    if built_sequence != spec_sequence:
+        first = next((i for i, (a, b) in
+                      enumerate(zip(built_sequence, spec_sequence)) if a != b),
+                     min(len(built_sequence), len(spec_sequence)))
+        findings.append({
+            "kind": "QUESTION_ORDER_MISMATCH", "severity": "HIGH",
+            "subject": ", ".join(spec_sequence[first:first + 3]),
+            "detail": (f"the questionnaire asks {spec_sequence[first:first+3]} "
+                       f"at this point and the build asks "
+                       f"{built_sequence[first:first+3]}")})
+
+    # ---- shuffling nobody asked for --------------------------------------
+    #
+    # Only questions the QRE marks for randomization were ever checked. A
+    # question shuffled by accident would pass unnoticed, and its option order
+    # is then unreproducible for no stated reason.
+    asked_to_shuffle = {r.question_id for r in spec.randomization}
+    for q in spec.in_order():
+        if q.id in asked_to_shuffle:
+            continue
+        built_q = snap.questions.get(q.id)
+        if built_q is None:
+            continue
+        shuffled = [k for k, v in built_q.attributes.items()
+                    if k.startswith("random") and str(v).strip() not in ("", "0")]
+        if shuffled:
+            findings.append({
+                "kind": "UNEXPECTED_RANDOMIZATION", "severity": "HIGH",
+                "subject": q.id,
+                "detail": (f"the questionnaire does not ask for {q.id} to be "
+                           f"shuffled, but the build sets {shuffled}. Its option "
+                           f"order is then unreproducible for no stated reason")})
+
+    # ---- a guard nothing could ever falsify ------------------------------
+    #
+    # A contains-any condition naming every option of a question the respondent
+    # must answer can never be false. That is almost always an extraction slip
+    # rather than intent, and saying so is far more useful than reporting the
+    # resulting test as merely impossible.
+    for q in spec.in_order():
+        if q.guard is None or q.guard.op not in ("contains_any", "in"):
+            continue
+        source = spec.question(q.guard.left_qid) if q.guard.left_qid else None
+        if source is None or not source.mandatory or not source.options:
+            continue
+        named = set(q.guard.right_option_ids)
+        every = {o.option_id for o in source.options}
+        if named and named >= every:
+            findings.append({
+                "kind": "GUARD_CANNOT_BE_FALSIFIED", "severity": "HIGH",
+                "subject": q.id,
+                "detail": (f"{q.id} is shown when {source.id} contains any of "
+                           f"all {len(every)} of its options, and {source.id} "
+                           f"must be answered, so the condition is always true "
+                           f"and {q.id} can never be hidden. The source line "
+                           f"reads {q.guard.source_text!r}, which suggests the "
+                           f"option list was over-extracted upstream")})
 
     blocking = [f for f in findings if f["severity"] == "BLOCKING"]
     return {

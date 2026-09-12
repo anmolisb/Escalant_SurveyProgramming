@@ -523,9 +523,44 @@ def _fill_journey(spec: CanonicalSpec, answers: dict[str, Any]) -> dict[str, Any
 # Validation probes
 # --------------------------------------------------------------------------
 
+# Punctuation a respondent genuinely types, not an attempt to break anything.
+# Apostrophes and quotation marks are the pair that most often escape badly.
+SPECIAL_TEXT = "O'Brien said \"yes\" <50% & more"
+
+
 def _validation_probe(q: Question, polarity: str) -> tuple[Any, str]:
     v = q.validation
     cons = v.constraints
+
+    # ---- input the questionnaire never described -------------------------
+    if polarity == "boundary_max_accepted":
+        hi = v.get("max_length")
+        if hi is not None:
+            return "x" * int(hi), (f"exactly {hi} characters, the stated "
+                                   f"maximum, which must be accepted")
+        hi = v.get("max_selections")
+        if hi is not None:
+            pool = [o.option_id for o in q.usable_options()]
+            if len(pool) < int(hi):
+                raise BoundReached(f"only {len(pool)} options, need {hi}")
+            return pool[:int(hi)], (f"exactly {hi} selections, the stated "
+                                    f"maximum, which must be accepted")
+        raise Conflict("no stated maximum to sit on")
+
+    if polarity == "special_characters_accepted":
+        hi = v.get("max_length")
+        lo = v.get("min_length", 0) or 0
+        text = SPECIAL_TEXT
+        if hi is not None and len(text) > int(hi):
+            text = text[:int(hi)]
+        if len(text) < int(lo):
+            text = text + "x" * (int(lo) - len(text))
+        return text, ("punctuation and quotation marks within the stated "
+                      "length, which the rule does not forbid")
+
+    if polarity in ("whitespace_rejected", "whitespace_accepted"):
+        return "   ", ("three spaces and nothing else, which looks like an "
+                       "answer and is not one")
 
     if "min_length" in cons or "max_length" in cons:
         lo = v.get("min_length", 0) or 0
@@ -536,6 +571,28 @@ def _validation_probe(q: Question, polarity: str) -> tuple[Any, str]:
         if hi is not None:
             return "x" * (int(hi) + 1), f"length {int(hi)+1}, one over max {hi}"
         return "", f"empty string, under min {lo}"
+
+    if "max_selections" in cons:
+        hi = int(v.get("max_selections"))
+        pool = [o.option_id for o in q.usable_options()]
+        if polarity == "satisfied":
+            if len(pool) < hi:
+                raise BoundReached(f"only {len(pool)} options, need {hi}")
+            return pool[:hi], f"exactly {hi} selections, the stated maximum"
+        if len(pool) <= hi:
+            raise BoundReached(f"cannot exceed a maximum of {hi} with only "
+                               f"{len(pool)} options")
+        return pool[:hi + 1], f"{hi + 1} selections, one over the maximum {hi}"
+
+    if "min_value" in cons or "max_value" in cons:
+        lo = v.get("min_value")
+        hi = v.get("max_value")
+        if polarity == "satisfied":
+            n = lo if lo is not None else (hi if hi is not None else 1)
+            return n, f"{n}, inside the stated range [{lo}, {hi}]"
+        if hi is not None:
+            return int(hi) + 1, f"{int(hi) + 1}, one over the maximum {hi}"
+        return int(lo) - 1, f"{int(lo) - 1}, one under the minimum {lo}"
 
     if "min_selections" in cons:
         lo = int(v.get("min_selections", 1))
@@ -753,6 +810,19 @@ def _dispatch(spec, target, sem, used):
         a = solve(spec, q.guard, True, sem, used) if q.guard is not None else {}
         a = _reachable(spec, a, 10 ** 6, sem, used)
         answers = _fill_journey(spec, _concretise(spec, a))
+
+        # A blank and a run of spaces are different probes. Sending None for
+        # both would have the bot leave the field untouched while the test case
+        # claimed it typed spaces, so the test would prove the wrong thing and
+        # nobody reading the result could tell.
+        if target.polarity in ("whitespace_rejected", "whitespace_accepted"):
+            answers[q.id] = "   "
+            verb = ("refuses" if target.polarity == "whitespace_rejected"
+                    else "permits")
+            return (answers, "whitespace answer probe",
+                    f"{q.id} given three spaces and nothing else, expect it "
+                    f"{verb} progress")
+
         answers[q.id] = None
         verb = "blocks" if target.polarity == "enforced" else "permits"
         return answers, "blank answer probe", f"{q.id} left blank, expect it {verb} progress"
@@ -812,12 +882,34 @@ def _dispatch(spec, target, sem, used):
         quota = next((q for q in spec.quotas if q.id == quota_id), None)
         if quota is None:
             raise Conflict("quota absent from the spec")
-        if target.polarity == "full":
+        if target.polarity == "not_counted_by_other_cell":
+            other = next((c for c in quota.cells
+                          if c.option_id != cell_option), None)
+            if other is None:
+                raise Conflict("quota has only one cell, so nothing can be "
+                               "mis-counted into it")
+            a = {quota.variable_question_id: Requirement(
+                must_be={other.option_id}, must_answer=True)}
+            a = _reachable(spec, a, 10 ** 6, sem, used)
+            answers = _fill_journey(spec, _concretise(spec, a))
+            return Witness(
+                target_id=target.target_id, feasible=True, answers=answers,
+                method="cross-cell counting check",
+                evidence=(f"send a respondent who answers "
+                          f"{other.option_label!r}, then confirm the "
+                          f"{cell_option} count is unchanged"),
+                campaign={"repetitions": 1, "compare": "cell_counts",
+                          "cell": f"{quota.id}:{cell_option}",
+                          "filled_instead": f"{quota.id}:{other.option_id}",
+                          "label": other.option_label})
+
+        if target.polarity in ("full", "over_target_admits"):
             cell = next((c for c in quota.cells
                          if c.option_id == cell_option), None)
             if cell is None or cell.target_count is None:
                 raise BoundReached("filling a cell needs a stated sample size, "
                                    "which the QRE does not give")
+            soft = (quota.enforcement or "hard").lower() == "soft"
             dq = spec.question(quota.variable_question_id)
             seq = dq.seq if dq else 10 ** 6
             a = {quota.variable_question_id: Requirement(must_be={cell_option},
@@ -835,6 +927,7 @@ def _dispatch(spec, target, sem, used):
                 campaign={"repetitions": cell.target_count,
                           "then_one_more": True,
                           "cell": f"{quota.id}:{cell_option}",
+                          "enforcement": quota.enforcement,
                           "label": cell.option_label})
             return w
         dq = spec.question(quota.variable_question_id)

@@ -83,6 +83,10 @@ SECONDARY_TYPE = {
     ("D2", "reachable"): "1. Flow / Routing",
     ("D3", "satisfied"): "-",
     ("D3", "violated"): "10. Negative / Robustness",
+    ("D3", "boundary_max_accepted"): "10. Negative / Robustness",
+    ("D3", "special_characters_accepted"): "10. Negative / Robustness",
+    ("D4", "whitespace_rejected"): "10. Negative / Robustness",
+    ("D4", "whitespace_accepted"): "-",
     ("D4", "enforced"): "10. Negative / Robustness",
     ("D4", "not_enforced"): "-",
     ("D5", "restricted"): "1. Flow / Routing",
@@ -92,6 +96,8 @@ SECONDARY_TYPE = {
     ("D7", "anchors_held"): "8. Implementation Conformance",
     ("D8", "available"): "6. Termination / Disposition",
     ("D8", "full"): "6. Termination / Disposition",
+    ("D8", "over_target_admits"): "5. Quota / Stateful",
+    ("D8", "not_counted_by_other_cell"): "5. Quota / Stateful",
     ("D9", "combined"): "1. Flow / Routing",
 }
 
@@ -127,6 +133,10 @@ WHY_EXISTS = {
 TEST_DATA_CLASS = {
     ("D3", "satisfied"): "VALID_BOUNDARY",
     ("D3", "violated"): "INVALID_BOUNDARY",
+    ("D3", "boundary_max_accepted"): "VALID_BOUNDARY (exactly at the limit)",
+    ("D3", "special_characters_accepted"): "VALID_SPECIAL_CHARACTERS",
+    ("D4", "whitespace_rejected"): "WHITESPACE_ONLY",
+    ("D4", "whitespace_accepted"): "WHITESPACE_ONLY",
     ("D4", "enforced"): "EMPTY",
     ("D4", "not_enforced"): "EMPTY",
     ("D1", "hidden"): "VALID_TYPICAL (the branch that hides the question)",
@@ -137,11 +147,14 @@ SUB_ORDER = {
     ("D1", "advances"): 0, ("D1", "shown"): 1, ("D1", "hidden"): 2,
     ("D1", "skip_fired"): 3, ("D1", "skip_not_fired"): 4,
     ("D3", "satisfied"): 5, ("D3", "violated"): 6,
+    ("D3", "boundary_max_accepted"): 6, ("D3", "special_characters_accepted"): 6,
+    ("D4", "whitespace_rejected"): 7, ("D4", "whitespace_accepted"): 7,
     ("D4", "enforced"): 7, ("D4", "not_enforced"): 7,
     ("D5", "restricted"): 8, ("D6", "rendered"): 9,
     ("D7", "completeness"): 10, ("D7", "order_varies"): 11,
     ("D7", "anchors_held"): 12,
     ("D8", "available"): 13, ("D8", "full"): 14,
+    ("D8", "over_target_admits"): 14, ("D8", "not_counted_by_other_cell"): 15,
     ("D9", "combined"): 15, ("D2", "reachable"): 16,
 }
 
@@ -248,6 +261,10 @@ CHECK_WORDS = {
         "the final page shows: {v}   [other screen-outs show identical wording, "
         "so this proves a screen-out happened, not which one]",
     "not_sent_to_quota_full": "the respondent is allowed to continue",
+    "quota_counter_over_target": "the counter for {v} records this respondent, "
+                                 "putting the cell over its target",
+    "quota_counter_unchanged": "the counter for {v} is exactly what it was "
+                               "before this respondent",
     "question_text_contains": "{q}'s wording includes: {v}",
     "options_rendered_equals": "{q} offers exactly: {v}",
     "rendered_option_count": "{q} shows exactly {v} options, none missing or "
@@ -373,6 +390,14 @@ def _name(spec: CanonicalSpec, t: CoverageTarget) -> str:
     if d == "D2":
         ending, _, named = s.partition("<-")
         return f"End-to-end journey: {ending} by way of {named or 'routing'}"
+    if d == "D3" and pol == "boundary_max_accepted":
+        return f"{s} accepts an answer sitting exactly on its stated maximum"
+    if d == "D3" and pol == "special_characters_accepted":
+        return f"{s} accepts punctuation and quotation marks"
+    if d == "D4" and pol == "whitespace_rejected":
+        return f"{s} refuses an answer of spaces alone"
+    if d == "D4" and pol == "whitespace_accepted":
+        return f"{s} accepts spaces alone, being optional"
     if d == "D3":
         q = spec.question(s)
         if q is not None:
@@ -393,9 +418,14 @@ def _name(spec: CanonicalSpec, t: CoverageTarget) -> str:
                 "anchors_held": f"{s} keeps its pinned options in place"}[pol]
     if d == "D8":
         quota, cell = s.split(":")
-        return (f"{quota} admits a respondent while {cell} is open"
-                if pol == "available"
-                else f"{quota} turns a respondent away once {cell} is full")
+        return {
+            "available": f"{quota} admits a respondent while {cell} is open",
+            "full": f"{quota} turns a respondent away once {cell} is full",
+            "over_target_admits": f"{quota} still admits a respondent once "
+                                  f"{cell} is over target, being a soft quota",
+            "not_counted_by_other_cell": f"{quota} does not increment {cell} for "
+                                         f"a respondent in a different cell",
+        }.get(pol, f"{quota} {pol} at {cell}")
     if d == "D9":
         a, b = s.split("+")
         return f"{b} is shown and reflects its dependency on {a} at the same time"
@@ -432,6 +462,35 @@ def _objective(spec: CanonicalSpec, t: CoverageTarget) -> str:
                 f"this sequence of questions, in this order, and ends at "
                 f"{ending} by way of {named or 'the routing'}, checked at "
                 f"{where}. Condition: {cond}. They should then see: \u201c{msg}\u201d")
+    if d == "D3" and pol == "boundary_max_accepted":
+        q = spec.question(s)
+        hi = (q.validation.get("max_length") if q else None) or \
+             (q.validation.get("max_selections") if q else None)
+        unit = "characters" if (q and q.validation.get("max_length")) else "selections"
+        return (f"Prove {s} accepts an answer of exactly {hi} {unit}. A maximum "
+                f"is a limit, so the limit itself is inside the rule. One more "
+                f"than this is already tested as a rejection; an off-by-one in "
+                f"the build sits precisely between the two.")
+
+    if d == "D3" and pol == "special_characters_accepted":
+        return (f"Prove {s} accepts an answer containing apostrophes, quotation "
+                f"marks and angle brackets. Its rule constrains length and says "
+                f"nothing about content, so this must be accepted. Quotes and "
+                f"brackets are where survey tools most often break, because "
+                f"nobody wrote the rule down and so nobody tested it.")
+
+    if d == "D4" and pol == "whitespace_rejected":
+        return (f"Prove {s} refuses an answer of spaces alone. The "
+                f"questionnaire marks it compulsory, and spaces are not an "
+                f"answer. This is the commoner real-world failure than a blank, "
+                f"because a respondent pressing the space bar looks like a "
+                f"respondent who answered.")
+
+    if d == "D4" and pol == "whitespace_accepted":
+        return (f"Prove {s} accepts an answer of spaces alone. The "
+                f"questionnaire marks it optional, so nothing about the "
+                f"response may block progress.")
+
     if d == "D3":
         q = spec.question(s)
         if q is not None:
@@ -469,12 +528,26 @@ def _objective(spec: CanonicalSpec, t: CoverageTarget) -> str:
         quota, cell = s.split(":")
         q = next((x for x in spec.quotas if x.id == quota), None)
         c = next((x for x in (q.cells if q else []) if x.option_id == cell), None)
+        label = c.option_label if c else cell
+        target = c.target_count if c else "?"
         if pol == "available":
-            return (f"Prove {quota} lets a {c.option_label if c else cell!r} "
-                    f"respondent through while that group is below its target.")
-        return (f"Prove {quota} turns a {c.option_label if c else cell!r} "
-                f"respondent away once that group reaches its target of "
-                f"{c.target_count if c else '?'}.")
+            return (f"Prove {quota} lets a {label!r} respondent through while "
+                    f"that group is below its target.")
+        if pol == "over_target_admits":
+            return (f"Prove {quota} is enforced softly: once {label!r} reaches "
+                    f"its target of {target}, the next respondent must still be "
+                    f"let through and the overflow recorded. A soft quota "
+                    f"reports an imbalance, it does not turn people away.")
+        if pol == "not_counted_by_other_cell":
+            others = [x.option_label for x in (q.cells if q else [])
+                      if x.option_id != cell]
+            return (f"Prove a respondent in a different cell does not count "
+                    f"against {label!r}. Send one who answers "
+                    f"{others[0] if others else 'another option'!r}, then "
+                    f"confirm the {label!r} count is unchanged. Getting this "
+                    f"wrong silently mis-fills every cell in the quota.")
+        return (f"Prove {quota} turns a {label!r} respondent away once that "
+                f"group reaches its target of {target}.")
     if d == "D9":
         a, b = s.split("+")
         return (f"Prove {b} is shown by its display rule and simultaneously "

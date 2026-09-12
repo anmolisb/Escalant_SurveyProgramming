@@ -265,6 +265,30 @@ def _demonstrates(spec: CanonicalSpec, target: CoverageTarget,
                 f"predicted ending is {subject}, path {state.path}" if ending == subject
                 else f"predicted ending is {ending}, not {subject}")
 
+    if d == "D3" and polarity in ("boundary_max_accepted",
+                                  "special_characters_accepted"):
+        hit = any(q == subject for q, _ in violations)
+        if subject not in seen and not hit:
+            return False, (f"{subject} was not reached; path {state.path}")
+        return (not hit,
+                f"{subject} accepted the answer with no validation message"
+                if not hit else
+                f"{subject} rejected an answer its stated rule permits")
+
+    if d == "D4" and polarity == "whitespace_rejected":
+        hit = any(q == subject and r == "mandatory" for q, r in violations)
+        return hit, (f"{subject} refused an answer of spaces alone"
+                     if hit else
+                     f"{subject} let spaces through as though they were an "
+                     f"answer, which loses the response without anyone noticing")
+
+    if d == "D4" and polarity == "whitespace_accepted":
+        hit = any(q == subject and r == "mandatory" for q, r in violations)
+        return (not hit,
+                f"{subject} accepted spaces, as an optional question should"
+                if not hit else
+                f"{subject} refused spaces despite being optional")
+
     if d == "D3":
         rule = spec.rule(subject)
         if rule is not None:
@@ -349,6 +373,26 @@ def _demonstrates(spec: CanonicalSpec, target: CoverageTarget,
                     if ok else
                     f"respondent was turned away at {ending} despite the cell "
                     f"being open")
+
+    if d == "D8" and polarity == "over_target_admits":
+        quota_id = subject.split(":")[0]
+        on_full = next((q.on_full for q in spec.quotas if q.id == quota_id), None)
+        if ending == on_full:
+            return False, (f"the respondent was turned away at {ending}. A soft "
+                           f"quota must record the overflow and let them "
+                           f"through")
+        ok = obs.get("quota_over_target") == subject
+        return ok, (f"respondent admitted and {subject} recorded as over target"
+                    if ok else
+                    f"respondent was admitted but {subject} was not recorded as "
+                    f"over target")
+
+    if d == "D8" and polarity == "not_counted_by_other_cell":
+        if ending is None and blocked_at is not None:
+            return False, (f"the respondent was blocked at {blocked_at} and "
+                           f"never reached the quota question")
+        return True, (f"a respondent in a different cell completed their "
+                      f"journey, so {subject} can be read back and compared")
 
     if d == "D8" and polarity == "full":
         stopped = obs.get("quota_stopped")
