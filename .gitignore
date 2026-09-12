@@ -21,6 +21,10 @@ data/ground_truth/Client/**
 # Test design inputs are project facts a person supplies, not generated output.
 !data/inputs/test_design/**
 
+# Pipeline output. Regenerated on every run, so tracking it means constant
+# churn and conflicts. Keep fixed baselines under fixtures/ instead.
+out/
+
 # Python
 __pycache__/
 *.py[cod]
