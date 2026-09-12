@@ -168,6 +168,83 @@ def test_terminate_and_skip_rules_become_edges():
     assert report.coverage["routing_rule_coverage"]["numerator"] == 2
 
 
+def test_show_rule_is_a_visibility_relationship_carrying_its_rule_and_condition():
+    guard = Guard(condition=eq_condition("S1", "Yes"), agreement=GuardAgreement.AGREE,
+                  sources=["questionnaire", "R1"])
+    survey = CanonicalSurvey(
+        source="test.docx",
+        questions=[q("S1", 1), q("Q1", 2, guard=guard)],
+        dispositions=[disposition("COMPLETE")],
+        rules=[rule("R1", RuleKind.SHOW, "Q1", DestinationKind.QUESTION,
+                    when=eq_condition("S1", "Yes"), evaluation_point="S1")],
+    )
+    graphs, _ = part2_graph.run(survey)
+    route = nx.node_link_graph(graphs.route_graph, edges="edges", directed=True, multigraph=True)
+    vis = [(u, v, d) for u, v, d in route.edges(data=True)
+           if d.get("kind") == part2_graph.VISIBILITY]
+    assert len(vis) == 1
+    source, target, data = vis[0]
+    assert (source, target) == ("S1", "Q1")
+    assert data["rule_id"] == "R1"
+    # The projection, not a second authoring: identical to the node's own guard.
+    assert data["condition"] == route.nodes["Q1"]["guard"]
+    assert data["navigational"] is False
+    # And the spine is untouched: S1 -> Q1 -> COMPLETE, plus __START__.
+    navigation = [(u, v) for u, v, d in route.edges(data=True)
+                  if d.get("kind") in part2_graph.NAVIGATION_KINDS]
+    assert len(navigation) == 3
+    assert graphs.rule_edge_map["R1"] == ["visibility:S1->Q1", "guard:Q1"]
+
+
+def test_visibility_edge_exists_even_when_no_rule_states_the_guard():
+    # C02's Q15: a display condition the questionnaire states and the routing
+    # table omits. The relationship is real, so it gets an edge; there is no
+    # rule behind it, so it carries no rule id rather than an invented one.
+    guard = Guard(condition=eq_condition("S1", "Yes"),
+                  agreement=GuardAgreement.SINGLE_SOURCE, sources=["questionnaire"])
+    survey = CanonicalSurvey(
+        source="test.docx",
+        questions=[q("S1", 1), q("Q1", 2, guard=guard)],
+        dispositions=[disposition("COMPLETE")],
+    )
+    graphs, _ = part2_graph.run(survey)
+    route = nx.node_link_graph(graphs.route_graph, edges="edges", directed=True, multigraph=True)
+    vis = [d for _, _, d in route.edges(data=True) if d.get("kind") == part2_graph.VISIBILITY]
+    assert len(vis) == 1
+    assert vis[0]["rule_id"] is None
+    assert vis[0]["agreement"] == "single_source"
+
+
+def test_two_rules_stating_one_guard_keep_both_relationships():
+    guard = Guard(condition=eq_condition("S1", "Yes"), agreement=GuardAgreement.AGREE,
+                  sources=["questionnaire", "R1", "R2"])
+    survey = CanonicalSurvey(
+        source="test.docx",
+        questions=[q("S1", 1), q("Q1", 2, guard=guard)],
+        dispositions=[disposition("COMPLETE")],
+    )
+    graphs, _ = part2_graph.run(survey)
+    route = nx.node_link_graph(graphs.route_graph, edges="edges", directed=True, multigraph=True)
+    vis = [d["rule_id"] for _, _, d in route.edges(data=True)
+           if d.get("kind") == part2_graph.VISIBILITY]
+    # A MultiDiGraph holds both; neither silently overwrites the other.
+    assert sorted(vis) == ["R1", "R2"]
+
+
+def test_visibility_edges_do_not_create_reachability_or_cycles():
+    # A question reachable only by a visibility edge is not reachable at all.
+    guard = Guard(condition=eq_condition("S1", "Yes"), agreement=GuardAgreement.AGREE,
+                  sources=["questionnaire", "R1"])
+    survey = CanonicalSurvey(
+        source="test.docx",
+        questions=[q("S1", 1), q("Q1", 2, guard=guard)],
+        dispositions=[disposition("COMPLETE")],
+    )
+    _graphs, report = part2_graph.run(survey)
+    assert report.passed
+    assert not [f for f in report.findings if f.check in ("cycle", "reachability")]
+
+
 def test_show_rule_is_a_guard_not_an_edge():
     survey = _branching_survey()
     graphs, report = part2_graph.run(survey)
@@ -207,10 +284,93 @@ def test_reject_rule_is_a_constraint_not_an_edge():
         rules=[rule("R1", RuleKind.REJECT, "Q1", DestinationKind.QUESTION)],
     )
     graphs, report = part2_graph.run(survey)
+    # Nothing says where this one is enforced, so the bare word is all there is.
     assert graphs.rule_edge_map["R1"] == ["constraint"]
     route = nx.node_link_graph(graphs.route_graph, edges="edges", directed=True, multigraph=True)
     assert route.number_of_edges() == 2  # only the spine; the reject added no edge
     assert report.coverage["validation_reject_representation"]["result"] == 1.0
+
+
+def test_reject_is_traced_to_the_question_it_gates():
+    survey = CanonicalSurvey(
+        source="test.docx",
+        questions=[q("Q1", 1), q("Q2", 2)],
+        dispositions=[disposition("COMPLETE")],
+        rules=[rule("R1", RuleKind.REJECT, "Q2", DestinationKind.QUESTION,
+                    evaluation_point="Q2")],
+    )
+    graphs, _ = part2_graph.run(survey)
+    assert graphs.rule_edge_map["R1"] == ["constraint:Q2"]
+
+
+def test_reject_with_no_single_anchor_is_traced_to_every_question_it_reads():
+    # The shape of C02's R19: enforced at whichever question is being answered,
+    # with a condition naming two. Recording only the last of them loses the
+    # other question entirely, which is the defect this asserts against.
+    when = Condition(
+        op=ConditionOp.OR,
+        operands=[eq_condition("Q1", "None of these"),
+                  eq_condition("Q5", "None of these")],
+        source_text="exclusive option selected at Q1 or Q5",
+    )
+    survey = CanonicalSurvey(
+        source="test.docx",
+        questions=[q("Q1", 1), q("Q5", 2)],
+        dispositions=[disposition("COMPLETE")],
+        rules=[rule("R1", RuleKind.REJECT, "CURRENT_QUESTION",
+                    DestinationKind.POSITION, when=when)],
+    )
+    graphs, _ = part2_graph.run(survey)
+    assert graphs.rule_edge_map["R1"] == ["constraint:Q1", "constraint:Q5"]
+
+
+def test_quota_edge_carries_its_enforcement():
+    survey = CanonicalSurvey(
+        source="test.docx",
+        questions=[q("D1", 1), q("D2", 2)],
+        dispositions=[disposition("COMPLETE"),
+                      disposition("TERM_QUOTA_FULL", kind="quota_full", defined=False)],
+        quotas=[
+            Quota(quota_id="HARD", enforcement="hard", variable_question_id="D1",
+                  on_full="TERM_QUOTA_FULL", evaluation_point="D1"),
+            Quota(quota_id="SOFT", enforcement="soft", variable_question_id="D2",
+                  on_full="TERM_QUOTA_FULL", evaluation_point="D2"),
+        ],
+    )
+    graphs, _ = part2_graph.run(survey)
+    route = nx.node_link_graph(graphs.route_graph, edges="edges", directed=True, multigraph=True)
+    by_quota = {d["rule_id"]: d for _, _, d in route.edges(data=True) if d.get("rule_id")}
+    # A soft quota is a preference, not a screenout, and the edge must say so.
+    assert by_quota["HARD"]["enforcement"] == "hard"
+    assert by_quota["SOFT"]["enforcement"] == "soft"
+
+
+def test_semantics_travel_with_the_graph():
+    graphs, _ = part2_graph.run(_linear_survey())
+    assert graphs.route_graph["graph"]["unasked_reference"] == "condition_false"
+    assert graphs.route_graph["graph"]["rule_precedence"] == "document_order_first_match"
+    # Nulls are dropped: GraphML and GEXF have no concept of one.
+    assert all(v is not None for v in graphs.route_graph["graph"].values())
+
+
+def test_a_pair_that_pipes_and_guards_keeps_both_kinds():
+    survey = CanonicalSurvey(
+        source="test.docx",
+        questions=[
+            q("Q1", 1),
+            q("Q2", 2, guard=Guard(condition=eq_condition("Q1", "Yes"),
+                                   agreement=GuardAgreement.SINGLE_SOURCE)),
+        ],
+        dispositions=[disposition("COMPLETE")],
+        dependencies=[Dependency(from_question="Q1", to_question="Q2",
+                                 kind=DependencyKind.OPTION_SOURCE)],
+    )
+    graphs, _ = part2_graph.run(survey)
+    dependency = nx.node_link_graph(graphs.dependency_graph, edges="edges", directed=True)
+    data = dependency.edges["Q1", "Q2"]
+    assert data["kind"] == "option_source"          # primary, unchanged
+    assert data["kinds"] == ["option_source", "guard"]
+
 
 
 # ---------------------------------------------------------------------------

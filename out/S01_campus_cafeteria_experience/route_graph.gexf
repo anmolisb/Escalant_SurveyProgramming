@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <gexf xmlns="http://www.gexf.net/1.2draft" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.gexf.net/1.2draft http://www.gexf.net/1.2draft/gexf.xsd" version="1.2">
-  <meta lastmodifieddate="2026-09-11">
+  <meta lastmodifieddate="2026-09-12">
     <creator>NetworkX 3.6.1</creator>
   </meta>
   <graph defaultedgetype="directed" mode="static" name="">
@@ -10,6 +10,8 @@
       <attribute id="13" title="networkx_key" type="long" />
       <attribute id="14" title="condition" type="string" />
       <attribute id="15" title="precedence" type="long" />
+      <attribute id="16" title="agreement" type="string" />
+      <attribute id="17" title="navigational" type="boolean" />
     </attributes>
     <attributes mode="static" class="node">
       <attribute id="0" title="kind" type="string" />
@@ -242,7 +244,17 @@
           <attvalue for="13" value="0" />
         </attvalues>
       </edge>
-      <edge source="Q5" target="Q7" id="10">
+      <edge source="Q5" target="Q6" id="10">
+        <attvalues>
+          <attvalue for="11" value="visibility" />
+          <attvalue for="12" value="R3" />
+          <attvalue for="14" value="Q5 eq 'Yes'" />
+          <attvalue for="16" value="agree" />
+          <attvalue for="17" value="false" />
+          <attvalue for="13" value="1" />
+        </attvalues>
+      </edge>
+      <edge source="Q5" target="Q7" id="11">
         <attvalues>
           <attvalue for="11" value="jump" />
           <attvalue for="12" value="R4" />
@@ -251,21 +263,21 @@
           <attvalue for="13" value="0" />
         </attvalues>
       </edge>
-      <edge source="Q6" target="Q7" id="11">
+      <edge source="Q6" target="Q7" id="12">
         <attvalues>
           <attvalue for="11" value="advance" />
           <attvalue for="12" value="" />
           <attvalue for="13" value="0" />
         </attvalues>
       </edge>
-      <edge source="Q7" target="Q8" id="12">
+      <edge source="Q7" target="Q8" id="13">
         <attvalues>
           <attvalue for="11" value="advance" />
           <attvalue for="12" value="" />
           <attvalue for="13" value="0" />
         </attvalues>
       </edge>
-      <edge source="Q8" target="COMPLETE" id="13">
+      <edge source="Q8" target="COMPLETE" id="14">
         <attvalues>
           <attvalue for="11" value="advance" />
           <attvalue for="12" value="" />
