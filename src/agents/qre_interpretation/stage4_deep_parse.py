@@ -388,7 +388,9 @@ def _apply_directives(
 
     for directive in fields.directives:
         text = directive.text.strip()
-        if directive.kind is DirectiveKind.RANDOMIZE:
+        if directive.kind is DirectiveKind.ALWAYS_SHOW:
+            question.always_show = True
+        elif directive.kind is DirectiveKind.RANDOMIZE:
             question.randomize = True
         elif directive.kind is DirectiveKind.OPTIONAL:
             question.optional = True
@@ -396,9 +398,14 @@ def _apply_directives(
             question.optional = False
         elif directive.kind is DirectiveKind.OPTION_SOURCE:
             question.dynamic_option_source = text
-        elif directive.kind is DirectiveKind.OTHER and text:
-            # Kept under the kind that was read, so a reader can tell an
-            # unclassified instruction from a recognised one (CLAUDE.md §16).
+        elif directive.kind in (DirectiveKind.DISPLAY_CONDITION, DirectiveKind.VALIDATION):
+            # Both handled elsewhere: display conditions above, validation from
+            # its own JSON in _apply_validation.
+            continue
+        elif text:
+            # Anything else - OTHER, or a kind added later without a branch here -
+            # is kept rather than dropped. ALWAYS_SHOW was lost exactly this way:
+            # the model labelled it correctly and no branch caught it (§16).
             question.other_attributes.setdefault("other_instructions", []).append(text)
     return flags
 

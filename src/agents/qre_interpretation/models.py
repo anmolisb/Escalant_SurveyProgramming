@@ -375,6 +375,11 @@ class Question(BaseModel):
     exclusive_option: str | None = None
     sum_to: int | float | None = None
     randomize: bool = False
+    #: True only where the QRE says so - "Always show". Kept apart from an
+    #: absent display_condition, which means only that nothing was stated:
+    #: S3 on M02 has no display instruction at all and must not read the same
+    #: as S1, whose cell says "Always show" in as many words (CLAUDE.md §14).
+    always_show: bool = False
     optional: bool = False
     dynamic_option_source: str | None = None
     #: Validation settings with no field of their own, kept with their original
@@ -1124,6 +1129,12 @@ class CanonicalQuestion(BaseModel):
     #: `OptionSource`: `options` stays the full set the QRE printed, and this
     #: says which earlier answer narrows it.
     option_source: OptionSource | None = None
+    #: Stated unconditional display - see Question.always_show.
+    always_show: bool = False
+    #: Whether the options are shuffled. The detail - what moves, what stays
+    #: anchored - is in CanonicalSurvey.randomization; this puts the fact on the
+    #: question, where a reader of that question looks for it.
+    randomize: bool = False
     #: Attributes Stage 4 read but this model does not name, kept with their
     #: original JSON type rather than dropped. A QRE is free to state something
     #: no schema anticipated, and losing it silently is worse than carrying it
