@@ -1394,6 +1394,8 @@ def run(source: str, parsed: dict) -> CanonicalSurvey:
             validation=_canonical_validation(q, semantics),
             guard=guards.get(q.id),
             option_source=option_sources.get(q.id),
+            always_show=q.always_show,
+            randomize=q.randomize,
             # Whatever Stage 4 read but no field here names. Q9's answer scale
             # and Q19's note about showing concepts in a random order both land
             # here rather than being dropped.
