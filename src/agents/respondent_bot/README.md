@@ -56,3 +56,32 @@ activating.
 - Check Agent 3's `assertions` against what actually happened, rather than
   just confirming the page moved forward
 - Run more than one test case per invocation
+
+## Known blocker: multi-question survey completion (agent4-full-survey branch)
+
+Extending the smoke test to complete an entire survey (not just one
+question) is blocked by a specific, reproducible issue on this survey:
+
+After Playwright answers Question 1 (a required Yes/No question) and
+clicks Next, LimeSurvey resets back to the survey's start page (0%
+progress) instead of advancing to Question 2 — even though the answer
+appears visually selected right before clicking Next.
+
+Ruled out so far:
+- Not a visibility issue (confirmed the radio's underlying `<input>` is a
+  real, functioning element via DevTools inspection)
+- Not solved by clicking the `<label>` instead of the input directly
+  (matches what a real user's click would do)
+- Not a timing/race condition (adding a 400ms pause before clicking Next
+  made no difference)
+
+Best remaining hypothesis: LimeSurvey's client-side validation
+(`checkconditions()`, visible in this question's `onclick` handler) may
+require a specific sequence of DOM events beyond a single click — e.g.
+mousedown -> mouseup -> click -> change, or interacting with a hidden
+tracking input separately, that a synthetic Playwright click doesn't
+fully replicate for this survey's specific implementation.
+
+Next debugging step for whoever picks this up: use the browser's Network
+tab to see what request (if any) fires when a *real* human clicks Yes/No,
+compare it to what fires under Playwright, and identify what's missing.
