@@ -274,9 +274,12 @@ def run(document: Stage1Document) -> Stage2Blocks:
         if not claimed_here:
             continue
         spare_indexes.remove(index)
-        # A section can be partly claimed. What was not identified is kept and
-        # surfaced rather than disappearing with the section (CLAUDE.md §16).
-        if any(isinstance(b, Table) for b in unclaimed):
+        # A section can be partly claimed. Everything not identified is kept and
+        # surfaced rather than disappearing with the section (CLAUDE.md §16) -
+        # prose as well as tables, since a claimed table's ContentBlock holds
+        # only that table and the paragraphs around it would otherwise be
+        # accounted for nowhere.
+        if unclaimed:
             leftovers.append((index, unclaimed))
 
     # --- LLM shape-match for whatever is left --------------------------------

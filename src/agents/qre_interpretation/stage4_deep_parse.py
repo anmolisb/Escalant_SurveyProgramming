@@ -74,6 +74,15 @@ _ROUTING_HINTS = {
     "destination": ("destination", "target", "go to", "goto", "then", "jump"),
 }
 
+#: A completion message is a code and the text shown for it. The text column is
+#: not called "wording" the way a question's is - X01 heads it "User/system
+#: message", C02 "Message shown to respondent" - so it gets its own role rather
+#: than borrowing the questionnaire's.
+_MESSAGE_HINTS = {
+    "id": ("code", "id", "ref", "disposition", "ending", "status"),
+    "message": ("message", "text", "wording", "shown", "copy", "statement"),
+}
+
 _SCENARIO_HINTS = {
     "id": ("id", "ref", "no", "number", "case", "test"),
     "wording": ("purpose", "description", "name", "scenario", "objective"),
@@ -844,8 +853,8 @@ async def parse_messages(
     flags: list[ReviewFlag] = []
 
     for index, row in enumerate(block.rows):
-        code = row.get("code") or _value(row, "id")
-        text = row.get("message") or _value(row, "wording")
+        code = row.get("code") or _value(row, "id", _MESSAGE_HINTS)
+        text = row.get("message") or _value(row, "message", _MESSAGE_HINTS)
 
         # A single-pair row keyed by the code itself, e.g.
         # {"TERM_INELIGIBLE": "Thank you for your interest."}.
@@ -888,6 +897,52 @@ async def parse_messages(
 # ---------------------------------------------------------------------------
 
 
+#: Columns naming the thing a statement is about, rather than saying something
+#: about it. Used only to pick the code off a table row; everything else in the
+#: row is kept as the statement's text.
+_STATEMENT_ID_WORDS = ("id", "code", "ref", "no", "quota", "rule", "item", "variable")
+
+
+def _statement_from(row: dict[str, str]) -> tuple[str | None, str | None, str, str]:
+    """One statement from a row, whichever shape the QRE wrote it in.
+
+    A QRE may state its quotas, study facts and QA requirements as prose or as a
+    table, and both occur in the corpus: C02 writes "QUOTA_REGION: hard quota on
+    D1: North=20%, ..." as a sentence, X01 writes the same thing as a row under
+    ID / Variable / Type / Target / Full action. Stage 3 transcribes each
+    faithfully and they arrive here differently - prose as `raw_text` and
+    `text`, a table row as its own column names - and reading only the prose
+    shape meant every table row was skipped.
+
+    A table row is rendered as "column: value" pairs joined in column order.
+    That is the row restated, not interpreted: every cell and every column name
+    survives verbatim, and deciding what "±5 percentage-point tolerance" means
+    stays Part 2's job (CLAUDE.md §19).
+    """
+    raw = (row.get("raw_text") or "").strip()
+    text = (row.get("text") or raw).strip()
+    if text:
+        # Prose, transcribed by Stage 3 with its prefix already split off.
+        return row.get("code") or None, row.get("label") or None, text, raw
+
+    # A table row. Take the code from an identifying column where there is one,
+    # and keep every other cell.
+    code = None
+    parts: list[str] = []
+    for column, value in row.items():
+        value = (value or "").strip()
+        if not value:
+            continue
+        if code is None and any(w in _words(column) for w in _STATEMENT_ID_WORDS):
+            code = value
+            continue
+        parts.append(f"{column.strip()}: {value}")
+    rendered = "; ".join(parts)
+    if code and rendered:
+        rendered = f"{code}: {rendered}"
+    return code, None, rendered, rendered
+
+
 async def parse_statements(
     block: Stage3Block | None,
 ) -> tuple[list[ExtractedStatement], list[ReviewFlag]]:
@@ -904,14 +959,13 @@ async def parse_statements(
 
     statements: list[ExtractedStatement] = []
     for index, row in enumerate(block.rows):
-        raw = (row.get("raw_text") or "").strip()
-        text = (row.get("text") or raw).strip()
+        code, label, text, raw = _statement_from(row)
         if not text:
             continue
         statements.append(
             ExtractedStatement(
-                code=row.get("code") or None,
-                label=row.get("label") or None,
+                code=code,
+                label=label,
                 text=text,
                 raw_text=raw or text,
                 source_reference=_source_for(block, index),
