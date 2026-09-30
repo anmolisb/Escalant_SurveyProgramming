@@ -270,11 +270,19 @@ def run_stage2(document: Stage1Document) -> Stage2Blocks:
 def run_stage3(stage2: Stage2Blocks) -> tuple[list[Stage3Block], list[ReviewFlag]]:
     blocks, flags = stage3_raw_json.run(stage2)
     out = _out_dir(stage2.source)
-    for block in blocks:
+    # One file per target, holding every block found for it. Stage 2 may now
+    # locate a target's content under several headings, and writing per block
+    # sent all thirteen of X01's questionnaire modules to one filename, each
+    # overwriting the last: the artifact recorded four rows where fifty-two had
+    # been transcribed. That is silent loss (CLAUDE.md §16), it made Stage 5
+    # audit Stage 4 against a fraction of its own input, and it would have made
+    # `--from-stage 4` resume from the wrong rows.
+    merged = stage4_deep_parse._merge_by_target(blocks)
+    for target, block in merged.items():
         _write(
-            out / f"stage3_{_SLUG[block.target]}.json",
+            out / f"stage3_{_SLUG[target]}.json",
             block,
-            artifact=f"stage3_{_SLUG[block.target]}",
+            artifact=f"stage3_{_SLUG[target]}",
             stage=3,
             source=stage2.source,
         )
@@ -287,7 +295,14 @@ def run_stage3(stage2: Stage2Blocks) -> tuple[list[Stage3Block], list[ReviewFlag
         stage=3,
         source=stage2.source,
     )
-    return blocks, flags
+    # The merged view, not the per-block one, is what every later stage sees.
+    # Stage 5 scores a target by comparing the rows that went in against the
+    # objects that came out, and with several blocks per target it was comparing
+    # each block against the whole of Stage 4's output for that target - Z02's
+    # study specification scored 125% and 500%. One block per target keeps that
+    # comparison meaningful, and matches what Stage 4 parses and what the
+    # artifact on disk now holds.
+    return list(merged.values()), flags
 
 
 def _front_matter(document: Stage1Document) -> list[Paragraph]:
