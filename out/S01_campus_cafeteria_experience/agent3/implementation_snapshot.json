@@ -9,12 +9,12 @@
   },
   "upstream": {
     "canonical_schema_version": "1.0.0",
-    "canonical_generated_at": "2026-09-11T17:17:56+00:00"
+    "canonical_generated_at": "2026-09-30T12:43:03+00:00"
   },
   "content": {
     "survey_id": "S01_campus_cafeteria_experience",
     "lss_path": "out\\S01_campus_cafeteria_experience_generated.lss",
-    "lss_sha256": "4ea7b09c774cc3bb3197d36629d113359ca7dc3dc467927f5204103bdd44eee1",
+    "lss_sha256": "e8e07d8d044b32a10a24510ab7db3229d50d10d78036a2621e8361e7e59f80ef",
     "sid": 900001,
     "groups": {
       "100": "Screening",
@@ -54,7 +54,7 @@
         "title": "S2",
         "wording": "Are you 18 years of age or older?",
         "mandatory": true,
-        "relevance": "1",
+        "relevance": "(S1.NAOK != \"A002\")",
         "order": 2,
         "option_codes": {
           "Yes": "A001",
@@ -181,8 +181,8 @@
         "subquestion_codes": {},
         "attributes": {
           "maximum_chars": "500",
-          "em_validation_q": "strlen(this) >= 10",
-          "em_validation_q_tip": "Please enter at least 10 characters."
+          "em_validation_q": "strlen(this) >= 10 and strlen(this) <= 500",
+          "em_validation_q_tip": "Please enter at least 10 characters and no more than 500 characters."
         }
       },
       "Q7": {
@@ -226,7 +226,9 @@
         "option_codes": {},
         "subquestion_codes": {},
         "attributes": {
-          "maximum_chars": "500"
+          "maximum_chars": "500",
+          "em_validation_q": "strlen(this) <= 500",
+          "em_validation_q_tip": "Please enter no more than 500 characters."
         }
       }
     },

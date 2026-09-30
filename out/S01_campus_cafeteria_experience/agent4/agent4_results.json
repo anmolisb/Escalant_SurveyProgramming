@@ -1,7 +1,7 @@
 {
   "survey": "S01_campus_cafeteria_experience",
   "survey_id": "900001",
-  "run_at": "2026-09-30T08:37:47.389092+00:00",
+  "run_at": "2026-09-30T12:59:38.791098+00:00",
   "counts": {
     "PASSED": 38,
     "FAILED": 3,
@@ -11,7 +11,7 @@
   },
   "results": [
     {
-      "test_id": "EX-515f124356",
+      "test_id": "EX-a344c1af85",
       "title": "answering S1 normally moves the respondent on to the question that should come next",
       "dimension": "D1",
       "case_id": "TC-FT01",
@@ -116,10 +116,10 @@
       ],
       "blocked_reason": "",
       "provisional": [],
-      "seconds": 9.01
+      "seconds": 7.03
     },
     {
-      "test_id": "EX-5dca4371c2",
+      "test_id": "EX-c5ee250375",
       "title": "S1 blocks progress when left blank",
       "dimension": "D4",
       "case_id": "TC-FT02",
@@ -170,10 +170,10 @@
       ],
       "blocked_reason": "",
       "provisional": [],
-      "seconds": 1.02
+      "seconds": 1.31
     },
     {
-      "test_id": "EX-1e9bf99444",
+      "test_id": "EX-a46433941c",
       "title": "ending TERM_INELIGIBLE is reached by rule R1, evaluated at S1",
       "dimension": "D2",
       "case_id": "TC-RT01",
@@ -226,10 +226,10 @@
       "provisional": [
         "rule_precedence"
       ],
-      "seconds": 1.08
+      "seconds": 1.15
     },
     {
-      "test_id": "EX-16ed1bf3d2",
+      "test_id": "EX-5ec49d8ac5",
       "title": "answering S2 normally moves the respondent on to the question that should come next",
       "dimension": "D1",
       "case_id": "TC-FT03",
@@ -334,10 +334,10 @@
       ],
       "blocked_reason": "",
       "provisional": [],
-      "seconds": 5.04
+      "seconds": 5.9
     },
     {
-      "test_id": "EX-840491d4e8",
+      "test_id": "EX-43db0480fa",
       "title": "S2 blocks progress when left blank",
       "dimension": "D4",
       "case_id": "TC-FT04",
@@ -388,10 +388,10 @@
       ],
       "blocked_reason": "",
       "provisional": [],
-      "seconds": 1.15
+      "seconds": 1.17
     },
     {
-      "test_id": "EX-f7e5521a6e",
+      "test_id": "EX-1aff0c29e9",
       "title": "ending TERM_INELIGIBLE is reached by rule R2, evaluated at S2",
       "dimension": "D2",
       "case_id": "TC-RT02",
@@ -444,10 +444,10 @@
       "provisional": [
         "rule_precedence"
       ],
-      "seconds": 0.97
+      "seconds": 1.13
     },
     {
-      "test_id": "EX-e444d15cd5",
+      "test_id": "EX-83fb5e05d4",
       "title": "answering Q1 normally moves the respondent on to the question that should come next",
       "dimension": "D1",
       "case_id": "TC-FT05",
@@ -552,10 +552,10 @@
       ],
       "blocked_reason": "",
       "provisional": [],
-      "seconds": 4.87
+      "seconds": 5.89
     },
     {
-      "test_id": "EX-4af3972b89",
+      "test_id": "EX-0eaafaa966",
       "title": "Q1 blocks progress when left blank",
       "dimension": "D4",
       "case_id": "TC-FT06",
@@ -660,10 +660,10 @@
       ],
       "blocked_reason": "",
       "provisional": [],
-      "seconds": 9.64
+      "seconds": 9.24
     },
     {
-      "test_id": "EX-13ff676266",
+      "test_id": "EX-4ec3f9bc99",
       "title": "answering Q2 normally moves the respondent on to the question that should come next",
       "dimension": "D1",
       "case_id": "TC-FT07",
@@ -768,10 +768,10 @@
       ],
       "blocked_reason": "",
       "provisional": [],
-      "seconds": 5.07
+      "seconds": 8.21
     },
     {
-      "test_id": "EX-347070bcbc",
+      "test_id": "EX-b93f11412e",
       "title": "Q2 blocks progress when left blank",
       "dimension": "D4",
       "case_id": "TC-FT08",
@@ -876,10 +876,10 @@
       ],
       "blocked_reason": "",
       "provisional": [],
-      "seconds": 7.53
+      "seconds": 8.63
     },
     {
-      "test_id": "EX-36fbba288b",
+      "test_id": "EX-5e147c7716",
       "title": "answering Q3 normally moves the respondent on to the question that should come next",
       "dimension": "D1",
       "case_id": "TC-FT09",
@@ -984,10 +984,10 @@
       ],
       "blocked_reason": "",
       "provisional": [],
-      "seconds": 7.39
+      "seconds": 8.49
     },
     {
-      "test_id": "EX-cdf82f12f0",
+      "test_id": "EX-f76eb27b5a",
       "title": "Q3 blocks progress when left blank",
       "dimension": "D4",
       "case_id": "TC-FT10",
@@ -1092,10 +1092,10 @@
       ],
       "blocked_reason": "",
       "provisional": [],
-      "seconds": 8.22
+      "seconds": 8.95
     },
     {
-      "test_id": "EX-f7fceef0cf",
+      "test_id": "EX-afe8f4bfe5",
       "title": "answering Q4 normally moves the respondent on to the question that should come next",
       "dimension": "D1",
       "case_id": "TC-FT11",
@@ -1200,10 +1200,10 @@
       ],
       "blocked_reason": "",
       "provisional": [],
-      "seconds": 7.53
+      "seconds": 8.45
     },
     {
-      "test_id": "EX-e3802dba8c",
+      "test_id": "EX-4f28a08a75",
       "title": "Q4 accepts an answer meeting ['min_selections']",
       "dimension": "D3",
       "case_id": "TC-FT12",
@@ -1298,10 +1298,10 @@
       ],
       "blocked_reason": "",
       "provisional": [],
-      "seconds": 7.05
+      "seconds": 5.9
     },
     {
-      "test_id": "EX-8c6e88a595",
+      "test_id": "EX-bbd4033aef",
       "title": "Q4 rejects an answer breaking ['min_selections']",
       "dimension": "D3",
       "case_id": "TC-FT13",
@@ -1406,10 +1406,10 @@
       ],
       "blocked_reason": "",
       "provisional": [],
-      "seconds": 5.92
+      "seconds": 3.54
     },
     {
-      "test_id": "EX-fdc8ce52c7",
+      "test_id": "EX-a07af4cf20",
       "title": "Q4 blocks progress when left blank",
       "dimension": "D4",
       "case_id": "TC-FT14",
@@ -1514,10 +1514,10 @@
       ],
       "blocked_reason": "",
       "provisional": [],
-      "seconds": 6.05
+      "seconds": 3.71
     },
     {
-      "test_id": "EX-a214f02dcd",
+      "test_id": "EX-3eb0769072",
       "title": "answering Q5 normally moves the respondent on to the question that should come next",
       "dimension": "D1",
       "case_id": "TC-FT15",
@@ -1622,10 +1622,10 @@
       ],
       "blocked_reason": "",
       "provisional": [],
-      "seconds": 5.88
+      "seconds": 8.62
     },
     {
-      "test_id": "EX-cf838aa662",
+      "test_id": "EX-40bf3439d5",
       "title": "R4 jumps to Q7 when its condition holds",
       "dimension": "D1",
       "case_id": "TC-FT16",
@@ -1716,10 +1716,10 @@
       "provisional": [
         "rule_precedence"
       ],
-      "seconds": 8.85
+      "seconds": 8.83
     },
     {
-      "test_id": "EX-10faac68cf",
+      "test_id": "EX-704bb186c9",
       "title": "R4 does not jump when its condition fails, so the respondent continues in sequence",
       "dimension": "D1",
       "case_id": "TC-FT17",
@@ -1808,10 +1808,10 @@
       ],
       "blocked_reason": "",
       "provisional": [],
-      "seconds": 5.09
+      "seconds": 9.99
     },
     {
-      "test_id": "EX-db1b37b406",
+      "test_id": "EX-54ee1c0640",
       "title": "Q5 blocks progress when left blank",
       "dimension": "D4",
       "case_id": "TC-FT18",
@@ -1910,10 +1910,10 @@
       ],
       "blocked_reason": "",
       "provisional": [],
-      "seconds": 5.13
+      "seconds": 8.46
     },
     {
-      "test_id": "EX-f02a205850",
+      "test_id": "EX-1e2be181e7",
       "title": "answering Q6 normally moves the respondent on to the question that should come next",
       "dimension": "D1",
       "case_id": "TC-FT19",
@@ -2018,10 +2018,10 @@
       ],
       "blocked_reason": "",
       "provisional": [],
-      "seconds": 4.9
+      "seconds": 6.94
     },
     {
-      "test_id": "EX-0406c0b88e",
+      "test_id": "EX-a99c212c1b",
       "title": "Q6 is displayed when its guard holds",
       "dimension": "D1",
       "case_id": "TC-FT20",
@@ -2116,10 +2116,10 @@
       ],
       "blocked_reason": "",
       "provisional": [],
-      "seconds": 8.73
+      "seconds": 9.15
     },
     {
-      "test_id": "EX-17f2db79d6",
+      "test_id": "EX-b24b14d127",
       "title": "Q6 is not displayed when its guard fails",
       "dimension": "D1",
       "case_id": "TC-FT21",
@@ -2220,10 +2220,10 @@
       "provisional": [
         "rule_precedence"
       ],
-      "seconds": 9.1
+      "seconds": 8.28
     },
     {
-      "test_id": "EX-3dc3570d3d",
+      "test_id": "EX-4a2a056634",
       "title": "Q6 accepts an answer meeting ['max_length', 'min_length']",
       "dimension": "D3",
       "case_id": "TC-FT22",
@@ -2318,10 +2318,10 @@
       ],
       "blocked_reason": "",
       "provisional": [],
-      "seconds": 10.07
+      "seconds": 8.54
     },
     {
-      "test_id": "EX-30168f639d",
+      "test_id": "EX-186eacfa0d",
       "title": "Q6 rejects an answer breaking ['max_length', 'min_length']",
       "dimension": "D3",
       "case_id": "TC-FT23",
@@ -2426,10 +2426,10 @@
       ],
       "blocked_reason": "",
       "provisional": [],
-      "seconds": 6.34
+      "seconds": 9.03
     },
     {
-      "test_id": "EX-e98f225bbc",
+      "test_id": "EX-34a042894f",
       "title": "Q6 blocks progress when left blank",
       "dimension": "D4",
       "case_id": "TC-FT24",
@@ -2534,10 +2534,10 @@
       ],
       "blocked_reason": "",
       "provisional": [],
-      "seconds": 10.41
+      "seconds": 10.11
     },
     {
-      "test_id": "EX-9ffea583f0",
+      "test_id": "EX-f6d89eafba",
       "title": "Q6's wording renders the answer given at Q5",
       "dimension": "D6",
       "case_id": "TC-FT25",
@@ -2632,10 +2632,10 @@
       ],
       "blocked_reason": "",
       "provisional": [],
-      "seconds": 10.08
+      "seconds": 8.65
     },
     {
-      "test_id": "EX-de17b99f9d",
+      "test_id": "EX-30682588ea",
       "title": "Q6 is shown by its guard and simultaneously reflects its dependency on Q5",
       "dimension": "D9",
       "case_id": "TC-FT26",
@@ -2740,10 +2740,10 @@
       ],
       "blocked_reason": "",
       "provisional": [],
-      "seconds": 4.93
+      "seconds": 8.21
     },
     {
-      "test_id": "EX-3fda782b0c",
+      "test_id": "EX-3b908df042",
       "title": "Q6 accepts an answer of exactly 500 characters, its stated maximum",
       "dimension": "D3",
       "case_id": "TC-FT27",
@@ -2838,10 +2838,10 @@
       ],
       "blocked_reason": "",
       "provisional": [],
-      "seconds": 5.29
+      "seconds": 9.41
     },
     {
-      "test_id": "EX-c43adf7c1c",
+      "test_id": "EX-77d29d794c",
       "title": "Q6 accepts punctuation and quotation marks, because its rule constrains length and not content",
       "dimension": "D3",
       "case_id": "TC-FT28",
@@ -2936,10 +2936,10 @@
       ],
       "blocked_reason": "",
       "provisional": [],
-      "seconds": 9.25
+      "seconds": 5.3
     },
     {
-      "test_id": "EX-5e5c61f781",
+      "test_id": "EX-0e900c082c",
       "title": "Q6 refuses an answer of spaces alone, being compulsory",
       "dimension": "D4",
       "case_id": "TC-FT29",
@@ -3046,10 +3046,10 @@
       "provisional": [
         "whitespace_is_an_answer"
       ],
-      "seconds": 10.64
+      "seconds": 9.07
     },
     {
-      "test_id": "EX-2f1c4f80c4",
+      "test_id": "EX-eefe0eb2e2",
       "title": "answering Q7 normally moves the respondent on to the question that should come next",
       "dimension": "D1",
       "case_id": "TC-FT30",
@@ -3154,10 +3154,10 @@
       ],
       "blocked_reason": "",
       "provisional": [],
-      "seconds": 4.79
+      "seconds": 9.41
     },
     {
-      "test_id": "EX-1295616f39",
+      "test_id": "EX-512ea628f4",
       "title": "Q7 blocks progress when left blank",
       "dimension": "D4",
       "case_id": "TC-FT31",
@@ -3262,10 +3262,10 @@
       ],
       "blocked_reason": "",
       "provisional": [],
-      "seconds": 9.19
+      "seconds": 9.59
     },
     {
-      "test_id": "EX-49c22f3c37",
+      "test_id": "EX-e7c2568040",
       "title": "answering Q8 normally moves the respondent on to the question that should come next",
       "dimension": "D1",
       "case_id": "TC-FT32",
@@ -3370,10 +3370,10 @@
       ],
       "blocked_reason": "",
       "provisional": [],
-      "seconds": 6.02
+      "seconds": 8.95
     },
     {
-      "test_id": "EX-160486754b",
+      "test_id": "EX-52ab841ede",
       "title": "Q8 accepts an answer meeting ['max_length']",
       "dimension": "D3",
       "case_id": "TC-FT33",
@@ -3468,10 +3468,10 @@
       ],
       "blocked_reason": "",
       "provisional": [],
-      "seconds": 7.46
+      "seconds": 5.26
     },
     {
-      "test_id": "EX-da62ece9dc",
+      "test_id": "EX-abb24bea57",
       "title": "Q8 rejects an answer breaking ['max_length']",
       "dimension": "D3",
       "case_id": "TC-FT34",
@@ -3576,10 +3576,10 @@
       ],
       "blocked_reason": "",
       "provisional": [],
-      "seconds": 7.35
+      "seconds": 5.33
     },
     {
-      "test_id": "EX-942b12aff5",
+      "test_id": "EX-35f775b75c",
       "title": "Q8 is optional and permits progress when left blank",
       "dimension": "D4",
       "case_id": "TC-FT35",
@@ -3674,10 +3674,10 @@
       ],
       "blocked_reason": "",
       "provisional": [],
-      "seconds": 6.42
+      "seconds": 7.65
     },
     {
-      "test_id": "EX-86dd65f493",
+      "test_id": "EX-9bb5386d79",
       "title": "Q8 accepts an answer of exactly 500 characters, its stated maximum",
       "dimension": "D3",
       "case_id": "TC-FT36",
@@ -3772,10 +3772,10 @@
       ],
       "blocked_reason": "",
       "provisional": [],
-      "seconds": 7.35
+      "seconds": 8.55
     },
     {
-      "test_id": "EX-c249fdc70c",
+      "test_id": "EX-0dba39ae30",
       "title": "Q8 accepts punctuation and quotation marks, because its rule constrains length and not content",
       "dimension": "D3",
       "case_id": "TC-FT37",
@@ -3870,10 +3870,10 @@
       ],
       "blocked_reason": "",
       "provisional": [],
-      "seconds": 7.7
+      "seconds": 8.63
     },
     {
-      "test_id": "EX-e07989f4c8",
+      "test_id": "EX-0a064a0587",
       "title": "Q8 accepts an answer of spaces alone, being optional",
       "dimension": "D4",
       "case_id": "TC-FT38",
@@ -3970,10 +3970,10 @@
       "provisional": [
         "whitespace_is_an_answer"
       ],
-      "seconds": 7.48
+      "seconds": 8.73
     },
     {
-      "test_id": "EX-80d557c8c4",
+      "test_id": "EX-74de97f8b8",
       "title": "a respondent can reach ending COMPLETE",
       "dimension": "D2",
       "case_id": "TC-RT03",
@@ -4068,7 +4068,7 @@
       ],
       "blocked_reason": "",
       "provisional": [],
-      "seconds": 9.73
+      "seconds": 5.5
     }
   ]
 }

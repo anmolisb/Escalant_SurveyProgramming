@@ -9,7 +9,7 @@
   },
   "upstream": {
     "canonical_schema_version": "1.0.0",
-    "canonical_generated_at": "2026-09-11T17:17:56+00:00"
+    "canonical_generated_at": "2026-09-30T12:43:03+00:00"
   },
   "content": {
     "report": {
@@ -22,7 +22,7 @@
     },
     "tests": [
       {
-        "test_id": "EX-e444d15cd5",
+        "test_id": "EX-83fb5e05d4",
         "target_id": "T-f325a4a781",
         "dimension": "D1",
         "title": "answering Q1 normally moves the respondent on to the question that should come next",
@@ -177,7 +177,7 @@
         "provisional_semantics": []
       },
       {
-        "test_id": "EX-13ff676266",
+        "test_id": "EX-4ec3f9bc99",
         "target_id": "T-ea15e888c6",
         "dimension": "D1",
         "title": "answering Q2 normally moves the respondent on to the question that should come next",
@@ -332,7 +332,7 @@
         "provisional_semantics": []
       },
       {
-        "test_id": "EX-36fbba288b",
+        "test_id": "EX-5e147c7716",
         "target_id": "T-d182c884c0",
         "dimension": "D1",
         "title": "answering Q3 normally moves the respondent on to the question that should come next",
@@ -487,7 +487,7 @@
         "provisional_semantics": []
       },
       {
-        "test_id": "EX-f7fceef0cf",
+        "test_id": "EX-afe8f4bfe5",
         "target_id": "T-460e9ac790",
         "dimension": "D1",
         "title": "answering Q4 normally moves the respondent on to the question that should come next",
@@ -642,7 +642,7 @@
         "provisional_semantics": []
       },
       {
-        "test_id": "EX-a214f02dcd",
+        "test_id": "EX-3eb0769072",
         "target_id": "T-4a81ad1c54",
         "dimension": "D1",
         "title": "answering Q5 normally moves the respondent on to the question that should come next",
@@ -797,7 +797,7 @@
         "provisional_semantics": []
       },
       {
-        "test_id": "EX-f02a205850",
+        "test_id": "EX-1e2be181e7",
         "target_id": "T-a31d9e36e7",
         "dimension": "D1",
         "title": "answering Q6 normally moves the respondent on to the question that should come next",
@@ -952,7 +952,7 @@
         "provisional_semantics": []
       },
       {
-        "test_id": "EX-17f2db79d6",
+        "test_id": "EX-b24b14d127",
         "target_id": "T-836bcea7a3",
         "dimension": "D1",
         "title": "Q6 is not displayed when its guard fails",
@@ -1100,7 +1100,7 @@
         ]
       },
       {
-        "test_id": "EX-0406c0b88e",
+        "test_id": "EX-a99c212c1b",
         "target_id": "T-46ad0b9227",
         "dimension": "D1",
         "title": "Q6 is displayed when its guard holds",
@@ -1248,7 +1248,7 @@
         "provisional_semantics": []
       },
       {
-        "test_id": "EX-2f1c4f80c4",
+        "test_id": "EX-eefe0eb2e2",
         "target_id": "T-a25fbf002c",
         "dimension": "D1",
         "title": "answering Q7 normally moves the respondent on to the question that should come next",
@@ -1403,7 +1403,7 @@
         "provisional_semantics": []
       },
       {
-        "test_id": "EX-49c22f3c37",
+        "test_id": "EX-e7c2568040",
         "target_id": "T-b3b76ca11a",
         "dimension": "D1",
         "title": "answering Q8 normally moves the respondent on to the question that should come next",
@@ -1558,7 +1558,7 @@
         "provisional_semantics": []
       },
       {
-        "test_id": "EX-cf838aa662",
+        "test_id": "EX-40bf3439d5",
         "target_id": "T-42c434e9a8",
         "dimension": "D1",
         "title": "R4 jumps to Q7 when its condition holds",
@@ -1697,7 +1697,7 @@
         ]
       },
       {
-        "test_id": "EX-10faac68cf",
+        "test_id": "EX-704bb186c9",
         "target_id": "T-bb19b20b74",
         "dimension": "D1",
         "title": "R4 does not jump when its condition fails, so the respondent continues in sequence",
@@ -1834,7 +1834,7 @@
         "provisional_semantics": []
       },
       {
-        "test_id": "EX-515f124356",
+        "test_id": "EX-a344c1af85",
         "target_id": "T-94ce2e5d20",
         "dimension": "D1",
         "title": "answering S1 normally moves the respondent on to the question that should come next",
@@ -1989,7 +1989,7 @@
         "provisional_semantics": []
       },
       {
-        "test_id": "EX-16ed1bf3d2",
+        "test_id": "EX-5ec49d8ac5",
         "target_id": "T-9b21d71193",
         "dimension": "D1",
         "title": "answering S2 normally moves the respondent on to the question that should come next",
@@ -2144,7 +2144,7 @@
         "provisional_semantics": []
       },
       {
-        "test_id": "EX-80d557c8c4",
+        "test_id": "EX-74de97f8b8",
         "target_id": "T-05b0993ae8",
         "dimension": "D2",
         "title": "a respondent can reach ending COMPLETE",
@@ -2289,7 +2289,7 @@
         "provisional_semantics": []
       },
       {
-        "test_id": "EX-1e9bf99444",
+        "test_id": "EX-a46433941c",
         "target_id": "T-ad81bd1fb8",
         "dimension": "D2",
         "title": "ending TERM_INELIGIBLE is reached by rule R1, evaluated at S1",
@@ -2357,7 +2357,7 @@
         ]
       },
       {
-        "test_id": "EX-f7e5521a6e",
+        "test_id": "EX-1aff0c29e9",
         "target_id": "T-b13742d625",
         "dimension": "D2",
         "title": "ending TERM_INELIGIBLE is reached by rule R2, evaluated at S2",
@@ -2425,7 +2425,7 @@
         ]
       },
       {
-        "test_id": "EX-e3802dba8c",
+        "test_id": "EX-4f28a08a75",
         "target_id": "T-91f64c7737",
         "dimension": "D3",
         "title": "Q4 accepts an answer meeting ['min_selections']",
@@ -2572,7 +2572,7 @@
         "provisional_semantics": []
       },
       {
-        "test_id": "EX-8c6e88a595",
+        "test_id": "EX-bbd4033aef",
         "target_id": "T-bf3e461be3",
         "dimension": "D3",
         "title": "Q4 rejects an answer breaking ['min_selections']",
@@ -2727,7 +2727,7 @@
         "provisional_semantics": []
       },
       {
-        "test_id": "EX-3fda782b0c",
+        "test_id": "EX-3b908df042",
         "target_id": "T-4ad35b8ed5",
         "dimension": "D3",
         "title": "Q6 accepts an answer of exactly 500 characters, its stated maximum",
@@ -2874,7 +2874,7 @@
         "provisional_semantics": []
       },
       {
-        "test_id": "EX-3dc3570d3d",
+        "test_id": "EX-4a2a056634",
         "target_id": "T-5763469416",
         "dimension": "D3",
         "title": "Q6 accepts an answer meeting ['max_length', 'min_length']",
@@ -3021,7 +3021,7 @@
         "provisional_semantics": []
       },
       {
-        "test_id": "EX-c43adf7c1c",
+        "test_id": "EX-77d29d794c",
         "target_id": "T-8a57cf56a3",
         "dimension": "D3",
         "title": "Q6 accepts punctuation and quotation marks, because its rule constrains length and not content",
@@ -3168,7 +3168,7 @@
         "provisional_semantics": []
       },
       {
-        "test_id": "EX-30168f639d",
+        "test_id": "EX-186eacfa0d",
         "target_id": "T-3ba88a35fd",
         "dimension": "D3",
         "title": "Q6 rejects an answer breaking ['max_length', 'min_length']",
@@ -3323,7 +3323,7 @@
         "provisional_semantics": []
       },
       {
-        "test_id": "EX-86dd65f493",
+        "test_id": "EX-9bb5386d79",
         "target_id": "T-81f7201b2b",
         "dimension": "D3",
         "title": "Q8 accepts an answer of exactly 500 characters, its stated maximum",
@@ -3470,7 +3470,7 @@
         "provisional_semantics": []
       },
       {
-        "test_id": "EX-160486754b",
+        "test_id": "EX-52ab841ede",
         "target_id": "T-9363260523",
         "dimension": "D3",
         "title": "Q8 accepts an answer meeting ['max_length']",
@@ -3617,7 +3617,7 @@
         "provisional_semantics": []
       },
       {
-        "test_id": "EX-c249fdc70c",
+        "test_id": "EX-0dba39ae30",
         "target_id": "T-5bf7c9d7a3",
         "dimension": "D3",
         "title": "Q8 accepts punctuation and quotation marks, because its rule constrains length and not content",
@@ -3764,7 +3764,7 @@
         "provisional_semantics": []
       },
       {
-        "test_id": "EX-da62ece9dc",
+        "test_id": "EX-abb24bea57",
         "target_id": "T-b073440eac",
         "dimension": "D3",
         "title": "Q8 rejects an answer breaking ['max_length']",
@@ -3919,7 +3919,7 @@
         "provisional_semantics": []
       },
       {
-        "test_id": "EX-4af3972b89",
+        "test_id": "EX-0eaafaa966",
         "target_id": "T-e12aace78c",
         "dimension": "D4",
         "title": "Q1 blocks progress when left blank",
@@ -4074,7 +4074,7 @@
         "provisional_semantics": []
       },
       {
-        "test_id": "EX-347070bcbc",
+        "test_id": "EX-b93f11412e",
         "target_id": "T-727f5e7cc5",
         "dimension": "D4",
         "title": "Q2 blocks progress when left blank",
@@ -4229,7 +4229,7 @@
         "provisional_semantics": []
       },
       {
-        "test_id": "EX-cdf82f12f0",
+        "test_id": "EX-f76eb27b5a",
         "target_id": "T-4bdf659dfa",
         "dimension": "D4",
         "title": "Q3 blocks progress when left blank",
@@ -4384,7 +4384,7 @@
         "provisional_semantics": []
       },
       {
-        "test_id": "EX-fdc8ce52c7",
+        "test_id": "EX-a07af4cf20",
         "target_id": "T-9a87b3907e",
         "dimension": "D4",
         "title": "Q4 blocks progress when left blank",
@@ -4539,7 +4539,7 @@
         "provisional_semantics": []
       },
       {
-        "test_id": "EX-db1b37b406",
+        "test_id": "EX-54ee1c0640",
         "target_id": "T-0249397b0f",
         "dimension": "D4",
         "title": "Q5 blocks progress when left blank",
@@ -4684,7 +4684,7 @@
         "provisional_semantics": []
       },
       {
-        "test_id": "EX-e98f225bbc",
+        "test_id": "EX-34a042894f",
         "target_id": "T-e98006aa3a",
         "dimension": "D4",
         "title": "Q6 blocks progress when left blank",
@@ -4839,7 +4839,7 @@
         "provisional_semantics": []
       },
       {
-        "test_id": "EX-5e5c61f781",
+        "test_id": "EX-0e900c082c",
         "target_id": "T-a7c5528feb",
         "dimension": "D4",
         "title": "Q6 refuses an answer of spaces alone, being compulsory",
@@ -4996,7 +4996,7 @@
         ]
       },
       {
-        "test_id": "EX-1295616f39",
+        "test_id": "EX-512ea628f4",
         "target_id": "T-fdb731cc7b",
         "dimension": "D4",
         "title": "Q7 blocks progress when left blank",
@@ -5151,7 +5151,7 @@
         "provisional_semantics": []
       },
       {
-        "test_id": "EX-942b12aff5",
+        "test_id": "EX-35f775b75c",
         "target_id": "T-fffe27cc01",
         "dimension": "D4",
         "title": "Q8 is optional and permits progress when left blank",
@@ -5298,7 +5298,7 @@
         "provisional_semantics": []
       },
       {
-        "test_id": "EX-e07989f4c8",
+        "test_id": "EX-0a064a0587",
         "target_id": "T-a7eaf4230c",
         "dimension": "D4",
         "title": "Q8 accepts an answer of spaces alone, being optional",
@@ -5447,7 +5447,7 @@
         ]
       },
       {
-        "test_id": "EX-5dca4371c2",
+        "test_id": "EX-c5ee250375",
         "target_id": "T-04f1f82dbc",
         "dimension": "D4",
         "title": "S1 blocks progress when left blank",
@@ -5512,7 +5512,7 @@
         "provisional_semantics": []
       },
       {
-        "test_id": "EX-840491d4e8",
+        "test_id": "EX-43db0480fa",
         "target_id": "T-f3c7bd7103",
         "dimension": "D4",
         "title": "S2 blocks progress when left blank",
@@ -5577,7 +5577,7 @@
         "provisional_semantics": []
       },
       {
-        "test_id": "EX-9ffea583f0",
+        "test_id": "EX-f6d89eafba",
         "target_id": "T-9e8e92980a",
         "dimension": "D6",
         "title": "Q6's wording renders the answer given at Q5",
@@ -5725,7 +5725,7 @@
         "provisional_semantics": []
       },
       {
-        "test_id": "EX-de17b99f9d",
+        "test_id": "EX-30682588ea",
         "target_id": "T-84fe582a25",
         "dimension": "D9",
         "title": "Q6 is shown by its guard and simultaneously reflects its dependency on Q5",

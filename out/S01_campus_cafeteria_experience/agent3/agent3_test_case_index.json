@@ -5,329 +5,493 @@
       "order": 1,
       "test_case_id": "TC-FT01",
       "target_id": "T-94ce2e5d20",
-      "executable_id": "EX-515f124356",
+      "executable_id": "EX-a344c1af85",
       "question": "S1",
-      "dimension": "D1"
+      "dimension": "D1",
+      "path_id": "P03",
+      "path_name": "Completing respondent \u2014 Q5=Yes",
+      "test_class": "FOCUSED",
+      "test_name": "S1 accepts a normal answer and the survey moves on"
     },
     {
       "order": 2,
       "test_case_id": "TC-FT02",
       "target_id": "T-04f1f82dbc",
-      "executable_id": "EX-5dca4371c2",
+      "executable_id": "EX-c5ee250375",
       "question": "S1",
-      "dimension": "D4"
+      "dimension": "D4",
+      "path_id": "P01",
+      "path_name": "Screened out at S1 (TERM_INELIGIBLE)",
+      "test_class": "FOCUSED",
+      "test_name": "S1 blocks a blank answer"
     },
     {
       "order": 3,
       "test_case_id": "TC-RT01",
       "target_id": "T-ad81bd1fb8",
-      "executable_id": "EX-1e9bf99444",
+      "executable_id": "EX-a46433941c",
       "question": "S1",
-      "dimension": "D2"
+      "dimension": "D2",
+      "path_id": "P01",
+      "path_name": "Screened out at S1 (TERM_INELIGIBLE)",
+      "test_class": "ROUTE",
+      "test_name": "End-to-end journey: TERM_INELIGIBLE by way of R1"
     },
     {
       "order": 4,
       "test_case_id": "TC-FT03",
       "target_id": "T-9b21d71193",
-      "executable_id": "EX-16ed1bf3d2",
+      "executable_id": "EX-5ec49d8ac5",
       "question": "S2",
-      "dimension": "D1"
+      "dimension": "D1",
+      "path_id": "P01",
+      "path_name": "Screened out at S1 (TERM_INELIGIBLE)",
+      "test_class": "FOCUSED",
+      "test_name": "S2 accepts a normal answer and the survey moves on"
     },
     {
       "order": 5,
       "test_case_id": "TC-FT04",
       "target_id": "T-f3c7bd7103",
-      "executable_id": "EX-840491d4e8",
+      "executable_id": "EX-43db0480fa",
       "question": "S2",
-      "dimension": "D4"
+      "dimension": "D4",
+      "path_id": "P02",
+      "path_name": "Screened out at S2 (TERM_INELIGIBLE)",
+      "test_class": "FOCUSED",
+      "test_name": "S2 blocks a blank answer"
     },
     {
       "order": 6,
       "test_case_id": "TC-RT02",
       "target_id": "T-b13742d625",
-      "executable_id": "EX-f7e5521a6e",
+      "executable_id": "EX-1aff0c29e9",
       "question": "S2",
-      "dimension": "D2"
+      "dimension": "D2",
+      "path_id": "P02",
+      "path_name": "Screened out at S2 (TERM_INELIGIBLE)",
+      "test_class": "ROUTE",
+      "test_name": "End-to-end journey: TERM_INELIGIBLE by way of R2"
     },
     {
       "order": 7,
       "test_case_id": "TC-FT05",
       "target_id": "T-f325a4a781",
-      "executable_id": "EX-e444d15cd5",
+      "executable_id": "EX-83fb5e05d4",
       "question": "Q1",
-      "dimension": "D1"
+      "dimension": "D1",
+      "path_id": "P02",
+      "path_name": "Screened out at S2 (TERM_INELIGIBLE)",
+      "test_class": "FOCUSED",
+      "test_name": "Q1 accepts a normal answer and the survey moves on"
     },
     {
       "order": 8,
       "test_case_id": "TC-FT06",
       "target_id": "T-e12aace78c",
-      "executable_id": "EX-4af3972b89",
+      "executable_id": "EX-0eaafaa966",
       "question": "Q1",
-      "dimension": "D4"
+      "dimension": "D4",
+      "path_id": "P04",
+      "path_name": "Completing respondent \u2014 Q5=No",
+      "test_class": "FOCUSED",
+      "test_name": "Q1 blocks a blank answer"
     },
     {
       "order": 9,
       "test_case_id": "TC-FT07",
       "target_id": "T-ea15e888c6",
-      "executable_id": "EX-13ff676266",
+      "executable_id": "EX-4ec3f9bc99",
       "question": "Q2",
-      "dimension": "D1"
+      "dimension": "D1",
+      "path_id": "P04",
+      "path_name": "Completing respondent \u2014 Q5=No",
+      "test_class": "FOCUSED",
+      "test_name": "Q2 accepts a normal answer and the survey moves on"
     },
     {
       "order": 10,
       "test_case_id": "TC-FT08",
       "target_id": "T-727f5e7cc5",
-      "executable_id": "EX-347070bcbc",
+      "executable_id": "EX-b93f11412e",
       "question": "Q2",
-      "dimension": "D4"
+      "dimension": "D4",
+      "path_id": "P04",
+      "path_name": "Completing respondent \u2014 Q5=No",
+      "test_class": "FOCUSED",
+      "test_name": "Q2 blocks a blank answer"
     },
     {
       "order": 11,
       "test_case_id": "TC-FT09",
       "target_id": "T-d182c884c0",
-      "executable_id": "EX-36fbba288b",
+      "executable_id": "EX-5e147c7716",
       "question": "Q3",
-      "dimension": "D1"
+      "dimension": "D1",
+      "path_id": "P04",
+      "path_name": "Completing respondent \u2014 Q5=No",
+      "test_class": "FOCUSED",
+      "test_name": "Q3 accepts a normal answer and the survey moves on"
     },
     {
       "order": 12,
       "test_case_id": "TC-FT10",
       "target_id": "T-4bdf659dfa",
-      "executable_id": "EX-cdf82f12f0",
+      "executable_id": "EX-f76eb27b5a",
       "question": "Q3",
-      "dimension": "D4"
+      "dimension": "D4",
+      "path_id": "P04",
+      "path_name": "Completing respondent \u2014 Q5=No",
+      "test_class": "FOCUSED",
+      "test_name": "Q3 blocks a blank answer"
     },
     {
       "order": 13,
       "test_case_id": "TC-FT11",
       "target_id": "T-460e9ac790",
-      "executable_id": "EX-f7fceef0cf",
+      "executable_id": "EX-afe8f4bfe5",
       "question": "Q4",
-      "dimension": "D1"
+      "dimension": "D1",
+      "path_id": "P04",
+      "path_name": "Completing respondent \u2014 Q5=No",
+      "test_class": "FOCUSED",
+      "test_name": "Q4 accepts a normal answer and the survey moves on"
     },
     {
       "order": 14,
       "test_case_id": "TC-FT12",
       "target_id": "T-91f64c7737",
-      "executable_id": "EX-e3802dba8c",
+      "executable_id": "EX-4f28a08a75",
       "question": "Q4",
-      "dimension": "D3"
+      "dimension": "D3",
+      "path_id": "P04",
+      "path_name": "Completing respondent \u2014 Q5=No",
+      "test_class": "FOCUSED",
+      "test_name": "Q4 accepts a valid answer"
     },
     {
       "order": 15,
       "test_case_id": "TC-FT13",
       "target_id": "T-bf3e461be3",
-      "executable_id": "EX-8c6e88a595",
+      "executable_id": "EX-bbd4033aef",
       "question": "Q4",
-      "dimension": "D3"
+      "dimension": "D3",
+      "path_id": "P04",
+      "path_name": "Completing respondent \u2014 Q5=No",
+      "test_class": "FOCUSED",
+      "test_name": "Q4 rejects an invalid answer"
     },
     {
       "order": 16,
       "test_case_id": "TC-FT14",
       "target_id": "T-9a87b3907e",
-      "executable_id": "EX-fdc8ce52c7",
+      "executable_id": "EX-a07af4cf20",
       "question": "Q4",
-      "dimension": "D4"
+      "dimension": "D4",
+      "path_id": "P04",
+      "path_name": "Completing respondent \u2014 Q5=No",
+      "test_class": "FOCUSED",
+      "test_name": "Q4 blocks a blank answer"
     },
     {
       "order": 17,
       "test_case_id": "TC-FT15",
       "target_id": "T-4a81ad1c54",
-      "executable_id": "EX-a214f02dcd",
+      "executable_id": "EX-3eb0769072",
       "question": "Q5",
-      "dimension": "D1"
+      "dimension": "D1",
+      "path_id": "P04",
+      "path_name": "Completing respondent \u2014 Q5=No",
+      "test_class": "FOCUSED",
+      "test_name": "Q5 accepts a normal answer and the survey moves on"
     },
     {
       "order": 18,
       "test_case_id": "TC-FT16",
       "target_id": "T-42c434e9a8",
-      "executable_id": "EX-cf838aa662",
+      "executable_id": "EX-40bf3439d5",
       "question": "Q5",
-      "dimension": "D1"
+      "dimension": "D1",
+      "path_id": "P04",
+      "path_name": "Completing respondent \u2014 Q5=No",
+      "test_class": "FOCUSED",
+      "test_name": "R4 jumps forward when its condition is met"
     },
     {
       "order": 19,
       "test_case_id": "TC-FT17",
       "target_id": "T-bb19b20b74",
-      "executable_id": "EX-10faac68cf",
+      "executable_id": "EX-704bb186c9",
       "question": "Q5",
-      "dimension": "D1"
+      "dimension": "D1",
+      "path_id": "P04",
+      "path_name": "Completing respondent \u2014 Q5=No",
+      "test_class": "FOCUSED",
+      "test_name": "R4 does not jump when its condition is not met"
     },
     {
       "order": 20,
       "test_case_id": "TC-FT18",
       "target_id": "T-0249397b0f",
-      "executable_id": "EX-db1b37b406",
+      "executable_id": "EX-54ee1c0640",
       "question": "Q5",
-      "dimension": "D4"
+      "dimension": "D4",
+      "path_id": "P04",
+      "path_name": "Completing respondent \u2014 Q5=No",
+      "test_class": "FOCUSED",
+      "test_name": "Q5 blocks a blank answer"
     },
     {
       "order": 21,
       "test_case_id": "TC-FT19",
       "target_id": "T-a31d9e36e7",
-      "executable_id": "EX-f02a205850",
+      "executable_id": "EX-1e2be181e7",
       "question": "Q6",
-      "dimension": "D1"
+      "dimension": "D1",
+      "path_id": "P04",
+      "path_name": "Completing respondent \u2014 Q5=No",
+      "test_class": "FOCUSED",
+      "test_name": "Q6 accepts a normal answer and the survey moves on"
     },
     {
       "order": 22,
       "test_case_id": "TC-FT20",
       "target_id": "T-46ad0b9227",
-      "executable_id": "EX-0406c0b88e",
+      "executable_id": "EX-a99c212c1b",
       "question": "Q6",
-      "dimension": "D1"
+      "dimension": "D1",
+      "path_id": "P03",
+      "path_name": "Completing respondent \u2014 Q5=Yes",
+      "test_class": "FOCUSED",
+      "test_name": "Q6 is shown when its condition is met"
     },
     {
       "order": 23,
       "test_case_id": "TC-FT21",
       "target_id": "T-836bcea7a3",
-      "executable_id": "EX-17f2db79d6",
+      "executable_id": "EX-b24b14d127",
       "question": "Q6",
-      "dimension": "D1"
+      "dimension": "D1",
+      "path_id": "P03",
+      "path_name": "Completing respondent \u2014 Q5=Yes",
+      "test_class": "FOCUSED",
+      "test_name": "Q6 is not shown when its condition is not met"
     },
     {
       "order": 24,
       "test_case_id": "TC-FT22",
       "target_id": "T-5763469416",
-      "executable_id": "EX-3dc3570d3d",
+      "executable_id": "EX-4a2a056634",
       "question": "Q6",
-      "dimension": "D3"
+      "dimension": "D3",
+      "path_id": "P03",
+      "path_name": "Completing respondent \u2014 Q5=Yes",
+      "test_class": "FOCUSED",
+      "test_name": "Q6 accepts a valid answer"
     },
     {
       "order": 25,
       "test_case_id": "TC-FT23",
       "target_id": "T-3ba88a35fd",
-      "executable_id": "EX-30168f639d",
+      "executable_id": "EX-186eacfa0d",
       "question": "Q6",
-      "dimension": "D3"
+      "dimension": "D3",
+      "path_id": "P03",
+      "path_name": "Completing respondent \u2014 Q5=Yes",
+      "test_class": "FOCUSED",
+      "test_name": "Q6 rejects an invalid answer"
     },
     {
       "order": 26,
       "test_case_id": "TC-FT24",
       "target_id": "T-e98006aa3a",
-      "executable_id": "EX-e98f225bbc",
+      "executable_id": "EX-34a042894f",
       "question": "Q6",
-      "dimension": "D4"
+      "dimension": "D4",
+      "path_id": "P03",
+      "path_name": "Completing respondent \u2014 Q5=Yes",
+      "test_class": "FOCUSED",
+      "test_name": "Q6 blocks a blank answer"
     },
     {
       "order": 27,
       "test_case_id": "TC-FT25",
       "target_id": "T-9e8e92980a",
-      "executable_id": "EX-9ffea583f0",
+      "executable_id": "EX-f6d89eafba",
       "question": "Q6",
-      "dimension": "D6"
+      "dimension": "D6",
+      "path_id": "P03",
+      "path_name": "Completing respondent \u2014 Q5=Yes",
+      "test_class": "FOCUSED",
+      "test_name": "Q6 quotes the answer given at Q5"
     },
     {
       "order": 28,
       "test_case_id": "TC-FT26",
       "target_id": "T-84fe582a25",
-      "executable_id": "EX-de17b99f9d",
+      "executable_id": "EX-30682588ea",
       "question": "Q6",
-      "dimension": "D9"
+      "dimension": "D9",
+      "path_id": "P03",
+      "path_name": "Completing respondent \u2014 Q5=Yes",
+      "test_class": "FOCUSED",
+      "test_name": "Q6 is shown and reflects its dependency on Q5 at the same time"
     },
     {
       "order": 29,
       "test_case_id": "TC-FT27",
       "target_id": "T-4ad35b8ed5",
-      "executable_id": "EX-3fda782b0c",
+      "executable_id": "EX-3b908df042",
       "question": "Q6",
-      "dimension": "D3"
+      "dimension": "D3",
+      "path_id": "P03",
+      "path_name": "Completing respondent \u2014 Q5=Yes",
+      "test_class": "FOCUSED",
+      "test_name": "Q6 rejects an invalid answer"
     },
     {
       "order": 30,
       "test_case_id": "TC-FT28",
       "target_id": "T-8a57cf56a3",
-      "executable_id": "EX-c43adf7c1c",
+      "executable_id": "EX-77d29d794c",
       "question": "Q6",
-      "dimension": "D3"
+      "dimension": "D3",
+      "path_id": "P03",
+      "path_name": "Completing respondent \u2014 Q5=Yes",
+      "test_class": "FOCUSED",
+      "test_name": "Q6 rejects an invalid answer"
     },
     {
       "order": 31,
       "test_case_id": "TC-FT29",
       "target_id": "T-a7c5528feb",
-      "executable_id": "EX-5e5c61f781",
+      "executable_id": "EX-0e900c082c",
       "question": "Q6",
-      "dimension": "D4"
+      "dimension": "D4",
+      "path_id": "P03",
+      "path_name": "Completing respondent \u2014 Q5=Yes",
+      "test_class": "FOCUSED",
+      "test_name": "Q6 allows a blank answer, being optional"
     },
     {
       "order": 32,
       "test_case_id": "TC-FT30",
       "target_id": "T-a25fbf002c",
-      "executable_id": "EX-2f1c4f80c4",
+      "executable_id": "EX-eefe0eb2e2",
       "question": "Q7",
-      "dimension": "D1"
+      "dimension": "D1",
+      "path_id": "P03",
+      "path_name": "Completing respondent \u2014 Q5=Yes",
+      "test_class": "FOCUSED",
+      "test_name": "Q7 accepts a normal answer and the survey moves on"
     },
     {
       "order": 33,
       "test_case_id": "TC-FT31",
       "target_id": "T-fdb731cc7b",
-      "executable_id": "EX-1295616f39",
+      "executable_id": "EX-512ea628f4",
       "question": "Q7",
-      "dimension": "D4"
+      "dimension": "D4",
+      "path_id": "P04",
+      "path_name": "Completing respondent \u2014 Q5=No",
+      "test_class": "FOCUSED",
+      "test_name": "Q7 blocks a blank answer"
     },
     {
       "order": 34,
       "test_case_id": "TC-FT32",
       "target_id": "T-b3b76ca11a",
-      "executable_id": "EX-49c22f3c37",
+      "executable_id": "EX-e7c2568040",
       "question": "Q8",
-      "dimension": "D1"
+      "dimension": "D1",
+      "path_id": "P04",
+      "path_name": "Completing respondent \u2014 Q5=No",
+      "test_class": "FOCUSED",
+      "test_name": "Q8 accepts a normal answer and the survey moves on"
     },
     {
       "order": 35,
       "test_case_id": "TC-FT33",
       "target_id": "T-9363260523",
-      "executable_id": "EX-160486754b",
+      "executable_id": "EX-52ab841ede",
       "question": "Q8",
-      "dimension": "D3"
+      "dimension": "D3",
+      "path_id": "P04",
+      "path_name": "Completing respondent \u2014 Q5=No",
+      "test_class": "FOCUSED",
+      "test_name": "Q8 accepts a valid answer"
     },
     {
       "order": 36,
       "test_case_id": "TC-FT34",
       "target_id": "T-b073440eac",
-      "executable_id": "EX-da62ece9dc",
+      "executable_id": "EX-abb24bea57",
       "question": "Q8",
-      "dimension": "D3"
+      "dimension": "D3",
+      "path_id": "P04",
+      "path_name": "Completing respondent \u2014 Q5=No",
+      "test_class": "FOCUSED",
+      "test_name": "Q8 rejects an invalid answer"
     },
     {
       "order": 37,
       "test_case_id": "TC-FT35",
       "target_id": "T-fffe27cc01",
-      "executable_id": "EX-942b12aff5",
+      "executable_id": "EX-35f775b75c",
       "question": "Q8",
-      "dimension": "D4"
+      "dimension": "D4",
+      "path_id": "P04",
+      "path_name": "Completing respondent \u2014 Q5=No",
+      "test_class": "FOCUSED",
+      "test_name": "Q8 allows a blank answer, being optional"
     },
     {
       "order": 38,
       "test_case_id": "TC-FT36",
       "target_id": "T-81f7201b2b",
-      "executable_id": "EX-86dd65f493",
+      "executable_id": "EX-9bb5386d79",
       "question": "Q8",
-      "dimension": "D3"
+      "dimension": "D3",
+      "path_id": "P04",
+      "path_name": "Completing respondent \u2014 Q5=No",
+      "test_class": "FOCUSED",
+      "test_name": "Q8 rejects an invalid answer"
     },
     {
       "order": 39,
       "test_case_id": "TC-FT37",
       "target_id": "T-5bf7c9d7a3",
-      "executable_id": "EX-c249fdc70c",
+      "executable_id": "EX-0dba39ae30",
       "question": "Q8",
-      "dimension": "D3"
+      "dimension": "D3",
+      "path_id": "P04",
+      "path_name": "Completing respondent \u2014 Q5=No",
+      "test_class": "FOCUSED",
+      "test_name": "Q8 rejects an invalid answer"
     },
     {
       "order": 40,
       "test_case_id": "TC-FT38",
       "target_id": "T-a7eaf4230c",
-      "executable_id": "EX-e07989f4c8",
+      "executable_id": "EX-0a064a0587",
       "question": "Q8",
-      "dimension": "D4"
+      "dimension": "D4",
+      "path_id": "P04",
+      "path_name": "Completing respondent \u2014 Q5=No",
+      "test_class": "FOCUSED",
+      "test_name": "Q8 allows a blank answer, being optional"
     },
     {
       "order": 41,
       "test_case_id": "TC-RT03",
       "target_id": "T-05b0993ae8",
-      "executable_id": "EX-80d557c8c4",
+      "executable_id": "EX-74de97f8b8",
       "question": "",
-      "dimension": "D2"
+      "dimension": "D2",
+      "path_id": "P04",
+      "path_name": "Completing respondent \u2014 Q5=No",
+      "test_class": "ROUTE",
+      "test_name": "End-to-end journey: COMPLETE by way of routing"
     }
   ]
 }

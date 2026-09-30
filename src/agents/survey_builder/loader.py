@@ -177,13 +177,28 @@ def _build_question(raw: dict, order: int) -> Question:
         question.attributes["equals_num_value"] = str(int(raw["sum_to"]))
     if raw.get("min_selections") is not None:
         question.attributes["min_answers"] = str(raw["min_selections"])
+
     if raw.get("max_length") is not None:
+        # Caps what the box will hold, but does not stop a longer answer being
+        # submitted, so it is paired with a validation below.
         question.attributes["maximum_chars"] = str(raw["max_length"])
+
+    # LimeSurvey has no minimum-length setting, and maximum_chars alone does
+    # not refuse an over-long answer on submit. Both are expressed as one
+    # validation because a question can state both and a second em_validation_q
+    # would replace the first rather than add to it.
+    checks: list[str] = []
+    tips: list[str] = []
     if raw.get("min_length") is not None:
-        # LimeSurvey has no minimum-length setting; this is the only route.
-        question.attributes["em_validation_q"] = f"strlen(this) >= {raw['min_length']}"
+        checks.append(f"strlen(this) >= {raw['min_length']}")
+        tips.append(f"at least {raw['min_length']} characters")
+    if raw.get("max_length") is not None:
+        checks.append(f"strlen(this) <= {raw['max_length']}")
+        tips.append(f"no more than {raw['max_length']} characters")
+    if checks:
+        question.attributes["em_validation_q"] = " and ".join(checks)
         question.localized_attributes["em_validation_q_tip"] = (
-            f"Please enter at least {raw['min_length']} characters."
+            "Please enter " + " and ".join(tips) + "."
         )
 
     return question

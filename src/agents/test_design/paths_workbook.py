@@ -675,6 +675,13 @@ def build(out_path: FsPath, spec: CanonicalSpec, targets: list[CoverageTarget],
             "executable_id": (ex or {}).get("test_id"),
             "question": aq or "",
             "dimension": t.dimension,
+            # The journey this test runs on. Carried so a later report can say
+            # which respondent paths work and which break, which is the
+            # question a survey programmer actually asks.
+            "path_id": hp.path_id if hp else "",
+            "path_name": hp.name if hp else "",
+            "test_class": cls,
+            "test_name": _name(spec, t),
         })
 
         ending = t.subject.partition("<-")[0] if t.dimension == "D2" else None
