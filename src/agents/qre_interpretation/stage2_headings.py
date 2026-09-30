@@ -129,7 +129,13 @@ def _content_after(
 
 def run(document: Stage1Document) -> Stage2Blocks:
     heading_indexes = _heading_positions(document)
-    matched: dict[TargetHeading, ContentBlock] = {}
+    # A list per target, not one block. A QRE need not put all of a section's
+    # content under a single heading: X01 splits its questionnaire across
+    # thirteen "Module routing and QA" sections, one per module, and a dict
+    # keyed by target kept only the last of them - four questions out of
+    # fifty-two. Everything downstream still receives one flat list per target;
+    # only the number of places it may be gathered from has changed.
+    matched: dict[TargetHeading, list[ContentBlock]] = {}
     flags: list[ReviewFlag] = []
 
     # --- direct name match ---------------------------------------------------
@@ -139,16 +145,18 @@ def run(document: Stage1Document) -> Stage2Blocks:
     for index in heading_indexes:
         heading = document.blocks[index]
         target = targets_by_name.get(_normalise(heading.text))
-        if target is None or target in matched:
+        if target is None:
             continue
         level = heading.heading_level or 1
-        matched[target] = ContentBlock(
-            target=target,
-            heading_text=heading.text,
-            heading_order=heading.order,
-            heading_level=level,
-            matched_by="direct",
-            blocks=_content_after(document, index, level, heading_indexes),
+        matched.setdefault(target, []).append(
+            ContentBlock(
+                target=target,
+                heading_text=heading.text,
+                heading_order=heading.order,
+                heading_level=level,
+                matched_by="direct",
+                blocks=_content_after(document, index, level, heading_indexes),
+            )
         )
         used_indexes.add(index)
 
@@ -157,9 +165,12 @@ def run(document: Stage1Document) -> Stage2Blocks:
     spare_indexes = [i for i in heading_indexes if i not in used_indexes]
 
     for target in unmatched_targets:
-        best: tuple[float, int, LLMHeadingCandidate] | None = None
+        # Every spare section whose content has this target's shape, not only
+        # the single best one. A modular QRE states the same kind of content
+        # under many headings, and taking one of them discards the rest.
+        claimed: list[tuple[int, LLMHeadingCandidate]] = []
 
-        for index in spare_indexes:
+        for index in list(spare_indexes):
             heading = document.blocks[index]
             level = heading.heading_level or 1
             content = _content_after(document, index, level, heading_indexes)
@@ -183,12 +194,12 @@ def run(document: Stage1Document) -> Stage2Blocks:
                         reasoning=f"No name match and shape-matching unavailable: {exc}",
                     )
                 )
-                best = None
+                claimed = []
                 break
-            if verdict.is_match and (best is None or verdict.confidence > best[0]):
-                best = (verdict.confidence, index, verdict)
+            if verdict.is_match:
+                claimed.append((index, verdict))
 
-        if best is None:
+        if not claimed:
             if not any(f.target_heading == target for f in flags):
                 flags.append(
                     ReviewFlag(
@@ -206,29 +217,31 @@ def run(document: Stage1Document) -> Stage2Blocks:
                 )
             continue
 
-        confidence, index, verdict = best
-        heading = document.blocks[index]
-        level = heading.heading_level or 1
-        matched[target] = ContentBlock(
-            target=target,
-            heading_text=heading.text,
-            heading_order=heading.order,
-            heading_level=level,
-            matched_by="llm_shape",
-            blocks=_content_after(document, index, level, heading_indexes),
-        )
-        spare_indexes.remove(index)
-        flags.append(
-            ReviewFlag(
-                target_heading=target,
-                status=FlagStatus.POSSIBLE_MATCH,
-                candidate_heading=heading.text,
-                confidence=confidence,
-                severity=FlagSeverity.WARNING,
-                target=FlagTarget(kind="section", id=target.value),
-                reasoning=verdict.reasoning,
+        for index, verdict in claimed:
+            heading = document.blocks[index]
+            level = heading.heading_level or 1
+            matched.setdefault(target, []).append(
+                ContentBlock(
+                    target=target,
+                    heading_text=heading.text,
+                    heading_order=heading.order,
+                    heading_level=level,
+                    matched_by="llm_shape",
+                    blocks=_content_after(document, index, level, heading_indexes),
+                )
             )
-        )
+            spare_indexes.remove(index)
+            flags.append(
+                ReviewFlag(
+                    target_heading=target,
+                    status=FlagStatus.POSSIBLE_MATCH,
+                    candidate_heading=heading.text,
+                    confidence=verdict.confidence,
+                    severity=FlagSeverity.WARNING,
+                    target=FlagTarget(kind="section", id=target.value),
+                    reasoning=verdict.reasoning,
+                )
+            )
 
     # --- keep whatever matched nothing ---------------------------------------
     # A heading no target claimed is not noise. C02's `Quota controls` and
@@ -251,7 +264,9 @@ def run(document: Stage1Document) -> Stage2Blocks:
 
     return Stage2Blocks(
         source=document.source,
-        blocks=[matched[t] for t in TargetHeading if t in matched],
+        # Still a flat list of ContentBlocks in target order, exactly as before;
+        # a target may now contribute more than one.
+        blocks=[b for t in TargetHeading for b in matched.get(t, [])],
         flags=flags,
         unclassified=unclassified,
     )

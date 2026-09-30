@@ -1075,10 +1075,40 @@ def parse_survey(
     return information, flags
 
 
+def _merge_by_target(blocks: list[Stage3Block]) -> dict[TargetHeading, Stage3Block]:
+    """One block per target, built from however many Stage 3 produced.
+
+    Stage 2 may now find a target's content under several headings - a modular
+    QRE writes thirteen question tables, one per module - and Stage 3 keeps them
+    apart because it transcribes per block. Parsing is per target, so they are
+    concatenated here in document order.
+
+    This replaces a dict comprehension keyed on target, which silently kept only
+    the last block and discarded the rest.
+    """
+    merged: dict[TargetHeading, Stage3Block] = {}
+    for block in blocks:
+        first = merged.get(block.target)
+        if first is None:
+            merged[block.target] = block.model_copy(
+                update={"rows": list(block.rows), "row_sources": list(block.row_sources)}
+            )
+            continue
+        first.rows.extend(block.rows)
+        # Provenance stays index-aligned with the rows: a short or absent list
+        # would silently shift every later row's source reference onto the
+        # wrong line, so it is padded to match.
+        first.row_sources.extend(
+            block.row_sources[: len(block.rows)]
+            + [None] * max(0, len(block.rows) - len(block.row_sources))
+        )
+    return merged
+
+
 async def run_async(
     blocks: list[Stage3Block], source: str, front_matter: list[Paragraph]
 ) -> tuple[dict, list[ReviewFlag]]:
-    by_target = {b.target: b for b in blocks}
+    by_target = _merge_by_target(blocks)
 
     questionnaire_task = asyncio.create_task(
         parse_questionnaire(by_target.get(TargetHeading.QUESTIONNAIRE))
