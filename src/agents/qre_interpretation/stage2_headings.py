@@ -102,6 +102,84 @@ def _normalise(text: str) -> str:
     return re.sub(r"\s+", " ", text).strip()
 
 
+# ---------------------------------------------------------------------------
+# Table signatures — what a table is, from its own header row
+# ---------------------------------------------------------------------------
+#
+# A heading names a section; it does not always describe everything under it.
+# X01 puts its quota table under "Standard codes", a question table under
+# "Interlock rules", and its routing table, its completion messages and its
+# acceptance tests all under one "Calculation controls" heading. Claiming a
+# whole section for one target therefore drags in tables belonging to three
+# others, which is how that document produced forty-eight routing rules from
+# four unrelated tables.
+#
+# So a table is identified by its own header row. A table headed
+# ID / Question wording / Type is a question table wherever it sits.
+#
+# Roles are keyword sets matched whole-word, never by substring: "no" must not
+# match "Scripter notes". Every keyword here was taken from a header that
+# actually occurs in the corpus, and the sets stay open - an unknown header is
+# meant to fall through to `None` and be preserved, not forced into the nearest
+# target (CLAUDE.md §10, §16).
+
+_ROLE_WORDS = {
+    "id": ("id", "qid", "var", "ref", "no", "marker", "code", "rule", "quota", "path"),
+    "wording": ("wording", "question", "text", "verbatim", "stem", "instruction"),
+    "type": ("type", "format", "mode", "capture"),
+    "condition": ("condition", "when", "if", "test", "trigger", "logic"),
+    "action": ("action", "do", "effect", "then"),
+    "destination": ("destination", "target", "goto", "go", "jump", "ending"),
+    "purpose": ("purpose", "description", "scenario", "objective"),
+    "inputs": ("inputs", "input", "given", "answers", "entered"),
+    "expected": ("expected", "outcome", "result"),
+    "message": ("message", "messages"),
+    "quota": ("quota", "quotas", "tolerance", "cells", "cell"),
+}
+
+
+def _words(text: str) -> list[str]:
+    """A header cell split into comparable words.
+
+    Whole words only. Substring matching is how "no" once matched "Scripter
+    notes" and made a column of scripting notes the question id.
+    """
+    return [w for w in re.split(r"[^a-z0-9]+", text.lower()) if w]
+
+
+def _roles_in(header: list[str]) -> set[str]:
+    """Which roles this header row supplies."""
+    words = {w for cell in header for w in _words(cell)}
+    return {role for role, names in _ROLE_WORDS.items() if words & set(names)}
+
+
+#: Each target and the roles a table must supply to be that kind of table.
+#: Deliberately demanding: a table matching no signature is left alone, and a
+#: table matching two is left alone as well rather than assigned to a guess.
+_TABLE_SIGNATURES: list[tuple[TargetHeading, frozenset[str]]] = [
+    (TargetHeading.QUESTIONNAIRE, frozenset({"id", "wording", "type"})),
+    (TargetHeading.ROUTING_AND_TERMINATION, frozenset({"id", "condition", "action"})),
+    (TargetHeading.ACCEPTANCE_TEST_SCENARIOS, frozenset({"id", "purpose", "expected"})),
+    (TargetHeading.COMPLETION_MESSAGES, frozenset({"id", "message"})),
+    (TargetHeading.QUOTA_CONTROLS, frozenset({"id", "quota"})),
+]
+
+
+def _classify_table(header: list[str]) -> TargetHeading | None:
+    """Which target this table belongs to, or None.
+
+    None where nothing fits - X01's "Entity / Maximum / Order / Identifier" is a
+    loop definition and belongs to no current target - and None again where more
+    than one signature fits, because an ambiguous table is a thing to report,
+    not a thing to guess at.
+    """
+    if not header:
+        return None
+    roles = _roles_in(header)
+    hits = [t for t, required in _TABLE_SIGNATURES if required <= roles]
+    return hits[0] if len(hits) == 1 else None
+
+
 def _heading_positions(document: Stage1Document) -> list[int]:
     return [
         index
@@ -160,9 +238,49 @@ def run(document: Stage1Document) -> Stage2Blocks:
         )
         used_indexes.add(index)
 
+    # --- identify tables by their own header row ------------------------------
+    # Runs only over sections no heading name claimed, so a document whose
+    # headings are the ones this pipeline knows takes exactly the route it
+    # always did. Where the headings are unfamiliar, each table is identified
+    # from its header instead, which is what lets one section contribute to
+    # several targets - and costs no model call.
+    spare_indexes = [i for i in heading_indexes if i not in used_indexes]
+    leftovers: list[tuple[int, list[Paragraph | Table]]] = []
+
+    for index in list(spare_indexes):
+        heading = document.blocks[index]
+        level = heading.heading_level or 1
+        content = _content_after(document, index, level, heading_indexes)
+
+        unclaimed: list[Paragraph | Table] = []
+        claimed_here = False
+        for item in content:
+            target = _classify_table(item.header) if isinstance(item, Table) else None
+            if target is None:
+                unclaimed.append(item)
+                continue
+            matched.setdefault(target, []).append(
+                ContentBlock(
+                    target=target,
+                    heading_text=heading.text,
+                    heading_order=heading.order,
+                    heading_level=level,
+                    matched_by="table_signature",
+                    blocks=[item],
+                )
+            )
+            claimed_here = True
+
+        if not claimed_here:
+            continue
+        spare_indexes.remove(index)
+        # A section can be partly claimed. What was not identified is kept and
+        # surfaced rather than disappearing with the section (CLAUDE.md §16).
+        if any(isinstance(b, Table) for b in unclaimed):
+            leftovers.append((index, unclaimed))
+
     # --- LLM shape-match for whatever is left --------------------------------
     unmatched_targets = [t for t in TargetHeading if t not in matched]
-    spare_indexes = [i for i in heading_indexes if i not in used_indexes]
 
     for target in unmatched_targets:
         # Every spare section whose content has this target's shape, not only
@@ -260,6 +378,15 @@ def run(document: Stage1Document) -> Stage2Blocks:
             ),
         )
         for index in spare_indexes
+    ] + [
+        UnclassifiedSection(
+            heading_text=document.blocks[index].text,
+            heading_order=document.blocks[index].order,
+            heading_level=document.blocks[index].heading_level or 1,
+            blocks=blocks,
+            reason="section matched a target, but these tables did not",
+        )
+        for index, blocks in leftovers
     ]
 
     return Stage2Blocks(
