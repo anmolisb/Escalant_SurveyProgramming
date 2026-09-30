@@ -419,6 +419,106 @@ def _blocking_question(spec: CanonicalSpec, target: CoverageTarget, obs: dict):
     return min(candidates, key=lambda q: q.seq) if candidates else None
 
 
+def _questions_in(guard) -> set[str]:
+    """Which questions a display rule reads."""
+    found: set[str] = set()
+    cond = getattr(guard, "condition", guard)
+    for attr in ("left_qid", "question_id", "right_qid"):
+        value = getattr(cond, attr, None)
+        if isinstance(value, str) and value:
+            found.add(value)
+    for part in (getattr(cond, "parts", None) or []):
+        found |= _questions_in(part)
+    return found
+
+
+def _plain_answer(q) -> tuple[Any, str] | None:
+    """An unremarkable valid answer, for a question that is not under test.
+
+    Deliberately the dullest choice available: the first option, the shortest
+    acceptable text. These answers exist only so the page has no other reason
+    to complain, so they should draw no attention and trip nothing.
+    """
+    v = q.validation
+    if q.kind in ("single", "single_choice", "list", "rating", "scale"):
+        opts = q.usable_options()
+        return (opts[0].option_id, "answer_code") if opts else None
+    if q.kind in ("multi", "multiple_choice", "multi_select"):
+        opts = q.usable_options()
+        return (opts[0].option_id, "checkbox") if opts else None
+    if q.kind in ("text", "open_text"):
+        lo = int(v.get("min_length") or 1)
+        return ("x" * max(lo, 1), "text")
+    if q.kind in ("number", "numeric"):
+        lo = v.get("min_value")
+        return (int(lo) if lo is not None else 1, "number")
+    return None
+
+
+def _isolate_on_page(spec, snap, steps, block_at):
+    """Answer every question sharing a page with the one under test.
+
+    A test that leaves one question unacceptable and submits proves the page
+    refused to move. It does not prove WHICH question caused the refusal,
+    because every other question on that page is also unanswered and each is
+    reason enough on its own. The test would pass identically if the question
+    it names were optional and some other question on the page were the
+    mandatory one.
+
+    Filling the siblings leaves exactly one thing wrong, so a refusal means
+    what the test says it means.
+    """
+    built = snap.questions.get(block_at.id)
+    if built is None:
+        return steps
+
+    already = {st.canonical.split("/")[0] for st in steps if st.canonical}
+    additions = []
+    for q in spec.in_order():
+        if q.id in already or q.id == block_at.id:
+            continue
+        sibling = snap.questions.get(q.id)
+        if sibling is None or sibling.gid != built.gid:
+            continue
+        # Position on the page does not matter: LimeSurvey validates the whole
+        # page at once, so a question after the one under test is just as much
+        # a reason for the refusal as one before it.
+        #
+        # What does matter is whether this question depends on the one being
+        # left unanswered. If it does, it will not be on screen at all, and an
+        # instruction to answer it would send the bot looking for a field that
+        # is not there.
+        if q.guard is not None and block_at.id in _questions_in(q.guard):
+            continue
+        plain = _plain_answer(q)
+        if plain is None:
+            continue
+        value, kind = plain
+        binding = snap.binding(q.id, value if kind != "text" else None)
+        if binding is None:
+            # No physical field for this answer, so it cannot be filled and
+            # cannot be ruled out as a cause. Better to leave the test as it
+            # was than to add a step the bot will not be able to perform.
+            continue
+        additions.append(ExecutableStep(
+            step=0, action="set_field",
+            field_name=binding.field_name,
+            sgqa=binding.sgqa,
+            value=(binding.value if binding.value is not None else value),
+            value_kind=binding.value_kind or kind,
+            canonical=(f"{q.id}/{value}" if kind in ("answer_code", "checkbox")
+                       else q.id),
+            human=(f"answer {q.id} normally, so it is not itself a reason the "
+                   f"page refuses to move on")))
+
+    if not additions:
+        return steps
+    merged = list(steps) + additions
+    order = {q.id: i for i, q in enumerate(spec.in_order())}
+    merged.sort(key=lambda st: order.get((st.canonical or "").split("/")[0], 999))
+    return merged
+
+
 def compile_all(spec: CanonicalSpec, snap: ImplementationSnapshot,
                 targets: list[CoverageTarget],
                 scenarios: list[VerifiedScenario],
@@ -474,6 +574,40 @@ def compile_all(spec: CanonicalSpec, snap: ImplementationSnapshot,
                                             "compilation"],
             })
             continue
+
+        # ---- make the refusal attributable ------------------------------
+        #
+        # A test that leaves one question unacceptable and submits proves the
+        # page refused to move. It does not prove WHICH question caused the
+        # refusal, because every other question sharing that page is also
+        # unanswered, and each of those is reason enough on its own.
+        #
+        # The test would pass identically if the question it names were
+        # optional and some other question on the page were the mandatory one.
+        # That is a test which cannot fail for the right reason, which is worse
+        # than no test at all.
+        #
+        # So every other question on the same page is answered normally,
+        # leaving exactly one thing wrong. Only possible here, because this is
+        # the first step that knows how the build lays questions out.
+        # Every test that submits a page needs the rest of that page answered,
+        # not only the tests that expect a refusal.
+        #
+        # A test saying "Q6 accepts a 500-character answer" filled Q6 and
+        # submitted, leaving Q7 on the same page blank and compulsory. The page
+        # refused, and the test reported that Q6 rejects a valid answer. It
+        # does not: the page was refusing over a different question entirely.
+        # Any question the journey touches will do as the anchor, because the
+        # page it sits on is the page that needs completing. An ending test
+        # names no focus question at all, and those were the ones still
+        # submitting a half-answered page.
+        focus = block_at or (spec.question(lt.focus) if lt.focus else None)
+        if focus is None:
+            touched = [st.canonical.split("/")[0] for st in steps
+                       if st.canonical]
+            focus = spec.question(touched[-1]) if touched else None
+        if focus is not None:
+            steps = _isolate_on_page(spec, snap, steps, focus)
 
         # Group the writes into pages. The build puts screening in one group and
         # everything else in another, and LimeSurvey submits a page at a time.
