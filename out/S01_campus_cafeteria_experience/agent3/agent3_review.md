@@ -178,7 +178,8 @@ Survey id 900001. Dimension D1. Traces to Q1.
 | 8 | set_field | `Q5` | `900001X101X1012` | `A001` |
 | 9 | set_field | `Q6` | `900001X101X1013` | `xxxxxxxxxx` |
 | 10 | set_field | `Q7` | `900001X101X1014` | `A001` |
-| 11 | submit_page | `` | `` | `` |
+| 11 | set_field | `Q8` | `900001X101X1015` | `x` |
+| 12 | submit_page | `` | `` | `` |
 
 Assertions:
 
