@@ -600,18 +600,29 @@
    <row>
     <qid><![CDATA[1013]]></qid>
     <attribute><![CDATA[em_validation_q]]></attribute>
-    <value><![CDATA[strlen(this) >= 10]]></value>
+    <value><![CDATA[strlen(this) >= 10 and strlen(this) <= 500]]></value>
    </row>
    <row>
     <qid><![CDATA[1013]]></qid>
     <attribute><![CDATA[em_validation_q_tip]]></attribute>
-    <value><![CDATA[Please enter at least 10 characters.]]></value>
+    <value><![CDATA[Please enter at least 10 characters and no more than 500 characters.]]></value>
     <language><![CDATA[en]]></language>
    </row>
    <row>
     <qid><![CDATA[1015]]></qid>
     <attribute><![CDATA[maximum_chars]]></attribute>
     <value><![CDATA[500]]></value>
+   </row>
+   <row>
+    <qid><![CDATA[1015]]></qid>
+    <attribute><![CDATA[em_validation_q]]></attribute>
+    <value><![CDATA[strlen(this) <= 500]]></value>
+   </row>
+   <row>
+    <qid><![CDATA[1015]]></qid>
+    <attribute><![CDATA[em_validation_q_tip]]></attribute>
+    <value><![CDATA[Please enter no more than 500 characters.]]></value>
+    <language><![CDATA[en]]></language>
    </row>
   </rows>
  </question_attributes>
