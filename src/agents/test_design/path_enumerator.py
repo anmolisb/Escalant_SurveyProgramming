@@ -409,15 +409,18 @@ def _name_for(spec: CanonicalSpec, p: Path) -> str:
         rule = next((r for r in spec.rules if r.destination_id == p.disposition
                      and r.id in p.rules_exercised), None)
         where = rule.evaluation_point if rule else (p.sequence[-1] if p.sequence else "?")
-        return f"Screened out at {where} ({p.disposition})"
+        # The journey's own name is the first thing anyone reads, so it says
+        # what happened in words. The ending code stays in the disposition
+        # field for anyone matching against LimeSurvey.
+        return f"Termination condition reached at {where}"
     if p.route_class == CLASS_QUOTA:
         quota = next((q for q in spec.quotas if q.id == p.mechanism), None)
         cell = p.campaign.get("label") if p.campaign else None
         if quota is not None:
-            return (f"{quota.id} cell already full"
-                    + (f" ({cell})" if cell else "")
-                    + f" \u2014 measured on {quota.variable_question_id}")
-        return f"Turned away: {p.disposition}"
+            return ("Termination condition reached: quota full"
+                    + (f" for {cell}" if cell else "")
+                    + f", counted at {quota.variable_question_id}")
+        return "Termination condition reached: quota full"
     # Name a completing path by what makes it different, not by the screener
     # answers it shares with every other completing path.
     screeners = {q.id for q in spec.questions if q.id.upper().startswith("S")}
@@ -432,8 +435,12 @@ def _name_for(spec: CanonicalSpec, p: Path) -> str:
         for v in vals:
             o = q.option_by_id(str(v)) if q else None
             labels.append(o.label if o else str(v))
-        bits.append(f"{qid}={'/'.join(labels)}")
-    return "Completing respondent" + (" \u2014 " + "; ".join(bits) if bits else "")
+        # "Q5=Yes" is how the answer is stored, not how anyone says it.
+        bits.append(f"answered {'/'.join(labels)!r} at {qid}"
+                    .replace("'", "\u201c", 1).replace("'", "\u201d", 1))
+    if not bits:
+        return "Answered everything and reached the end"
+    return "Reached the end, having " + ", and ".join(bits)
 
 
 def enumerate_paths(spec: CanonicalSpec) -> tuple[list[Path], list[Branch], dict]:

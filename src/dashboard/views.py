@@ -1,12 +1,16 @@
-"""Survey Programming dashboard.
+"""Everything the dashboard draws, shared by both apps.
 
-    PYTHONPATH=. streamlit run src/dashboard/app.py
+Lifted wholesale out of the single-user app rather than rewritten, because
+rewriting a thousand lines of working rendering to add a login would have
+been the wrong trade and would have lost all the wording we settled on.
 
-Three steps in order: interpret the QRE, build the survey, design the tests.
-Each step reads what the one before it wrote, so each unlocks only once that
-output exists.
+The single-user app is untouched and still carries its own copy. Once the
+team app has earned its place, that one can go.
+
+The three module globals below are the questionnaire, the routing rules and
+the survey as read for whichever run is open. The views read them directly,
+which is how the original was written; ``load_context`` is what sets them.
 """
-
 from __future__ import annotations
 
 import html as html_lib
@@ -87,11 +91,15 @@ GROUPS = {
 }
 
 
-st.set_page_config(page_title="Survey Programming", layout="wide",
-                   initial_sidebar_state="expanded")
 
-st.markdown(
-    """<style>@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap');
+# The stylesheet, held as a value rather than emitted here.
+#
+# It used to be a module-level st.markdown call. Python caches an import,
+# and Streamlit re-runs the script on every interaction, so the styles went
+# out once on the first load and never again: every card, pill and strip
+# rendered as bare text from the second click onward. Whoever draws a page
+# now emits this at the top of each run.
+STYLE = """<style>@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap');
       /* ---- tokens -------------------------------------------------------
          Ink indigo carries the product. The four status colours are
          functional and cannot be brand colours, so they are held apart and
@@ -445,9 +453,7 @@ st.markdown(
       .mapwrap{border:1px solid var(--rule);border-radius:10px;background:var(--card);padding:20px 16px;overflow-x:auto}
       .rca .rv .then{color:var(--accent);display:inline-block;margin-top:4px}
       .rca .rcagrid{border-top:1px solid var(--rule-2);padding-top:11px}
-      @media (max-width:900px){.rcagrid{grid-template-columns:1fr}}</style>""",
-    unsafe_allow_html=True,
-)
+      @media (max-width:900px){.rcagrid{grid-template-columns:1fr}}</style>"""
 
 
 # --- helpers ---------------------------------------------------------------
@@ -495,12 +501,6 @@ def tone(value) -> str:
 
 def strip(cells) -> None:
     """Four to six numbers that together say where something stands."""
-    st.markdown(
-        '<div class="strip">' + "".join(
-            f'<div class="cell"><div class="k">{html_lib.escape(str(k))}</div>'
-            f'<div class="v {t}">{html_lib.escape(str(v))}</div></div>'
-            for k, v, t in cells) + "</div>",
-        unsafe_allow_html=True)
 
 
 #: How each kind of ending reads to a person. The code underneath is the
@@ -1604,10 +1604,7 @@ def page_run(s: dict) -> None:
 
     left, middle, right = st.columns([2, 2, 3])
     st.session_state.setdefault("sid", "900001")
-    # Inside a container localhost is the container itself, not the
-    # machine, so the address comes from the environment where one is set.
-    st.session_state.setdefault(
-        "base", os.environ.get("LIMESURVEY_BASE", "http://localhost:8080"))
+    st.session_state.setdefault("base", "http://localhost:8080")
     left.text_input("Survey id in LimeSurvey", key="sid",
                     help="The number in the participant link.")
     middle.text_input("LimeSurvey address", key="base")
@@ -2009,9 +2006,7 @@ def stream_bot(s: dict) -> None:
     command = [sys.executable, "-u", "-m",
                "src.agents.respondent_bot.run_browser", str(s["directory"]),
                "--sid", st.session_state.get("sid", "900001"),
-               "--base", st.session_state.get(
-                   "base", os.environ.get("LIMESURVEY_BASE",
-                                          "http://localhost:8080"))]
+               "--base", st.session_state.get("base", "http://localhost:8080")]
     if st.session_state.get("watch"):
         command += ["--headed", "--slow", "150"]
     else:
@@ -2076,96 +2071,25 @@ def stream_bot(s: dict) -> None:
     st.session_state[f"bot_ok::{s['name']}"] = process.returncode == 0
 
 
-# --- the shell -------------------------------------------------------------
 
-st.markdown(
-    '<div class="top"><div class="mark">Escalent '
-    '<span>\u00b7 Survey Programming</span></div>'
-    '<div class="who">AK</div></div>', unsafe_allow_html=True)
 
-st.session_state.setdefault("page", "overview")
-run_name = st.session_state.get("run_name")
-state = survey_state(run_name) if run_name and (OUT / run_name).exists() else None
-if state is None:
-    st.session_state.pop("run_name", None)
-    run_name = None
+QUESTIONS: list = []
+ROUTING: list = []
+SURVEY: dict = {}
 
-QUESTIONS = read_json(state["directory"], "stage4_questionnaire.json", []) if state else []
-ROUTING = read_json(state["directory"], "stage4_routing.json", []) if state else []
-SURVEY = read_json(state["directory"], "stage4_survey.json", {}) if state else {}
 
-with st.sidebar:
-    st.markdown(
-        '<div class="brand"><div class="logo">SP</div>'
-        '<div><div class="bn">Survey Programming</div>'
-        '<div class="bs">Escalent</div></div></div>', unsafe_allow_html=True)
+def load_context(state) -> None:
+    """Point the views at a particular run.
 
-    if state is None:
-        st.markdown('<div class="railgrp">Workspace</div>', unsafe_allow_html=True)
-        st.button("Surveys", type="primary", key="nav_ws", use_container_width=True)
-    else:
-        if st.button("\u2190  All surveys", key="nav_back",
-                     use_container_width=True, help="Back to the workspace"):
-            st.session_state.pop("run_name", None)
-            st.rerun()
-        colour = {"ok": "#0F766E", "bad": "#A32C36",
-                  "warn": "#9C4709"}.get(state["shade"], "#A8A3BE")
-        st.markdown(
-            f'<div class="railname">'
-            f'{html_lib.escape(SURVEY.get("title") or state["name"])}</div>'
-            f'<div class="railsub">{html_lib.escape(state["name"])}</div>'
-            f'<div class="railstate">'
-            f'<span class="dot" style="background:{colour}"></span>'
-            f'<span>{html_lib.escape(state["label"])}</span>'
-            f'<span class="ago">{html_lib.escape(state["when"])}</span></div>',
-            unsafe_allow_html=True)
-        st.markdown('<div class="railgrp">The pipeline</div>',
-                    unsafe_allow_html=True)
-        # A stage opens only once the one before it has produced something, so
-        # the rail is also the progress.
-        reachable = {"overview": True, "questionnaire": True,
-                     "survey": True,
-                     "tests": state["has_lss"],
-                     "run": bool(state["summary"]),
-                     "quality": bool(state["results"]),
-                     "files": True}
-        for key, label in PAGES:
-            mark = "\u2713 " if reachable[key] else "\u00b7 "
-            if st.button(mark + label, key=f"nav_{key}",
-                         type="primary" if st.session_state["page"] == key
-                         else "secondary",
-                         disabled=not reachable[key], use_container_width=True):
-                st.session_state["page"] = key
-                st.rerun()
-
-    if state is not None:
-        # The button that runs a stage now sits on that stage's own page.
-        # Having them all in the rail meant leaving the page you were reading
-        # to start the thing you were reading about.
-        st.divider()
-        if st.button("Delete this run", use_container_width=True, key="go_del"):
-            shutil.rmtree(state["directory"], ignore_errors=True)
-            state["lss"].unlink(missing_ok=True)
-            for key in ("run_name", "log", "build_log", "design_log",
-                        "bot_log", "qc_log"):
-                st.session_state.pop(key, None)
-            st.rerun()
-
-    if st.session_state.get("run_failed"):
-        st.error("The interpreter reported problems. The output may still be "
-                 "usable.")
-    if state and st.session_state.get(f"design_ok::{state['name']}") is False:
-        st.error("The test design run failed.")
-        st.code(st.session_state.get(f"design_log::{state['name']}", ""))
-
-if state is None:
-    page_workspace()
-else:
-    st.markdown(f'<div class="crumb">Surveys / '
-                f'{html_lib.escape(state["name"])}</div>',
-                unsafe_allow_html=True)
-    {"overview": page_overview, "questionnaire": page_questionnaire,
-     "survey": page_survey, "tests": page_tests,
-     "run": page_run, "quality": page_quality, "files": page_files}[
-        st.session_state.get("page", "overview")
-        if st.session_state.get("page") in dict(PAGES) else "overview"](state)
+    Must be called before drawing any page, and again whenever the open run
+    changes. The original set these at the top of the script, which works
+    for one page per load and not for an app that can switch run without a
+    reload.
+    """
+    global QUESTIONS, ROUTING, SURVEY
+    if not state:
+        QUESTIONS, ROUTING, SURVEY = [], [], {}
+        return
+    QUESTIONS = read_json(state["directory"], "stage4_questionnaire.json", [])
+    ROUTING = read_json(state["directory"], "stage4_routing.json", [])
+    SURVEY = read_json(state["directory"], "stage4_survey.json", {})

@@ -38,8 +38,12 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
+import queue
 import re
+import subprocess
 import sys
+import threading
 from dataclasses import dataclass, field, asdict
 from datetime import datetime, timezone
 from pathlib import Path
@@ -119,6 +123,9 @@ class Bot:
         #: only be read while that question is on screen, and by the end of
         #: the journey the respondent is looking at a thank-you page.
         self.seen_text: list[str] = []
+        #: The questions on the current page, read once and reused until the
+        #: page changes.
+        self._cache = None
         #: question id -> {option id -> its label}, for finding the live option.
         #: Needed because LimeSurvey renumbers sub-questions on import exactly
         #: as it renumbers questions: Agent 3's SQ001 is served as S17.
@@ -137,6 +144,8 @@ class Bot:
         LimeSurvey renumbers question ids when a survey is imported, so the
         identifier Agent 3 compiled does not survive. The wording does.
         """
+        if getattr(self, "_cache", None) is not None:
+            return self._cache
         out: dict[str, str] = {}
         try:
             elements = self.page.query_selector_all('[id^="ls-question-text-"]')
@@ -154,11 +163,17 @@ class Bot:
         return out
 
     def note_visible(self) -> None:
-        """Record what is on the current page, before moving off it."""
+        """Record what is on the current page, before moving off it.
+
+        The page is read once here and cached. Every other method used to ask
+        the browser again, and a DOM round trip is the most expensive thing
+        this bot does.
+        """
         try:
             self.page.wait_for_load_state("domcontentloaded", timeout=5_000)
         except Exception:
             pass
+        self._cache = None
         text = self.page_text()
         if text:
             self.seen_text.append(text)
@@ -343,6 +358,7 @@ class Bot:
             if (button.get_attribute("value") or "") == "moveprev":
                 continue
             button.click()
+            self._cache = None
             self.page.wait_for_load_state("domcontentloaded")
             self.note_visible()
             return
@@ -853,17 +869,149 @@ def write_workbook(path: Path, results: list[Result], survey: str,
 
 # ---------------------------------------------------------------- entry point
 
+def _fan_out(args, directory: Path, tests: list, workers: int) -> int:
+    """Split the tests across worker processes and put the results back."""
+    import time as _time
+    started = _time.time()
+    print(f"  running {len(tests)} tests across {workers} workers\n",
+          flush=True)
+
+    shard_dir = directory / "agent4" / "_shards"
+    shard_dir.mkdir(parents=True, exist_ok=True)
+    for stale in shard_dir.glob("*.json"):
+        stale.unlink()
+
+    running = []
+    for i in range(workers):
+        command = [sys.executable, "-u", __file__, str(directory),
+                   "--sid", args.sid, "--base", args.base,
+                   "--shard", f"{i}/{workers}",
+                   "--budget", str(args.budget),
+                   "--shard-out", str(shard_dir / f"{i}.json")]
+        running.append(subprocess.Popen(
+            command, stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
+            text=True, bufsize=1))
+
+    # Every worker's output has to be read as it arrives. Draining one pipe
+    # at a time lets the others fill their buffer and block, which silently
+    # turns four workers back into one: the run looks stalled and takes no
+    # less time than before.
+    lines_in: "queue.Queue[str | None]" = queue.Queue()
+
+    def pump(process):
+        for line in process.stdout:
+            lines_in.put(line.rstrip())
+        process.wait()
+        lines_in.put(None)
+
+    readers = [threading.Thread(target=pump, args=(p,), daemon=True)
+               for p in running]
+    for r in readers:
+        r.start()
+
+    done = 0
+    finished = 0
+    while finished < len(running):
+        text = lines_in.get()
+        if text is None:
+            finished += 1
+            continue
+        bare = text.strip()
+        if bare.startswith("##DONE "):
+            done += 1
+            print(f"  [{done:>3}/{len(tests)}] {bare[7:]}", flush=True)
+    for p in running:
+        p.wait()
+
+    # A worker that fails has to say so. The parent prints only the lines it
+    # recognises, so without this a crash looks like a run that found
+    # nothing at all.
+    broken = [i for i, p in enumerate(running) if p.returncode not in (0, None)]
+    if broken:
+        print(f"\n  {len(broken)} of {len(running)} workers failed. "
+              f"Re-run one on its own to see why:", flush=True)
+        print(f"    python -m src.agents.respondent_bot.run_browser "
+              f"{directory} --sid {args.sid} --workers 1", flush=True)
+
+    merged: list = []
+    for i in range(workers):
+        piece = shard_dir / f"{i}.json"
+        if piece.exists():
+            merged += json.loads(piece.read_text(encoding="utf-8"))["results"]
+            piece.unlink()
+    try:
+        shard_dir.rmdir()
+    except OSError:
+        pass
+
+    counts: dict = {}
+    for r in merged:
+        counts[r["status"]] = counts.get(r["status"], 0) + 1
+    took = _time.time() - started
+
+    print(f"\n  {len(merged)} tests in {took:.0f} seconds")
+    for status in STATUS_ORDER:
+        if counts.get(status):
+            print(f"    {status:<14} {counts[status]:>4}")
+
+    dest = directory / "agent4"
+    dest.mkdir(exist_ok=True)
+    payload = {"survey": directory.name, "survey_id": args.sid,
+               "run_at": datetime.now(timezone.utc).isoformat(),
+               "counts": counts, "results": merged}
+    (dest / "agent4_results.json").write_text(
+        json.dumps(payload, indent=2, default=str), encoding="utf-8")
+
+    # Rebuilt field by field rather than by keyword, so a row written by an
+    # older worker, or one missing a field, still merges instead of taking
+    # the whole run down at the last step.
+    rebuilt = []
+    for raw in merged:
+        r = Result(test_id=raw.get("test_id", ""), title=raw.get("title", ""),
+                   dimension=raw.get("dimension", ""))
+        for name in Result.__dataclass_fields__:
+            if name in raw and name not in ("actions", "checks"):
+                setattr(r, name, raw[name])
+        r.actions = [Action(**{k: v for k, v in a.items()
+                               if k in Action.__dataclass_fields__})
+                     for a in raw.get("actions", [])]
+        r.checks = [Check(**{k: v for k, v in c.items()
+                             if k in Check.__dataclass_fields__})
+                    for c in raw.get("checks", [])]
+        rebuilt.append(r)
+    book = dest / "agent4_results.xlsx"
+    try:
+        write_workbook(book, rebuilt, directory.name, args.sid)
+    except PermissionError:
+        book = dest / f"agent4_results_{datetime.now():%H%M%S}.xlsx"
+        write_workbook(book, rebuilt, directory.name, args.sid)
+    print(f"\n  wrote {book}")
+    return 0
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(
         description="Drive a browser through Agent 3's tests.")
     ap.add_argument("survey_dir")
     ap.add_argument("--sid", required=True)
-    ap.add_argument("--base", default="http://localhost:8080")
+    # Inside a container localhost is the container, so the address is
+    # taken from the environment when one is set.
+    ap.add_argument("--base",
+                    default=os.environ.get("LIMESURVEY_BASE",
+                                           "http://localhost:8080"))
     ap.add_argument("--headed", action="store_true",
                     help="show the browser, for demonstrating")
     ap.add_argument("--slow", type=int, default=0,
                     help="milliseconds to pause after each answer, so the run "
                          "can be followed")
+    ap.add_argument("--workers", type=int, default=0,
+                    help="run this many tests at once. 0 picks a sensible "
+                         "number: several when running in the background, "
+                         "one when you are watching a browser.")
+    ap.add_argument("--shard", default="",
+                    help="internal: run one slice of the tests, as i/n")
+    ap.add_argument("--shard-out", default="",
+                    help="internal: where a worker writes its slice")
     ap.add_argument("--budget", type=float, default=45.0,
                     help="seconds to allow one test before giving up on it")
     ap.add_argument("--limit", type=int)
@@ -919,6 +1067,31 @@ def main() -> int:
         print("no tests to run")
         return 1
 
+    # ---- run several at once ------------------------------------------
+    # Nearly all of a test's time is spent waiting for a page, which is idle
+    # time. Running a few journeys side by side recovers it. Each worker is
+    # a separate process running this same code on a slice of the tests, so
+    # the thing being parallelised is the part already known to work.
+    # More workers is faster only while the waiting dominates. Each one is a
+    # browser, so beyond roughly twice the processor count the machine
+    # becomes the limit. Capped at the number of tests, since an idle worker
+    # costs a browser launch and returns nothing.
+    default = 1 if args.headed else min(8, max(2, (os.cpu_count() or 4)))
+    workers = min(args.workers or default, len(tests), 24)
+    if workers > 1 and not args.shard and not args.only:
+        return _fan_out(args, directory, tests, workers)
+
+    if args.shard:
+        # Named apart from "index", which already holds Agent 3's test-case
+        # index. Reusing the name overwrote it with an integer and every
+        # worker died on the next line, silently, because the parent was
+        # discarding whatever the children printed.
+        slice_no, slice_count = (int(x) for x in args.shard.split("/"))
+        tests = [t for n, t in enumerate(tests) if n % slice_count == slice_no]
+        if not tests:
+            print(json.dumps({"counts": {}, "results": []}))
+            return 0
+
     results: list[Result] = []
     with sync_playwright() as pw:
         browser = pw.chromium.launch(headless=not args.headed,
@@ -945,6 +1118,9 @@ def main() -> int:
             print(f"          {r.status}"
                   + (f"  {r.blocked_reason[:64]}" if r.blocked_reason else ""),
                   flush=True)
+            if args.shard_out:
+                # One unambiguous line per finished test, for the parent.
+                print(f"##DONE {r.status} {label}", flush=True)
             results.append(r)
             context.close()
         browser.close()
@@ -969,6 +1145,14 @@ def main() -> int:
                       f"{a.question + ': ' if a.question else ''}{a.did}")
         elif r.status in (BLOCKED, SKIPPED) and r.blocked_reason:
             print(f"\n  {r.status}  {r.test_id}  {r.blocked_reason[:110]}")
+
+    if args.shard_out:
+        # A worker hands its slice back and writes nothing else. The parent
+        # merges them and produces the single report.
+        Path(args.shard_out).write_text(json.dumps(
+            {"results": [asdict(r) for r in results]}, indent=2,
+            default=str), encoding="utf-8")
+        return 0
 
     dest = directory / "agent4"
     dest.mkdir(exist_ok=True)

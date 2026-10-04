@@ -89,9 +89,9 @@ SECONDARY_TYPE = {
     ("D4", "not_enforced"): "-",
     ("D5", "restricted"): "1. Flow / Routing",
     ("D6", "rendered"): "-",
-    ("D7", "completeness"): "8. Implementation Conformance",
-    ("D7", "order_varies"): "8. Implementation Conformance",
-    ("D7", "anchors_held"): "8. Implementation Conformance",
+    ("D7", "completeness"): "8. How the build compares with the questionnaire",
+    ("D7", "order_varies"): "8. How the build compares with the questionnaire",
+    ("D7", "anchors_held"): "8. How the build compares with the questionnaire",
     ("D8", "available"): "6. Termination / Disposition",
     ("D8", "full"): "6. Termination / Disposition",
     ("D9", "combined"): "1. Flow / Routing",
@@ -139,22 +139,25 @@ SUB_ORDER = {
     ("D1", "advances"): 0, ("D1", "shown"): 1, ("D1", "hidden"): 2,
     ("D1", "skip_fired"): 3, ("D1", "skip_not_fired"): 4,
     ("D3", "satisfied"): 5, ("D3", "violated"): 6,
+    ("D3", "boundary_max_accepted"): 6, ("D3", "special_characters_accepted"): 6,
+    ("D4", "whitespace_rejected"): 7, ("D4", "whitespace_accepted"): 7,
     ("D4", "enforced"): 7, ("D4", "not_enforced"): 7,
     ("D5", "restricted"): 8, ("D6", "rendered"): 9,
     ("D7", "completeness"): 10, ("D7", "order_varies"): 11,
     ("D7", "anchors_held"): 12,
     ("D8", "available"): 13, ("D8", "full"): 14,
+    ("D8", "over_target_admits"): 14, ("D8", "not_counted_by_other_cell"): 15,
     ("D9", "combined"): 15, ("D2", "reachable"): 16,
 }
 
 COLUMNS = [
-    ("Order", 7), ("Question", 11), ("Test Case ID", 14), ("Test Class", 11),
-    ("Primary Test Type", 24), ("Secondary Test Types", 24), ("Path ID", 9),
-    ("Test Name", 46), ("Test Objective", 54), ("Why This Test Exists", 50),
+    ("Order", 7), ("Question", 11), ("Test Case ID", 14), ("Kind of check", 11),
+    ("What it checks", 24), ("Also checks", 24), ("Journey", 9),
+    ("What is checked", 46), ("What it proves", 54), ("Why it is worth running", 50),
     ("Priority", 9), ("Preconditions", 34), ("Isolation Mode", 17),
     ("Respondent Inputs", 44), ("Test Data Class", 20),
     ("Why Inputs Were Chosen", 46), ("Actions", 46),
-    ("Expected Question Sequence", 40), ("Expected Questions Presented", 26),
+    ("Questions in order", 40), ("Expected Questions Presented", 26),
     ("Expected Questions Skipped", 24), ("Expected Questions Hidden / Not Presented", 26),
     ("Expected Navigation / Next Question", 34), ("Expected Validation", 40),
     ("Expected Disposition", 20), ("Expected Evidence", 40),
@@ -360,25 +363,101 @@ def _test_class(t: CoverageTarget) -> str:
     return CLS_FOCUSED
 
 
+#: The questionnaire names its endings with codes. A code belongs in the data
+#: and never on a page, so every name written here goes through this.
+def _ending_words(code: str) -> str:
+    """Why the survey stopped, as a clause that follows "because"."""
+    upper = str(code or "").upper()
+    if "QUOTA" in upper:
+        return "that quota is already full"
+    if "AGE" in upper:
+        return "they are too young for this survey"
+    if upper.startswith("TERM") or "INELIG" in upper or "SCREEN" in upper:
+        return "they do not match who the survey is for"
+    return f"the survey sends them to {str(code).replace('_', ' ').lower()}"
+
+
+def _readable(condition: str) -> str:
+    """A condition written the way a person would say it."""
+    text = condition.strip()
+    for symbol, words in ((" == ", " is "), (" != ", " is not "),
+                          (" >= ", " is at least "), (" <= ", " is at most "),
+                          (" > ", " is more than "), (" < ", " is less than ")):
+        text = text.replace(symbol, words)
+    return text
+
+
+def _negated(condition: str) -> str:
+    """The same condition, the other way round.
+
+    Appending "is not true" to an expression reads as a double negative and
+    makes a reader stop and work it out. Flipping the operator says the same
+    thing in the words they would use.
+    """
+    text = condition.strip()
+    for symbol, words in ((" == ", " is not "), (" != ", " is "),
+                          (" >= ", " is less than "), (" <= ", " is more than "),
+                          (" > ", " is at most "), (" < ", " is at least ")):
+        if symbol in text:
+            return text.replace(symbol, words)
+    if " contains " in text:
+        return text.replace(" contains ", " does not contain ")
+    if " in " in text:
+        return text.replace(" in ", " is not one of ")
+    return f"{_readable(text)} does not hold"
+
+
 def _name(spec: CanonicalSpec, t: CoverageTarget) -> str:
     d, s, pol = t.dimension, t.subject, t.polarity
     if d == "D1" and pol == "advances":
         return f"{s} accepts a normal answer and the survey moves on"
-    if d == "D1" and pol == "shown":
-        return f"{s} is shown when its condition is met"
-    if d == "D1" and pol == "hidden":
-        return f"{s} is not shown when its condition is not met"
+    if d == "D3" and pol == "boundary_max_accepted":
+        q = spec.question(s)
+        hi = ((q.validation.get("max_length") if q else None)
+              or (q.validation.get("max_selections") if q else None))
+        unit = ("characters" if (q and q.validation.get("max_length"))
+                else "selections")
+        return f"{s} accepts exactly {hi} {unit}, its stated maximum"
+    if d == "D3" and pol == "special_characters_accepted":
+        return f"{s} accepts punctuation and quotation marks"
+    if d == "D4" and pol == "whitespace_rejected":
+        return f"{s} refuses an answer of spaces alone"
+    if d == "D4" and pol == "whitespace_accepted":
+        return f"{s} accepts spaces alone, being optional"
+    if d == "D1" and pol in ("shown", "hidden"):
+        # Name the actual condition. "When its condition is met" tells a
+        # survey programmer nothing they can act on; "when Q5 is Yes" tells
+        # them exactly what to try.
+        q = spec.question(s)
+        cond = q.guard.render() if (q and q.guard) else "its condition is met"
+        return (f"{s} appears when {_readable(cond)}" if pol == "shown"
+                else f"{s} stays hidden when {_negated(cond)}")
     if d == "D1" and pol == "skip_fired":
         return f"{s.split(':')[0]} jumps forward when its condition is met"
     if d == "D1":
         return f"{s.split(':')[0]} does not jump when its condition is not met"
     if d == "D2":
         ending, _, named = s.partition("<-")
-        return f"End-to-end journey: {ending} by way of {named or 'routing'}"
+        rule = spec.rule(named) if named else None
+        finishes = str(ending).upper().startswith("COMPLETE")
+        outcome = ("reaches the end of the survey" if finishes
+                   else f"is stopped because {_ending_words(ending)}")
+        # The condition leads, because that is what a tester reproduces, and
+        # the outcome reads as its consequence.
+        if rule is not None and rule.when is not None:
+            return (f"When {_readable(rule.when.render())}, "
+                    f"the respondent {outcome}")
+        if named:
+            return f"Under rule {named}, the respondent {outcome}"
+        return f"Answering normally throughout, the respondent {outcome}"
     if d == "D3":
         q = spec.question(s)
         if q is not None:
-            return (f"{s} {'accepts a valid answer' if pol == 'satisfied' else 'rejects an invalid answer'}")
+            from .b1_targets import _rule_words
+            described = _rule_words(q.validation.constraints)
+            return (f"{s} accepts an answer that respects {described}"
+                    if pol == "satisfied"
+                    else f"{s} refuses an answer that breaks {described}")
         return f"Reject rule {s} {'does not fire' if pol == 'satisfied' else 'fires'}"
     if d == "D4":
         return (f"{s} blocks a blank answer" if pol == "enforced"
@@ -395,9 +474,14 @@ def _name(spec: CanonicalSpec, t: CoverageTarget) -> str:
                 "anchors_held": f"{s} keeps its pinned options in place"}[pol]
     if d == "D8":
         quota, cell = s.split(":")
-        return (f"{quota} admits a respondent while {cell} is open"
-                if pol == "available"
-                else f"{quota} turns a respondent away once {cell} is full")
+        return {
+            "available": f"{quota} admits a respondent while {cell} is open",
+            "full": f"{quota} turns a respondent away once {cell} is full",
+            "over_target_admits": f"{quota} still admits a respondent once "
+                                  f"{cell} is over target, being a soft quota",
+            "not_counted_by_other_cell": f"{quota} does not increment {cell} "
+                                         f"for a respondent in another cell",
+        }.get(pol, f"{quota} {pol} at {cell}")
     if d == "D9":
         a, b = s.split("+")
         return f"{b} is shown and reflects its dependency on {a} at the same time"
@@ -413,10 +497,13 @@ def _objective(spec: CanonicalSpec, t: CoverageTarget) -> str:
     if d == "D1" and pol in ("shown", "hidden"):
         q = spec.question(s)
         cond = q.guard.render() if (q and q.guard) else ""
-        verb = "IS shown" if pol == "shown" else "is NOT shown"
-        return (f"Prove {s} {verb} when its display rule is "
-                f"{'satisfied' if pol == 'shown' else 'not satisfied'}. "
-                f"The rule is: {cond}")
+        if pol == "shown":
+            return (f"Prove {s} appears for a respondent who satisfies its "
+                    f"display condition, which is: {cond}")
+        return (f"Prove {s} stays hidden for a respondent who does not "
+                f"satisfy its display condition, which is: {cond}. A survey "
+                f"that shows the question anyway asks people something the "
+                f"questionnaire says they should never see.")
     if d == "D1":
         rid = s.split(":")[0]
         rule = spec.rule(rid)
@@ -479,7 +566,7 @@ def _objective(spec: CanonicalSpec, t: CoverageTarget) -> str:
                 f"{c.target_count if c else '?'}.")
     if d == "D9":
         a, b = s.split("+")
-        return (f"Prove {b} is shown by its display rule and simultaneously "
+        return (f"Prove {b} appears and at the same time "
                 f"reflects its dependency on {a}. Each mechanism can be correct "
                 f"alone and still disagree together.")
     return t.claim
@@ -594,16 +681,16 @@ def build(out_path: FsPath, spec: CanonicalSpec, targets: list[CoverageTarget],
     # =================== TAB 1: SURVEY PATHS ===============================
     ws = _sheet(
         wb, True, "Survey Paths",
-        "The exclusive, branch-exhaustive set of respondent journeys through "
+        "Every distinct journey a respondent can take through "
         "this survey. Exclusive means no two paths walk the same question "
-        "sequence. Branch-exhaustive means every point where the survey can go "
+        "sequence. Every branch is taken both ways: every point where the survey can go "
         "more than one way is taken in both directions by at least one path. "
         "Start here: a journey is the unit a testing team can picture, run and "
         "sign off, and every test in the next tab is hosted on one of these.",
-        ["Path ID", "Path Name", "Route Class", "Preconditions",
-         "Branch Decisions", "Branch Values", "Expected Question Sequence",
-         "Questions Presented", "Expected Skips", "Expected Hidden / Not Presented",
-         "Expected Final Disposition", "QRE Rules Exercised",
+        ["Journey", "What it is", "Kind of journey", "Preconditions",
+         "Choices that define it", "The answers given", "Questions in order",
+         "Questions the respondent sees", "Questions skipped", "Questions never shown",
+         "How it ends", "QRE Rules Exercised",
          "Acceptance Scenario", "Why This Path Was Selected",
          "What This Path Adds That Others Do Not", "Tests Hosted",
          "Design State", "Runnable State"],
@@ -760,12 +847,12 @@ def build(out_path: FsPath, spec: CanonicalSpec, targets: list[CoverageTarget],
 
     # =================== TAB 3: NOT ENUMERATED =============================
     ws = _sheet(
-        wb, False, "Paths Not Enumerated",
+        wb, False, "Journeys left out, and why",
         "Which combinations were deliberately left out of the path set, how "
         "large each family is, and what risk remains. Stating this is what "
         "makes the selected set defensible rather than arbitrary.",
-        ["Family", "Size of the family", "Why it was collapsed",
-         "Residual risk"],
+        ["Group of journeys", "How many", "Why it was collapsed",
+         "What is not covered"],
         [50, 44, 62, 62])
     for item in path_report.get("not_enumerated", []):
         _row(ws, [item["family"], item["combinations"],

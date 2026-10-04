@@ -151,10 +151,8 @@ def assertions_for(spec: CanonicalSpec, target: CoverageTarget,
 
     if d == "D3" and pol in ("boundary_max_accepted",
                              "special_characters_accepted"):
-        q = spec.question(subject)
         why = ("an answer sitting exactly on the stated maximum is inside the "
-               "rule, not outside it"
-               if pol == "boundary_max_accepted" else
+               "rule, not outside it" if pol == "boundary_max_accepted" else
                "the rule constrains length and says nothing about content, so "
                "punctuation must be accepted")
         A("answer_accepted", True, subject, why)
@@ -168,8 +166,8 @@ def assertions_for(spec: CanonicalSpec, target: CoverageTarget,
 
     if d == "D4" and pol == "whitespace_accepted":
         A("answer_accepted", True, subject,
-          "the questionnaire marks this question optional, so spaces must not "
-          "block progress")
+          "the questionnaire marks this question optional, so spaces must "
+          "not block progress")
         return out
 
     if d == "D3" and pol == "satisfied":
@@ -217,17 +215,17 @@ def assertions_for(spec: CanonicalSpec, target: CoverageTarget,
         return out
 
     if d == "D8" and pol == "over_target_admits":
-        quota, cell = subject.split(":")
+        quota, _ = subject.split(":")
         A("respondent_accepted", True, quota,
-          "a soft quota must let the respondent continue even once the cell is "
-          "over its target")
+          "a soft quota must let the respondent continue even once the cell "
+          "is over its target")
         A("quota_recorded_over_target", subject, quota,
-          "and the overflow must be recorded, or the field team cannot see the "
-          "imbalance")
+          "and the overflow must be recorded, or the field team cannot see "
+          "the imbalance")
         return out
 
     if d == "D8" and pol == "not_counted_by_other_cell":
-        quota, cell = subject.split(":")
+        quota, _ = subject.split(":")
         A("cell_count_unchanged", subject, quota,
           "the count for this cell must be identical before and after a "
           "respondent who belongs to a different cell")
@@ -378,19 +376,6 @@ def _verb(spec: CanonicalSpec, q: Question, value: Any) -> str:
     if o:
         return f"choose \u201c{o.label}\u201d"
     text = str(value)
-
-    # Spaces are invisible, so saying "type    " tells the reader nothing and
-    # summarising them as an empty answer is worse: it describes a different
-    # test from the one being run.
-    if text and not text.strip():
-        n = len(text)
-        return f"type {n} space{'s' if n != 1 else ''} and nothing else"
-
-    # A long run of filler is worth summarising, because its content carries no
-    # meaning. Anything with real characters in it must be shown, because the
-    # characters ARE the test.
-    if len(text) > 24 and len(set(text)) <= 2:
+    if len(text) > 24:
         return f"type a {len(text)}-character answer"
-    if len(text) > 60:
-        return f"type this {len(text)}-character answer: \u201c{text[:50]}\u2026\u201d"
     return f"type \u201c{text}\u201d"

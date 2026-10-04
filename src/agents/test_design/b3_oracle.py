@@ -199,10 +199,9 @@ class Interpreter:
         raw = answers[q.id]
         blank = raw is None or raw == [] or raw == {} or raw == ""
 
-        # An answer of spaces alone. Whether that counts as an answer is a
-        # reading the questionnaire never states, so it is taken from the
-        # semantics rather than assumed here, and every test that depends on it
-        # is tagged. The default reading is that spaces are not an answer.
+        # An answer of spaces alone. Whether that counts is a reading the
+        # questionnaire never states, so it comes from the semantics rather
+        # than being assumed here, and every dependent test is tagged.
         if not blank and isinstance(raw, str) and raw and not raw.strip():
             self.used.add(WHITESPACE)
             blank = self.sem.values.get(WHITESPACE) != "an_answer"
@@ -360,8 +359,7 @@ class Interpreter:
                 # A soft quota records the overflow and lets the respondent
                 # continue. Only a hard quota ends the journey.
                 if (quota.enforcement or "hard").lower() == "soft":
-                    chosen_soft = self._given(q.id, answers) or []
-                    for oid in chosen_soft:
+                    for oid in (self._given(q.id, answers) or []):
                         if f"{quota.id}:{oid}" in self.quota_full:
                             state.quota_over_target = f"{quota.id}:{oid}"
                     continue

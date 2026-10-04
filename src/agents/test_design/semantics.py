@@ -29,12 +29,9 @@ PRECEDENCE = "rule_precedence"
 MULTI_EQ = "multi_equality"
 
 # Does an answer of spaces alone satisfy a compulsory question? No
-# questionnaire we have seen says. The reading matters: if spaces count as an
-# answer, a respondent who taps the space bar produces a response with nothing
-# in it and the data is quietly lost. LimeSurvey does not trim, so on a real
-# build spaces DO count, which means a test asserting otherwise is a test the
-# build is expected to fail. That is worth knowing rather than assuming either
-# way, so it is recorded here with the other unconfirmed readings.
+# questionnaire we have seen says. LimeSurvey does not trim, so on a real
+# build spaces DO count, which means a test asserting otherwise is one the
+# build is expected to fail. Worth knowing rather than assuming either way.
 WHITESPACE = "whitespace_is_an_answer"
 MANDATORY = "default_mandatory"
 

@@ -1,0 +1,69 @@
+# The platform on one machine: the app, LimeSurvey for it to test against,
+# and the database LimeSurvey needs.
+
+services:
+  app:
+    build: .
+    restart: unless-stopped
+    environment:
+      GROQ_API_KEY: ${GROQ_API_KEY}
+      # Inside the private network LimeSurvey is reached by service name.
+      # localhost would be the app's own container.
+      LIMESURVEY_BASE: http://limesurvey:8080
+    volumes:
+      # Everything worth keeping. Rebuilding the image leaves these alone.
+      - ./out:/app/out
+      - ./data:/app/data
+    ports:
+      # Loopback only. Docker publishes a port by writing its own iptables
+      # rules, which bypass ufw, so a published port is on the internet
+      # whatever the firewall says. Tailscale proxies to this from inside
+      # the machine instead.
+      - "127.0.0.1:8501:8501"
+    depends_on:
+      - limesurvey
+
+  limesurvey:
+    image: martialblog/limesurvey:6-apache
+    restart: unless-stopped
+    environment:
+      DB_TYPE: mysql
+      DB_HOST: db
+      DB_PORT: 3306
+      DB_NAME: limesurvey
+      DB_USERNAME: limesurvey
+      DB_PASSWORD: ${DB_PASSWORD}
+      ADMIN_USER: admin
+      ADMIN_PASSWORD: ${LIMESURVEY_ADMIN_PASSWORD}
+      ADMIN_EMAIL: ${ADMIN_EMAIL}
+    volumes:
+      - limesurvey_data:/var/www/html/upload
+      - limesurvey_config:/var/www/html/application/config
+    ports:
+      - "127.0.0.1:8080:8080"
+    depends_on:
+      db:
+        condition: service_healthy
+
+  db:
+    image: mariadb:11
+    restart: unless-stopped
+    environment:
+      MARIADB_DATABASE: limesurvey
+      MARIADB_USER: limesurvey
+      MARIADB_PASSWORD: ${DB_PASSWORD}
+      MARIADB_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
+    volumes:
+      - db_data:/var/lib/mysql
+    healthcheck:
+      # LimeSurvey installs itself against a database that may still be
+      # starting, and fails silently if it is, so it waits.
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  limesurvey_data:
+  limesurvey_config:
+  db_data:

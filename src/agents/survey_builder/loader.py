@@ -18,6 +18,7 @@ from __future__ import annotations
 
 import json
 import re
+import hashlib
 from pathlib import Path
 
 from src.agents.survey_builder.models import Group, Option, Question, Subquestion, Survey
@@ -177,28 +178,13 @@ def _build_question(raw: dict, order: int) -> Question:
         question.attributes["equals_num_value"] = str(int(raw["sum_to"]))
     if raw.get("min_selections") is not None:
         question.attributes["min_answers"] = str(raw["min_selections"])
-
     if raw.get("max_length") is not None:
-        # Caps what the box will hold, but does not stop a longer answer being
-        # submitted, so it is paired with a validation below.
         question.attributes["maximum_chars"] = str(raw["max_length"])
-
-    # LimeSurvey has no minimum-length setting, and maximum_chars alone does
-    # not refuse an over-long answer on submit. Both are expressed as one
-    # validation because a question can state both and a second em_validation_q
-    # would replace the first rather than add to it.
-    checks: list[str] = []
-    tips: list[str] = []
     if raw.get("min_length") is not None:
-        checks.append(f"strlen(this) >= {raw['min_length']}")
-        tips.append(f"at least {raw['min_length']} characters")
-    if raw.get("max_length") is not None:
-        checks.append(f"strlen(this) <= {raw['max_length']}")
-        tips.append(f"no more than {raw['max_length']} characters")
-    if checks:
-        question.attributes["em_validation_q"] = " and ".join(checks)
+        # LimeSurvey has no minimum-length setting; this is the only route.
+        question.attributes["em_validation_q"] = f"strlen(this) >= {raw['min_length']}"
         question.localized_attributes["em_validation_q_tip"] = (
-            "Please enter " + " and ".join(tips) + "."
+            f"Please enter at least {raw['min_length']} characters."
         )
 
     return question
@@ -342,6 +328,22 @@ def _end_text(messages: list[dict], terminations: list[tuple[str, str]]) -> str:
     return f"<p>{{{text}}}</p>"
 
 
+def _survey_id(run_name: str) -> int:
+    """A distinct survey id per questionnaire, derived from its name.
+
+    Every build used to ask for 900001. Import a second survey and
+    LimeSurvey silently gives it a different id, so the number the bot is
+    told and the number in the file disagree, and anyone reading either has
+    to guess which is live.
+
+    Deriving it from the name keeps it stable across rebuilds of the same
+    questionnaire and distinct between different ones. LimeSurvey accepts
+    six digits, so the range is 100000 to 999999.
+    """
+    digest = hashlib.sha256(run_name.encode("utf-8")).hexdigest()
+    return 100000 + int(digest[:8], 16) % 900000
+
+
 def load(directory: str | Path) -> Survey:
     directory = Path(directory)
     survey_raw = json.loads((directory / "stage4_survey.json").read_text())
@@ -460,5 +462,6 @@ def load(directory: str | Path) -> Survey:
         description=survey_raw.get("description") or "",
         welcome_text=survey_raw.get("welcome_text") or "",
         end_text=_end_text(messages_raw, terminate),
+        sid=_survey_id(Path(directory).name),
         groups=groups,
     )
