@@ -9,12 +9,12 @@
   },
   "upstream": {
     "canonical_schema_version": "1.0.0",
-    "canonical_generated_at": "2026-09-30T12:43:03+00:00"
+    "canonical_generated_at": "2026-10-04T06:44:22+00:00"
   },
   "content": {
     "survey_id": "S01_campus_cafeteria_experience",
-    "lss_path": "out\\S01_campus_cafeteria_experience_generated.lss",
-    "lss_sha256": "e8e07d8d044b32a10a24510ab7db3229d50d10d78036a2621e8361e7e59f80ef",
+    "lss_path": "out/S01_campus_cafeteria_experience_generated.lss",
+    "lss_sha256": "dfe04160dfda6ec50978e74708db5b49c51cf58572da6888484fadf367f6660a",
     "sid": 900001,
     "groups": {
       "100": "Screening",
@@ -26,6 +26,7 @@
     },
     "screening_gid": 100,
     "main_gid": 101,
+    "one_question_per_page": true,
     "questions": {
       "S1": {
         "canonical_id": "S1",
@@ -180,7 +181,6 @@
         "option_codes": {},
         "subquestion_codes": {},
         "attributes": {
-          "maximum_chars": "500",
           "em_validation_q": "strlen(this) >= 10 and strlen(this) <= 500",
           "em_validation_q_tip": "Please enter at least 10 characters and no more than 500 characters."
         }
@@ -226,7 +226,6 @@
         "option_codes": {},
         "subquestion_codes": {},
         "attributes": {
-          "maximum_chars": "500",
           "em_validation_q": "strlen(this) <= 500",
           "em_validation_q_tip": "Please enter no more than 500 characters."
         }

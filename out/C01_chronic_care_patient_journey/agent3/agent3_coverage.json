@@ -9,7 +9,7 @@
   },
   "upstream": {
     "canonical_schema_version": "1.0.0",
-    "canonical_generated_at": "2026-09-11T16:40:48+00:00"
+    "canonical_generated_at": "2026-10-04T06:55:23+00:00"
   },
   "content": {
     "project_inputs": {},
@@ -107,12 +107,15 @@
         "D3": {
           "name": "Validation (explicit)",
           "enumerated": 32,
-          "covered": 32,
-          "uncovered": 0,
-          "reasons": {},
-          "provisional": 30,
-          "enumeration_status": "EXHAUSTIVE",
-          "logical_coverage_pct": 100.0
+          "covered": 30,
+          "uncovered": 2,
+          "reasons": {
+            "UNVERIFIABLE": 1,
+            "INFEASIBLE": 1
+          },
+          "provisional": 29,
+          "enumeration_status": "PARTIAL",
+          "logical_coverage_pct": 93.8
         },
         "D4": {
           "name": "Validation (mandatory)",

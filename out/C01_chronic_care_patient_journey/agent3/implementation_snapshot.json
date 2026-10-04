@@ -9,12 +9,12 @@
   },
   "upstream": {
     "canonical_schema_version": "1.0.0",
-    "canonical_generated_at": "2026-09-11T16:40:48+00:00"
+    "canonical_generated_at": "2026-10-04T06:55:23+00:00"
   },
   "content": {
     "survey_id": "C01_chronic_care_patient_journey",
-    "lss_path": "out\\C01_chronic_care_patient_journey_generated.lss",
-    "lss_sha256": "1ef79bfc08e1495cc19ae0333dd5498fda9b29a8ec51d4b1a395e5f968229373",
+    "lss_path": "out/C01_chronic_care_patient_journey_generated.lss",
+    "lss_sha256": "03b5434d30ce07f0ce657ab15b3620051226f31e23fa7b33f47a50c90c7d7ec0",
     "sid": 900001,
     "groups": {
       "100": "Screening",
@@ -26,6 +26,7 @@
     },
     "screening_gid": 100,
     "main_gid": 101,
+    "one_question_per_page": true,
     "questions": {
       "S1": {
         "canonical_id": "S1",
@@ -54,7 +55,7 @@
         "title": "S2",
         "wording": "Which statement best describes your involvement?",
         "mandatory": true,
-        "relevance": "1",
+        "relevance": "(S1.NAOK != \"A002\")",
         "order": 2,
         "option_codes": {
           "Personally manage an ongoing chronic health condition": "A001",
@@ -73,7 +74,7 @@
         "title": "S3",
         "wording": "Have you participated in market research in the past 3 months?",
         "mandatory": true,
-        "relevance": "1",
+        "relevance": "(S1.NAOK != \"A002\") and (S2.NAOK == \"A001\")",
         "order": 3,
         "option_codes": {
           "Yes": "A001",
@@ -91,7 +92,7 @@
         "title": "S4",
         "wording": "Do you or an immediate family member work in market research, advertising, or the category being studied?",
         "mandatory": true,
-        "relevance": "1",
+        "relevance": "(S1.NAOK != \"A002\") and (S2.NAOK == \"A001\") and (S3.NAOK != \"A001\")",
         "order": 4,
         "option_codes": {
           "Yes": "A001",
@@ -120,6 +121,7 @@
           "None of these": "SQ005"
         },
         "attributes": {
+          "answer_order": "random",
           "exclude_all_others": "SQ005"
         }
       },
@@ -209,6 +211,7 @@
           "None of these": "SQ007"
         },
         "attributes": {
+          "answer_order": "random",
           "exclude_all_others": "SQ007"
         }
       },
@@ -310,7 +313,9 @@
           "Emotional support": "SQ005",
           "Digital tools": "SQ006"
         },
-        "attributes": {}
+        "attributes": {
+          "answer_order": "random"
+        }
       },
       "Q10": {
         "canonical_id": "Q10",
@@ -407,9 +412,8 @@
         "option_codes": {},
         "subquestion_codes": {},
         "attributes": {
-          "maximum_chars": "500",
-          "em_validation_q": "strlen(this) >= 10",
-          "em_validation_q_tip": "Please enter at least 10 characters."
+          "em_validation_q": "strlen(this) >= 10 and strlen(this) <= 500",
+          "em_validation_q_tip": "Please enter at least 10 characters and no more than 500 characters."
         }
       },
       "Q15": {
@@ -450,7 +454,9 @@
           "Other": "A006"
         },
         "subquestion_codes": {},
-        "attributes": {}
+        "attributes": {
+          "answer_order": "random"
+        }
       },
       "Q17": {
         "canonical_id": "Q17",
@@ -466,9 +472,8 @@
         "option_codes": {},
         "subquestion_codes": {},
         "attributes": {
-          "maximum_chars": "200",
-          "em_validation_q": "strlen(this) >= 3",
-          "em_validation_q_tip": "Please enter at least 3 characters."
+          "em_validation_q": "strlen(this) >= 3 and strlen(this) <= 200",
+          "em_validation_q_tip": "Please enter at least 3 characters and no more than 200 characters."
         }
       },
       "Q18": {
@@ -511,7 +516,9 @@
           "Concept C": "A003"
         },
         "subquestion_codes": {},
-        "attributes": {}
+        "attributes": {
+          "answer_order": "random"
+        }
       },
       "Q20": {
         "canonical_id": "Q20",
@@ -548,9 +555,8 @@
         "option_codes": {},
         "subquestion_codes": {},
         "attributes": {
-          "maximum_chars": "500",
-          "em_validation_q": "strlen(this) >= 5",
-          "em_validation_q_tip": "Please enter at least 5 characters."
+          "em_validation_q": "strlen(this) >= 5 and strlen(this) <= 500",
+          "em_validation_q_tip": "Please enter at least 5 characters and no more than 500 characters."
         }
       },
       "D1": {
@@ -669,7 +675,8 @@
         "option_codes": {},
         "subquestion_codes": {},
         "attributes": {
-          "maximum_chars": "1000"
+          "em_validation_q": "strlen(this) <= 1000",
+          "em_validation_q_tip": "Please enter no more than 1000 characters."
         }
       }
     },

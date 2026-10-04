@@ -8,7 +8,7 @@
     "sha256": "319e6b78a2a1e36ef712ce421e6d2c1db3325a087a07d8d0e93ec38b39207e4b",
     "bytes": 43612
   },
-  "generated_at": "2026-09-11T16:40:48+00:00",
+  "generated_at": "2026-10-04T06:55:23+00:00",
   "item_count": null,
   "content": {
     "source": "C01_chronic_care_patient_journey.docx",
@@ -462,7 +462,7 @@
         },
         "option_source": {
           "from_question": "Q1",
-          "instruction": "only brands selected at Q1.",
+          "instruction": "brands selected at Q1.",
           "origin": "derived",
           "source_reference": {
             "document": "C01_chronic_care_patient_journey.docx",
@@ -3450,157 +3450,8 @@
       {
         "rule_id": "R19",
         "kind": "reject",
-        "when": {
-          "op": "or",
-          "left": null,
-          "right": null,
-          "operands": [
-            {
-              "op": "and",
-              "left": null,
-              "right": null,
-              "operands": [
-                {
-                  "op": "contains",
-                  "left": {
-                    "question_id": "Q1",
-                    "aggregate": null,
-                    "text": null,
-                    "number": null,
-                    "values": null,
-                    "option_ids": null
-                  },
-                  "right": {
-                    "question_id": null,
-                    "aggregate": null,
-                    "text": "None of these",
-                    "number": null,
-                    "values": null,
-                    "option_ids": [
-                      "Q1-O5"
-                    ]
-                  },
-                  "operands": [],
-                  "source_text": "Q1 contains 'None of these'",
-                  "origin": "derived",
-                  "confidence": null
-                },
-                {
-                  "op": "contains_any",
-                  "left": {
-                    "question_id": "Q1",
-                    "aggregate": null,
-                    "text": null,
-                    "number": null,
-                    "values": null,
-                    "option_ids": null
-                  },
-                  "right": {
-                    "question_id": null,
-                    "aggregate": null,
-                    "text": null,
-                    "number": null,
-                    "values": [
-                      "Care Network A",
-                      "Care Network B",
-                      "Care Network C",
-                      "Independent provider"
-                    ],
-                    "option_ids": [
-                      "Q1-O1",
-                      "Q1-O2",
-                      "Q1-O3",
-                      "Q1-O4"
-                    ]
-                  },
-                  "operands": [],
-                  "source_text": "Q1 contains_any ['Care Network A','Care Network B','Care Network C','Independent provider']",
-                  "origin": "derived",
-                  "confidence": null
-                }
-              ],
-              "source_text": "Q1 contains 'None of these' and Q1 contains_any ['Care Network A','Care Network B','Care Network C','Independent provider']",
-              "origin": "derived",
-              "confidence": null
-            },
-            {
-              "op": "and",
-              "left": null,
-              "right": null,
-              "operands": [
-                {
-                  "op": "contains",
-                  "left": {
-                    "question_id": "Q5",
-                    "aggregate": null,
-                    "text": null,
-                    "number": null,
-                    "values": null,
-                    "option_ids": null
-                  },
-                  "right": {
-                    "question_id": null,
-                    "aggregate": null,
-                    "text": "None of these",
-                    "number": null,
-                    "values": null,
-                    "option_ids": [
-                      "Q5-O7"
-                    ]
-                  },
-                  "operands": [],
-                  "source_text": "Q5 contains 'None of these'",
-                  "origin": "derived",
-                  "confidence": null
-                },
-                {
-                  "op": "contains_any",
-                  "left": {
-                    "question_id": "Q5",
-                    "aggregate": null,
-                    "text": null,
-                    "number": null,
-                    "values": null,
-                    "option_ids": null
-                  },
-                  "right": {
-                    "question_id": null,
-                    "aggregate": null,
-                    "text": null,
-                    "number": null,
-                    "values": [
-                      "Primary-care physician",
-                      "Specialist",
-                      "Hospital",
-                      "Pharmacy",
-                      "Patient portal",
-                      "Support programme"
-                    ],
-                    "option_ids": [
-                      "Q5-O1",
-                      "Q5-O2",
-                      "Q5-O3",
-                      "Q5-O4",
-                      "Q5-O5",
-                      "Q5-O6"
-                    ]
-                  },
-                  "operands": [],
-                  "source_text": "Q5 contains_any ['Primary-care physician','Specialist','Hospital','Pharmacy','Patient portal','Support programme']",
-                  "origin": "derived",
-                  "confidence": null
-                }
-              ],
-              "source_text": "Q5 contains 'None of these' and Q5 contains_any ['Primary-care physician','Specialist','Hospital','Pharmacy','Patient portal','Support programme']",
-              "origin": "derived",
-              "confidence": null
-            }
-          ],
-          "source_text": "exclusive option selected with another response at Q1 or Q5",
-          "origin": "inferred",
-          "confidence": 0.9
-        },
-        "when_unread": null,
+        "when": null,
+        "when_unread": "exclusive option selected with another response at Q1 or Q5",
         "destination": {
           "kind": "position",
           "id": "CURRENT_QUESTION",
@@ -3680,7 +3531,7 @@
         "from_question": "Q1",
         "to_question": "Q2",
         "kind": "option_source",
-        "detail": "only brands selected at Q1.",
+        "detail": "brands selected at Q1.",
         "origin": "derived",
         "confidence": null,
         "source_reference": {
@@ -3716,7 +3567,7 @@
         "kind": "text_pipe",
         "detail": "the current provider",
         "origin": "inferred",
-        "confidence": 1.0,
+        "confidence": 0.99,
         "source_reference": {
           "document": "C01_chronic_care_patient_journey.docx",
           "section": "Questionnaire",
@@ -3733,7 +3584,7 @@
         "kind": "text_pipe",
         "detail": "your current provider",
         "origin": "inferred",
-        "confidence": 1.0,
+        "confidence": 0.99,
         "source_reference": {
           "document": "C01_chronic_care_patient_journey.docx",
           "section": "Questionnaire",
@@ -3750,7 +3601,7 @@
         "kind": "text_pipe",
         "detail": "the selected proposition",
         "origin": "inferred",
-        "confidence": 1.0,
+        "confidence": 0.99,
         "source_reference": {
           "document": "C01_chronic_care_patient_journey.docx",
           "section": "Questionnaire",
@@ -3767,7 +3618,7 @@
         "kind": "text_pipe",
         "detail": "your choice",
         "origin": "inferred",
-        "confidence": 0.95,
+        "confidence": 0.75,
         "source_reference": {
           "document": "C01_chronic_care_patient_journey.docx",
           "section": "Questionnaire",
@@ -3906,7 +3757,7 @@
         "on_full": "TERM_QUOTA_FULL",
         "evaluation_point": "D1",
         "origin": "inferred",
-        "confidence": 0.99,
+        "confidence": 1.0,
         "source_text": "QUOTA_REGION: hard quota on D1: North=20%, South=20%, East=20%, West=20%, Central=20%"
       },
       {
@@ -3948,7 +3799,7 @@
         "on_full": "TERM_QUOTA_FULL",
         "evaluation_point": "D2",
         "origin": "inferred",
-        "confidence": 1.0,
+        "confidence": 0.99,
         "source_text": "QUOTA_AGE: soft quota on D2: 21-29=20%, 30-39=25%, 40-49=25%, 50-59=20%, 60+=10%"
       }
     ],
@@ -4732,7 +4583,7 @@
       {
         "check": "condition_unread",
         "severity": "WARNING",
-        "finding": "Q6's display condition could not be read as a condition: model declined: The phrase \"Q5 contains any touchpoint\" is ambiguous: it is unclear whether it refers to any of the specific listed touchpoint options (excluding 'None of these') or to any selection at all. The grammar requires an explicit list for the contains_any operator, and without a definitive interpretation we cannot safely construct a precise expression. Returning null avoids routing errors.",
+        "finding": "Q6's display condition could not be read as a condition: model declined: The phrase 'Q5 contains any touchpoint' is ambiguous: it is unclear which specific answer labels constitute a 'touchpoint'. The answer list includes several possible touchpoints and a 'None of these' option, but without explicit mapping we cannot confidently construct a precise contains_any list. To avoid misrouting, we return null.",
         "target": {
           "kind": "question",
           "id": "Q6"
@@ -4774,14 +4625,14 @@
         "source_reference": null
       },
       {
-        "check": "condition_inferred",
+        "check": "condition_unread",
         "severity": "WARNING",
-        "finding": "Rule R19 was prose, so a model proposed a reading which the parser then accepted. Worth a human eye.",
+        "finding": "Rule R19 could not be read as a condition: model declined: The wording 'exclusive option selected with another response at Q1 or Q5' is ambiguous. It is unclear whether it refers to the 'None of these' option being selected together with any other answer at the same question, or whether it involves both Q1 and Q5. The grammar requires explicit answer labels for membership checks, and without a precise interpretation we cannot safely construct a correct expression.",
         "target": {
           "kind": "rule",
           "id": "R19"
         },
-        "evidence": "exclusive option selected with another response at Q1 or Q5  ->  ((Q1 contains 'None of these' and Q1 contains_any ['Care Network A', 'Care Network B', 'Care Network C', 'Independent provider']) or (Q5 contains 'None of these' and Q5 contains_any ['Primary-care physician', 'Specialist', 'Hospital', 'Pharmacy', 'Patient portal', 'Support programme']))",
+        "evidence": "exclusive option selected with another response at Q1 or Q5",
         "source_reference": null
       },
       {
@@ -4847,7 +4698,7 @@
           "kind": "question",
           "id": "Q8"
         },
-        "evidence": "'the current provider' (confidence 1.00)",
+        "evidence": "'the current provider' (confidence 0.99)",
         "source_reference": null
       },
       {
@@ -4858,7 +4709,7 @@
           "kind": "question",
           "id": "Q9"
         },
-        "evidence": "'your current provider' (confidence 1.00)",
+        "evidence": "'your current provider' (confidence 0.99)",
         "source_reference": null
       },
       {
@@ -4869,7 +4720,7 @@
           "kind": "question",
           "id": "Q20"
         },
-        "evidence": "'the selected proposition' (confidence 1.00)",
+        "evidence": "'the selected proposition' (confidence 0.99)",
         "source_reference": null
       },
       {
@@ -4880,7 +4731,7 @@
           "kind": "question",
           "id": "Q21"
         },
-        "evidence": "'your choice' (confidence 0.95)",
+        "evidence": "'your choice' (confidence 0.75)",
         "source_reference": null
       },
       {

@@ -9,7 +9,7 @@
   },
   "upstream": {
     "canonical_schema_version": "1.0.0",
-    "canonical_generated_at": "2026-09-11T16:40:48+00:00"
+    "canonical_generated_at": "2026-10-04T06:55:23+00:00"
   },
   "content": {
     "scenarios": [
@@ -112,7 +112,14 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [],
+          "validation_messages_expected": [
+            {
+              "question_id": "Q5",
+              "rule": "R19",
+              "outcome": "violated",
+              "detail": "reject rule R19 fires: "
+            }
+          ],
           "piped_text_visible": {
             "Q8": "Care Network A",
             "Q9": "Care Network A",
@@ -130,7 +137,8 @@
         },
         "proof": "after answering D1 the respondent went on to D2",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "preconditions": {},
         "campaign": {},
@@ -235,7 +243,14 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [],
+          "validation_messages_expected": [
+            {
+              "question_id": "Q5",
+              "rule": "R19",
+              "outcome": "violated",
+              "detail": "reject rule R19 fires: "
+            }
+          ],
           "piped_text_visible": {
             "Q8": "Care Network A",
             "Q9": "Care Network A",
@@ -253,7 +268,8 @@
         },
         "proof": "after answering D2 the respondent went on to D3",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "preconditions": {},
         "campaign": {},
@@ -358,7 +374,14 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [],
+          "validation_messages_expected": [
+            {
+              "question_id": "Q5",
+              "rule": "R19",
+              "outcome": "violated",
+              "detail": "reject rule R19 fires: "
+            }
+          ],
           "piped_text_visible": {
             "Q8": "Care Network A",
             "Q9": "Care Network A",
@@ -376,7 +399,8 @@
         },
         "proof": "after answering D3 the respondent went on to D4",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "preconditions": {},
         "campaign": {},
@@ -481,7 +505,14 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [],
+          "validation_messages_expected": [
+            {
+              "question_id": "Q5",
+              "rule": "R19",
+              "outcome": "violated",
+              "detail": "reject rule R19 fires: "
+            }
+          ],
           "piped_text_visible": {
             "Q8": "Care Network A",
             "Q9": "Care Network A",
@@ -499,7 +530,8 @@
         },
         "proof": "after answering D4 the respondent went on to Q22",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "preconditions": {},
         "campaign": {},
@@ -604,7 +636,14 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [],
+          "validation_messages_expected": [
+            {
+              "question_id": "Q5",
+              "rule": "R19",
+              "outcome": "violated",
+              "detail": "reject rule R19 fires: "
+            }
+          ],
           "piped_text_visible": {
             "Q8": "Care Network A",
             "Q9": "Care Network A",
@@ -622,7 +661,8 @@
         },
         "proof": "after answering Q1 the respondent went on to Q2",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "preconditions": {},
         "campaign": {},
@@ -727,7 +767,14 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [],
+          "validation_messages_expected": [
+            {
+              "question_id": "Q5",
+              "rule": "R19",
+              "outcome": "violated",
+              "detail": "reject rule R19 fires: "
+            }
+          ],
           "piped_text_visible": {
             "Q8": "Care Network A",
             "Q9": "Care Network A",
@@ -745,7 +792,8 @@
         },
         "proof": "after answering Q10 the respondent went on to Q11",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "preconditions": {},
         "campaign": {},
@@ -850,7 +898,14 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [],
+          "validation_messages_expected": [
+            {
+              "question_id": "Q5",
+              "rule": "R19",
+              "outcome": "violated",
+              "detail": "reject rule R19 fires: "
+            }
+          ],
           "piped_text_visible": {
             "Q8": "Care Network A",
             "Q9": "Care Network A",
@@ -868,7 +923,8 @@
         },
         "proof": "after answering Q11 the respondent went on to Q12",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "preconditions": {},
         "campaign": {},
@@ -973,7 +1029,14 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [],
+          "validation_messages_expected": [
+            {
+              "question_id": "Q5",
+              "rule": "R19",
+              "outcome": "violated",
+              "detail": "reject rule R19 fires: "
+            }
+          ],
           "piped_text_visible": {
             "Q8": "Care Network A",
             "Q9": "Care Network A",
@@ -991,7 +1054,8 @@
         },
         "proof": "Q11 predicted hidden while the respondent continued",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "preconditions": {},
         "campaign": {},
@@ -1096,7 +1160,14 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [],
+          "validation_messages_expected": [
+            {
+              "question_id": "Q5",
+              "rule": "R19",
+              "outcome": "violated",
+              "detail": "reject rule R19 fires: "
+            }
+          ],
           "piped_text_visible": {
             "Q8": "Care Network A",
             "Q9": "Care Network A",
@@ -1114,7 +1185,8 @@
         },
         "proof": "Q11 appears in the predicted path",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "preconditions": {},
         "campaign": {},
@@ -1219,7 +1291,14 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [],
+          "validation_messages_expected": [
+            {
+              "question_id": "Q5",
+              "rule": "R19",
+              "outcome": "violated",
+              "detail": "reject rule R19 fires: "
+            }
+          ],
           "piped_text_visible": {
             "Q8": "Care Network A",
             "Q9": "Care Network A",
@@ -1237,7 +1316,8 @@
         },
         "proof": "after answering Q12 the respondent went on to Q13",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "preconditions": {},
         "campaign": {},
@@ -1342,7 +1422,14 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [],
+          "validation_messages_expected": [
+            {
+              "question_id": "Q5",
+              "rule": "R19",
+              "outcome": "violated",
+              "detail": "reject rule R19 fires: "
+            }
+          ],
           "piped_text_visible": {
             "Q8": "Care Network A",
             "Q9": "Care Network A",
@@ -1360,7 +1447,8 @@
         },
         "proof": "Q12 predicted hidden while the respondent continued",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "preconditions": {},
         "campaign": {},
@@ -1465,7 +1553,14 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [],
+          "validation_messages_expected": [
+            {
+              "question_id": "Q5",
+              "rule": "R19",
+              "outcome": "violated",
+              "detail": "reject rule R19 fires: "
+            }
+          ],
           "piped_text_visible": {
             "Q8": "Care Network A",
             "Q9": "Care Network A",
@@ -1483,7 +1578,8 @@
         },
         "proof": "Q12 appears in the predicted path",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "preconditions": {},
         "campaign": {},
@@ -1588,7 +1684,14 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [],
+          "validation_messages_expected": [
+            {
+              "question_id": "Q5",
+              "rule": "R19",
+              "outcome": "violated",
+              "detail": "reject rule R19 fires: "
+            }
+          ],
           "piped_text_visible": {
             "Q8": "Care Network A",
             "Q9": "Care Network A",
@@ -1606,7 +1709,8 @@
         },
         "proof": "after answering Q13 the respondent went on to Q15",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "preconditions": {},
         "campaign": {},
@@ -1711,7 +1815,14 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [],
+          "validation_messages_expected": [
+            {
+              "question_id": "Q5",
+              "rule": "R19",
+              "outcome": "violated",
+              "detail": "reject rule R19 fires: "
+            }
+          ],
           "piped_text_visible": {
             "Q8": "Care Network A",
             "Q9": "Care Network A",
@@ -1729,7 +1840,8 @@
         },
         "proof": "Q13 predicted hidden while the respondent continued",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "preconditions": {},
         "campaign": {},
@@ -1834,7 +1946,14 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [],
+          "validation_messages_expected": [
+            {
+              "question_id": "Q5",
+              "rule": "R19",
+              "outcome": "violated",
+              "detail": "reject rule R19 fires: "
+            }
+          ],
           "piped_text_visible": {
             "Q8": "Care Network A",
             "Q9": "Care Network A",
@@ -1852,7 +1971,8 @@
         },
         "proof": "Q13 appears in the predicted path",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "preconditions": {},
         "campaign": {},
@@ -1957,7 +2077,14 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [],
+          "validation_messages_expected": [
+            {
+              "question_id": "Q5",
+              "rule": "R19",
+              "outcome": "violated",
+              "detail": "reject rule R19 fires: "
+            }
+          ],
           "piped_text_visible": {
             "Q8": "Care Network A",
             "Q9": "Care Network A",
@@ -1975,7 +2102,8 @@
         },
         "proof": "after answering Q14 the respondent went on to Q15",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "preconditions": {},
         "campaign": {},
@@ -2080,7 +2208,14 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [],
+          "validation_messages_expected": [
+            {
+              "question_id": "Q5",
+              "rule": "R19",
+              "outcome": "violated",
+              "detail": "reject rule R19 fires: "
+            }
+          ],
           "piped_text_visible": {
             "Q8": "Care Network A",
             "Q9": "Care Network A",
@@ -2098,7 +2233,8 @@
         },
         "proof": "Q14 predicted hidden while the respondent continued",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "preconditions": {},
         "campaign": {},
@@ -2203,7 +2339,14 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [],
+          "validation_messages_expected": [
+            {
+              "question_id": "Q5",
+              "rule": "R19",
+              "outcome": "violated",
+              "detail": "reject rule R19 fires: "
+            }
+          ],
           "piped_text_visible": {
             "Q8": "Care Network A",
             "Q9": "Care Network A",
@@ -2221,7 +2364,8 @@
         },
         "proof": "Q14 appears in the predicted path",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "preconditions": {},
         "campaign": {},
@@ -2326,7 +2470,14 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [],
+          "validation_messages_expected": [
+            {
+              "question_id": "Q5",
+              "rule": "R19",
+              "outcome": "violated",
+              "detail": "reject rule R19 fires: "
+            }
+          ],
           "piped_text_visible": {
             "Q8": "Care Network A",
             "Q9": "Care Network A",
@@ -2344,7 +2495,8 @@
         },
         "proof": "after answering Q15 the respondent went on to Q16",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "preconditions": {},
         "campaign": {},
@@ -2449,7 +2601,14 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [],
+          "validation_messages_expected": [
+            {
+              "question_id": "Q5",
+              "rule": "R19",
+              "outcome": "violated",
+              "detail": "reject rule R19 fires: "
+            }
+          ],
           "piped_text_visible": {
             "Q20": "Concept A",
             "Q21": "Concept A"
@@ -2465,7 +2624,8 @@
         },
         "proof": "Q15 predicted hidden while the respondent continued",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "preconditions": {},
         "campaign": {},
@@ -2570,7 +2730,14 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [],
+          "validation_messages_expected": [
+            {
+              "question_id": "Q5",
+              "rule": "R19",
+              "outcome": "violated",
+              "detail": "reject rule R19 fires: "
+            }
+          ],
           "piped_text_visible": {
             "Q8": "Care Network A",
             "Q9": "Care Network A",
@@ -2588,7 +2755,8 @@
         },
         "proof": "Q15 appears in the predicted path",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "preconditions": {},
         "campaign": {},
@@ -2693,7 +2861,14 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [],
+          "validation_messages_expected": [
+            {
+              "question_id": "Q5",
+              "rule": "R19",
+              "outcome": "violated",
+              "detail": "reject rule R19 fires: "
+            }
+          ],
           "piped_text_visible": {
             "Q8": "Care Network A",
             "Q9": "Care Network A",
@@ -2711,7 +2886,8 @@
         },
         "proof": "after answering Q16 the respondent went on to Q18",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "preconditions": {},
         "campaign": {},
@@ -2816,7 +2992,14 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [],
+          "validation_messages_expected": [
+            {
+              "question_id": "Q5",
+              "rule": "R19",
+              "outcome": "violated",
+              "detail": "reject rule R19 fires: "
+            }
+          ],
           "piped_text_visible": {
             "Q8": "Care Network A",
             "Q9": "Care Network A",
@@ -2834,7 +3017,8 @@
         },
         "proof": "Q16 predicted hidden while the respondent continued",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "preconditions": {},
         "campaign": {},
@@ -2939,7 +3123,14 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [],
+          "validation_messages_expected": [
+            {
+              "question_id": "Q5",
+              "rule": "R19",
+              "outcome": "violated",
+              "detail": "reject rule R19 fires: "
+            }
+          ],
           "piped_text_visible": {
             "Q8": "Care Network A",
             "Q9": "Care Network A",
@@ -2957,7 +3148,8 @@
         },
         "proof": "Q16 appears in the predicted path",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "preconditions": {},
         "campaign": {},
@@ -3062,7 +3254,14 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [],
+          "validation_messages_expected": [
+            {
+              "question_id": "Q5",
+              "rule": "R19",
+              "outcome": "violated",
+              "detail": "reject rule R19 fires: "
+            }
+          ],
           "piped_text_visible": {
             "Q8": "Care Network A",
             "Q9": "Care Network A",
@@ -3080,7 +3279,8 @@
         },
         "proof": "after answering Q17 the respondent went on to Q18",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "preconditions": {},
         "campaign": {},
@@ -3185,7 +3385,14 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [],
+          "validation_messages_expected": [
+            {
+              "question_id": "Q5",
+              "rule": "R19",
+              "outcome": "violated",
+              "detail": "reject rule R19 fires: "
+            }
+          ],
           "piped_text_visible": {
             "Q8": "Care Network A",
             "Q9": "Care Network A",
@@ -3203,7 +3410,8 @@
         },
         "proof": "Q17 predicted hidden while the respondent continued",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "preconditions": {},
         "campaign": {},
@@ -3308,7 +3516,14 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [],
+          "validation_messages_expected": [
+            {
+              "question_id": "Q5",
+              "rule": "R19",
+              "outcome": "violated",
+              "detail": "reject rule R19 fires: "
+            }
+          ],
           "piped_text_visible": {
             "Q8": "Care Network A",
             "Q9": "Care Network A",
@@ -3326,7 +3541,8 @@
         },
         "proof": "Q17 appears in the predicted path",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "preconditions": {},
         "campaign": {},
@@ -3431,7 +3647,14 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [],
+          "validation_messages_expected": [
+            {
+              "question_id": "Q5",
+              "rule": "R19",
+              "outcome": "violated",
+              "detail": "reject rule R19 fires: "
+            }
+          ],
           "piped_text_visible": {
             "Q8": "Care Network A",
             "Q9": "Care Network A",
@@ -3449,7 +3672,8 @@
         },
         "proof": "after answering Q18 the respondent went on to Q19",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "preconditions": {},
         "campaign": {},
@@ -3554,7 +3778,14 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [],
+          "validation_messages_expected": [
+            {
+              "question_id": "Q5",
+              "rule": "R19",
+              "outcome": "violated",
+              "detail": "reject rule R19 fires: "
+            }
+          ],
           "piped_text_visible": {
             "Q8": "Care Network A",
             "Q9": "Care Network A",
@@ -3572,7 +3803,8 @@
         },
         "proof": "after answering Q19 the respondent went on to Q20",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "preconditions": {},
         "campaign": {},
@@ -3677,7 +3909,14 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [],
+          "validation_messages_expected": [
+            {
+              "question_id": "Q5",
+              "rule": "R19",
+              "outcome": "violated",
+              "detail": "reject rule R19 fires: "
+            }
+          ],
           "piped_text_visible": {
             "Q8": "Care Network A",
             "Q9": "Care Network A",
@@ -3695,7 +3934,8 @@
         },
         "proof": "after answering Q2 the respondent went on to Q3",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "preconditions": {},
         "campaign": {},
@@ -3800,7 +4040,14 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [],
+          "validation_messages_expected": [
+            {
+              "question_id": "Q5",
+              "rule": "R19",
+              "outcome": "violated",
+              "detail": "reject rule R19 fires: "
+            }
+          ],
           "piped_text_visible": {
             "Q8": "Care Network A",
             "Q9": "Care Network A",
@@ -3815,7 +4062,8 @@
         },
         "proof": "Q2 predicted hidden while the respondent continued",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "preconditions": {},
         "campaign": {},
@@ -3920,7 +4168,14 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [],
+          "validation_messages_expected": [
+            {
+              "question_id": "Q5",
+              "rule": "R19",
+              "outcome": "violated",
+              "detail": "reject rule R19 fires: "
+            }
+          ],
           "piped_text_visible": {
             "Q8": "Care Network A",
             "Q9": "Care Network A",
@@ -3938,7 +4193,8 @@
         },
         "proof": "Q2 appears in the predicted path",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "preconditions": {},
         "campaign": {},
@@ -4043,7 +4299,14 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [],
+          "validation_messages_expected": [
+            {
+              "question_id": "Q5",
+              "rule": "R19",
+              "outcome": "violated",
+              "detail": "reject rule R19 fires: "
+            }
+          ],
           "piped_text_visible": {
             "Q8": "Care Network A",
             "Q9": "Care Network A",
@@ -4061,7 +4324,8 @@
         },
         "proof": "after answering Q20 the respondent went on to Q21",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "preconditions": {},
         "campaign": {},
@@ -4166,7 +4430,14 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [],
+          "validation_messages_expected": [
+            {
+              "question_id": "Q5",
+              "rule": "R19",
+              "outcome": "violated",
+              "detail": "reject rule R19 fires: "
+            }
+          ],
           "piped_text_visible": {
             "Q8": "Care Network A",
             "Q9": "Care Network A",
@@ -4184,7 +4455,8 @@
         },
         "proof": "after answering Q21 the respondent went on to D1",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "preconditions": {},
         "campaign": {},
@@ -4289,7 +4561,14 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [],
+          "validation_messages_expected": [
+            {
+              "question_id": "Q5",
+              "rule": "R19",
+              "outcome": "violated",
+              "detail": "reject rule R19 fires: "
+            }
+          ],
           "piped_text_visible": {
             "Q8": "Care Network A",
             "Q9": "Care Network A",
@@ -4307,7 +4586,8 @@
         },
         "proof": "after answering Q22 the respondent went on to Q23",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "preconditions": {},
         "campaign": {},
@@ -4412,7 +4692,14 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [],
+          "validation_messages_expected": [
+            {
+              "question_id": "Q5",
+              "rule": "R19",
+              "outcome": "violated",
+              "detail": "reject rule R19 fires: "
+            }
+          ],
           "piped_text_visible": {
             "Q8": "Care Network A",
             "Q9": "Care Network A",
@@ -4430,7 +4717,8 @@
         },
         "proof": "Q23 is the last question shown, and answering it took the respondent to COMPLETE",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "preconditions": {},
         "campaign": {},
@@ -4535,7 +4823,14 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [],
+          "validation_messages_expected": [
+            {
+              "question_id": "Q5",
+              "rule": "R19",
+              "outcome": "violated",
+              "detail": "reject rule R19 fires: "
+            }
+          ],
           "piped_text_visible": {
             "Q8": "Care Network A",
             "Q9": "Care Network A",
@@ -4553,7 +4848,8 @@
         },
         "proof": "after answering Q3 the respondent went on to Q4",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "preconditions": {},
         "campaign": {},
@@ -4658,7 +4954,14 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [],
+          "validation_messages_expected": [
+            {
+              "question_id": "Q5",
+              "rule": "R19",
+              "outcome": "violated",
+              "detail": "reject rule R19 fires: "
+            }
+          ],
           "piped_text_visible": {
             "Q8": "Care Network A",
             "Q9": "Care Network A",
@@ -4673,7 +4976,8 @@
         },
         "proof": "Q3 predicted hidden while the respondent continued",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "preconditions": {},
         "campaign": {},
@@ -4778,7 +5082,14 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [],
+          "validation_messages_expected": [
+            {
+              "question_id": "Q5",
+              "rule": "R19",
+              "outcome": "violated",
+              "detail": "reject rule R19 fires: "
+            }
+          ],
           "piped_text_visible": {
             "Q8": "Care Network A",
             "Q9": "Care Network A",
@@ -4796,7 +5107,8 @@
         },
         "proof": "Q3 appears in the predicted path",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "preconditions": {},
         "campaign": {},
@@ -4901,7 +5213,14 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [],
+          "validation_messages_expected": [
+            {
+              "question_id": "Q5",
+              "rule": "R19",
+              "outcome": "violated",
+              "detail": "reject rule R19 fires: "
+            }
+          ],
           "piped_text_visible": {
             "Q8": "Care Network A",
             "Q9": "Care Network A",
@@ -4919,7 +5238,8 @@
         },
         "proof": "after answering Q4 the respondent went on to Q5",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "preconditions": {},
         "campaign": {},
@@ -5024,7 +5344,14 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [],
+          "validation_messages_expected": [
+            {
+              "question_id": "Q5",
+              "rule": "R19",
+              "outcome": "violated",
+              "detail": "reject rule R19 fires: "
+            }
+          ],
           "piped_text_visible": {
             "Q8": "Care Network A",
             "Q9": "Care Network A",
@@ -5042,7 +5369,8 @@
         },
         "proof": "after answering Q5 the respondent went on to Q6",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "preconditions": {},
         "campaign": {},
@@ -5147,7 +5475,14 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [],
+          "validation_messages_expected": [
+            {
+              "question_id": "Q5",
+              "rule": "R19",
+              "outcome": "violated",
+              "detail": "reject rule R19 fires: "
+            }
+          ],
           "piped_text_visible": {
             "Q8": "Care Network A",
             "Q9": "Care Network A",
@@ -5165,7 +5500,8 @@
         },
         "proof": "after answering Q6 the respondent went on to Q7",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "preconditions": {},
         "campaign": {},
@@ -5270,7 +5606,14 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [],
+          "validation_messages_expected": [
+            {
+              "question_id": "Q5",
+              "rule": "R19",
+              "outcome": "violated",
+              "detail": "reject rule R19 fires: "
+            }
+          ],
           "piped_text_visible": {
             "Q8": "Care Network A",
             "Q9": "Care Network A",
@@ -5288,7 +5631,8 @@
         },
         "proof": "after answering Q7 the respondent went on to Q8",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "preconditions": {},
         "campaign": {},
@@ -5393,7 +5737,14 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [],
+          "validation_messages_expected": [
+            {
+              "question_id": "Q5",
+              "rule": "R19",
+              "outcome": "violated",
+              "detail": "reject rule R19 fires: "
+            }
+          ],
           "piped_text_visible": {
             "Q20": "Concept A",
             "Q21": "Concept A"
@@ -5409,7 +5760,8 @@
         },
         "proof": "Q7 predicted hidden while the respondent continued",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "preconditions": {},
         "campaign": {},
@@ -5514,7 +5866,14 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [],
+          "validation_messages_expected": [
+            {
+              "question_id": "Q5",
+              "rule": "R19",
+              "outcome": "violated",
+              "detail": "reject rule R19 fires: "
+            }
+          ],
           "piped_text_visible": {
             "Q8": "Care Network A",
             "Q9": "Care Network A",
@@ -5532,7 +5891,8 @@
         },
         "proof": "Q7 appears in the predicted path",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "preconditions": {},
         "campaign": {},
@@ -5637,7 +5997,14 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [],
+          "validation_messages_expected": [
+            {
+              "question_id": "Q5",
+              "rule": "R19",
+              "outcome": "violated",
+              "detail": "reject rule R19 fires: "
+            }
+          ],
           "piped_text_visible": {
             "Q8": "Care Network A",
             "Q9": "Care Network A",
@@ -5655,7 +6022,8 @@
         },
         "proof": "after answering Q8 the respondent went on to Q9",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "preconditions": {},
         "campaign": {},
@@ -5760,7 +6128,14 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [],
+          "validation_messages_expected": [
+            {
+              "question_id": "Q5",
+              "rule": "R19",
+              "outcome": "violated",
+              "detail": "reject rule R19 fires: "
+            }
+          ],
           "piped_text_visible": {
             "Q20": "Concept A",
             "Q21": "Concept A"
@@ -5776,7 +6151,8 @@
         },
         "proof": "Q8 predicted hidden while the respondent continued",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "preconditions": {},
         "campaign": {},
@@ -5881,7 +6257,14 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [],
+          "validation_messages_expected": [
+            {
+              "question_id": "Q5",
+              "rule": "R19",
+              "outcome": "violated",
+              "detail": "reject rule R19 fires: "
+            }
+          ],
           "piped_text_visible": {
             "Q8": "Care Network A",
             "Q9": "Care Network A",
@@ -5899,7 +6282,8 @@
         },
         "proof": "Q8 appears in the predicted path",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "preconditions": {},
         "campaign": {},
@@ -6004,7 +6388,14 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [],
+          "validation_messages_expected": [
+            {
+              "question_id": "Q5",
+              "rule": "R19",
+              "outcome": "violated",
+              "detail": "reject rule R19 fires: "
+            }
+          ],
           "piped_text_visible": {
             "Q8": "Care Network A",
             "Q9": "Care Network A",
@@ -6022,7 +6413,8 @@
         },
         "proof": "after answering Q9 the respondent went on to Q10",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "preconditions": {},
         "campaign": {},
@@ -6127,7 +6519,14 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [],
+          "validation_messages_expected": [
+            {
+              "question_id": "Q5",
+              "rule": "R19",
+              "outcome": "violated",
+              "detail": "reject rule R19 fires: "
+            }
+          ],
           "piped_text_visible": {
             "Q20": "Concept A",
             "Q21": "Concept A"
@@ -6143,7 +6542,8 @@
         },
         "proof": "Q9 predicted hidden while the respondent continued",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "preconditions": {},
         "campaign": {},
@@ -6248,7 +6648,14 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [],
+          "validation_messages_expected": [
+            {
+              "question_id": "Q5",
+              "rule": "R19",
+              "outcome": "violated",
+              "detail": "reject rule R19 fires: "
+            }
+          ],
           "piped_text_visible": {
             "Q8": "Care Network A",
             "Q9": "Care Network A",
@@ -6266,7 +6673,8 @@
         },
         "proof": "Q9 appears in the predicted path",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "preconditions": {},
         "campaign": {},
@@ -6371,7 +6779,14 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [],
+          "validation_messages_expected": [
+            {
+              "question_id": "Q5",
+              "rule": "R19",
+              "outcome": "violated",
+              "detail": "reject rule R19 fires: "
+            }
+          ],
           "piped_text_visible": {
             "Q8": "Care Network A",
             "Q9": "Care Network A",
@@ -6492,7 +6907,14 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [],
+          "validation_messages_expected": [
+            {
+              "question_id": "Q5",
+              "rule": "R19",
+              "outcome": "violated",
+              "detail": "reject rule R19 fires: "
+            }
+          ],
           "piped_text_visible": {
             "Q8": "Care Network A",
             "Q9": "Care Network A",
@@ -6510,7 +6932,8 @@
         },
         "proof": "R5 correctly did not fire; respondent continued in sequence",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "preconditions": {},
         "campaign": {},
@@ -6615,7 +7038,14 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [],
+          "validation_messages_expected": [
+            {
+              "question_id": "Q5",
+              "rule": "R19",
+              "outcome": "violated",
+              "detail": "reject rule R19 fires: "
+            }
+          ],
           "piped_text_visible": {
             "Q8": "Care Network A",
             "Q9": "Care Network A",
@@ -6633,7 +7063,8 @@
         },
         "proof": "after answering S1 the respondent went on to S2",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "preconditions": {},
         "campaign": {},
@@ -6738,7 +7169,14 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [],
+          "validation_messages_expected": [
+            {
+              "question_id": "Q5",
+              "rule": "R19",
+              "outcome": "violated",
+              "detail": "reject rule R19 fires: "
+            }
+          ],
           "piped_text_visible": {
             "Q8": "Care Network A",
             "Q9": "Care Network A",
@@ -6756,7 +7194,8 @@
         },
         "proof": "after answering S2 the respondent went on to S3",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "preconditions": {},
         "campaign": {},
@@ -6861,7 +7300,14 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [],
+          "validation_messages_expected": [
+            {
+              "question_id": "Q5",
+              "rule": "R19",
+              "outcome": "violated",
+              "detail": "reject rule R19 fires: "
+            }
+          ],
           "piped_text_visible": {
             "Q8": "Care Network A",
             "Q9": "Care Network A",
@@ -6879,7 +7325,8 @@
         },
         "proof": "after answering S3 the respondent went on to S4",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "preconditions": {},
         "campaign": {},
@@ -6984,7 +7431,14 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [],
+          "validation_messages_expected": [
+            {
+              "question_id": "Q5",
+              "rule": "R19",
+              "outcome": "violated",
+              "detail": "reject rule R19 fires: "
+            }
+          ],
           "piped_text_visible": {
             "Q8": "Care Network A",
             "Q9": "Care Network A",
@@ -7002,7 +7456,8 @@
         },
         "proof": "after answering S4 the respondent went on to Q1",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "preconditions": {},
         "campaign": {},
@@ -7107,7 +7562,14 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [],
+          "validation_messages_expected": [
+            {
+              "question_id": "Q5",
+              "rule": "R19",
+              "outcome": "violated",
+              "detail": "reject rule R19 fires: "
+            }
+          ],
           "piped_text_visible": {
             "Q8": "Care Network A",
             "Q9": "Care Network A",
@@ -7125,7 +7587,8 @@
         },
         "proof": "predicted ending is COMPLETE, path ['__START__', 'S1', 'S2', 'S3', 'S4', 'Q1', 'Q2', 'Q3', 'Q4', 'Q5', 'Q6', 'Q7', 'Q8', 'Q9', 'Q10', 'Q11', 'Q12', 'Q13', 'Q15', 'Q16', 'Q18', 'Q19', 'Q20', 'Q21', 'D1', 'D2', 'D3', 'D4', 'Q22', 'Q23', 'COMPLETE']",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "preconditions": {},
         "campaign": {},
@@ -7570,7 +8033,14 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [],
+          "validation_messages_expected": [
+            {
+              "question_id": "Q5",
+              "rule": "R19",
+              "outcome": "violated",
+              "detail": "reject rule R19 fires: "
+            }
+          ],
           "piped_text_visible": {
             "Q8": "Care Network A",
             "Q9": "Care Network A",
@@ -7808,7 +8278,14 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [],
+          "validation_messages_expected": [
+            {
+              "question_id": "Q5",
+              "rule": "R19",
+              "outcome": "violated",
+              "detail": "reject rule R19 fires: "
+            }
+          ],
           "piped_text_visible": {
             "Q8": "Care Network A",
             "Q9": "Care Network A",
@@ -7826,7 +8303,8 @@
         },
         "proof": "Q11 accepted the answer with no validation message",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "preconditions": {},
         "campaign": {},
@@ -7931,6 +8409,12 @@
           "quota_over_target": null,
           "validation_messages_expected": [
             {
+              "question_id": "Q5",
+              "rule": "R19",
+              "outcome": "violated",
+              "detail": "reject rule R19 fires: "
+            },
+            {
               "question_id": "Q11",
               "rule": "mandatory",
               "outcome": "violated",
@@ -7952,7 +8436,8 @@
         },
         "proof": "a validation message is predicted for Q11",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "preconditions": {},
         "campaign": {},
@@ -8057,7 +8542,14 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [],
+          "validation_messages_expected": [
+            {
+              "question_id": "Q5",
+              "rule": "R19",
+              "outcome": "violated",
+              "detail": "reject rule R19 fires: "
+            }
+          ],
           "piped_text_visible": {
             "Q8": "Care Network A",
             "Q9": "Care Network A",
@@ -8075,7 +8567,8 @@
         },
         "proof": "Q14 accepted the answer with no validation message",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "preconditions": {},
         "campaign": {},
@@ -8180,7 +8673,14 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [],
+          "validation_messages_expected": [
+            {
+              "question_id": "Q5",
+              "rule": "R19",
+              "outcome": "violated",
+              "detail": "reject rule R19 fires: "
+            }
+          ],
           "piped_text_visible": {
             "Q8": "Care Network A",
             "Q9": "Care Network A",
@@ -8198,7 +8698,8 @@
         },
         "proof": "Q14 accepted the answer with no validation message",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "preconditions": {},
         "campaign": {},
@@ -8303,7 +8804,14 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [],
+          "validation_messages_expected": [
+            {
+              "question_id": "Q5",
+              "rule": "R19",
+              "outcome": "violated",
+              "detail": "reject rule R19 fires: "
+            }
+          ],
           "piped_text_visible": {
             "Q8": "Care Network A",
             "Q9": "Care Network A",
@@ -8321,7 +8829,8 @@
         },
         "proof": "Q14 accepted the answer with no validation message",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "preconditions": {},
         "campaign": {},
@@ -8428,6 +8937,12 @@
           "quota_over_target": null,
           "validation_messages_expected": [
             {
+              "question_id": "Q5",
+              "rule": "R19",
+              "outcome": "violated",
+              "detail": "reject rule R19 fires: "
+            },
+            {
               "question_id": "Q14",
               "rule": "max_length",
               "outcome": "violated",
@@ -8449,7 +8964,8 @@
         },
         "proof": "a validation message is predicted for Q14",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "preconditions": {},
         "campaign": {},
@@ -8554,7 +9070,14 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [],
+          "validation_messages_expected": [
+            {
+              "question_id": "Q5",
+              "rule": "R19",
+              "outcome": "violated",
+              "detail": "reject rule R19 fires: "
+            }
+          ],
           "piped_text_visible": {
             "Q8": "Care Network A",
             "Q9": "Care Network A",
@@ -8572,7 +9095,8 @@
         },
         "proof": "Q17 accepted the answer with no validation message",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "preconditions": {},
         "campaign": {},
@@ -8677,7 +9201,14 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [],
+          "validation_messages_expected": [
+            {
+              "question_id": "Q5",
+              "rule": "R19",
+              "outcome": "violated",
+              "detail": "reject rule R19 fires: "
+            }
+          ],
           "piped_text_visible": {
             "Q8": "Care Network A",
             "Q9": "Care Network A",
@@ -8695,7 +9226,8 @@
         },
         "proof": "Q17 accepted the answer with no validation message",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "preconditions": {},
         "campaign": {},
@@ -8800,7 +9332,14 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [],
+          "validation_messages_expected": [
+            {
+              "question_id": "Q5",
+              "rule": "R19",
+              "outcome": "violated",
+              "detail": "reject rule R19 fires: "
+            }
+          ],
           "piped_text_visible": {
             "Q8": "Care Network A",
             "Q9": "Care Network A",
@@ -8818,7 +9357,8 @@
         },
         "proof": "Q17 accepted the answer with no validation message",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "preconditions": {},
         "campaign": {},
@@ -8925,6 +9465,12 @@
           "quota_over_target": null,
           "validation_messages_expected": [
             {
+              "question_id": "Q5",
+              "rule": "R19",
+              "outcome": "violated",
+              "detail": "reject rule R19 fires: "
+            },
+            {
               "question_id": "Q17",
               "rule": "max_length",
               "outcome": "violated",
@@ -8946,7 +9492,8 @@
         },
         "proof": "a validation message is predicted for Q17",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "preconditions": {},
         "campaign": {},
@@ -9051,7 +9598,14 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [],
+          "validation_messages_expected": [
+            {
+              "question_id": "Q5",
+              "rule": "R19",
+              "outcome": "violated",
+              "detail": "reject rule R19 fires: "
+            }
+          ],
           "piped_text_visible": {
             "Q8": "Care Network A",
             "Q9": "Care Network A",
@@ -9069,7 +9623,8 @@
         },
         "proof": "Q18 accepted the answer with no validation message",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "preconditions": {},
         "campaign": {},
@@ -9176,6 +9731,12 @@
           "quota_over_target": null,
           "validation_messages_expected": [
             {
+              "question_id": "Q5",
+              "rule": "R19",
+              "outcome": "violated",
+              "detail": "reject rule R19 fires: "
+            },
+            {
               "question_id": "Q18",
               "rule": "sum_to",
               "outcome": "violated",
@@ -9197,7 +9758,8 @@
         },
         "proof": "a validation message is predicted for Q18",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "preconditions": {},
         "campaign": {},
@@ -9302,7 +9864,14 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [],
+          "validation_messages_expected": [
+            {
+              "question_id": "Q5",
+              "rule": "R19",
+              "outcome": "violated",
+              "detail": "reject rule R19 fires: "
+            }
+          ],
           "piped_text_visible": {
             "Q8": "Care Network A",
             "Q9": "Care Network A",
@@ -9320,7 +9889,8 @@
         },
         "proof": "Q21 accepted the answer with no validation message",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "preconditions": {},
         "campaign": {},
@@ -9425,7 +9995,14 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [],
+          "validation_messages_expected": [
+            {
+              "question_id": "Q5",
+              "rule": "R19",
+              "outcome": "violated",
+              "detail": "reject rule R19 fires: "
+            }
+          ],
           "piped_text_visible": {
             "Q8": "Care Network A",
             "Q9": "Care Network A",
@@ -9443,7 +10020,8 @@
         },
         "proof": "Q21 accepted the answer with no validation message",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "preconditions": {},
         "campaign": {},
@@ -9548,7 +10126,14 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [],
+          "validation_messages_expected": [
+            {
+              "question_id": "Q5",
+              "rule": "R19",
+              "outcome": "violated",
+              "detail": "reject rule R19 fires: "
+            }
+          ],
           "piped_text_visible": {
             "Q8": "Care Network A",
             "Q9": "Care Network A",
@@ -9566,7 +10151,8 @@
         },
         "proof": "Q21 accepted the answer with no validation message",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "preconditions": {},
         "campaign": {},
@@ -9673,6 +10259,12 @@
           "quota_over_target": null,
           "validation_messages_expected": [
             {
+              "question_id": "Q5",
+              "rule": "R19",
+              "outcome": "violated",
+              "detail": "reject rule R19 fires: "
+            },
+            {
               "question_id": "Q21",
               "rule": "max_length",
               "outcome": "violated",
@@ -9696,7 +10288,8 @@
         },
         "proof": "a validation message is predicted for Q21",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "preconditions": {},
         "campaign": {},
@@ -9802,7 +10395,14 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [],
+          "validation_messages_expected": [
+            {
+              "question_id": "Q5",
+              "rule": "R19",
+              "outcome": "violated",
+              "detail": "reject rule R19 fires: "
+            }
+          ],
           "piped_text_visible": {
             "Q8": "Care Network A",
             "Q9": "Care Network A",
@@ -9820,7 +10420,8 @@
         },
         "proof": "Q23 accepted the answer with no validation message",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "preconditions": {},
         "campaign": {},
@@ -9926,7 +10527,14 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [],
+          "validation_messages_expected": [
+            {
+              "question_id": "Q5",
+              "rule": "R19",
+              "outcome": "violated",
+              "detail": "reject rule R19 fires: "
+            }
+          ],
           "piped_text_visible": {
             "Q8": "Care Network A",
             "Q9": "Care Network A",
@@ -9944,7 +10552,8 @@
         },
         "proof": "Q23 accepted the answer with no validation message",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "preconditions": {},
         "campaign": {},
@@ -10050,7 +10659,14 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [],
+          "validation_messages_expected": [
+            {
+              "question_id": "Q5",
+              "rule": "R19",
+              "outcome": "violated",
+              "detail": "reject rule R19 fires: "
+            }
+          ],
           "piped_text_visible": {
             "Q8": "Care Network A",
             "Q9": "Care Network A",
@@ -10068,7 +10684,8 @@
         },
         "proof": "Q23 accepted the answer with no validation message",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "preconditions": {},
         "campaign": {},
@@ -10176,6 +10793,12 @@
           "quota_over_target": null,
           "validation_messages_expected": [
             {
+              "question_id": "Q5",
+              "rule": "R19",
+              "outcome": "violated",
+              "detail": "reject rule R19 fires: "
+            },
+            {
               "question_id": "Q23",
               "rule": "max_length",
               "outcome": "violated",
@@ -10199,7 +10822,8 @@
         },
         "proof": "a validation message is predicted for Q23",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "preconditions": {},
         "campaign": {},
@@ -10209,8 +10833,8 @@
         "scenario_id": "SC-d7744b74bd",
         "target_id": "T-1ccc2b2a02",
         "dimension": "D3",
-        "status": "COVERED",
-        "reason": null,
+        "status": "UNCOVERED",
+        "reason": "UNVERIFIABLE",
         "answers": {
           "S1": "S1-O1",
           "S2": "S2-O1",
@@ -10304,7 +10928,14 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [],
+          "validation_messages_expected": [
+            {
+              "question_id": "Q5",
+              "rule": "R19",
+              "outcome": "violated",
+              "detail": "reject rule R19 fires: "
+            }
+          ],
           "piped_text_visible": {
             "Q8": "Care Network A",
             "Q9": "Care Network A",
@@ -10320,9 +10951,10 @@
             ]
           }
         },
-        "proof": "Q5 accepted the answer with no validation message",
+        "proof": "Q5 unexpectedly triggered a validation message",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "preconditions": {},
         "campaign": {},
@@ -10550,7 +11182,14 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [],
+          "validation_messages_expected": [
+            {
+              "question_id": "Q5",
+              "rule": "R19",
+              "outcome": "violated",
+              "detail": "reject rule R19 fires: "
+            }
+          ],
           "piped_text_visible": {
             "Q8": "Care Network A",
             "Q9": "Care Network A",
@@ -10568,7 +11207,8 @@
         },
         "proof": "Q9 accepted the answer with no validation message",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "preconditions": {},
         "campaign": {},
@@ -10674,6 +11314,12 @@
           "quota_over_target": null,
           "validation_messages_expected": [
             {
+              "question_id": "Q5",
+              "rule": "R19",
+              "outcome": "violated",
+              "detail": "reject rule R19 fires: "
+            },
+            {
               "question_id": "Q9",
               "rule": "require_each_row",
               "outcome": "violated",
@@ -10695,7 +11341,8 @@
         },
         "proof": "a validation message is predicted for Q9",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "preconditions": {},
         "campaign": {},
@@ -10802,6 +11449,12 @@
           "quota_over_target": null,
           "validation_messages_expected": [
             {
+              "question_id": "Q5",
+              "rule": "R19",
+              "outcome": "violated",
+              "detail": "reject rule R19 fires: "
+            },
+            {
               "question_id": "D1",
               "rule": "mandatory",
               "outcome": "violated",
@@ -10825,7 +11478,8 @@
         },
         "proof": "D1 blocked the blank answer as required",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "preconditions": {},
         "campaign": {},
@@ -10932,6 +11586,12 @@
           "quota_over_target": null,
           "validation_messages_expected": [
             {
+              "question_id": "Q5",
+              "rule": "R19",
+              "outcome": "violated",
+              "detail": "reject rule R19 fires: "
+            },
+            {
               "question_id": "D2",
               "rule": "mandatory",
               "outcome": "violated",
@@ -10955,7 +11615,8 @@
         },
         "proof": "D2 blocked the blank answer as required",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "preconditions": {},
         "campaign": {},
@@ -11062,6 +11723,12 @@
           "quota_over_target": null,
           "validation_messages_expected": [
             {
+              "question_id": "Q5",
+              "rule": "R19",
+              "outcome": "violated",
+              "detail": "reject rule R19 fires: "
+            },
+            {
               "question_id": "D3",
               "rule": "mandatory",
               "outcome": "violated",
@@ -11085,7 +11752,8 @@
         },
         "proof": "D3 blocked the blank answer as required",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "preconditions": {},
         "campaign": {},
@@ -11192,6 +11860,12 @@
           "quota_over_target": null,
           "validation_messages_expected": [
             {
+              "question_id": "Q5",
+              "rule": "R19",
+              "outcome": "violated",
+              "detail": "reject rule R19 fires: "
+            },
+            {
               "question_id": "D4",
               "rule": "mandatory",
               "outcome": "violated",
@@ -11215,7 +11889,8 @@
         },
         "proof": "D4 blocked the blank answer as required",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "preconditions": {},
         "campaign": {},
@@ -11436,6 +12111,12 @@
           "quota_over_target": null,
           "validation_messages_expected": [
             {
+              "question_id": "Q5",
+              "rule": "R19",
+              "outcome": "violated",
+              "detail": "reject rule R19 fires: "
+            },
+            {
               "question_id": "Q10",
               "rule": "mandatory",
               "outcome": "violated",
@@ -11457,7 +12138,8 @@
         },
         "proof": "Q10 blocked the blank answer as required",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "preconditions": {},
         "campaign": {},
@@ -11562,6 +12244,12 @@
           "quota_over_target": null,
           "validation_messages_expected": [
             {
+              "question_id": "Q5",
+              "rule": "R19",
+              "outcome": "violated",
+              "detail": "reject rule R19 fires: "
+            },
+            {
               "question_id": "Q11",
               "rule": "mandatory",
               "outcome": "violated",
@@ -11583,7 +12271,8 @@
         },
         "proof": "Q11 blocked the blank answer as required",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "preconditions": {},
         "campaign": {},
@@ -11690,6 +12379,12 @@
           "quota_over_target": null,
           "validation_messages_expected": [
             {
+              "question_id": "Q5",
+              "rule": "R19",
+              "outcome": "violated",
+              "detail": "reject rule R19 fires: "
+            },
+            {
               "question_id": "Q12",
               "rule": "mandatory",
               "outcome": "violated",
@@ -11711,7 +12406,8 @@
         },
         "proof": "Q12 blocked the blank answer as required",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "preconditions": {},
         "campaign": {},
@@ -11818,6 +12514,12 @@
           "quota_over_target": null,
           "validation_messages_expected": [
             {
+              "question_id": "Q5",
+              "rule": "R19",
+              "outcome": "violated",
+              "detail": "reject rule R19 fires: "
+            },
+            {
               "question_id": "Q13",
               "rule": "mandatory",
               "outcome": "violated",
@@ -11839,7 +12541,8 @@
         },
         "proof": "Q13 blocked the blank answer as required",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "preconditions": {},
         "campaign": {},
@@ -11946,6 +12649,12 @@
           "quota_over_target": null,
           "validation_messages_expected": [
             {
+              "question_id": "Q5",
+              "rule": "R19",
+              "outcome": "violated",
+              "detail": "reject rule R19 fires: "
+            },
+            {
               "question_id": "Q14",
               "rule": "mandatory",
               "outcome": "violated",
@@ -11967,7 +12676,8 @@
         },
         "proof": "Q14 blocked the blank answer as required",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "preconditions": {},
         "campaign": {},
@@ -12074,6 +12784,12 @@
           "quota_over_target": null,
           "validation_messages_expected": [
             {
+              "question_id": "Q5",
+              "rule": "R19",
+              "outcome": "violated",
+              "detail": "reject rule R19 fires: "
+            },
+            {
               "question_id": "Q14",
               "rule": "mandatory",
               "outcome": "violated",
@@ -12096,6 +12812,7 @@
         "proof": "Q14 refused an answer of spaces alone",
         "provisional_semantics": [
           "multi_equality",
+          "rule_precedence",
           "whitespace_is_an_answer"
         ],
         "preconditions": {},
@@ -12203,6 +12920,12 @@
           "quota_over_target": null,
           "validation_messages_expected": [
             {
+              "question_id": "Q5",
+              "rule": "R19",
+              "outcome": "violated",
+              "detail": "reject rule R19 fires: "
+            },
+            {
               "question_id": "Q15",
               "rule": "mandatory",
               "outcome": "violated",
@@ -12224,7 +12947,8 @@
         },
         "proof": "Q15 blocked the blank answer as required",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "preconditions": {},
         "campaign": {},
@@ -12331,6 +13055,12 @@
           "quota_over_target": null,
           "validation_messages_expected": [
             {
+              "question_id": "Q5",
+              "rule": "R19",
+              "outcome": "violated",
+              "detail": "reject rule R19 fires: "
+            },
+            {
               "question_id": "Q16",
               "rule": "mandatory",
               "outcome": "violated",
@@ -12352,7 +13082,8 @@
         },
         "proof": "Q16 blocked the blank answer as required",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "preconditions": {},
         "campaign": {},
@@ -12459,6 +13190,12 @@
           "quota_over_target": null,
           "validation_messages_expected": [
             {
+              "question_id": "Q5",
+              "rule": "R19",
+              "outcome": "violated",
+              "detail": "reject rule R19 fires: "
+            },
+            {
               "question_id": "Q17",
               "rule": "mandatory",
               "outcome": "violated",
@@ -12480,7 +13217,8 @@
         },
         "proof": "Q17 blocked the blank answer as required",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "preconditions": {},
         "campaign": {},
@@ -12587,6 +13325,12 @@
           "quota_over_target": null,
           "validation_messages_expected": [
             {
+              "question_id": "Q5",
+              "rule": "R19",
+              "outcome": "violated",
+              "detail": "reject rule R19 fires: "
+            },
+            {
               "question_id": "Q17",
               "rule": "mandatory",
               "outcome": "violated",
@@ -12609,6 +13353,7 @@
         "proof": "Q17 refused an answer of spaces alone",
         "provisional_semantics": [
           "multi_equality",
+          "rule_precedence",
           "whitespace_is_an_answer"
         ],
         "preconditions": {},
@@ -12710,6 +13455,12 @@
           "quota_over_target": null,
           "validation_messages_expected": [
             {
+              "question_id": "Q5",
+              "rule": "R19",
+              "outcome": "violated",
+              "detail": "reject rule R19 fires: "
+            },
+            {
               "question_id": "Q18",
               "rule": "mandatory",
               "outcome": "violated",
@@ -12731,7 +13482,8 @@
         },
         "proof": "Q18 blocked the blank answer as required",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "preconditions": {},
         "campaign": {},
@@ -12838,6 +13590,12 @@
           "quota_over_target": null,
           "validation_messages_expected": [
             {
+              "question_id": "Q5",
+              "rule": "R19",
+              "outcome": "violated",
+              "detail": "reject rule R19 fires: "
+            },
+            {
               "question_id": "Q19",
               "rule": "mandatory",
               "outcome": "violated",
@@ -12859,7 +13617,8 @@
         },
         "proof": "Q19 blocked the blank answer as required",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "preconditions": {},
         "campaign": {},
@@ -13086,6 +13845,12 @@
           "quota_over_target": null,
           "validation_messages_expected": [
             {
+              "question_id": "Q5",
+              "rule": "R19",
+              "outcome": "violated",
+              "detail": "reject rule R19 fires: "
+            },
+            {
               "question_id": "Q20",
               "rule": "mandatory",
               "outcome": "violated",
@@ -13108,7 +13873,8 @@
         },
         "proof": "Q20 blocked the blank answer as required",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "preconditions": {},
         "campaign": {},
@@ -13215,6 +13981,12 @@
           "quota_over_target": null,
           "validation_messages_expected": [
             {
+              "question_id": "Q5",
+              "rule": "R19",
+              "outcome": "violated",
+              "detail": "reject rule R19 fires: "
+            },
+            {
               "question_id": "Q21",
               "rule": "mandatory",
               "outcome": "violated",
@@ -13238,7 +14010,8 @@
         },
         "proof": "Q21 blocked the blank answer as required",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "preconditions": {},
         "campaign": {},
@@ -13345,6 +14118,12 @@
           "quota_over_target": null,
           "validation_messages_expected": [
             {
+              "question_id": "Q5",
+              "rule": "R19",
+              "outcome": "violated",
+              "detail": "reject rule R19 fires: "
+            },
+            {
               "question_id": "Q21",
               "rule": "mandatory",
               "outcome": "violated",
@@ -13369,6 +14148,7 @@
         "proof": "Q21 refused an answer of spaces alone",
         "provisional_semantics": [
           "multi_equality",
+          "rule_precedence",
           "whitespace_is_an_answer"
         ],
         "preconditions": {},
@@ -13476,6 +14256,12 @@
           "quota_over_target": null,
           "validation_messages_expected": [
             {
+              "question_id": "Q5",
+              "rule": "R19",
+              "outcome": "violated",
+              "detail": "reject rule R19 fires: "
+            },
+            {
               "question_id": "Q22",
               "rule": "mandatory",
               "outcome": "violated",
@@ -13499,7 +14285,8 @@
         },
         "proof": "Q22 blocked the blank answer as required",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "preconditions": {},
         "campaign": {},
@@ -13605,7 +14392,14 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [],
+          "validation_messages_expected": [
+            {
+              "question_id": "Q5",
+              "rule": "R19",
+              "outcome": "violated",
+              "detail": "reject rule R19 fires: "
+            }
+          ],
           "piped_text_visible": {
             "Q8": "Care Network A",
             "Q9": "Care Network A",
@@ -13623,7 +14417,8 @@
         },
         "proof": "Q23 permitted a blank answer, as an optional question should",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "preconditions": {},
         "campaign": {},
@@ -13729,7 +14524,14 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [],
+          "validation_messages_expected": [
+            {
+              "question_id": "Q5",
+              "rule": "R19",
+              "outcome": "violated",
+              "detail": "reject rule R19 fires: "
+            }
+          ],
           "piped_text_visible": {
             "Q8": "Care Network A",
             "Q9": "Care Network A",
@@ -13748,6 +14550,7 @@
         "proof": "Q23 accepted spaces, as an optional question should",
         "provisional_semantics": [
           "multi_equality",
+          "rule_precedence",
           "whitespace_is_an_answer"
         ],
         "preconditions": {},
@@ -14219,6 +15022,12 @@
           "quota_over_target": null,
           "validation_messages_expected": [
             {
+              "question_id": "Q5",
+              "rule": "R19",
+              "outcome": "violated",
+              "detail": "reject rule R19 fires: "
+            },
+            {
               "question_id": "Q6",
               "rule": "mandatory",
               "outcome": "violated",
@@ -14237,7 +15046,8 @@
         },
         "proof": "Q6 blocked the blank answer as required",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "preconditions": {},
         "campaign": {},
@@ -14344,6 +15154,12 @@
           "quota_over_target": null,
           "validation_messages_expected": [
             {
+              "question_id": "Q5",
+              "rule": "R19",
+              "outcome": "violated",
+              "detail": "reject rule R19 fires: "
+            },
+            {
               "question_id": "Q7",
               "rule": "mandatory",
               "outcome": "violated",
@@ -14362,7 +15178,8 @@
         },
         "proof": "Q7 blocked the blank answer as required",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "preconditions": {},
         "campaign": {},
@@ -14469,6 +15286,12 @@
           "quota_over_target": null,
           "validation_messages_expected": [
             {
+              "question_id": "Q5",
+              "rule": "R19",
+              "outcome": "violated",
+              "detail": "reject rule R19 fires: "
+            },
+            {
               "question_id": "Q8",
               "rule": "mandatory",
               "outcome": "violated",
@@ -14489,7 +15312,8 @@
         },
         "proof": "Q8 blocked the blank answer as required",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "preconditions": {},
         "campaign": {},
@@ -14589,6 +15413,12 @@
           "quota_over_target": null,
           "validation_messages_expected": [
             {
+              "question_id": "Q5",
+              "rule": "R19",
+              "outcome": "violated",
+              "detail": "reject rule R19 fires: "
+            },
+            {
               "question_id": "Q9",
               "rule": "mandatory",
               "outcome": "violated",
@@ -14610,7 +15440,8 @@
         },
         "proof": "Q9 blocked the blank answer as required",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "preconditions": {},
         "campaign": {},
@@ -15179,7 +16010,14 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [],
+          "validation_messages_expected": [
+            {
+              "question_id": "Q5",
+              "rule": "R19",
+              "outcome": "violated",
+              "detail": "reject rule R19 fires: "
+            }
+          ],
           "piped_text_visible": {
             "Q8": "Care Network A",
             "Q9": "Care Network A",
@@ -15197,7 +16035,8 @@
         },
         "proof": "Q2 predicted to show only ['Care Network A']",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "preconditions": {},
         "campaign": {},
@@ -15302,7 +16141,14 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [],
+          "validation_messages_expected": [
+            {
+              "question_id": "Q5",
+              "rule": "R19",
+              "outcome": "violated",
+              "detail": "reject rule R19 fires: "
+            }
+          ],
           "piped_text_visible": {
             "Q8": "Care Network A",
             "Q9": "Care Network A",
@@ -15320,7 +16166,8 @@
         },
         "proof": "Q6 predicted to show only ['Primary-care physician']",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "preconditions": {},
         "campaign": {},
@@ -15425,7 +16272,14 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [],
+          "validation_messages_expected": [
+            {
+              "question_id": "Q5",
+              "rule": "R19",
+              "outcome": "violated",
+              "detail": "reject rule R19 fires: "
+            }
+          ],
           "piped_text_visible": {
             "Q8": "Care Network A",
             "Q9": "Care Network A",
@@ -15443,7 +16297,8 @@
         },
         "proof": "Q20 predicted to render 'Concept A' in its wording",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "preconditions": {},
         "campaign": {},
@@ -15548,7 +16403,14 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [],
+          "validation_messages_expected": [
+            {
+              "question_id": "Q5",
+              "rule": "R19",
+              "outcome": "violated",
+              "detail": "reject rule R19 fires: "
+            }
+          ],
           "piped_text_visible": {
             "Q8": "Care Network A",
             "Q9": "Care Network A",
@@ -15566,7 +16428,8 @@
         },
         "proof": "Q21 predicted to render 'Concept A' in its wording",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "preconditions": {},
         "campaign": {},
@@ -15671,7 +16534,14 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [],
+          "validation_messages_expected": [
+            {
+              "question_id": "Q5",
+              "rule": "R19",
+              "outcome": "violated",
+              "detail": "reject rule R19 fires: "
+            }
+          ],
           "piped_text_visible": {
             "Q8": "Care Network A",
             "Q9": "Care Network A",
@@ -15689,7 +16559,8 @@
         },
         "proof": "Q8 predicted to render 'Care Network A' in its wording",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "preconditions": {},
         "campaign": {},
@@ -15794,7 +16665,14 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [],
+          "validation_messages_expected": [
+            {
+              "question_id": "Q5",
+              "rule": "R19",
+              "outcome": "violated",
+              "detail": "reject rule R19 fires: "
+            }
+          ],
           "piped_text_visible": {
             "Q8": "Care Network A",
             "Q9": "Care Network A",
@@ -15812,7 +16690,8 @@
         },
         "proof": "Q9 predicted to render 'Care Network A' in its wording",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "preconditions": {},
         "campaign": {},
@@ -15931,7 +16810,14 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [],
+          "validation_messages_expected": [
+            {
+              "question_id": "Q5",
+              "rule": "R19",
+              "outcome": "violated",
+              "detail": "reject rule R19 fires: "
+            }
+          ],
           "piped_text_visible": {
             "Q8": "Care Network A",
             "Q9": "Care Network A",
@@ -15949,7 +16835,8 @@
         },
         "proof": "Q1 was reached, so its rendered option list can be counted against the 5 the QRE lists",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "preconditions": {},
         "campaign": {},
@@ -16054,7 +16941,14 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [],
+          "validation_messages_expected": [
+            {
+              "question_id": "Q5",
+              "rule": "R19",
+              "outcome": "violated",
+              "detail": "reject rule R19 fires: "
+            }
+          ],
           "piped_text_visible": {
             "Q8": "Care Network A",
             "Q9": "Care Network A",
@@ -16072,7 +16966,8 @@
         },
         "proof": "Q1 was reached, so the order it renders can be recorded and compared across repeated runs",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "preconditions": {},
         "campaign": {
@@ -16195,7 +17090,14 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [],
+          "validation_messages_expected": [
+            {
+              "question_id": "Q5",
+              "rule": "R19",
+              "outcome": "violated",
+              "detail": "reject rule R19 fires: "
+            }
+          ],
           "piped_text_visible": {
             "Q8": "Care Network A",
             "Q9": "Care Network A",
@@ -16213,7 +17115,8 @@
         },
         "proof": "Q16 was reached, so its rendered option list can be counted against the 6 the QRE lists",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "preconditions": {},
         "campaign": {},
@@ -16318,7 +17221,14 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [],
+          "validation_messages_expected": [
+            {
+              "question_id": "Q5",
+              "rule": "R19",
+              "outcome": "violated",
+              "detail": "reject rule R19 fires: "
+            }
+          ],
           "piped_text_visible": {
             "Q8": "Care Network A",
             "Q9": "Care Network A",
@@ -16336,7 +17246,8 @@
         },
         "proof": "Q16 was reached, so the order it renders can be recorded and compared across repeated runs",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "preconditions": {},
         "campaign": {
@@ -16459,7 +17370,14 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [],
+          "validation_messages_expected": [
+            {
+              "question_id": "Q5",
+              "rule": "R19",
+              "outcome": "violated",
+              "detail": "reject rule R19 fires: "
+            }
+          ],
           "piped_text_visible": {
             "Q8": "Care Network A",
             "Q9": "Care Network A",
@@ -16477,7 +17395,8 @@
         },
         "proof": "Q19 was reached, so its rendered option list can be counted against the 3 the QRE lists",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "preconditions": {},
         "campaign": {},
@@ -16582,7 +17501,14 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [],
+          "validation_messages_expected": [
+            {
+              "question_id": "Q5",
+              "rule": "R19",
+              "outcome": "violated",
+              "detail": "reject rule R19 fires: "
+            }
+          ],
           "piped_text_visible": {
             "Q8": "Care Network A",
             "Q9": "Care Network A",
@@ -16600,7 +17526,8 @@
         },
         "proof": "Q19 was reached, so the order it renders can be recorded and compared across repeated runs",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "preconditions": {},
         "campaign": {
@@ -16723,7 +17650,14 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [],
+          "validation_messages_expected": [
+            {
+              "question_id": "Q5",
+              "rule": "R19",
+              "outcome": "violated",
+              "detail": "reject rule R19 fires: "
+            }
+          ],
           "piped_text_visible": {
             "Q8": "Care Network A",
             "Q9": "Care Network A",
@@ -16741,7 +17675,8 @@
         },
         "proof": "Q5 was reached, so its rendered option list can be counted against the 7 the QRE lists",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "preconditions": {},
         "campaign": {},
@@ -16846,7 +17781,14 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [],
+          "validation_messages_expected": [
+            {
+              "question_id": "Q5",
+              "rule": "R19",
+              "outcome": "violated",
+              "detail": "reject rule R19 fires: "
+            }
+          ],
           "piped_text_visible": {
             "Q8": "Care Network A",
             "Q9": "Care Network A",
@@ -16864,7 +17806,8 @@
         },
         "proof": "Q5 was reached, so the order it renders can be recorded and compared across repeated runs",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "preconditions": {},
         "campaign": {
@@ -16987,7 +17930,14 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [],
+          "validation_messages_expected": [
+            {
+              "question_id": "Q5",
+              "rule": "R19",
+              "outcome": "violated",
+              "detail": "reject rule R19 fires: "
+            }
+          ],
           "piped_text_visible": {
             "Q8": "Care Network A",
             "Q9": "Care Network A",
@@ -17005,7 +17955,8 @@
         },
         "proof": "Q9 was reached, so its rendered option list can be counted against the 5 the QRE lists",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "preconditions": {},
         "campaign": {},
@@ -17110,7 +18061,14 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [],
+          "validation_messages_expected": [
+            {
+              "question_id": "Q5",
+              "rule": "R19",
+              "outcome": "violated",
+              "detail": "reject rule R19 fires: "
+            }
+          ],
           "piped_text_visible": {
             "Q8": "Care Network A",
             "Q9": "Care Network A",
@@ -17128,7 +18086,8 @@
         },
         "proof": "Q9 was reached, so the order it renders can be recorded and compared across repeated runs",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "preconditions": {},
         "campaign": {
@@ -17237,7 +18196,14 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [],
+          "validation_messages_expected": [
+            {
+              "question_id": "Q5",
+              "rule": "R19",
+              "outcome": "violated",
+              "detail": "reject rule R19 fires: "
+            }
+          ],
           "piped_text_visible": {
             "Q8": "Care Network A",
             "Q9": "Care Network A",
@@ -17255,7 +18221,8 @@
         },
         "proof": "respondent admitted into the cell and reached COMPLETE",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "preconditions": {},
         "campaign": {},
@@ -17374,7 +18341,14 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [],
+          "validation_messages_expected": [
+            {
+              "question_id": "Q5",
+              "rule": "R19",
+              "outcome": "violated",
+              "detail": "reject rule R19 fires: "
+            }
+          ],
           "piped_text_visible": {
             "Q8": "Care Network A",
             "Q9": "Care Network A",
@@ -17392,7 +18366,8 @@
         },
         "proof": "respondent admitted into the cell and reached COMPLETE",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "preconditions": {},
         "campaign": {},
@@ -17511,7 +18486,14 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [],
+          "validation_messages_expected": [
+            {
+              "question_id": "Q5",
+              "rule": "R19",
+              "outcome": "violated",
+              "detail": "reject rule R19 fires: "
+            }
+          ],
           "piped_text_visible": {
             "Q8": "Care Network A",
             "Q9": "Care Network A",
@@ -17529,7 +18511,8 @@
         },
         "proof": "respondent admitted into the cell and reached COMPLETE",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "preconditions": {},
         "campaign": {},
@@ -17648,7 +18631,14 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [],
+          "validation_messages_expected": [
+            {
+              "question_id": "Q5",
+              "rule": "R19",
+              "outcome": "violated",
+              "detail": "reject rule R19 fires: "
+            }
+          ],
           "piped_text_visible": {
             "Q8": "Care Network A",
             "Q9": "Care Network A",
@@ -17666,7 +18656,8 @@
         },
         "proof": "respondent admitted into the cell and reached COMPLETE",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "preconditions": {},
         "campaign": {},
@@ -17785,7 +18776,14 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [],
+          "validation_messages_expected": [
+            {
+              "question_id": "Q5",
+              "rule": "R19",
+              "outcome": "violated",
+              "detail": "reject rule R19 fires: "
+            }
+          ],
           "piped_text_visible": {
             "Q8": "Care Network A",
             "Q9": "Care Network A",
@@ -17803,7 +18801,8 @@
         },
         "proof": "respondent admitted into the cell and reached COMPLETE",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "preconditions": {},
         "campaign": {},
@@ -17922,7 +18921,14 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [],
+          "validation_messages_expected": [
+            {
+              "question_id": "Q5",
+              "rule": "R19",
+              "outcome": "violated",
+              "detail": "reject rule R19 fires: "
+            }
+          ],
           "piped_text_visible": {
             "Q8": "Care Network A",
             "Q9": "Care Network A",
@@ -17940,7 +18946,8 @@
         },
         "proof": "respondent admitted into the cell and reached COMPLETE",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "preconditions": {},
         "campaign": {},
@@ -18059,7 +19066,14 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [],
+          "validation_messages_expected": [
+            {
+              "question_id": "Q5",
+              "rule": "R19",
+              "outcome": "violated",
+              "detail": "reject rule R19 fires: "
+            }
+          ],
           "piped_text_visible": {
             "Q8": "Care Network A",
             "Q9": "Care Network A",
@@ -18077,7 +19091,8 @@
         },
         "proof": "respondent admitted into the cell and reached COMPLETE",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "preconditions": {},
         "campaign": {},
@@ -18196,7 +19211,14 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [],
+          "validation_messages_expected": [
+            {
+              "question_id": "Q5",
+              "rule": "R19",
+              "outcome": "violated",
+              "detail": "reject rule R19 fires: "
+            }
+          ],
           "piped_text_visible": {
             "Q8": "Care Network A",
             "Q9": "Care Network A",
@@ -18214,7 +19236,8 @@
         },
         "proof": "respondent admitted into the cell and reached COMPLETE",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "preconditions": {},
         "campaign": {},
@@ -18333,7 +19356,14 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [],
+          "validation_messages_expected": [
+            {
+              "question_id": "Q5",
+              "rule": "R19",
+              "outcome": "violated",
+              "detail": "reject rule R19 fires: "
+            }
+          ],
           "piped_text_visible": {
             "Q8": "Care Network A",
             "Q9": "Care Network A",
@@ -18351,7 +19381,8 @@
         },
         "proof": "respondent admitted into the cell and reached COMPLETE",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "preconditions": {},
         "campaign": {},
@@ -18470,7 +19501,14 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [],
+          "validation_messages_expected": [
+            {
+              "question_id": "Q5",
+              "rule": "R19",
+              "outcome": "violated",
+              "detail": "reject rule R19 fires: "
+            }
+          ],
           "piped_text_visible": {
             "Q8": "Care Network A",
             "Q9": "Care Network A",
@@ -18488,7 +19526,8 @@
         },
         "proof": "respondent admitted into the cell and reached COMPLETE",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "preconditions": {},
         "campaign": {},
@@ -18607,7 +19646,14 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [],
+          "validation_messages_expected": [
+            {
+              "question_id": "Q5",
+              "rule": "R19",
+              "outcome": "violated",
+              "detail": "reject rule R19 fires: "
+            }
+          ],
           "piped_text_visible": {
             "Q8": "Care Network A",
             "Q9": "Care Network A",
@@ -18625,7 +19671,8 @@
         },
         "proof": "Q2 shown by its guard and reflecting its dependency",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "preconditions": {},
         "campaign": {},
@@ -18730,7 +19777,14 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [],
+          "validation_messages_expected": [
+            {
+              "question_id": "Q5",
+              "rule": "R19",
+              "outcome": "violated",
+              "detail": "reject rule R19 fires: "
+            }
+          ],
           "piped_text_visible": {
             "Q8": "Care Network A",
             "Q9": "Care Network A",
@@ -18748,7 +19802,8 @@
         },
         "proof": "Q8 shown by its guard and reflecting its dependency",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "preconditions": {},
         "campaign": {},
@@ -18853,7 +19908,14 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [],
+          "validation_messages_expected": [
+            {
+              "question_id": "Q5",
+              "rule": "R19",
+              "outcome": "violated",
+              "detail": "reject rule R19 fires: "
+            }
+          ],
           "piped_text_visible": {
             "Q8": "Care Network A",
             "Q9": "Care Network A",
@@ -18871,7 +19933,8 @@
         },
         "proof": "Q9 shown by its guard and reflecting its dependency",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "preconditions": {},
         "campaign": {},
@@ -18976,7 +20039,14 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [],
+          "validation_messages_expected": [
+            {
+              "question_id": "Q5",
+              "rule": "R19",
+              "outcome": "violated",
+              "detail": "reject rule R19 fires: "
+            }
+          ],
           "piped_text_visible": {
             "Q8": "Care Network A",
             "Q9": "Care Network A",
@@ -18994,7 +20064,8 @@
         },
         "proof": "R18 correctly did not fire",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "preconditions": {},
         "campaign": {},
@@ -19101,6 +20172,12 @@
           "quota_over_target": null,
           "validation_messages_expected": [
             {
+              "question_id": "Q5",
+              "rule": "R19",
+              "outcome": "violated",
+              "detail": "reject rule R19 fires: "
+            },
+            {
               "question_id": "Q18",
               "rule": "sum_to",
               "outcome": "violated",
@@ -19122,34 +20199,49 @@
         },
         "proof": "reject rule R18 fired as expected, at one of the questions its condition names (['Q18'])",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "preconditions": {},
         "campaign": {},
         "covered_by": null
       },
       {
-        "scenario_id": "SC-2ec2b25c63",
+        "scenario_id": "SC-3e2138459f",
         "target_id": "T-d6b9ff6c62",
+        "dimension": "D3",
+        "status": "UNCOVERED",
+        "reason": "INFEASIBLE",
+        "answers": {},
+        "expected": {},
+        "proof": "proven impossible: cannot falsify an absent condition",
+        "provisional_semantics": [],
+        "preconditions": {},
+        "campaign": {},
+        "covered_by": null
+      },
+      {
+        "scenario_id": "SC-e25a8b623c",
+        "target_id": "T-5a5002c9d4",
         "dimension": "D3",
         "status": "COVERED",
         "reason": null,
         "answers": {
-          "Q1": [
-            "Q1-O1"
-          ],
-          "Q5": [
-            "Q5-O1"
-          ],
           "S1": "S1-O1",
           "S2": "S2-O1",
           "S3": "S3-O2",
           "S4": "S4-O2",
+          "Q1": [
+            "Q1-O1"
+          ],
           "Q2": [
             "Q2-O1"
           ],
           "Q3": "Q3-O1",
           "Q4": "Q4-O1",
+          "Q5": [
+            "Q5-O1"
+          ],
           "Q6": "Q6-O1",
           "Q7": "Q7-O1",
           "Q8": "Q8-O1",
@@ -19227,7 +20319,14 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [],
+          "validation_messages_expected": [
+            {
+              "question_id": "Q5",
+              "rule": "R19",
+              "outcome": "violated",
+              "detail": "reject rule R19 fires: "
+            }
+          ],
           "piped_text_visible": {
             "Q8": "Care Network A",
             "Q9": "Care Network A",
@@ -19243,127 +20342,11 @@
             ]
           }
         },
-        "proof": "R19 correctly did not fire",
+        "proof": "reject rule R19 fired as expected, at one of the questions its condition names ([])",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
-        "preconditions": {},
-        "campaign": {},
-        "covered_by": null
-      },
-      {
-        "scenario_id": "SC-5a73c8e06e",
-        "target_id": "T-5a5002c9d4",
-        "dimension": "D3",
-        "status": "COVERED",
-        "reason": null,
-        "answers": {
-          "Q1": [
-            "Q1-O1",
-            "Q1-O5"
-          ],
-          "S1": "S1-O1",
-          "S2": "S2-O1",
-          "S3": "S3-O2",
-          "S4": "S4-O2",
-          "Q2": [
-            "Q2-O1"
-          ],
-          "Q3": "Q3-O1",
-          "Q4": "Q4-O1",
-          "Q5": [
-            "Q5-O1"
-          ],
-          "Q6": "Q6-O1",
-          "Q7": "Q7-O1",
-          "Q8": "Q8-O1",
-          "Q9": {
-            "Q9-R1": "Q9-O1",
-            "Q9-R2": "Q9-O1",
-            "Q9-R3": "Q9-O1",
-            "Q9-R4": "Q9-O1",
-            "Q9-R5": "Q9-O1",
-            "Q9-R6": "Q9-O1"
-          },
-          "Q10": "Q10-O1",
-          "Q11": [
-            "Q11-O1"
-          ],
-          "Q12": "Q12-O1",
-          "Q13": "Q13-O1",
-          "Q14": "xxxxxxxxxx",
-          "Q15": "Q15-O1",
-          "Q16": "Q16-O1",
-          "Q17": "xxx",
-          "Q18": {
-            "Q18-O1": 20,
-            "Q18-O2": 20,
-            "Q18-O3": 20,
-            "Q18-O4": 20,
-            "Q18-O5": 20
-          },
-          "Q19": "Q19-O1",
-          "Q20": "Q20-O1",
-          "Q21": "xxxxx",
-          "D1": "D1-O1",
-          "D2": "D2-O1",
-          "D3": "D3-O1",
-          "D4": "D4-O1",
-          "Q22": "Q22-O1"
-        },
-        "expected": {
-          "questions_seen_in_order": [
-            "S1",
-            "S2",
-            "S3",
-            "S4",
-            "Q1"
-          ],
-          "questions_not_seen": [
-            "Q2",
-            "Q3",
-            "Q4",
-            "Q5",
-            "Q6",
-            "Q7",
-            "Q8",
-            "Q9",
-            "Q10",
-            "Q11",
-            "Q12",
-            "Q13",
-            "Q14",
-            "Q15",
-            "Q16",
-            "Q17",
-            "Q18",
-            "Q19",
-            "Q20",
-            "Q21",
-            "D1",
-            "D2",
-            "D3",
-            "D4",
-            "Q22",
-            "Q23"
-          ],
-          "ending_reached": null,
-          "blocked_at": "Q1",
-          "quota_stopped": null,
-          "quota_over_target": null,
-          "validation_messages_expected": [
-            {
-              "question_id": "Q1",
-              "rule": "exclusive_option",
-              "outcome": "violated",
-              "detail": "exclusive option Q1-O5 chosen alongside ['Q1-O1']"
-            }
-          ],
-          "piped_text_visible": {},
-          "option_lists_visible": {}
-        },
-        "proof": "reject rule R19 fired as expected, at one of the questions its condition names (['Q1', 'Q5'])",
-        "provisional_semantics": [],
         "preconditions": {},
         "campaign": {},
         "covered_by": null
@@ -19467,7 +20450,14 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [],
+          "validation_messages_expected": [
+            {
+              "question_id": "Q5",
+              "rule": "R19",
+              "outcome": "violated",
+              "detail": "reject rule R19 fires: "
+            }
+          ],
           "piped_text_visible": {
             "Q8": "Care Network A",
             "Q9": "Care Network A",
@@ -19485,7 +20475,8 @@
         },
         "proof": "R20 correctly did not fire",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "preconditions": {},
         "campaign": {},
@@ -19590,7 +20581,14 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [],
+          "validation_messages_expected": [
+            {
+              "question_id": "Q5",
+              "rule": "R19",
+              "outcome": "violated",
+              "detail": "reject rule R19 fires: "
+            }
+          ],
           "piped_text_visible": {
             "Q8": "Care Network A",
             "Q9": "Care Network A",
@@ -19606,13 +20604,14 @@
             ]
           }
         },
-        "proof": "No separate run needed. This rule restates a constraint that the D5 test on Q5->Q6 already proves; the builder therefore emits nothing for it.",
+        "proof": "reject rule R20 fired as expected, at one of the questions its condition names (['Q5', 'Q6'])",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "preconditions": {},
         "campaign": {},
-        "covered_by": "the D5 test on Q5->Q6"
+        "covered_by": null
       }
     ]
   }

@@ -59,7 +59,7 @@
     <admin><![CDATA[admin]]></admin>
     <adminemail><![CDATA[admin@example.com]]></adminemail>
     <anonymized><![CDATA[N]]></anonymized>
-    <format><![CDATA[G]]></format>
+    <format><![CDATA[S]]></format>
     <savetimings><![CDATA[N]]></savetimings>
     <template><![CDATA[fruity_twentythree]]></template>
     <language><![CDATA[en]]></language>
@@ -217,7 +217,7 @@
     <question_order><![CDATA[2]]></question_order>
     <scale_id><![CDATA[0]]></scale_id>
     <same_default><![CDATA[0]]></same_default>
-    <relevance><![CDATA[1]]></relevance>
+    <relevance><![CDATA[(S1.NAOK != "A002")]]></relevance>
     <question_theme_name><![CDATA[listradio]]></question_theme_name>
     <same_script><![CDATA[0]]></same_script>
    </row>
@@ -234,7 +234,7 @@
     <question_order><![CDATA[3]]></question_order>
     <scale_id><![CDATA[0]]></scale_id>
     <same_default><![CDATA[0]]></same_default>
-    <relevance><![CDATA[1]]></relevance>
+    <relevance><![CDATA[(S1.NAOK != "A002") and (S2.NAOK == "A001")]]></relevance>
     <question_theme_name><![CDATA[listradio]]></question_theme_name>
     <same_script><![CDATA[0]]></same_script>
    </row>
@@ -251,7 +251,7 @@
     <question_order><![CDATA[4]]></question_order>
     <scale_id><![CDATA[0]]></scale_id>
     <same_default><![CDATA[0]]></same_default>
-    <relevance><![CDATA[1]]></relevance>
+    <relevance><![CDATA[(S1.NAOK != "A002") and (S2.NAOK == "A001") and (S3.NAOK != "A001")]]></relevance>
     <question_theme_name><![CDATA[listradio]]></question_theme_name>
     <same_script><![CDATA[0]]></same_script>
    </row>
@@ -1618,6 +1618,11 @@
   <rows>
    <row>
     <qid><![CDATA[1004]]></qid>
+    <attribute><![CDATA[answer_order]]></attribute>
+    <value><![CDATA[random]]></value>
+   </row>
+   <row>
+    <qid><![CDATA[1004]]></qid>
     <attribute><![CDATA[exclude_all_others]]></attribute>
     <value><![CDATA[SQ005]]></value>
    </row>
@@ -1625,6 +1630,11 @@
     <qid><![CDATA[1010]]></qid>
     <attribute><![CDATA[array_filter]]></attribute>
     <value><![CDATA[Q1]]></value>
+   </row>
+   <row>
+    <qid><![CDATA[1017]]></qid>
+    <attribute><![CDATA[answer_order]]></attribute>
+    <value><![CDATA[random]]></value>
    </row>
    <row>
     <qid><![CDATA[1017]]></qid>
@@ -1637,40 +1647,40 @@
     <value><![CDATA[Q5]]></value>
    </row>
    <row>
+    <qid><![CDATA[1028]]></qid>
+    <attribute><![CDATA[answer_order]]></attribute>
+    <value><![CDATA[random]]></value>
+   </row>
+   <row>
     <qid><![CDATA[1036]]></qid>
     <attribute><![CDATA[min_answers]]></attribute>
     <value><![CDATA[1]]></value>
    </row>
    <row>
     <qid><![CDATA[1044]]></qid>
-    <attribute><![CDATA[maximum_chars]]></attribute>
-    <value><![CDATA[500]]></value>
-   </row>
-   <row>
-    <qid><![CDATA[1044]]></qid>
     <attribute><![CDATA[em_validation_q]]></attribute>
-    <value><![CDATA[strlen(this) >= 10]]></value>
+    <value><![CDATA[strlen(this) >= 10 and strlen(this) <= 500]]></value>
    </row>
    <row>
     <qid><![CDATA[1044]]></qid>
     <attribute><![CDATA[em_validation_q_tip]]></attribute>
-    <value><![CDATA[Please enter at least 10 characters.]]></value>
+    <value><![CDATA[Please enter at least 10 characters and no more than 500 characters.]]></value>
     <language><![CDATA[en]]></language>
    </row>
    <row>
-    <qid><![CDATA[1047]]></qid>
-    <attribute><![CDATA[maximum_chars]]></attribute>
-    <value><![CDATA[200]]></value>
+    <qid><![CDATA[1046]]></qid>
+    <attribute><![CDATA[answer_order]]></attribute>
+    <value><![CDATA[random]]></value>
    </row>
    <row>
     <qid><![CDATA[1047]]></qid>
     <attribute><![CDATA[em_validation_q]]></attribute>
-    <value><![CDATA[strlen(this) >= 3]]></value>
+    <value><![CDATA[strlen(this) >= 3 and strlen(this) <= 200]]></value>
    </row>
    <row>
     <qid><![CDATA[1047]]></qid>
     <attribute><![CDATA[em_validation_q_tip]]></attribute>
-    <value><![CDATA[Please enter at least 3 characters.]]></value>
+    <value><![CDATA[Please enter at least 3 characters and no more than 200 characters.]]></value>
     <language><![CDATA[en]]></language>
    </row>
    <row>
@@ -1679,25 +1689,31 @@
     <value><![CDATA[100]]></value>
    </row>
    <row>
-    <qid><![CDATA[1056]]></qid>
-    <attribute><![CDATA[maximum_chars]]></attribute>
-    <value><![CDATA[500]]></value>
+    <qid><![CDATA[1054]]></qid>
+    <attribute><![CDATA[answer_order]]></attribute>
+    <value><![CDATA[random]]></value>
    </row>
    <row>
     <qid><![CDATA[1056]]></qid>
     <attribute><![CDATA[em_validation_q]]></attribute>
-    <value><![CDATA[strlen(this) >= 5]]></value>
+    <value><![CDATA[strlen(this) >= 5 and strlen(this) <= 500]]></value>
    </row>
    <row>
     <qid><![CDATA[1056]]></qid>
     <attribute><![CDATA[em_validation_q_tip]]></attribute>
-    <value><![CDATA[Please enter at least 5 characters.]]></value>
+    <value><![CDATA[Please enter at least 5 characters and no more than 500 characters.]]></value>
     <language><![CDATA[en]]></language>
    </row>
    <row>
     <qid><![CDATA[1062]]></qid>
-    <attribute><![CDATA[maximum_chars]]></attribute>
-    <value><![CDATA[1000]]></value>
+    <attribute><![CDATA[em_validation_q]]></attribute>
+    <value><![CDATA[strlen(this) <= 1000]]></value>
+   </row>
+   <row>
+    <qid><![CDATA[1062]]></qid>
+    <attribute><![CDATA[em_validation_q_tip]]></attribute>
+    <value><![CDATA[Please enter no more than 1000 characters.]]></value>
+    <language><![CDATA[en]]></language>
    </row>
   </rows>
  </question_attributes>

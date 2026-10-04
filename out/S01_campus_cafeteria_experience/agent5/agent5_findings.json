@@ -1,0 +1,72 @@
+{
+  "survey": "S01_campus_cafeteria_experience",
+  "run_at": "2026-10-05T00:37:35",
+  "journeys": [
+    {
+      "path_id": "P01",
+      "name": "Screened out at S1 (TERM_INELIGIBLE)",
+      "route_class": "SCREENOUT",
+      "tests": 3,
+      "passed": 3,
+      "failed": 0,
+      "other": 0,
+      "broke_at": "",
+      "first_failure": "",
+      "first_order": 9999,
+      "real_broke_at": "",
+      "real_first_failure": "",
+      "real_first_order": 9999,
+      "causes": []
+    },
+    {
+      "path_id": "P02",
+      "name": "Screened out at S2 (TERM_INELIGIBLE)",
+      "route_class": "SCREENOUT",
+      "tests": 3,
+      "passed": 3,
+      "failed": 0,
+      "other": 0,
+      "broke_at": "",
+      "first_failure": "",
+      "first_order": 9999,
+      "real_broke_at": "",
+      "real_first_failure": "",
+      "real_first_order": 9999,
+      "causes": []
+    },
+    {
+      "path_id": "P03",
+      "name": "Completing respondent \u2014 Q5=Yes",
+      "route_class": "MAIN",
+      "tests": 12,
+      "passed": 12,
+      "failed": 0,
+      "other": 0,
+      "broke_at": "",
+      "first_failure": "",
+      "first_order": 9999,
+      "real_broke_at": "",
+      "real_first_failure": "",
+      "real_first_order": 9999,
+      "causes": []
+    },
+    {
+      "path_id": "P04",
+      "name": "Completing respondent \u2014 Q5=No",
+      "route_class": "MAIN",
+      "tests": 23,
+      "passed": 23,
+      "failed": 0,
+      "other": 0,
+      "broke_at": "",
+      "first_failure": "",
+      "first_order": 9999,
+      "real_broke_at": "",
+      "real_first_failure": "",
+      "real_first_order": 9999,
+      "causes": []
+    }
+  ],
+  "groups": [],
+  "judgements": []
+}

@@ -9,20 +9,20 @@
   },
   "upstream": {
     "canonical_schema_version": "1.0.0",
-    "canonical_generated_at": "2026-09-11T16:40:48+00:00"
+    "canonical_generated_at": "2026-10-04T06:55:23+00:00"
   },
   "content": {
     "report": {
-      "logically_covered": 158,
-      "compiled_executable": 158,
+      "logically_covered": 156,
+      "compiled_executable": 156,
       "refused": 0,
-      "executable_coverage_pct": 90.8,
+      "executable_coverage_pct": 89.7,
       "refusals": [],
       "note": "Block C refuses rather than guessing a missing identifier. A refusal is a specific named gap, not a silent omission."
     },
     "tests": [
       {
-        "test_id": "EX-865ccb3f80",
+        "test_id": "EX-29a663bf75",
         "target_id": "T-28dda6de6e",
         "dimension": "D1",
         "title": "answering D1 normally moves the respondent on to the question that should come next",
@@ -445,11 +445,12 @@
         "refusal_reason": null,
         "missing_bindings": [],
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ]
       },
       {
-        "test_id": "EX-aa06eec7dc",
+        "test_id": "EX-4dcfae9820",
         "target_id": "T-0a8c593040",
         "dimension": "D1",
         "title": "answering D2 normally moves the respondent on to the question that should come next",
@@ -872,11 +873,12 @@
         "refusal_reason": null,
         "missing_bindings": [],
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ]
       },
       {
-        "test_id": "EX-967f9bfde2",
+        "test_id": "EX-676a65fa84",
         "target_id": "T-fa7ae79fa5",
         "dimension": "D1",
         "title": "answering D3 normally moves the respondent on to the question that should come next",
@@ -1299,11 +1301,12 @@
         "refusal_reason": null,
         "missing_bindings": [],
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ]
       },
       {
-        "test_id": "EX-7e482ef857",
+        "test_id": "EX-1622588c12",
         "target_id": "T-3f0092978e",
         "dimension": "D1",
         "title": "answering D4 normally moves the respondent on to the question that should come next",
@@ -1726,11 +1729,12 @@
         "refusal_reason": null,
         "missing_bindings": [],
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ]
       },
       {
-        "test_id": "EX-079c968189",
+        "test_id": "EX-ee7099a70f",
         "target_id": "T-f325a4a781",
         "dimension": "D1",
         "title": "answering Q1 normally moves the respondent on to the question that should come next",
@@ -2153,11 +2157,12 @@
         "refusal_reason": null,
         "missing_bindings": [],
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ]
       },
       {
-        "test_id": "EX-6341a26ab8",
+        "test_id": "EX-963d427bda",
         "target_id": "T-d5aef33769",
         "dimension": "D1",
         "title": "answering Q10 normally moves the respondent on to the question that should come next",
@@ -2580,11 +2585,12 @@
         "refusal_reason": null,
         "missing_bindings": [],
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ]
       },
       {
-        "test_id": "EX-2c3871170b",
+        "test_id": "EX-6983bd3825",
         "target_id": "T-11d51719ce",
         "dimension": "D1",
         "title": "answering Q11 normally moves the respondent on to the question that should come next",
@@ -3007,11 +3013,12 @@
         "refusal_reason": null,
         "missing_bindings": [],
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ]
       },
       {
-        "test_id": "EX-b26d3dabf3",
+        "test_id": "EX-a3906657fb",
         "target_id": "T-c15cef88bd",
         "dimension": "D1",
         "title": "Q11 is not displayed when its guard fails",
@@ -3255,11 +3262,12 @@
         "refusal_reason": null,
         "missing_bindings": [],
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ]
       },
       {
-        "test_id": "EX-10c061e096",
+        "test_id": "EX-308589778e",
         "target_id": "T-52fcaa827e",
         "dimension": "D1",
         "title": "Q11 is displayed when its guard holds",
@@ -3505,11 +3513,12 @@
         "refusal_reason": null,
         "missing_bindings": [],
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ]
       },
       {
-        "test_id": "EX-e1b078f946",
+        "test_id": "EX-1f27e667e0",
         "target_id": "T-3907421364",
         "dimension": "D1",
         "title": "answering Q12 normally moves the respondent on to the question that should come next",
@@ -3932,11 +3941,12 @@
         "refusal_reason": null,
         "missing_bindings": [],
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ]
       },
       {
-        "test_id": "EX-36c2043c3f",
+        "test_id": "EX-1f34dcb149",
         "target_id": "T-75fbb3de72",
         "dimension": "D1",
         "title": "Q12 is not displayed when its guard fails",
@@ -4180,11 +4190,12 @@
         "refusal_reason": null,
         "missing_bindings": [],
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ]
       },
       {
-        "test_id": "EX-441516a3f4",
+        "test_id": "EX-2f721ee64a",
         "target_id": "T-9c982f1c81",
         "dimension": "D1",
         "title": "Q12 is displayed when its guard holds",
@@ -4440,11 +4451,12 @@
         "refusal_reason": null,
         "missing_bindings": [],
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ]
       },
       {
-        "test_id": "EX-ed80c44054",
+        "test_id": "EX-fc5473801d",
         "target_id": "T-a1c44561a6",
         "dimension": "D1",
         "title": "answering Q13 normally moves the respondent on to the question that should come next",
@@ -4867,11 +4879,12 @@
         "refusal_reason": null,
         "missing_bindings": [],
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ]
       },
       {
-        "test_id": "EX-1378b3b850",
+        "test_id": "EX-a89b81deba",
         "target_id": "T-7a3c1221d9",
         "dimension": "D1",
         "title": "Q13 is not displayed when its guard fails",
@@ -5135,11 +5148,12 @@
         "refusal_reason": null,
         "missing_bindings": [],
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ]
       },
       {
-        "test_id": "EX-ef7362422c",
+        "test_id": "EX-1905debb40",
         "target_id": "T-527abdf025",
         "dimension": "D1",
         "title": "Q13 is displayed when its guard holds",
@@ -5405,11 +5419,12 @@
         "refusal_reason": null,
         "missing_bindings": [],
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ]
       },
       {
-        "test_id": "EX-1ebac0bc22",
+        "test_id": "EX-29e3a9c604",
         "target_id": "T-da4659818e",
         "dimension": "D1",
         "title": "answering Q14 normally moves the respondent on to the question that should come next",
@@ -5832,11 +5847,12 @@
         "refusal_reason": null,
         "missing_bindings": [],
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ]
       },
       {
-        "test_id": "EX-b3e881fccf",
+        "test_id": "EX-6a5c4a58c3",
         "target_id": "T-a25a32f99a",
         "dimension": "D1",
         "title": "Q14 is not displayed when its guard fails",
@@ -6110,11 +6126,12 @@
         "refusal_reason": null,
         "missing_bindings": [],
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ]
       },
       {
-        "test_id": "EX-cbe1cb7a2a",
+        "test_id": "EX-e9892b7e9e",
         "target_id": "T-96aad234ca",
         "dimension": "D1",
         "title": "Q14 is displayed when its guard holds",
@@ -6380,11 +6397,12 @@
         "refusal_reason": null,
         "missing_bindings": [],
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ]
       },
       {
-        "test_id": "EX-5ab47482df",
+        "test_id": "EX-5a6a25eb5f",
         "target_id": "T-19d2bb8d63",
         "dimension": "D1",
         "title": "answering Q15 normally moves the respondent on to the question that should come next",
@@ -6807,11 +6825,12 @@
         "refusal_reason": null,
         "missing_bindings": [],
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ]
       },
       {
-        "test_id": "EX-ba4228bb8c",
+        "test_id": "EX-fbdd212b7c",
         "target_id": "T-5a1c63d00b",
         "dimension": "D1",
         "title": "Q15 is not displayed when its guard fails",
@@ -7004,11 +7023,12 @@
         "refusal_reason": null,
         "missing_bindings": [],
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ]
       },
       {
-        "test_id": "EX-e248f25f31",
+        "test_id": "EX-5b5b15cc84",
         "target_id": "T-8754622236",
         "dimension": "D1",
         "title": "Q15 is displayed when its guard holds",
@@ -7283,11 +7303,12 @@
         "refusal_reason": null,
         "missing_bindings": [],
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ]
       },
       {
-        "test_id": "EX-4925894109",
+        "test_id": "EX-5e35d0b4f9",
         "target_id": "T-d23f2bd82f",
         "dimension": "D1",
         "title": "answering Q16 normally moves the respondent on to the question that should come next",
@@ -7710,11 +7731,12 @@
         "refusal_reason": null,
         "missing_bindings": [],
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ]
       },
       {
-        "test_id": "EX-e8e2bed470",
+        "test_id": "EX-b2a1792672",
         "target_id": "T-42b635fb7b",
         "dimension": "D1",
         "title": "Q16 is not displayed when its guard fails",
@@ -7998,11 +8020,12 @@
         "refusal_reason": null,
         "missing_bindings": [],
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ]
       },
       {
-        "test_id": "EX-97ffdf5870",
+        "test_id": "EX-f66d79500d",
         "target_id": "T-926f113e74",
         "dimension": "D1",
         "title": "Q16 is displayed when its guard holds",
@@ -8288,11 +8311,12 @@
         "refusal_reason": null,
         "missing_bindings": [],
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ]
       },
       {
-        "test_id": "EX-776a6d45c4",
+        "test_id": "EX-c677165fd1",
         "target_id": "T-4e1cad7a3b",
         "dimension": "D1",
         "title": "answering Q17 normally moves the respondent on to the question that should come next",
@@ -8725,11 +8749,12 @@
         "refusal_reason": null,
         "missing_bindings": [],
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ]
       },
       {
-        "test_id": "EX-d25e97e534",
+        "test_id": "EX-78d1e99015",
         "target_id": "T-de5c572d8c",
         "dimension": "D1",
         "title": "Q17 is not displayed when its guard fails",
@@ -9023,11 +9048,12 @@
         "refusal_reason": null,
         "missing_bindings": [],
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ]
       },
       {
-        "test_id": "EX-096f1dcf94",
+        "test_id": "EX-d4cd2bbf52",
         "target_id": "T-82b516f812",
         "dimension": "D1",
         "title": "Q17 is displayed when its guard holds",
@@ -9323,11 +9349,12 @@
         "refusal_reason": null,
         "missing_bindings": [],
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ]
       },
       {
-        "test_id": "EX-6ee3bd1544",
+        "test_id": "EX-ee29d8b0cf",
         "target_id": "T-dfa61ef090",
         "dimension": "D1",
         "title": "answering Q18 normally moves the respondent on to the question that should come next",
@@ -9750,11 +9777,12 @@
         "refusal_reason": null,
         "missing_bindings": [],
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ]
       },
       {
-        "test_id": "EX-5766bdcad5",
+        "test_id": "EX-1094cdfe2b",
         "target_id": "T-d17654526e",
         "dimension": "D1",
         "title": "answering Q19 normally moves the respondent on to the question that should come next",
@@ -10177,11 +10205,12 @@
         "refusal_reason": null,
         "missing_bindings": [],
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ]
       },
       {
-        "test_id": "EX-adaeb90a71",
+        "test_id": "EX-054e83b998",
         "target_id": "T-ea15e888c6",
         "dimension": "D1",
         "title": "answering Q2 normally moves the respondent on to the question that should come next",
@@ -10604,11 +10633,12 @@
         "refusal_reason": null,
         "missing_bindings": [],
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ]
       },
       {
-        "test_id": "EX-ed86f2b7f9",
+        "test_id": "EX-0e4a77181d",
         "target_id": "T-63d8afff5b",
         "dimension": "D1",
         "title": "Q2 is not displayed when its guard fails",
@@ -10712,11 +10742,12 @@
         "refusal_reason": null,
         "missing_bindings": [],
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ]
       },
       {
-        "test_id": "EX-a38e585290",
+        "test_id": "EX-4dc82850b7",
         "target_id": "T-a72cd3409f",
         "dimension": "D1",
         "title": "Q2 is displayed when its guard holds",
@@ -10822,11 +10853,12 @@
         "refusal_reason": null,
         "missing_bindings": [],
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ]
       },
       {
-        "test_id": "EX-a63c1fa79b",
+        "test_id": "EX-eeb2f9db8e",
         "target_id": "T-20a79cced5",
         "dimension": "D1",
         "title": "answering Q20 normally moves the respondent on to the question that should come next",
@@ -11249,11 +11281,12 @@
         "refusal_reason": null,
         "missing_bindings": [],
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ]
       },
       {
-        "test_id": "EX-eb26ae589b",
+        "test_id": "EX-59fe42fa24",
         "target_id": "T-8782697728",
         "dimension": "D1",
         "title": "answering Q21 normally moves the respondent on to the question that should come next",
@@ -11676,11 +11709,12 @@
         "refusal_reason": null,
         "missing_bindings": [],
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ]
       },
       {
-        "test_id": "EX-1ea3e8b558",
+        "test_id": "EX-4788f93d3d",
         "target_id": "T-82b2e57efa",
         "dimension": "D1",
         "title": "answering Q22 normally moves the respondent on to the question that should come next",
@@ -12103,11 +12137,12 @@
         "refusal_reason": null,
         "missing_bindings": [],
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ]
       },
       {
-        "test_id": "EX-a64b33612a",
+        "test_id": "EX-026105496e",
         "target_id": "T-4e33a23d9e",
         "dimension": "D1",
         "title": "answering Q23 normally moves the respondent on to the question that should come next",
@@ -12530,11 +12565,12 @@
         "refusal_reason": null,
         "missing_bindings": [],
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ]
       },
       {
-        "test_id": "EX-401cd84e6b",
+        "test_id": "EX-a0e64e8fe6",
         "target_id": "T-d182c884c0",
         "dimension": "D1",
         "title": "answering Q3 normally moves the respondent on to the question that should come next",
@@ -12957,11 +12993,12 @@
         "refusal_reason": null,
         "missing_bindings": [],
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ]
       },
       {
-        "test_id": "EX-ca2a181643",
+        "test_id": "EX-ba9d251e2e",
         "target_id": "T-5cee4295f8",
         "dimension": "D1",
         "title": "Q3 is not displayed when its guard fails",
@@ -13065,11 +13102,12 @@
         "refusal_reason": null,
         "missing_bindings": [],
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ]
       },
       {
-        "test_id": "EX-651b57cbfe",
+        "test_id": "EX-1e4ba7c2a3",
         "target_id": "T-1f07f052e1",
         "dimension": "D1",
         "title": "Q3 is displayed when its guard holds",
@@ -13185,11 +13223,12 @@
         "refusal_reason": null,
         "missing_bindings": [],
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ]
       },
       {
-        "test_id": "EX-1d6d2e438f",
+        "test_id": "EX-6362756a58",
         "target_id": "T-460e9ac790",
         "dimension": "D1",
         "title": "answering Q4 normally moves the respondent on to the question that should come next",
@@ -13612,11 +13651,12 @@
         "refusal_reason": null,
         "missing_bindings": [],
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ]
       },
       {
-        "test_id": "EX-b63b3f3c57",
+        "test_id": "EX-7bac84c7b2",
         "target_id": "T-4a81ad1c54",
         "dimension": "D1",
         "title": "answering Q5 normally moves the respondent on to the question that should come next",
@@ -14039,11 +14079,12 @@
         "refusal_reason": null,
         "missing_bindings": [],
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ]
       },
       {
-        "test_id": "EX-578770fc31",
+        "test_id": "EX-a678dc7dd6",
         "target_id": "T-a31d9e36e7",
         "dimension": "D1",
         "title": "answering Q6 normally moves the respondent on to the question that should come next",
@@ -14466,11 +14507,12 @@
         "refusal_reason": null,
         "missing_bindings": [],
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ]
       },
       {
-        "test_id": "EX-e6db9882d3",
+        "test_id": "EX-d1fc22bfb5",
         "target_id": "T-a25fbf002c",
         "dimension": "D1",
         "title": "answering Q7 normally moves the respondent on to the question that should come next",
@@ -14893,11 +14935,12 @@
         "refusal_reason": null,
         "missing_bindings": [],
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ]
       },
       {
-        "test_id": "EX-f384cd3777",
+        "test_id": "EX-5203464633",
         "target_id": "T-567c52fd5d",
         "dimension": "D1",
         "title": "Q7 is not displayed when its guard fails",
@@ -15051,11 +15094,12 @@
         "refusal_reason": null,
         "missing_bindings": [],
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ]
       },
       {
-        "test_id": "EX-e308481a12",
+        "test_id": "EX-c9cdc8fa71",
         "target_id": "T-6959e7ba58",
         "dimension": "D1",
         "title": "Q7 is displayed when its guard holds",
@@ -15211,11 +15255,12 @@
         "refusal_reason": null,
         "missing_bindings": [],
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ]
       },
       {
-        "test_id": "EX-7cb4ea19de",
+        "test_id": "EX-9d4e65570b",
         "target_id": "T-b3b76ca11a",
         "dimension": "D1",
         "title": "answering Q8 normally moves the respondent on to the question that should come next",
@@ -15638,11 +15683,12 @@
         "refusal_reason": null,
         "missing_bindings": [],
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ]
       },
       {
-        "test_id": "EX-7ebdf9d536",
+        "test_id": "EX-4782b5b7e2",
         "target_id": "T-21fd637902",
         "dimension": "D1",
         "title": "Q8 is not displayed when its guard fails",
@@ -15796,11 +15842,12 @@
         "refusal_reason": null,
         "missing_bindings": [],
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ]
       },
       {
-        "test_id": "EX-b609f48d4d",
+        "test_id": "EX-ac5f9e4f4f",
         "target_id": "T-0e25b5f453",
         "dimension": "D1",
         "title": "Q8 is displayed when its guard holds",
@@ -15966,11 +16013,12 @@
         "refusal_reason": null,
         "missing_bindings": [],
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ]
       },
       {
-        "test_id": "EX-d8e98cfd23",
+        "test_id": "EX-93785db903",
         "target_id": "T-2d38100fad",
         "dimension": "D1",
         "title": "answering Q9 normally moves the respondent on to the question that should come next",
@@ -16393,11 +16441,12 @@
         "refusal_reason": null,
         "missing_bindings": [],
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ]
       },
       {
-        "test_id": "EX-d53c2b791f",
+        "test_id": "EX-6ca4cfb2d0",
         "target_id": "T-38fdb69243",
         "dimension": "D1",
         "title": "Q9 is not displayed when its guard fails",
@@ -16551,11 +16600,12 @@
         "refusal_reason": null,
         "missing_bindings": [],
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ]
       },
       {
-        "test_id": "EX-f666906313",
+        "test_id": "EX-415133dbe1",
         "target_id": "T-b4a5f414c4",
         "dimension": "D1",
         "title": "Q9 is displayed when its guard holds",
@@ -16781,11 +16831,12 @@
         "refusal_reason": null,
         "missing_bindings": [],
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ]
       },
       {
-        "test_id": "EX-76cabd9ef4",
+        "test_id": "EX-ff91a10f4a",
         "target_id": "T-8a3f6119c2",
         "dimension": "D1",
         "title": "R5 jumps to Q4 when its condition holds",
@@ -16885,7 +16936,7 @@
         ]
       },
       {
-        "test_id": "EX-7df22a292c",
+        "test_id": "EX-a2faecdc06",
         "target_id": "T-8e6acd1f8d",
         "dimension": "D1",
         "title": "R5 does not jump when its condition fails, so the respondent continues in sequence",
@@ -16980,11 +17031,12 @@
         "refusal_reason": null,
         "missing_bindings": [],
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ]
       },
       {
-        "test_id": "EX-baa18c546f",
+        "test_id": "EX-0d39977c42",
         "target_id": "T-94ce2e5d20",
         "dimension": "D1",
         "title": "answering S1 normally moves the respondent on to the question that should come next",
@@ -17407,11 +17459,12 @@
         "refusal_reason": null,
         "missing_bindings": [],
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ]
       },
       {
-        "test_id": "EX-d119a7f136",
+        "test_id": "EX-247dc498fa",
         "target_id": "T-9b21d71193",
         "dimension": "D1",
         "title": "answering S2 normally moves the respondent on to the question that should come next",
@@ -17834,11 +17887,12 @@
         "refusal_reason": null,
         "missing_bindings": [],
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ]
       },
       {
-        "test_id": "EX-18b93da6da",
+        "test_id": "EX-0b0e177e35",
         "target_id": "T-4b5b9751c7",
         "dimension": "D1",
         "title": "answering S3 normally moves the respondent on to the question that should come next",
@@ -18261,11 +18315,12 @@
         "refusal_reason": null,
         "missing_bindings": [],
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ]
       },
       {
-        "test_id": "EX-052578d92f",
+        "test_id": "EX-8b6937ab6a",
         "target_id": "T-8820ac5d47",
         "dimension": "D1",
         "title": "answering S4 normally moves the respondent on to the question that should come next",
@@ -18688,11 +18743,12 @@
         "refusal_reason": null,
         "missing_bindings": [],
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ]
       },
       {
-        "test_id": "EX-a0f0db3fab",
+        "test_id": "EX-9dcc9ca975",
         "target_id": "T-05b0993ae8",
         "dimension": "D2",
         "title": "a respondent can reach ending COMPLETE",
@@ -19105,11 +19161,12 @@
         "refusal_reason": null,
         "missing_bindings": [],
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ]
       },
       {
-        "test_id": "EX-1f7dabd97f",
+        "test_id": "EX-29ba63c37f",
         "target_id": "T-9c7815569c",
         "dimension": "D2",
         "title": "ending TERM_AGE is reached by rule R1, evaluated at S1",
@@ -19167,7 +19224,7 @@
         ]
       },
       {
-        "test_id": "EX-fa3bb157ca",
+        "test_id": "EX-fd22b26e9f",
         "target_id": "T-a998295c93",
         "dimension": "D2",
         "title": "ending TERM_CONFLICT is reached by rule R4, evaluated at S4",
@@ -19255,7 +19312,7 @@
         ]
       },
       {
-        "test_id": "EX-adb10086b1",
+        "test_id": "EX-4ada08d19e",
         "target_id": "T-bb9908a756",
         "dimension": "D2",
         "title": "ending TERM_INVOLVEMENT is reached by rule R2, evaluated at S2",
@@ -19323,7 +19380,7 @@
         ]
       },
       {
-        "test_id": "EX-4e26559cb0",
+        "test_id": "EX-175062e91c",
         "target_id": "T-57e35e6386",
         "dimension": "D2",
         "title": "ending TERM_RECENT_RESEARCH is reached by rule R3, evaluated at S3",
@@ -19401,7 +19458,7 @@
         ]
       },
       {
-        "test_id": "EX-1a382649c6",
+        "test_id": "EX-f8da1cc4bc",
         "target_id": "T-64d8be217a",
         "dimension": "D3",
         "title": "Q1 accepts an answer meeting ['exclusive_option_id']",
@@ -19501,7 +19558,7 @@
         ]
       },
       {
-        "test_id": "EX-3118ade50d",
+        "test_id": "EX-d4dcf96682",
         "target_id": "T-b922005f72",
         "dimension": "D3",
         "title": "Q1 rejects an answer breaking ['exclusive_option_id']",
@@ -19616,7 +19673,7 @@
         "provisional_semantics": []
       },
       {
-        "test_id": "EX-c59e54e05e",
+        "test_id": "EX-d6195ff4fc",
         "target_id": "T-6d888b4f8a",
         "dimension": "D3",
         "title": "Q11 accepts an answer meeting ['min_selections']",
@@ -19861,11 +19918,12 @@
         "refusal_reason": null,
         "missing_bindings": [],
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ]
       },
       {
-        "test_id": "EX-2f0f6e2cbc",
+        "test_id": "EX-baa70158ce",
         "target_id": "T-5901081e3b",
         "dimension": "D3",
         "title": "Q11 rejects an answer breaking ['min_selections']",
@@ -20118,11 +20176,12 @@
         "refusal_reason": null,
         "missing_bindings": [],
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ]
       },
       {
-        "test_id": "EX-5f9d1c4e1d",
+        "test_id": "EX-9356d2710e",
         "target_id": "T-f6726b3e96",
         "dimension": "D3",
         "title": "Q14 accepts an answer of exactly 500 characters, its stated maximum",
@@ -20387,11 +20446,12 @@
         "refusal_reason": null,
         "missing_bindings": [],
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ]
       },
       {
-        "test_id": "EX-e5bf07a213",
+        "test_id": "EX-3379be6b6a",
         "target_id": "T-ffc0366e37",
         "dimension": "D3",
         "title": "Q14 accepts an answer meeting ['max_length', 'min_length']",
@@ -20656,11 +20716,12 @@
         "refusal_reason": null,
         "missing_bindings": [],
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ]
       },
       {
-        "test_id": "EX-e4377ef58e",
+        "test_id": "EX-ce9d87c4d6",
         "target_id": "T-2b7da8cff1",
         "dimension": "D3",
         "title": "Q14 accepts punctuation and quotation marks, because its rule constrains length and not content",
@@ -20925,11 +20986,12 @@
         "refusal_reason": null,
         "missing_bindings": [],
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ]
       },
       {
-        "test_id": "EX-7df2258a73",
+        "test_id": "EX-6b76772551",
         "target_id": "T-71252ee14c",
         "dimension": "D3",
         "title": "Q14 rejects an answer breaking ['max_length', 'min_length']",
@@ -21202,11 +21264,12 @@
         "refusal_reason": null,
         "missing_bindings": [],
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ]
       },
       {
-        "test_id": "EX-fe49b8174f",
+        "test_id": "EX-768c21895b",
         "target_id": "T-2d0768947c",
         "dimension": "D3",
         "title": "Q17 accepts an answer of exactly 200 characters, its stated maximum",
@@ -21501,11 +21564,12 @@
         "refusal_reason": null,
         "missing_bindings": [],
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ]
       },
       {
-        "test_id": "EX-ec3a6e2ac6",
+        "test_id": "EX-68a56efe86",
         "target_id": "T-a4f9951894",
         "dimension": "D3",
         "title": "Q17 accepts an answer meeting ['max_length', 'min_length']",
@@ -21800,11 +21864,12 @@
         "refusal_reason": null,
         "missing_bindings": [],
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ]
       },
       {
-        "test_id": "EX-6e1e46901a",
+        "test_id": "EX-d571edb7a5",
         "target_id": "T-08dd173f52",
         "dimension": "D3",
         "title": "Q17 accepts punctuation and quotation marks, because its rule constrains length and not content",
@@ -22099,11 +22164,12 @@
         "refusal_reason": null,
         "missing_bindings": [],
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ]
       },
       {
-        "test_id": "EX-45ab9e374c",
+        "test_id": "EX-9b55ab8386",
         "target_id": "T-0b7e13d6e1",
         "dimension": "D3",
         "title": "Q17 rejects an answer breaking ['max_length', 'min_length']",
@@ -22406,11 +22472,12 @@
         "refusal_reason": null,
         "missing_bindings": [],
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ]
       },
       {
-        "test_id": "EX-7a249b6b86",
+        "test_id": "EX-02b9dddb88",
         "target_id": "T-d9f9a89514",
         "dimension": "D3",
         "title": "Q18 accepts an answer meeting ['sum_to']",
@@ -22745,11 +22812,12 @@
         "refusal_reason": null,
         "missing_bindings": [],
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ]
       },
       {
-        "test_id": "EX-fd60be3610",
+        "test_id": "EX-7c7c5a96ee",
         "target_id": "T-f869cc61e4",
         "dimension": "D3",
         "title": "Q18 rejects an answer breaking ['sum_to']",
@@ -23092,11 +23160,12 @@
         "refusal_reason": null,
         "missing_bindings": [],
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ]
       },
       {
-        "test_id": "EX-1aa18c8324",
+        "test_id": "EX-682247efba",
         "target_id": "T-56550a97dd",
         "dimension": "D3",
         "title": "Q21 accepts an answer of exactly 500 characters, its stated maximum",
@@ -23461,11 +23530,12 @@
         "refusal_reason": null,
         "missing_bindings": [],
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ]
       },
       {
-        "test_id": "EX-56be01d052",
+        "test_id": "EX-ac02950c17",
         "target_id": "T-6a8d9edecd",
         "dimension": "D3",
         "title": "Q21 accepts an answer meeting ['max_length', 'min_length']",
@@ -23830,11 +23900,12 @@
         "refusal_reason": null,
         "missing_bindings": [],
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ]
       },
       {
-        "test_id": "EX-e20e90debc",
+        "test_id": "EX-40ac3a4af0",
         "target_id": "T-bc16d50ae1",
         "dimension": "D3",
         "title": "Q21 accepts punctuation and quotation marks, because its rule constrains length and not content",
@@ -24199,11 +24270,12 @@
         "refusal_reason": null,
         "missing_bindings": [],
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ]
       },
       {
-        "test_id": "EX-890665b360",
+        "test_id": "EX-84b5a68c75",
         "target_id": "T-fd51bdcea7",
         "dimension": "D3",
         "title": "Q21 rejects an answer breaking ['max_length', 'min_length']",
@@ -24576,11 +24648,12 @@
         "refusal_reason": null,
         "missing_bindings": [],
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ]
       },
       {
-        "test_id": "EX-ec252a8fc3",
+        "test_id": "EX-598ff662f2",
         "target_id": "T-636f0d6630",
         "dimension": "D3",
         "title": "Q23 accepts an answer of exactly 1000 characters, its stated maximum",
@@ -25005,11 +25078,12 @@
         "refusal_reason": null,
         "missing_bindings": [],
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ]
       },
       {
-        "test_id": "EX-50009e8693",
+        "test_id": "EX-4f9bd0b7cb",
         "target_id": "T-29e4d99dd7",
         "dimension": "D3",
         "title": "Q23 accepts an answer meeting ['max_length']",
@@ -25434,11 +25508,12 @@
         "refusal_reason": null,
         "missing_bindings": [],
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ]
       },
       {
-        "test_id": "EX-ddecd91a1b",
+        "test_id": "EX-1835cda7b9",
         "target_id": "T-3a4a7d62e9",
         "dimension": "D3",
         "title": "Q23 accepts punctuation and quotation marks, because its rule constrains length and not content",
@@ -25863,11 +25938,12 @@
         "refusal_reason": null,
         "missing_bindings": [],
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ]
       },
       {
-        "test_id": "EX-33dc6da8bb",
+        "test_id": "EX-a00a33ea0a",
         "target_id": "T-4638329ce4",
         "dimension": "D3",
         "title": "Q23 rejects an answer breaking ['max_length']",
@@ -26300,150 +26376,12 @@
         "refusal_reason": null,
         "missing_bindings": [],
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ]
       },
       {
-        "test_id": "EX-681af46624",
-        "target_id": "T-1ccc2b2a02",
-        "dimension": "D3",
-        "title": "Q5 accepts an answer meeting ['exclusive_option_id']",
-        "sid": 900001,
-        "steps": [
-          {
-            "step": 1,
-            "action": "set_field",
-            "field_name": "S1",
-            "sgqa": "900001X100X1000",
-            "value": "A001",
-            "value_kind": "answer_code",
-            "canonical": "S1/S1-O1",
-            "human": "select A001 (Yes) on S1"
-          },
-          {
-            "step": 2,
-            "action": "set_field",
-            "field_name": "S2",
-            "sgqa": "900001X100X1001",
-            "value": "A001",
-            "value_kind": "answer_code",
-            "canonical": "S2/S2-O1",
-            "human": "select A001 (Personally manage an ongoing chronic health condition) on S2"
-          },
-          {
-            "step": 3,
-            "action": "set_field",
-            "field_name": "S3",
-            "sgqa": "900001X100X1002",
-            "value": "A002",
-            "value_kind": "answer_code",
-            "canonical": "S3/S3-O2",
-            "human": "select A002 (No) on S3"
-          },
-          {
-            "step": 4,
-            "action": "set_field",
-            "field_name": "S4",
-            "sgqa": "900001X100X1003",
-            "value": "A002",
-            "value_kind": "answer_code",
-            "canonical": "S4/S4-O2",
-            "human": "select A002 (No) on S4"
-          },
-          {
-            "step": 5,
-            "action": "submit_page",
-            "field_name": null,
-            "sgqa": null,
-            "value": null,
-            "value_kind": null,
-            "canonical": null,
-            "human": "submit the Screening page"
-          },
-          {
-            "step": 6,
-            "action": "set_field",
-            "field_name": "Q1_SQ001",
-            "sgqa": "900001X101X1004SQ001",
-            "value": "Y",
-            "value_kind": "checkbox",
-            "canonical": "Q1/Q1-O1",
-            "human": "tick Q1_SQ001 (Care Network A)"
-          },
-          {
-            "step": 7,
-            "action": "set_field",
-            "field_name": "Q2_SQ001",
-            "sgqa": "900001X101X1010SQ001",
-            "value": "Y",
-            "value_kind": "checkbox",
-            "canonical": "Q2/Q2-O1",
-            "human": "tick Q2_SQ001 (Care Network A)"
-          },
-          {
-            "step": 8,
-            "action": "set_field",
-            "field_name": "Q3",
-            "sgqa": "900001X101X1015",
-            "value": "A001",
-            "value_kind": "answer_code",
-            "canonical": "Q3/Q3-O1",
-            "human": "select A001 (Care Network A) on Q3"
-          },
-          {
-            "step": 9,
-            "action": "set_field",
-            "field_name": "Q4",
-            "sgqa": "900001X101X1016",
-            "value": "A001",
-            "value_kind": "answer_code",
-            "canonical": "Q4/Q4-O1",
-            "human": "select A001 (Recently diagnosed) on Q4"
-          },
-          {
-            "step": 10,
-            "action": "set_field",
-            "field_name": "Q5_SQ007",
-            "sgqa": "900001X101X1017SQ007",
-            "value": "Y",
-            "value_kind": "checkbox",
-            "canonical": "Q5/Q5-O7",
-            "human": "tick Q5_SQ007 (None of these)"
-          },
-          {
-            "step": 11,
-            "action": "submit_page",
-            "field_name": null,
-            "sgqa": null,
-            "value": null,
-            "value_kind": null,
-            "canonical": null,
-            "human": "submit the final page and observe the end screen"
-          }
-        ],
-        "assertions": [
-          {
-            "kind": "page_advances",
-            "expected": true,
-            "field_name": "Q5_SQ001",
-            "sgqa": "900001X101X1017SQ001",
-            "canonical": "Q5",
-            "detail": "the page must accept the answer and advance, because it meets the QRE's rule ['exclusive_option_id']"
-          }
-        ],
-        "traces_to": [
-          "Q5"
-        ],
-        "campaign": {},
-        "executable": true,
-        "refusal_reason": null,
-        "missing_bindings": [],
-        "provisional_semantics": [
-          "multi_equality"
-        ]
-      },
-      {
-        "test_id": "EX-ec43072d0b",
+        "test_id": "EX-882203c5ba",
         "target_id": "T-0ebf80f9a4",
         "dimension": "D3",
         "title": "Q5 rejects an answer breaking ['exclusive_option_id']",
@@ -26600,7 +26538,7 @@
         ]
       },
       {
-        "test_id": "EX-ef73e4316e",
+        "test_id": "EX-68e8f1744b",
         "target_id": "T-a62c2ce604",
         "dimension": "D3",
         "title": "Q9 accepts an answer meeting ['require_each_row']",
@@ -26825,11 +26763,12 @@
         "refusal_reason": null,
         "missing_bindings": [],
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ]
       },
       {
-        "test_id": "EX-5cd095594c",
+        "test_id": "EX-b3cee6e3cc",
         "target_id": "T-d59d4c9e33",
         "dimension": "D3",
         "title": "Q9 rejects an answer breaking ['require_each_row']",
@@ -27052,11 +26991,12 @@
         "refusal_reason": null,
         "missing_bindings": [],
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ]
       },
       {
-        "test_id": "EX-37662379c3",
+        "test_id": "EX-c9cb3fdf56",
         "target_id": "T-7c28ecb52e",
         "dimension": "D4",
         "title": "D1 blocks progress when left blank",
@@ -27439,11 +27379,12 @@
         "refusal_reason": null,
         "missing_bindings": [],
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ]
       },
       {
-        "test_id": "EX-b03897f65b",
+        "test_id": "EX-22e28ad738",
         "target_id": "T-dbfdeade73",
         "dimension": "D4",
         "title": "D2 blocks progress when left blank",
@@ -27836,11 +27777,12 @@
         "refusal_reason": null,
         "missing_bindings": [],
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ]
       },
       {
-        "test_id": "EX-93c004ddc6",
+        "test_id": "EX-9f7f32a59f",
         "target_id": "T-d10e62a757",
         "dimension": "D4",
         "title": "D3 blocks progress when left blank",
@@ -28243,11 +28185,12 @@
         "refusal_reason": null,
         "missing_bindings": [],
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ]
       },
       {
-        "test_id": "EX-456257079e",
+        "test_id": "EX-2698fb4645",
         "target_id": "T-b9cdbaed9b",
         "dimension": "D4",
         "title": "D4 blocks progress when left blank",
@@ -28660,11 +28603,12 @@
         "refusal_reason": null,
         "missing_bindings": [],
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ]
       },
       {
-        "test_id": "EX-d3cf165d96",
+        "test_id": "EX-f4437725e9",
         "target_id": "T-e12aace78c",
         "dimension": "D4",
         "title": "Q1 blocks progress when left blank",
@@ -28769,7 +28713,7 @@
         "provisional_semantics": []
       },
       {
-        "test_id": "EX-2caf96ea55",
+        "test_id": "EX-b55581a86b",
         "target_id": "T-68390df668",
         "dimension": "D4",
         "title": "Q10 blocks progress when left blank",
@@ -29012,11 +28956,12 @@
         "refusal_reason": null,
         "missing_bindings": [],
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ]
       },
       {
-        "test_id": "EX-357129b4ce",
+        "test_id": "EX-d68c4dbd8b",
         "target_id": "T-b5d13c56c1",
         "dimension": "D4",
         "title": "Q11 blocks progress when left blank",
@@ -29269,11 +29214,12 @@
         "refusal_reason": null,
         "missing_bindings": [],
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ]
       },
       {
-        "test_id": "EX-44bbf6cde6",
+        "test_id": "EX-e0d98f925e",
         "target_id": "T-90ff9bb975",
         "dimension": "D4",
         "title": "Q12 blocks progress when left blank",
@@ -29536,11 +29482,12 @@
         "refusal_reason": null,
         "missing_bindings": [],
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ]
       },
       {
-        "test_id": "EX-73f572f97e",
+        "test_id": "EX-4653ff68ad",
         "target_id": "T-c0d2efa11b",
         "dimension": "D4",
         "title": "Q13 blocks progress when left blank",
@@ -29813,11 +29760,12 @@
         "refusal_reason": null,
         "missing_bindings": [],
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ]
       },
       {
-        "test_id": "EX-c0b02995db",
+        "test_id": "EX-55ca75b676",
         "target_id": "T-2e4c055027",
         "dimension": "D4",
         "title": "Q14 blocks progress when left blank",
@@ -30090,11 +30038,12 @@
         "refusal_reason": null,
         "missing_bindings": [],
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ]
       },
       {
-        "test_id": "EX-d56fb505e9",
+        "test_id": "EX-4cd8235490",
         "target_id": "T-538bb13bb8",
         "dimension": "D4",
         "title": "Q14 refuses an answer of spaces alone, being compulsory",
@@ -30368,11 +30317,12 @@
         "missing_bindings": [],
         "provisional_semantics": [
           "multi_equality",
+          "rule_precedence",
           "whitespace_is_an_answer"
         ]
       },
       {
-        "test_id": "EX-832059a1c6",
+        "test_id": "EX-df20c09417",
         "target_id": "T-f3a91deb36",
         "dimension": "D4",
         "title": "Q15 blocks progress when left blank",
@@ -30655,11 +30605,12 @@
         "refusal_reason": null,
         "missing_bindings": [],
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ]
       },
       {
-        "test_id": "EX-933785e70b",
+        "test_id": "EX-21fa3ae1d2",
         "target_id": "T-4d60314582",
         "dimension": "D4",
         "title": "Q16 blocks progress when left blank",
@@ -30952,11 +30903,12 @@
         "refusal_reason": null,
         "missing_bindings": [],
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ]
       },
       {
-        "test_id": "EX-79da5a1fea",
+        "test_id": "EX-3113dbe21c",
         "target_id": "T-f7dbbbe44a",
         "dimension": "D4",
         "title": "Q17 blocks progress when left blank",
@@ -31259,11 +31211,12 @@
         "refusal_reason": null,
         "missing_bindings": [],
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ]
       },
       {
-        "test_id": "EX-639b092881",
+        "test_id": "EX-5bdbfe278d",
         "target_id": "T-66d084b45e",
         "dimension": "D4",
         "title": "Q17 refuses an answer of spaces alone, being compulsory",
@@ -31567,11 +31520,12 @@
         "missing_bindings": [],
         "provisional_semantics": [
           "multi_equality",
+          "rule_precedence",
           "whitespace_is_an_answer"
         ]
       },
       {
-        "test_id": "EX-94354fc06e",
+        "test_id": "EX-a3e0ee5be3",
         "target_id": "T-3d89191a22",
         "dimension": "D4",
         "title": "Q18 blocks progress when left blank",
@@ -31874,11 +31828,12 @@
         "refusal_reason": null,
         "missing_bindings": [],
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ]
       },
       {
-        "test_id": "EX-e4c5275bf6",
+        "test_id": "EX-03211bfb83",
         "target_id": "T-6ac057a591",
         "dimension": "D4",
         "title": "Q19 blocks progress when left blank",
@@ -32231,11 +32186,12 @@
         "refusal_reason": null,
         "missing_bindings": [],
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ]
       },
       {
-        "test_id": "EX-7269ba3561",
+        "test_id": "EX-133640b3b4",
         "target_id": "T-727f5e7cc5",
         "dimension": "D4",
         "title": "Q2 blocks progress when left blank",
@@ -32352,7 +32308,7 @@
         ]
       },
       {
-        "test_id": "EX-aa949cfb61",
+        "test_id": "EX-8eef0d2642",
         "target_id": "T-ac047e7b7e",
         "dimension": "D4",
         "title": "Q20 blocks progress when left blank",
@@ -32715,11 +32671,12 @@
         "refusal_reason": null,
         "missing_bindings": [],
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ]
       },
       {
-        "test_id": "EX-facafb353f",
+        "test_id": "EX-f54ee899de",
         "target_id": "T-90ea8c04ea",
         "dimension": "D4",
         "title": "Q21 blocks progress when left blank",
@@ -33092,11 +33049,12 @@
         "refusal_reason": null,
         "missing_bindings": [],
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ]
       },
       {
-        "test_id": "EX-d19fdf5b47",
+        "test_id": "EX-38688985c2",
         "target_id": "T-ccc57c78ea",
         "dimension": "D4",
         "title": "Q21 refuses an answer of spaces alone, being compulsory",
@@ -33470,11 +33428,12 @@
         "missing_bindings": [],
         "provisional_semantics": [
           "multi_equality",
+          "rule_precedence",
           "whitespace_is_an_answer"
         ]
       },
       {
-        "test_id": "EX-9db0429a72",
+        "test_id": "EX-7229f9fc55",
         "target_id": "T-c9577209e2",
         "dimension": "D4",
         "title": "Q22 blocks progress when left blank",
@@ -33897,11 +33856,12 @@
         "refusal_reason": null,
         "missing_bindings": [],
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ]
       },
       {
-        "test_id": "EX-f8d9ca5a5e",
+        "test_id": "EX-8013134cee",
         "target_id": "T-eee113ba16",
         "dimension": "D4",
         "title": "Q23 is optional and permits progress when left blank",
@@ -34326,11 +34286,12 @@
         "refusal_reason": null,
         "missing_bindings": [],
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ]
       },
       {
-        "test_id": "EX-987509ce51",
+        "test_id": "EX-3cd4c47194",
         "target_id": "T-c9acd65128",
         "dimension": "D4",
         "title": "Q23 accepts an answer of spaces alone, being optional",
@@ -34756,11 +34717,12 @@
         "missing_bindings": [],
         "provisional_semantics": [
           "multi_equality",
+          "rule_precedence",
           "whitespace_is_an_answer"
         ]
       },
       {
-        "test_id": "EX-ffe1069725",
+        "test_id": "EX-c07e06a7e6",
         "target_id": "T-4bdf659dfa",
         "dimension": "D4",
         "title": "Q3 blocks progress when left blank",
@@ -34887,7 +34849,7 @@
         ]
       },
       {
-        "test_id": "EX-0ce5dd7f05",
+        "test_id": "EX-515a51b119",
         "target_id": "T-9a87b3907e",
         "dimension": "D4",
         "title": "Q4 blocks progress when left blank",
@@ -35024,7 +34986,7 @@
         ]
       },
       {
-        "test_id": "EX-3846f6ba52",
+        "test_id": "EX-68751b8149",
         "target_id": "T-0249397b0f",
         "dimension": "D4",
         "title": "Q5 blocks progress when left blank",
@@ -35171,7 +35133,7 @@
         ]
       },
       {
-        "test_id": "EX-538b360310",
+        "test_id": "EX-ce8d5b237f",
         "target_id": "T-e98006aa3a",
         "dimension": "D4",
         "title": "Q6 blocks progress when left blank",
@@ -35324,11 +35286,12 @@
         "refusal_reason": null,
         "missing_bindings": [],
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ]
       },
       {
-        "test_id": "EX-987cfa8f08",
+        "test_id": "EX-22f9709cb7",
         "target_id": "T-fdb731cc7b",
         "dimension": "D4",
         "title": "Q7 blocks progress when left blank",
@@ -35491,11 +35454,12 @@
         "refusal_reason": null,
         "missing_bindings": [],
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ]
       },
       {
-        "test_id": "EX-39b3e565b1",
+        "test_id": "EX-91f4255ce1",
         "target_id": "T-f5b246159d",
         "dimension": "D4",
         "title": "Q8 blocks progress when left blank",
@@ -35668,11 +35632,12 @@
         "refusal_reason": null,
         "missing_bindings": [],
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ]
       },
       {
-        "test_id": "EX-44c478b54c",
+        "test_id": "EX-d17029b2c2",
         "target_id": "T-eb5ef7c538",
         "dimension": "D4",
         "title": "Q9 blocks progress when left blank",
@@ -35855,11 +35820,12 @@
         "refusal_reason": null,
         "missing_bindings": [],
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ]
       },
       {
-        "test_id": "EX-6f8d12c57b",
+        "test_id": "EX-443ba0d4be",
         "target_id": "T-04f1f82dbc",
         "dimension": "D4",
         "title": "S1 blocks progress when left blank",
@@ -35914,7 +35880,7 @@
         "provisional_semantics": []
       },
       {
-        "test_id": "EX-64903c9630",
+        "test_id": "EX-7224f7ff1b",
         "target_id": "T-f3c7bd7103",
         "dimension": "D4",
         "title": "S2 blocks progress when left blank",
@@ -35979,7 +35945,7 @@
         "provisional_semantics": []
       },
       {
-        "test_id": "EX-bb593dc488",
+        "test_id": "EX-f7cb19d413",
         "target_id": "T-c3fc047030",
         "dimension": "D4",
         "title": "S3 blocks progress when left blank",
@@ -36054,7 +36020,7 @@
         "provisional_semantics": []
       },
       {
-        "test_id": "EX-b6e49032c3",
+        "test_id": "EX-b51d4de22c",
         "target_id": "T-cbb1204084",
         "dimension": "D4",
         "title": "S4 blocks progress when left blank",
@@ -36139,7 +36105,7 @@
         "provisional_semantics": []
       },
       {
-        "test_id": "EX-60c44fd2cf",
+        "test_id": "EX-28fef3b474",
         "target_id": "T-beeb7a1cb6",
         "dimension": "D5",
         "title": "Q2's option list is narrowed to what was chosen at Q1",
@@ -36247,11 +36213,12 @@
         "refusal_reason": null,
         "missing_bindings": [],
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ]
       },
       {
-        "test_id": "EX-bafbc04d6b",
+        "test_id": "EX-de2fc98766",
         "target_id": "T-953114b8fc",
         "dimension": "D5",
         "title": "Q6's option list is narrowed to what was chosen at Q5",
@@ -36399,11 +36366,12 @@
         "refusal_reason": null,
         "missing_bindings": [],
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ]
       },
       {
-        "test_id": "EX-9b8c92fa11",
+        "test_id": "EX-426736d575",
         "target_id": "T-ec63a3b3b0",
         "dimension": "D6",
         "title": "Q20's wording renders the answer given at Q19",
@@ -36759,11 +36727,12 @@
         "refusal_reason": null,
         "missing_bindings": [],
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ]
       },
       {
-        "test_id": "EX-8510433b29",
+        "test_id": "EX-371712ad56",
         "target_id": "T-197a13d6a0",
         "dimension": "D6",
         "title": "Q21's wording renders the answer given at Q19",
@@ -37129,11 +37098,12 @@
         "refusal_reason": null,
         "missing_bindings": [],
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ]
       },
       {
-        "test_id": "EX-0e223b3c65",
+        "test_id": "EX-af8db9738e",
         "target_id": "T-87e77431ff",
         "dimension": "D6",
         "title": "Q8's wording renders the answer given at Q3",
@@ -37299,11 +37269,12 @@
         "refusal_reason": null,
         "missing_bindings": [],
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ]
       },
       {
-        "test_id": "EX-839760fe49",
+        "test_id": "EX-d0c2f925a2",
         "target_id": "T-7600190035",
         "dimension": "D6",
         "title": "Q9's wording renders the answer given at Q3",
@@ -37529,11 +37500,12 @@
         "refusal_reason": null,
         "missing_bindings": [],
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ]
       },
       {
-        "test_id": "EX-af61b38755",
+        "test_id": "EX-900203ddc7",
         "target_id": "T-8ef0dbe284",
         "dimension": "D7",
         "title": "Q1 presents all 5 items exactly once, with none missing and none repeated",
@@ -37642,11 +37614,12 @@
         "refusal_reason": null,
         "missing_bindings": [],
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ]
       },
       {
-        "test_id": "EX-aed87d5fb1",
+        "test_id": "EX-4b5f6025df",
         "target_id": "T-9a16912391",
         "dimension": "D7",
         "title": "Q1 presents its items in a different order to different respondents, proving shuffling is switched on",
@@ -37745,11 +37718,12 @@
         "refusal_reason": null,
         "missing_bindings": [],
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ]
       },
       {
-        "test_id": "EX-b854b05832",
+        "test_id": "EX-f1ba5f8730",
         "target_id": "T-fbc8e30f0b",
         "dimension": "D7",
         "title": "Q16 presents all 6 items exactly once, with none missing and none repeated",
@@ -38049,11 +38023,12 @@
         "refusal_reason": null,
         "missing_bindings": [],
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ]
       },
       {
-        "test_id": "EX-c606b043a8",
+        "test_id": "EX-8089fbc22e",
         "target_id": "T-2aa30145c2",
         "dimension": "D7",
         "title": "Q16 presents its items in a different order to different respondents, proving shuffling is switched on",
@@ -38342,11 +38317,12 @@
         "refusal_reason": null,
         "missing_bindings": [],
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ]
       },
       {
-        "test_id": "EX-da4e274562",
+        "test_id": "EX-4ea2dd9ebd",
         "target_id": "T-e1c58d8b6d",
         "dimension": "D7",
         "title": "Q19 presents all 3 items exactly once, with none missing and none repeated",
@@ -38703,11 +38679,12 @@
         "refusal_reason": null,
         "missing_bindings": [],
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ]
       },
       {
-        "test_id": "EX-d1a929c27a",
+        "test_id": "EX-b544111264",
         "target_id": "T-1c93215387",
         "dimension": "D7",
         "title": "Q19 presents its items in a different order to different respondents, proving shuffling is switched on",
@@ -39056,11 +39033,12 @@
         "refusal_reason": null,
         "missing_bindings": [],
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ]
       },
       {
-        "test_id": "EX-08ce761d16",
+        "test_id": "EX-57fbe5b619",
         "target_id": "T-b0954aa1e5",
         "dimension": "D7",
         "title": "Q5 presents all 7 items exactly once, with none missing and none repeated",
@@ -39211,11 +39189,12 @@
         "refusal_reason": null,
         "missing_bindings": [],
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ]
       },
       {
-        "test_id": "EX-a9787b215e",
+        "test_id": "EX-d4c7bcf064",
         "target_id": "T-05b0370cb0",
         "dimension": "D7",
         "title": "Q5 presents its items in a different order to different respondents, proving shuffling is switched on",
@@ -39354,11 +39333,12 @@
         "refusal_reason": null,
         "missing_bindings": [],
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ]
       },
       {
-        "test_id": "EX-2d8aba6ac3",
+        "test_id": "EX-eb369a393e",
         "target_id": "T-9cc32b009e",
         "dimension": "D7",
         "title": "Q9 presents all 5 items exactly once, with none missing and none repeated",
@@ -39597,11 +39577,12 @@
         "refusal_reason": null,
         "missing_bindings": [],
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ]
       },
       {
-        "test_id": "EX-5d81401af1",
+        "test_id": "EX-e0062b52dd",
         "target_id": "T-fcf8d64445",
         "dimension": "D7",
         "title": "Q9 presents its items in a different order to different respondents, proving shuffling is switched on",
@@ -39830,11 +39811,12 @@
         "refusal_reason": null,
         "missing_bindings": [],
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ]
       },
       {
-        "test_id": "EX-6e7fea4c1f",
+        "test_id": "EX-b5f9716886",
         "target_id": "T-8df3f85e9c",
         "dimension": "D8",
         "title": "QUOTA_AGE:D2-O1 (21-29) admits a respondent while below target",
@@ -40219,11 +40201,12 @@
         "refusal_reason": null,
         "missing_bindings": [],
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ]
       },
       {
-        "test_id": "EX-0f95675db8",
+        "test_id": "EX-91116e1e7a",
         "target_id": "T-7161d904f8",
         "dimension": "D8",
         "title": "QUOTA_AGE:D2-O2 (30-39) admits a respondent while below target",
@@ -40608,11 +40591,12 @@
         "refusal_reason": null,
         "missing_bindings": [],
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ]
       },
       {
-        "test_id": "EX-6e0db87c33",
+        "test_id": "EX-8225c03698",
         "target_id": "T-1996e6ad8a",
         "dimension": "D8",
         "title": "QUOTA_AGE:D2-O3 (40-49) admits a respondent while below target",
@@ -40997,11 +40981,12 @@
         "refusal_reason": null,
         "missing_bindings": [],
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ]
       },
       {
-        "test_id": "EX-f3acad9433",
+        "test_id": "EX-6c71cbb5c0",
         "target_id": "T-9f1ddcac4e",
         "dimension": "D8",
         "title": "QUOTA_AGE:D2-O4 (50-59) admits a respondent while below target",
@@ -41386,11 +41371,12 @@
         "refusal_reason": null,
         "missing_bindings": [],
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ]
       },
       {
-        "test_id": "EX-be0c5658a3",
+        "test_id": "EX-f2fd6c815b",
         "target_id": "T-427582f42c",
         "dimension": "D8",
         "title": "QUOTA_AGE:D2-O5 (60+) admits a respondent while below target",
@@ -41775,11 +41761,12 @@
         "refusal_reason": null,
         "missing_bindings": [],
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ]
       },
       {
-        "test_id": "EX-8ad202163e",
+        "test_id": "EX-a3323b5ec7",
         "target_id": "T-0afd1d6279",
         "dimension": "D8",
         "title": "QUOTA_REGION:D1-O1 (North) admits a respondent while below target",
@@ -42154,11 +42141,12 @@
         "refusal_reason": null,
         "missing_bindings": [],
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ]
       },
       {
-        "test_id": "EX-af0cc12165",
+        "test_id": "EX-21e9ef2b9d",
         "target_id": "T-7a95930f2f",
         "dimension": "D8",
         "title": "QUOTA_REGION:D1-O2 (South) admits a respondent while below target",
@@ -42533,11 +42521,12 @@
         "refusal_reason": null,
         "missing_bindings": [],
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ]
       },
       {
-        "test_id": "EX-9e5f6b14c1",
+        "test_id": "EX-71f836cc34",
         "target_id": "T-b0edda32be",
         "dimension": "D8",
         "title": "QUOTA_REGION:D1-O3 (East) admits a respondent while below target",
@@ -42912,11 +42901,12 @@
         "refusal_reason": null,
         "missing_bindings": [],
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ]
       },
       {
-        "test_id": "EX-28a18ec32a",
+        "test_id": "EX-1270b0fa11",
         "target_id": "T-f399598e21",
         "dimension": "D8",
         "title": "QUOTA_REGION:D1-O4 (West) admits a respondent while below target",
@@ -43291,11 +43281,12 @@
         "refusal_reason": null,
         "missing_bindings": [],
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ]
       },
       {
-        "test_id": "EX-840d8f26c3",
+        "test_id": "EX-0c6208c523",
         "target_id": "T-f2a7b18b9d",
         "dimension": "D8",
         "title": "QUOTA_REGION:D1-O5 (Central) admits a respondent while below target",
@@ -43670,11 +43661,12 @@
         "refusal_reason": null,
         "missing_bindings": [],
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ]
       },
       {
-        "test_id": "EX-01464681df",
+        "test_id": "EX-20b4f502ca",
         "target_id": "T-3967205a86",
         "dimension": "D9",
         "title": "Q2 is shown by its guard and simultaneously reflects its dependency on Q1",
@@ -43788,11 +43780,12 @@
         "refusal_reason": null,
         "missing_bindings": [],
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ]
       },
       {
-        "test_id": "EX-d0b1962ff2",
+        "test_id": "EX-39f027e0c4",
         "target_id": "T-46a8d52129",
         "dimension": "D9",
         "title": "Q8 is shown by its guard and simultaneously reflects its dependency on Q3",
@@ -43966,11 +43959,12 @@
         "refusal_reason": null,
         "missing_bindings": [],
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ]
       },
       {
-        "test_id": "EX-b6f85057dd",
+        "test_id": "EX-4c8200ceca",
         "target_id": "T-9b537ecefd",
         "dimension": "D9",
         "title": "Q9 is shown by its guard and simultaneously reflects its dependency on Q3",
@@ -44204,11 +44198,12 @@
         "refusal_reason": null,
         "missing_bindings": [],
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ]
       },
       {
-        "test_id": "EX-735479f305",
+        "test_id": "EX-da0d3268da",
         "target_id": "T-0fb8533a84",
         "dimension": "D3",
         "title": "reject rule R18 does not fire when its condition fails",
@@ -44543,11 +44538,12 @@
         "refusal_reason": null,
         "missing_bindings": [],
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ]
       },
       {
-        "test_id": "EX-3050431193",
+        "test_id": "EX-e85de1ce28",
         "target_id": "T-4c737d629d",
         "dimension": "D3",
         "title": "reject rule R18 fires when its condition holds",
@@ -44890,14 +44886,15 @@
         "refusal_reason": null,
         "missing_bindings": [],
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ]
       },
       {
-        "test_id": "EX-ef80af06b9",
-        "target_id": "T-d6b9ff6c62",
+        "test_id": "EX-f1e9a5cc7f",
+        "target_id": "T-5a5002c9d4",
         "dimension": "D3",
-        "title": "reject rule R19 does not fire when its condition fails",
+        "title": "reject rule R19 fires when its condition holds",
         "sid": 900001,
         "steps": [
           {
@@ -45008,115 +45005,6 @@
             "value": null,
             "value_kind": null,
             "canonical": null,
-            "human": "submit the final page and observe the end screen"
-          }
-        ],
-        "assertions": [
-          {
-            "kind": "page_advances",
-            "expected": true,
-            "field_name": null,
-            "sgqa": null,
-            "canonical": "R19",
-            "detail": "the page must advance, because the reject rule's condition is not met"
-          }
-        ],
-        "traces_to": [
-          "R19"
-        ],
-        "campaign": {},
-        "executable": true,
-        "refusal_reason": null,
-        "missing_bindings": [],
-        "provisional_semantics": [
-          "multi_equality"
-        ]
-      },
-      {
-        "test_id": "EX-47b2b9de48",
-        "target_id": "T-5a5002c9d4",
-        "dimension": "D3",
-        "title": "reject rule R19 fires when its condition holds",
-        "sid": 900001,
-        "steps": [
-          {
-            "step": 1,
-            "action": "set_field",
-            "field_name": "S1",
-            "sgqa": "900001X100X1000",
-            "value": "A001",
-            "value_kind": "answer_code",
-            "canonical": "S1/S1-O1",
-            "human": "select A001 (Yes) on S1"
-          },
-          {
-            "step": 2,
-            "action": "set_field",
-            "field_name": "S2",
-            "sgqa": "900001X100X1001",
-            "value": "A001",
-            "value_kind": "answer_code",
-            "canonical": "S2/S2-O1",
-            "human": "select A001 (Personally manage an ongoing chronic health condition) on S2"
-          },
-          {
-            "step": 3,
-            "action": "set_field",
-            "field_name": "S3",
-            "sgqa": "900001X100X1002",
-            "value": "A002",
-            "value_kind": "answer_code",
-            "canonical": "S3/S3-O2",
-            "human": "select A002 (No) on S3"
-          },
-          {
-            "step": 4,
-            "action": "set_field",
-            "field_name": "S4",
-            "sgqa": "900001X100X1003",
-            "value": "A002",
-            "value_kind": "answer_code",
-            "canonical": "S4/S4-O2",
-            "human": "select A002 (No) on S4"
-          },
-          {
-            "step": 5,
-            "action": "submit_page",
-            "field_name": null,
-            "sgqa": null,
-            "value": null,
-            "value_kind": null,
-            "canonical": null,
-            "human": "submit the Screening page"
-          },
-          {
-            "step": 6,
-            "action": "set_field",
-            "field_name": "Q1_SQ001",
-            "sgqa": "900001X101X1004SQ001",
-            "value": "Y",
-            "value_kind": "checkbox",
-            "canonical": "Q1/Q1-O1",
-            "human": "tick Q1_SQ001 (Care Network A)"
-          },
-          {
-            "step": 7,
-            "action": "set_field",
-            "field_name": "Q1_SQ005",
-            "sgqa": "900001X101X1004SQ005",
-            "value": "Y",
-            "value_kind": "checkbox",
-            "canonical": "Q1/Q1-O5",
-            "human": "tick Q1_SQ005 (None of these)"
-          },
-          {
-            "step": 8,
-            "action": "submit_page",
-            "field_name": null,
-            "sgqa": null,
-            "value": null,
-            "value_kind": null,
-            "canonical": null,
             "human": "submit \u2014 the survey should REFUSE to move on, because Q5 is not acceptable as answered"
           }
         ],
@@ -45145,10 +45033,13 @@
         "executable": true,
         "refusal_reason": null,
         "missing_bindings": [],
-        "provisional_semantics": []
+        "provisional_semantics": [
+          "multi_equality",
+          "rule_precedence"
+        ]
       },
       {
-        "test_id": "EX-a47adaaa7b",
+        "test_id": "EX-c34c2d9ec6",
         "target_id": "T-4d806a0038",
         "dimension": "D3",
         "title": "reject rule R20 does not fire when its condition fails",
@@ -45293,11 +45184,12 @@
         "refusal_reason": null,
         "missing_bindings": [],
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ]
       },
       {
-        "test_id": "EX-8f68382e68",
+        "test_id": "EX-51d19bc9a0",
         "target_id": "T-45f363eac2",
         "dimension": "D3",
         "title": "reject rule R20 fires when its condition holds",
@@ -45450,7 +45342,8 @@
         "refusal_reason": null,
         "missing_bindings": [],
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ]
       }
     ]

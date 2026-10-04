@@ -8,7 +8,7 @@
     "sha256": "319e6b78a2a1e36ef712ce421e6d2c1db3325a087a07d8d0e93ec38b39207e4b",
     "bytes": 43612
   },
-  "generated_at": "2026-09-11T16:40:48+00:00",
+  "generated_at": "2026-10-04T06:55:23+00:00",
   "item_count": null,
   "content": {
     "cross_source": [],
@@ -92,10 +92,20 @@
         "why_it_matters": "Q2's display condition was prose, so a model proposed a reading which the parser then accepted. Worth a human eye.",
         "affected": [
           "Q2",
-          "R19",
           "R20"
         ],
         "changes_downstream": "Whether this rule fires for a given respondent, so which questions they see and which ending they reach.",
+        "decision_ids": []
+      },
+      {
+        "status": "CONFIRMATION_REQUIRED",
+        "issue": "condition_unread",
+        "why_it_matters": "Q6's display condition could not be read as a condition: model declined: The phrase 'Q5 contains any touchpoint' is ambiguous: it is unclear which specific answer labels constitute a 'touchpoint'. The answer list includes several possible touchpoints and a 'None of these' option, but without explicit mapping we cannot confidently construct a precise contains_any list. To avoid misrouting, we return null.",
+        "affected": [
+          "Q6",
+          "R19"
+        ],
+        "changes_downstream": "The rule has no machine-readable form, so nothing downstream can evaluate it.",
         "decision_ids": []
       },
       {
@@ -118,16 +128,6 @@
           "semantics"
         ],
         "changes_downstream": "Which questions appear on many routes, which rule wins when two apply, and whether an 'is exactly' test passes on a multi-select answer.",
-        "decision_ids": []
-      },
-      {
-        "status": "CONFIRMATION_REQUIRED",
-        "issue": "condition_unread",
-        "why_it_matters": "Q6's display condition could not be read as a condition: model declined: The phrase \"Q5 contains any touchpoint\" is ambiguous: it is unclear whether it refers to any of the specific listed touchpoint options (excluding 'None of these') or to any selection at all. The grammar requires an explicit list for the contains_any operator, and without a definitive interpretation we cannot safely construct a precise expression. Returning null avoids routing errors.",
-        "affected": [
-          "Q6"
-        ],
-        "changes_downstream": "The rule has no machine-readable form, so nothing downstream can evaluate it.",
         "decision_ids": []
       },
       {
@@ -188,19 +188,19 @@
         "blocking_pending": [
           "00db7d74442cb17d",
           "0430c3303a173c36",
+          "1ec9aae9480e1e36",
           "22546d6fb2aa7b38",
+          "228e9670e903e41a",
           "5c5b9104ff079c25",
           "70e04d836cb40d1b",
           "756d035e6abbdf43",
+          "79a4044dc9e2bc30",
           "8009e053dcf0c019",
-          "8c69b2c506c9955a",
-          "a4544d4f6623ba59",
-          "ae7f9449c4271f16",
           "c417f67cdc3ab8cb",
-          "c5f3dfc6dfabf018",
           "d1c767adabb142b1",
-          "e4c971197a4cd683",
-          "f6de93712798f5f5"
+          "f4c9e4d91d41f98c",
+          "f6de93712798f5f5",
+          "fe6c6d2f91c1c4cd"
         ]
       }
     },
@@ -233,19 +233,19 @@
       "pending_blocking_decisions": [
         "00db7d74442cb17d",
         "0430c3303a173c36",
+        "1ec9aae9480e1e36",
         "22546d6fb2aa7b38",
+        "228e9670e903e41a",
         "5c5b9104ff079c25",
         "70e04d836cb40d1b",
         "756d035e6abbdf43",
+        "79a4044dc9e2bc30",
         "8009e053dcf0c019",
-        "8c69b2c506c9955a",
-        "a4544d4f6623ba59",
-        "ae7f9449c4271f16",
         "c417f67cdc3ab8cb",
-        "c5f3dfc6dfabf018",
         "d1c767adabb142b1",
-        "e4c971197a4cd683",
-        "f6de93712798f5f5"
+        "f4c9e4d91d41f98c",
+        "f6de93712798f5f5",
+        "fe6c6d2f91c1c4cd"
       ],
       "agent3_ready": "NO",
       "agent3_blocked_by": [
@@ -265,9 +265,9 @@
         "inferred_condition_partial_options \u2014 Which answers satisfy the rule. Respondents choosing an omitted answer take a different path than they should.",
         "text_pipe_inferred \u2014 Whether this question's wording depends on an earlier answer, which decides the order a bot must answer in and what text it should expect on screen.",
         "condition_inferred \u2014 Whether this rule fires for a given respondent, so which questions they see and which ending they reach.",
+        "condition_unread \u2014 The rule has no machine-readable form, so nothing downstream can evaluate it.",
         "quota_inferred \u2014 Which respondents are counted against which quota, and when they are turned away.",
         "semantics_unconfirmed \u2014 Which questions appear on many routes, which rule wins when two apply, and whether an 'is exactly' test passes on a multi-select answer.",
-        "condition_unread \u2014 The rule has no machine-readable form, so nothing downstream can evaluate it.",
         "guard_single_source \u2014 A display condition stated in only one place. Anyone reading the other place builds a survey without it.",
         "guard_unread \u2014 The question's display condition cannot be evaluated, so no test can decide whether it should have appeared.",
         "partial_option_codes \u2014 A bot told to answer by code cannot resolve the uncoded options.",

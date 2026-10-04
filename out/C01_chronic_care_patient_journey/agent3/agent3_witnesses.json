@@ -9,10 +9,10 @@
   },
   "upstream": {
     "canonical_schema_version": "1.0.0",
-    "canonical_generated_at": "2026-09-11T16:40:48+00:00"
+    "canonical_generated_at": "2026-10-04T06:55:23+00:00"
   },
   "content": {
-    "feasible": 158,
+    "feasible": 157,
     "total": 174,
     "witnesses": [
       {
@@ -5112,63 +5112,11 @@
       },
       {
         "target_id": "T-d6b9ff6c62",
-        "feasible": true,
-        "answers": {
-          "Q1": [
-            "Q1-O1"
-          ],
-          "Q5": [
-            "Q5-O1"
-          ],
-          "S1": "S1-O1",
-          "S2": "S2-O1",
-          "S3": "S3-O2",
-          "S4": "S4-O2",
-          "Q2": [
-            "Q2-O1"
-          ],
-          "Q3": "Q3-O1",
-          "Q4": "Q4-O1",
-          "Q6": "Q6-O1",
-          "Q7": "Q7-O1",
-          "Q8": "Q8-O1",
-          "Q9": {
-            "Q9-R1": "Q9-O1",
-            "Q9-R2": "Q9-O1",
-            "Q9-R3": "Q9-O1",
-            "Q9-R4": "Q9-O1",
-            "Q9-R5": "Q9-O1",
-            "Q9-R6": "Q9-O1"
-          },
-          "Q10": "Q10-O1",
-          "Q11": [
-            "Q11-O1"
-          ],
-          "Q12": "Q12-O1",
-          "Q13": "Q13-O1",
-          "Q14": "xxxxxxxxxx",
-          "Q15": "Q15-O1",
-          "Q16": "Q16-O1",
-          "Q17": "xxx",
-          "Q18": {
-            "Q18-O1": 20,
-            "Q18-O2": 20,
-            "Q18-O3": 20,
-            "Q18-O4": 20,
-            "Q18-O5": 20
-          },
-          "Q19": "Q19-O1",
-          "Q20": "Q20-O1",
-          "Q21": "xxxxx",
-          "D1": "D1-O1",
-          "D2": "D2-O1",
-          "D3": "D3-O1",
-          "D4": "D4-O1",
-          "Q22": "Q22-O1"
-        },
-        "method": "reject-rule condition solved",
-        "evidence": "R19 forced false [leaned on provisional semantics: ['rule_precedence']]",
-        "reason": null,
+        "feasible": false,
+        "answers": {},
+        "method": "conflict",
+        "evidence": "proven impossible: cannot falsify an absent condition",
+        "reason": "INFEASIBLE",
         "preconditions": {},
         "campaign": {}
       },
@@ -5176,14 +5124,13 @@
         "target_id": "T-5a5002c9d4",
         "feasible": true,
         "answers": {
-          "Q1": [
-            "Q1-O1",
-            "Q1-O5"
-          ],
           "S1": "S1-O1",
           "S2": "S2-O1",
           "S3": "S3-O2",
           "S4": "S4-O2",
+          "Q1": [
+            "Q1-O1"
+          ],
           "Q2": [
             "Q2-O1"
           ],

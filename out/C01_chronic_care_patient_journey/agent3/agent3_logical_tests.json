@@ -9,10 +9,10 @@
   },
   "upstream": {
     "canonical_schema_version": "1.0.0",
-    "canonical_generated_at": "2026-09-11T16:40:48+00:00"
+    "canonical_generated_at": "2026-10-04T06:55:23+00:00"
   },
   "content": {
-    "count": 158,
+    "count": 156,
     "tests": [
       {
         "test_id": "TC-9d345eef73",
@@ -230,7 +230,8 @@
         "executable": false,
         "non_executable_reason": "NO_BUILD_MANIFEST",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "campaign": {},
         "setup": [
@@ -645,7 +646,8 @@
         "executable": false,
         "non_executable_reason": "NO_BUILD_MANIFEST",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "campaign": {},
         "setup": [
@@ -1060,7 +1062,8 @@
         "executable": false,
         "non_executable_reason": "NO_BUILD_MANIFEST",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "campaign": {},
         "setup": [
@@ -1475,7 +1478,8 @@
         "executable": false,
         "non_executable_reason": "NO_BUILD_MANIFEST",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "campaign": {},
         "setup": [
@@ -1890,7 +1894,8 @@
         "executable": false,
         "non_executable_reason": "NO_BUILD_MANIFEST",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "campaign": {},
         "setup": [
@@ -2305,7 +2310,8 @@
         "executable": false,
         "non_executable_reason": "NO_BUILD_MANIFEST",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "campaign": {},
         "setup": [
@@ -2720,7 +2726,8 @@
         "executable": false,
         "non_executable_reason": "NO_BUILD_MANIFEST",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "campaign": {},
         "setup": [
@@ -3044,7 +3051,8 @@
         "executable": false,
         "non_executable_reason": "NO_BUILD_MANIFEST",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "campaign": {},
         "setup": [
@@ -3278,7 +3286,8 @@
         "executable": false,
         "non_executable_reason": "NO_BUILD_MANIFEST",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "campaign": {},
         "setup": [
@@ -3609,7 +3618,8 @@
         "executable": false,
         "non_executable_reason": "NO_BUILD_MANIFEST",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "campaign": {},
         "setup": [
@@ -3933,7 +3943,8 @@
         "executable": false,
         "non_executable_reason": "NO_BUILD_MANIFEST",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "campaign": {},
         "setup": [
@@ -4173,7 +4184,8 @@
         "executable": false,
         "non_executable_reason": "NO_BUILD_MANIFEST",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "campaign": {},
         "setup": [
@@ -4510,7 +4522,8 @@
         "executable": false,
         "non_executable_reason": "NO_BUILD_MANIFEST",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "campaign": {},
         "setup": [
@@ -4848,7 +4861,8 @@
         "executable": false,
         "non_executable_reason": "NO_BUILD_MANIFEST",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "campaign": {},
         "setup": [
@@ -5108,7 +5122,8 @@
         "executable": false,
         "non_executable_reason": "NO_BUILD_MANIFEST",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "campaign": {},
         "setup": [
@@ -5451,7 +5466,8 @@
         "executable": false,
         "non_executable_reason": "NO_BUILD_MANIFEST",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "campaign": {},
         "setup": [
@@ -5795,7 +5811,8 @@
         "executable": false,
         "non_executable_reason": "NO_BUILD_MANIFEST",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "campaign": {},
         "setup": [
@@ -6061,7 +6078,8 @@
         "executable": false,
         "non_executable_reason": "NO_BUILD_MANIFEST",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "campaign": {},
         "setup": [
@@ -6404,7 +6422,8 @@
         "executable": false,
         "non_executable_reason": "NO_BUILD_MANIFEST",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "campaign": {},
         "setup": [
@@ -6722,7 +6741,8 @@
         "executable": false,
         "non_executable_reason": "NO_BUILD_MANIFEST",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "campaign": {},
         "setup": [
@@ -6968,7 +6988,8 @@
         "executable": false,
         "non_executable_reason": "NO_BUILD_MANIFEST",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "campaign": {},
         "setup": [
@@ -7317,7 +7338,8 @@
         "executable": false,
         "non_executable_reason": "NO_BUILD_MANIFEST",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "campaign": {},
         "setup": [
@@ -7667,7 +7689,8 @@
         "executable": false,
         "non_executable_reason": "NO_BUILD_MANIFEST",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "campaign": {},
         "setup": [
@@ -7951,7 +7974,8 @@
         "executable": false,
         "non_executable_reason": "NO_BUILD_MANIFEST",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "campaign": {},
         "setup": [
@@ -8312,7 +8336,8 @@
         "executable": false,
         "non_executable_reason": "NO_BUILD_MANIFEST",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "campaign": {},
         "setup": [
@@ -8674,7 +8699,8 @@
         "executable": false,
         "non_executable_reason": "NO_BUILD_MANIFEST",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "campaign": {},
         "setup": [
@@ -8970,7 +8996,8 @@
         "executable": false,
         "non_executable_reason": "NO_BUILD_MANIFEST",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "campaign": {},
         "setup": [
@@ -9331,7 +9358,8 @@
         "executable": false,
         "non_executable_reason": "NO_BUILD_MANIFEST",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "campaign": {},
         "setup": [
@@ -9746,7 +9774,8 @@
         "executable": false,
         "non_executable_reason": "NO_BUILD_MANIFEST",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "campaign": {},
         "setup": [
@@ -10161,7 +10190,8 @@
         "executable": false,
         "non_executable_reason": "NO_BUILD_MANIFEST",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "campaign": {},
         "setup": [
@@ -10420,7 +10450,8 @@
         "executable": false,
         "non_executable_reason": "NO_BUILD_MANIFEST",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "campaign": {},
         "setup": [
@@ -10524,7 +10555,8 @@
         "executable": false,
         "non_executable_reason": "NO_BUILD_MANIFEST",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "campaign": {},
         "setup": [
@@ -10790,7 +10822,8 @@
         "executable": false,
         "non_executable_reason": "NO_BUILD_MANIFEST",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "campaign": {},
         "setup": [
@@ -11205,7 +11238,8 @@
         "executable": false,
         "non_executable_reason": "NO_BUILD_MANIFEST",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "campaign": {},
         "setup": [
@@ -11620,7 +11654,8 @@
         "executable": false,
         "non_executable_reason": "NO_BUILD_MANIFEST",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "campaign": {},
         "setup": [
@@ -12035,7 +12070,8 @@
         "executable": false,
         "non_executable_reason": "NO_BUILD_MANIFEST",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "campaign": {},
         "setup": [
@@ -12450,7 +12486,8 @@
         "executable": false,
         "non_executable_reason": "NO_BUILD_MANIFEST",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "campaign": {},
         "setup": [
@@ -12709,7 +12746,8 @@
         "executable": false,
         "non_executable_reason": "NO_BUILD_MANIFEST",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "campaign": {},
         "setup": [
@@ -12819,7 +12857,8 @@
         "executable": false,
         "non_executable_reason": "NO_BUILD_MANIFEST",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "campaign": {},
         "setup": [
@@ -13091,7 +13130,8 @@
         "executable": false,
         "non_executable_reason": "NO_BUILD_MANIFEST",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "campaign": {},
         "setup": [
@@ -13506,7 +13546,8 @@
         "executable": false,
         "non_executable_reason": "NO_BUILD_MANIFEST",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "campaign": {},
         "setup": [
@@ -13921,7 +13962,8 @@
         "executable": false,
         "non_executable_reason": "NO_BUILD_MANIFEST",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "campaign": {},
         "setup": [
@@ -14336,7 +14378,8 @@
         "executable": false,
         "non_executable_reason": "NO_BUILD_MANIFEST",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "campaign": {},
         "setup": [
@@ -14629,7 +14672,8 @@
         "executable": false,
         "non_executable_reason": "NO_BUILD_MANIFEST",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "campaign": {},
         "setup": [
@@ -14799,7 +14843,8 @@
         "executable": false,
         "non_executable_reason": "NO_BUILD_MANIFEST",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "campaign": {},
         "setup": [
@@ -15097,7 +15142,8 @@
         "executable": false,
         "non_executable_reason": "NO_BUILD_MANIFEST",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "campaign": {},
         "setup": [
@@ -15390,7 +15436,8 @@
         "executable": false,
         "non_executable_reason": "NO_BUILD_MANIFEST",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "campaign": {},
         "setup": [
@@ -15566,7 +15613,8 @@
         "executable": false,
         "non_executable_reason": "NO_BUILD_MANIFEST",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "campaign": {},
         "setup": [
@@ -15870,7 +15918,8 @@
         "executable": false,
         "non_executable_reason": "NO_BUILD_MANIFEST",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "campaign": {},
         "setup": [
@@ -16163,7 +16212,8 @@
         "executable": false,
         "non_executable_reason": "NO_BUILD_MANIFEST",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "campaign": {},
         "setup": [
@@ -16352,7 +16402,8 @@
         "executable": false,
         "non_executable_reason": "NO_BUILD_MANIFEST",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "campaign": {},
         "setup": [
@@ -16602,7 +16653,8 @@
         "executable": false,
         "non_executable_reason": "NO_BUILD_MANIFEST",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "campaign": {},
         "setup": [
@@ -16860,7 +16912,8 @@
         "executable": false,
         "non_executable_reason": "NO_BUILD_MANIFEST",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "campaign": {},
         "setup": [
@@ -17275,7 +17328,8 @@
         "executable": false,
         "non_executable_reason": "NO_BUILD_MANIFEST",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "campaign": {},
         "setup": [
@@ -17690,7 +17744,8 @@
         "executable": false,
         "non_executable_reason": "NO_BUILD_MANIFEST",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "campaign": {},
         "setup": [
@@ -18105,7 +18160,8 @@
         "executable": false,
         "non_executable_reason": "NO_BUILD_MANIFEST",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "campaign": {},
         "setup": [
@@ -18512,7 +18568,8 @@
         "executable": false,
         "non_executable_reason": "NO_BUILD_MANIFEST",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "campaign": {},
         "setup": [
@@ -19276,7 +19333,8 @@
         "executable": false,
         "non_executable_reason": "NO_BUILD_MANIFEST",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "campaign": {},
         "setup": [
@@ -19515,7 +19573,8 @@
         "executable": false,
         "non_executable_reason": "NO_BUILD_MANIFEST",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "campaign": {},
         "setup": [
@@ -19766,7 +19825,8 @@
         "executable": false,
         "non_executable_reason": "NO_BUILD_MANIFEST",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "campaign": {},
         "setup": [
@@ -20031,7 +20091,8 @@
         "executable": false,
         "non_executable_reason": "NO_BUILD_MANIFEST",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "campaign": {},
         "setup": [
@@ -20296,7 +20357,8 @@
         "executable": false,
         "non_executable_reason": "NO_BUILD_MANIFEST",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "campaign": {},
         "setup": [
@@ -20561,7 +20623,8 @@
         "executable": false,
         "non_executable_reason": "NO_BUILD_MANIFEST",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "campaign": {},
         "setup": [
@@ -20844,7 +20907,8 @@
         "executable": false,
         "non_executable_reason": "NO_BUILD_MANIFEST",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "campaign": {},
         "setup": [
@@ -21145,7 +21209,8 @@
         "executable": false,
         "non_executable_reason": "NO_BUILD_MANIFEST",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "campaign": {},
         "setup": [
@@ -21446,7 +21511,8 @@
         "executable": false,
         "non_executable_reason": "NO_BUILD_MANIFEST",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "campaign": {},
         "setup": [
@@ -21747,7 +21813,8 @@
         "executable": false,
         "non_executable_reason": "NO_BUILD_MANIFEST",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "campaign": {},
         "setup": [
@@ -22054,7 +22121,8 @@
         "executable": false,
         "non_executable_reason": "NO_BUILD_MANIFEST",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "campaign": {},
         "setup": [
@@ -22367,7 +22435,8 @@
         "executable": false,
         "non_executable_reason": "NO_BUILD_MANIFEST",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "campaign": {},
         "setup": [
@@ -22698,7 +22767,8 @@
         "executable": false,
         "non_executable_reason": "NO_BUILD_MANIFEST",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "campaign": {},
         "setup": [
@@ -23047,7 +23117,8 @@
         "executable": false,
         "non_executable_reason": "NO_BUILD_MANIFEST",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "campaign": {},
         "setup": [
@@ -23396,7 +23467,8 @@
         "executable": false,
         "non_executable_reason": "NO_BUILD_MANIFEST",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "campaign": {},
         "setup": [
@@ -23745,7 +23817,8 @@
         "executable": false,
         "non_executable_reason": "NO_BUILD_MANIFEST",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "campaign": {},
         "setup": [
@@ -24130,7 +24203,8 @@
         "executable": false,
         "non_executable_reason": "NO_BUILD_MANIFEST",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "campaign": {},
         "setup": [
@@ -24551,7 +24625,8 @@
         "executable": false,
         "non_executable_reason": "NO_BUILD_MANIFEST",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "campaign": {},
         "setup": [
@@ -24972,7 +25047,8 @@
         "executable": false,
         "non_executable_reason": "NO_BUILD_MANIFEST",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "campaign": {},
         "setup": [
@@ -25393,7 +25469,8 @@
         "executable": false,
         "non_executable_reason": "NO_BUILD_MANIFEST",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "campaign": {},
         "setup": [
@@ -25597,157 +25674,6 @@
         "action_text": "At Q23, type a 1001-character answer, then submit.",
         "focus": "Q23",
         "blocks": true
-      },
-      {
-        "test_id": "TC-d321095528",
-        "target_id": "T-1ccc2b2a02",
-        "dimension": "D3",
-        "title": "Q5 accepts an answer meeting ['exclusive_option_id']",
-        "steps": [
-          {
-            "question_id": "S1",
-            "question_kind": "single",
-            "value": "S1-O1",
-            "step": 1
-          },
-          {
-            "question_id": "S2",
-            "question_kind": "single",
-            "value": "S2-O1",
-            "step": 2
-          },
-          {
-            "question_id": "S3",
-            "question_kind": "single",
-            "value": "S3-O2",
-            "step": 3
-          },
-          {
-            "question_id": "S4",
-            "question_kind": "single",
-            "value": "S4-O2",
-            "step": 4
-          },
-          {
-            "question_id": "Q1",
-            "question_kind": "multi",
-            "value": [
-              "Q1-O1"
-            ],
-            "step": 5
-          },
-          {
-            "question_id": "Q2",
-            "question_kind": "multi",
-            "value": [
-              "Q2-O1"
-            ],
-            "step": 6
-          },
-          {
-            "question_id": "Q3",
-            "question_kind": "single",
-            "value": "Q3-O1",
-            "step": 7
-          },
-          {
-            "question_id": "Q4",
-            "question_kind": "single",
-            "value": "Q4-O1",
-            "step": 8
-          },
-          {
-            "question_id": "Q5",
-            "question_kind": "multi",
-            "value": [
-              "Q5-O7"
-            ],
-            "step": 9
-          }
-        ],
-        "assertions": [
-          {
-            "kind": "answer_accepted",
-            "target": "Q5",
-            "expected": true,
-            "detail": "the page must accept the answer and advance, because it meets the QRE's rule ['exclusive_option_id']"
-          }
-        ],
-        "traces_to": [
-          "Q5"
-        ],
-        "executable": false,
-        "non_executable_reason": "NO_BUILD_MANIFEST",
-        "provisional_semantics": [
-          "multi_equality"
-        ],
-        "campaign": {},
-        "setup": [
-          {
-            "question_id": "S1",
-            "question_kind": "single",
-            "value": "S1-O1",
-            "step": 1
-          },
-          {
-            "question_id": "S2",
-            "question_kind": "single",
-            "value": "S2-O1",
-            "step": 2
-          },
-          {
-            "question_id": "S3",
-            "question_kind": "single",
-            "value": "S3-O2",
-            "step": 3
-          },
-          {
-            "question_id": "S4",
-            "question_kind": "single",
-            "value": "S4-O2",
-            "step": 4
-          },
-          {
-            "question_id": "Q1",
-            "question_kind": "multi",
-            "value": [
-              "Q1-O1"
-            ],
-            "step": 5
-          },
-          {
-            "question_id": "Q2",
-            "question_kind": "multi",
-            "value": [
-              "Q2-O1"
-            ],
-            "step": 6
-          },
-          {
-            "question_id": "Q3",
-            "question_kind": "single",
-            "value": "Q3-O1",
-            "step": 7
-          },
-          {
-            "question_id": "Q4",
-            "question_kind": "single",
-            "value": "Q4-O1",
-            "step": 8
-          }
-        ],
-        "action": [
-          {
-            "question_id": "Q5",
-            "question_kind": "multi",
-            "value": [
-              "Q5-O7"
-            ]
-          }
-        ],
-        "action_text": "At Q5, tick 1 option (None of these), then submit.",
-        "focus": "Q5",
-        "blocks": false
       },
       {
         "test_id": "TC-11d872a0c9",
@@ -26014,7 +25940,8 @@
         "executable": false,
         "non_executable_reason": "NO_BUILD_MANIFEST",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "campaign": {},
         "setup": [
@@ -26226,7 +26153,8 @@
         "executable": false,
         "non_executable_reason": "NO_BUILD_MANIFEST",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "campaign": {},
         "setup": [
@@ -26512,7 +26440,8 @@
         "executable": false,
         "non_executable_reason": "NO_BUILD_MANIFEST",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "campaign": {},
         "setup": [
@@ -26879,7 +26808,8 @@
         "executable": false,
         "non_executable_reason": "NO_BUILD_MANIFEST",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "campaign": {},
         "setup": [
@@ -27258,7 +27188,8 @@
         "executable": false,
         "non_executable_reason": "NO_BUILD_MANIFEST",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "campaign": {},
         "setup": [
@@ -27649,7 +27580,8 @@
         "executable": false,
         "non_executable_reason": "NO_BUILD_MANIFEST",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "campaign": {},
         "setup": [
@@ -28049,7 +27981,8 @@
         "executable": false,
         "non_executable_reason": "NO_BUILD_MANIFEST",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "campaign": {},
         "setup": [
@@ -28280,7 +28213,8 @@
         "executable": false,
         "non_executable_reason": "NO_BUILD_MANIFEST",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "campaign": {},
         "setup": [
@@ -28525,7 +28459,8 @@
         "executable": false,
         "non_executable_reason": "NO_BUILD_MANIFEST",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "campaign": {},
         "setup": [
@@ -28784,7 +28719,8 @@
         "executable": false,
         "non_executable_reason": "NO_BUILD_MANIFEST",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "campaign": {},
         "setup": [
@@ -29049,7 +28985,8 @@
         "executable": false,
         "non_executable_reason": "NO_BUILD_MANIFEST",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "campaign": {},
         "setup": [
@@ -29315,6 +29252,7 @@
         "non_executable_reason": "NO_BUILD_MANIFEST",
         "provisional_semantics": [
           "multi_equality",
+          "rule_precedence",
           "whitespace_is_an_answer"
         ],
         "campaign": {},
@@ -29586,7 +29524,8 @@
         "executable": false,
         "non_executable_reason": "NO_BUILD_MANIFEST",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "campaign": {},
         "setup": [
@@ -29869,7 +29808,8 @@
         "executable": false,
         "non_executable_reason": "NO_BUILD_MANIFEST",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "campaign": {},
         "setup": [
@@ -30164,7 +30104,8 @@
         "executable": false,
         "non_executable_reason": "NO_BUILD_MANIFEST",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "campaign": {},
         "setup": [
@@ -30466,6 +30407,7 @@
         "non_executable_reason": "NO_BUILD_MANIFEST",
         "provisional_semantics": [
           "multi_equality",
+          "rule_precedence",
           "whitespace_is_an_answer"
         ],
         "campaign": {},
@@ -30767,7 +30709,8 @@
         "executable": false,
         "non_executable_reason": "NO_BUILD_MANIFEST",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "campaign": {},
         "setup": [
@@ -31080,7 +31023,8 @@
         "executable": false,
         "non_executable_reason": "NO_BUILD_MANIFEST",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "campaign": {},
         "setup": [
@@ -31518,7 +31462,8 @@
         "executable": false,
         "non_executable_reason": "NO_BUILD_MANIFEST",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "campaign": {},
         "setup": [
@@ -31861,7 +31806,8 @@
         "executable": false,
         "non_executable_reason": "NO_BUILD_MANIFEST",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "campaign": {},
         "setup": [
@@ -32211,6 +32157,7 @@
         "non_executable_reason": "NO_BUILD_MANIFEST",
         "provisional_semantics": [
           "multi_equality",
+          "rule_precedence",
           "whitespace_is_an_answer"
         ],
         "campaign": {},
@@ -32590,7 +32537,8 @@
         "executable": false,
         "non_executable_reason": "NO_BUILD_MANIFEST",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "campaign": {},
         "setup": [
@@ -33005,7 +32953,8 @@
         "executable": false,
         "non_executable_reason": "NO_BUILD_MANIFEST",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "campaign": {},
         "setup": [
@@ -33427,6 +33376,7 @@
         "non_executable_reason": "NO_BUILD_MANIFEST",
         "provisional_semantics": [
           "multi_equality",
+          "rule_precedence",
           "whitespace_is_an_answer"
         ],
         "campaign": {},
@@ -34124,7 +34074,8 @@
         "executable": false,
         "non_executable_reason": "NO_BUILD_MANIFEST",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "campaign": {},
         "setup": [
@@ -34293,7 +34244,8 @@
         "executable": false,
         "non_executable_reason": "NO_BUILD_MANIFEST",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "campaign": {},
         "setup": [
@@ -34474,7 +34426,8 @@
         "executable": false,
         "non_executable_reason": "NO_BUILD_MANIFEST",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "campaign": {},
         "setup": [
@@ -34667,7 +34620,8 @@
         "executable": false,
         "non_executable_reason": "NO_BUILD_MANIFEST",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "campaign": {},
         "setup": [
@@ -35060,7 +35014,8 @@
         "executable": false,
         "non_executable_reason": "NO_BUILD_MANIFEST",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "campaign": {},
         "setup": [
@@ -35200,7 +35155,8 @@
         "executable": false,
         "non_executable_reason": "NO_BUILD_MANIFEST",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "campaign": {},
         "setup": [
@@ -35451,7 +35407,8 @@
         "executable": false,
         "non_executable_reason": "NO_BUILD_MANIFEST",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "campaign": {},
         "setup": [
@@ -35795,7 +35752,8 @@
         "executable": false,
         "non_executable_reason": "NO_BUILD_MANIFEST",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "campaign": {},
         "setup": [
@@ -36064,7 +36022,8 @@
         "executable": false,
         "non_executable_reason": "NO_BUILD_MANIFEST",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "campaign": {},
         "setup": [
@@ -36265,7 +36224,8 @@
         "executable": false,
         "non_executable_reason": "NO_BUILD_MANIFEST",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "campaign": {},
         "setup": [
@@ -36431,7 +36391,8 @@
         "executable": false,
         "non_executable_reason": "NO_BUILD_MANIFEST",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "campaign": {},
         "setup": [
@@ -36526,7 +36487,8 @@
         "executable": false,
         "non_executable_reason": "NO_BUILD_MANIFEST",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "campaign": {
           "repetitions": 5,
@@ -36735,7 +36697,8 @@
         "executable": false,
         "non_executable_reason": "NO_BUILD_MANIFEST",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "campaign": {},
         "setup": [
@@ -37024,7 +36987,8 @@
         "executable": false,
         "non_executable_reason": "NO_BUILD_MANIFEST",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "campaign": {
           "repetitions": 5,
@@ -37345,7 +37309,8 @@
         "executable": false,
         "non_executable_reason": "NO_BUILD_MANIFEST",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "campaign": {},
         "setup": [
@@ -37670,7 +37635,8 @@
         "executable": false,
         "non_executable_reason": "NO_BUILD_MANIFEST",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "campaign": {
           "repetitions": 5,
@@ -37926,7 +37892,8 @@
         "executable": false,
         "non_executable_reason": "NO_BUILD_MANIFEST",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "campaign": {},
         "setup": [
@@ -38077,7 +38044,8 @@
         "executable": false,
         "non_executable_reason": "NO_BUILD_MANIFEST",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "campaign": {
           "repetitions": 5,
@@ -38275,7 +38243,8 @@
         "executable": false,
         "non_executable_reason": "NO_BUILD_MANIFEST",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "campaign": {},
         "setup": [
@@ -38488,7 +38457,8 @@
         "executable": false,
         "non_executable_reason": "NO_BUILD_MANIFEST",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "campaign": {
           "repetitions": 5,
@@ -38785,7 +38755,8 @@
         "executable": false,
         "non_executable_reason": "NO_BUILD_MANIFEST",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "campaign": {},
         "setup": [
@@ -39158,7 +39129,8 @@
         "executable": false,
         "non_executable_reason": "NO_BUILD_MANIFEST",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "campaign": {},
         "setup": [
@@ -39531,7 +39503,8 @@
         "executable": false,
         "non_executable_reason": "NO_BUILD_MANIFEST",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "campaign": {},
         "setup": [
@@ -39904,7 +39877,8 @@
         "executable": false,
         "non_executable_reason": "NO_BUILD_MANIFEST",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "campaign": {},
         "setup": [
@@ -40277,7 +40251,8 @@
         "executable": false,
         "non_executable_reason": "NO_BUILD_MANIFEST",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "campaign": {},
         "setup": [
@@ -40644,7 +40619,8 @@
         "executable": false,
         "non_executable_reason": "NO_BUILD_MANIFEST",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "campaign": {},
         "setup": [
@@ -41005,7 +40981,8 @@
         "executable": false,
         "non_executable_reason": "NO_BUILD_MANIFEST",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "campaign": {},
         "setup": [
@@ -41366,7 +41343,8 @@
         "executable": false,
         "non_executable_reason": "NO_BUILD_MANIFEST",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "campaign": {},
         "setup": [
@@ -41727,7 +41705,8 @@
         "executable": false,
         "non_executable_reason": "NO_BUILD_MANIFEST",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "campaign": {},
         "setup": [
@@ -42088,7 +42067,8 @@
         "executable": false,
         "non_executable_reason": "NO_BUILD_MANIFEST",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "campaign": {},
         "setup": [
@@ -42333,7 +42313,8 @@
         "executable": false,
         "non_executable_reason": "NO_BUILD_MANIFEST",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "campaign": {},
         "setup": [
@@ -42489,7 +42470,8 @@
         "executable": false,
         "non_executable_reason": "NO_BUILD_MANIFEST",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "campaign": {},
         "setup": [
@@ -42696,7 +42678,8 @@
         "executable": false,
         "non_executable_reason": "NO_BUILD_MANIFEST",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "campaign": {},
         "setup": [
@@ -42959,7 +42942,8 @@
         "executable": false,
         "non_executable_reason": "NO_BUILD_MANIFEST",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "campaign": {},
         "setup": [
@@ -43272,7 +43256,8 @@
         "executable": false,
         "non_executable_reason": "NO_BUILD_MANIFEST",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "campaign": {},
         "setup": [
@@ -43424,10 +43409,10 @@
         "blocks": true
       },
       {
-        "test_id": "TC-178c64a1d5",
-        "target_id": "T-d6b9ff6c62",
+        "test_id": "TC-07168a0971",
+        "target_id": "T-5a5002c9d4",
         "dimension": "D3",
-        "title": "reject rule R19 does not fire when its condition fails",
+        "title": "reject rule R19 fires when its condition holds",
         "steps": [
           {
             "question_id": "S1",
@@ -43492,10 +43477,10 @@
         ],
         "assertions": [
           {
-            "kind": "answer_accepted",
+            "kind": "answer_rejected",
             "target": "R19",
             "expected": true,
-            "detail": "the page must advance, because the reject rule's condition is not met"
+            "detail": "the page must NOT advance; it must redisplay with an error against this question"
           }
         ],
         "traces_to": [
@@ -43504,7 +43489,8 @@
         "executable": false,
         "non_executable_reason": "NO_BUILD_MANIFEST",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "campaign": {},
         "setup": [
@@ -43571,101 +43557,6 @@
           }
         ],
         "action_text": "At Q5, tick 1 option (Primary-care physician), then submit.",
-        "focus": "Q5",
-        "blocks": false
-      },
-      {
-        "test_id": "TC-b0729c4af8",
-        "target_id": "T-5a5002c9d4",
-        "dimension": "D3",
-        "title": "reject rule R19 fires when its condition holds",
-        "steps": [
-          {
-            "question_id": "S1",
-            "question_kind": "single",
-            "value": "S1-O1",
-            "step": 1
-          },
-          {
-            "question_id": "S2",
-            "question_kind": "single",
-            "value": "S2-O1",
-            "step": 2
-          },
-          {
-            "question_id": "S3",
-            "question_kind": "single",
-            "value": "S3-O2",
-            "step": 3
-          },
-          {
-            "question_id": "S4",
-            "question_kind": "single",
-            "value": "S4-O2",
-            "step": 4
-          },
-          {
-            "question_id": "Q1",
-            "question_kind": "multi",
-            "value": [
-              "Q1-O1",
-              "Q1-O5"
-            ],
-            "step": 5
-          }
-        ],
-        "assertions": [
-          {
-            "kind": "answer_rejected",
-            "target": "R19",
-            "expected": true,
-            "detail": "the page must NOT advance; it must redisplay with an error against this question"
-          }
-        ],
-        "traces_to": [
-          "R19"
-        ],
-        "executable": false,
-        "non_executable_reason": "NO_BUILD_MANIFEST",
-        "provisional_semantics": [],
-        "campaign": {},
-        "setup": [
-          {
-            "question_id": "S1",
-            "question_kind": "single",
-            "value": "S1-O1",
-            "step": 1
-          },
-          {
-            "question_id": "S2",
-            "question_kind": "single",
-            "value": "S2-O1",
-            "step": 2
-          },
-          {
-            "question_id": "S3",
-            "question_kind": "single",
-            "value": "S3-O2",
-            "step": 3
-          },
-          {
-            "question_id": "S4",
-            "question_kind": "single",
-            "value": "S4-O2",
-            "step": 4
-          },
-          {
-            "question_id": "Q1",
-            "question_kind": "multi",
-            "value": [
-              "Q1-O1",
-              "Q1-O5"
-            ],
-            "step": 5
-          }
-        ],
-        "action": [],
-        "action_text": "After submitting Q1, look for Q5 on the next page. Do not answer it.",
         "focus": "Q5",
         "blocks": true
       },
@@ -43756,7 +43647,8 @@
         "executable": false,
         "non_executable_reason": "NO_BUILD_MANIFEST",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "campaign": {},
         "setup": [
@@ -43919,7 +43811,8 @@
         "executable": false,
         "non_executable_reason": "NO_BUILD_MANIFEST",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "campaign": {},
         "setup": [

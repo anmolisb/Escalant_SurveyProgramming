@@ -9,7 +9,7 @@
   },
   "upstream": {
     "canonical_schema_version": "1.0.0",
-    "canonical_generated_at": "2026-09-30T12:43:03+00:00"
+    "canonical_generated_at": "2026-10-04T06:44:22+00:00"
   },
   "content": {
     "report": {
@@ -22,7 +22,7 @@
     },
     "tests": [
       {
-        "test_id": "EX-83fb5e05d4",
+        "test_id": "EX-a9bc875267",
         "target_id": "T-f325a4a781",
         "dimension": "D1",
         "title": "answering Q1 normally moves the respondent on to the question that should come next",
@@ -130,16 +130,6 @@
           },
           {
             "step": 11,
-            "action": "set_field",
-            "field_name": "Q8",
-            "sgqa": "900001X101X1015",
-            "value": "x",
-            "value_kind": "text",
-            "canonical": "Q8",
-            "human": "answer Q8 normally, so it is not itself a reason the page refuses to move on"
-          },
-          {
-            "step": 12,
             "action": "submit_page",
             "field_name": null,
             "sgqa": null,
@@ -177,7 +167,7 @@
         "provisional_semantics": []
       },
       {
-        "test_id": "EX-4ec3f9bc99",
+        "test_id": "EX-d92e1b213a",
         "target_id": "T-ea15e888c6",
         "dimension": "D1",
         "title": "answering Q2 normally moves the respondent on to the question that should come next",
@@ -285,16 +275,6 @@
           },
           {
             "step": 11,
-            "action": "set_field",
-            "field_name": "Q8",
-            "sgqa": "900001X101X1015",
-            "value": "x",
-            "value_kind": "text",
-            "canonical": "Q8",
-            "human": "answer Q8 normally, so it is not itself a reason the page refuses to move on"
-          },
-          {
-            "step": 12,
             "action": "submit_page",
             "field_name": null,
             "sgqa": null,
@@ -332,7 +312,7 @@
         "provisional_semantics": []
       },
       {
-        "test_id": "EX-5e147c7716",
+        "test_id": "EX-62c97709e7",
         "target_id": "T-d182c884c0",
         "dimension": "D1",
         "title": "answering Q3 normally moves the respondent on to the question that should come next",
@@ -440,16 +420,6 @@
           },
           {
             "step": 11,
-            "action": "set_field",
-            "field_name": "Q8",
-            "sgqa": "900001X101X1015",
-            "value": "x",
-            "value_kind": "text",
-            "canonical": "Q8",
-            "human": "answer Q8 normally, so it is not itself a reason the page refuses to move on"
-          },
-          {
-            "step": 12,
             "action": "submit_page",
             "field_name": null,
             "sgqa": null,
@@ -487,7 +457,7 @@
         "provisional_semantics": []
       },
       {
-        "test_id": "EX-afe8f4bfe5",
+        "test_id": "EX-ce5279ad4b",
         "target_id": "T-460e9ac790",
         "dimension": "D1",
         "title": "answering Q4 normally moves the respondent on to the question that should come next",
@@ -595,16 +565,6 @@
           },
           {
             "step": 11,
-            "action": "set_field",
-            "field_name": "Q8",
-            "sgqa": "900001X101X1015",
-            "value": "x",
-            "value_kind": "text",
-            "canonical": "Q8",
-            "human": "answer Q8 normally, so it is not itself a reason the page refuses to move on"
-          },
-          {
-            "step": 12,
             "action": "submit_page",
             "field_name": null,
             "sgqa": null,
@@ -642,7 +602,7 @@
         "provisional_semantics": []
       },
       {
-        "test_id": "EX-3eb0769072",
+        "test_id": "EX-cd2869c6f5",
         "target_id": "T-4a81ad1c54",
         "dimension": "D1",
         "title": "answering Q5 normally moves the respondent on to the question that should come next",
@@ -750,16 +710,6 @@
           },
           {
             "step": 11,
-            "action": "set_field",
-            "field_name": "Q8",
-            "sgqa": "900001X101X1015",
-            "value": "x",
-            "value_kind": "text",
-            "canonical": "Q8",
-            "human": "answer Q8 normally, so it is not itself a reason the page refuses to move on"
-          },
-          {
-            "step": 12,
             "action": "submit_page",
             "field_name": null,
             "sgqa": null,
@@ -797,7 +747,7 @@
         "provisional_semantics": []
       },
       {
-        "test_id": "EX-1e2be181e7",
+        "test_id": "EX-86266105c0",
         "target_id": "T-a31d9e36e7",
         "dimension": "D1",
         "title": "answering Q6 normally moves the respondent on to the question that should come next",
@@ -905,16 +855,6 @@
           },
           {
             "step": 11,
-            "action": "set_field",
-            "field_name": "Q8",
-            "sgqa": "900001X101X1015",
-            "value": "x",
-            "value_kind": "text",
-            "canonical": "Q8",
-            "human": "answer Q8 normally, so it is not itself a reason the page refuses to move on"
-          },
-          {
-            "step": 12,
             "action": "submit_page",
             "field_name": null,
             "sgqa": null,
@@ -952,7 +892,7 @@
         "provisional_semantics": []
       },
       {
-        "test_id": "EX-b24b14d127",
+        "test_id": "EX-4fdc284215",
         "target_id": "T-836bcea7a3",
         "dimension": "D1",
         "title": "Q6 is not displayed when its guard fails",
@@ -1040,26 +980,6 @@
           },
           {
             "step": 9,
-            "action": "set_field",
-            "field_name": "Q7",
-            "sgqa": "900001X101X1014",
-            "value": "A001",
-            "value_kind": "answer_code",
-            "canonical": "Q7/Q7-O1",
-            "human": "answer Q7 normally, so it is not itself a reason the page refuses to move on"
-          },
-          {
-            "step": 10,
-            "action": "set_field",
-            "field_name": "Q8",
-            "sgqa": "900001X101X1015",
-            "value": "x",
-            "value_kind": "text",
-            "canonical": "Q8",
-            "human": "answer Q8 normally, so it is not itself a reason the page refuses to move on"
-          },
-          {
-            "step": 11,
             "action": "submit_page",
             "field_name": null,
             "sgqa": null,
@@ -1100,7 +1020,7 @@
         ]
       },
       {
-        "test_id": "EX-a99c212c1b",
+        "test_id": "EX-9f054be4d7",
         "target_id": "T-46ad0b9227",
         "dimension": "D1",
         "title": "Q6 is displayed when its guard holds",
@@ -1198,26 +1118,6 @@
           },
           {
             "step": 10,
-            "action": "set_field",
-            "field_name": "Q7",
-            "sgqa": "900001X101X1014",
-            "value": "A001",
-            "value_kind": "answer_code",
-            "canonical": "Q7/Q7-O1",
-            "human": "answer Q7 normally, so it is not itself a reason the page refuses to move on"
-          },
-          {
-            "step": 11,
-            "action": "set_field",
-            "field_name": "Q8",
-            "sgqa": "900001X101X1015",
-            "value": "x",
-            "value_kind": "text",
-            "canonical": "Q8",
-            "human": "answer Q8 normally, so it is not itself a reason the page refuses to move on"
-          },
-          {
-            "step": 12,
             "action": "submit_page",
             "field_name": null,
             "sgqa": null,
@@ -1248,7 +1148,7 @@
         "provisional_semantics": []
       },
       {
-        "test_id": "EX-eefe0eb2e2",
+        "test_id": "EX-e4f864f412",
         "target_id": "T-a25fbf002c",
         "dimension": "D1",
         "title": "answering Q7 normally moves the respondent on to the question that should come next",
@@ -1356,16 +1256,6 @@
           },
           {
             "step": 11,
-            "action": "set_field",
-            "field_name": "Q8",
-            "sgqa": "900001X101X1015",
-            "value": "x",
-            "value_kind": "text",
-            "canonical": "Q8",
-            "human": "answer Q8 normally, so it is not itself a reason the page refuses to move on"
-          },
-          {
-            "step": 12,
             "action": "submit_page",
             "field_name": null,
             "sgqa": null,
@@ -1403,7 +1293,7 @@
         "provisional_semantics": []
       },
       {
-        "test_id": "EX-e7c2568040",
+        "test_id": "EX-ca7766b213",
         "target_id": "T-b3b76ca11a",
         "dimension": "D1",
         "title": "answering Q8 normally moves the respondent on to the question that should come next",
@@ -1511,16 +1401,6 @@
           },
           {
             "step": 11,
-            "action": "set_field",
-            "field_name": "Q8",
-            "sgqa": "900001X101X1015",
-            "value": "x",
-            "value_kind": "text",
-            "canonical": "Q8",
-            "human": "answer Q8 normally, so it is not itself a reason the page refuses to move on"
-          },
-          {
-            "step": 12,
             "action": "submit_page",
             "field_name": null,
             "sgqa": null,
@@ -1558,7 +1438,7 @@
         "provisional_semantics": []
       },
       {
-        "test_id": "EX-40bf3439d5",
+        "test_id": "EX-a888630c33",
         "target_id": "T-42c434e9a8",
         "dimension": "D1",
         "title": "R4 jumps to Q7 when its condition holds",
@@ -1646,26 +1526,6 @@
           },
           {
             "step": 9,
-            "action": "set_field",
-            "field_name": "Q7",
-            "sgqa": "900001X101X1014",
-            "value": "A001",
-            "value_kind": "answer_code",
-            "canonical": "Q7/Q7-O1",
-            "human": "answer Q7 normally, so it is not itself a reason the page refuses to move on"
-          },
-          {
-            "step": 10,
-            "action": "set_field",
-            "field_name": "Q8",
-            "sgqa": "900001X101X1015",
-            "value": "x",
-            "value_kind": "text",
-            "canonical": "Q8",
-            "human": "answer Q8 normally, so it is not itself a reason the page refuses to move on"
-          },
-          {
-            "step": 11,
             "action": "submit_page",
             "field_name": null,
             "sgqa": null,
@@ -1697,7 +1557,7 @@
         ]
       },
       {
-        "test_id": "EX-704bb186c9",
+        "test_id": "EX-229751e262",
         "target_id": "T-bb19b20b74",
         "dimension": "D1",
         "title": "R4 does not jump when its condition fails, so the respondent continues in sequence",
@@ -1785,26 +1645,6 @@
           },
           {
             "step": 9,
-            "action": "set_field",
-            "field_name": "Q7",
-            "sgqa": "900001X101X1014",
-            "value": "A001",
-            "value_kind": "answer_code",
-            "canonical": "Q7/Q7-O1",
-            "human": "answer Q7 normally, so it is not itself a reason the page refuses to move on"
-          },
-          {
-            "step": 10,
-            "action": "set_field",
-            "field_name": "Q8",
-            "sgqa": "900001X101X1015",
-            "value": "x",
-            "value_kind": "text",
-            "canonical": "Q8",
-            "human": "answer Q8 normally, so it is not itself a reason the page refuses to move on"
-          },
-          {
-            "step": 11,
             "action": "submit_page",
             "field_name": null,
             "sgqa": null,
@@ -1834,7 +1674,7 @@
         "provisional_semantics": []
       },
       {
-        "test_id": "EX-a344c1af85",
+        "test_id": "EX-e44e539421",
         "target_id": "T-94ce2e5d20",
         "dimension": "D1",
         "title": "answering S1 normally moves the respondent on to the question that should come next",
@@ -1942,16 +1782,6 @@
           },
           {
             "step": 11,
-            "action": "set_field",
-            "field_name": "Q8",
-            "sgqa": "900001X101X1015",
-            "value": "x",
-            "value_kind": "text",
-            "canonical": "Q8",
-            "human": "answer Q8 normally, so it is not itself a reason the page refuses to move on"
-          },
-          {
-            "step": 12,
             "action": "submit_page",
             "field_name": null,
             "sgqa": null,
@@ -1989,7 +1819,7 @@
         "provisional_semantics": []
       },
       {
-        "test_id": "EX-5ec49d8ac5",
+        "test_id": "EX-a647bf9931",
         "target_id": "T-9b21d71193",
         "dimension": "D1",
         "title": "answering S2 normally moves the respondent on to the question that should come next",
@@ -2097,16 +1927,6 @@
           },
           {
             "step": 11,
-            "action": "set_field",
-            "field_name": "Q8",
-            "sgqa": "900001X101X1015",
-            "value": "x",
-            "value_kind": "text",
-            "canonical": "Q8",
-            "human": "answer Q8 normally, so it is not itself a reason the page refuses to move on"
-          },
-          {
-            "step": 12,
             "action": "submit_page",
             "field_name": null,
             "sgqa": null,
@@ -2144,7 +1964,7 @@
         "provisional_semantics": []
       },
       {
-        "test_id": "EX-74de97f8b8",
+        "test_id": "EX-db2af9d2d5",
         "target_id": "T-05b0993ae8",
         "dimension": "D2",
         "title": "a respondent can reach ending COMPLETE",
@@ -2252,16 +2072,6 @@
           },
           {
             "step": 11,
-            "action": "set_field",
-            "field_name": "Q8",
-            "sgqa": "900001X101X1015",
-            "value": "x",
-            "value_kind": "text",
-            "canonical": "Q8",
-            "human": "answer Q8 normally, so it is not itself a reason the page refuses to move on"
-          },
-          {
-            "step": 12,
             "action": "submit_page",
             "field_name": null,
             "sgqa": null,
@@ -2289,7 +2099,7 @@
         "provisional_semantics": []
       },
       {
-        "test_id": "EX-a46433941c",
+        "test_id": "EX-c2c5a6c2d0",
         "target_id": "T-ad81bd1fb8",
         "dimension": "D2",
         "title": "ending TERM_INELIGIBLE is reached by rule R1, evaluated at S1",
@@ -2307,16 +2117,6 @@
           },
           {
             "step": 2,
-            "action": "set_field",
-            "field_name": "S2",
-            "sgqa": "900001X100X1001",
-            "value": "A001",
-            "value_kind": "answer_code",
-            "canonical": "S2/S2-O1",
-            "human": "answer S2 normally, so it is not itself a reason the page refuses to move on"
-          },
-          {
-            "step": 3,
             "action": "submit_page",
             "field_name": null,
             "sgqa": null,
@@ -2357,7 +2157,7 @@
         ]
       },
       {
-        "test_id": "EX-1aff0c29e9",
+        "test_id": "EX-91ec111d63",
         "target_id": "T-b13742d625",
         "dimension": "D2",
         "title": "ending TERM_INELIGIBLE is reached by rule R2, evaluated at S2",
@@ -2425,7 +2225,7 @@
         ]
       },
       {
-        "test_id": "EX-4f28a08a75",
+        "test_id": "EX-f7d72ac768",
         "target_id": "T-91f64c7737",
         "dimension": "D3",
         "title": "Q4 accepts an answer meeting ['min_selections']",
@@ -2503,46 +2303,6 @@
           },
           {
             "step": 8,
-            "action": "set_field",
-            "field_name": "Q5",
-            "sgqa": "900001X101X1012",
-            "value": "A001",
-            "value_kind": "answer_code",
-            "canonical": "Q5/Q5-O1",
-            "human": "answer Q5 normally, so it is not itself a reason the page refuses to move on"
-          },
-          {
-            "step": 9,
-            "action": "set_field",
-            "field_name": "Q6",
-            "sgqa": "900001X101X1013",
-            "value": "xxxxxxxxxx",
-            "value_kind": "text",
-            "canonical": "Q6",
-            "human": "answer Q6 normally, so it is not itself a reason the page refuses to move on"
-          },
-          {
-            "step": 10,
-            "action": "set_field",
-            "field_name": "Q7",
-            "sgqa": "900001X101X1014",
-            "value": "A001",
-            "value_kind": "answer_code",
-            "canonical": "Q7/Q7-O1",
-            "human": "answer Q7 normally, so it is not itself a reason the page refuses to move on"
-          },
-          {
-            "step": 11,
-            "action": "set_field",
-            "field_name": "Q8",
-            "sgqa": "900001X101X1015",
-            "value": "x",
-            "value_kind": "text",
-            "canonical": "Q8",
-            "human": "answer Q8 normally, so it is not itself a reason the page refuses to move on"
-          },
-          {
-            "step": 12,
             "action": "submit_page",
             "field_name": null,
             "sgqa": null,
@@ -2572,7 +2332,7 @@
         "provisional_semantics": []
       },
       {
-        "test_id": "EX-bbd4033aef",
+        "test_id": "EX-bef1be4a41",
         "target_id": "T-bf3e461be3",
         "dimension": "D3",
         "title": "Q4 rejects an answer breaking ['min_selections']",
@@ -2650,46 +2410,6 @@
           },
           {
             "step": 8,
-            "action": "set_field",
-            "field_name": "Q5",
-            "sgqa": "900001X101X1012",
-            "value": "A001",
-            "value_kind": "answer_code",
-            "canonical": "Q5/Q5-O1",
-            "human": "answer Q5 normally, so it is not itself a reason the page refuses to move on"
-          },
-          {
-            "step": 9,
-            "action": "set_field",
-            "field_name": "Q6",
-            "sgqa": "900001X101X1013",
-            "value": "xxxxxxxxxx",
-            "value_kind": "text",
-            "canonical": "Q6",
-            "human": "answer Q6 normally, so it is not itself a reason the page refuses to move on"
-          },
-          {
-            "step": 10,
-            "action": "set_field",
-            "field_name": "Q7",
-            "sgqa": "900001X101X1014",
-            "value": "A001",
-            "value_kind": "answer_code",
-            "canonical": "Q7/Q7-O1",
-            "human": "answer Q7 normally, so it is not itself a reason the page refuses to move on"
-          },
-          {
-            "step": 11,
-            "action": "set_field",
-            "field_name": "Q8",
-            "sgqa": "900001X101X1015",
-            "value": "x",
-            "value_kind": "text",
-            "canonical": "Q8",
-            "human": "answer Q8 normally, so it is not itself a reason the page refuses to move on"
-          },
-          {
-            "step": 12,
             "action": "submit_page",
             "field_name": null,
             "sgqa": null,
@@ -2727,7 +2447,7 @@
         "provisional_semantics": []
       },
       {
-        "test_id": "EX-3b908df042",
+        "test_id": "EX-73ea9c5925",
         "target_id": "T-4ad35b8ed5",
         "dimension": "D3",
         "title": "Q6 accepts an answer of exactly 500 characters, its stated maximum",
@@ -2825,26 +2545,6 @@
           },
           {
             "step": 10,
-            "action": "set_field",
-            "field_name": "Q7",
-            "sgqa": "900001X101X1014",
-            "value": "A001",
-            "value_kind": "answer_code",
-            "canonical": "Q7/Q7-O1",
-            "human": "answer Q7 normally, so it is not itself a reason the page refuses to move on"
-          },
-          {
-            "step": 11,
-            "action": "set_field",
-            "field_name": "Q8",
-            "sgqa": "900001X101X1015",
-            "value": "x",
-            "value_kind": "text",
-            "canonical": "Q8",
-            "human": "answer Q8 normally, so it is not itself a reason the page refuses to move on"
-          },
-          {
-            "step": 12,
             "action": "submit_page",
             "field_name": null,
             "sgqa": null,
@@ -2874,7 +2574,7 @@
         "provisional_semantics": []
       },
       {
-        "test_id": "EX-4a2a056634",
+        "test_id": "EX-cd2f11f147",
         "target_id": "T-5763469416",
         "dimension": "D3",
         "title": "Q6 accepts an answer meeting ['max_length', 'min_length']",
@@ -2972,26 +2672,6 @@
           },
           {
             "step": 10,
-            "action": "set_field",
-            "field_name": "Q7",
-            "sgqa": "900001X101X1014",
-            "value": "A001",
-            "value_kind": "answer_code",
-            "canonical": "Q7/Q7-O1",
-            "human": "answer Q7 normally, so it is not itself a reason the page refuses to move on"
-          },
-          {
-            "step": 11,
-            "action": "set_field",
-            "field_name": "Q8",
-            "sgqa": "900001X101X1015",
-            "value": "x",
-            "value_kind": "text",
-            "canonical": "Q8",
-            "human": "answer Q8 normally, so it is not itself a reason the page refuses to move on"
-          },
-          {
-            "step": 12,
             "action": "submit_page",
             "field_name": null,
             "sgqa": null,
@@ -3021,7 +2701,7 @@
         "provisional_semantics": []
       },
       {
-        "test_id": "EX-77d29d794c",
+        "test_id": "EX-c6e96c7923",
         "target_id": "T-8a57cf56a3",
         "dimension": "D3",
         "title": "Q6 accepts punctuation and quotation marks, because its rule constrains length and not content",
@@ -3119,26 +2799,6 @@
           },
           {
             "step": 10,
-            "action": "set_field",
-            "field_name": "Q7",
-            "sgqa": "900001X101X1014",
-            "value": "A001",
-            "value_kind": "answer_code",
-            "canonical": "Q7/Q7-O1",
-            "human": "answer Q7 normally, so it is not itself a reason the page refuses to move on"
-          },
-          {
-            "step": 11,
-            "action": "set_field",
-            "field_name": "Q8",
-            "sgqa": "900001X101X1015",
-            "value": "x",
-            "value_kind": "text",
-            "canonical": "Q8",
-            "human": "answer Q8 normally, so it is not itself a reason the page refuses to move on"
-          },
-          {
-            "step": 12,
             "action": "submit_page",
             "field_name": null,
             "sgqa": null,
@@ -3168,7 +2828,7 @@
         "provisional_semantics": []
       },
       {
-        "test_id": "EX-186eacfa0d",
+        "test_id": "EX-cde700d6d1",
         "target_id": "T-3ba88a35fd",
         "dimension": "D3",
         "title": "Q6 rejects an answer breaking ['max_length', 'min_length']",
@@ -3266,26 +2926,6 @@
           },
           {
             "step": 10,
-            "action": "set_field",
-            "field_name": "Q7",
-            "sgqa": "900001X101X1014",
-            "value": "A001",
-            "value_kind": "answer_code",
-            "canonical": "Q7/Q7-O1",
-            "human": "answer Q7 normally, so it is not itself a reason the page refuses to move on"
-          },
-          {
-            "step": 11,
-            "action": "set_field",
-            "field_name": "Q8",
-            "sgqa": "900001X101X1015",
-            "value": "x",
-            "value_kind": "text",
-            "canonical": "Q8",
-            "human": "answer Q8 normally, so it is not itself a reason the page refuses to move on"
-          },
-          {
-            "step": 12,
             "action": "submit_page",
             "field_name": null,
             "sgqa": null,
@@ -3323,7 +2963,7 @@
         "provisional_semantics": []
       },
       {
-        "test_id": "EX-9bb5386d79",
+        "test_id": "EX-2e4c93ff06",
         "target_id": "T-81f7201b2b",
         "dimension": "D3",
         "title": "Q8 accepts an answer of exactly 500 characters, its stated maximum",
@@ -3470,7 +3110,7 @@
         "provisional_semantics": []
       },
       {
-        "test_id": "EX-52ab841ede",
+        "test_id": "EX-8ae1e165ef",
         "target_id": "T-9363260523",
         "dimension": "D3",
         "title": "Q8 accepts an answer meeting ['max_length']",
@@ -3617,7 +3257,7 @@
         "provisional_semantics": []
       },
       {
-        "test_id": "EX-0dba39ae30",
+        "test_id": "EX-16b5fff164",
         "target_id": "T-5bf7c9d7a3",
         "dimension": "D3",
         "title": "Q8 accepts punctuation and quotation marks, because its rule constrains length and not content",
@@ -3764,7 +3404,7 @@
         "provisional_semantics": []
       },
       {
-        "test_id": "EX-abb24bea57",
+        "test_id": "EX-517fcfe12d",
         "target_id": "T-b073440eac",
         "dimension": "D3",
         "title": "Q8 rejects an answer breaking ['max_length']",
@@ -3919,7 +3559,7 @@
         "provisional_semantics": []
       },
       {
-        "test_id": "EX-0eaafaa966",
+        "test_id": "EX-30e0a56758",
         "target_id": "T-e12aace78c",
         "dimension": "D4",
         "title": "Q1 blocks progress when left blank",
@@ -3967,76 +3607,6 @@
           },
           {
             "step": 5,
-            "action": "set_field",
-            "field_name": "Q2",
-            "sgqa": "900001X101X1003",
-            "value": "1",
-            "value_kind": "answer_code",
-            "canonical": "Q2/Q2-O1",
-            "human": "answer Q2 normally, so it is not itself a reason the page refuses to move on"
-          },
-          {
-            "step": 6,
-            "action": "set_field",
-            "field_name": "Q3",
-            "sgqa": "900001X101X1004",
-            "value": "1",
-            "value_kind": "answer_code",
-            "canonical": "Q3/Q3-O1",
-            "human": "answer Q3 normally, so it is not itself a reason the page refuses to move on"
-          },
-          {
-            "step": 7,
-            "action": "set_field",
-            "field_name": "Q4_SQ001",
-            "sgqa": "900001X101X1005SQ001",
-            "value": "Y",
-            "value_kind": "checkbox",
-            "canonical": "Q4/Q4-O1",
-            "human": "answer Q4 normally, so it is not itself a reason the page refuses to move on"
-          },
-          {
-            "step": 8,
-            "action": "set_field",
-            "field_name": "Q5",
-            "sgqa": "900001X101X1012",
-            "value": "A001",
-            "value_kind": "answer_code",
-            "canonical": "Q5/Q5-O1",
-            "human": "answer Q5 normally, so it is not itself a reason the page refuses to move on"
-          },
-          {
-            "step": 9,
-            "action": "set_field",
-            "field_name": "Q6",
-            "sgqa": "900001X101X1013",
-            "value": "xxxxxxxxxx",
-            "value_kind": "text",
-            "canonical": "Q6",
-            "human": "answer Q6 normally, so it is not itself a reason the page refuses to move on"
-          },
-          {
-            "step": 10,
-            "action": "set_field",
-            "field_name": "Q7",
-            "sgqa": "900001X101X1014",
-            "value": "A001",
-            "value_kind": "answer_code",
-            "canonical": "Q7/Q7-O1",
-            "human": "answer Q7 normally, so it is not itself a reason the page refuses to move on"
-          },
-          {
-            "step": 11,
-            "action": "set_field",
-            "field_name": "Q8",
-            "sgqa": "900001X101X1015",
-            "value": "x",
-            "value_kind": "text",
-            "canonical": "Q8",
-            "human": "answer Q8 normally, so it is not itself a reason the page refuses to move on"
-          },
-          {
-            "step": 12,
             "action": "submit_page",
             "field_name": null,
             "sgqa": null,
@@ -4074,7 +3644,7 @@
         "provisional_semantics": []
       },
       {
-        "test_id": "EX-b93f11412e",
+        "test_id": "EX-7b94486781",
         "target_id": "T-727f5e7cc5",
         "dimension": "D4",
         "title": "Q2 blocks progress when left blank",
@@ -4132,66 +3702,6 @@
           },
           {
             "step": 6,
-            "action": "set_field",
-            "field_name": "Q3",
-            "sgqa": "900001X101X1004",
-            "value": "1",
-            "value_kind": "answer_code",
-            "canonical": "Q3/Q3-O1",
-            "human": "answer Q3 normally, so it is not itself a reason the page refuses to move on"
-          },
-          {
-            "step": 7,
-            "action": "set_field",
-            "field_name": "Q4_SQ001",
-            "sgqa": "900001X101X1005SQ001",
-            "value": "Y",
-            "value_kind": "checkbox",
-            "canonical": "Q4/Q4-O1",
-            "human": "answer Q4 normally, so it is not itself a reason the page refuses to move on"
-          },
-          {
-            "step": 8,
-            "action": "set_field",
-            "field_name": "Q5",
-            "sgqa": "900001X101X1012",
-            "value": "A001",
-            "value_kind": "answer_code",
-            "canonical": "Q5/Q5-O1",
-            "human": "answer Q5 normally, so it is not itself a reason the page refuses to move on"
-          },
-          {
-            "step": 9,
-            "action": "set_field",
-            "field_name": "Q6",
-            "sgqa": "900001X101X1013",
-            "value": "xxxxxxxxxx",
-            "value_kind": "text",
-            "canonical": "Q6",
-            "human": "answer Q6 normally, so it is not itself a reason the page refuses to move on"
-          },
-          {
-            "step": 10,
-            "action": "set_field",
-            "field_name": "Q7",
-            "sgqa": "900001X101X1014",
-            "value": "A001",
-            "value_kind": "answer_code",
-            "canonical": "Q7/Q7-O1",
-            "human": "answer Q7 normally, so it is not itself a reason the page refuses to move on"
-          },
-          {
-            "step": 11,
-            "action": "set_field",
-            "field_name": "Q8",
-            "sgqa": "900001X101X1015",
-            "value": "x",
-            "value_kind": "text",
-            "canonical": "Q8",
-            "human": "answer Q8 normally, so it is not itself a reason the page refuses to move on"
-          },
-          {
-            "step": 12,
             "action": "submit_page",
             "field_name": null,
             "sgqa": null,
@@ -4229,7 +3739,7 @@
         "provisional_semantics": []
       },
       {
-        "test_id": "EX-f76eb27b5a",
+        "test_id": "EX-ffa8b7c910",
         "target_id": "T-4bdf659dfa",
         "dimension": "D4",
         "title": "Q3 blocks progress when left blank",
@@ -4297,56 +3807,6 @@
           },
           {
             "step": 7,
-            "action": "set_field",
-            "field_name": "Q4_SQ001",
-            "sgqa": "900001X101X1005SQ001",
-            "value": "Y",
-            "value_kind": "checkbox",
-            "canonical": "Q4/Q4-O1",
-            "human": "answer Q4 normally, so it is not itself a reason the page refuses to move on"
-          },
-          {
-            "step": 8,
-            "action": "set_field",
-            "field_name": "Q5",
-            "sgqa": "900001X101X1012",
-            "value": "A001",
-            "value_kind": "answer_code",
-            "canonical": "Q5/Q5-O1",
-            "human": "answer Q5 normally, so it is not itself a reason the page refuses to move on"
-          },
-          {
-            "step": 9,
-            "action": "set_field",
-            "field_name": "Q6",
-            "sgqa": "900001X101X1013",
-            "value": "xxxxxxxxxx",
-            "value_kind": "text",
-            "canonical": "Q6",
-            "human": "answer Q6 normally, so it is not itself a reason the page refuses to move on"
-          },
-          {
-            "step": 10,
-            "action": "set_field",
-            "field_name": "Q7",
-            "sgqa": "900001X101X1014",
-            "value": "A001",
-            "value_kind": "answer_code",
-            "canonical": "Q7/Q7-O1",
-            "human": "answer Q7 normally, so it is not itself a reason the page refuses to move on"
-          },
-          {
-            "step": 11,
-            "action": "set_field",
-            "field_name": "Q8",
-            "sgqa": "900001X101X1015",
-            "value": "x",
-            "value_kind": "text",
-            "canonical": "Q8",
-            "human": "answer Q8 normally, so it is not itself a reason the page refuses to move on"
-          },
-          {
-            "step": 12,
             "action": "submit_page",
             "field_name": null,
             "sgqa": null,
@@ -4384,7 +3844,7 @@
         "provisional_semantics": []
       },
       {
-        "test_id": "EX-a07af4cf20",
+        "test_id": "EX-5a0661ec7e",
         "target_id": "T-9a87b3907e",
         "dimension": "D4",
         "title": "Q4 blocks progress when left blank",
@@ -4462,46 +3922,6 @@
           },
           {
             "step": 8,
-            "action": "set_field",
-            "field_name": "Q5",
-            "sgqa": "900001X101X1012",
-            "value": "A001",
-            "value_kind": "answer_code",
-            "canonical": "Q5/Q5-O1",
-            "human": "answer Q5 normally, so it is not itself a reason the page refuses to move on"
-          },
-          {
-            "step": 9,
-            "action": "set_field",
-            "field_name": "Q6",
-            "sgqa": "900001X101X1013",
-            "value": "xxxxxxxxxx",
-            "value_kind": "text",
-            "canonical": "Q6",
-            "human": "answer Q6 normally, so it is not itself a reason the page refuses to move on"
-          },
-          {
-            "step": 10,
-            "action": "set_field",
-            "field_name": "Q7",
-            "sgqa": "900001X101X1014",
-            "value": "A001",
-            "value_kind": "answer_code",
-            "canonical": "Q7/Q7-O1",
-            "human": "answer Q7 normally, so it is not itself a reason the page refuses to move on"
-          },
-          {
-            "step": 11,
-            "action": "set_field",
-            "field_name": "Q8",
-            "sgqa": "900001X101X1015",
-            "value": "x",
-            "value_kind": "text",
-            "canonical": "Q8",
-            "human": "answer Q8 normally, so it is not itself a reason the page refuses to move on"
-          },
-          {
-            "step": 12,
             "action": "submit_page",
             "field_name": null,
             "sgqa": null,
@@ -4539,7 +3959,7 @@
         "provisional_semantics": []
       },
       {
-        "test_id": "EX-54ee1c0640",
+        "test_id": "EX-40f6d0df76",
         "target_id": "T-0249397b0f",
         "dimension": "D4",
         "title": "Q5 blocks progress when left blank",
@@ -4627,26 +4047,6 @@
           },
           {
             "step": 9,
-            "action": "set_field",
-            "field_name": "Q7",
-            "sgqa": "900001X101X1014",
-            "value": "A001",
-            "value_kind": "answer_code",
-            "canonical": "Q7/Q7-O1",
-            "human": "answer Q7 normally, so it is not itself a reason the page refuses to move on"
-          },
-          {
-            "step": 10,
-            "action": "set_field",
-            "field_name": "Q8",
-            "sgqa": "900001X101X1015",
-            "value": "x",
-            "value_kind": "text",
-            "canonical": "Q8",
-            "human": "answer Q8 normally, so it is not itself a reason the page refuses to move on"
-          },
-          {
-            "step": 11,
             "action": "submit_page",
             "field_name": null,
             "sgqa": null,
@@ -4684,7 +4084,7 @@
         "provisional_semantics": []
       },
       {
-        "test_id": "EX-34a042894f",
+        "test_id": "EX-10342d3516",
         "target_id": "T-e98006aa3a",
         "dimension": "D4",
         "title": "Q6 blocks progress when left blank",
@@ -4782,26 +4182,6 @@
           },
           {
             "step": 10,
-            "action": "set_field",
-            "field_name": "Q7",
-            "sgqa": "900001X101X1014",
-            "value": "A001",
-            "value_kind": "answer_code",
-            "canonical": "Q7/Q7-O1",
-            "human": "answer Q7 normally, so it is not itself a reason the page refuses to move on"
-          },
-          {
-            "step": 11,
-            "action": "set_field",
-            "field_name": "Q8",
-            "sgqa": "900001X101X1015",
-            "value": "x",
-            "value_kind": "text",
-            "canonical": "Q8",
-            "human": "answer Q8 normally, so it is not itself a reason the page refuses to move on"
-          },
-          {
-            "step": 12,
             "action": "submit_page",
             "field_name": null,
             "sgqa": null,
@@ -4839,7 +4219,7 @@
         "provisional_semantics": []
       },
       {
-        "test_id": "EX-0e900c082c",
+        "test_id": "EX-1c0a3ad9f5",
         "target_id": "T-a7c5528feb",
         "dimension": "D4",
         "title": "Q6 refuses an answer of spaces alone, being compulsory",
@@ -4937,26 +4317,6 @@
           },
           {
             "step": 10,
-            "action": "set_field",
-            "field_name": "Q7",
-            "sgqa": "900001X101X1014",
-            "value": "A001",
-            "value_kind": "answer_code",
-            "canonical": "Q7/Q7-O1",
-            "human": "answer Q7 normally, so it is not itself a reason the page refuses to move on"
-          },
-          {
-            "step": 11,
-            "action": "set_field",
-            "field_name": "Q8",
-            "sgqa": "900001X101X1015",
-            "value": "x",
-            "value_kind": "text",
-            "canonical": "Q8",
-            "human": "answer Q8 normally, so it is not itself a reason the page refuses to move on"
-          },
-          {
-            "step": 12,
             "action": "submit_page",
             "field_name": null,
             "sgqa": null,
@@ -4996,7 +4356,7 @@
         ]
       },
       {
-        "test_id": "EX-512ea628f4",
+        "test_id": "EX-0463d69d31",
         "target_id": "T-fdb731cc7b",
         "dimension": "D4",
         "title": "Q7 blocks progress when left blank",
@@ -5104,16 +4464,6 @@
           },
           {
             "step": 11,
-            "action": "set_field",
-            "field_name": "Q8",
-            "sgqa": "900001X101X1015",
-            "value": "x",
-            "value_kind": "text",
-            "canonical": "Q8",
-            "human": "answer Q8 normally, so it is not itself a reason the page refuses to move on"
-          },
-          {
-            "step": 12,
             "action": "submit_page",
             "field_name": null,
             "sgqa": null,
@@ -5151,7 +4501,7 @@
         "provisional_semantics": []
       },
       {
-        "test_id": "EX-35f775b75c",
+        "test_id": "EX-84e1dd487e",
         "target_id": "T-fffe27cc01",
         "dimension": "D4",
         "title": "Q8 is optional and permits progress when left blank",
@@ -5298,7 +4648,7 @@
         "provisional_semantics": []
       },
       {
-        "test_id": "EX-0a064a0587",
+        "test_id": "EX-c15e365b89",
         "target_id": "T-a7eaf4230c",
         "dimension": "D4",
         "title": "Q8 accepts an answer of spaces alone, being optional",
@@ -5447,7 +4797,7 @@
         ]
       },
       {
-        "test_id": "EX-c5ee250375",
+        "test_id": "EX-7fd56d04c3",
         "target_id": "T-04f1f82dbc",
         "dimension": "D4",
         "title": "S1 blocks progress when left blank",
@@ -5465,16 +4815,6 @@
           },
           {
             "step": 2,
-            "action": "set_field",
-            "field_name": "S2",
-            "sgqa": "900001X100X1001",
-            "value": "A001",
-            "value_kind": "answer_code",
-            "canonical": "S2/S2-O1",
-            "human": "answer S2 normally, so it is not itself a reason the page refuses to move on"
-          },
-          {
-            "step": 3,
             "action": "submit_page",
             "field_name": null,
             "sgqa": null,
@@ -5512,7 +4852,7 @@
         "provisional_semantics": []
       },
       {
-        "test_id": "EX-43db0480fa",
+        "test_id": "EX-b36b518b0a",
         "target_id": "T-f3c7bd7103",
         "dimension": "D4",
         "title": "S2 blocks progress when left blank",
@@ -5577,7 +4917,7 @@
         "provisional_semantics": []
       },
       {
-        "test_id": "EX-f6d89eafba",
+        "test_id": "EX-df46d2fc9c",
         "target_id": "T-9e8e92980a",
         "dimension": "D6",
         "title": "Q6's wording renders the answer given at Q5",
@@ -5675,26 +5015,6 @@
           },
           {
             "step": 10,
-            "action": "set_field",
-            "field_name": "Q7",
-            "sgqa": "900001X101X1014",
-            "value": "A001",
-            "value_kind": "answer_code",
-            "canonical": "Q7/Q7-O1",
-            "human": "answer Q7 normally, so it is not itself a reason the page refuses to move on"
-          },
-          {
-            "step": 11,
-            "action": "set_field",
-            "field_name": "Q8",
-            "sgqa": "900001X101X1015",
-            "value": "x",
-            "value_kind": "text",
-            "canonical": "Q8",
-            "human": "answer Q8 normally, so it is not itself a reason the page refuses to move on"
-          },
-          {
-            "step": 12,
             "action": "submit_page",
             "field_name": null,
             "sgqa": null,
@@ -5725,7 +5045,7 @@
         "provisional_semantics": []
       },
       {
-        "test_id": "EX-30682588ea",
+        "test_id": "EX-25f876ca34",
         "target_id": "T-84fe582a25",
         "dimension": "D9",
         "title": "Q6 is shown by its guard and simultaneously reflects its dependency on Q5",
@@ -5823,26 +5143,6 @@
           },
           {
             "step": 10,
-            "action": "set_field",
-            "field_name": "Q7",
-            "sgqa": "900001X101X1014",
-            "value": "A001",
-            "value_kind": "answer_code",
-            "canonical": "Q7/Q7-O1",
-            "human": "answer Q7 normally, so it is not itself a reason the page refuses to move on"
-          },
-          {
-            "step": 11,
-            "action": "set_field",
-            "field_name": "Q8",
-            "sgqa": "900001X101X1015",
-            "value": "x",
-            "value_kind": "text",
-            "canonical": "Q8",
-            "human": "answer Q8 normally, so it is not itself a reason the page refuses to move on"
-          },
-          {
-            "step": 12,
             "action": "submit_page",
             "field_name": null,
             "sgqa": null,

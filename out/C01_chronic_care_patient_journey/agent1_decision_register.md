@@ -13,9 +13,9 @@ old ruling kept under `previous_decision` for a quick re-confirmation.
 
 ## 🔴 `ambiguous_piping` — PENDING_CONFIRMATION (BLOCKING)
 
-- **id:** `8c69b2c506c9955a`
+- **id:** `1ec9aae9480e1e36`
 - **affects:** Q9
-- **evidence:** 'your current provider' (confidence 1.00)
+- **evidence:** 'your current provider' (confidence 0.99)
 - **current reading:** A question's wording was read as quoting an earlier answer, from the phrasing alone; no table states the link.
 - **alternatives:** The wording is generic and does not actually depend on the earlier answer.
 - **downstream impact:** Whether this question's wording depends on an earlier answer, which decides the order a respondent bot must answer in and what text it should expect on screen.
@@ -23,29 +23,29 @@ old ruling kept under `previous_decision` for a quick re-confirmation.
 
 ## 🔴 `ambiguous_piping` — PENDING_CONFIRMATION (BLOCKING)
 
-- **id:** `ae7f9449c4271f16`
-- **affects:** Q8
-- **evidence:** 'the current provider' (confidence 1.00)
-- **current reading:** A question's wording was read as quoting an earlier answer, from the phrasing alone; no table states the link.
-- **alternatives:** The wording is generic and does not actually depend on the earlier answer.
-- **downstream impact:** Whether this question's wording depends on an earlier answer, which decides the order a respondent bot must answer in and what text it should expect on screen.
-- **recommendation:** Confirm the dependency with the project owner.
-
-## 🔴 `ambiguous_piping` — PENDING_CONFIRMATION (BLOCKING)
-
-- **id:** `c5f3dfc6dfabf018`
-- **affects:** Q21
-- **evidence:** 'your choice' (confidence 0.95)
-- **current reading:** A question's wording was read as quoting an earlier answer, from the phrasing alone; no table states the link.
-- **alternatives:** The wording is generic and does not actually depend on the earlier answer.
-- **downstream impact:** Whether this question's wording depends on an earlier answer, which decides the order a respondent bot must answer in and what text it should expect on screen.
-- **recommendation:** Confirm the dependency with the project owner.
-
-## 🔴 `ambiguous_piping` — PENDING_CONFIRMATION (BLOCKING)
-
-- **id:** `e4c971197a4cd683`
+- **id:** `228e9670e903e41a`
 - **affects:** Q20
-- **evidence:** 'the selected proposition' (confidence 1.00)
+- **evidence:** 'the selected proposition' (confidence 0.99)
+- **current reading:** A question's wording was read as quoting an earlier answer, from the phrasing alone; no table states the link.
+- **alternatives:** The wording is generic and does not actually depend on the earlier answer.
+- **downstream impact:** Whether this question's wording depends on an earlier answer, which decides the order a respondent bot must answer in and what text it should expect on screen.
+- **recommendation:** Confirm the dependency with the project owner.
+
+## 🔴 `ambiguous_piping` — PENDING_CONFIRMATION (BLOCKING)
+
+- **id:** `79a4044dc9e2bc30`
+- **affects:** Q8
+- **evidence:** 'the current provider' (confidence 0.99)
+- **current reading:** A question's wording was read as quoting an earlier answer, from the phrasing alone; no table states the link.
+- **alternatives:** The wording is generic and does not actually depend on the earlier answer.
+- **downstream impact:** Whether this question's wording depends on an earlier answer, which decides the order a respondent bot must answer in and what text it should expect on screen.
+- **recommendation:** Confirm the dependency with the project owner.
+
+## 🔴 `ambiguous_piping` — PENDING_CONFIRMATION (BLOCKING)
+
+- **id:** `f4c9e4d91d41f98c`
+- **affects:** Q21
+- **evidence:** 'your choice' (confidence 0.75)
 - **current reading:** A question's wording was read as quoting an earlier answer, from the phrasing alone; no table states the link.
 - **alternatives:** The wording is generic and does not actually depend on the earlier answer.
 - **downstream impact:** Whether this question's wording depends on an earlier answer, which decides the order a respondent bot must answer in and what text it should expect on screen.
@@ -73,9 +73,9 @@ old ruling kept under `previous_decision` for a quick re-confirmation.
 
 ## 🔴 `ambiguous_routing_condition` — PENDING_CONFIRMATION (BLOCKING)
 
-- **id:** `a4544d4f6623ba59`
-- **affects:** R19
-- **evidence:** exclusive option selected with another response at Q1 or Q5  ->  ((Q1 contains 'None of these' and Q1 contains_any ['Care Network A', 'Care Network B', 'Care Network C', 'Independent provider']) or (Q5 contains 'None of these' and Q5 contains_any ['Primary-care physician', 'Specialist', 'Hospital', 'Pharmacy', 'Patient portal', 'Support programme']))
+- **id:** `c417f67cdc3ab8cb`
+- **affects:** R20
+- **evidence:** selected option at Q6 was not selected at Q5  ->  not Q5 contains Q6
 - **current reading:** A prose condition was rewritten into a formal one by a model, and the parser accepted the rewrite.
 - **alternatives:** A different formal reading of the same sentence is possible.
 - **downstream impact:** Whether this rule or guard fires for a given respondent, so which questions they see and which ending they reach.
@@ -83,9 +83,9 @@ old ruling kept under `previous_decision` for a quick re-confirmation.
 
 ## 🔴 `ambiguous_routing_condition` — PENDING_CONFIRMATION (BLOCKING)
 
-- **id:** `c417f67cdc3ab8cb`
-- **affects:** R20
-- **evidence:** selected option at Q6 was not selected at Q5  ->  not Q5 contains Q6
+- **id:** `fe6c6d2f91c1c4cd`
+- **affects:** R19
+- **evidence:** exclusive option selected with another response at Q1 or Q5
 - **current reading:** A prose condition was rewritten into a formal one by a model, and the parser accepted the rewrite.
 - **alternatives:** A different formal reading of the same sentence is possible.
 - **downstream impact:** Whether this rule or guard fires for a given respondent, so which questions they see and which ending they reach.
