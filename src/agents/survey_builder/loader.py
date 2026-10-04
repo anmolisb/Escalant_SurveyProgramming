@@ -100,8 +100,8 @@ def _limesurvey_type(raw: dict) -> str:
 
     Free text always becomes T. LimeSurvey also has S for a single-line box,
     but the QRE never says which it wants and the difference is only the size
-    of the input; both accept the same answers and both honour maximum_chars.
-    Guessing from max_length would invent a distinction the source never made.
+    of the input; both accept the same answers. Guessing from max_length would
+    invent a distinction the source never made.
     """
     kind = (raw.get("type") or "").strip().lower()
     if kind not in _TYPE_MAP:
@@ -178,15 +178,15 @@ def _build_question(raw: dict, order: int) -> Question:
     if raw.get("min_selections") is not None:
         question.attributes["min_answers"] = str(raw["min_selections"])
 
-    if raw.get("max_length") is not None:
-        # Caps what the box will hold, but does not stop a longer answer being
-        # submitted, so it is paired with a validation below.
-        question.attributes["maximum_chars"] = str(raw["max_length"])
-
-    # LimeSurvey has no minimum-length setting, and maximum_chars alone does
-    # not refuse an over-long answer on submit. Both are expressed as one
-    # validation because a question can state both and a second em_validation_q
-    # would replace the first rather than add to it.
+    # There is deliberately no maximum_chars here. LimeSurvey's own setting
+    # quietly cuts an over-long answer down to fit, so the validation below
+    # never sees it and the respondent is never told. Measured on a live
+    # survey: a 501 character answer was kept as 500 and accepted with no
+    # error. The validation on its own refuses it and shows the tip.
+    #
+    # LimeSurvey has no minimum-length setting either. Both limits are
+    # expressed as one validation because a question can state both and a
+    # second em_validation_q would replace the first rather than add to it.
     checks: list[str] = []
     tips: list[str] = []
     if raw.get("min_length") is not None:
