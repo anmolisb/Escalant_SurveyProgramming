@@ -587,6 +587,8 @@ def run_test(bot: Bot, test: dict, pause: int, budget: float = 45.0) -> Result:
                           "end_page_message",
                           "end_page_message_non_discriminating")
         for a in test.get("assertions", []))
+    expects_completion = any(
+        a.get("kind") == "survey_completed" for a in test.get("assertions", []))
     #: Set when the journey cannot be finished: "refused" or "ended".
     cut_short: str | None = None
     cut_note = ""
@@ -759,6 +761,26 @@ def run_test(bot: Bot, test: dict, pause: int, budget: float = 45.0) -> Result:
                 f"LimeSurvey calls this question {live}"))
             if pause:
                 bot.page.wait_for_timeout(pause)
+
+        # Agent 3 lists the questions a journey must answer, and leaves out
+        # the optional ones. Shown a group at a time that is enough, because
+        # the last Next ends the survey. Shown one question per page, the last
+        # Next can land on an optional question instead. A respondent would
+        # click through it, so a test about reaching the end does the same,
+        # and stops if the survey will not let it by.
+        if expects_completion and not cut_short and not bot.on_end_page():
+            for _ in range(12):
+                before = set(bot.visible_questions()) or {bot.page.url}
+                bot.next()
+                if bot.on_end_page():
+                    break
+                after = set(bot.visible_questions()) or {bot.page.url}
+                if before == after:
+                    break
+                res.actions.append(Action(
+                    len(steps), "", "moved on a page",
+                    "left what remained optional blank, to reach the end "
+                    "of the survey"))
 
     except Exception as exc:                                   # pragma: no cover
         res.status = BLOCKED
