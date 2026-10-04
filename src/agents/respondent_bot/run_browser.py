@@ -123,6 +123,10 @@ class Bot:
         #: Needed because LimeSurvey renumbers sub-questions on import exactly
         #: as it renumbers questions: Agent 3's SQ001 is served as S17.
         self.options = options or {}
+        #: The survey's own completion message, from the canonical file. It is
+        #: how a normal ending is told apart from a screen-out or a full quota,
+        #: which every survey words differently.
+        self.completion_text = ""
 
     # -- helpers ------------------------------------------------------------
 
@@ -290,6 +294,17 @@ class Bot:
             out.append(f"{name} ({self._label_of(el)[:24]})")
         return out
 
+    def completed(self) -> bool:
+        """True when the end page is the survey's normal completion.
+
+        A screen-out and a full quota are also end pages, so being on one says
+        nothing about whether the respondent finished the survey.
+        """
+        text = self._norm(self.page_text())
+        if self.completion_text:
+            return self._norm(self.completion_text) in text
+        return "do not qualify" not in text
+
     def on_end_page(self) -> bool:
         return not self.page.query_selector(
             '#ls-button-submit, button[value="movenext"], '
@@ -375,16 +390,33 @@ class Bot:
             if el is None:
                 raise LookupError(f'no text field {live}')
             shown = str(value)
+            force = ("(e, v) => { e.value = v; "
+                     "e.dispatchEvent(new Event('input', {bubbles:true})); "
+                     "e.dispatchEvent(new Event('change', {bubbles:true})); }")
             try:
                 el.fill(shown, timeout=3_000)
             except Exception:
-                el.evaluate(
-                    "(e, v) => { e.value = v; "
-                    "e.dispatchEvent(new Event('input', {bubbles:true})); "
-                    "e.dispatchEvent(new Event('change', {bubbles:true})); }",
-                    shown)
+                el.evaluate(force, shown)
+
+            # A box with a maximum length quietly keeps only that many
+            # characters when it is typed into. A test that sends an answer
+            # past the limit is checking the survey's rule, not the browser's,
+            # so if the box trimmed it, put the whole answer in and let the
+            # survey judge it. Otherwise the rule is never tested at all.
+            try:
+                kept = el.input_value()
+            except Exception:
+                kept = shown
+            trimmed = len(kept) < len(shown)
+            if trimmed:
+                el.evaluate(force, shown)
+
             if not shown.strip() and shown:
                 return f"typed {len(shown)} space{'s' if len(shown) != 1 else ''}"
+            if trimmed:
+                return (f"typed a {len(shown)}-character answer, past the "
+                        f"box's own limit of {len(kept)}, so it was put in "
+                        f"whole")
             if len(shown) > 40:
                 return f"typed a {len(shown)}-character answer"
             return f"typed {shown!r}"
@@ -743,12 +775,19 @@ def observe(bot: Bot, a: dict, advanced: bool | None) -> Check:
                      f"they did not. The page says: {text[:90]!r}")
 
     if kind == "not_on_end_page":
-        seen = not bot.on_end_page()
+        # The point of this check is that the respondent was not screened out
+        # on the way. Finishing the survey is not that: a journey that runs to
+        # its last question and completes has carried on all the way, and the
+        # final Next is what puts it on the end page. So only a screen-out or
+        # a full quota counts against it.
+        ended = bot.on_end_page()
+        seen = (not ended) or bot.completed()
         return check(seen is True,
-                     "the respondent should still be travelling through the "
-                     "survey at this point, not finished",
-                     "they were still answering questions" if seen else
-                     "the survey had already ended")
+                     "the respondent should carry on through the survey, not "
+                     "be screened out or stopped on the way",
+                     "they carried on, and were not screened out"
+                     if seen else
+                     f"they were stopped. The page says: {text[:90]!r}")
 
     if kind == "group_suppressed":
         seen = not bot.visible_questions()
@@ -983,9 +1022,14 @@ def main() -> int:
 
     wording: dict[str, str] = {}
     options: dict[str, dict[str, str]] = {}
+    completion = ""
     canonical = directory / "part2_canonical.json"
     if canonical.exists():
         doc = json.loads(canonical.read_text(encoding="utf-8"))
+        for d in (doc.get("content") or doc).get("dispositions", []):
+            if d.get("kind") == "complete" and d.get("message"):
+                completion = d["message"]
+                break
         for q in (doc.get("content") or doc).get("questions", []):
             wording[q["question_id"]] = q.get("wording", "")
             options[q["question_id"]] = {
@@ -1033,6 +1077,7 @@ def main() -> int:
             page.set_default_timeout(10_000)
             page.set_default_navigation_timeout(15_000)
             bot = Bot(page, args.base, args.sid, wording, options)
+            bot.completion_text = completion
             r = run_test(bot, t, args.slow, args.budget)
             row = index.get(t["test_id"], {})
             r.case_id = row.get("test_case_id", "")
