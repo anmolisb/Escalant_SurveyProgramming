@@ -402,6 +402,60 @@ class Bot:
 
 # ---------------------------------------------------------------- one test
 
+def _cut_note(cut: str, canonical: str, n: int) -> str:
+    if cut == "ended":
+        return (f"the survey ended before {canonical} at step {n}, so the "
+                f"journey could not be finished")
+    return (f"{canonical} is on a later page, but the survey would not move "
+            f"on from the page before it at step {n}, so the journey could "
+            f"not be finished")
+
+
+def reach(bot: "Bot", canonical: str, res: "Result", n: int,
+          tries: int = 6) -> tuple[str | None, str | None]:
+    """Bring the respondent to the page that holds one question.
+
+    Agent 3 writes every journey as though the survey were a single page:
+    answer S1, answer S2, click Next. That is true when LimeSurvey shows a
+    group at a time, and false when it shows one question per page, where S2
+    is not on screen until S1 has been submitted. Rather than make the survey
+    match the test, the bot does what a respondent would: if the question it
+    needs is not here, press Next and look again.
+
+    Returns (the live field or None, why it stopped). Why is None when the
+    question was found, "refused" when the survey would not move on, and
+    "ended" when the survey finished first. Neither is a fault in itself. A
+    test that sends an invalid answer expects the refusal, and a screen-out
+    test expects the ending, and in both the questions after it are
+    unreachable by design.
+    """
+    for _ in range(tries):
+        live = bot.locate(canonical)
+        if live is not None:
+            return live, None
+        if bot.on_end_page():
+            return None, "ended"
+        before = set(bot.visible_questions()) or {bot.page.url}
+        bot.next()
+        after = set(bot.visible_questions()) or {bot.page.url}
+        if bot.on_end_page():
+            res.actions.append(Action(
+                n, canonical, "survey ended",
+                f"the survey finished before {canonical} was reached"))
+            return None, "ended"
+        if before == after:
+            res.actions.append(Action(
+                n, canonical, "tried to move on",
+                f"{canonical} is on a later page, but the survey stayed "
+                f"where it was"))
+            return None, "refused"
+        res.actions.append(Action(
+            n, "", "moved on a page",
+            f"{canonical} was not on this page, so Next was pressed to "
+            f"reach it. This survey shows one question per page"))
+    return bot.locate(canonical), None
+
+
 def run_test(bot: Bot, test: dict, pause: int, budget: float = 45.0) -> Result:
     import time
     started = time.time()
@@ -437,6 +491,19 @@ def run_test(bot: Bot, test: dict, pause: int, budget: float = 45.0) -> Result:
 
     advanced: bool | None = None
     stuck = 0
+    # A test that expects the survey to refuse an answer cannot answer the
+    # questions that come after it, because the respondent never gets there.
+    expects_refusal = any(
+        a.get("kind") in ("page_does_not_advance", "error_shown_on_question")
+        for a in test.get("assertions", []))
+    expects_ending = any(
+        a.get("kind") in ("survey_completed", "group_suppressed",
+                          "end_page_message",
+                          "end_page_message_non_discriminating")
+        for a in test.get("assertions", []))
+    #: Set when the journey cannot be finished: "refused" or "ended".
+    cut_short: str | None = None
+    cut_note = ""
 
     try:
         bot.start()
@@ -451,6 +518,11 @@ def run_test(bot: Bot, test: dict, pause: int, budget: float = 45.0) -> Result:
                     f"than left running")
                 res.seconds = round(time.time() - started, 2)
                 return res
+
+            if cut_short:
+                # The survey refused to move on, or ended, so nothing later in
+                # this journey can be reached. What happened is the result.
+                continue
 
             if step.get("action") == "submit_page":
                 # Whether the survey moved on is decided by which questions
@@ -495,12 +567,27 @@ def run_test(bot: Bot, test: dict, pause: int, budget: float = 45.0) -> Result:
             _, _, sub = field_name.partition("_")
 
             if step.get("value_kind") == "blank":
+                if canonical and bot.wording.get(canonical) \
+                        and bot.locate(canonical) is None:
+                    _, cut = reach(bot, canonical, res, n)
+                    if cut:
+                        cut_short = cut
+                        advanced = (cut == "ended")
+                        cut_note = _cut_note(cut, canonical, n)
+                        continue
                 res.actions.append(Action(
                     n, canonical, "left it blank",
                     "deliberately answered nothing"))
                 continue
 
             live = bot.locate(canonical)
+            if live is None:
+                live, cut = reach(bot, canonical, res, n)
+                if cut:
+                    cut_short = cut
+                    advanced = (cut == "ended")
+                    cut_note = _cut_note(cut, canonical, n)
+                    continue
             if live is None:
                 res.status = BLOCKED
                 res.blocked_reason = (
@@ -563,6 +650,16 @@ def run_test(bot: Bot, test: dict, pause: int, budget: float = 45.0) -> Result:
         res.status = PASSED
     else:
         res.status = INCONCLUSIVE
+
+    # A journey cut short is only a clean result when the test was about the
+    # thing that cut it short: a refusal for an invalid answer, an ending for
+    # a screen-out. Otherwise what was checked says nothing about the steps
+    # that never ran, so a failure is "could not run", not "failed".
+    if cut_short:
+        about_it = expects_refusal if cut_short == "refused" else expects_ending
+        if not about_it and res.status != PASSED:
+            res.status = BLOCKED
+            res.blocked_reason = cut_note
 
     res.seconds = round(time.time() - started, 2)
     return res
