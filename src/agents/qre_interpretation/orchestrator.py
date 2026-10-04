@@ -123,6 +123,7 @@ _SLUG = {
     TargetHeading.COMPLETION_MESSAGES: "messages",
     TargetHeading.QUOTA_CONTROLS: "quotas",
     TargetHeading.STUDY_SPECIFICATION: "study",
+    TargetHeading.DISPLAY_MESSAGES: "display_messages",
     TargetHeading.PROGRAMMING_AND_QA: "programming",
 }
 
@@ -335,6 +336,7 @@ def run_stage4(
         ("quotas", "quotas"),
         ("study", "study"),
         ("programming", "programming"),
+        ("display_messages", "display_messages"),
     ):
         _write_bare(out / f"stage4_{slug}.json", parsed[key])
     _write_bare(out / "stage4_survey.json", parsed["survey"])
@@ -585,6 +587,7 @@ def _summarise(blocks: Stage2Blocks, stage3: list[Stage3Block], parsed: dict, fl
         TargetHeading.QUOTA_CONTROLS: len(parsed["quotas"]),
         TargetHeading.STUDY_SPECIFICATION: len(parsed["study"]),
         TargetHeading.PROGRAMMING_AND_QA: len(parsed["programming"]),
+        TargetHeading.DISPLAY_MESSAGES: len(parsed["display_messages"]),
     }
     raw = {b.target: len(b.rows) for b in stage3}
     matched = {b.target: b.matched_by for b in blocks.blocks}
