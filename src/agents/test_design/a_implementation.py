@@ -127,6 +127,9 @@ class ImplementationSnapshot:
     termination_messages: dict[str, str]     # disposition id -> message text
     screening_gid: int | None
     main_gid: int | None
+    #: True when LimeSurvey shows one question per page (format "S"), so a page
+    #: holds the question under test and nothing else.
+    one_question_per_page: bool = False
 
     def binding(self, question: str, option: str | None = None) -> FieldBinding | None:
         return self.bindings.get(f"{question}/{option}" if option else question)
@@ -141,6 +144,7 @@ class ImplementationSnapshot:
             "group_relevance": {str(k): v for k, v in self.group_relevance.items()},
             "screening_gid": self.screening_gid,
             "main_gid": self.main_gid,
+            "one_question_per_page": self.one_question_per_page,
             "questions": {k: v.to_dict() for k, v in self.questions.items()},
             "bindings": {k: v.to_dict() for k, v in self.bindings.items()},
             "termination_messages": self.termination_messages,
@@ -327,6 +331,8 @@ def parse_lss(lss_path: str | Path, spec: CanonicalSpec) -> ImplementationSnapsh
         termination_messages=_termination_messages(end_text, spec),
         screening_gid=screening_gid,
         main_gid=main_gid,
+        one_question_per_page=(
+            (_rows(root, "surveys")[0].get("format") or "").strip() == "S"),
     )
 
 

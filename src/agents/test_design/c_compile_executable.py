@@ -468,6 +468,14 @@ def _isolate_on_page(spec, snap, steps, block_at):
     Filling the siblings leaves exactly one thing wrong, so a refusal means
     what the test says it means.
     """
+    # Only meaningful when a page can hold more than one question. Shown one
+    # question per page, there are no siblings to answer, and "the same group"
+    # is no longer "the same page". Answering a group's other questions then
+    # adds steps for pages the respondent never sees, and for questions whose
+    # own guards are false on this journey.
+    if getattr(snap, "one_question_per_page", False):
+        return steps
+
     built = snap.questions.get(block_at.id)
     if built is None:
         return steps
