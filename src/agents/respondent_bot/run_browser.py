@@ -127,6 +127,8 @@ class Bot:
         #: how a normal ending is told apart from a screen-out or a full quota,
         #: which every survey words differently.
         self.completion_text = ""
+        #: question id -> {row id -> its label}, for the rows of a grid.
+        self.rows: dict[str, dict[str, str]] = {}
 
     # -- helpers ------------------------------------------------------------
 
@@ -286,6 +288,33 @@ class Bot:
                     return el, f"matched the label {wanted_label!r}"
 
         return None, self.tick_boxes_on_page()
+
+    def find_grid_cell(self, live: str, row_label: str, code: str):
+        """The radio button where one row of a grid meets one answer column.
+
+        LimeSurvey gives every row of a grid its own radio group, named
+        Q736_S771, Q736_S772 and so on, and renumbers the rows on import. So
+        the row is found by the words beside it, which survive, and the column
+        by its answer code, which is the button's value.
+
+        Returns (the button or None, the row labels it did find).
+        """
+        want = self._norm(row_label)
+        seen: list[str] = []
+        for el in self.page.query_selector_all(
+                f'input[type="radio"][name^="{live}_"][value="{code}"]'):
+            try:
+                text = el.evaluate(
+                    "e => ((e.closest('tr') || e.closest('li') "
+                    "|| e.parentElement || e).innerText || '')")
+            except Exception:
+                text = ""
+            first = next((ln.strip() for ln in text.splitlines()
+                          if ln.strip()), "")
+            seen.append(first)
+            if self._norm(first) == want:
+                return el, seen
+        return None, seen
 
     def tick_boxes_on_page(self) -> list[str]:
         out = []
@@ -643,6 +672,36 @@ def run_test(bot: Bot, test: dict, pause: int, budget: float = 45.0) -> Result:
                     return res
                 target = el.get_attribute("name") or live
                 ticked_label = bot._label_of(el)
+
+            # A cell of a grid: the step is "Q9/Q9-R1=Q9-O1", row R1 at
+            # column O1, and its field Q9_SQ001 is not a name the page uses.
+            ref = str(step.get("canonical") or "").partition("/")[2]
+            if (sub and step.get("value_kind") == "answer_code"
+                    and "=" in ref):
+                row_id, _, col_id = ref.partition("=")
+                row_label = bot.rows.get(canonical, {}).get(row_id, "")
+                if row_label:
+                    cell, seen = bot.find_grid_cell(
+                        live, row_label, str(step.get("value")))
+                    if cell is None:
+                        res.status = BLOCKED
+                        res.blocked_reason = (
+                            f"{canonical} is on the page as {live}, but no "
+                            f"row {row_label!r} with an answer "
+                            f"{step.get('value')!r} was found. The rows it "
+                            f"offers are {seen[:8]}")
+                        res.seconds = round(time.time() - started, 2)
+                        return res
+                    bot._tick(cell)
+                    col_label = (bot.options.get(canonical, {}).get(col_id)
+                                 or str(step.get("value")))
+                    res.actions.append(Action(
+                        n, canonical,
+                        f"rated {row_label!r} as {col_label!r}",
+                        f"LimeSurvey calls this question {live}"))
+                    if pause:
+                        bot.page.wait_for_timeout(pause)
+                    continue
 
             try:
                 did = bot.fill(target, step.get("value"),
@@ -1022,6 +1081,7 @@ def main() -> int:
 
     wording: dict[str, str] = {}
     options: dict[str, dict[str, str]] = {}
+    rows: dict[str, dict[str, str]] = {}
     completion = ""
     canonical = directory / "part2_canonical.json"
     if canonical.exists():
@@ -1035,6 +1095,9 @@ def main() -> int:
             options[q["question_id"]] = {
                 o["option_id"]: o.get("label", "")
                 for o in (q.get("options") or [])}
+            rows[q["question_id"]] = {
+                r["option_id"]: r.get("label", "")
+                for r in (q.get("matrix_rows") or [])}
     else:
         print(f"  warning: {canonical.name} is missing, so the bot cannot "
               f"match a renumbered field by its wording")
@@ -1078,6 +1141,7 @@ def main() -> int:
             page.set_default_navigation_timeout(15_000)
             bot = Bot(page, args.base, args.sid, wording, options)
             bot.completion_text = completion
+            bot.rows = rows
             r = run_test(bot, t, args.slow, args.budget)
             row = index.get(t["test_id"], {})
             r.case_id = row.get("test_case_id", "")
