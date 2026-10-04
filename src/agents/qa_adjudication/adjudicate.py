@@ -42,6 +42,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import re
 from collections import defaultdict
 from dataclasses import dataclass, field, asdict
 from datetime import datetime
@@ -56,6 +57,8 @@ NOT_BUILT_YET = "NOT_BUILT_YET"
 UNSETTLED_QUESTION = "UNSETTLED_QUESTION"
 TEST_MODEL_GAP = "TEST_MODEL_GAP"
 HARNESS_FAULT = "HARNESS_FAULT"
+COVERAGE_GAP = "COVERAGE_GAP"
+NEEDS_SAMPLE = "NEEDS_SAMPLE"
 UNDECIDED = "UNDECIDED"
 
 OWNER = {
@@ -65,6 +68,8 @@ OWNER = {
     UNSETTLED_QUESTION: "the client",
     TEST_MODEL_GAP: "Test Designer",
     HARNESS_FAULT: "Respondent Bot",
+    COVERAGE_GAP: "Respondent Bot (not built yet)",
+    NEEDS_SAMPLE: "nobody yet (needs a run with many respondents)",
     UNDECIDED: "needs a person to look",
 }
 
@@ -87,6 +92,14 @@ MEANS = {
     HARNESS_FAULT:
         "The bot could not carry the test out, so nothing was proved either "
         "way. This says nothing about the survey.",
+    COVERAGE_GAP:
+        "The bot reached the right place but does not yet know how to observe "
+        "this kind of claim, so nothing was proved either way. Nothing is "
+        "known to be wrong.",
+    NEEDS_SAMPLE:
+        "This can only be checked across many respondents, such as the order "
+        "options are shown in. One run through the survey cannot prove it, so "
+        "it was never going to run as a single journey.",
     UNDECIDED:
         "No rule matched this one. A person should read it.",
 }
@@ -99,7 +112,9 @@ SEVERITY = {
     TEST_MODEL_GAP: 4,
     UNSETTLED_QUESTION: 5,
     HARNESS_FAULT: 6,
-    UNDECIDED: 7,
+    COVERAGE_GAP: 7,
+    NEEDS_SAMPLE: 8,
+    UNDECIDED: 9,
 }
 
 
@@ -130,6 +145,9 @@ class PathVerdict:
     broke_at: str = ""          # the earliest question that failed
     first_failure: str = ""
     first_order: int = 9999
+    real_broke_at: str = ""     # the earliest failure a respondent would feel
+    real_first_failure: str = ""
+    real_first_order: int = 9999
     causes: list = field(default_factory=list)
 
     #: Causes a respondent would actually notice. A journey is only broken if
@@ -161,8 +179,44 @@ class PathVerdict:
 
 # ---------------------------------------------------------------- deciding
 
+_RULE_ID = re.compile(r"\bR\d+\b", re.I)
+
+
+def _subjects(finding: dict) -> set[str]:
+    """What a finding is about: questions, rules, quota names."""
+    return {part.strip().split("/")[0]
+            for part in (finding.get("subject") or "").split(",")
+            if part.strip()}
+
+
+def _explains(finding: dict, question: str, text: str) -> bool:
+    """Whether one finding actually accounts for this test.
+
+    A finding about a rule names the rule (R19), a finding about a question
+    names the question, so each is matched on what it names. Matching a rule
+    finding against a question never worked: "R20" is not "Q6", so the survey
+    was blamed for something Agent 3 had already said was not built.
+
+    A finding about a question must also be about what the test examines.
+    Randomization not being built on Q1 explains a test about the order of
+    Q1's options. It says nothing about whether Q1 refuses an exclusive
+    option, and blaming it for that sends the reader to the wrong place.
+    """
+    kind = finding.get("kind")
+    subjects = _subjects(finding)
+    low = text.lower()
+    if kind in ("SKIP_RULE_NOT_BUILT", "REJECT_RULE_NOT_BUILT"):
+        return bool(subjects & {m.upper() for m in _RULE_ID.findall(text)})
+    if kind == "RANDOMIZATION_NOT_BUILT":
+        return question in subjects and ("order" in low or "random" in low)
+    if kind == "QUOTAS_NOT_BUILT":
+        return any(name.lower() in low for name in subjects)
+    return question in subjects
+
+
 def _decide(result: dict, index_row: dict, conformance: list[dict],
-            provisional: list[str]) -> tuple[str, str, str]:
+            provisional: list[str],
+            built: dict | None = None) -> tuple[str, str, str]:
     """One test's cause, why, and what to do about it.
 
     The order of these rules is the argument. A failure the bot caused is not
@@ -176,12 +230,27 @@ def _decide(result: dict, index_row: dict, conformance: list[dict],
     seen = " ".join(str(c.get("actually", "")) for c in result.get("checks", []))
 
     # 1. Did the test actually run
+    if status == "SKIPPED" and "several respondents" in str(
+            result.get("blocked_reason") or ""):
+        return (NEEDS_SAMPLE,
+                "the claim is about what happens across many respondents, so "
+                "it is not a single journey and the bot rightly did not run it",
+                "no action on this test. It needs a run with a sample, which "
+                "does not exist yet")
+
     if status in ("BLOCKED", "SKIPPED"):
         return (HARNESS_FAULT,
                 "the journey never reached the point it was testing, so "
                 "nothing about the survey was observed",
                 "fix the bot, then run this test again. Until then it is "
                 "neither a pass nor a failure")
+
+    if status == "INCONCLUSIVE" and "cannot observe" in seen:
+        return (COVERAGE_GAP,
+                "the bot reached the right place but has no way yet to observe "
+                "this kind of claim",
+                "teach the bot to observe it, or record that this claim cannot "
+                "be proved by running one respondent through the survey")
 
     if status == "INCONCLUSIVE":
         return (TEST_MODEL_GAP,
@@ -190,9 +259,11 @@ def _decide(result: dict, index_row: dict, conformance: list[dict],
                 "give the test something observable to check, or record that "
                 "this claim cannot be proved by running the survey")
 
+    named = f"{result.get('title') or ''} {index_row.get('test_name') or ''}"
+
     # 2. Is the behaviour even built yet
     for f in conformance:
-        if f.get("subject", "").split("/")[0] != question:
+        if not _explains(f, question, named):
             continue
         if f.get("kind") in ("RANDOMIZATION_NOT_BUILT", "QUOTAS_NOT_BUILT",
                              "SKIP_RULE_NOT_BUILT", "REJECT_RULE_NOT_BUILT",
@@ -205,7 +276,7 @@ def _decide(result: dict, index_row: dict, conformance: list[dict],
 
     # 3. Was the questionnaire read wrongly
     for f in conformance:
-        if f.get("subject", "").split("/")[0] != question:
+        if not _explains(f, question, named):
             continue
         if f.get("kind") in ("GUARD_CANNOT_BE_FALSIFIED",
                              "DISPOSITION_NOT_DISTINGUISHABLE"):
@@ -214,6 +285,19 @@ def _decide(result: dict, index_row: dict, conformance: list[dict],
                     f"{f.get('detail','')[:110]}",
                     "correct the extraction upstream and regenerate. The "
                     "survey may well be fine")
+
+    # 3b. An exclusive option enforced by LimeSurvey unticking the others
+    attrs = (built or {}).get(question) or {}
+    if ("exclusive_option_id" in title and attrs.get("exclude_all_others")
+            and "accepted the answer and moved on" in seen):
+        return (TEST_MODEL_GAP,
+                "the survey was built with LimeSurvey's exclusive option "
+                "(exclude_all_others), which unticks the other choices when "
+                "the exclusive one is ticked. The respondent cannot submit "
+                "both, so there is no error to show",
+                "check by hand that ticking the exclusive option clears the "
+                "others. If it does, the rule works and the test should check "
+                "the end state, not an error message")
 
     # 4. A rule enforced a different way than the test expects
     if ("rejects an answer" in title or "refuses" in title) and \
@@ -262,6 +346,16 @@ def adjudicate(directory: Path) -> dict:
         conformance = (json.loads(conf_file.read_text(encoding="utf-8"))
                        .get("content", {}).get("findings", []))
 
+    # What the survey was actually built with, read from the file Agent 3
+    # derived from the .lss. Lets a rule check the mechanism, not guess at it.
+    built: dict = {}
+    snap_file = directory / "agent3" / "implementation_snapshot.json"
+    if snap_file.exists():
+        snap = json.loads(snap_file.read_text(encoding="utf-8"))
+        built = {qid: (q.get("attributes") or {})
+                 for qid, q in (snap.get("content") or snap)
+                 .get("questions", {}).items()}
+
     paths = []
     paths_file = directory / "agent3" / "agent3_paths.json"
     if paths_file.exists():
@@ -291,7 +385,7 @@ def adjudicate(directory: Path) -> dict:
             continue
 
         cause, reason, to_fix = _decide(
-            r, row, conformance, r.get("provisional") or [])
+            r, row, conformance, r.get("provisional") or [], built)
         j = Judgement(
             test_case_id=row.get("test_case_id") or r.get("test_id", ""),
             question=row.get("question", ""),
@@ -319,6 +413,20 @@ def adjudicate(directory: Path) -> dict:
                 v.broke_at = j.question or "start"
                 v.first_failure = j.title
                 v.first_order = j.order
+            if (cause in PathVerdict._REAL and j.order
+                    and j.order < v.real_first_order):
+                v.real_broke_at = j.question or "start"
+                v.real_first_failure = j.title
+                v.real_first_order = j.order
+
+    # A broken journey should name where it really broke. Otherwise an
+    # earlier test the bot merely could not observe gets the blame, and the
+    # reader goes looking at a question that is fine.
+    for v in verdicts.values():
+        if v.status == "BROKEN" and v.real_first_order < 9999:
+            v.broke_at = v.real_broke_at
+            v.first_failure = v.real_first_failure
+            v.first_order = v.real_first_order
 
     return {"judgements": judgements, "paths": verdicts, "a4": a4}
 
@@ -364,11 +472,13 @@ CAUSE_FILL = {
     SURVEY_DEFECT: "F8E4E6", SPECIFICATION_ERROR: "FAEBDE",
     NOT_BUILT_YET: "EFEFEF", UNSETTLED_QUESTION: "E4E1F7",
     TEST_MODEL_GAP: "E4E1F7", HARNESS_FAULT: "EFEFEF", UNDECIDED: "FAEBDE",
+    COVERAGE_GAP: "EFEFEF", NEEDS_SAMPLE: "EFEFEF",
 }
 CAUSE_FONT = {
     SURVEY_DEFECT: "A32C36", SPECIFICATION_ERROR: "9C4709",
     NOT_BUILT_YET: "635E7E", UNSETTLED_QUESTION: "4338A8",
     TEST_MODEL_GAP: "4338A8", HARNESS_FAULT: "635E7E", UNDECIDED: "9C4709",
+    COVERAGE_GAP: "635E7E", NEEDS_SAMPLE: "635E7E",
 }
 INK = "1B1832"
 

@@ -315,7 +315,7 @@ _TONES = {
     "warn": ("NOT PROVEN", "BLOCKED", "SPECIFICATION_ERROR", "NOT_BUILT_YET",
              "UNDECIDED", "HARNESS_FAULT"),
     "info": ("INCONCLUSIVE", "SKIPPED", "UNSETTLED_QUESTION",
-             "TEST_MODEL_GAP"),
+             "TEST_MODEL_GAP", "COVERAGE_GAP", "NEEDS_SAMPLE"),
 }
 
 
