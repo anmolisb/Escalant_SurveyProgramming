@@ -316,6 +316,31 @@ class Bot:
                 return el, seen
         return None, seen
 
+    def find_number_box(self, live: str, label: str):
+        """One box of a question that has several, such as 'allocate 100
+        points'. LimeSurvey names them Q745_S782, Q745_S783 and so on, and
+        renumbers them on import, so the box is found by the words beside it.
+
+        Returns (the box or None, the labels it did find).
+        """
+        want = self._norm(label)
+        seen: list[str] = []
+        for el in self.page.query_selector_all(
+                f'input[type="text"][name^="{live}_"], '
+                f'input[type="number"][name^="{live}_"]'):
+            try:
+                text = el.evaluate(
+                    "e => ((e.closest('li') || e.closest('tr') "
+                    "|| e.parentElement || e).innerText || '')")
+            except Exception:
+                text = ""
+            first = next((ln.strip() for ln in text.splitlines()
+                          if ln.strip()), "")
+            seen.append(first)
+            if self._norm(first) == want:
+                return el, seen
+        return None, seen
+
     def tick_boxes_on_page(self) -> list[str]:
         out = []
         for el in self.page.query_selector_all('input[type="checkbox"]')[:12]:
@@ -672,6 +697,23 @@ def run_test(bot: Bot, test: dict, pause: int, budget: float = 45.0) -> Result:
                     return res
                 target = el.get_attribute("name") or live
                 ticked_label = bot._label_of(el)
+
+            # One box of several, as in "allocate 100 points": the step is
+            # "Q18/Q18-O1", and its field Q18_SQ001 is not a name the page uses.
+            if sub and step.get("value_kind") == "number":
+                option_id = str(step.get("canonical") or "").partition("/")[2]
+                box_label = bot.options.get(canonical, {}).get(option_id, "")
+                if box_label:
+                    box, seen = bot.find_number_box(live, box_label)
+                    if box is None:
+                        res.status = BLOCKED
+                        res.blocked_reason = (
+                            f"{canonical} is on the page as {live}, but no "
+                            f"box {box_label!r} was found. The boxes it "
+                            f"offers are {seen[:8]}")
+                        res.seconds = round(time.time() - started, 2)
+                        return res
+                    target = box.get_attribute("name") or live
 
             # A cell of a grid: the step is "Q9/Q9-R1=Q9-O1", row R1 at
             # column O1, and its field Q9_SQ001 is not a name the page uses.
