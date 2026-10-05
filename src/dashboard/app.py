@@ -492,7 +492,8 @@ def journey(path: dict, verdict: dict, failures_at: dict) -> None:
     as stops along a track, coloured by what happened at each, ending in the
     disposition the respondent reached.
     """
-    status = verdict.get("status", "WORKING")
+    # A verdict with no status says nothing, so it must not read as healthy.
+    status = verdict.get("status", "NOT PROVEN")
     klass = {"WORKING": "working", "BROKEN": "broken"}.get(status, "unproven")
 
     stops = []
@@ -851,8 +852,11 @@ verdict_tone = "idle"
 if qc:
     js = qc.get("journeys", [])
     good = sum(1 for j in js if j.get("status") == "WORKING")
+    broken = any(j.get("status") == "BROKEN" for j in js)
     verdict = f"{good} of {len(js)} journeys"
-    verdict_tone = "ok" if good == len(js) else "bad"
+    # Red only when something a respondent would meet is wrong. Journeys that
+    # could not be fully proved are amber: they are not known to be broken.
+    verdict_tone = "ok" if good == len(js) else ("bad" if broken else "warn")
 
 strip([
     ("Questions", str(len(questions)), ""),
@@ -1130,19 +1134,25 @@ with tab_b:
     if results:
         counts = results.get("counts", {})
         could_not = counts.get("BLOCKED", 0) + counts.get("SKIPPED", 0)
+        inconclusive = counts.get("INCONCLUSIVE", 0)
+        # The four outcomes add up to Tests run, so nothing is left unaccounted for.
         strip([
             ("Tests run", str(sum(counts.values())), ""),
             ("Passed", str(counts.get("PASSED", 0)), "ok"),
             ("Failed", str(counts.get("FAILED", 0)),
              "bad" if counts.get("FAILED") else "idle"),
+            ("Inconclusive", str(inconclusive),
+             "warn" if inconclusive else "idle"),
             ("Could not run", str(could_not), "warn" if could_not else "idle"),
             ("Last run",
              (results.get("run_at") or "")[:16].replace("T", " "), ""),
         ])
         st.caption(
-            "Could not run is kept apart from failed on purpose. A test that "
-            "never finished its journey checked nothing, so it says nothing "
-            "about the survey, and counting it as a failure would send "
+            "Passed, failed, inconclusive and could not run add up to the tests "
+            "run. Inconclusive means the test ran but the bot cannot yet "
+            "observe what it claims. Could not run means it never finished "
+            "its journey, or needs several respondents. Neither says anything "
+            "about the survey, and counting them as failures would send "
             "someone looking for a defect that may not be there."
         )
 

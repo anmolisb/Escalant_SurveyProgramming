@@ -666,7 +666,10 @@ def main() -> int:
     (dest / "agent5_findings.json").write_text(json.dumps({
         "survey": directory.name,
         "run_at": datetime.now().isoformat(timespec="seconds"),
-        "journeys": [asdict(v) for v in verdicts],
+        # status and status_note are properties, which asdict leaves out.
+        # The dashboard reads them, so they are written explicitly.
+        "journeys": [{**asdict(v), "status": v.status,
+                      "status_note": v.status_note} for v in verdicts],
         "groups": groups,
         "judgements": [asdict(j) for j in data["judgements"]],
     }, indent=2, default=str), encoding="utf-8")
