@@ -24,7 +24,6 @@ from . import part2_conditions
 from .models import (
     AcceptanceScenario,
     CompletionMessage,
-    DisplayMessage,
     ExtractedStatement,
     FlagSeverity,
     FlagStatus,
@@ -1130,60 +1129,6 @@ def parse_survey(
     return information, flags
 
 
-# ---------------------------------------------------------------------------
-# Display messages — text shown between questions
-# ---------------------------------------------------------------------------
-
-#: "DISPLAY_1: Trigger - after Q6, before Q7. Message: "Thanks for ...""
-#: Stage 3 splits the leading "DISPLAY_1:" off as the code; this reads the rest.
-#: The dash after "Trigger" is an em dash in the corpus, but which dash a word
-#: processor inserts is a typographic accident, so any of the three is accepted.
-_DISPLAY_BODY = re.compile(
-    r"^\s*trigger\s*[—–-]?\s*(?P<trigger>.*?)\s*"
-    r"(?:\.\s*)?message\s*:\s*(?P<message>.*)$",
-    re.IGNORECASE | re.DOTALL,
-)
-
-#: Quotation marks a word processor may have substituted. Stripped from the ends
-#: of the message only - they delimit it rather than belong to it - and the pair
-#: need not match: C04 opens with a straight quote and closes with a curly one.
-_QUOTE_CHARS = "\"'\u201c\u201d\u2018\u2019"
-
-
-async def parse_display_messages(
-    block: Stage3Block | None,
-) -> tuple[list[DisplayMessage], list[ReviewFlag]]:
-    """Read the display-message section. No model: the QRE states these plainly.
-
-    Whatever the line does not state is left empty rather than inferred.
-    """
-    if block is None:
-        return [], []
-
-    messages: list[DisplayMessage] = []
-    for index, row in enumerate(block.rows):
-        body = (row.get("text") or row.get("raw_text") or "").strip()
-        if not body:
-            continue
-        trigger, message = "", body
-        match = _DISPLAY_BODY.match(body)
-        if match:
-            trigger = match.group("trigger").strip()
-            message = match.group("message").strip()
-        message = message.strip().strip(_QUOTE_CHARS).strip()
-        if not message:
-            continue
-        messages.append(
-            DisplayMessage(
-                display_id=(row.get("code") or "").strip(),
-                trigger=trigger,
-                message=message,
-                source_reference=_source_for(block, index),
-            )
-        )
-    return messages, []
-
-
 def _merge_by_target(blocks: list[Stage3Block]) -> dict[TargetHeading, Stage3Block]:
     """One block per target, built from however many Stage 3 produced.
 
@@ -1239,7 +1184,6 @@ async def run_async(
         (quotas, quota_flags),
         (study, study_flags),
         (programming, programming_flags),
-        (display_messages, display_flags),
     ) = await asyncio.gather(
         questionnaire_task,
         routing_after_questionnaire(),
@@ -1248,7 +1192,6 @@ async def run_async(
         parse_statements(by_target.get(TargetHeading.QUOTA_CONTROLS)),
         parse_statements(by_target.get(TargetHeading.STUDY_SPECIFICATION)),
         parse_statements(by_target.get(TargetHeading.PROGRAMMING_AND_QA)),
-        parse_display_messages(by_target.get(TargetHeading.DISPLAY_MESSAGES)),
     )
 
     # Read after the gather because a labelled line in the study
@@ -1265,7 +1208,6 @@ async def run_async(
             "quotas": quotas,
             "study": study,
             "programming": programming,
-            "display_messages": display_messages,
         },
         [
             *q_flags,
@@ -1275,7 +1217,6 @@ async def run_async(
             *quota_flags,
             *study_flags,
             *programming_flags,
-            *display_flags,
             *info_flags,
         ],
     )

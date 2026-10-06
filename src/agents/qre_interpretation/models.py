@@ -27,11 +27,6 @@ class TargetHeading(str, Enum):
     QUOTA_CONTROLS = "Quota controls"
     STUDY_SPECIFICATION = "Study specification"
     PROGRAMMING_AND_QA = "Programming and QA requirements"
-    #: Text shown to the respondent between questions - a transition or
-    #: reassurance screen. Not a completion message, which is shown at an
-    #: ending, and not a display condition, which decides whether a question
-    #: appears at all.
-    DISPLAY_MESSAGES = "Display Messages"
 
 
 class FlagStatus(str, Enum):
@@ -478,28 +473,6 @@ class RoutingRule(BaseModel):
     destination: str
     #: Where this came from in the QRE. None on artifacts written before
     #: provenance existed.
-    source_reference: SourceReference | None = None
-
-
-class DisplayMessage(BaseModel):
-    """Text shown to the respondent partway through the survey (Stage 4).
-
-    The QRE writes these as prose:
-
-        DISPLAY_1: Trigger - after Q6 (end of the ratings), before Q7.
-        Message: "Thanks for rating your recent experience..."
-
-    Both parts are kept as written. The trigger states a position in the flow
-    rather than a condition on an answer, and reading "after Q6 ... before Q7"
-    as a pair of question ids is interpretation, which is not Part 1's job
-    (CLAUDE.md §19).
-    """
-
-    display_id: str
-    #: The trigger verbatim, minus only its leading "Trigger" label.
-    trigger: str = ""
-    #: The message text, minus only the quotation marks around it.
-    message: str = ""
     source_reference: SourceReference | None = None
 
 

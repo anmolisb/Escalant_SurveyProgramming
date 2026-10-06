@@ -47,9 +47,6 @@ _THRESHOLDS = {
     TargetHeading.COMPLETION_MESSAGES: 1.0,
     TargetHeading.QUOTA_CONTROLS: 1.0,
     TargetHeading.STUDY_SPECIFICATION: 1.0,
-    # Small section, like the messages: a percentage over two or three items
-    # swings too far to mean anything, so every one must be accounted for.
-    TargetHeading.DISPLAY_MESSAGES: 1.0,
     TargetHeading.PROGRAMMING_AND_QA: 1.0,
 }
 
@@ -151,7 +148,6 @@ _TARGET_KEYS = {
     TargetHeading.COMPLETION_MESSAGES: ("messages", "code"),
     TargetHeading.QUOTA_CONTROLS: ("quotas", "text"),
     TargetHeading.STUDY_SPECIFICATION: ("study", "text"),
-    TargetHeading.DISPLAY_MESSAGES: ("display_messages", "display_id"),
     TargetHeading.PROGRAMMING_AND_QA: ("programming", "text"),
 }
 

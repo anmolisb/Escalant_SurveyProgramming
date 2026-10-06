@@ -56,11 +56,6 @@ _TARGET_SHAPES = {
         "population, the interviewing mode, expected length, and instructions "
         "that apply to the questionnaire as a whole"
     ),
-    TargetHeading.DISPLAY_MESSAGES: (
-        "prose or a short table pairing an identifier with text shown to the "
-        "respondent partway through the survey, each stating where in the flow "
-        "it appears - after one question and before another"
-    ),
     TargetHeading.PROGRAMMING_AND_QA: (
         "prose listing instructions to whoever programs or tests the survey — "
         "what identifiers to store, what to log or capture, what to reject, and "

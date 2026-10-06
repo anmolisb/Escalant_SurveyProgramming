@@ -44,10 +44,6 @@ from .models import BlockKind
 _SECTION_CUES: list[tuple[str, tuple[str, ...]]] = [
     ("quotas", ("quota",)),
     ("scenarios", ("scenario", "acceptance", "test case")),
-    # Before "messages": a heading reading "Display Messages" contains the word
-    # message and would otherwise be read as the completion-message section,
-    # making every DISPLAY_n line look like a missing disposition.
-    ("display", ("display message",)),
     ("messages", ("completion message", "disposition", "message")),
     ("routing", ("routing", "termination", "skip logic")),
     ("programming", ("programming", "qa requirement", "qa ")),
