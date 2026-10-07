@@ -1,0 +1,16 @@
+[
+  {
+    "id": "DT1",
+    "message": "Thank you for sharing your purchase experience so far. Next, we'd like to understand a bit about any support you've used and whether you've considered other options.",
+    "instruction": "Always show. Show for at least 3 seconds before Q10. Does not count as a routable question.",
+    "preceding_question_id": "Q9",
+    "following_question_id": "Q10"
+  },
+  {
+    "id": "DT2",
+    "message": "You're almost done \u2014 thank you for your thoughtful answers. Just a few last questions about you to finish up.",
+    "instruction": "Always show. Show for at least 3 seconds before D1. Does not count as a routable question.",
+    "preceding_question_id": "Q21",
+    "following_question_id": "D1"
+  }
+]

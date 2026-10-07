@@ -1,6 +1,6 @@
 # Decision register — M01_mobile_network_experience
 
-Source: `M01_mobile_network_experience.docx` (sha256 `1be6ec051fbc9146…`)
+Source: `M01_mobile_network_experience.docx` (sha256 `215eee70e1cbbbc8…`)
 
 A decision is resolved by editing its entry in `agent1_decisions.json` -
 set `status` to `RESOLVED`, fill `decision` with the ruling and

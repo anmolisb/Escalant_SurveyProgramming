@@ -1,6 +1,6 @@
 # Decision register — S02_e_commerce_checkout_experience
 
-Source: `S02_e_commerce_checkout_experience.docx` (sha256 `f02204a21d2522bc…`)
+Source: `S02_e_commerce_checkout_experience.docx` (sha256 `b87697fcfa2422a4…`)
 
 A decision is resolved by editing its entry in `agent1_decisions.json` -
 set `status` to `RESOLVED`, fill `decision` with the ruling and

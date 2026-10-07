@@ -5,10 +5,10 @@
   "survey_id": "S02_e_commerce_checkout_experience",
   "source_document": {
     "filename": "S02_e_commerce_checkout_experience.docx",
-    "sha256": "f02204a21d2522bc03d5d535c38c5c38f37056124dee93af6e32cfd0a1740810",
-    "bytes": 40573
+    "sha256": "b87697fcfa2422a42d94e49fd25f76078319c735c413f7fb9219633c9faeefb0",
+    "bytes": 213120
   },
-  "generated_at": "2026-09-11T17:17:59+00:00",
+  "generated_at": "2026-10-07T08:32:12+00:00",
   "item_count": null,
   "content": {
     "target": "Questionnaire",
@@ -27,6 +27,13 @@
         "Type": "single",
         "Options / scale": "Yes; No",
         "Display / validation": "Always show"
+      },
+      {
+        "ID": "DT1",
+        "Wording / instruction": "Great, you're eligible for this survey! Next, a few quick questions about your recent online checkout.",
+        "Type": "text display",
+        "Options / scale": "\u2014",
+        "Display / validation": "Always show. Show only after S1 and S2 pass. Show for at least 3 seconds before Q1. Does not count as a routable question."
       },
       {
         "ID": "Q1",
@@ -111,7 +118,7 @@
         "block_order": 10,
         "row_index": 2,
         "source_kind": "table",
-        "text": "Q1 | Which channel did you primarily use for this online checkout? | single | Mobile app; Mobile website; Desktop website | Always show"
+        "text": "DT1 | Great, you're eligible for this survey! Next, a few quick questions about your recent online checkout. | text display | \u2014 | Always show. Show only after S1 and S2 pass. Show for at least 3 seconds before Q1. Does not count as a routable question."
       },
       {
         "document": "S02_e_commerce_checkout_experience.docx",
@@ -120,7 +127,7 @@
         "block_order": 10,
         "row_index": 3,
         "source_kind": "table",
-        "text": "Q2 | Overall, how satisfied were you with the online checkout? | single | 1 - Very poor; 2 - Poor; 3 - Fair; 4 - Good; 5 - Excellent | Always show"
+        "text": "Q1 | Which channel did you primarily use for this online checkout? | single | Mobile app; Mobile website; Desktop website | Always show"
       },
       {
         "document": "S02_e_commerce_checkout_experience.docx",
@@ -129,7 +136,7 @@
         "block_order": 10,
         "row_index": 4,
         "source_kind": "table",
-        "text": "Q3 | How easy was it to complete what you wanted to do? | single | 1 - Very poor; 2 - Poor; 3 - Fair; 4 - Good; 5 - Excellent | Always show"
+        "text": "Q2 | Overall, how satisfied were you with the online checkout? | single | 1 - Very poor; 2 - Poor; 3 - Fair; 4 - Good; 5 - Excellent | Always show"
       },
       {
         "document": "S02_e_commerce_checkout_experience.docx",
@@ -138,7 +145,7 @@
         "block_order": 10,
         "row_index": 5,
         "source_kind": "table",
-        "text": "Q4 | Which aspects influenced your rating? Select all that apply. | multi | Product availability; Delivery options; Payment process; Promotional code; Page speed; Trust | Validate: {\"min_selections\": 1}"
+        "text": "Q3 | How easy was it to complete what you wanted to do? | single | 1 - Very poor; 2 - Poor; 3 - Fair; 4 - Good; 5 - Excellent | Always show"
       },
       {
         "document": "S02_e_commerce_checkout_experience.docx",
@@ -147,7 +154,7 @@
         "block_order": 10,
         "row_index": 6,
         "source_kind": "table",
-        "text": "Q5 | Did you encounter a problem? | single | Yes; No | Always show"
+        "text": "Q4 | Which aspects influenced your rating? Select all that apply. | multi | Product availability; Delivery options; Payment process; Promotional code; Page speed; Trust | Validate: {\"min_selections\": 1}"
       },
       {
         "document": "S02_e_commerce_checkout_experience.docx",
@@ -156,7 +163,7 @@
         "block_order": 10,
         "row_index": 7,
         "source_kind": "table",
-        "text": "Q6 | Please describe the main problem. | text | \u2014 | Show if: Q5 == 'Yes'\nValidate: {\"min_length\": 10, \"max_length\": 500}"
+        "text": "Q5 | Did you encounter a problem? | single | Yes; No | Always show"
       },
       {
         "document": "S02_e_commerce_checkout_experience.docx",
@@ -165,7 +172,7 @@
         "block_order": 10,
         "row_index": 8,
         "source_kind": "table",
-        "text": "Q7 | How likely are you to recommend this service? | single | 0; 1; 2; 3; 4; 5; 6; 7; 8; 9; 10 | Always show"
+        "text": "Q6 | Please describe the main problem. | text | \u2014 | Show if: Q5 == 'Yes'\nValidate: {\"min_length\": 10, \"max_length\": 500}"
       },
       {
         "document": "S02_e_commerce_checkout_experience.docx",
@@ -173,6 +180,15 @@
         "heading_text": "Questionnaire",
         "block_order": 10,
         "row_index": 9,
+        "source_kind": "table",
+        "text": "Q7 | How likely are you to recommend this service? | single | 0; 1; 2; 3; 4; 5; 6; 7; 8; 9; 10 | Always show"
+      },
+      {
+        "document": "S02_e_commerce_checkout_experience.docx",
+        "section": "Questionnaire",
+        "heading_text": "Questionnaire",
+        "block_order": 10,
+        "row_index": 10,
         "source_kind": "table",
         "text": "Q8 | What is the single most important improvement you would suggest? | text | \u2014 | Validate: {\"max_length\": 500}\nOptional"
       }

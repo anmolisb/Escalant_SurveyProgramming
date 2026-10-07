@@ -1,6 +1,6 @@
 # Decision register — C04_retail_banking_brand_tracker
 
-Source: `C04_retail_banking_brand_tracker.docx` (sha256 `2d882a73f9de982e…`)
+Source: `C04_retail_banking_brand_tracker.docx` (sha256 `dc873c6e4e8fe058…`)
 
 A decision is resolved by editing its entry in `agent1_decisions.json` -
 set `status` to `RESOLVED`, fill `decision` with the ruling and

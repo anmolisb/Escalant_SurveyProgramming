@@ -5,26 +5,13 @@
   "survey_id": "M03_insurance_claims_experience",
   "source_document": {
     "filename": "M03_insurance_claims_experience.docx",
-    "sha256": "5c5f62986f95a3eb8fcc957d9d89a43098b96ed2bfda8745a7bbc94b928b929b",
-    "bytes": 41852
+    "sha256": "228eeccd66231f819aea8cafbb24b34e6a0ceb6766aac3ea6f4376fab11e787b",
+    "bytes": 214814
   },
-  "generated_at": "2026-09-11T17:10:34+00:00",
+  "generated_at": "2026-10-07T08:32:15+00:00",
   "item_count": null,
   "content": {
-    "cross_source": [
-      {
-        "check": "invented_validation",
-        "severity": "BLOCKING",
-        "finding": "S3 carries min_value, which the QRE does not state for it.",
-        "target": "S3"
-      },
-      {
-        "check": "invented_validation",
-        "severity": "BLOCKING",
-        "finding": "S3 carries max_value, which the QRE does not state for it.",
-        "target": "S3"
-      }
-    ],
+    "cross_source": [],
     "reproducibility": {
       "runs": 2,
       "exact_reproducible": true,
@@ -132,7 +119,7 @@
       "human_readable": "agent1_decision_register.md",
       "summary": {
         "total": 14,
-        "raised_this_run": 14,
+        "raised_this_run": 0,
         "resolved_reused": 0,
         "pending": 14,
         "resolved": 0,
@@ -156,8 +143,8 @@
       }
     },
     "verdict": {
-      "canonical_status": "FAILED",
-      "graph_ready": "NO",
+      "canonical_status": "PASSED_WITH_WARNINGS",
+      "graph_ready": "YES",
       "graph_evidence": {
         "nodes": 23,
         "edges": 25,
@@ -204,12 +191,7 @@
         "rule_precedence",
         "unasked_question_semantics"
       ],
-      "what_is_incorrect": [
-        "T016 [validation_rules] a setting the QRE states was dropped \u2014 expected 18, found None",
-        "T017 [validation_rules] a setting the QRE states was dropped \u2014 expected 80, found None",
-        "invented_validation: S3 carries min_value, which the QRE does not state for it.",
-        "invented_validation: S3 carries max_value, which the QRE does not state for it."
-      ],
+      "what_is_incorrect": [],
       "what_is_missing": [],
       "what_is_ambiguous": [
         "text_pipe_inferred \u2014 Whether this question's wording depends on an earlier answer, which decides the order a bot must answer in and what text it should expect on screen.",
@@ -219,9 +201,7 @@
         "quota_ending_missing \u2014 Nothing can be asserted about what a quota-full respondent is shown.",
         "quota_inferred \u2014 Which respondents are counted against which quota, and when they are turned away."
       ],
-      "what_must_change": [
-        "Resolve the 2 cross-source findings: the specification and the document disagree."
-      ],
+      "what_must_change": [],
       "affected_ids": [
         "M03_insurance_claims_experience.docx",
         "Q10",
@@ -234,15 +214,14 @@
         "Q9",
         "QUOTA_REGION",
         "R9",
-        "S3",
         "TERM_QUOTA_FULL",
         "semantics"
       ],
       "counts": {
         "critical_failures": 0,
-        "other_failures": 2,
+        "other_failures": 0,
         "blocked": 0,
-        "cross_source_blocking": 2,
+        "cross_source_blocking": 0,
         "confirmation_required": 6,
         "decisions_pending_blocking": 12
       }

@@ -419,6 +419,32 @@
         "confidence": 1.0,
         "reasoning": "The sentence only states what happens to respondents when a quota is full (termination at TERM_QUOTA_FULL) and that quota status must be logged. It does not define a quota id, enforcement type, variable question, cell labels, or percentages, so it is not a quota statement."
       }
+    },
+    "46278e113621e017ba6f3977571dc91ad8ce7f7143c04a12e17daf7ecc884911": {
+      "response_model": "LLMTextPipes",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-10-07T08:05:16+00:00",
+      "asked": "S1: Have you used or purchased electric vehicles in the past 6 months?\nS2: Are you personally involved in choosing this product or service?\nS3: What is your age?\nQ1: Which electric vehicles channel or provider did you use most recently?\nQ2: When did the most recent experience occur?\nQ3: What was the primary purpose of the experience?\nQ4: Rate your overall satisfaction.\nQ5: Rate the ease of complet ...",
+      "response": {
+        "pipes": [
+          {
+            "is_pipe": true,
+            "source_question_id": "Q8",
+            "target_question_id": "Q9",
+            "phrase": "the main problem",
+            "confidence": 0.96,
+            "reasoning": "The wording of Q9 uses the definite article \"the\" with \"main problem\", which can only be identified from the answer given in Q8 where the respondent selected which problem had the greatest impact. Without that earlier answer, \"the main problem\" would be undefined."
+          },
+          {
+            "is_pipe": true,
+            "source_question_id": "Q9",
+            "target_question_id": "Q10",
+            "phrase": "the resolution",
+            "confidence": 0.91,
+            "reasoning": "Q10 asks about \"the resolution\", which refers to the outcome of the main problem discussed in Q9. The existence and nature of that resolution depend on the answer to Q9, making the phrase a reference to an earlier answer."
+          }
+        ]
+      }
     }
   }
 }

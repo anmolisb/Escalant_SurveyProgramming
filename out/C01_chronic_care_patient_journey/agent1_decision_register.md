@@ -1,6 +1,6 @@
 # Decision register — C01_chronic_care_patient_journey
 
-Source: `C01_chronic_care_patient_journey.docx` (sha256 `319e6b78a2a1e36e…`)
+Source: `C01_chronic_care_patient_journey.docx` (sha256 `bf6a69f7e707c095…`)
 
 A decision is resolved by editing its entry in `agent1_decisions.json` -
 set `status` to `RESOLVED`, fill `decision` with the ruling and

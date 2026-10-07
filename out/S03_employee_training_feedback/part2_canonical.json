@@ -5,10 +5,10 @@
   "survey_id": "S03_employee_training_feedback",
   "source_document": {
     "filename": "S03_employee_training_feedback.docx",
-    "sha256": "dd283ca690fd6496ad111b2c4816a00a1d55f8064277a3e9376c9da557b8f33f",
-    "bytes": 40562
+    "sha256": "d51e0964762c0739f40161032711bf20edf0430b6ff4f99145b152a2b3d15a7e",
+    "bytes": 213104
   },
-  "generated_at": "2026-09-11T17:19:35+00:00",
+  "generated_at": "2026-10-07T08:32:13+00:00",
   "item_count": null,
   "content": {
     "source": "S03_employee_training_feedback.docx",
@@ -247,7 +247,7 @@
           "section": "Questionnaire",
           "heading_text": "Questionnaire",
           "block_order": 10,
-          "row_index": 2,
+          "row_index": 3,
           "source_kind": "table",
           "text": "Q1 | Which channel did you primarily use for this training session? | single | In person; Live virtual; Self-paced online | Always show"
         }
@@ -316,7 +316,7 @@
           "section": "Questionnaire",
           "heading_text": "Questionnaire",
           "block_order": 10,
-          "row_index": 3,
+          "row_index": 4,
           "source_kind": "table",
           "text": "Q2 | Overall, how satisfied were you with the training session? | single | 1 - Very poor; 2 - Poor; 3 - Fair; 4 - Good; 5 - Excellent | Always show"
         }
@@ -385,7 +385,7 @@
           "section": "Questionnaire",
           "heading_text": "Questionnaire",
           "block_order": 10,
-          "row_index": 4,
+          "row_index": 5,
           "source_kind": "table",
           "text": "Q3 | How easy was it to complete what you wanted to do? | single | 1 - Very poor; 2 - Poor; 3 - Fair; 4 - Good; 5 - Excellent | Always show"
         }
@@ -461,7 +461,7 @@
           "section": "Questionnaire",
           "heading_text": "Questionnaire",
           "block_order": 10,
-          "row_index": 5,
+          "row_index": 6,
           "source_kind": "table",
           "text": "Q4 | Which aspects influenced your rating? Select all that apply. | multi | Content relevance; Instructor quality; Exercises; Pace; Materials; Technology | Validate: {\"min_selections\": 1}"
         }
@@ -509,7 +509,7 @@
           "section": "Questionnaire",
           "heading_text": "Questionnaire",
           "block_order": 10,
-          "row_index": 6,
+          "row_index": 7,
           "source_kind": "table",
           "text": "Q5 | Did you encounter a problem? | single | Yes; No | Always show"
         }
@@ -577,7 +577,7 @@
           "section": "Questionnaire",
           "heading_text": "Questionnaire",
           "block_order": 10,
-          "row_index": 7,
+          "row_index": 8,
           "source_kind": "table",
           "text": "Q6 | Please describe the main problem. | text | \u2014 | Show if: Q5 == 'Yes'\nValidate: {\"min_length\": 10, \"max_length\": 500}"
         }
@@ -688,7 +688,7 @@
           "section": "Questionnaire",
           "heading_text": "Questionnaire",
           "block_order": 10,
-          "row_index": 8,
+          "row_index": 9,
           "source_kind": "table",
           "text": "Q7 | How likely are you to recommend this service? | single | 0; 1; 2; 3; 4; 5; 6; 7; 8; 9; 10 | Always show"
         }
@@ -721,7 +721,7 @@
           "section": "Questionnaire",
           "heading_text": "Questionnaire",
           "block_order": 10,
-          "row_index": 9,
+          "row_index": 10,
           "source_kind": "table",
           "text": "Q8 | What is the single most important improvement you would suggest? | text | \u2014 | Validate: {\"max_length\": 500}\nOptional"
         }
@@ -964,7 +964,7 @@
           "section": "Questionnaire",
           "heading_text": "Questionnaire",
           "block_order": 10,
-          "row_index": 2,
+          "row_index": 3,
           "source_kind": "table",
           "text": "Q1 | Which channel did you primarily use for this training session? | single | In person; Live virtual; Self-paced online | Always show"
         }
@@ -981,7 +981,7 @@
           "section": "Questionnaire",
           "heading_text": "Questionnaire",
           "block_order": 10,
-          "row_index": 3,
+          "row_index": 4,
           "source_kind": "table",
           "text": "Q2 | Overall, how satisfied were you with the training session? | single | 1 - Very poor; 2 - Poor; 3 - Fair; 4 - Good; 5 - Excellent | Always show"
         }
@@ -998,7 +998,7 @@
           "section": "Questionnaire",
           "heading_text": "Questionnaire",
           "block_order": 10,
-          "row_index": 7,
+          "row_index": 8,
           "source_kind": "table",
           "text": "Q6 | Please describe the main problem. | text | \u2014 | Show if: Q5 == 'Yes'\nValidate: {\"min_length\": 10, \"max_length\": 500}"
         }

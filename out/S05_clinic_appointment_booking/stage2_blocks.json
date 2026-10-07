@@ -5,10 +5,10 @@
   "survey_id": "S05_clinic_appointment_booking",
   "source_document": {
     "filename": "S05_clinic_appointment_booking.docx",
-    "sha256": "70248459ff35bb4084ed242e858b8bcfe68f16a4283c80120e6af46089f836aa",
-    "bytes": 40565
+    "sha256": "981a7860c79f128b8143e0e2e54dd112ea62fd275e8cc017f038e8f52caa7840",
+    "bytes": 213111
   },
-  "generated_at": "2026-09-11T17:20:30+00:00",
+  "generated_at": "2026-10-07T08:32:14+00:00",
   "item_count": null,
   "content": {
     "source": "S05_clinic_appointment_booking.docx",
@@ -44,6 +44,13 @@
                 "single",
                 "Yes; No",
                 "Always show"
+              ],
+              [
+                "DT1",
+                "Great, you're eligible for this survey! Next, a few quick questions about your recent appointment-booking experience.",
+                "text display",
+                "\u2014",
+                "Always show. Show only after S1 and S2 pass. Show for at least 3 seconds before Q1. Does not count as a routable question."
               ],
               [
                 "Q1",
@@ -200,7 +207,7 @@
             "kind": "paragraph",
             "order": 23,
             "text": "TERM_INELIGIBLE: Thank you for your interest. You do not qualify for this survey.",
-            "style": "Normal",
+            "style": "normal",
             "is_bold": true,
             "heading_level": null
           },
@@ -208,7 +215,7 @@
             "kind": "paragraph",
             "order": 24,
             "text": "COMPLETE: Thank you. Your response has been recorded.",
-            "style": "Normal",
+            "style": "normal",
             "is_bold": true,
             "heading_level": null
           }
@@ -225,7 +232,7 @@
             "kind": "paragraph",
             "order": 4,
             "text": "Business objective: Assess the ease and reliability of arranging a clinic appointment.",
-            "style": "Normal",
+            "style": "normal",
             "is_bold": true,
             "heading_level": null
           },
@@ -233,7 +240,7 @@
             "kind": "paragraph",
             "order": 5,
             "text": "Target population: Adults with a relevant experience in the last 30 days",
-            "style": "Normal",
+            "style": "normal",
             "is_bold": true,
             "heading_level": null
           },
@@ -241,7 +248,7 @@
             "kind": "paragraph",
             "order": 6,
             "text": "Mode: Self-completion web survey",
-            "style": "Normal",
+            "style": "normal",
             "is_bold": true,
             "heading_level": null
           },
@@ -249,7 +256,7 @@
             "kind": "paragraph",
             "order": 7,
             "text": "Estimated length: 4 minutes",
-            "style": "Normal",
+            "style": "normal",
             "is_bold": true,
             "heading_level": null
           },
@@ -257,7 +264,7 @@
             "kind": "paragraph",
             "order": 8,
             "text": "General instruction: All questions are mandatory unless explicitly marked optional. Do not infer unstated routing.",
-            "style": "Normal",
+            "style": "normal",
             "is_bold": true,
             "heading_level": null
           }
@@ -274,7 +281,7 @@
             "kind": "paragraph",
             "order": 14,
             "text": "Store stable question, option, route and test-run identifiers.",
-            "style": "List Bullet",
+            "style": "normal",
             "is_bold": false,
             "heading_level": null
           },
@@ -282,7 +289,7 @@
             "kind": "paragraph",
             "order": 15,
             "text": "Capture displayed random order for every randomized item.",
-            "style": "List Bullet",
+            "style": "normal",
             "is_bold": false,
             "heading_level": null
           },
@@ -290,7 +297,7 @@
             "kind": "paragraph",
             "order": 16,
             "text": "Record expected and observed destination for every routing transition.",
-            "style": "List Bullet",
+            "style": "normal",
             "is_bold": false,
             "heading_level": null
           },
@@ -298,7 +305,7 @@
             "kind": "paragraph",
             "order": 17,
             "text": "Reject mutually exclusive selections and invalid numeric/text responses before progression.",
-            "style": "List Bullet",
+            "style": "normal",
             "is_bold": false,
             "heading_level": null
           },
@@ -306,7 +313,7 @@
             "kind": "paragraph",
             "order": 18,
             "text": "Produce an audit record containing inputs, timestamps, route, assertions, screenshots on failure and final disposition.",
-            "style": "List Bullet",
+            "style": "normal",
             "is_bold": false,
             "heading_level": null
           },
@@ -314,7 +321,7 @@
             "kind": "paragraph",
             "order": 19,
             "text": "Do not send synthetic test responses into live operational reporting.",
-            "style": "List Bullet",
+            "style": "normal",
             "is_bold": false,
             "heading_level": null
           }

@@ -5,10 +5,10 @@
   "survey_id": "C04_retail_banking_brand_tracker",
   "source_document": {
     "filename": "C04_retail_banking_brand_tracker.docx",
-    "sha256": "2d882a73f9de982ee774cc4cead8657370d293dd047f6feb40fc4062bd3c8ae8",
-    "bytes": 43559
+    "sha256": "dc873c6e4e8fe058b0de40abed6cca02d41695e80e5b1ab593f17cc93d7684a0",
+    "bytes": 217512
   },
-  "generated_at": "2026-09-11T16:57:13+00:00",
+  "generated_at": "2026-10-07T08:32:17+00:00",
   "item_count": null,
   "content": {
     "target": "Questionnaire",
@@ -106,6 +106,13 @@
         "Display / validation": "Show if: Q3 != 'None/currently not using'\nValidate: {\"scale\": [\"1 - Very poor\", \"2 - Poor\", \"3 - Fair\", \"4 - Good\", \"5 - Excellent\"], \"require_each_row\": true}\nRandomize"
       },
       {
+        "ID": "DT1",
+        "Wording / instruction": "Thank you for sharing your banking experience so far. Next, we'd like to understand a bit about any support you've used and whether you've considered switching providers.",
+        "Type": "text display",
+        "Options / scale": "\u2014",
+        "Display / validation": "Always show. Show for at least 3 seconds before Q10. Does not count as a routable question."
+      },
+      {
         "ID": "Q10",
         "Wording / instruction": "Did you contact support during the experience?",
         "Type": "single",
@@ -188,6 +195,13 @@
         "Type": "text",
         "Options / scale": "\u2014",
         "Display / validation": "Validate: {\"min_length\": 5, \"max_length\": 500}"
+      },
+      {
+        "ID": "DT2",
+        "Wording / instruction": "You're almost done \u2014 thank you for your thoughtful answers. Just a few last questions about you to finish up.",
+        "Type": "text display",
+        "Options / scale": "\u2014",
+        "Display / validation": "Always show. Show for at least 3 seconds before D1. Does not count as a routable question."
       },
       {
         "ID": "D1",
@@ -357,7 +371,7 @@
         "block_order": 10,
         "row_index": 13,
         "source_kind": "table",
-        "text": "Q10 | Did you contact support during the experience? | single | Yes; No | Always show"
+        "text": "DT1 | Thank you for sharing your banking experience so far. Next, we'd like to understand a bit about any support you've used and whether you've considered switching providers. | text display | \u2014 | Always show. Show for at least 3 seconds before Q10. Does not count as a routable question."
       },
       {
         "document": "C04_retail_banking_brand_tracker.docx",
@@ -366,7 +380,7 @@
         "block_order": 10,
         "row_index": 14,
         "source_kind": "table",
-        "text": "Q11 | Which support channels did you use? | multi | Phone; Email; Chat; In person; Self-service | Show if: Q10 == 'Yes'\nValidate: {\"min_selections\": 1}"
+        "text": "Q10 | Did you contact support during the experience? | single | Yes; No | Always show"
       },
       {
         "document": "C04_retail_banking_brand_tracker.docx",
@@ -375,7 +389,7 @@
         "block_order": 10,
         "row_index": 15,
         "source_kind": "table",
-        "text": "Q12 | Was your issue resolved? | single | Fully; Partly; Not resolved | Show if: Q10 == 'Yes'"
+        "text": "Q11 | Which support channels did you use? | multi | Phone; Email; Chat; In person; Self-service | Show if: Q10 == 'Yes'\nValidate: {\"min_selections\": 1}"
       },
       {
         "document": "C04_retail_banking_brand_tracker.docx",
@@ -384,7 +398,7 @@
         "block_order": 10,
         "row_index": 16,
         "source_kind": "table",
-        "text": "Q13 | How much effort did resolution require? | single | 1 - Very low; 2; 3; 4; 5 - Very high | Show if: Q12 in ['Fully','Partly']"
+        "text": "Q12 | Was your issue resolved? | single | Fully; Partly; Not resolved | Show if: Q10 == 'Yes'"
       },
       {
         "document": "C04_retail_banking_brand_tracker.docx",
@@ -393,7 +407,7 @@
         "block_order": 10,
         "row_index": 17,
         "source_kind": "table",
-        "text": "Q14 | Why was the issue not resolved? | text | \u2014 | Show if: Q12 == 'Not resolved'\nValidate: {\"min_length\": 10, \"max_length\": 500}"
+        "text": "Q13 | How much effort did resolution require? | single | 1 - Very low; 2; 3; 4; 5 - Very high | Show if: Q12 in ['Fully','Partly']"
       },
       {
         "document": "C04_retail_banking_brand_tracker.docx",
@@ -402,7 +416,7 @@
         "block_order": 10,
         "row_index": 18,
         "source_kind": "table",
-        "text": "Q15 | Have you considered switching providers? | single | Yes; No | Show if: Q3 != 'None/currently not using'"
+        "text": "Q14 | Why was the issue not resolved? | text | \u2014 | Show if: Q12 == 'Not resolved'\nValidate: {\"min_length\": 10, \"max_length\": 500}"
       },
       {
         "document": "C04_retail_banking_brand_tracker.docx",
@@ -411,7 +425,7 @@
         "block_order": 10,
         "row_index": 19,
         "source_kind": "table",
-        "text": "Q16 | What is the main reason for considering a switch? | single | Price; Service quality; Features; Poor support; Competitor offer; Other | Show if: Q15 == 'Yes'\nRandomize"
+        "text": "Q15 | Have you considered switching providers? | single | Yes; No | Show if: Q3 != 'None/currently not using'"
       },
       {
         "document": "C04_retail_banking_brand_tracker.docx",
@@ -420,7 +434,7 @@
         "block_order": 10,
         "row_index": 20,
         "source_kind": "table",
-        "text": "Q17 | Please specify the other switching reason. | text | \u2014 | Show if: Q16 == 'Other'\nValidate: {\"min_length\": 3, \"max_length\": 200}"
+        "text": "Q16 | What is the main reason for considering a switch? | single | Price; Service quality; Features; Poor support; Competitor offer; Other | Show if: Q15 == 'Yes'\nRandomize"
       },
       {
         "document": "C04_retail_banking_brand_tracker.docx",
@@ -429,7 +443,7 @@
         "block_order": 10,
         "row_index": 21,
         "source_kind": "table",
-        "text": "Q18 | Allocate 100 points across the factors that drive your decision. | constant_sum | Price; Quality; Convenience; Trust; Support | Validate: {\"sum\": 100}"
+        "text": "Q17 | Please specify the other switching reason. | text | \u2014 | Show if: Q16 == 'Other'\nValidate: {\"min_length\": 3, \"max_length\": 200}"
       },
       {
         "document": "C04_retail_banking_brand_tracker.docx",
@@ -438,7 +452,7 @@
         "block_order": 10,
         "row_index": 22,
         "source_kind": "table",
-        "text": "Q19 | Which new proposition do you prefer? | single | Concept A; Concept B; Concept C | Randomize\nConcept descriptions are displayed in randomized order; store display order."
+        "text": "Q18 | Allocate 100 points across the factors that drive your decision. | constant_sum | Price; Quality; Convenience; Trust; Support | Validate: {\"sum\": 100}"
       },
       {
         "document": "C04_retail_banking_brand_tracker.docx",
@@ -447,7 +461,7 @@
         "block_order": 10,
         "row_index": 23,
         "source_kind": "table",
-        "text": "Q20 | How appealing is the selected proposition? | single | 1 - Very poor; 2 - Poor; 3 - Fair; 4 - Good; 5 - Excellent | Always show"
+        "text": "Q19 | Which new proposition do you prefer? | single | Concept A; Concept B; Concept C | Randomize\nConcept descriptions are displayed in randomized order; store display order."
       },
       {
         "document": "C04_retail_banking_brand_tracker.docx",
@@ -456,7 +470,7 @@
         "block_order": 10,
         "row_index": 24,
         "source_kind": "table",
-        "text": "Q21 | What most influenced your choice? | text | \u2014 | Validate: {\"min_length\": 5, \"max_length\": 500}"
+        "text": "Q20 | How appealing is the selected proposition? | single | 1 - Very poor; 2 - Poor; 3 - Fair; 4 - Good; 5 - Excellent | Always show"
       },
       {
         "document": "C04_retail_banking_brand_tracker.docx",
@@ -465,7 +479,7 @@
         "block_order": 10,
         "row_index": 25,
         "source_kind": "table",
-        "text": "D1 | Which region do you live in? | single | North; South; East; West; Central | Always show"
+        "text": "Q21 | What most influenced your choice? | text | \u2014 | Validate: {\"min_length\": 5, \"max_length\": 500}"
       },
       {
         "document": "C04_retail_banking_brand_tracker.docx",
@@ -474,7 +488,7 @@
         "block_order": 10,
         "row_index": 26,
         "source_kind": "table",
-        "text": "D2 | Which age group describes you? | single | 21-29; 30-39; 40-49; 50-59; 60+ | Always show"
+        "text": "DT2 | You're almost done \u2014 thank you for your thoughtful answers. Just a few last questions about you to finish up. | text display | \u2014 | Always show. Show for at least 3 seconds before D1. Does not count as a routable question."
       },
       {
         "document": "C04_retail_banking_brand_tracker.docx",
@@ -483,7 +497,7 @@
         "block_order": 10,
         "row_index": 27,
         "source_kind": "table",
-        "text": "D3 | How do you describe your gender? | single | Woman; Man; Non-binary; Prefer to self-describe; Prefer not to say | Always show"
+        "text": "D1 | Which region do you live in? | single | North; South; East; West; Central | Always show"
       },
       {
         "document": "C04_retail_banking_brand_tracker.docx",
@@ -492,7 +506,7 @@
         "block_order": 10,
         "row_index": 28,
         "source_kind": "table",
-        "text": "D4 | What is your household or organizational decision band? | single | Band 1; Band 2; Band 3; Band 4; Prefer not to say | Always show"
+        "text": "D2 | Which age group describes you? | single | 21-29; 30-39; 40-49; 50-59; 60+ | Always show"
       },
       {
         "document": "C04_retail_banking_brand_tracker.docx",
@@ -501,7 +515,7 @@
         "block_order": 10,
         "row_index": 29,
         "source_kind": "table",
-        "text": "Q22 | May we use your anonymized comments in internal reporting? | single | Yes; No | Always show"
+        "text": "D3 | How do you describe your gender? | single | Woman; Man; Non-binary; Prefer to self-describe; Prefer not to say | Always show"
       },
       {
         "document": "C04_retail_banking_brand_tracker.docx",
@@ -509,6 +523,24 @@
         "heading_text": "Questionnaire",
         "block_order": 10,
         "row_index": 30,
+        "source_kind": "table",
+        "text": "D4 | What is your household or organizational decision band? | single | Band 1; Band 2; Band 3; Band 4; Prefer not to say | Always show"
+      },
+      {
+        "document": "C04_retail_banking_brand_tracker.docx",
+        "section": "Questionnaire",
+        "heading_text": "Questionnaire",
+        "block_order": 10,
+        "row_index": 31,
+        "source_kind": "table",
+        "text": "Q22 | May we use your anonymized comments in internal reporting? | single | Yes; No | Always show"
+      },
+      {
+        "document": "C04_retail_banking_brand_tracker.docx",
+        "section": "Questionnaire",
+        "heading_text": "Questionnaire",
+        "block_order": 10,
+        "row_index": 32,
         "source_kind": "table",
         "text": "Q23 | Any final comments? | text | \u2014 | Validate: {\"max_length\": 1000}\nOptional"
       }

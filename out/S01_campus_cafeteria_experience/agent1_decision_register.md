@@ -1,6 +1,6 @@
 # Decision register — S01_campus_cafeteria_experience
 
-Source: `S01_campus_cafeteria_experience.docx` (sha256 `2756cb3b6dc3f21c…`)
+Source: `S01_campus_cafeteria_experience.docx` (sha256 `6a10a53aba579dda…`)
 
 A decision is resolved by editing its entry in `agent1_decisions.json` -
 set `status` to `RESOLVED`, fill `decision` with the ruling and

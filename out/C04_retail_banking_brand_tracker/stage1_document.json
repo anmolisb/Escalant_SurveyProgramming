@@ -5,10 +5,10 @@
   "survey_id": "C04_retail_banking_brand_tracker",
   "source_document": {
     "filename": "C04_retail_banking_brand_tracker.docx",
-    "sha256": "2d882a73f9de982ee774cc4cead8657370d293dd047f6feb40fc4062bd3c8ae8",
-    "bytes": 43559
+    "sha256": "dc873c6e4e8fe058b0de40abed6cca02d41695e80e5b1ab593f17cc93d7684a0",
+    "bytes": 217512
   },
-  "generated_at": "2026-09-11T16:57:13+00:00",
+  "generated_at": "2026-10-07T08:32:17+00:00",
   "item_count": null,
   "content": {
     "source": "C04_retail_banking_brand_tracker.docx",
@@ -17,7 +17,7 @@
         "kind": "paragraph",
         "order": 0,
         "text": "C04 \u2022 COMPLEX",
-        "style": "Normal",
+        "style": "normal",
         "is_bold": true,
         "heading_level": null
       },
@@ -25,7 +25,7 @@
         "kind": "paragraph",
         "order": 1,
         "text": "Retail Banking Brand Tracker",
-        "style": "Normal",
+        "style": "normal",
         "is_bold": true,
         "heading_level": null
       },
@@ -33,7 +33,7 @@
         "kind": "paragraph",
         "order": 2,
         "text": "Questionnaire Requirement Document (QRE)",
-        "style": "Normal",
+        "style": "normal",
         "is_bold": false,
         "heading_level": null
       },
@@ -49,7 +49,7 @@
         "kind": "paragraph",
         "order": 4,
         "text": "Business objective: Track awareness, consideration, relationship strength, channel experience and switching risk.",
-        "style": "Normal",
+        "style": "normal",
         "is_bold": true,
         "heading_level": null
       },
@@ -57,7 +57,7 @@
         "kind": "paragraph",
         "order": 5,
         "text": "Target population: Personally choose or manage at least one banking product",
-        "style": "Normal",
+        "style": "normal",
         "is_bold": true,
         "heading_level": null
       },
@@ -65,7 +65,7 @@
         "kind": "paragraph",
         "order": 6,
         "text": "Mode: Self-completion web survey",
-        "style": "Normal",
+        "style": "normal",
         "is_bold": true,
         "heading_level": null
       },
@@ -73,7 +73,7 @@
         "kind": "paragraph",
         "order": 7,
         "text": "Estimated length: 12 minutes",
-        "style": "Normal",
+        "style": "normal",
         "is_bold": true,
         "heading_level": null
       },
@@ -81,7 +81,7 @@
         "kind": "paragraph",
         "order": 8,
         "text": "General instruction: All questions are mandatory unless explicitly marked optional. Do not infer unstated routing.",
-        "style": "Normal",
+        "style": "normal",
         "is_bold": true,
         "heading_level": null
       },
@@ -196,6 +196,13 @@
             "Show if: Q3 != 'None/currently not using'\nValidate: {\"scale\": [\"1 - Very poor\", \"2 - Poor\", \"3 - Fair\", \"4 - Good\", \"5 - Excellent\"], \"require_each_row\": true}\nRandomize"
           ],
           [
+            "DT1",
+            "Thank you for sharing your banking experience so far. Next, we'd like to understand a bit about any support you've used and whether you've considered switching providers.",
+            "text display",
+            "\u2014",
+            "Always show. Show for at least 3 seconds before Q10. Does not count as a routable question."
+          ],
+          [
             "Q10",
             "Did you contact support during the experience?",
             "single",
@@ -278,6 +285,13 @@
             "text",
             "\u2014",
             "Validate: {\"min_length\": 5, \"max_length\": 500}"
+          ],
+          [
+            "DT2",
+            "You're almost done \u2014 thank you for your thoughtful answers. Just a few last questions about you to finish up.",
+            "text display",
+            "\u2014",
+            "Always show. Show for at least 3 seconds before D1. Does not count as a routable question."
           ],
           [
             "D1",
@@ -475,7 +489,7 @@
         "kind": "paragraph",
         "order": 14,
         "text": "QUOTA_REGION: hard quota on D1: North=20%, South=20%, East=20%, West=20%, Central=20%",
-        "style": "Normal",
+        "style": "normal",
         "is_bold": true,
         "heading_level": null
       },
@@ -483,7 +497,7 @@
         "kind": "paragraph",
         "order": 15,
         "text": "QUOTA_AGE: soft quota on D2: 21-29=20%, 30-39=25%, 40-49=25%, 50-59=20%, 60+=10%",
-        "style": "Normal",
+        "style": "normal",
         "is_bold": true,
         "heading_level": null
       },
@@ -491,7 +505,7 @@
         "kind": "paragraph",
         "order": 16,
         "text": "Quota-full respondents terminate at TERM_QUOTA_FULL before the next substantive question. Quota status must be logged.",
-        "style": "Normal",
+        "style": "normal",
         "is_bold": false,
         "heading_level": null
       },
@@ -507,7 +521,7 @@
         "kind": "paragraph",
         "order": 18,
         "text": "Store stable question, option, route and test-run identifiers.",
-        "style": "List Bullet",
+        "style": "normal",
         "is_bold": false,
         "heading_level": null
       },
@@ -515,7 +529,7 @@
         "kind": "paragraph",
         "order": 19,
         "text": "Capture displayed random order for every randomized item.",
-        "style": "List Bullet",
+        "style": "normal",
         "is_bold": false,
         "heading_level": null
       },
@@ -523,7 +537,7 @@
         "kind": "paragraph",
         "order": 20,
         "text": "Record expected and observed destination for every routing transition.",
-        "style": "List Bullet",
+        "style": "normal",
         "is_bold": false,
         "heading_level": null
       },
@@ -531,7 +545,7 @@
         "kind": "paragraph",
         "order": 21,
         "text": "Reject mutually exclusive selections and invalid numeric/text responses before progression.",
-        "style": "List Bullet",
+        "style": "normal",
         "is_bold": false,
         "heading_level": null
       },
@@ -539,7 +553,7 @@
         "kind": "paragraph",
         "order": 22,
         "text": "Produce an audit record containing inputs, timestamps, route, assertions, screenshots on failure and final disposition.",
-        "style": "List Bullet",
+        "style": "normal",
         "is_bold": false,
         "heading_level": null
       },
@@ -547,7 +561,7 @@
         "kind": "paragraph",
         "order": 23,
         "text": "Do not send synthetic test responses into live operational reporting.",
-        "style": "List Bullet",
+        "style": "normal",
         "is_bold": false,
         "heading_level": null
       },
@@ -625,7 +639,7 @@
         "kind": "paragraph",
         "order": 27,
         "text": "TERM_AGE: Thank you for your interest. You do not qualify for this survey.",
-        "style": "Normal",
+        "style": "normal",
         "is_bold": true,
         "heading_level": null
       },
@@ -633,7 +647,7 @@
         "kind": "paragraph",
         "order": 28,
         "text": "TERM_CONFLICT: Thank you for your interest. You do not qualify for this survey.",
-        "style": "Normal",
+        "style": "normal",
         "is_bold": true,
         "heading_level": null
       },
@@ -641,7 +655,7 @@
         "kind": "paragraph",
         "order": 29,
         "text": "TERM_INVOLVEMENT: Thank you for your interest. You do not qualify for this survey.",
-        "style": "Normal",
+        "style": "normal",
         "is_bold": true,
         "heading_level": null
       },
@@ -649,7 +663,7 @@
         "kind": "paragraph",
         "order": 30,
         "text": "TERM_RECENT_RESEARCH: Thank you for your interest. You do not qualify for this survey.",
-        "style": "Normal",
+        "style": "normal",
         "is_bold": true,
         "heading_level": null
       },
@@ -657,7 +671,7 @@
         "kind": "paragraph",
         "order": 31,
         "text": "COMPLETE: Thank you. Your response has been recorded.",
-        "style": "Normal",
+        "style": "normal",
         "is_bold": true,
         "heading_level": null
       }

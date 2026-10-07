@@ -1,6 +1,6 @@
 # Decision register — M05_employee_hybrid_work_experience
 
-Source: `M05_employee_hybrid_work_experience.docx` (sha256 `64d2336abd466700…`)
+Source: `M05_employee_hybrid_work_experience.docx` (sha256 `a87a7e52f069b99c…`)
 
 A decision is resolved by editing its entry in `agent1_decisions.json` -
 set `status` to `RESOLVED`, fill `decision` with the ruling and

@@ -1,6 +1,6 @@
 # Decision register — M03_insurance_claims_experience
 
-Source: `M03_insurance_claims_experience.docx` (sha256 `5c5f62986f95a3eb…`)
+Source: `M03_insurance_claims_experience.docx` (sha256 `228eeccd66231f81…`)
 
 A decision is resolved by editing its entry in `agent1_decisions.json` -
 set `status` to `RESOLVED`, fill `decision` with the ruling and

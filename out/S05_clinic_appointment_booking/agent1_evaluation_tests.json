@@ -5,10 +5,10 @@
   "survey_id": "S05_clinic_appointment_booking",
   "source_document": {
     "filename": "S05_clinic_appointment_booking.docx",
-    "sha256": "70248459ff35bb4084ed242e858b8bcfe68f16a4283c80120e6af46089f836aa",
-    "bytes": 40565
+    "sha256": "981a7860c79f128b8143e0e2e54dd112ea62fd275e8cc017f038e8f52caa7840",
+    "bytes": 213111
   },
-  "generated_at": "2026-09-11T17:21:24+00:00",
+  "generated_at": "2026-10-07T08:32:14+00:00",
   "item_count": 130,
   "content": [
     {
@@ -228,7 +228,7 @@
       "source_reference": {
         "section": "questionnaire",
         "block_order": 10,
-        "row_index": 2
+        "row_index": 3
       },
       "source_text": "Which channel did you primarily use for this appointment-booking experience?",
       "target": "Q1",
@@ -245,9 +245,9 @@
       "source_reference": {
         "section": "questionnaire",
         "block_order": 10,
-        "row_index": 2
+        "row_index": 3
       },
-      "source_text": "row 2",
+      "source_text": "row 3",
       "target": "Q1",
       "input_state": null,
       "expected": 3,
@@ -262,7 +262,7 @@
       "source_reference": {
         "section": "questionnaire",
         "block_order": 10,
-        "row_index": 2
+        "row_index": 3
       },
       "source_text": "single",
       "target": "Q1",
@@ -279,7 +279,7 @@
       "source_reference": {
         "section": "questionnaire",
         "block_order": 10,
-        "row_index": 2
+        "row_index": 3
       },
       "source_text": "Phone; Website; Mobile app; In person",
       "target": "Q1",
@@ -301,7 +301,7 @@
       "source_reference": {
         "section": "questionnaire",
         "block_order": 10,
-        "row_index": 2
+        "row_index": 3
       },
       "source_text": "Always show",
       "target": "Q1",
@@ -318,7 +318,7 @@
       "source_reference": {
         "section": "questionnaire",
         "block_order": 10,
-        "row_index": 2
+        "row_index": 3
       },
       "source_text": "not marked optional",
       "target": "Q1",
@@ -335,7 +335,7 @@
       "source_reference": {
         "section": "questionnaire",
         "block_order": 10,
-        "row_index": 3
+        "row_index": 4
       },
       "source_text": "Overall, how satisfied were you with the appointment-booking experience?",
       "target": "Q2",
@@ -352,9 +352,9 @@
       "source_reference": {
         "section": "questionnaire",
         "block_order": 10,
-        "row_index": 3
+        "row_index": 4
       },
-      "source_text": "row 3",
+      "source_text": "row 4",
       "target": "Q2",
       "input_state": null,
       "expected": 4,
@@ -369,7 +369,7 @@
       "source_reference": {
         "section": "questionnaire",
         "block_order": 10,
-        "row_index": 3
+        "row_index": 4
       },
       "source_text": "single",
       "target": "Q2",
@@ -386,7 +386,7 @@
       "source_reference": {
         "section": "questionnaire",
         "block_order": 10,
-        "row_index": 3
+        "row_index": 4
       },
       "source_text": "Very poor; Poor; Fair; Good; Excellent",
       "target": "Q2",
@@ -409,7 +409,7 @@
       "source_reference": {
         "section": "questionnaire",
         "block_order": 10,
-        "row_index": 3
+        "row_index": 4
       },
       "source_text": "1=Very poor; 2=Poor; 3=Fair; 4=Good; 5=Excellent",
       "target": "Q2",
@@ -432,7 +432,7 @@
       "source_reference": {
         "section": "questionnaire",
         "block_order": 10,
-        "row_index": 3
+        "row_index": 4
       },
       "source_text": "Always show",
       "target": "Q2",
@@ -449,7 +449,7 @@
       "source_reference": {
         "section": "questionnaire",
         "block_order": 10,
-        "row_index": 3
+        "row_index": 4
       },
       "source_text": "not marked optional",
       "target": "Q2",
@@ -466,7 +466,7 @@
       "source_reference": {
         "section": "questionnaire",
         "block_order": 10,
-        "row_index": 4
+        "row_index": 5
       },
       "source_text": "How easy was it to complete what you wanted to do?",
       "target": "Q3",
@@ -483,9 +483,9 @@
       "source_reference": {
         "section": "questionnaire",
         "block_order": 10,
-        "row_index": 4
+        "row_index": 5
       },
-      "source_text": "row 4",
+      "source_text": "row 5",
       "target": "Q3",
       "input_state": null,
       "expected": 5,
@@ -500,7 +500,7 @@
       "source_reference": {
         "section": "questionnaire",
         "block_order": 10,
-        "row_index": 4
+        "row_index": 5
       },
       "source_text": "single",
       "target": "Q3",
@@ -517,7 +517,7 @@
       "source_reference": {
         "section": "questionnaire",
         "block_order": 10,
-        "row_index": 4
+        "row_index": 5
       },
       "source_text": "Very poor; Poor; Fair; Good; Excellent",
       "target": "Q3",
@@ -540,7 +540,7 @@
       "source_reference": {
         "section": "questionnaire",
         "block_order": 10,
-        "row_index": 4
+        "row_index": 5
       },
       "source_text": "1=Very poor; 2=Poor; 3=Fair; 4=Good; 5=Excellent",
       "target": "Q3",
@@ -563,7 +563,7 @@
       "source_reference": {
         "section": "questionnaire",
         "block_order": 10,
-        "row_index": 4
+        "row_index": 5
       },
       "source_text": "Always show",
       "target": "Q3",
@@ -580,7 +580,7 @@
       "source_reference": {
         "section": "questionnaire",
         "block_order": 10,
-        "row_index": 4
+        "row_index": 5
       },
       "source_text": "not marked optional",
       "target": "Q3",
@@ -597,7 +597,7 @@
       "source_reference": {
         "section": "questionnaire",
         "block_order": 10,
-        "row_index": 5
+        "row_index": 6
       },
       "source_text": "Which aspects influenced your rating? Select all that apply.",
       "target": "Q4",
@@ -614,9 +614,9 @@
       "source_reference": {
         "section": "questionnaire",
         "block_order": 10,
-        "row_index": 5
+        "row_index": 6
       },
-      "source_text": "row 5",
+      "source_text": "row 6",
       "target": "Q4",
       "input_state": null,
       "expected": 6,
@@ -631,7 +631,7 @@
       "source_reference": {
         "section": "questionnaire",
         "block_order": 10,
-        "row_index": 5
+        "row_index": 6
       },
       "source_text": "multi",
       "target": "Q4",
@@ -648,7 +648,7 @@
       "source_reference": {
         "section": "questionnaire",
         "block_order": 10,
-        "row_index": 5
+        "row_index": 6
       },
       "source_text": "Availability; Ease of booking; Information clarity; Confirmation; Rescheduling; Staff support",
       "target": "Q4",
@@ -672,7 +672,7 @@
       "source_reference": {
         "section": "questionnaire",
         "block_order": 10,
-        "row_index": 5
+        "row_index": 6
       },
       "source_text": "min_selections: 1",
       "target": "Q4",
@@ -691,7 +691,7 @@
       "source_reference": {
         "section": "questionnaire",
         "block_order": 10,
-        "row_index": 5
+        "row_index": 6
       },
       "source_text": "not marked optional",
       "target": "Q4",
@@ -708,7 +708,7 @@
       "source_reference": {
         "section": "questionnaire",
         "block_order": 10,
-        "row_index": 6
+        "row_index": 7
       },
       "source_text": "Did you encounter a problem?",
       "target": "Q5",
@@ -725,9 +725,9 @@
       "source_reference": {
         "section": "questionnaire",
         "block_order": 10,
-        "row_index": 6
+        "row_index": 7
       },
-      "source_text": "row 6",
+      "source_text": "row 7",
       "target": "Q5",
       "input_state": null,
       "expected": 7,
@@ -742,7 +742,7 @@
       "source_reference": {
         "section": "questionnaire",
         "block_order": 10,
-        "row_index": 6
+        "row_index": 7
       },
       "source_text": "single",
       "target": "Q5",
@@ -759,7 +759,7 @@
       "source_reference": {
         "section": "questionnaire",
         "block_order": 10,
-        "row_index": 6
+        "row_index": 7
       },
       "source_text": "Yes; No",
       "target": "Q5",
@@ -779,7 +779,7 @@
       "source_reference": {
         "section": "questionnaire",
         "block_order": 10,
-        "row_index": 6
+        "row_index": 7
       },
       "source_text": "Always show",
       "target": "Q5",
@@ -796,7 +796,7 @@
       "source_reference": {
         "section": "questionnaire",
         "block_order": 10,
-        "row_index": 6
+        "row_index": 7
       },
       "source_text": "not marked optional",
       "target": "Q5",
@@ -813,7 +813,7 @@
       "source_reference": {
         "section": "questionnaire",
         "block_order": 10,
-        "row_index": 7
+        "row_index": 8
       },
       "source_text": "Please describe the main problem.",
       "target": "Q6",
@@ -830,9 +830,9 @@
       "source_reference": {
         "section": "questionnaire",
         "block_order": 10,
-        "row_index": 7
+        "row_index": 8
       },
-      "source_text": "row 7",
+      "source_text": "row 8",
       "target": "Q6",
       "input_state": null,
       "expected": 8,
@@ -847,7 +847,7 @@
       "source_reference": {
         "section": "questionnaire",
         "block_order": 10,
-        "row_index": 7
+        "row_index": 8
       },
       "source_text": "text",
       "target": "Q6",
@@ -864,7 +864,7 @@
       "source_reference": {
         "section": "questionnaire",
         "block_order": 10,
-        "row_index": 7
+        "row_index": 8
       },
       "source_text": "Q5 == 'Yes'",
       "target": "Q6",
@@ -881,7 +881,7 @@
       "source_reference": {
         "section": "questionnaire",
         "block_order": 10,
-        "row_index": 7
+        "row_index": 8
       },
       "source_text": "Q5 == 'Yes'",
       "target": "Q6",
@@ -902,7 +902,7 @@
       "source_reference": {
         "section": "questionnaire",
         "block_order": 10,
-        "row_index": 7
+        "row_index": 8
       },
       "source_text": "Q5 == 'Yes'",
       "target": "Q6",
@@ -923,7 +923,7 @@
       "source_reference": {
         "section": "questionnaire",
         "block_order": 10,
-        "row_index": 7
+        "row_index": 8
       },
       "source_text": "min_length: 10",
       "target": "Q6",
@@ -942,7 +942,7 @@
       "source_reference": {
         "section": "questionnaire",
         "block_order": 10,
-        "row_index": 7
+        "row_index": 8
       },
       "source_text": "max_length: 500",
       "target": "Q6",
@@ -961,7 +961,7 @@
       "source_reference": {
         "section": "questionnaire",
         "block_order": 10,
-        "row_index": 7
+        "row_index": 8
       },
       "source_text": "not marked optional",
       "target": "Q6",
@@ -978,7 +978,7 @@
       "source_reference": {
         "section": "questionnaire",
         "block_order": 10,
-        "row_index": 8
+        "row_index": 9
       },
       "source_text": "How likely are you to recommend this service?",
       "target": "Q7",
@@ -995,9 +995,9 @@
       "source_reference": {
         "section": "questionnaire",
         "block_order": 10,
-        "row_index": 8
+        "row_index": 9
       },
-      "source_text": "row 8",
+      "source_text": "row 9",
       "target": "Q7",
       "input_state": null,
       "expected": 9,
@@ -1012,7 +1012,7 @@
       "source_reference": {
         "section": "questionnaire",
         "block_order": 10,
-        "row_index": 8
+        "row_index": 9
       },
       "source_text": "single",
       "target": "Q7",
@@ -1029,7 +1029,7 @@
       "source_reference": {
         "section": "questionnaire",
         "block_order": 10,
-        "row_index": 8
+        "row_index": 9
       },
       "source_text": "0; 1; 2; 3; 4; 5; 6; 7; 8; 9; 10",
       "target": "Q7",
@@ -1058,7 +1058,7 @@
       "source_reference": {
         "section": "questionnaire",
         "block_order": 10,
-        "row_index": 8
+        "row_index": 9
       },
       "source_text": "Always show",
       "target": "Q7",
@@ -1075,7 +1075,7 @@
       "source_reference": {
         "section": "questionnaire",
         "block_order": 10,
-        "row_index": 8
+        "row_index": 9
       },
       "source_text": "not marked optional",
       "target": "Q7",
@@ -1092,7 +1092,7 @@
       "source_reference": {
         "section": "questionnaire",
         "block_order": 10,
-        "row_index": 9
+        "row_index": 10
       },
       "source_text": "What is the single most important improvement you would suggest?",
       "target": "Q8",
@@ -1109,9 +1109,9 @@
       "source_reference": {
         "section": "questionnaire",
         "block_order": 10,
-        "row_index": 9
+        "row_index": 10
       },
-      "source_text": "row 9",
+      "source_text": "row 10",
       "target": "Q8",
       "input_state": null,
       "expected": 10,
@@ -1126,7 +1126,7 @@
       "source_reference": {
         "section": "questionnaire",
         "block_order": 10,
-        "row_index": 9
+        "row_index": 10
       },
       "source_text": "text",
       "target": "Q8",
@@ -1143,7 +1143,7 @@
       "source_reference": {
         "section": "questionnaire",
         "block_order": 10,
-        "row_index": 9
+        "row_index": 10
       },
       "source_text": "max_length: 500",
       "target": "Q8",
@@ -1162,7 +1162,7 @@
       "source_reference": {
         "section": "questionnaire",
         "block_order": 10,
-        "row_index": 9
+        "row_index": 10
       },
       "source_text": "Optional",
       "target": "Q8",

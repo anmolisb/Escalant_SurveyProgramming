@@ -1,0 +1,38 @@
+[
+  {
+    "target_heading": "Routing and termination",
+    "status": "POSSIBLE_MATCH",
+    "candidate_heading": "R19",
+    "confidence": null,
+    "reasoning": "The condition refers to an exclusive option ('None of these') being selected together with another response at Q1 or Q5. This requires detecting a combination of selections (the exclusive option plus at least one other) and a logical grouping (AND within each question, OR between questions). The provided schema supports only flat lists of comparisons with a single joiner and cannot represent the required nested logical structure, so the condition cannot be unambiguously resolved into the allowed comparison format.",
+    "severity": "WARNING",
+    "target": {
+      "kind": "rule",
+      "id": "R19"
+    }
+  },
+  {
+    "target_heading": "Study specification",
+    "status": "NOT_PRESENT",
+    "candidate_heading": null,
+    "confidence": null,
+    "reasoning": "No line is labelled as the survey description; the line labelled 'Business objective' is being read as it.",
+    "severity": "INFO",
+    "target": {
+      "kind": "survey_information",
+      "id": "description"
+    }
+  },
+  {
+    "target_heading": "Study specification",
+    "status": "NOT_PRESENT",
+    "candidate_heading": null,
+    "confidence": null,
+    "reasoning": "The survey's welcome text is not stated: the document never states what a respondent is shown before the first question.",
+    "severity": "WARNING",
+    "target": {
+      "kind": "survey_information",
+      "id": "welcome_text"
+    }
+  }
+]

@@ -5,15 +5,15 @@
   "survey_id": "M01_mobile_network_experience",
   "source_document": {
     "filename": "M01_mobile_network_experience.docx",
-    "sha256": "1be6ec051fbc914680d8add2a2c9e85c568f5468d8f39f5b6e915eb5bfe6f3b5",
-    "bytes": 41874
+    "sha256": "215eee70e1cbbbc85d050966726cf0d0c3e857ecacb590bb614cce26ff00bf7b",
+    "bytes": 214822
   },
-  "generated_at": "2026-09-11T20:24:03+00:00",
+  "generated_at": "2026-10-07T08:48:16+00:00",
   "item_count": null,
   "content": {
     "counts": {
-      "PASS": 216,
-      "FAIL": 2,
+      "PASS": 218,
+      "FAIL": 0,
       "UNVERIFIED": 21,
       "BLOCKED": 0
     },
@@ -83,12 +83,12 @@
       },
       "validation_coverage": {
         "definition": "validation instructions carried, including whether an answer is required",
-        "numerator": 21,
+        "numerator": 23,
         "denominator": 23,
         "unverified_excluded": 0,
-        "result": 0.913,
+        "result": 1.0,
         "target": 1.0,
-        "meets_target": false
+        "meets_target": true
       },
       "dependency_piping_coverage": {
         "definition": "piped option lists recorded on the question and as a dependency",
@@ -164,8 +164,8 @@
       },
       "critical_rule_recall": {
         "definition": "executable logic - display, skip, routing, termination, validation, dependencies, quotas, randomization - carried correctly",
-        "numerator": 96,
-        "denominator": 96,
+        "numerator": 98,
+        "denominator": 98,
         "unverified_excluded": 21,
         "result": 1.0,
         "target": 1.0,
@@ -368,26 +368,26 @@
       {
         "test_id": "T016",
         "category": "validation_rules",
-        "criticality": "NORMAL",
-        "status": "FAIL",
+        "criticality": "CRITICAL",
+        "status": "PASS",
         "expected": 18,
-        "actual": null,
+        "actual": 18,
         "evidence": "min: 18",
-        "canonical_reference": "questions[S3].extra.min",
-        "explanation": "a setting the QRE states was dropped",
-        "severity": "warning"
+        "canonical_reference": "questions[S3].validation.min_value",
+        "explanation": "validation rule carried",
+        "severity": "none"
       },
       {
         "test_id": "T017",
         "category": "validation_rules",
-        "criticality": "NORMAL",
-        "status": "FAIL",
+        "criticality": "CRITICAL",
+        "status": "PASS",
         "expected": 80,
-        "actual": null,
+        "actual": 80,
         "evidence": "max: 80",
-        "canonical_reference": "questions[S3].extra.max",
-        "explanation": "a setting the QRE states was dropped",
-        "severity": "warning"
+        "canonical_reference": "questions[S3].validation.max_value",
+        "explanation": "validation rule carried",
+        "severity": "none"
       },
       {
         "test_id": "T018",
@@ -1007,7 +1007,7 @@
         "status": "PASS",
         "expected": 10,
         "actual": 10,
-        "evidence": "row 9",
+        "evidence": "row 10",
         "canonical_reference": "questions[Q7].seq",
         "explanation": "asked in document order",
         "severity": "none"
@@ -1123,7 +1123,7 @@
         "status": "PASS",
         "expected": 11,
         "actual": 11,
-        "evidence": "row 10",
+        "evidence": "row 11",
         "canonical_reference": "questions[Q8].seq",
         "explanation": "asked in document order",
         "severity": "none"
@@ -1237,7 +1237,7 @@
         "status": "PASS",
         "expected": 12,
         "actual": 12,
-        "evidence": "row 11",
+        "evidence": "row 12",
         "canonical_reference": "questions[Q9].seq",
         "explanation": "asked in document order",
         "severity": "none"
@@ -1332,7 +1332,7 @@
         "status": "PASS",
         "expected": 13,
         "actual": 13,
-        "evidence": "row 12",
+        "evidence": "row 13",
         "canonical_reference": "questions[Q10].seq",
         "explanation": "asked in document order",
         "severity": "none"
@@ -1464,7 +1464,7 @@
         "status": "PASS",
         "expected": 14,
         "actual": 14,
-        "evidence": "row 13",
+        "evidence": "row 14",
         "canonical_reference": "questions[Q11].seq",
         "explanation": "asked in document order",
         "severity": "none"
@@ -1560,7 +1560,7 @@
         "status": "PASS",
         "expected": 15,
         "actual": 15,
-        "evidence": "row 14",
+        "evidence": "row 15",
         "canonical_reference": "questions[Q12].seq",
         "explanation": "asked in document order",
         "severity": "none"
@@ -1644,7 +1644,7 @@
         "status": "PASS",
         "expected": 16,
         "actual": 16,
-        "evidence": "row 15",
+        "evidence": "row 16",
         "canonical_reference": "questions[Q13].seq",
         "explanation": "asked in document order",
         "severity": "none"
@@ -1743,7 +1743,7 @@
         "status": "PASS",
         "expected": 17,
         "actual": 17,
-        "evidence": "row 16",
+        "evidence": "row 17",
         "canonical_reference": "questions[D1].seq",
         "explanation": "asked in document order",
         "severity": "none"
@@ -1827,7 +1827,7 @@
         "status": "PASS",
         "expected": 18,
         "actual": 18,
-        "evidence": "row 17",
+        "evidence": "row 18",
         "canonical_reference": "questions[D2].seq",
         "explanation": "asked in document order",
         "severity": "none"
@@ -1911,7 +1911,7 @@
         "status": "PASS",
         "expected": 19,
         "actual": 19,
-        "evidence": "row 18",
+        "evidence": "row 19",
         "canonical_reference": "questions[Q14].seq",
         "explanation": "asked in document order",
         "severity": "none"

@@ -5,10 +5,10 @@
   "survey_id": "S02_e_commerce_checkout_experience",
   "source_document": {
     "filename": "S02_e_commerce_checkout_experience.docx",
-    "sha256": "f02204a21d2522bc03d5d535c38c5c38f37056124dee93af6e32cfd0a1740810",
-    "bytes": 40573
+    "sha256": "b87697fcfa2422a42d94e49fd25f76078319c735c413f7fb9219633c9faeefb0",
+    "bytes": 213120
   },
-  "generated_at": "2026-09-11T17:17:56+00:00",
+  "generated_at": "2026-10-07T08:32:12+00:00",
   "item_count": null,
   "content": {
     "source": "S02_e_commerce_checkout_experience.docx",
@@ -17,7 +17,7 @@
         "kind": "paragraph",
         "order": 0,
         "text": "S02 \u2022 SIMPLE",
-        "style": "Normal",
+        "style": "normal",
         "is_bold": true,
         "heading_level": null
       },
@@ -25,7 +25,7 @@
         "kind": "paragraph",
         "order": 1,
         "text": "E-commerce Checkout Experience",
-        "style": "Normal",
+        "style": "normal",
         "is_bold": true,
         "heading_level": null
       },
@@ -33,7 +33,7 @@
         "kind": "paragraph",
         "order": 2,
         "text": "Questionnaire Requirement Document (QRE)",
-        "style": "Normal",
+        "style": "normal",
         "is_bold": false,
         "heading_level": null
       },
@@ -49,7 +49,7 @@
         "kind": "paragraph",
         "order": 4,
         "text": "Business objective: Assess checkout usability and identify sources of abandonment or customer effort.",
-        "style": "Normal",
+        "style": "normal",
         "is_bold": true,
         "heading_level": null
       },
@@ -57,7 +57,7 @@
         "kind": "paragraph",
         "order": 5,
         "text": "Target population: Adults with a relevant experience in the last 30 days",
-        "style": "Normal",
+        "style": "normal",
         "is_bold": true,
         "heading_level": null
       },
@@ -65,7 +65,7 @@
         "kind": "paragraph",
         "order": 6,
         "text": "Mode: Self-completion web survey",
-        "style": "Normal",
+        "style": "normal",
         "is_bold": true,
         "heading_level": null
       },
@@ -73,7 +73,7 @@
         "kind": "paragraph",
         "order": 7,
         "text": "Estimated length: 4 minutes",
-        "style": "Normal",
+        "style": "normal",
         "is_bold": true,
         "heading_level": null
       },
@@ -81,7 +81,7 @@
         "kind": "paragraph",
         "order": 8,
         "text": "General instruction: All questions are mandatory unless explicitly marked optional. Do not infer unstated routing.",
-        "style": "Normal",
+        "style": "normal",
         "is_bold": true,
         "heading_level": null
       },
@@ -117,6 +117,13 @@
             "single",
             "Yes; No",
             "Always show"
+          ],
+          [
+            "DT1",
+            "Great, you're eligible for this survey! Next, a few quick questions about your recent online checkout.",
+            "text display",
+            "\u2014",
+            "Always show. Show only after S1 and S2 pass. Show for at least 3 seconds before Q1. Does not count as a routable question."
           ],
           [
             "Q1",
@@ -232,7 +239,7 @@
         "kind": "paragraph",
         "order": 14,
         "text": "Store stable question, option, route and test-run identifiers.",
-        "style": "List Bullet",
+        "style": "normal",
         "is_bold": false,
         "heading_level": null
       },
@@ -240,7 +247,7 @@
         "kind": "paragraph",
         "order": 15,
         "text": "Capture displayed random order for every randomized item.",
-        "style": "List Bullet",
+        "style": "normal",
         "is_bold": false,
         "heading_level": null
       },
@@ -248,7 +255,7 @@
         "kind": "paragraph",
         "order": 16,
         "text": "Record expected and observed destination for every routing transition.",
-        "style": "List Bullet",
+        "style": "normal",
         "is_bold": false,
         "heading_level": null
       },
@@ -256,7 +263,7 @@
         "kind": "paragraph",
         "order": 17,
         "text": "Reject mutually exclusive selections and invalid numeric/text responses before progression.",
-        "style": "List Bullet",
+        "style": "normal",
         "is_bold": false,
         "heading_level": null
       },
@@ -264,7 +271,7 @@
         "kind": "paragraph",
         "order": 18,
         "text": "Produce an audit record containing inputs, timestamps, route, assertions, screenshots on failure and final disposition.",
-        "style": "List Bullet",
+        "style": "normal",
         "is_bold": false,
         "heading_level": null
       },
@@ -272,7 +279,7 @@
         "kind": "paragraph",
         "order": 19,
         "text": "Do not send synthetic test responses into live operational reporting.",
-        "style": "List Bullet",
+        "style": "normal",
         "is_bold": false,
         "heading_level": null
       },
@@ -326,7 +333,7 @@
         "kind": "paragraph",
         "order": 23,
         "text": "TERM_INELIGIBLE: Thank you for your interest. You do not qualify for this survey.",
-        "style": "Normal",
+        "style": "normal",
         "is_bold": true,
         "heading_level": null
       },
@@ -334,7 +341,7 @@
         "kind": "paragraph",
         "order": 24,
         "text": "COMPLETE: Thank you. Your response has been recorded.",
-        "style": "Normal",
+        "style": "normal",
         "is_bold": true,
         "heading_level": null
       }

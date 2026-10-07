@@ -5,10 +5,10 @@
   "survey_id": "M06_digital_wallet_usage",
   "source_document": {
     "filename": "M06_digital_wallet_usage.docx",
-    "sha256": "546fc6e23a42b87d4668c2bc827f2423d9aba96e146850cdd7e2dc5ad9d829cd",
-    "bytes": 41867
+    "sha256": "c3b7489ceac50c1e9b83382ab386313d3c0f898f7e1ddaaf77ccc2b7b3d8730a",
+    "bytes": 214815
   },
-  "generated_at": "2026-09-11T17:13:45+00:00",
+  "generated_at": "2026-10-07T08:32:16+00:00",
   "item_count": null,
   "content": {
     "target": "Questionnaire",
@@ -76,6 +76,13 @@
         "Type": "single",
         "Options / scale": "1 - Very poor; 2 - Poor; 3 - Fair; 4 - Good; 5 - Excellent",
         "Display / validation": "Always show"
+      },
+      {
+        "ID": "DT1",
+        "Wording / instruction": "Thanks for rating your recent experience. Next, we'd like to ask about any issues you may have run into.",
+        "Type": "text display",
+        "Options / scale": "\u2014",
+        "Display / validation": "Always show. Show for at least 3 seconds before Q7. Does not count as a routable question."
       },
       {
         "ID": "Q7",
@@ -237,7 +244,7 @@
         "block_order": 10,
         "row_index": 9,
         "source_kind": "table",
-        "text": "Q7 | Did you experience any of the following problems? | multi | Payment failure; Refund delay; Incorrect debit; Authentication issue; Merchant acceptance; None of these | Validate: {\"exclusive_option\": \"None of these\"}\nRandomize"
+        "text": "DT1 | Thanks for rating your recent experience. Next, we'd like to ask about any issues you may have run into. | text display | \u2014 | Always show. Show for at least 3 seconds before Q7. Does not count as a routable question."
       },
       {
         "document": "M06_digital_wallet_usage.docx",
@@ -246,7 +253,7 @@
         "block_order": 10,
         "row_index": 10,
         "source_kind": "table",
-        "text": "Q8 | Which problem had the greatest impact? | single | Payment failure; Refund delay; Incorrect debit; Authentication issue; Merchant acceptance | Show if: Q7 contains any problem\nShow only options selected at Q7."
+        "text": "Q7 | Did you experience any of the following problems? | multi | Payment failure; Refund delay; Incorrect debit; Authentication issue; Merchant acceptance; None of these | Validate: {\"exclusive_option\": \"None of these\"}\nRandomize"
       },
       {
         "document": "M06_digital_wallet_usage.docx",
@@ -255,7 +262,7 @@
         "block_order": 10,
         "row_index": 11,
         "source_kind": "table",
-        "text": "Q9 | Was the main problem resolved? | single | Yes, fully; Yes, partly; No | Show if: Q7 contains any problem"
+        "text": "Q8 | Which problem had the greatest impact? | single | Payment failure; Refund delay; Incorrect debit; Authentication issue; Merchant acceptance | Show if: Q7 contains any problem\nShow only options selected at Q7."
       },
       {
         "document": "M06_digital_wallet_usage.docx",
@@ -264,7 +271,7 @@
         "block_order": 10,
         "row_index": 12,
         "source_kind": "table",
-        "text": "Q10 | How satisfied were you with the resolution? | single | 1 - Very poor; 2 - Poor; 3 - Fair; 4 - Good; 5 - Excellent | Show if: Q9 in ['Yes, fully','Yes, partly']"
+        "text": "Q9 | Was the main problem resolved? | single | Yes, fully; Yes, partly; No | Show if: Q7 contains any problem"
       },
       {
         "document": "M06_digital_wallet_usage.docx",
@@ -273,7 +280,7 @@
         "block_order": 10,
         "row_index": 13,
         "source_kind": "table",
-        "text": "Q11 | How likely are you to recommend the provider? | single | 0; 1; 2; 3; 4; 5; 6; 7; 8; 9; 10 | Always show"
+        "text": "Q10 | How satisfied were you with the resolution? | single | 1 - Very poor; 2 - Poor; 3 - Fair; 4 - Good; 5 - Excellent | Show if: Q9 in ['Yes, fully','Yes, partly']"
       },
       {
         "document": "M06_digital_wallet_usage.docx",
@@ -282,7 +289,7 @@
         "block_order": 10,
         "row_index": 14,
         "source_kind": "table",
-        "text": "Q12 | How likely are you to continue using the provider? | single | Definitely not; Probably not; Unsure; Probably; Definitely | Always show"
+        "text": "Q11 | How likely are you to recommend the provider? | single | 0; 1; 2; 3; 4; 5; 6; 7; 8; 9; 10 | Always show"
       },
       {
         "document": "M06_digital_wallet_usage.docx",
@@ -291,7 +298,7 @@
         "block_order": 10,
         "row_index": 15,
         "source_kind": "table",
-        "text": "Q13 | Which improvement would have the greatest value? | single | Lower cost; Faster service; Clearer information; Better staff support; Improved digital experience | Randomize"
+        "text": "Q12 | How likely are you to continue using the provider? | single | Definitely not; Probably not; Unsure; Probably; Definitely | Always show"
       },
       {
         "document": "M06_digital_wallet_usage.docx",
@@ -300,7 +307,7 @@
         "block_order": 10,
         "row_index": 16,
         "source_kind": "table",
-        "text": "D1 | Which region do you live in? | single | North; South; East; West; Central | Always show"
+        "text": "Q13 | Which improvement would have the greatest value? | single | Lower cost; Faster service; Clearer information; Better staff support; Improved digital experience | Randomize"
       },
       {
         "document": "M06_digital_wallet_usage.docx",
@@ -309,7 +316,7 @@
         "block_order": 10,
         "row_index": 17,
         "source_kind": "table",
-        "text": "D2 | Which age group describes you? | single | 18-24; 25-34; 35-44; 45-54; 55+ | Always show"
+        "text": "D1 | Which region do you live in? | single | North; South; East; West; Central | Always show"
       },
       {
         "document": "M06_digital_wallet_usage.docx",
@@ -317,6 +324,15 @@
         "heading_text": "Questionnaire",
         "block_order": 10,
         "row_index": 18,
+        "source_kind": "table",
+        "text": "D2 | Which age group describes you? | single | 18-24; 25-34; 35-44; 45-54; 55+ | Always show"
+      },
+      {
+        "document": "M06_digital_wallet_usage.docx",
+        "section": "Questionnaire",
+        "heading_text": "Questionnaire",
+        "block_order": 10,
+        "row_index": 19,
         "source_kind": "table",
         "text": "Q14 | Please provide any final comments. | text | \u2014 | Validate: {\"max_length\": 750}\nOptional"
       }

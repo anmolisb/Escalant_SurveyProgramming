@@ -5,10 +5,10 @@
   "survey_id": "M01_mobile_network_experience",
   "source_document": {
     "filename": "M01_mobile_network_experience.docx",
-    "sha256": "1be6ec051fbc914680d8add2a2c9e85c568f5468d8f39f5b6e915eb5bfe6f3b5",
-    "bytes": 41874
+    "sha256": "215eee70e1cbbbc85d050966726cf0d0c3e857ecacb590bb614cce26ff00bf7b",
+    "bytes": 214822
   },
-  "generated_at": "2026-09-11T20:24:03+00:00",
+  "generated_at": "2026-10-07T08:48:16+00:00",
   "item_count": null,
   "content": {
     "source": "M01_mobile_network_experience.docx",
@@ -701,7 +701,7 @@
           "section": "Questionnaire",
           "heading_text": "Questionnaire",
           "block_order": 10,
-          "row_index": 9,
+          "row_index": 10,
           "source_kind": "table",
           "text": "Q7 | Did you experience any of the following problems? | multi | Dropped calls; Slow data; Unexpected charge; Coverage gap; Support delay; None of these | Validate: {\"exclusive_option\": \"None of these\"}\nRandomize"
         }
@@ -817,7 +817,7 @@
             "section": "Questionnaire",
             "heading_text": "Questionnaire",
             "block_order": 10,
-            "row_index": 10,
+            "row_index": 11,
             "source_kind": "table",
             "text": "Q8 | Which problem had the greatest impact? | single | Dropped calls; Slow data; Unexpected charge; Coverage gap; Support delay | Show if: Q7 contains any problem\nShow only options selected at Q7."
           }
@@ -828,7 +828,7 @@
           "section": "Questionnaire",
           "heading_text": "Questionnaire",
           "block_order": 10,
-          "row_index": 10,
+          "row_index": 11,
           "source_kind": "table",
           "text": "Q8 | Which problem had the greatest impact? | single | Dropped calls; Slow data; Unexpected charge; Coverage gap; Support delay | Show if: Q7 contains any problem\nShow only options selected at Q7."
         }
@@ -928,7 +928,7 @@
           "section": "Questionnaire",
           "heading_text": "Questionnaire",
           "block_order": 10,
-          "row_index": 11,
+          "row_index": 12,
           "source_kind": "table",
           "text": "Q9 | Was the main problem resolved? | single | Yes, fully; Yes, partly; No | Show if: Q7 contains any problem"
         }
@@ -1036,7 +1036,7 @@
           "section": "Questionnaire",
           "heading_text": "Questionnaire",
           "block_order": 10,
-          "row_index": 12,
+          "row_index": 13,
           "source_kind": "table",
           "text": "Q10 | How satisfied were you with the resolution? | single | 1 - Very poor; 2 - Poor; 3 - Fair; 4 - Good; 5 - Excellent | Show if: Q9 in ['Yes, fully','Yes, partly']"
         }
@@ -1147,7 +1147,7 @@
           "section": "Questionnaire",
           "heading_text": "Questionnaire",
           "block_order": 10,
-          "row_index": 13,
+          "row_index": 14,
           "source_kind": "table",
           "text": "Q11 | How likely are you to recommend the provider? | single | 0; 1; 2; 3; 4; 5; 6; 7; 8; 9; 10 | Always show"
         }
@@ -1216,7 +1216,7 @@
           "section": "Questionnaire",
           "heading_text": "Questionnaire",
           "block_order": 10,
-          "row_index": 14,
+          "row_index": 15,
           "source_kind": "table",
           "text": "Q12 | How likely are you to continue using the provider? | single | Definitely not; Probably not; Unsure; Probably; Definitely | Always show"
         }
@@ -1285,7 +1285,7 @@
           "section": "Questionnaire",
           "heading_text": "Questionnaire",
           "block_order": 10,
-          "row_index": 15,
+          "row_index": 16,
           "source_kind": "table",
           "text": "Q13 | Which improvement would have the greatest value? | single | Lower cost; Faster service; Clearer information; Better staff support; Improved digital experience | Randomize"
         }
@@ -1354,7 +1354,7 @@
           "section": "Questionnaire",
           "heading_text": "Questionnaire",
           "block_order": 10,
-          "row_index": 16,
+          "row_index": 17,
           "source_kind": "table",
           "text": "D1 | Which region do you live in? | single | North; South; East; West; Central | Always show"
         }
@@ -1423,7 +1423,7 @@
           "section": "Questionnaire",
           "heading_text": "Questionnaire",
           "block_order": 10,
-          "row_index": 17,
+          "row_index": 18,
           "source_kind": "table",
           "text": "D2 | Which age group describes you? | single | 18-24; 25-34; 35-44; 45-54; 55+ | Always show"
         }
@@ -1456,7 +1456,7 @@
           "section": "Questionnaire",
           "heading_text": "Questionnaire",
           "block_order": 10,
-          "row_index": 18,
+          "row_index": 19,
           "source_kind": "table",
           "text": "Q14 | Please provide any final comments. | text | \u2014 | Validate: {\"max_length\": 750}\nOptional"
         }
@@ -2097,7 +2097,7 @@
           "section": "Questionnaire",
           "heading_text": "Questionnaire",
           "block_order": 10,
-          "row_index": 10,
+          "row_index": 11,
           "source_kind": "table",
           "text": "Q8 | Which problem had the greatest impact? | single | Dropped calls; Slow data; Unexpected charge; Coverage gap; Support delay | Show if: Q7 contains any problem\nShow only options selected at Q7."
         }
@@ -2114,7 +2114,7 @@
           "section": "Questionnaire",
           "heading_text": "Questionnaire",
           "block_order": 10,
-          "row_index": 11,
+          "row_index": 12,
           "source_kind": "table",
           "text": "Q9 | Was the main problem resolved? | single | Yes, fully; Yes, partly; No | Show if: Q7 contains any problem"
         }
@@ -2131,7 +2131,7 @@
           "section": "Questionnaire",
           "heading_text": "Questionnaire",
           "block_order": 10,
-          "row_index": 12,
+          "row_index": 13,
           "source_kind": "table",
           "text": "Q10 | How satisfied were you with the resolution? | single | 1 - Very poor; 2 - Poor; 3 - Fair; 4 - Good; 5 - Excellent | Show if: Q9 in ['Yes, fully','Yes, partly']"
         }
@@ -2148,7 +2148,7 @@
           "section": "Questionnaire",
           "heading_text": "Questionnaire",
           "block_order": 10,
-          "row_index": 13,
+          "row_index": 14,
           "source_kind": "table",
           "text": "Q11 | How likely are you to recommend the provider? | single | 0; 1; 2; 3; 4; 5; 6; 7; 8; 9; 10 | Always show"
         }
@@ -2165,7 +2165,7 @@
           "section": "Questionnaire",
           "heading_text": "Questionnaire",
           "block_order": 10,
-          "row_index": 14,
+          "row_index": 15,
           "source_kind": "table",
           "text": "Q12 | How likely are you to continue using the provider? | single | Definitely not; Probably not; Unsure; Probably; Definitely | Always show"
         }
@@ -2201,7 +2201,7 @@
           "section": "Questionnaire",
           "heading_text": "Questionnaire",
           "block_order": 10,
-          "row_index": 9,
+          "row_index": 10,
           "source_kind": "table",
           "text": "Q7 | Did you experience any of the following problems? | multi | Dropped calls; Slow data; Unexpected charge; Coverage gap; Support delay; None of these | Validate: {\"exclusive_option\": \"None of these\"}\nRandomize"
         }
@@ -2218,7 +2218,7 @@
           "section": "Questionnaire",
           "heading_text": "Questionnaire",
           "block_order": 10,
-          "row_index": 15,
+          "row_index": 16,
           "source_kind": "table",
           "text": "Q13 | Which improvement would have the greatest value? | single | Lower cost; Faster service; Clearer information; Better staff support; Improved digital experience | Randomize"
         }

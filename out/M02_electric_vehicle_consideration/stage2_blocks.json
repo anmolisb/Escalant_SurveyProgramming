@@ -5,10 +5,10 @@
   "survey_id": "M02_electric_vehicle_consideration",
   "source_document": {
     "filename": "M02_electric_vehicle_consideration.docx",
-    "sha256": "e78b136ace59a25b7a7286fe8787be58d76c44c0896523d62fba6469ab0d383b",
-    "bytes": 41870
+    "sha256": "3ec7496fa378226473bbbce2629f202c80fa4b2e13d20ac319ada39ac817ed38",
+    "bytes": 214818
   },
-  "generated_at": "2026-09-11T17:03:18+00:00",
+  "generated_at": "2026-10-07T08:32:14+00:00",
   "item_count": null,
   "content": {
     "source": "M02_electric_vehicle_consideration.docx",
@@ -93,6 +93,13 @@
                 "single",
                 "1 - Very poor; 2 - Poor; 3 - Fair; 4 - Good; 5 - Excellent",
                 "Always show"
+              ],
+              [
+                "DT1",
+                "Thanks for rating your recent experience. Next, we'd like to ask about any issues you may have run into.",
+                "text display",
+                "\u2014",
+                "Always show. Show for at least 3 seconds before Q7. Does not count as a routable question."
               ],
               [
                 "Q7",
@@ -305,7 +312,7 @@
             "kind": "paragraph",
             "order": 26,
             "text": "TERM_INELIGIBLE: Thank you for your interest. You do not qualify for this survey.",
-            "style": "Normal",
+            "style": "normal",
             "is_bold": true,
             "heading_level": null
           },
@@ -313,7 +320,7 @@
             "kind": "paragraph",
             "order": 27,
             "text": "COMPLETE: Thank you. Your response has been recorded.",
-            "style": "Normal",
+            "style": "normal",
             "is_bold": true,
             "heading_level": null
           }
@@ -330,7 +337,7 @@
             "kind": "paragraph",
             "order": 14,
             "text": "QUOTA_REGION: soft quota on D1: North=20%, South=20%, East=20%, West=20%, Central=20%",
-            "style": "Normal",
+            "style": "normal",
             "is_bold": true,
             "heading_level": null
           },
@@ -338,7 +345,7 @@
             "kind": "paragraph",
             "order": 15,
             "text": "Quota-full respondents terminate at TERM_QUOTA_FULL before the next substantive question. Quota status must be logged.",
-            "style": "Normal",
+            "style": "normal",
             "is_bold": false,
             "heading_level": null
           }
@@ -355,7 +362,7 @@
             "kind": "paragraph",
             "order": 4,
             "text": "Business objective: Understand the consideration journey and barriers for electric vehicles.",
-            "style": "Normal",
+            "style": "normal",
             "is_bold": true,
             "heading_level": null
           },
@@ -363,7 +370,7 @@
             "kind": "paragraph",
             "order": 5,
             "text": "Target population: Adults 18-80 who recently used electric vehicles and influenced the choice",
-            "style": "Normal",
+            "style": "normal",
             "is_bold": true,
             "heading_level": null
           },
@@ -371,7 +378,7 @@
             "kind": "paragraph",
             "order": 6,
             "text": "Mode: Self-completion web survey",
-            "style": "Normal",
+            "style": "normal",
             "is_bold": true,
             "heading_level": null
           },
@@ -379,7 +386,7 @@
             "kind": "paragraph",
             "order": 7,
             "text": "Estimated length: 7 minutes",
-            "style": "Normal",
+            "style": "normal",
             "is_bold": true,
             "heading_level": null
           },
@@ -387,7 +394,7 @@
             "kind": "paragraph",
             "order": 8,
             "text": "General instruction: All questions are mandatory unless explicitly marked optional. Do not infer unstated routing.",
-            "style": "Normal",
+            "style": "normal",
             "is_bold": true,
             "heading_level": null
           }
@@ -404,7 +411,7 @@
             "kind": "paragraph",
             "order": 17,
             "text": "Store stable question, option, route and test-run identifiers.",
-            "style": "List Bullet",
+            "style": "normal",
             "is_bold": false,
             "heading_level": null
           },
@@ -412,7 +419,7 @@
             "kind": "paragraph",
             "order": 18,
             "text": "Capture displayed random order for every randomized item.",
-            "style": "List Bullet",
+            "style": "normal",
             "is_bold": false,
             "heading_level": null
           },
@@ -420,7 +427,7 @@
             "kind": "paragraph",
             "order": 19,
             "text": "Record expected and observed destination for every routing transition.",
-            "style": "List Bullet",
+            "style": "normal",
             "is_bold": false,
             "heading_level": null
           },
@@ -428,7 +435,7 @@
             "kind": "paragraph",
             "order": 20,
             "text": "Reject mutually exclusive selections and invalid numeric/text responses before progression.",
-            "style": "List Bullet",
+            "style": "normal",
             "is_bold": false,
             "heading_level": null
           },
@@ -436,7 +443,7 @@
             "kind": "paragraph",
             "order": 21,
             "text": "Produce an audit record containing inputs, timestamps, route, assertions, screenshots on failure and final disposition.",
-            "style": "List Bullet",
+            "style": "normal",
             "is_bold": false,
             "heading_level": null
           },
@@ -444,7 +451,7 @@
             "kind": "paragraph",
             "order": 22,
             "text": "Do not send synthetic test responses into live operational reporting.",
-            "style": "List Bullet",
+            "style": "normal",
             "is_bold": false,
             "heading_level": null
           }

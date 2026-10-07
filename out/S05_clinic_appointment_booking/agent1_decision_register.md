@@ -1,6 +1,6 @@
 # Decision register — S05_clinic_appointment_booking
 
-Source: `S05_clinic_appointment_booking.docx` (sha256 `70248459ff35bb40…`)
+Source: `S05_clinic_appointment_booking.docx` (sha256 `981a7860c79f128b…`)
 
 A decision is resolved by editing its entry in `agent1_decisions.json` -
 set `status` to `RESOLVED`, fill `decision` with the ruling and

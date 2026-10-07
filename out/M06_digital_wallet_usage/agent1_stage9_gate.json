@@ -5,19 +5,18 @@
   "survey_id": "M06_digital_wallet_usage",
   "source_document": {
     "filename": "M06_digital_wallet_usage.docx",
-    "sha256": "546fc6e23a42b87d4668c2bc827f2423d9aba96e146850cdd7e2dc5ad9d829cd",
-    "bytes": 41867
+    "sha256": "c3b7489ceac50c1e9b83382ab386313d3c0f898f7e1ddaaf77ccc2b7b3d8730a",
+    "bytes": 214815
   },
-  "generated_at": "2026-09-11T17:16:38+00:00",
+  "generated_at": "2026-10-07T08:32:16+00:00",
   "item_count": null,
   "content": {
     "graph_input_sufficiency": "READY",
     "status": "BLOCKED",
-    "canonical_validation_clear": false,
+    "canonical_validation_clear": true,
     "human_decision_gate_clear": false,
     "graph_validation_passed": true,
     "blocked_by": [
-      "canonical_status=FAILED",
       "human_decision_gate=PENDING_BLOCKING_DECISIONS"
     ]
   }

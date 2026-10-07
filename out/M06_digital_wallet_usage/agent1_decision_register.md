@@ -1,6 +1,6 @@
 # Decision register — M06_digital_wallet_usage
 
-Source: `M06_digital_wallet_usage.docx` (sha256 `546fc6e23a42b87d…`)
+Source: `M06_digital_wallet_usage.docx` (sha256 `c3b7489ceac50c1e…`)
 
 A decision is resolved by editing its entry in `agent1_decisions.json` -
 set `status` to `RESOLVED`, fill `decision` with the ruling and

@@ -5,10 +5,10 @@
   "survey_id": "S01_campus_cafeteria_experience",
   "source_document": {
     "filename": "S01_campus_cafeteria_experience.docx",
-    "sha256": "2756cb3b6dc3f21cdc7c1d35b7cfb0e2270af2a918ba6fe682e72ae8e121a804",
-    "bytes": 40578
+    "sha256": "6a10a53aba579dda911f8c159c4e1613af40cd020e122d5926b4c9a03a6fe9fd",
+    "bytes": 213124
   },
-  "generated_at": "2026-10-04T06:44:22+00:00",
+  "generated_at": "2026-10-07T08:48:15+00:00",
   "item_count": null,
   "content": {
     "counts": {
@@ -348,7 +348,7 @@
         "status": "PASS",
         "expected": 3,
         "actual": 3,
-        "evidence": "row 2",
+        "evidence": "row 3",
         "canonical_reference": "questions[Q1].seq",
         "explanation": "asked in document order",
         "severity": "none"
@@ -428,7 +428,7 @@
         "status": "PASS",
         "expected": 4,
         "actual": 4,
-        "evidence": "row 3",
+        "evidence": "row 4",
         "canonical_reference": "questions[Q2].seq",
         "explanation": "asked in document order",
         "severity": "none"
@@ -536,7 +536,7 @@
         "status": "PASS",
         "expected": 5,
         "actual": 5,
-        "evidence": "row 4",
+        "evidence": "row 5",
         "canonical_reference": "questions[Q3].seq",
         "explanation": "asked in document order",
         "severity": "none"
@@ -644,7 +644,7 @@
         "status": "PASS",
         "expected": 6,
         "actual": 6,
-        "evidence": "row 5",
+        "evidence": "row 6",
         "canonical_reference": "questions[Q4].seq",
         "explanation": "asked in document order",
         "severity": "none"
@@ -730,7 +730,7 @@
         "status": "PASS",
         "expected": 7,
         "actual": 7,
-        "evidence": "row 6",
+        "evidence": "row 7",
         "canonical_reference": "questions[Q5].seq",
         "explanation": "asked in document order",
         "severity": "none"
@@ -808,7 +808,7 @@
         "status": "PASS",
         "expected": 8,
         "actual": 8,
-        "evidence": "row 7",
+        "evidence": "row 8",
         "canonical_reference": "questions[Q6].seq",
         "explanation": "asked in document order",
         "severity": "none"
@@ -916,7 +916,7 @@
         "status": "PASS",
         "expected": 9,
         "actual": 9,
-        "evidence": "row 8",
+        "evidence": "row 9",
         "canonical_reference": "questions[Q7].seq",
         "explanation": "asked in document order",
         "severity": "none"
@@ -1012,7 +1012,7 @@
         "status": "PASS",
         "expected": 10,
         "actual": 10,
-        "evidence": "row 9",
+        "evidence": "row 10",
         "canonical_reference": "questions[Q8].seq",
         "explanation": "asked in document order",
         "severity": "none"

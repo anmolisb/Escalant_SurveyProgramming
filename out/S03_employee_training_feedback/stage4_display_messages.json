@@ -1,0 +1,9 @@
+[
+  {
+    "id": "DT1",
+    "message": "Great, you're eligible for this survey! Next, a few quick questions about your recent training session.",
+    "instruction": "Always show. Show only after S1 and S2 pass. Show for at least 3 seconds before Q1. Does not count as a routable question.",
+    "preceding_question_id": "S2",
+    "following_question_id": "Q1"
+  }
+]
