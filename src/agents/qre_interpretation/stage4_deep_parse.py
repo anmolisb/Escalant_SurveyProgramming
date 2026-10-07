@@ -24,6 +24,7 @@ from . import part2_conditions
 from .models import (
     AcceptanceScenario,
     CompletionMessage,
+    DisplayMessage,
     ExtractedStatement,
     FlagSeverity,
     FlagStatus,
@@ -32,6 +33,7 @@ from .models import (
     ConditionOp,
     DirectiveKind,
     LLMComparisonOp,
+    LLMDirective,
     LLMQuestionFields,
     LLMRoutingExpression,
     Operand,
@@ -64,7 +66,8 @@ _QUESTION_HINTS = {
     "wording": ("wording", "question", "text", "instruction", "verbatim", "stem"),
     "type": ("type", "format", "kind", "mode", "capture"),
     "options": ("option", "scale", "codeframe", "answer", "response", "reply", "choice"),
-    "display": ("display", "validation", "condition", "base", "logic", "gating", "rule", "show"),
+    "display": ("display", "validation", "condition", "base", "logic", "gating", "rule", "show",
+                "programming"),
 }
 
 _ROUTING_HINTS = {
@@ -79,6 +82,13 @@ _SCENARIO_HINTS = {
     "wording": ("purpose", "description", "name", "scenario", "objective"),
     "inputs": ("input", "given", "answer"),
     "outcome": ("outcome", "expected", "result"),
+}
+
+#: Completion messages have their own vocabulary. Borrowing the questionnaire's
+#: `wording` role left a column headed "User/system message" matching nothing.
+_MESSAGE_HINTS = {
+    "id": ("code", "id", "ref", "disposition", "ending", "status"),
+    "message": ("message", "text", "wording", "shown", "copy", "statement"),
 }
 
 #: Kept for anything still reading the old name.
@@ -297,7 +307,7 @@ def _split_matrix(text: str) -> tuple[list[Option], list[Option]]:
 def _apply_validation(question: Question, cell: str) -> list[str]:
     """Lift every JSON validation payload in the cell onto typed fields."""
     errors: list[str] = []
-    for line in cell.split("\n"):
+    for line in cell.splitlines():
         if "validate" not in line.lower():
             continue
         match = _JSON_OBJECT.search(line)
@@ -403,6 +413,48 @@ def _apply_directives(
     return flags
 
 
+#: An instruction line that states its own kind in its first word or two. The
+#: captured group is the instruction's text, as the model would have returned it.
+_KEYWORD_LINES: list[tuple[re.Pattern, DirectiveKind]] = [
+    (re.compile(r"^show if\s*:?\s*(.+)$", re.I), DirectiveKind.DISPLAY_CONDITION),
+    (re.compile(r"^validate\s*:?\s*(\{.*\})$", re.I), DirectiveKind.VALIDATION),
+    (re.compile(r"^(randomi[sz]e)\.?$", re.I), DirectiveKind.RANDOMIZE),
+    (re.compile(r"^(always show)\.?$", re.I), DirectiveKind.ALWAYS_SHOW),
+    (re.compile(r"^(optional)\.?$", re.I), DirectiveKind.OPTIONAL),
+    (re.compile(r"^(mandatory)\.?$", re.I), DirectiveKind.MANDATORY),
+]
+#: "Randomize; log order" - the keyword, then a second instruction after it.
+_RANDOMIZE_THEN = re.compile(r"^(randomi[sz]e)\s*;\s*(.+)$", re.I)
+
+
+def _keyword_directives(cell: str) -> LLMQuestionFields | None:
+    """Label a cell's instructions without a model, where every line allows it.
+
+    Returns None as soon as one line does not open with a keyword, and the
+    whole cell then goes to the model as before: a line such as "Show only
+    brands selected at Q1." needs reading, not matching. No model is needed to
+    see that "Validate: {...}" is a validation, and asking one anyway spends a
+    request per question and can return a different answer on another day.
+    """
+    directives: list[LLMDirective] = []
+    for line in (ln.strip() for ln in cell.splitlines()):
+        if not line:
+            continue
+        then = _RANDOMIZE_THEN.match(line)
+        if then:
+            directives.append(LLMDirective(kind=DirectiveKind.RANDOMIZE, text=then.group(1)))
+            directives.append(LLMDirective(kind=DirectiveKind.OTHER, text=then.group(2)))
+            continue
+        for pattern, kind in _KEYWORD_LINES:
+            match = pattern.match(line)
+            if match:
+                directives.append(LLMDirective(kind=kind, text=match.group(1).strip()))
+                break
+        else:
+            return None
+    return LLMQuestionFields(directives=directives)
+
+
 async def parse_questionnaire(
     block: Stage3Block | None,
 ) -> tuple[list[Question], list[ReviewFlag]]:
@@ -447,7 +499,7 @@ async def parse_questionnaire(
 
         if display_cell:
             try:
-                fields = await complete_async(
+                fields = _keyword_directives(display_cell) or await complete_async(
                     _QUESTION_SYSTEM,
                     f"Question {question.id} cell:\n{display_cell}",
                     LLMQuestionFields,
@@ -837,8 +889,8 @@ async def parse_messages(
     flags: list[ReviewFlag] = []
 
     for index, row in enumerate(block.rows):
-        code = row.get("code") or _value(row, "id")
-        text = row.get("message") or _value(row, "wording")
+        code = row.get("code") or _value(row, "id", _MESSAGE_HINTS)
+        text = row.get("message") or _value(row, "message", _MESSAGE_HINTS)
 
         # A single-pair row keyed by the code itself, e.g.
         # {"TERM_INELIGIBLE": "Thank you for your interest."}.
@@ -881,10 +933,44 @@ async def parse_messages(
 # ---------------------------------------------------------------------------
 
 
+#: Column names that hold a table-written statement's identifier.
+_STATEMENT_ID_WORDS = ("id", "code", "ref", "no", "quota", "rule", "item", "variable")
+
+
+def _statement_from(row: dict[str, str]) -> tuple[str | None, str | None, str, str]:
+    """Returns (code, label, text, raw).
+
+    Quotas, study facts and QA requirements are written as prose in one QRE and
+    as a table in the next. Stage 3 transcribes each faithfully, so prose rows
+    carry `raw_text`/`text` and table rows carry the table's own column names.
+    """
+    raw = (row.get("raw_text") or "").strip()
+    text = (row.get("text") or raw).strip()
+    if text:
+        return row.get("code") or None, row.get("label") or None, text, raw or text
+
+    # A table row, restated as "column: value" pairs in column order. This is
+    # the row rewritten, not interpreted: every cell and column name survives
+    # verbatim. Deciding what "±5 percentage-point tolerance" means is Part 2's.
+    code, parts = None, []
+    for column, value in row.items():
+        value = (value or "").strip()
+        if not value:
+            continue
+        if code is None and any(w in _words(column) for w in _STATEMENT_ID_WORDS):
+            code = value
+            continue
+        parts.append(f"{column.strip()}: {value}")
+    rendered = "; ".join(parts)
+    if code and rendered:
+        rendered = f"{code}: {rendered}"
+    return code, None, rendered, rendered
+
+
 async def parse_statements(
     block: Stage3Block | None,
 ) -> tuple[list[ExtractedStatement], list[ReviewFlag]]:
-    """Carry Stage 3's literal prose rows onto typed statements.
+    """Carry Stage 3's literal rows onto typed statements.
 
     No parsing beyond what Stage 3 already did. A quota line keeps its cells and
     percentages as written; deciding that "North=20%" means a 20 percent target
@@ -897,16 +983,15 @@ async def parse_statements(
 
     statements: list[ExtractedStatement] = []
     for index, row in enumerate(block.rows):
-        raw = (row.get("raw_text") or "").strip()
-        text = (row.get("text") or raw).strip()
+        code, label, text, raw = _statement_from(row)
         if not text:
             continue
         statements.append(
             ExtractedStatement(
-                code=row.get("code") or None,
-                label=row.get("label") or None,
+                code=code,
+                label=label,
                 text=text,
-                raw_text=raw or text,
+                raw_text=raw,
                 source_reference=_source_for(block, index),
             )
         )
@@ -1068,14 +1153,89 @@ def parse_survey(
     return information, flags
 
 
+#: What a question table's type column says for a row that only shows text.
+#: Seen as "text display"; a QRE using another word for it adds the word here.
+_DISPLAY_TYPE_WORDS = ("display",)
+
+
+def _split_display(
+    block: Stage3Block | None,
+) -> tuple[Stage3Block | None, list[DisplayMessage]]:
+    """Take the display-only rows out of the questionnaire.
+
+    Returns the questionnaire without them, and one DisplayMessage per row
+    taken. Wherever the question table sits - one table or one per module - a
+    display text is a row of it, so this is the only place they are looked for.
+    """
+    if block is None:
+        return None, []
+
+    def is_display(row: dict[str, str]) -> bool:
+        return any(w in _words(_value(row, "type")) for w in _DISPLAY_TYPE_WORDS)
+
+    kept = [i for i, row in enumerate(block.rows) if not is_display(row)]
+    if len(kept) == len(block.rows):
+        return block, []
+
+    def neighbour(index: int, step: int) -> str | None:
+        index += step
+        while 0 <= index < len(block.rows):
+            if not is_display(block.rows[index]):
+                return _value(block.rows[index], "id") or None
+            index += step
+        return None
+
+    messages = [
+        DisplayMessage(
+            id=_value(row, "id"),
+            message=_value(row, "wording"),
+            instruction=_value(row, "display"),
+            preceding_question_id=neighbour(index, -1),
+            following_question_id=neighbour(index, +1),
+            source_reference=_source_for(block, index),
+        )
+        for index, row in enumerate(block.rows)
+        if is_display(row)
+    ]
+    questions = block.model_copy(
+        update={
+            "rows": [block.rows[i] for i in kept],
+            "row_sources": [block.row_sources[i] for i in kept if i < len(block.row_sources)],
+        }
+    )
+    return questions, messages
+
+
+def _merge_by_target(blocks: list[Stage3Block]) -> dict[TargetHeading, Stage3Block]:
+    """One block per target, built from however many Stage 3 produced."""
+    merged: dict[TargetHeading, Stage3Block] = {}
+    for block in blocks:
+        first = merged.get(block.target)
+        if first is None:
+            merged[block.target] = block.model_copy(
+                update={"rows": list(block.rows), "row_sources": list(block.row_sources)}
+            )
+            continue
+        # Provenance stays index-aligned with the rows: a short list would
+        # shift every later row's source reference onto the wrong line.
+        first.row_sources.extend([None] * (len(first.rows) - len(first.row_sources)))
+        first.rows.extend(block.rows)
+        first.row_sources.extend(
+            block.row_sources[: len(block.rows)]
+            + [None] * max(0, len(block.rows) - len(block.row_sources))
+        )
+    return merged
+
+
 async def run_async(
     blocks: list[Stage3Block], source: str, front_matter: list[Paragraph]
 ) -> tuple[dict, list[ReviewFlag]]:
-    by_target = {b.target: b for b in blocks}
-
-    questionnaire_task = asyncio.create_task(
-        parse_questionnaire(by_target.get(TargetHeading.QUESTIONNAIRE))
+    by_target = _merge_by_target(blocks)
+    question_rows, display_messages = _split_display(
+        by_target.get(TargetHeading.QUESTIONNAIRE)
     )
+
+    questionnaire_task = asyncio.create_task(parse_questionnaire(question_rows))
 
     async def routing_after_questionnaire():
         # The only dependency in the stage: routing needs the option codes the
@@ -1111,6 +1271,7 @@ async def run_async(
         {
             "survey": information,
             "questions": questions,
+            "display_messages": display_messages,
             "routing": routing,
             "scenarios": scenarios,
             "messages": messages,

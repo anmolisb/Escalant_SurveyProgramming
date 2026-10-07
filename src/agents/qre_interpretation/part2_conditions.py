@@ -36,7 +36,7 @@ from .models import (
 
 #: A question id: S1, Q12, D4, A_2. Kept loose because ids are the QRE's
 #: convention, not ours.
-_QID = r"[A-Za-z]{1,4}_?\d+"
+_QID = r"(?:[A-Za-z]{1,4}_?\d+)+"
 
 #: Every operator is infix: question, operator, value. One shape for all of
 #: them, so a reader - or a regex - finds the question on the left of any

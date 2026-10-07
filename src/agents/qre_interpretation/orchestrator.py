@@ -16,6 +16,7 @@ produces them:
     stage2_blocks.json      stage2_flags.json
     stage3_<target>.json    (one per matched target)
     stage4_<target>.json    stage4_flags.json
+    stage4_display_messages.json     (text shown between questions)
     stage5_audit.json
     part2_canonical.json             (Part 2 — what the QRE means)
     agent1_evaluation_tests.json     (Stage 7 — validation, always run)
@@ -268,7 +269,11 @@ def run_stage2(document: Stage1Document) -> Stage2Blocks:
 
 
 def run_stage3(stage2: Stage2Blocks) -> tuple[list[Stage3Block], list[ReviewFlag]]:
-    blocks, flags = stage3_raw_json.run(stage2)
+    per_block, flags = stage3_raw_json.run(stage2)
+    # One file per target, so the file has to hold everything the target
+    # transcribed. Written per block, a questionnaire spread over thirteen
+    # sections left only the last section's rows on disk.
+    blocks = list(stage4_deep_parse._merge_by_target(per_block).values())
     out = _out_dir(stage2.source)
     for block in blocks:
         _write(
@@ -314,6 +319,7 @@ def run_stage4(
     out = _out_dir(source)
     for key, slug in (
         ("questions", "questionnaire"),
+        ("display_messages", "display_messages"),
         ("routing", "routing"),
         ("scenarios", "scenarios"),
         ("messages", "messages"),
@@ -578,6 +584,8 @@ def _summarise(blocks: Stage2Blocks, stage3: list[Stage3Block], parsed: dict, fl
             f"{target.value:<28} {matched.get(target, '—'):<11} "
             f"{raw.get(target, 0):>9} {counts[target]:>7}"
         )
+
+    print(f"\nDISPLAY MESSAGES — {len(parsed['display_messages'])}")
 
     all_flags = [*blocks.flags, *flags]
     if all_flags:

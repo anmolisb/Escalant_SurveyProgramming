@@ -40,7 +40,7 @@ MAX_TOKENS = 800
 MAX_CONCURRENCY = 2
 
 #: How many times to wait out a rate limit before giving up.
-MAX_RATE_LIMIT_RETRIES = 6
+MAX_RATE_LIMIT_RETRIES = 20
 
 logger = logging.getLogger(__name__)
 
@@ -112,6 +112,21 @@ def _is_daily_quota(message: str) -> bool:
     """
     lowered = message.lower()
     return "tokens per day" in lowered or "(tpd)" in lowered
+
+
+class OutputTruncated(LLMUnavailable):
+    """The answer did not fit the token cap, even after the cap was doubled.
+
+    A kind of LLMUnavailable for the same reason as DailyQuotaExhausted: one
+    cell too long to answer should be flagged by the stage that asked, not end
+    the run for every other cell in the document.
+    """
+
+
+def _is_truncated(error: Exception) -> bool:
+    """Whether the model ran out of room before finishing a valid answer."""
+    message = str(error).lower()
+    return "max_tokens length limit" in message or "max completion tokens" in message
 
 
 def _is_empty_completion(message: str) -> bool:
@@ -258,7 +273,8 @@ def complete(
 ) -> T:
     """One structured call. Temperature 0, validated into `response_model`.
 
-    Retries on rate limiting only. Any other failure is raised: a malformed
+    Retries on rate limiting, and once with a doubled cap when the answer was
+    cut off. Any other failure is raised: a malformed
     response means the prompt or schema needs fixing, and retrying hides that.
 
     `max_tokens` overrides the default for a single call. Almost nothing needs
@@ -274,13 +290,15 @@ def complete(
         return recorded
 
     last: Exception | None = None
+    # The cap in the cache key stays the one asked for; only the request grows.
+    cap = max_tokens or MAX_TOKENS
     for _attempt in range(MAX_RATE_LIMIT_RETRIES + 1):
         try:
             answer = get_client().chat.completions.create(
                 model=get_model(),
                 response_model=response_model,
                 temperature=0,
-                max_tokens=max_tokens or MAX_TOKENS,
+                max_tokens=cap,
                 messages=[
                     {"role": "system", "content": system},
                     {"role": "user", "content": user},
@@ -298,6 +316,15 @@ def complete(
                     "not help until it resets. Reduce the work, wait for the "
                     f"reset, or raise the quota. Provider said: {exc}"
                 ) from exc
+            if _is_truncated(exc):
+                if cap > (max_tokens or MAX_TOKENS):
+                    raise OutputTruncated(
+                        f"The answer did not fit in {cap} tokens: {exc}"
+                    ) from exc
+                # One retry with twice the room. The default cap is tight on
+                # purpose, so it is raised only for the call that needs it.
+                cap *= 2
+                continue
             delay = _rate_limit_delay(exc)
             if delay is None and _is_empty_completion(str(exc)):
                 # Nothing came back at all. Give the budget a moment to free up
@@ -310,7 +337,9 @@ def complete(
             last = exc
             logger.info("Rate limited; waiting %.1fs", delay)
             time.sleep(delay)
-    raise RuntimeError(f"Rate limited after {MAX_RATE_LIMIT_RETRIES} retries: {last}")
+    # Still an LLMUnavailable, so the stage that asked flags the one item it
+    # could not read instead of the whole run ending on a busy minute.
+    raise LLMUnavailable(f"Rate limited after {MAX_RATE_LIMIT_RETRIES} retries: {last}")
 
 
 #: Keyed by event loop, because an asyncio primitive binds to the loop it is

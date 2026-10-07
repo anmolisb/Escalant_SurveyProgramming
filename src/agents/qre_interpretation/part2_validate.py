@@ -50,6 +50,16 @@ def cross_source(oracle: qre_oracle.OracleDocument, stage4: dict,
     def report(kind, severity, detail, **extra):
         findings.append(dict(check=kind, severity=severity, finding=detail, **extra))
 
+    # A specification that asks nothing is not a survey. Checked outright,
+    # because every comparison below is between sets: where the oracle and the
+    # extraction both read nothing they agree perfectly, and an empty document
+    # used to reach Agent 3 approved.
+    if not survey.questions:
+        report("missing_questionnaire", "BLOCKING",
+               "The specification contains no questions, so there is no survey "
+               "to build or test. %d question(s) were read independently from "
+               "the document." % len(oracle.questions))
+
     raw_questions = {q.question_id for q in oracle.questions}
     s4_questions = {q.id for q in stage4.get("questions", []) if q.id}
     canon_questions = {q.question_id for q in survey.questions}

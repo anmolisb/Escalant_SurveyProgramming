@@ -53,6 +53,8 @@ EXECUTABLE_CATEGORIES = {
 _VALIDATION_ALIASES = {
     "min_length": "min_length", "max_length": "max_length",
     "min_value": "min_value", "max_value": "max_value",
+    # The short forms a QRE also writes, read the same way Stage 4 reads them.
+    "min": "min_value", "max": "max_value",
     "min_selections": "min_selections",
     "sum": "sum_to", "sum_to": "sum_to",
     "require_each_row": "require_each_row",
@@ -165,6 +167,13 @@ def build_tests(oracle: qre_oracle.OracleDocument) -> list[TestCase]:
     tests: list[TestCase] = []
     counter = {"n": 0}
 
+    # Whether the document says anywhere what an unmarked question defaults to:
+    # a sentence naming both states, e.g. "mandatory unless marked optional".
+    states_default = any(
+        "mandator" in (s.text or "").lower() and "optional" in (s.text or "").lower()
+        for s in oracle.study + oracle.programming
+    )
+
     def add(category, check, *, source_text, target, expected, criticality,
             ground_truth=VERIFIED, source_reference=None, input_state=None, **params):
         counter["n"] += 1
@@ -245,7 +254,10 @@ def build_tests(oracle: qre_oracle.OracleDocument) -> list[TestCase]:
                     source_text="%s: %s" % (key, value), target=q.question_id,
                     expected=value, criticality=NORMAL, source_reference=ref, field=key)
         add("validation_rules", "mandatory", source_text=("Optional" if q.optional else "not marked optional"),
-            target=q.question_id, expected=(False if q.optional else True),
+            target=q.question_id,
+            # Required only where the document says so. One that never states
+            # a default leaves it unknown, and the specification must too.
+            expected=(False if q.optional else (True if states_default else None)),
             criticality=CRITICAL, source_reference=ref)
 
         # -- dependencies / randomization ------------------------------------

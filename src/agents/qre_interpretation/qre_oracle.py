@@ -57,7 +57,7 @@ _QUESTION_COLUMNS = {
     "wording": ("wording", "instruction", "text", "question"),
     "type": ("type", "format"),
     "options": ("option", "scale", "answer", "response"),
-    "display": ("display", "validation", "logic", "condition", "base"),
+    "display": ("display", "validation", "logic", "condition", "base", "programming"),
 }
 _ROUTING_COLUMNS = {
     "rule": ("rule", "id"),
@@ -72,8 +72,9 @@ _SCENARIO_COLUMNS = {
     "expected": ("expected", "outcome", "result"),
 }
 
-#: A question id as documents write them: S1, Q12, D4, A_2.
-QID = re.compile(r"\b([A-Za-z]{1,4}_?\d+)\b")
+#: A question id as documents write them: S1, Q12, D4, A_2, and M01Q01 where a
+#: document numbers its questions inside modules. Never a plain word.
+QID = re.compile(r"\b((?:[A-Za-z]{1,4}_?\d+)+)\b")
 
 #: "1 - Very poor" is a code and a label. "Primary-care physician" and "21-29"
 #: are not, which is why the hyphen must have space on both sides.
@@ -257,15 +258,21 @@ def _parse_options(cell: str) -> tuple[list[OracleOption], list[OracleOption]]:
     return build(cell), []
 
 
+def _after_keyword(segment: str, keyword: str) -> str:
+    """What follows an instruction's keyword, written with a colon or without:
+    "Show if: Q5 == 'Yes'" and "Show if Q5 == 'Yes'" say the same thing."""
+    return segment.strip()[len(keyword):].lstrip(" :").strip()
+
+
 def _read_display_cell(cell: str, question: OracleQuestion) -> None:
     for segment in _split_segments(cell):
         lowered = segment.lower()
         if lowered.startswith("show if"):
-            question.display_condition = segment.split(":", 1)[1].strip() if ":" in segment else ""
+            question.display_condition = _after_keyword(segment, "show if")
         elif lowered.startswith("always"):
             question.always_shown = True
         elif lowered.startswith("validate"):
-            payload = segment.split(":", 1)[1].strip() if ":" in segment else ""
+            payload = _after_keyword(segment, "validate")
             try:
                 parsed = json.loads(payload)
                 if isinstance(parsed, dict):
@@ -284,7 +291,9 @@ def _read_display_cell(cell: str, question: OracleQuestion) -> None:
                 question.randomize = True
         else:
             question.other_instructions.append(segment)
-            if "randomi" in lowered:
+            # "Do not randomise, this is a scale" mentions the word and means
+            # the opposite.
+            if "randomi" in lowered and "not randomi" not in lowered:
                 question.randomize = True
 
 
@@ -324,10 +333,19 @@ def read(docx_path: str | Path) -> OracleDocument:
             continue
 
         # A table.
-        if section is None or not block.rows:
+        if not block.rows:
             continue
         header = block.rows[0]
-        if section == "questionnaire":
+        if section not in ("questionnaire", "routing", "scenarios") and {
+            "id", "wording", "type"
+        } <= _column_map(header, _QUESTION_COLUMNS).keys():
+            # The heading does not say what this table is, but its own header
+            # does: a QRE that keeps one question table per module heads each
+            # with the module's name.
+            kind = "questionnaire"
+        else:
+            kind = section
+        if kind == "questionnaire":
             columns = _column_map(header, _QUESTION_COLUMNS)
             if "id" not in columns:
                 continue
@@ -335,6 +353,9 @@ def read(docx_path: str | Path) -> OracleDocument:
                 get = lambda key: (row[columns[key]] if key in columns and columns[key] < len(row) else "")
                 question_id = get("id").strip()
                 if not question_id:
+                    continue
+                if "display" in get("type").lower().split():
+                    # Text shown between questions. It asks nothing.
                     continue
                 seq += 1
                 question = OracleQuestion(
@@ -348,7 +369,7 @@ def read(docx_path: str | Path) -> OracleDocument:
                 question.options, question.matrix_rows = _parse_options(get("options"))
                 _read_display_cell(get("display"), question)
                 oracle.questions.append(question)
-        elif section == "routing":
+        elif kind == "routing":
             columns = _column_map(header, _ROUTING_COLUMNS)
             if "condition" not in columns or "action" not in columns:
                 continue
@@ -368,7 +389,7 @@ def read(docx_path: str | Path) -> OracleDocument:
                         row_index=row_index,
                     )
                 )
-        elif section == "scenarios":
+        elif kind == "scenarios":
             columns = _column_map(header, _SCENARIO_COLUMNS)
             if "id" not in columns:
                 continue
@@ -407,7 +428,7 @@ _REF_OPS = [
     ("!=", "ne"), ("==", "eq"), ("<=", "le"), (">=", "ge"),
     (" not in ", "not_in"), (" in ", "in"), ("<", "lt"), (">", "gt"),
 ]
-_REF_AGG = re.compile(r"^\s*(sum|count)\s*\(\s*([A-Za-z]{1,4}_?\d+)\s*\)\s*$", re.I)
+_REF_AGG = re.compile(r"^\s*(sum|count)\s*\(\s*((?:[A-Za-z]{1,4}_?\d+)+)\s*\)\s*$", re.I)
 
 
 @dataclass

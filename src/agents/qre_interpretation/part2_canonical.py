@@ -58,7 +58,7 @@ from . import part2_conditions
 
 #: A question id inside free text, so a pipe instruction such as
 #: "Show only brands selected at Q1." can name its source.
-_QID = re.compile(r"\b([A-Za-z]{1,4}_?\d+)\b")
+_QID = re.compile(r"\b((?:[A-Za-z]{1,4}_?\d+)+)\b")
 
 #: Destinations naming a place in the flow rather than a thing.
 _POSITIONS = {"CURRENT_QUESTION", "NEXT", "END", "SAME"}
@@ -1325,6 +1325,15 @@ def run(source: str, parsed: dict) -> CanonicalSurvey:
         evaluation_point = max(known, key=lambda q: seq_of[q]) if known else None
 
         destination = _destination(rule.destination, question_ids, codes)
+        if (
+            destination.kind is DestinationKind.UNKNOWN
+            and destination.id
+            and (rule.action or "").strip().lower() == "terminate"
+        ):
+            # The rule itself says this is where the survey ends. A QRE may name
+            # an ending and never give it a message; it is still an ending, and
+            # `_build_dispositions` records it as one the source left undefined.
+            destination = Destination(kind=DestinationKind.DISPOSITION, id=destination.id)
         if destination.kind is DestinationKind.UNKNOWN and codes:
             review.append(
                 _review(

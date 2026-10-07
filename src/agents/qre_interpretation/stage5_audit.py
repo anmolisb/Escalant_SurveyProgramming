@@ -166,6 +166,10 @@ def check_row_accounting(
     for block in stage3:
         key, id_field = _TARGET_KEYS[block.target]
         objects = parsed.get(key, [])
+        if block.target is TargetHeading.QUESTIONNAIRE:
+            # A display-only row of the question table became a display
+            # message, not a question. It is accounted for all the same.
+            objects = [*objects, *parsed.get("display_messages", [])]
         identified = sum(1 for o in objects if (getattr(o, id_field, "") or "").strip())
         rows_in = len(block.rows)
         threshold = _THRESHOLDS[block.target]
