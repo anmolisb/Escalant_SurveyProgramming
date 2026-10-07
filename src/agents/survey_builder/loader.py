@@ -313,6 +313,10 @@ def _invert(expression: str) -> str:
         return expression.replace("==", "!=", 1)
     if "!=" in expression:
         return expression.replace("!=", "==", 1)
+    if expression.startswith("(") and expression.endswith(")"):
+        # An ordering comparison such as (S1.NAOK < 18): negated as a whole,
+        # the same way a compound expression is.
+        return f"not{expression}"
     raise ConditionError(f"cannot invert {expression!r}")
 
 
