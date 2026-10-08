@@ -398,6 +398,32 @@
     "other_attributes": {}
   },
   {
+    "id": "DT1",
+    "seq": null,
+    "wording": "Thanks for rating your claims experience so far. Next, we'd like to ask about any issues you may have run into.",
+    "type": "text display",
+    "options": [],
+    "matrix_rows": [],
+    "display_condition": null,
+    "display_condition_expression": null,
+    "display_condition_expression_origin": null,
+    "min_length": null,
+    "max_length": null,
+    "min_value": null,
+    "max_value": null,
+    "min_selections": null,
+    "exclusive_option": null,
+    "sum_to": null,
+    "randomize": false,
+    "optional": false,
+    "dynamic_option_source": null,
+    "other_attributes": {
+      "other_instructions": [
+        "Always show. Show for at least 3 seconds before Q7. Does not count as a routable question."
+      ]
+    }
+  },
+  {
     "id": "Q7",
     "seq": 10,
     "wording": "Did you experience any of the following problems?",

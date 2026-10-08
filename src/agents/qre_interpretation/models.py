@@ -335,6 +335,16 @@ class Option(BaseModel):
     numeric_value: float | None = None
 
 
+def is_display_type(kind: str) -> bool:
+    """Whether a question table's type cell marks a row that only shows text.
+
+    Such a row is written to the questionnaire in its place, because where it
+    sits is what it means, but it asks nothing: it is not a question to Part 2,
+    to validation or to anything that counts questions. Seen as "text display".
+    """
+    return "display" in (kind or "").lower().replace("-", " ").split()
+
+
 class Question(BaseModel):
     id: str
     #: Position in the questionnaire, counting from 1 in document order.
@@ -575,26 +585,6 @@ class CompletionMessage(BaseModel):
     message: str
     #: Where this came from in the QRE. None on artifacts written before
     #: provenance existed.
-    source_reference: SourceReference | None = None
-
-
-class DisplayMessage(BaseModel):
-    """Text shown to the respondent between questions (Stage 4).
-
-    A QRE writes one as a row of its question table whose type says it is
-    display only. It asks nothing, so it is not a `Question`: it takes no
-    answer and nothing routes on it.
-    """
-
-    id: str
-    message: str
-    #: The row's instruction cell verbatim, e.g. "Show for at least 3 seconds
-    #: before Q7." Reading a position or a duration out of it is Part 2's.
-    instruction: str = ""
-    #: The question rows either side of this one in the table. Derived from row
-    #: order alone; None at the start or end of the questionnaire.
-    preceding_question_id: str | None = None
-    following_question_id: str | None = None
     source_reference: SourceReference | None = None
 
 

@@ -16,7 +16,6 @@ produces them:
     stage2_blocks.json      stage2_flags.json
     stage3_<target>.json    (one per matched target)
     stage4_<target>.json    stage4_flags.json
-    stage4_display_messages.json     (text shown between questions)
     stage5_audit.json
     part2_canonical.json             (Part 2 — what the QRE means)
     agent1_evaluation_tests.json     (Stage 7 — validation, always run)
@@ -318,8 +317,8 @@ def run_stage4(
     parsed, flags = stage4_deep_parse.run(blocks, source, front_matter)
     out = _out_dir(source)
     for key, slug in (
-        ("questions", "questionnaire"),
-        ("display_messages", "display_messages"),
+        # Questions and display rows together, in document order.
+        ("questionnaire", "questionnaire"),
         ("routing", "routing"),
         ("scenarios", "scenarios"),
         ("messages", "messages"),

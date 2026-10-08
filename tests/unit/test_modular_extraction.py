@@ -132,7 +132,7 @@ def test_empty_specification_cannot_pass_validation():
     assert verdict["agent3_ready"] == "NO"
 
 
-def test_display_rows_leave_the_questionnaire_as_display_messages():
+def test_display_rows_are_set_apart_from_questions_and_keep_their_place():
     rows = [
         {"ID": "Q1", "Question wording": "Age?", "Type": "integer", "Programming instruction": ""},
         {"ID": "DT1", "Question wording": "Nearly done.", "Type": "text display",
@@ -143,15 +143,35 @@ def test_display_rows_leave_the_questionnaire_as_display_messages():
         target=TargetHeading.QUESTIONNAIRE, source_kind="table", rows=rows,
         row_sources=[SourceReference(row_index=i) for i in range(3)],
     )
-    questions, display = stage4_deep_parse._split_display(block)
+    questions, display, layout = stage4_deep_parse._split_display(block)
     assert [r["ID"] for r in questions.rows] == ["Q1", "Q2"]
     assert [s.row_index for s in questions.row_sources] == [0, 2]
+    assert layout == [False, True, False]
     (message,) = display
-    assert (message.id, message.message, message.instruction) == ("DT1", "Nearly done.", "Show before Q2.")
-    assert (message.preceding_question_id, message.following_question_id) == ("Q1", "Q2")
+    assert (message.id, message.wording, message.type) == ("DT1", "Nearly done.", "text display")
+    assert message.other_attributes == {"other_instructions": ["Show before Q2."]}
     assert message.source_reference.row_index == 1
     # A questionnaire with no display rows comes back untouched.
-    assert stage4_deep_parse._split_display(questions) == (questions, [])
+    assert stage4_deep_parse._split_display(questions) == (questions, [], [False, False])
+
+
+def test_written_questionnaire_holds_display_rows_in_document_order():
+    import asyncio
+
+    def block(target, rows):
+        return Stage3Block(target=target, source_kind="table", rows=rows)
+
+    parsed, _flags = asyncio.run(stage4_deep_parse.run_async(
+        [block(TargetHeading.QUESTIONNAIRE, [
+            {"ID": "S1", "Wording": "Adult?", "Type": "single", "Options": "Yes; No", "Display": ""},
+            {"ID": "DT1", "Wording": "Welcome.", "Type": "text display", "Options": "", "Display": ""},
+            {"ID": "Q1", "Wording": "Why?", "Type": "text", "Options": "", "Display": ""},
+        ])],
+        "t.docx", [],
+    ))
+    assert [q.id for q in parsed["questionnaire"]] == ["S1", "DT1", "Q1"]
+    assert [(q.id, q.seq) for q in parsed["questions"]] == [("S1", 1), ("Q1", 2)]
+    assert [q.id for q in parsed["display_messages"]] == ["DT1"]
 
 
 def test_keyword_led_cells_are_labelled_without_a_model():

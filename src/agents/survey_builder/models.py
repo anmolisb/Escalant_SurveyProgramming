@@ -15,6 +15,7 @@ from pydantic import BaseModel, Field
 #   L = list (radio), M = multiple choice, T = long free text, S = short free text
 #   F = array, K = multiple numerical input (used for constant sum)
 #   N = numerical input
+#   X = text display: shows its text and takes no answer
 QuestionType = str
 
 

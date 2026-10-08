@@ -34,6 +34,7 @@ from . import qre_oracle
 from .models import (
     SCHEMA_VERSION, AcceptanceScenario, ArtifactEnvelope, CanonicalSurvey,
     CompletionMessage, ExtractedStatement, Question, RoutingRule,
+    is_display_type,
 )
 
 ROOT = Path(__file__).resolve().parents[3]
@@ -54,7 +55,10 @@ def _stage4(out: Path) -> dict:
         return [model.model_validate(r) for r in payload] if payload else []
 
     return {
-        "questions": rows("stage4_questionnaire.json", Question),
+        # The file also holds the display rows, in their places. They are
+        # not questions, and nothing checked here treats them as one.
+        "questions": [q for q in rows("stage4_questionnaire.json", Question)
+                      if not is_display_type(q.type)],
         "routing": rows("stage4_routing.json", RoutingRule),
         "scenarios": rows("stage4_scenarios.json", AcceptanceScenario),
         "messages": rows("stage4_messages.json", CompletionMessage),

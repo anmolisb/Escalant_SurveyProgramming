@@ -24,7 +24,6 @@ from . import part2_conditions
 from .models import (
     AcceptanceScenario,
     CompletionMessage,
-    DisplayMessage,
     ExtractedStatement,
     FlagSeverity,
     FlagStatus,
@@ -47,6 +46,7 @@ from .models import (
     Stage3Block,
     SurveyInformation,
     TargetHeading,
+    is_display_type,
 )
 
 # ---------------------------------------------------------------------------
@@ -1153,57 +1153,48 @@ def parse_survey(
     return information, flags
 
 
-#: What a question table's type column says for a row that only shows text.
-#: Seen as "text display"; a QRE using another word for it adds the word here.
-_DISPLAY_TYPE_WORDS = ("display",)
-
-
 def _split_display(
     block: Stage3Block | None,
-) -> tuple[Stage3Block | None, list[DisplayMessage]]:
-    """Take the display-only rows out of the questionnaire.
+) -> tuple[Stage3Block | None, list[Question], list[bool]]:
+    """Take the display-only rows out of the questionnaire rows.
 
-    Returns the questionnaire without them, and one DisplayMessage per row
-    taken. Wherever the question table sits - one table or one per module - a
-    display text is a row of it, so this is the only place they are looked for.
+    Returns the rows that are questions, the display rows as records of the
+    same shape, and one flag per original row saying which it was, so the two
+    can be put back in document order when the questionnaire is written.
+    Wherever the question table sits - one table or one per module - a display
+    text is a row of it, so this is the only place they are looked for.
     """
     if block is None:
-        return None, []
+        return None, [], []
 
-    def is_display(row: dict[str, str]) -> bool:
-        return any(w in _words(_value(row, "type")) for w in _DISPLAY_TYPE_WORDS)
+    layout = [is_display_type(_value(row, "type")) for row in block.rows]
+    if not any(layout):
+        return block, [], layout
 
-    kept = [i for i, row in enumerate(block.rows) if not is_display(row)]
-    if len(kept) == len(block.rows):
-        return block, []
-
-    def neighbour(index: int, step: int) -> str | None:
-        index += step
-        while 0 <= index < len(block.rows):
-            if not is_display(block.rows[index]):
-                return _value(block.rows[index], "id") or None
-            index += step
-        return None
-
-    messages = [
-        DisplayMessage(
-            id=_value(row, "id"),
-            message=_value(row, "wording"),
-            instruction=_value(row, "display"),
-            preceding_question_id=neighbour(index, -1),
-            following_question_id=neighbour(index, +1),
-            source_reference=_source_for(block, index),
+    kept = [i for i, display in enumerate(layout) if not display]
+    messages = []
+    for index, row in enumerate(block.rows):
+        if not layout[index]:
+            continue
+        instruction = _value(row, "display")
+        messages.append(
+            Question(
+                id=_value(row, "id"),
+                wording=_value(row, "wording"),
+                type=_value(row, "type"),
+                # Kept verbatim. "Show for at least 3 seconds before Q7" states
+                # a duration and a position; reading either out is Part 2's.
+                other_attributes={"other_instructions": [instruction]} if instruction else {},
+                source_reference=_source_for(block, index),
+            )
         )
-        for index, row in enumerate(block.rows)
-        if is_display(row)
-    ]
     questions = block.model_copy(
         update={
             "rows": [block.rows[i] for i in kept],
             "row_sources": [block.row_sources[i] for i in kept if i < len(block.row_sources)],
         }
     )
-    return questions, messages
+    return questions, messages, layout
 
 
 def _merge_by_target(blocks: list[Stage3Block]) -> dict[TargetHeading, Stage3Block]:
@@ -1231,7 +1222,7 @@ async def run_async(
     blocks: list[Stage3Block], source: str, front_matter: list[Paragraph]
 ) -> tuple[dict, list[ReviewFlag]]:
     by_target = _merge_by_target(blocks)
-    question_rows, display_messages = _split_display(
+    question_rows, display_messages, layout = _split_display(
         by_target.get(TargetHeading.QUESTIONNAIRE)
     )
 
@@ -1267,11 +1258,18 @@ async def run_async(
     # specification outranks anything on the cover page.
     information, info_flags = parse_survey(source, front_matter, study)
 
+    # The questionnaire as the document wrote it: display rows back in their
+    # places among the questions. `questions` stays questions only, which is
+    # what Part 2 and the audit are given.
+    asked, shown = iter(questions), iter(display_messages)
+    questionnaire = [next(shown) if display else next(asked) for display in layout]
+
     return (
         {
             "survey": information,
             "questions": questions,
             "display_messages": display_messages,
+            "questionnaire": questionnaire or questions,
             "routing": routing,
             "scenarios": scenarios,
             "messages": messages,

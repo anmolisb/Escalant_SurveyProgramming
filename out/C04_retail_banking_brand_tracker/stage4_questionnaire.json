@@ -717,6 +717,32 @@
     }
   },
   {
+    "id": "DT1",
+    "seq": null,
+    "wording": "Thank you for sharing your banking experience so far. Next, we'd like to understand a bit about any support you've used and whether you've considered switching providers.",
+    "type": "text display",
+    "options": [],
+    "matrix_rows": [],
+    "display_condition": null,
+    "display_condition_expression": null,
+    "display_condition_expression_origin": null,
+    "min_length": null,
+    "max_length": null,
+    "min_value": null,
+    "max_value": null,
+    "min_selections": null,
+    "exclusive_option": null,
+    "sum_to": null,
+    "randomize": false,
+    "optional": false,
+    "dynamic_option_source": null,
+    "other_attributes": {
+      "other_instructions": [
+        "Always show. Show for at least 3 seconds before Q10. Does not count as a routable question."
+      ]
+    }
+  },
+  {
     "id": "Q10",
     "seq": 14,
     "wording": "Did you contact support during the experience?",
@@ -1208,6 +1234,32 @@
     "optional": false,
     "dynamic_option_source": null,
     "other_attributes": {}
+  },
+  {
+    "id": "DT2",
+    "seq": null,
+    "wording": "You're almost done \u2014 thank you for your thoughtful answers. Just a few last questions about you to finish up.",
+    "type": "text display",
+    "options": [],
+    "matrix_rows": [],
+    "display_condition": null,
+    "display_condition_expression": null,
+    "display_condition_expression_origin": null,
+    "min_length": null,
+    "max_length": null,
+    "min_value": null,
+    "max_value": null,
+    "min_selections": null,
+    "exclusive_option": null,
+    "sum_to": null,
+    "randomize": false,
+    "optional": false,
+    "dynamic_option_source": null,
+    "other_attributes": {
+      "other_instructions": [
+        "Always show. Show for at least 3 seconds before D1. Does not count as a routable question."
+      ]
+    }
   },
   {
     "id": "D1",

@@ -65,6 +65,7 @@ _TYPE_MAP = {
     "constant_sum": "K",
     "integer": "N",
     "number": "N",
+    "text display": "X",  # shows its text and takes no answer
 }
 
 #: Types that take a typed-in number rather than a choice.
@@ -117,6 +118,8 @@ def _build_question(raw: dict, order: int) -> Question:
         question_order=order,
         mandatory="N" if raw.get("optional") else "Y",
     )
+    if question.type == "X":
+        question.mandatory = "N"  # there is nothing to answer
 
     raw_options = raw.get("options") or []
     raw_rows = raw.get("matrix_rows") or []
