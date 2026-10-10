@@ -24,7 +24,7 @@ import streamlit as st
 import graphviz
 from graphviz.backend.execute import ExecutableNotFound
 
-from src.common.paths import agent1_dir
+from src.common.paths import agent1_dir, agent2_lss
 
 
 def _find_graphviz() -> str | None:
@@ -659,7 +659,7 @@ def clear_downstream(*keys: str) -> None:
 run_name = st.session_state.get("run_name")
 directory = OUT / run_name if run_name else None
 has_run = bool(directory and directory.exists())
-lss = OUT / f"{run_name}_generated.lss" if run_name else None
+lss = agent2_lss(directory) if directory else None
 has_lss = bool(lss and lss.exists())
 agent1 = agent1_dir(directory) if directory else None
 design_dir = directory / "agent3" if directory else None

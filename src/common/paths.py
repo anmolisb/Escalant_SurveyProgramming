@@ -2,6 +2,7 @@
 
     out/<QRE stem>/
         agent1/    QRE Interpreter: every stage artifact and llm_decisions.json
+        agent2/    Survey Builder: <QRE stem>_generated.lss
         agent3/    Test Designer
         agent4/    Respondent Bot
         agent5/    QA Adjudicator
@@ -18,6 +19,7 @@ from pathlib import Path
 REPO_ROOT = Path(__file__).resolve().parents[2]
 OUT_ROOT = REPO_ROOT / "out"
 AGENT1 = "agent1"
+AGENT2 = "agent2"
 
 
 def agent1_out(stem: str) -> Path:
@@ -34,3 +36,9 @@ def agent1_dir(run_dir: str | Path) -> Path:
     run_dir = Path(run_dir)
     nested = run_dir / AGENT1
     return nested if nested.is_dir() else run_dir
+
+
+def agent2_lss(run_dir: str | Path) -> Path:
+    """The survey file the Survey Builder writes for a run folder."""
+    run_dir = Path(run_dir)
+    return run_dir / AGENT2 / f"{run_dir.name}_generated.lss"

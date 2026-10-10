@@ -2,8 +2,9 @@
 
     python -m src.agents.survey_builder.build out/S01_campus_cafeteria_experience
 
-The stage 4 files are read from the run's agent1/ folder. A folder that holds
-them directly, such as tests/survey_builder/stage4-outputs/C02, also works.
+The stage 4 files are read from the run's agent1/ folder and the survey is
+written to its agent2/ folder. A folder that holds the stage 4 files directly,
+such as tests/survey_builder/stage4-outputs/C02, also works and writes to out/.
 
 The input is checked before anything is built, because the loader raises on the
 first problem it meets and a new QRE usually has several. A build that cannot
@@ -22,10 +23,7 @@ from pathlib import Path
 from src.agents.survey_builder.emitter import write
 from src.agents.survey_builder.loader import load
 from src.agents.survey_builder.preflight import check
-from src.common.paths import AGENT1, agent1_dir
-
-OUTPUT_DIR = Path("out")
-
+from src.common.paths import AGENT1, OUT_ROOT, agent1_dir, agent2_lss
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
@@ -48,8 +46,13 @@ def main() -> int:
         return 1
 
     survey = load(source)
-    OUTPUT_DIR.mkdir(exist_ok=True)
-    path = OUTPUT_DIR / f"{directory.name}_generated.lss"
+    # A run folder keeps its survey in agent2/. Anything else, such as a test
+    # fixture, still writes to out/ so the fixture folder is left untouched.
+    if directory.resolve().parent == OUT_ROOT.resolve():
+        path = agent2_lss(directory)
+    else:
+        path = OUT_ROOT / f"{directory.name}_generated.lss"
+    path.parent.mkdir(parents=True, exist_ok=True)
     write(survey, path)
 
     questions = sum(len(group.questions) for group in survey.groups)
