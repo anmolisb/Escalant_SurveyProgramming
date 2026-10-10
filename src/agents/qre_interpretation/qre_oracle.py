@@ -336,13 +336,16 @@ def read(docx_path: str | Path) -> OracleDocument:
         if not block.rows:
             continue
         header = block.rows[0]
-        if section not in ("questionnaire", "routing", "scenarios") and {
-            "id", "wording", "type"
-        } <= _column_map(header, _QUESTION_COLUMNS).keys():
-            # The heading does not say what this table is, but its own header
-            # does: a QRE that keeps one question table per module heads each
-            # with the module's name.
+        # A table says what it is in its own header row, and that outranks the
+        # heading above it: a QRE that keeps one question table per module
+        # heads each with the module's name, or with a phrase such as "Module
+        # routing and QA" that reads like another section entirely.
+        if {"id", "wording", "type"} <= _column_map(header, _QUESTION_COLUMNS).keys():
             kind = "questionnaire"
+        elif {"condition", "action"} <= _column_map(header, _ROUTING_COLUMNS).keys():
+            kind = "routing"
+        elif {"id", "expected"} <= _column_map(header, _SCENARIO_COLUMNS).keys():
+            kind = "scenarios"
         else:
             kind = section
         if kind == "questionnaire":

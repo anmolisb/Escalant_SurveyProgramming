@@ -174,21 +174,38 @@ def test_written_questionnaire_holds_display_rows_in_document_order():
     assert [q.id for q in parsed["display_messages"]] == ["DT1"]
 
 
-def test_keyword_led_cells_are_labelled_without_a_model():
-    read = stage4_deep_parse._keyword_directives
-    fields = read("Show if M01Q01 != 'Not applicable'\nValidate {\"min\": 0}\nRandomize; log order")
-    assert [(d.kind.value, d.text) for d in fields.directives] == [
+def test_keyword_led_lines_are_labelled_without_a_model():
+    read = stage4_deep_parse._label_lines
+    directives, unread = read(
+        "Show if M01Q01 != 'Not applicable'\nValidate {\"min\": 0}\nRandomize; log order"
+    )
+    assert [(d.kind.value, d.text) for d in directives] == [
         ("display_condition", "M01Q01 != 'Not applicable'"),
         ("validation", '{"min": 0}'),
         ("randomize", "Randomize"),
         ("other", "log order"),
     ]
-    assert read("Show if: Q5 == 'Yes'").directives[0].text == "Q5 == 'Yes'"
-    # One line that needs reading sends the whole cell to the model.
-    assert read("Randomize\nShow only brands selected at Q1.") is None
+    assert unread == []
+    assert read("Show if: Q5 == 'Yes'")[0][0].text == "Q5 == 'Yes'"
+    # Only the line that needs reading is left for the model.
+    directives, unread = read("Randomize\nShow only brands selected at Q1.")
+    assert [d.kind.value for d in directives] == ["randomize"]
+    assert unread == ["Show only brands selected at Q1."]
 
 
 def test_triggered_message_catalogue_is_not_read_as_endings():
     classify = stage2_headings._classify_table
     assert classify(["Code", "Message shown to respondent"]) is TargetHeading.COMPLETION_MESSAGES
     assert classify(["ID", "Trigger", "User/system message", "Class"]) is None
+
+
+def test_a_quota_must_be_written_in_its_own_sentence():
+    from src.agents.qre_interpretation.part2_canonical import _unstated_in
+
+    stated = "QUOTA_REGION: hard quota on D1: North=20%, South=30%, East=50%"
+    assert _unstated_in(stated, "D1", ["North", "South", "East"], [20, 30, 50]) is None
+    assert "does not state" in _unstated_in(stated, "D1", ["North", "South", "East"], [40, 30, 30])
+    assert "does not list" in _unstated_in(stated, "D1", ["North", "West"], [20, 30])
+    # X01's row names no question and no shares; the model supplied both.
+    vague = "QT03: Variable: Primary provider; Type: soft; Target / tolerance: Balanced target with ±5 percentage-point tolerance"
+    assert "does not name" in _unstated_in(vague, "M03Q01", ["Limited", "Moderate"], [50, 50])

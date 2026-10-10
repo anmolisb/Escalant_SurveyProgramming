@@ -498,6 +498,31 @@ there is a label you should not use.
 """
 
 
+def _unstated_in(
+    sentence: str, variable: str, labels: list[str], percents: list[float]
+) -> str | None:
+    """What a proposed quota claims that its own sentence never says, if anything.
+
+    A quota is only as good as its source: the question it counts, the groups
+    and each group's share all have to be written in the sentence it was read
+    from. X01 says only "Variable: Primary provider ... balanced target", and
+    the model answered with a question, five groups and 20 percent each - a
+    well-formed quota that passes every structural check and is invented from
+    end to end. Asked of the text rather than of the model, so its confidence
+    does not come into it.
+    """
+    if not re.search(rf"(?<![A-Za-z0-9_]){re.escape(variable)}(?![A-Za-z0-9_])", sentence):
+        return f"counts {variable}, which the sentence does not name"
+    missing = [label for label in labels if label not in sentence]
+    if missing:
+        return f"groups by {missing!r}, which the sentence does not list"
+    stated = {float(n) for n in re.findall(r"\d+(?:\.\d+)?", sentence)}
+    invented = [p for p in percents if float(p) not in stated]
+    if invented:
+        return f"sets shares of {invented!r}, which the sentence does not state"
+    return None
+
+
 def _build_quotas(
     parsed: dict, options_by_question: dict, review: list[AuditFinding]
 ) -> tuple[list[Quota], list[CanonicalStatement]]:
@@ -602,6 +627,8 @@ def _build_quotas(
                 )
             elif abs(sum(percents) - 100.0) > 1.0:
                 problem = f"percentages total {sum(percents):.0f}, not 100"
+            else:
+                problem = _unstated_in(statement.raw_text, variable, labels, percents)
 
         if problem:
             review.append(
@@ -615,6 +642,17 @@ def _build_quotas(
                     ),
                     target=FlagTarget(kind="statement", id=statement.code or variable),
                     evidence=statement.raw_text,
+                )
+            )
+            # Kept as written, as the finding says: carried verbatim beside
+            # the quotas rather than dropped with the proposal.
+            requirements.append(
+                CanonicalStatement(
+                    code=statement.code,
+                    label=statement.label,
+                    text=statement.text,
+                    raw_text=statement.raw_text,
+                    source_reference=statement.source_reference,
                 )
             )
             continue

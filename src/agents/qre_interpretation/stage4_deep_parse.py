@@ -427,16 +427,17 @@ _KEYWORD_LINES: list[tuple[re.Pattern, DirectiveKind]] = [
 _RANDOMIZE_THEN = re.compile(r"^(randomi[sz]e)\s*;\s*(.+)$", re.I)
 
 
-def _keyword_directives(cell: str) -> LLMQuestionFields | None:
-    """Label a cell's instructions without a model, where every line allows it.
+def _label_lines(cell: str) -> tuple[list[LLMDirective], list[str]]:
+    """Label the instructions that state their own kind; return the rest.
 
-    Returns None as soon as one line does not open with a keyword, and the
-    whole cell then goes to the model as before: a line such as "Show only
-    brands selected at Q1." needs reading, not matching. No model is needed to
-    see that "Validate: {...}" is a validation, and asking one anyway spends a
-    request per question and can return a different answer on another day.
+    No model is needed to see that "Validate: {...}" is a validation, and
+    asking one anyway spends a request per question, can return a different
+    answer on another day, and has the model copy JSON back - which it gets
+    wrong often enough to matter. The second value is the lines that do need
+    reading, such as "Show only brands selected at Q1.", in the order written.
     """
     directives: list[LLMDirective] = []
+    unread: list[str] = []
     for line in (ln.strip() for ln in cell.splitlines()):
         if not line:
             continue
@@ -451,8 +452,8 @@ def _keyword_directives(cell: str) -> LLMQuestionFields | None:
                 directives.append(LLMDirective(kind=kind, text=match.group(1).strip()))
                 break
         else:
-            return None
-    return LLMQuestionFields(directives=directives)
+            unread.append(line)
+    return directives, unread
 
 
 async def parse_questionnaire(
@@ -498,26 +499,31 @@ async def parse_questionnaire(
             )
 
         if display_cell:
-            try:
-                fields = _keyword_directives(display_cell) or await complete_async(
-                    _QUESTION_SYSTEM,
-                    f"Question {question.id} cell:\n{display_cell}",
-                    LLMQuestionFields,
-                )
-                flags.extend(_apply_directives(question, fields))
-            except LLMUnavailable as exc:
-                flags.append(
-                    ReviewFlag(
-                        target_heading=TargetHeading.QUESTIONNAIRE,
-                        status=FlagStatus.POSSIBLE_MATCH,
-                        candidate_heading=question.id,
-                        # The display condition and randomisation flag are in
-                        # that cell. Without them the question is incomplete.
-                        severity=FlagSeverity.BLOCKING,
-                        target=FlagTarget(kind="question", id=question.id),
-                        reasoning=f"Inline attributes not split: {exc}",
+            directives, unread = _label_lines(display_cell)
+            if unread:
+                try:
+                    fields = await complete_async(
+                        _QUESTION_SYSTEM,
+                        f"Question {question.id} cell:\n" + "\n".join(unread),
+                        LLMQuestionFields,
                     )
-                )
+                    directives += fields.directives
+                except LLMUnavailable as exc:
+                    flags.append(
+                        ReviewFlag(
+                            target_heading=TargetHeading.QUESTIONNAIRE,
+                            status=FlagStatus.POSSIBLE_MATCH,
+                            candidate_heading=question.id,
+                            # Whatever these lines ask for is missing from the
+                            # question; the keyword-led lines were still read.
+                            severity=FlagSeverity.BLOCKING,
+                            target=FlagTarget(kind="question", id=question.id),
+                            reasoning=f"Inline attributes not split: {unread}: {exc}",
+                        )
+                    )
+            flags.extend(
+                _apply_directives(question, LLMQuestionFields(directives=directives))
+            )
         return question
 
     questions = list(

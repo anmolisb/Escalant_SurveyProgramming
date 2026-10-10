@@ -123,6 +123,16 @@ class OutputTruncated(LLMUnavailable):
     """
 
 
+class MalformedAnswer(LLMUnavailable):
+    """The model answered, and the answer was not valid for the schema.
+
+    A kind of LLMUnavailable so the stage that asked flags the one item it
+    could not read. Raised as a crash, one slip on one cell ended the run for
+    every other cell in the document; the flag still names the item and quotes
+    the answer, so a prompt or schema that needs fixing is no less visible.
+    """
+
+
 def _is_truncated(error: Exception) -> bool:
     """Whether the model ran out of room before finishing a valid answer."""
     message = str(error).lower()
@@ -332,6 +342,8 @@ def complete(
                 # the provider's error code says and what it is not.
                 delay = _FALLBACK_BACKOFF
                 logger.info("Empty completion; retrying in %.1fs", delay)
+            if delay is None and "json_validate_failed" in str(exc):
+                raise MalformedAnswer(f"The model's answer was not valid: {exc}") from exc
             if delay is None:
                 raise
             last = exc
