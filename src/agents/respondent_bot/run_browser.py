@@ -45,6 +45,8 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
+from src.common.paths import agent1_dir
+
 PASSED, FAILED, BLOCKED = "PASSED", "FAILED", "BLOCKED"
 INCONCLUSIVE, SKIPPED = "INCONCLUSIVE", "SKIPPED"
 
@@ -1147,7 +1149,7 @@ def main() -> int:
     options: dict[str, dict[str, str]] = {}
     rows: dict[str, dict[str, str]] = {}
     completion = ""
-    canonical = directory / "part2_canonical.json"
+    canonical = agent1_dir(directory) / "part2_canonical.json"
     if canonical.exists():
         doc = json.loads(canonical.read_text(encoding="utf-8"))
         for d in (doc.get("content") or doc).get("dispositions", []):

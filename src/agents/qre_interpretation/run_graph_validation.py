@@ -24,6 +24,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 
+from src.common import paths
 from . import graph_validate
 from . import orchestrator
 from . import qre_oracle
@@ -40,7 +41,7 @@ def _discover_stems() -> list[str]:
     return sorted(
         path.stem
         for path in FIXTURES.glob("*.docx")
-        if (ROOT / "out" / path.stem / "part2_canonical.json").exists()
+        if (paths.agent1_out(path.stem) / "part2_canonical.json").exists()
     )
 
 def _envelope(out: Path, name: str) -> dict:
@@ -87,7 +88,7 @@ def _agent3_input_status(sufficiency: dict) -> str:
 
 def validate(stem: str, docx_path: Path | None = None) -> dict:
     docx = docx_path if docx_path is not None else FIXTURES / (stem + ".docx")
-    out = ROOT / "out" / stem
+    out = paths.agent1_out(stem)
     source_document = orchestrator._set_source(docx)
 
     survey = CanonicalSurvey.model_validate(_load(out, "part2_canonical.json"))

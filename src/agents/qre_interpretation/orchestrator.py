@@ -10,7 +10,7 @@ on its own:
 re-runs the deep parse against the existing stage3 files without re-reading the
 DOCX or re-calling the model for stages 2 and 3.
 
-Artifacts, under out/<document stem>/, in the order the pipeline actually
+Artifacts, under out/<document stem>/agent1/, in the order the pipeline actually
 produces them:
     stage1_document.json
     stage2_blocks.json      stage2_flags.json
@@ -85,6 +85,7 @@ from pathlib import Path
 
 
 from src.common.llm import groq_client as llm
+from src.common import paths
 from . import stage1_ingestion
 from . import stage2_headings
 from . import stage3_raw_json
@@ -113,7 +114,6 @@ from .models import (
     TargetHeading,
 )
 
-OUT_ROOT = Path(__file__).resolve().parents[3] / "out"
 
 #: Filename-safe stem per target.
 _SLUG = {
@@ -232,7 +232,7 @@ def _read_content(path: Path):
 
 
 def _out_dir(document: str) -> Path:
-    return OUT_ROOT / Path(document).stem
+    return paths.agent1_out(Path(document).stem)
 
 
 def run_stage1(docx_path: Path) -> Stage1Document:

@@ -76,7 +76,7 @@ def manual_review_items(stem: str) -> list[dict]:
     The QRE's own words are carried along so the sheet can be reviewed without
     opening the source document.
     """
-    out = ROOT / "out" / stem
+    out = ROOT / "out" / stem / "agent1"
     items: list[dict] = []
 
     def load(name):
@@ -142,7 +142,7 @@ def pipeline_status(stem: str) -> dict:
     perfectly and still fail graph validation. Reporting only coverage would
     hide that.
     """
-    out = ROOT / "out" / stem
+    out = ROOT / "out" / stem / "agent1"
     status = {"graph": "", "blockers": [], "tests": "", "approval": ""}
     gv = out / "part2_graph_validation.json"
     if gv.exists():

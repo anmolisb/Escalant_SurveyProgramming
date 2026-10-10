@@ -219,7 +219,7 @@ def describe_shape(node) -> str:
 
 
 def load_canonical(stem: str) -> dict | None:
-    path = OUT_DIR / stem / "part2_canonical.json"
+    path = OUT_DIR / stem / "agent1" / "part2_canonical.json"
     if not path.exists():
         return None
     data = json.loads(path.read_text(encoding="utf-8"))

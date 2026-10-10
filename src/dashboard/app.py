@@ -24,6 +24,8 @@ import streamlit as st
 import graphviz
 from graphviz.backend.execute import ExecutableNotFound
 
+from src.common.paths import agent1_dir
+
 
 def _find_graphviz() -> str | None:
     """Put Graphviz on the path for this process only, if we can find it.
@@ -659,6 +661,7 @@ directory = OUT / run_name if run_name else None
 has_run = bool(directory and directory.exists())
 lss = OUT / f"{run_name}_generated.lss" if run_name else None
 has_lss = bool(lss and lss.exists())
+agent1 = agent1_dir(directory) if directory else None
 design_dir = directory / "agent3" if directory else None
 bot_dir = directory / "agent4" if directory else None
 qc_dir = directory / "agent5" if directory else None
@@ -833,9 +836,9 @@ if not has_run:
             "Upload a questionnaire in the sidebar, or open a previous run")
     st.stop()
 
-survey = read_json(directory, "stage4_survey.json", {})
-questions = read_json(directory, "stage4_questionnaire.json", [])
-routing = read_json(directory, "stage4_routing.json", [])
+survey = read_json(agent1, "stage4_survey.json", {})
+questions = read_json(agent1, "stage4_questionnaire.json", [])
+routing = read_json(agent1, "stage4_routing.json", [])
 design = st.session_state.get("design") or load_design_summary(design_dir)
 
 title = survey.get("title") or run_name
@@ -900,7 +903,7 @@ with tab_r:
                   widths={"Rule": "9%"}, height="40vh")
 
 with tab_g:
-    gexf = directory / "route_graph.gexf"
+    gexf = agent1 / "route_graph.gexf"
     if not gexf.exists():
         st.info("No route graph was produced for this run.")
     else:
@@ -1006,7 +1009,7 @@ with tab_t:
             "and writes a test for each behaviour the questionnaire claims. "
             "It never opens the survey; that comes next.")
 
-    if not (directory / "part2_canonical.json").exists():
+    if not (agent1 / "part2_canonical.json").exists():
         waiting("No specification to work from",
                 "The interpreter has not produced a canonical specification "
                 "for this run, so there is nothing to design tests against.")
@@ -1299,7 +1302,10 @@ with tab_f:
                        mime="application/zip")
     st.caption(str(directory))
 
+    # Agent 1 writes into agent1/; its files are grouped here as before.
     top_level = [p for p in directory.iterdir() if p.is_file()]
+    if agent1 != directory:
+        top_level += [p for p in agent1.iterdir() if p.is_file()]
     shown: set[Path] = set()
     for label, prefixes in GROUPS.items():
         files = sorted(p for p in top_level if p.name.startswith(prefixes))

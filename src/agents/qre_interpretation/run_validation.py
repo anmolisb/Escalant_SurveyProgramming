@@ -26,6 +26,7 @@ from pathlib import Path
 from . import agent1_decisions
 from . import agent1_eval
 from src.common.llm import groq_client as llm
+from src.common import paths
 from . import orchestrator
 from . import part2_canonical
 from . import part2_graph
@@ -67,7 +68,7 @@ def _discover_stems() -> list[str]:
     return sorted(
         path.stem
         for path in FIXTURES.glob("*.docx")
-        if (ROOT / "out" / path.stem / "part2_canonical.json").exists()
+        if (paths.agent1_out(path.stem) / "part2_canonical.json").exists()
     )
 
 
@@ -108,7 +109,7 @@ def validate(stem: str, docx_path: Path | None = None,
     such object yet and reads it from disk.
     """
     docx = docx_path if docx_path is not None else FIXTURES / (stem + ".docx")
-    out = ROOT / "out" / stem
+    out = paths.agent1_out(stem)
     # Points the decision record at this document, so the rebuild below reuses
     # the answers already on record instead of asking again.
     source_document = orchestrator._set_source(docx)
