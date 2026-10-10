@@ -836,8 +836,14 @@
    </row>
    <row>
     <qid><![CDATA[1024]]></qid>
-    <attribute><![CDATA[maximum_chars]]></attribute>
-    <value><![CDATA[750]]></value>
+    <attribute><![CDATA[em_validation_q]]></attribute>
+    <value><![CDATA[strlen(this) <= 750]]></value>
+   </row>
+   <row>
+    <qid><![CDATA[1024]]></qid>
+    <attribute><![CDATA[em_validation_q_tip]]></attribute>
+    <value><![CDATA[Please enter no more than 750 characters.]]></value>
+    <language><![CDATA[en]]></language>
    </row>
   </rows>
  </question_attributes>
