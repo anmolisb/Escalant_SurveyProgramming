@@ -42,6 +42,8 @@ its rules means.
 
 from __future__ import annotations
 
+from pathlib import Path
+
 import networkx as nx
 
 from .models import (
@@ -573,3 +575,38 @@ def run(
         approval_blocked_by=blocked_by,
     )
     return graphs, report
+
+
+# ---------------------------------------------------------------------------
+# Export for the dashboard
+# ---------------------------------------------------------------------------
+
+
+def _sanitise(value):
+    """One value made safe for GEXF, which rejects a Python `None` and has no
+    list type. `part2_route_graph.json` stays the lossless record; the GEXF
+    file trades a little precision for being drawable."""
+    if value is None:
+        return ""
+    if isinstance(value, (list, tuple)):
+        return "|".join(str(v) for v in value)
+    return value
+
+
+def export_route_gexf(graphs: RouteGraphs, out_dir: Path) -> Path:
+    """Write the route graph as `route_graph.gexf`, the file the dashboard
+    draws its flow graph from."""
+    route = nx.node_link_graph(
+        graphs.model_dump(mode="json")["route_graph"],
+        edges="edges", directed=True, multigraph=True,
+    )
+    for _, data in route.nodes(data=True):
+        for key in list(data):
+            data[key] = _sanitise(data[key])
+    for *_ends, data in route.edges(keys=True, data=True):
+        for key in list(data):
+            data[key] = _sanitise(data[key])
+    out_dir.mkdir(parents=True, exist_ok=True)
+    path = out_dir / "route_graph.gexf"
+    nx.write_gexf(route, path)
+    return path
