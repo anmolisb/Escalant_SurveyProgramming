@@ -264,6 +264,10 @@ st.markdown(
              background:var(--rule-2); color:var(--ink-2); }
       .opt.more { background:transparent; color:var(--ink-3); }
       .qguard { margin-top:9px; font-size:0.85rem; color:var(--accent); }
+      /* A display message asks nothing, so it is set apart from questions. */
+      .qcard.display { background:var(--info-bg); border-style:dashed; }
+      .qcard.display .qtext { font-style:italic; font-weight:400; margin-bottom:4px; }
+      .qnote { font-size:0.82rem; color:var(--ink-3); }
       /* ---- routing rules -------------------------------------------------- */
       .rule { display:flex; align-items:baseline; gap:11px; flex-wrap:wrap;
               border:1px solid var(--rule); border-radius:8px;
@@ -489,8 +493,28 @@ def meter(label: str, covered: int, total: int, status: str = "") -> str:
     )
 
 
+#: Question types that show text and ask nothing. Matches Agent 1's
+#: DISPLAY_KINDS; kept here so the dashboard needs no agent internals.
+DISPLAY_KINDS = {"text display"}
+
+
+def is_display(q: dict) -> bool:
+    return str(q.get("type") or "").strip().lower() in DISPLAY_KINDS
+
+
 def question_card(q: dict) -> str:
     """A question as it reads in the questionnaire, not as a database row."""
+    if is_display(q):
+        return (
+            f'<div class="qcard display">'
+            f'  <div class="qtop"><span class="qid">'
+            f'{html_lib.escape(str(q.get("id","")))}</span>'
+            f'  <span class="pill info">Display message</span></div>'
+            f'  <div class="qtext">{html_lib.escape(str(q.get("wording","")))}</div>'
+            f'  <div class="qnote">Shown to everyone with a Next button. '
+            f'Nothing to answer.</div>'
+            f'</div>'
+        )
     options = q.get("options") or []
     shown = q.get("display_condition") or ""
     chips = "".join(
@@ -510,6 +534,14 @@ def question_card(q: dict) -> str:
         f'  <div class="opts">{chips}</div>{guard}'
         f'</div>'
     )
+
+
+def question_count(questions: list[dict]) -> str:
+    """'19 questions + 2 messages', so display rows are not counted as questions."""
+    shown = sum(1 for q in questions if is_display(q))
+    asked = len(questions) - shown
+    text = f"{asked} question{'s' if asked != 1 else ''}"
+    return text + (f" + {shown} message{'s' if shown != 1 else ''}" if shown else "")
 
 
 def rule_card(r: dict) -> str:
@@ -905,7 +937,7 @@ if qc:
     verdict_tone = "ok" if good == len(js) else ("bad" if broken else "warn")
 
 strip([
-    ("Questions", str(len(questions)), ""),
+    ("Questions", question_count(questions), ""),
     ("Routing rules", str(len(routing)), ""),
     ("Survey file", "Built" if has_lss else "Not built",
      "ok" if has_lss else "idle"),
@@ -924,7 +956,7 @@ tab_q, tab_r, tab_g, tab_s, tab_t, tab_b, tab_c, tab_f = st.tabs(
 
 with tab_q:
     section("The questionnaire as the interpreter read it",
-            f"{len(questions)} questions extracted from the document. Anything "
+            f"{question_count(questions)} extracted from the document. Anything "
             f"shown only under a condition says so underneath.")
     st.markdown("".join(question_card(q) for q in questions),
                 unsafe_allow_html=True)
@@ -1024,7 +1056,7 @@ with tab_s:
         size = lss.stat().st_size / 1024
         strip([("Survey file", "Built", "ok"),
                ("Size", f"{size:.0f} KB", ""),
-               ("Questions carried", str(len(questions)), "")])
+               ("Questions carried", question_count(questions), "")])
         st.download_button("Download the .lss file", data=lss.read_bytes(),
                            file_name=lss.name, mime="application/xml",
                            type="primary")
