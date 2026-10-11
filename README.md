@@ -1,127 +1,190 @@
 # Escalent Agentic Survey QA Platform
 
-ISB AMPBA 2026S capstone for **Escalent India Pvt. Ltd.**, August–October 2026.
+ISB AMPBA 2026S capstone for **Escalent India Pvt. Ltd.**, August to October 2026.
 
-A pipeline of AI agents that reads a questionnaire requirement document (QRE), builds the survey it describes in LimeSurvey, and designs the tests that prove the built survey behaves as specified. Checking a survey by hand does not scale: one with 18 branch points has more than 262,000 answer paths.
+A pipeline of AI agents that reads a questionnaire requirement document (QRE),
+builds the survey it describes in LimeSurvey, designs the tests that prove the
+built survey behaves as specified, runs those tests in a real browser, and
+reports what the results mean. Checking a survey by hand does not scale: one
+with 18 branch points has more than 262,000 answer paths.
 
-`CLAUDE.md` is the authoritative project document — scope, contracts, engineering rules and security. Read it first.
+`CLAUDE.md` is the authoritative project document: scope, contracts,
+engineering rules and security.
+
+## Supported QREs
+
+The pipeline reads the **S, M and C QRE format** in `fixtures/qre-samples/`
+(15 documents: S01 to S05 simple, M01 to M06 moderate, C01 to C04 complex).
+Each has a front page, then headed sections: study specification,
+questionnaire table, routing table, quotas, completion messages, programming
+requirements and acceptance scenarios. Questionnaires may include display
+messages (a "text display" row with nothing to answer).
+
+QREs in a different format need changes to the agents, described in the
+project report.
 
 ## Agents
 
-| # | Agent | Does | Status on `main` |
+| # | Agent | Does | Model use |
 |---|---|---|---|
-| 1 | QRE Interpreter | Turns a QRE into a structured extraction and a platform-neutral survey specification | Implemented — 9 stages |
-| 2 | Survey Builder | Turns Agent 1's output into a LimeSurvey `.lss` file | Implemented — basic question types |
-| 3 | Test Designer | Derives respondent paths and test cases from the specification | Implemented — see note |
-| 4 | Respondent Bot | Will run the tests against the live survey | Stub |
-| 5 | QA Adjudicator | Will compare observed behaviour with the specification | Stub |
+| 1 | QRE Interpreter | Turns a QRE into the Canonical Survey Specification | Only where plain code cannot read the text |
+| 2 | Survey Builder | Builds a LimeSurvey `.lss` file from the specification | None |
+| 3 | Test Designer | Works out every respondent journey and the tests that prove the survey | None |
+| 4 | Respondent Bot | Runs the tests in a real browser against the live survey | None |
+| 5 | QA Adjudicator | Decides what each failure means and who should act on it | None |
 
-**Scope note.** `CLAUDE.md` Section 3 scopes real implementation to Agents 1 and 2 in this phase and keeps Agents 3–5 as stubs until the team moves them into the build phase. Agent 3 has nevertheless been implemented and merged, so the code is ahead of `CLAUDE.md`; the two need reconciling.
+## How it fits together
 
-## Architecture
-
-Agents are separate command-line programs connected by files, not by an in-process graph. Each reads the previous agent's output from `out/<survey>/` and writes its own beside it. The Streamlit dashboard runs Agents 1 → 2 → 3 by calling the same commands. `src/orchestration/` is an empty placeholder.
+Agents are separate command-line programs connected by files. Each reads the
+earlier agents' output from `out/<QRE>/` and writes its own into its own
+folder. The Streamlit dashboard runs the same commands.
 
 ```
 QRE (.docx)
-  └─▶ Agent 1  QRE Interpreter  ──▶ out/<survey>/agent1/agent1_*.json
-        ├─▶ Agent 2  Survey Builder  ──▶ out/<survey>/agent2/agent2_<survey>.lss   reads agent1_canonical_survey_spec.json
-        └─▶ Agent 3  Test Designer   ──▶ out/<survey>/agent3/              reads agent1_canonical_survey_spec.json
-                                                                           (+ the .lss, if given)
+  └─▶ Agent 1  QRE Interpreter  ──▶ out/<QRE>/agent1/agent1_canonical_survey_spec.json
+        ├─▶ Agent 2  Survey Builder  ──▶ out/<QRE>/agent2/agent2_<QRE>.lss
+        │                                  │  imported into LimeSurvey and activated
+        └─▶ Agent 3  Test Designer   ──▶ out/<QRE>/agent3/agent3_executable_tests.json
+                                           │
+              Agent 4  Respondent Bot  ──▶ out/<QRE>/agent4/agent4_results.json
+                                           │
+              Agent 5  QA Adjudicator  ──▶ out/<QRE>/agent5/agent5_qc_report.xlsx
 ```
 
-### Agent 1 — QRE Interpreter
+Every output file name starts with its agent (`agent1_...`, `agent2_...`), so
+a file is identifiable after it is downloaded. All names are defined in
+`src/common/paths.py`.
+
+**Before Agents 2 to 4 run, a readiness check** compares the specification
+with what each agent says it supports, and names anything it cannot handle,
+before any time is spent on it:
+
+```bash
+python -m src.common.readiness out/<QRE>
+```
+
+It also runs automatically: the Survey Builder prints it, the Test Designer
+refuses to start if anything blocks, and the Respondent Bot checks its test
+package before opening a browser.
+
+### Agent 1: QRE Interpreter
 
 `src/agents/qre_interpretation/`
 
 ```bash
-python -m src.agents.qre_interpretation.orchestrator fixtures/qre-samples/<file>.docx
+python -m src.agents.qre_interpretation.orchestrator fixtures/qre-samples/<QRE>.docx
 ```
 
-- Accepts `.docx` only.
-- All nine stages run on every call. `--from-stage N` reloads stages 1–3 from disk; stage 4 onwards always re-runs.
-- Exits with code 2 when stage 7 marks the specification FAILED.
+Eight stages. **Part 1** (stages 1 to 5) records what the document says without
+interpreting it: ingestion, section matching, word-for-word transcription,
+typed parsing, and an audit of the parse against the transcription. **Part 2**
+(stages 6 to 8) works out what it means: the Canonical Survey Specification,
+an independent check of that specification, and the route graph.
 
-**Part 1 — what the document says.** Nothing is interpreted before stage 6.
+Every value in the specification records where it came from (`extracted`,
+`derived`, `inferred`, `unknown` or `ambiguous`), so an inference is never
+presented as something the QRE stated. Every model answer is saved in
+`agent1_llm_cache.json`, so a document reads the same way on every run and a
+re-run costs no model calls.
 
-| Stage | What it does | Model use | Writes |
-|---|---|---|---|
-| **1 Ingestion**<br>`stage1_ingestion.py` | Reads the document body in order: paragraphs (text, style, bold, heading level) and tables (rows of cell text). | — | `agent1_s1_document.json` |
-| **2 Sections**<br>`stage2_headings.py` | Assigns headings to seven target sections — Questionnaire, Routing and termination, Acceptance test scenarios, Completion messages, Quota controls, Study specification, Programming and QA requirements — by name, otherwise by content shape. One heading per target. Every target is optional; other sections are kept as `unclassified`. | Shape match | `agent1_s2_blocks.json`<br>`agent1_s2_flags.json` |
-| **3 Transcription**<br>`stage3_raw_json.py` | Copies each section verbatim. Table rows keep the document's own column names and a source reference per row. | Completion messages only | `agent1_s3_<section>.json`<br>`agent1_s3_flags.json` |
-| **4 Deep parse**<br>`stage4_deep_parse.py` | Builds typed questions, routing rules, scenarios, messages and statements. Column meanings come from synonym lists. Formal conditions are rendered by a parser (`derived`); prose ones by the model (`inferred`). | Instruction labelling, condition translation | `agent1_s4_<section>.json`<br>`agent1_s4_survey.json`<br>`agent1_s4_flags.json` |
-| **5 Audit**<br>`stage5_audit.py` | Checks stage 4 against stages 2–3: source coverage, row accounting, reference integrity, condition consistency, piping symmetry. | — | `agent1_s5_audit.json` |
+Exit code 0 means the specification was produced and passed its check; 2
+means it was produced but the check found something wrong.
 
-Stage 4 files are written without an envelope or per-item provenance because they are Agent 2's input; later stages still receive the full records in memory.
+Full detail: [`src/agents/qre_interpretation/README.md`](src/agents/qre_interpretation/README.md).
 
-**Part 2 — what the document means.**
+### Agent 2: Survey Builder
 
-| Stage | What it does | Model use | Writes |
-|---|---|---|---|
-| **6 Specification**<br>`stage6_canonical.py`<br>`stage6_conditions.py` | The platform-neutral specification: condition trees built from the verbatim text, typed destinations, display guards, dependencies, randomisation, quotas, endings, scenarios, the survey-wide rules the QRE never states, and a review queue. Every added value records its origin: `extracted`, `derived`, `inferred`, `unknown` or `ambiguous`. | Prose conditions, wording pipes, quota sentences | `agent1_canonical_survey_spec.json` |
-| **7 Validation**<br>`stage7_validation.py` + `stage7_cross_check.py`, `stage7_oracle.py`, `stage7_tests.py`, `stage7_decisions.py` | Compares raw QRE, stage 4 and specification using an oracle that reads the document independently; re-runs stage 6 twice to check reproducibility; runs tests derived from the QRE; keeps the register of decisions a person must make. | Reuses stage 6's saved answers | `agent1_s7_validation.json`<br>`agent1_s7_evaluation_tests.json`<br>`agent1_s7_evaluation_results.json`<br>`agent1_s7_decisions.json`<br>`agent1_s7_decision_register.md` |
-| **8 Graphs**<br>`stage8_graph.py` | A route graph (how a respondent moves) and a dependency graph (which answers a question needs), plus a map from every edge back to its rule. | — | `agent1_s8_route_graph.json`<br>`agent1_s8_graph_report.json` |
-| **9 Graph check and gate**<br>`graph_validate.py`<br>`run_graph_validation.py` | Checks the saved graph structurally and by walking it. Then sets the Agent 3 gate: APPROVED only if the specification did not fail, every blocking decision is resolved, and the graph is ready. | — | `part2_graph_validation.json`<br>`route_graph` / `dependency_graph` `.graphml` `.gexf`<br>`agent1_ready.json` |
-
-All model calls go through `src/common/llm/groq_client.py`. Each answer is saved to `out/<survey>/agent1_llm_cache.json` and reused, so a document reads the same way on every run; set `QRE_LLM_CACHE=off` to ask again. Full detail: [`src/agents/qre_interpretation/README.md`](src/agents/qre_interpretation/README.md).
-
-### Agent 2 — Survey Builder
-
-`src/agents/survey_builder/` · deterministic, no model
+`src/agents/survey_builder/`
 
 ```bash
-python -m src.agents.survey_builder.build out/<survey>
+python -m src.agents.survey_builder.build out/<QRE>
 ```
 
-Reads four of Agent 1's stage 4 files — survey, questionnaire, routing and messages. `CLAUDE.md` Section 26 names the canonical specification as Agent 2's input instead.
+Reads the specification and writes a `.lss` file that LimeSurvey imports in
+one step.
 
-| Step | What it does |
-|---|---|
-| **1 Preflight**<br>`preflight.py` | Lists every construct the builder cannot handle, all at once, and stops the build if there are any. Also runs alone: `python -m src.agents.survey_builder.preflight out/<survey>`. |
-| **2 Load**<br>`loader.py`, `models.py` | Converts the files into a LimeSurvey-shaped model: assigns answer codes `A001…` where the QRE gives none, turns answer labels in conditions into codes, puts questions whose ID starts with `S` in a Screening group and the rest in a Main Survey group. LimeSurvey has no terminate action, so terminate rules are inverted into the Main Survey group's show condition and the end screen picks its message from the original rules. Skip and reject rules produce nothing. |
-| **3 Emit**<br>`emitter.py` | Writes the `.lss` XML in the shape a real LimeSurvey export uses, to `out/<survey>/agent2/agent2_<survey>.lss`. |
+- **Question types:** single choice, multiple choice, free text, grid
+  (matrix), constant sum, numeric, and text display.
+- **Logic:** display conditions, screening terminations (LimeSurvey has no
+  terminate action, so each becomes a gate on later questions and an end
+  message chosen by why the respondent stopped), exclusive options, piped
+  options, validation ranges and lengths, randomised answers.
+- **Before building**, `preflight.py` lists everything it cannot build, all at
+  once, and stops if any of it would make a wrong survey.
 
-- **Supported question types:** single choice, multiple choice, free text, grid, constant sum.
-- **Reported by preflight:** conditions it cannot translate, such as AND/OR combinations and question-to-question comparisons.
-- **Not read at all:** quotas, study details, programming notes and scenarios. Quotas are dropped without a warning.
+Import the file under **Surveys, Create, Import**, then activate it.
 
 Full detail: [`src/agents/survey_builder/README.md`](src/agents/survey_builder/README.md).
 
-### Agent 3 — Test Designer
+### Agent 3: Test Designer
 
-`src/agents/test_design/` · deterministic, no model
+`src/agents/test_design/`
 
 ```bash
-python -m src.agents.test_design.run out/<survey> --lss out/<survey>/agent2/agent2_<survey>.lss --inputs data/inputs/test_design/<survey>.json
+python -m src.agents.test_design.run out/<QRE> --lss out/<QRE>/agent2/agent2_<QRE>.lss
 ```
 
-`--lss`, `--inputs` and `--sample-size` are optional. Reads `agent1_canonical_survey_spec.json` and the decisions in `agent1_s7_decisions.json`. `--inputs` supplies facts a QRE does not state, such as sample size and anchored options. Agent 1's gate is copied into `agent3_coverage.json`, but a BLOCKED gate does not stop the run.
+`--inputs data/inputs/test_design/<QRE>.json` supplies facts a QRE does not
+state, such as sample size; `--sample-size` sets it directly.
 
 | Step | What it does |
 |---|---|
-| **1 Load** · `spec.py`, `semantics.py` | Reads the specification and the survey-wide reading rules, with whether each is confirmed. |
-| **2 Paths** · `path_enumerator.py` | Lists the distinct respondent journeys, and a smaller set that takes every branch both ways. |
-| **3 B1 Targets** · `b1_targets.py` | Every behaviour that can be proven true or false, in nine dimensions that are never added together. |
-| **4 B2 Witnesses** · `b2_witness.py` | For each target, the smallest set of answers that reaches it. |
-| **5 B3 Oracle** · `b3_oracle.py` | Predicts what the survey should do with those answers. It never sees the target and shares no code with B2, so a test and its expected result cannot share a bug. |
-| **6 B4 Reconcile** · `b4_reconcile.py` | Decides whether each target is covered by comparing witness and prediction. |
-| **7 Logical tests** · `compile_logical.py` | Platform-neutral test cases, each ending at the question it tests. |
-| **8 Block A** · `a_implementation.py` | *With `--lss`.* Reads the built survey and checks it against the specification. |
-| **9 Block C** · `c_compile_executable.py` | *With `--lss`.* Turns logical tests into steps using real field names and answer codes; refuses rather than guesses. |
-| **10 Replay** · `run.py` | Runs Agent 1's acceptance scenarios through the B3 oracle. |
-| **11 Reports** · `report.py`, `paths_workbook.py`, `qre_validation_workbook.py` | Review files for sign-off. |
+| **Load** · `spec.py`, `semantics.py` | Reads the specification and the survey-wide reading rules, with whether each is confirmed |
+| **Paths** · `path_enumerator.py` | Lists the distinct respondent journeys, and a smaller set that takes every branch both ways |
+| **Targets** · `b1_targets.py` | Every behaviour that can be proven true or false, in nine dimensions that are never added together |
+| **Witnesses** · `b2_witness.py` | For each target, the smallest set of answers that reaches it |
+| **Oracle** · `b3_oracle.py` | Predicts what the survey should do with those answers. It shares no code with the witness step, so a test and its expected result cannot share a bug |
+| **Reconcile** · `b4_reconcile.py` | Decides whether each target is covered |
+| **Logical tests** · `compile_logical.py` | Platform-neutral test cases |
+| **Implementation check** · `a_implementation.py` | Reads the built `.lss` and checks it against the specification |
+| **Executable tests** · `c_compile_executable.py` | Turns logical tests into steps using the survey's real field names and answer codes, and refuses rather than guesses |
+| **Reports** · `report.py`, `paths_workbook.py`, `qre_validation_workbook.py` | Review workbooks for sign-off |
 
-Writes to `out/<survey>/agent3/`:
+Agent 1's ready status is recorded in `agent3_coverage.json`.
 
-- **Block results:** `agent3_targets`, `_witnesses`, `_expected_states`, `_coverage`, `_scenarios`, `_logical_tests`, `_paths` and `_summary`, all `.json`.
-- **Review files:** `agent3_review.md`, `agent3_review.xlsx`, `agent3_test_cases_with_paths.xlsx` and `agent3_test_cases_for_review.xlsx`.
-- **With `--lss` only:** `agent3_implementation_snapshot.json`, `agent3_conformance.json` and `agent3_executable_tests.json`.
+### Agent 4: Respondent Bot
 
-Example output: [`docs/agent3/README.md`](docs/agent3/README.md).
+`src/agents/respondent_bot/`
 
-### Agents 4 and 5
+```bash
+python -m src.agents.respondent_bot.run_browser out/<QRE> --sid <survey id>
+```
 
-`src/agents/respondent_bot/` and `src/agents/qa_adjudication/` contain only a package docstring. Their prompt modules in `src/common/prompts/` are empty.
+Opens a browser (Playwright), answers each test's questions as a respondent
+would, and records what it saw. Useful options: `--base` for a LimeSurvey other
+than `http://localhost:8080` (for example a LimeSurvey Cloud site), `--headed`
+to watch it, `--limit N` and `--only <test id>` to run a few tests.
+
+Each test ends in one of five outcomes: **PASSED**, **FAILED**, **BLOCKED** (the
+journey could not finish, so nothing was checked), **INCONCLUSIVE** (the check
+could not be observed) or **SKIPPED** (needs many respondents, such as a quota).
+
+### Agent 5: QA Adjudicator
+
+`src/agents/qa_adjudication/`
+
+```bash
+python -m src.agents.qa_adjudication.adjudicate out/<QRE>
+```
+
+A failing test is not necessarily a survey defect. This gives every test that
+did not pass one cause and one owner (survey defect, specification error, not
+built yet, unsettled question, test model gap or harness fault), and reports
+each respondent journey as working, broken or not yet proven, naming the step
+where it broke. Writes `agent5_qc_report.xlsx` and `agent5_findings.json`.
+
+## Results on the supported QREs
+
+All 15 QREs go through Agents 1 to 3. Live runs against LimeSurvey:
+
+| QRE | Tests | Passed | Failed | Blocked | Inconclusive | Skipped |
+|---|---|---|---|---|---|---|
+| S01 | 42 | 42 | 0 | 0 | 0 | 0 |
+| M01 | 82 | 68 | 2 | 0 | 9 | 3 |
+| C01 | 160 | 133 | 5 | 0 | 17 | 5 |
+
+The failures are real findings about the built survey, chiefly that a
+respondent can select "None of these" together with other options.
 
 ## Tech stack
 
@@ -129,14 +192,13 @@ Example output: [`docs/agent3/README.md`](docs/agent3/README.md).
 |---|---|
 | Python 3.13 | Everything |
 | python-docx | Reading QREs |
-| Groq, through `instructor` and Pydantic v2 | Structured model output in Agent 1 |
+| Groq, through `instructor` and Pydantic v2 | Structured model answers in Agent 1 |
 | NetworkX | Agent 1's route and dependency graphs |
+| Playwright | Agent 4's browser |
+| openpyxl | Agent 3, 4 and 5 workbooks |
 | Streamlit, graphviz | Dashboard |
-| openpyxl | Agent 3's workbooks |
 | pytest | Tests |
-| LimeSurvey Community Edition (Docker) | The survey platform Agent 2 targets |
-
-Planned, not yet in the code: LangGraph orchestration, a FastAPI backend, and Playwright for Agent 4. Forsta/Decipher is out of scope for this phase.
+| LimeSurvey (Community Edition in Docker, or LimeSurvey Cloud) | The survey platform |
 
 ## Repository layout
 
@@ -144,31 +206,24 @@ Planned, not yet in the code: LangGraph orchestration, a FastAPI backend, and Pl
 ├── CLAUDE.md                 Authoritative project instructions
 ├── .github/workflows/ci.yml  pytest on Linux and Windows on every push
 ├── config/.env.example       Template for .env (GROQ_API_KEY, GROQ_MODEL)
-├── docs/
-│   ├── decisions/            Append-only decision log
-│   ├── architecture/         how-it-works.md — describes the earlier, since-removed Part 1 design
-│   ├── agent3/               Example Agent 3 workbooks
-│   └── fix-tracker.md, agent1_validation_*.md, graph_validation_report.md
+├── docs/decisions/           Decision log
 ├── fixtures/
-│   ├── qre-samples/          15 S, M and C QREs with display messages — develop against these
-│   └── holdout/              empty until new holdout QREs are written (decision 0005)
-├── data/                     Git-ignored except:
-│   ├── inputs/test_design/   Per-survey facts for Agent 3 (committed)
-│   └── ground_truth/
-│       ├── Synthetic/        Ground-truth worksheets for the synthetic corpus (committed; none coded yet)
-│       └── Client/           Confidential — never committed
-├── out/                      All agent output, one folder per survey (committed)
+│   ├── qre-samples/          The 15 supported QREs
+│   └── holdout/              QREs kept back to measure how well the pipeline generalises
+├── data/inputs/test_design/  Facts a QRE does not state, per survey, for Agent 3
+├── out/                      All agent output, one folder per QRE
+├── scripts/                  One-off maintenance scripts
 ├── src/
-│   ├── agents/               One package per agent (see Architecture)
-│   ├── common/llm/           The only place a model provider SDK may be imported
-│   ├── common/prompts/       Per-agent prompt modules (currently empty)
-│   ├── dashboard/            Streamlit app
-│   └── orchestration/, backend/, reports/   Empty placeholders
+│   ├── agents/               One package per agent
+│   ├── common/llm/           The only place a model provider is called
+│   ├── common/paths.py       Every output folder and file name
+│   ├── common/readiness.py   The readiness check for Agents 2 to 4
+│   └── dashboard/            Streamlit app
 └── tests/
-    ├── test_conditions.py, test_stage8_graph.py, test_stage5_content.py   Agent 1
-    ├── survey_builder/       Agent 2, against a known-good S01 build
+    ├── test_conditions.py, test_stage5_content.py, test_stage8_graph.py   Agent 1
+    ├── survey_builder/       Agent 2, including a known-good S01 build
     ├── test_design/          Agent 3
-    └── unit/, integration/, regression/, uat/   Empty placeholders
+    └── test_readiness.py     The readiness check
 ```
 
 ## Getting started
@@ -179,34 +234,39 @@ Requires Python 3.13.
 python -m venv .venv
 source .venv/bin/activate          # Windows: .venv\Scripts\activate
 pip install -r requirements.txt
+playwright install chromium        # the browser Agent 4 drives
 cp config/.env.example .env        # then set GROQ_API_KEY
 python -m pytest
 ```
 
-Agent 1 needs the Groq key in `.env` at the repository root; `.env` is git-ignored. To run the dashboard, install the graphviz binary (`brew install graphviz` or `apt-get install graphviz`), then:
+Agent 1 needs a Groq key in `.env` at the repository root. `.env` is ignored
+by git. A key already set in your shell takes precedence over `.env`, so clear
+an old one with `unset GROQ_API_KEY` (PowerShell: `Remove-Item
+Env:GROQ_API_KEY`). `GROQ_MODEL` in the same file selects the model.
+
+To run the dashboard, install the graphviz binary (`brew install graphviz` or
+`apt-get install graphviz`), then:
 
 ```bash
 PYTHONPATH=. streamlit run src/dashboard/app.py
 ```
 
-### Changing the Groq API key
+**LimeSurvey.** Run LimeSurvey Community Edition locally in Docker (it serves on
+`http://localhost:8080`), or use a LimeSurvey Cloud site with `--base`. Each test
+the bot runs submits one response, so on a plan with a response limit, check it
+covers the number of tests.
 
-1. Create a key at [console.groq.com/keys](https://console.groq.com/keys).
-2. Open `.env` in the repository root (copy it from `config/.env.example` if it does not exist) and replace the value:
-   ```
-   GROQ_API_KEY=gsk_your_new_key
-   ```
-3. Make sure no older key is set in your shell, because a shell variable takes precedence over `.env`:
-   ```bash
-   unset GROQ_API_KEY                 # Windows PowerShell: Remove-Item Env:GROQ_API_KEY
-   ```
+**Long bot runs.** A C QRE takes about 30 minutes. On a Mac, start it with
+`caffeinate -i` in front so the machine does not sleep mid-run.
 
-The key is read when an agent starts, so the next run — from the command line or the dashboard — uses the new key with no restart. `GROQ_MODEL` in the same file changes the model the same way. Never commit `.env`; it is git-ignored.
+## Working with the QREs
 
-### Working with the corpus
-
-- **Do not open `fixtures/holdout/`.** It measures whether Agent 1 generalises beyond the documents it was built against, and reading it destroys that measurement (decision 0002). The previous three holdouts were retired on 2026-10-11 and the folder is empty until new ones are written (decision 0005). The automated guard was removed in the `main` cleanup, so this rests on discipline alone; CI only checks that `ESCALENT_ALLOW_HOLDOUT` is not set.
-- **Never place client-derived material in a committed folder.** Confidential QREs and ground truth belong in `data/ground_truth/Client/` or outside the repository (`CLAUDE.md` Sections 51–53).
+- **Do not develop against `fixtures/holdout/`.** It measures whether the
+  pipeline works on documents it was not built against, and reading it
+  destroys that measurement (decision 0002).
+- **Never place client material in a committed folder.** Confidential QREs and
+  ground truth belong in `data/ground_truth/Client/`, which is never committed,
+  or outside the repository (`CLAUDE.md` Sections 51 to 53).
 
 ## Team
 

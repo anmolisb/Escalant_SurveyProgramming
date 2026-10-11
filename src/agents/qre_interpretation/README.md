@@ -1,637 +1,171 @@
-# QRE extraction pipeline
+# Agent 1: QRE Interpreter
 
-DOCX questionnaire requirement document → a structured extraction of what it
-says, and a canonical specification of what it means.
+Reads a questionnaire requirement document (QRE, `.docx`) and produces the
+**Canonical Survey Specification**: a platform-neutral, typed, traceable
+description of how the survey must behave. The Survey Builder, the Test
+Designer and the Respondent Bot all work from that one file.
 
-Agent 1 has two parts. **Part 1** (stages 1 to 5) reads the document and records
-it. **Part 2** (stages 6 to 9) interprets that record into a platform-neutral
-survey specification, builds the graphs, and validates both. The dividing line matters and
-is enforced: Part 1 preserves `Show if: Q5 contains any touchpoint` as text, and
-Part 2 is the only place allowed to decide that the operator is `contains_any`.
-
-## Setup
-
-```bash
-pip3 install -r requirements.txt
-```
-
-`.env` is **tracked in git**, but only ever with a blank key. Put your real key
-in it, then run this once so your local copy is never staged:
-
-```bash
-git update-index --skip-worktree .env
-```
-
-Without that flag, `git add -A` will commit your key. The flag is per-clone, so
-every clone needs it. To edit the tracked template itself — changing the model,
-say — release the flag first:
-
-```bash
-git update-index --no-skip-worktree .env
-```
-
-`GROQ_MODEL` must be a model that emits JSON directly. Reasoning models
-(`qwen/qwen3.6-27b`) fail instructor's JSON mode — they spend the token budget on
-thinking and return an empty completion. Default is `openai/gpt-oss-120b`.
+**Supported format.** The S, M and C QRE format in `fixtures/qre-samples/`: a
+front page, then headed sections (study specification, questionnaire table,
+routing table, quotas, completion messages, programming requirements,
+acceptance scenarios).
 
 ## Run
 
 ```bash
-python3 src/orchestrator.py fixtures/qre-samples/S01_campus_cafeteria_experience.docx
+pip install -r requirements.txt
+cp config/.env.example .env          # then set GROQ_API_KEY
+python -m src.agents.qre_interpretation.orchestrator fixtures/qre-samples/S01_campus_cafeteria_experience.docx
 ```
 
-Re-run from a previous stage's artifact instead of from the document:
+Outputs go to `out/<document name>/agent1/`. Exit code **0** means the
+specification passed its check, **2** means it was produced but the check found
+something wrong, **1** means the run stopped with an error.
 
-```bash
-python3 src/orchestrator.py <file.docx> --from-stage 4
-```
-
-Artifacts land in `out/<document stem>/`.
-
-`--from-stage` skips stages 1 to 3 only. Stage 4 onwards always runs, so
-`--from-stage 6` still re-parses. Stage 4 is the expensive stage — roughly fifty
-model calls on a 31-question QRE — so iterating on Part 2 this way costs more
-than it should. The decision record below removes most of that cost on a
-re-run, but a `load_stage4` would remove the rest.
-
----
+`GROQ_MODEL` in `.env` must return JSON directly (default
+`openai/gpt-oss-120b`). Reasoning models spend their budget thinking and return
+nothing.
 
 ## Architecture
+
+Every output file starts with `agent1_` and carries its stage number, so files
+sort in pipeline order. All names live in `src/common/paths.py`.
 
 ```
                         file.docx
                             │
-        ┌───────────────────▼───────────────────┐
-        │ STAGE 1  ingestion                    │  no LLM
-        │ body XML walked in document order     │
-        └───────────────────┬───────────────────┘
+┌───────────────────────────▼───────────────────────────┐
+│ STAGE 1  Ingestion                         no model   │
+│ paragraphs and tables, in document order              │
+└───────────────────────────┬───────────────────────────┘
                             │  agent1_s1_document.json
-                            │  blocks[] — paragraphs (text, style, bold)
-                            │             and tables (row/column grids)
-        ┌───────────────────▼───────────────────┐
-        │ STAGE 2  heading identification       │  LLM: shape-matching
-        │ 7 targets, name match then shape      │
-        └───────────────────┬───────────────────┘
-                            │  agent1_s2_blocks.json + agent1_s2_flags.json
-                            │  one ContentBlock per target = the heading
-                            │  plus every block beneath it, and every
-                            │  unmatched section kept as `unclassified`
-        ┌───────────────────▼───────────────────┐
-        │ STAGE 3  raw JSON                     │  LLM: prose only
-        │ literal transcription per block       │
-        └───────────────────┬───────────────────┘
-                            │  agent1_s3_<target>.json + agent1_s3_flags.json
-                            │  rows[] — source column names as keys,
-                            │           cell text verbatim as values
-                            │  row_sources[] — index-aligned provenance
-        ┌───────────────────▼───────────────────┐
-        │ STAGE 4  deep parse                   │  LLM: field split,
-        │ parsers run under asyncio.gather      │       condition translation
-        └───────────────────┬───────────────────┘
-                            │  agent1_s4_<target>.json + agent1_s4_flags.json
-                            │  typed objects: Question, RoutingRule,
-                            │  AcceptanceScenario, CompletionMessage,
-                            │  ExtractedStatement
-                            │  agent1_s4_survey.json — the survey's own headings
-                            │  written bare: no envelope, no source_reference
-        ┌───────────────────▼───────────────────┐
-        │ STAGE 5  extraction quality check     │  no LLM
-        │ audits stage 4 against 2 and 3        │
-        └───────────────────┬───────────────────┘
+┌───────────────────────────▼───────────────────────────┐
+│ STAGE 2  Sections                          model*     │
+│ each heading matched to one of 7 sections             │
+│ by name first, by content shape only if that fails    │
+└───────────────────────────┬───────────────────────────┘
+                            │  agent1_s2_blocks.json, agent1_s2_flags.json
+┌───────────────────────────▼───────────────────────────┐
+│ STAGE 3  Transcription                     model*     │
+│ every row and cell copied word for word               │
+└───────────────────────────┬───────────────────────────┘
+                            │  agent1_s3_<section>.json, agent1_s3_flags.json
+┌───────────────────────────▼───────────────────────────┐
+│ STAGE 4  Deep parse                        model*     │
+│ typed questions, rules, messages, scenarios           │
+│ conditions still kept exactly as written              │
+└───────────────────────────┬───────────────────────────┘
+                            │  agent1_s4_<section>.json, agent1_s4_survey.json,
+                            │  agent1_s4_flags.json
+┌───────────────────────────▼───────────────────────────┐
+│ STAGE 5  Audit                             no model   │
+│ Stage 4 checked against Stages 2 and 3: coverage,     │
+│ rows, wording, references, conditions, piping         │
+└───────────────────────────┬───────────────────────────┘
                             │  agent1_s5_audit.json
-     ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─│─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─  Part 1 ends here
-        ┌───────────────────▼───────────────────┐
-        │ STAGE 6  canonical specification      │  LLM: prose conditions,
-        │ what the QRE means                    │       text pipes, quotas
-        └───────────────────┬───────────────────┘
-                            │  agent1_canonical_survey_spec.json
-                            │  every added value carries an origin
-        ┌───────────────────▼───────────────────┐
-        │ STAGE 7  canonical validation         │  no LLM
-        │ is the specification right?           │
-        └───────────────────┬───────────────────┘
-                            │  agent1_s7_validation.json
-                            │  agent1_s7_evaluation_tests.json
-                            │  agent1_s7_evaluation_results.json
-                            │  agent1_s7_decisions.json
-                            │  agent1_s7_decision_register.md
-        ┌───────────────────▼───────────────────┐
-        │ STAGE 8  route + dependency graphs    │  no LLM
-        │ a view of the validated specification │
-        └───────────────────┬───────────────────┘
-                            │  agent1_s8_route_graph.json
-                            │  agent1_s8_graph_report.json
-                            │  route_graph.graphml / .gexf
-                            │  dependency_graph.graphml / .gexf
-        ┌───────────────────▼───────────────────┐
-        │ STAGE 9  graph validation             │  no LLM
-        │ does the graph behave as specified?   │
-        └───────────────────┬───────────────────┘
-                            │  part2_graph_validation.json
-                            │  agent1_ready.json
+ ─ ─ ─ ─ ─ ─ ─ ─ ─  Part 1 ends: what the QRE says  ─ ─ ─ ─ ─ ─ ─ ─ ─
+┌───────────────────────────▼───────────────────────────┐
+│ STAGE 6  Specification                     model*     │
+│ what the QRE means: conditions become trees,          │
+│ every value marked with where it came from            │
+└───────────────────────────┬───────────────────────────┘
+                            │  agent1_canonical_survey_spec.json  ◀ the contract
+┌───────────────────────────▼───────────────────────────┐
+│ STAGE 7  Validation                        no model   │
+│ an independent reading of the document checks the     │
+│ specification; open questions go to a person          │
+└───────────────────────────┬───────────────────────────┘
+                            │  agent1_s7_validation.json, agent1_s7_evaluation_*.json,
+                            │  agent1_s7_decisions.json, agent1_s7_decision_register.md
+┌───────────────────────────▼───────────────────────────┐
+│ STAGE 8  Route graph                       no model   │
+│ how a respondent moves through the survey             │
+└───────────────────────────┬───────────────────────────┘
+                            │  agent1_s8_route_graph.json, agent1_s8_graph_report.json,
+                            │  agent1_s8_route_graph.gexf
                             ▼
-                    Agent 2 (build) · Agent 3 (test design)
+                    agent1_ready.json   APPROVED or BLOCKED
+                            │
+          Survey Builder · Test Designer · Respondent Bot
+
+  * only for what plain code cannot read (see "Where the model is used")
+  agent1_llm_cache.json holds every model answer, across all stages
 ```
 
-**Targets.** `Questionnaire`, `Routing and termination`,
-`Acceptance test scenarios`, `Completion messages`, `Quota controls`,
-`Study specification`, `Programming and QA requirements`. Every target is
-optional. A document with no quota section is not an error: Stage 3 writes
-nothing for it, and Stage 4 writes an empty array — which says "this ran and
-found none", where an absent file could not.
+## Key ideas
 
-**Transcription boundary.** Stages 1–3 transcribe. Nothing is renamed,
-normalised, inferred or split before Stage 4. That is what makes Stage 5's audit
-possible: Stage 3's output is a faithful record of the source, so any difference
-between it and Stage 4 is attributable to Stage 4.
+**Part 1 records, Part 2 interprets.** Stage 4 keeps `Show if: Q5 contains any
+touchpoint` as text. Only Stage 6 may decide the operator is `contains_any`.
+Because Stage 3 is a word-for-word copy, any difference Stage 5 finds can only
+have come from Stage 4.
 
-**Survey information.** `agent1_s4_survey.json` carries the five things that
-identify a study and introduce it, which nothing else in the pipeline held:
+**Every value says where it came from**: `extracted` (stated in the QRE),
+`derived` (worked out by code), `inferred` (read by a model), `unknown` or
+`ambiguous`. Where the QRE is silent the value is null and a review item names
+it. Nothing is guessed.
 
-```json
-{"qre_id": "C02", "source_file": "C02_automotive_purchase_journey.docx",
- "title": "Automotive Purchase Journey",
- "description": "Understand brand funnel, purchase touchpoints, ownership satisfaction and switching.",
- "welcome_text": null}
-```
+**Conditions are trees, not strings.** A condition already written formally
+(`S1 == 'No'`) is parsed by code. Prose goes to the model, which must answer in
+the parser's own grammar, so it can only propose what the QRE could have written
+itself. Anything unreadable becomes a review item.
 
-Two places are read, in order. A labelled line in the study specification wins —
-a QRE writing `Title: X` has stated its title and there is nothing to work out.
-Failing that the **front matter** is read positionally: the id is the leading
-token of the first line that starts with one (`S01 • SIMPLE` → `S01`), and the
-title is the first line left once that line and the "Questionnaire Requirement
-Document" boilerplate are set aside. The id falls back to the filename last of
-all. This is the only thing that reads the front matter — the lines above the
-first heading belong to no section, so every target declines them and Stage 5
-reports them as uncovered blocks.
+**The check shares no code with what it checks.** Stage 7's oracle reads the
+document from Stage 1 only and works everything else out itself.
 
-Plain values, no origin wrappers. Where a field carries interpretation — reading
-`Business objective` as the description, or taking the id off a filename — a
-Stage 4 flag says which line was read as what, rather than every value being
-wrapped to record the one case that needs it. Nothing is defaulted: no fixture
-states a welcome text, so it stays `null` and raises a flag naming the field.
+**People decide, not the pipeline.** Readings the QRE does not settle (which
+rule wins when two apply, say) go into the decision register. A project owner
+edits an entry and re-runs; the answer is reused until the document changes.
 
-Part 2 does not consume this. It is a heading for the survey, not a fact about
-how the survey behaves, and the canonical specification is about behaviour.
+**The ready gate.** `agent1_ready.json` says `APPROVED` only when Stage 7 did
+not fail the specification, every blocking decision is confirmed, and the
+Stage 8 graph check passed. Otherwise `blocked_by` says what is outstanding.
 
-**Interpretation boundary.** Nothing before Stage 6 decides what the document
-means. Stage 6 is where a condition becomes a tree, a destination gets a kind,
-and a display rule gets combined with its routing-table twin.
+## Where the model is used
 
-**Nothing is discarded.** A heading matching no target is kept with its content
-(CLAUDE.md §16). An attribute Stage 4 reads but the canonical model does not name
-is carried in `extra` with its JSON type rather than dropped.
+Code reads everything it can. The model gets only these, at temperature 0, each
+answer checked against a Pydantic schema:
 
-### Where the LLM is allowed
-
-A table is never sent to a model when python-docx can read it. Every response is
-a Pydantic model, temperature 0.
-
-| Stage | Call | Response schema |
-|---|---|---|
-| 2 | Shape-match an unmatched heading's content against a target | `LLMHeadingCandidate` |
-| 3 | Transcribe a prose block (completion messages) | `LLMCompletionMessages` |
-| 4 | Label the instructions in one question's cell | `LLMQuestionFields` |
-| 6 | Rewrite a prose condition into the parser's grammar | `LLMConditionProposal` |
-| 6 | Find wording that quotes an earlier answer | `LLMTextPipes` |
-| 6 | Read a quota sentence into parts | `LLMQuota` |
-
-Stage 6's condition call never returns a condition. It returns text in a grammar
-the deterministic parser already checks, and the parser decides whether to
-accept it — so a model can only propose something the QRE could have written
-formally itself. Most conditions never reach a model at all: both fixtures write
-`S1 == 'No'` and `Q12 in ['Fully','Partly']` themselves, and those parse
-deterministically.
-
-### Conditions are read once, in Part 2
-
-Stage 4 keeps every condition exactly as the QRE wrote it: `condition_raw` on a
-routing rule, `display_condition` on a question. It does not interpret them.
-
-Part 2 (`stage6_conditions.py`) reads each one into a condition tree. Formal
-conditions such as `S1 == 'No'` and `Q12 in ['Fully','Partly']` parse
-deterministically, with no model. Only genuine prose, such as `Q5 contains any
-touchpoint`, goes to a model, which is told the question's options and which
-one is exclusive. It answers in the parser's grammar, and the parser decides
-whether to accept it, so a model can only propose what the QRE could have
-written formally itself. A condition nobody could read is left unread and
-becomes a review item.
-
-**Every operator is infix**, so the question is always leftmost:
-
-```
-Q1 contains_any ['Auto Brand A', 'Auto Brand B']
-Q1 == ['None of these']
-Q5 contains 'Dealer visit'
-Q3 answered
-sum(Q18) != 100
-```
-
-`stage6_conditions.render` is the only place the written shape is decided, and
-every rendering reads back through the parser as the same condition, which
-`tests/test_conditions.py` checks.
-
-Stage 4 used to translate conditions as well, into a `condition_expression`
-field. That was a second model reading of the same text, it could disagree with
-Part 2's, and the Survey Builder used it. It was removed once the Survey
-Builder read the canonical specification, which saves those model calls.
-
-### Stage 4's files are written bare
-
-Every other stage wraps its artifact in an `ArtifactEnvelope` — schema version,
-source document and digest, timestamp — and carries a `source_reference` on
-every record. Stage 4 does neither. It is the handover point to the survey
-builder, and there both are weight the consumer steps over rather than anything
-it uses:
-
-```json
-[ { "rule": "R1", "condition_raw": "S1 == 'No'",
-    "action": "terminate", "destination": "TERM_INELIGIBLE" } ]
-```
-
-**No provenance is lost.** Only the serialisation drops it; the objects in
-memory are unchanged. Stage 5 and Part 2 are handed those objects rather than
-the file, so `agent1_canonical_survey_spec.json` still carries a source reference for every
-question and every rule, and Stage 9's `traceability_coverage` still resolves in
-full. Anything re-reading Stage 4 from disk — `stage7_validation.py` does — gets
-records without provenance, which costs nothing today because the traceability
-checks read the canonical specification instead.
-
-### One reading for one condition
-
-A QRE often states the same rule twice. C01 guards Q6 in the questionnaire with
-`Show if: Q5 contains any touchpoint`, and again in the routing table as R8.
-Part 2 reads both through the same function, with one cache keyed on the text,
-so the same sentence gives the same tree whichever column wrote it. It then
-combines them into the question's `guard` and records whether the two agree.
-
-### Reading a display cell
-
-One cell holds several instructions, on separate lines:
-
-```
-Show if: Q3 != 'None/currently not using'
-Validate: {"scale": [...], "require_each_row": true}
-Randomize
-```
-
-The model labels each one with a `DirectiveKind` — `always_show`,
-`display_condition`, `validation`, `randomize`, `option_source`, `optional`,
-`mandatory`, `other` — and returns them as a list. The previous schema had one
-slot per kind plus a free-form `other_attributes` dictionary, so a second
-instruction of the same kind was dropped and anything unanticipated arrived
-under a key the model invented.
-
-Validation payloads are still read from their own JSON rather than from the
-label. They are machine-readable already, and having a model read one back is a
-chance to change a number for nothing.
-
-Two display conditions in one cell are joined with `and` — the reading every
-survey tool takes — and a flag says so, because the cell itself does not.
-
-### Stage 4 concurrency
-
-The parsers run concurrently. Scenarios and messages never wait.
-
----
-
-## Reproducibility — the decision record
-
-Temperature 0 is not determinism. Three runs of C01 on identical code produced
-three different specifications: the wording of Q21 was read as quoting Q19 twice
-and not the third time, and R8's prose condition was declined once and accepted
-twice. Each of those changes which questions a respondent sees, so a test built
-on one reading cannot be told apart from a test built on another.
-
-Every model call goes through `llm.complete`, so the record sits there. Each
-answer is written to `out/<stem>/agent1_llm_cache.json` and reused, keyed by a
-digest of the model, the system prompt, the user prompt, the response schema and
-the token cap. Change any of those — including editing the QRE, which changes the
-prompt — and it asks again rather than reusing an answer to a different question.
-
-```bash
-QRE_LLM_CACHE=off python3 src/orchestrator.py <file.docx>   # re-ask everything
-```
-
-The file is a deliverable, not just a cache. It says what was inferred, from what
-text, by which model and when, which makes the inferred half of a specification
-reviewable in a way a fresh call is not. It is committed alongside the artifacts.
-
----
-
-## Review flags
-
-Ambiguity emits a flag rather than a guess.
-
-```json
-{"target_heading": "...", "status": "NOT_PRESENT | POSSIBLE_MATCH",
- "candidate_heading": "...", "confidence": 0.0, "reasoning": "...",
- "severity": "BLOCKING | WARNING | INFO", "target": {"kind": "...", "id": "..."}}
-```
-
-`agent1_s2_flags.json`, `agent1_s3_flags.json` and `agent1_s4_flags.json` are always
-written, empty array included — an absent file would be ambiguous between "no
-flags" and "the stage did not run".
-
-Part 2's equivalent is the `review` list inside `agent1_canonical_survey_spec.json`. It reuses
-the audit's finding shape so the two queues can be read together.
-
----
-
-## Stage 5 — extraction quality check
-
-Audits Stage 4's output against the source. **Audits, not re-extracts**: a second
-independent extraction tends to repeat the first one's mistakes, so it agrees
-with a wrong answer instead of catching it.
-
-Five deterministic checks. No model is called, so the same inputs always give the
-same findings, which is what makes this usable as a gate rather than as advice.
-
-| Check | What it answers |
+| Stage | Call |
 |---|---|
-| `source_coverage` | Was every block Stage 1 read accounted for? |
-| `row_accounting` | Did every transcribed row become an object? |
-| `reference_integrity` | Does every identifier point at something that exists? |
-| `condition_consistency` | Do scenarios treat identical conditions identically? |
-| `piping_symmetry` | Are piped questions guarded the way their peers are? |
+| 2 | Match a heading that matches no section name |
+| 3 | Transcribe a prose section (completion messages) |
+| 4 | Label instruction lines in no known form |
+| 6 | Rewrite a prose condition in the parser's grammar |
+| 6 | Find wording that quotes an earlier answer |
+| 6 | Read a quota sentence into its parts |
 
-Written to `agent1_s5_audit.json`, holding the per-section scores, the findings and
-a pass/fail. Kept separate from `agent1_s4_flags.json` rather than appended to it:
-a Stage 4 flag is trouble that stage hit while working, an audit finding is a
-disagreement between artifacts that each looked fine alone, and conflating the
-two loses which you are reading.
+Every answer is saved in `agent1_llm_cache.json`, so a re-run of an unchanged
+document makes no model calls and gives the same specification. To re-ask
+everything: `QRE_LLM_CACHE=off` in front of the run command. A fresh run costs
+about 2 calls for an S QRE, 7 for an M and 15 for a C.
 
-Nothing here evaluates a condition. Deciding whether
-`Q3 != 'None/currently not using'` holds means parsing it, which is Part 2's
-job. `condition_consistency` reaches the same defect by comparing condition text
-for equality — enough to report that C02's scenario T3 names Q7, Q8 and Q9 but
-not Q15, though all four carry an identical display condition.
-
-### Inputs
-
-Per section, Stage 5 needs a pair — what Stage 4 produced, and what it was
-produced from. Everything required is already on disk.
-
-| Input | File | Role in the audit |
-|---|---|---|
-| Stage 4 output | `agent1_s4_<target>.json` | The thing being audited |
-| Literal transcription | `agent1_s3_<target>.json` | Field-by-field comparand. Row-aligned with Stage 4, so a discrepancy points at one item and one field |
-| Original content block | `agent1_s2_blocks.json` | Completeness check. Catches anything Stage 3 itself dropped, which comparing only against Stage 3 would miss |
-| Existing flags | `stage2/3/4_flags.json` | Already-known problems, so the audit does not re-report them as new findings |
-
-Both sources are needed. Stage 3 alone cannot show that a whole row was lost
-before it; Stage 2 alone is not row-aligned enough to attribute a discrepancy to
-a specific field.
-
-### Scoring
-
-Per section, never blended into one number:
+## Code
 
 ```
-score = correct fields ÷ total fields expected for that section
+src/agents/qre_interpretation/
+  orchestrator.py        runs every stage and writes the outputs
+  models.py              every output and model-answer schema
+  stage1_ingestion.py    stage2_headings.py    stage3_raw_json.py
+  stage4_deep_parse.py   stage5_audit.py
+  stage6_canonical.py    stage6_conditions.py  (condition parser)
+  stage7_validation.py   stage7_oracle.py      stage7_tests.py
+  stage7_cross_check.py  stage7_decisions.py
+  stage8_graph.py
 ```
 
-"Expected" means fields the source actually states — not every field on the
-model. `Question` declares 17 fields, but a free-text question legitimately has
-no options, no scale and no matrix rows. Counting unstated fields as expected
-would make every question look incomplete.
+Tests: `tests/test_conditions.py`, `tests/test_stage5_content.py`,
+`tests/test_stage8_graph.py`.
 
-| Section | Threshold | Why |
-|---|---|---|
-| Questionnaire | 95% | Large section; a percentage is meaningful |
-| Routing and termination | 95% | Large section; a percentage is meaningful |
-| Acceptance test scenarios | 100% | Small section; a percentage swings too wildly to mean anything |
-| Completion messages | 100% | Small section; same reason |
+## Known limitations
 
-### Outcome
-
-- **At or above threshold** → the section proceeds automatically.
-- **Below threshold** → the section goes to the review queue with the specific
-  discrepancies listed, `{item, field, expected, found}`. Not a full re-review of
-  the section; the reviewer looks at the named fields.
-
----
-
-## Stage 6 — the canonical survey specification
-
-Platform-neutral, typed, traceable. Part 1's artifacts stay the record of what
-the document says; this is the reading of them, written to a separate file so a
-disagreement about interpretation never costs the extraction.
-
-```
-CanonicalSurvey
-├── semantics        decisions the QRE never states, marked as decisions
-├── metadata         what the document says about the study
-├── questions[]      order, type, wording, options, matrix rows,
-│                    validation, display guard, runtime option source
-├── dispositions[]   every way the survey can end
-├── rules[]          typed condition tree, destination kind, evaluation
-│                    point, precedence
-├── dependencies[]   option-source and wording pipes
-├── randomization[]  what is shuffled, what is anchored
-├── quotas[]         cells resolved to option ids
-├── scenarios[]      the QRE's own acceptance tests
-├── requirements[]   what the document asks of whoever programs and tests it
-└── review[]         everything a person still has to decide
-```
-
-**Every added value carries an origin** — `extracted`, `derived`, `inferred`,
-`unknown` or `ambiguous` (CLAUDE.md §14). An inference is never presented as
-something the QRE stated. Where the document does not say, the answer is null and
-a review finding names it, rather than a default standing in for evidence.
-
-**Conditions are trees, not strings.** Built from `condition_raw`, which is
-verbatim source text, and never from a model's free reading of it. Operators come from a closed set, so the same operator cannot arrive
-written three ways. Values resolve to option ids alongside their original text,
-so nothing downstream matches on a label that changes with any rewording.
-
-**A piped question keeps its printed list** and carries an `option_source`
-naming the earlier answer that narrows it. Editing the list down to a guess would
-hide the difference; saying nothing would let a bot pick an option that is not on
-screen.
-
----
-
-## Stage 7 — is the specification right?
-
-Stage 5 asks whether the extraction is faithful to the document. This asks
-whether the *specification* is, and it asks four questions that are kept apart
-because they fail differently:
-
-| Question | What it answers |
-|---|---|
-| cross-source | Does the specification say only what the document says, and all of it? Raw QRE, Stage 4 and canonical compared three ways, so a disagreement can be attributed to one of them |
-| reproducibility | Does the same document read the same way twice? |
-| confirmation | What is still a person's decision, and what does each one block? |
-| evaluation | Do tests derived from the QRE pass against the canonical output? |
-
-**The oracle shares no code with the pipeline it checks.** `stage7_oracle.py`
-reads the document through Stage 1 only — a mechanical walk of the body XML
-with no interpretation in it — and works everything else out for itself.
-Importing `stage6_canonical` or `stage6_conditions` there would make the test
-agree with the thing under test by construction, which is the one result that
-would mean nothing (CLAUDE.md §33).
-
-`stage7_decisions.py` keeps the confirmation record. Part 2 already marks where
-it inferred or could not read something; what this adds is a record that
-survives between runs, so an owner who confirms "the first matching rule wins"
-on Monday is not asked again on Tuesday — and a confirmation given against one
-version of a QRE never silently answers for a different one.
-
-## Stage 8 — the graphs
-
-Built after Stage 7, not before it, and handed that stage's report: the graph
-is a view of a specification that has already been checked, and it records what
-it can and cannot vouch for rather than presenting every edge as equally sound.
-
-Two graphs, because they answer different questions and fusing them gives
-something that answers neither well:
-
-| Graph | What it holds |
-|---|---|
-| `RouteGraph` | How a respondent moves. Questions and endings as nodes, transitions as edges. A `MultiDiGraph`, because one pair of nodes can legitimately be joined twice. |
-| `DependencyGraph` | Which questions need which earlier answers. Must be acyclic — a cycle would mean a question needing its own answer. |
-
-Questions form a spine in the order the QRE asks them, and a question's display
-condition is an attribute of its node rather than a set of edges. Compiling every
-guard into edge conditions multiplies edges for no extra information and buries
-which rule each came from. Route discovery walks the spine and skips nodes whose
-guard is false.
-
-Three things are deliberately **not** edges:
-
-- **show rules** — already the target node's guard. An edge as well would state
-  the same fact in two places that can disagree.
-- **reject rules** — a gate on progressing, not a change of destination. Recorded
-  as `constraint` in `rule_edge_map` so a coverage check can tell "represented"
-  from "lost".
-- **randomisation** — changes what a question looks like, never where it leads.
-
-Quota transitions *are* edges, but marked `stateful`: they depend on how many
-other people already answered that way, so route enumeration has to exclude them
-or every route ends at a quota.
-
-`rule_edge_map` is the traceability spine — which rule produced which edge or
-guard. It is what lets a failing test point back at the sentence in the QRE that
-asked for the behaviour.
-
-`agent1_s8_graph_report.json` says whether the graph faithfully represents the
-specification: node and rule coverage, unreachable nodes, endings with a way out
-of them, and cycles in either graph. That is a different question from whether
-the specification is right, which is what Stage 5 asks.
-
-**A fact that exists only in a graph and not in the specification is a bug.** The
-reverse is a design decision.
-
----
-
-## Stage 9 — does the graph behave as specified?
-
-Two questions, again kept apart:
-
-- **structural** — does every node, edge, guard, dependency and quota in the
-  specification appear in the persisted graph?
-- **behavioural** — walked as a respondent would, does the graph do what the
-  specification says?
-
-It reads `agent1_canonical_survey_spec.json` and the graph files already on disk. No Stage 4,
-no Part 2, no model call, no rebuild: the graph it validates is exactly the one
-Stage 8 wrote.
-
-### The approval gate
-
-`agent1_ready.json` separates two things that were previously one:
-
-```
-GRAPH_INPUT_SUFFICIENCY     is the graph complete enough to build on?
-AGENT3_EXECUTION_APPROVAL   is it approved to actually run?
-```
-
-A graph can be structurally sufficient and still not approved, because approval
-also needs canonical validation clear and every blocking human decision
-answered. All three fixtures currently report `GRAPH_INPUT_SUFFICIENCY READY`
-and `AGENT3_EXECUTION_APPROVAL BLOCKED`, blocked on
-`human_decision_gate=PENDING_BLOCKING_DECISIONS` — chiefly the three semantics
-decisions the QRE never states. That is the gate working, not a failure.
-
-## Running validation on its own
-
-Both layers re-run from committed artifacts, with no extraction and no model
-calls:
-
-```bash
-python3 src/stage7_validation.py S01_campus_cafeteria_experience
-python3 src/run_graph_validation.py S01_campus_cafeteria_experience
-```
-
-## Files
-
-```
-src/
-  models.py              every artifact and LLM response schema
-  llm.py                 instructor-patched Groq client, and the decision record
-  stage1_ingestion.py
-  stage2_headings.py
-  stage3_raw_json.py
-  stage4_deep_parse.py
-  stage5_audit.py        five deterministic checks
-  stage6_conditions.py    a condition read as a tree, and rendered back
-  stage6_canonical.py     the canonical survey specification
-  stage8_graph.py         Stage 8 — route and dependency graphs
-  stage7_cross_check.py      Stage 7 — cross-source, reproducibility, confirmation
-  stage7_oracle.py          an independent reading of the QRE, used as ground truth
-  stage7_decisions.py    the human decision register, kept between runs
-  stage7_tests.py         tests derived from the QRE, run against the output
-  graph_validate.py      Stage 9 — structural and behavioural graph checks
-  stage7_validation.py      Stage 7 on its own, from committed artifacts
-  run_graph_validation.py  Stage 9 on its own, from committed artifacts
-  orchestrator.py
-  test_conditions.py     self-check: python3 src/test_conditions.py
-```
-
-## Rate limits
-
-Groq's free tier caps tokens per minute and per day. `llm.py` bounds concurrency
-(`MAX_CONCURRENCY`), keeps `MAX_TOKENS` tight because the requested cap counts
-against the budget, waits out a per-minute 429 using the delay the provider
-names, and fails fast on a per-day cap rather than sleeping through retries that
-cannot succeed.
-
-A 31-question QRE issues roughly fifty calls and takes several minutes on the
-free tier. A re-run of the same document costs nothing, because the decision
-record answers every call.
-
-## Known gaps
-
-- **No unit test suite.** The previous one covered modules that no longer exist
-  and was deleted with them. What exists instead is `src/test_conditions.py`
-  (ten checks on the condition parser and renderer) and Stages 8 and 9, which
-  test the output rather than the code — a module can be refactored into
-  nonsense and nothing here will notice until a document is run through it.
-- **Stage 5 scores rows, not fields.** A section's score is the share of
-  transcribed rows that produced an identified object. The field-by-field
-  comparand against Stage 3 is not built.
-- **C01 and C02 are the same synthetic skeleton.** Identical rule ids, identical
-  graph shape (38 nodes, 39 edges, 31 questions) and the same screener wording
-  word for word; only the subject matter differs. So "verified on three
-  documents" is really two distinct shapes, and the complex tier has never been
-  tested against a second structure. This is why `build_route_graph`'s
-  first-completion bug below has never fired.
-- **The whole pipeline has been run end to end on C02, C01 and S01 only.**
-  Stages 1 to 4 run over all 17 fixtures without error, but the model-dependent
-  paths — Stage 2 shape-matching, Stage 3 prose transcription, Stage 4's field
-  split, and all three Stage 6 calls — have been exercised on those three.
-- **The only condition evaluator is the oracle's.** `stage7_oracle.evaluate_reference`
-  evaluates its own independently-built conditions so Stage 9 can walk a route;
-  Part 2's own trees still have nothing that evaluates them. Route feasibility —
-  deciding whether the guards along a path can all hold at once — is Agent 3's
-  to build. Where the pipeline cannot read a condition, the behavioural test is
-  reported `UNVERIFIED` rather than skipped or guessed at.
-- **`build_route_graph` wires only the first completion.** A QRE with two
-  `complete` dispositions would connect its last question to one of them.
-  Neither committed fixture has two, so it has never bitten.
-- **Nothing checks that a survey can end at all.** The disposition checks iterate
-  the dispositions that exist, so a document with none passes them vacuously.
-- **No `option_id` → LimeSurvey answer-code mapping exists.** Answer codes are
-  absent on most questions in both fixtures and may not be invented (§13). That
-  mapping is Agent 2's, and nothing specifies it yet.
+- **Every QRE starts BLOCKED.** Each leaves some readings unstated, and those
+  wait for a person in the decision register. That is the gate working.
+- **M QREs exit with code 2.** Stage 7 and Stage 6 name S3's age range fields
+  differently, so the check reports a mismatch. The specification is correct
+  and the survey builds.
+- **Model readings of prose can vary** between documents. A declined condition
+  becomes a review item, never a guess.
+- **Only the first completion ending is wired into the graph.** No supported
+  QRE has two.
+- **No invented answer codes.** Where the QRE gives none, the Survey Builder
+  numbers options itself (A001, A002, ...).
