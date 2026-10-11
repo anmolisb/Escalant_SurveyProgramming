@@ -46,6 +46,16 @@ def main() -> int:
             print(gap)
         return 1
 
+    # The agents after this one meet the same specification. Say now what they
+    # will not be able to handle, while it is cheap to fix. Imported here: the
+    # readiness check imports this package.
+    from src.common import readiness
+    spec = readiness.survey_loader.read_canonical(source)
+    later = [*readiness.test_designer(spec), *readiness.respondent_bot(spec)]
+    if later:
+        print(readiness.report(later, agents=(3, 4)))
+        print()
+
     survey = load(source)
     # A run folder keeps its survey in agent2/. Anything else, such as a test
     # fixture, still writes to out/ so the fixture folder is left untouched.

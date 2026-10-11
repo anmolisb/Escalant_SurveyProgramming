@@ -364,7 +364,21 @@ if __name__ == "__main__":
         i = args.index("--sample-size")
         size = int(args[i + 1])
         args = args[:i] + args[i + 2:]
+    # Imported here, not at the top: the readiness check imports this package.
+    from src.common import readiness
     for arg in args:
+        # Refuse up front what would otherwise surface as blocked journeys in
+        # Agent 4. Notes are printed and the run goes ahead. Printed to stderr
+        # so the JSON summary on stdout stays parseable.
+        spec_dict = readiness.survey_loader.read_canonical(agent1_dir(arg))
+        findings = [*readiness.test_designer(spec_dict),
+                    *readiness.respondent_bot(spec_dict)]
+        if findings:
+            print(readiness.report(findings, agents=(3, 4)), file=sys.stderr)
+        if any(f.blocking for f in findings):
+            print(f"{arg}: not designing tests until the blocking items are "
+                  f"supported", file=sys.stderr)
+            raise SystemExit(1)
         out = run(arg, lss_path=lss, sample_size=size,
                   inputs_path=inputs)
         print(json.dumps(out, indent=2))

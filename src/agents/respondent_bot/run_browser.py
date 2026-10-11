@@ -52,6 +52,10 @@ INCONCLUSIVE, SKIPPED = "INCONCLUSIVE", "SKIPPED"
 
 STATUS_ORDER = [PASSED, FAILED, BLOCKED, INCONCLUSIVE, SKIPPED]
 
+#: The kinds of field write the bot can carry out (see `Bot.fill`). Agent 3
+#: labels every step with one of these.
+FILLABLE_VALUE_KINDS = frozenset({"answer_code", "checkbox", "text", "number", "blank"})
+
 
 # ---------------------------------------------------------------- records
 
@@ -1187,6 +1191,19 @@ def main() -> int:
         tests = tests[:args.limit]
     if not tests:
         print("no tests to run")
+        return 1
+
+    # Every step must be a kind of field write the bot knows. Checked for the
+    # whole package before the browser opens, rather than discovered test by
+    # test as a stuck page.
+    unfillable = sorted({
+        str(step.get("value_kind")) for t in tests for step in t.get("steps", [])
+        if step.get("action") == "set_field"
+        and step.get("value_kind") not in FILLABLE_VALUE_KINDS
+    })
+    if unfillable:
+        print(f"the bot cannot fill these kinds of field yet: {unfillable}. "
+              f"Add them to Bot.fill and FILLABLE_VALUE_KINDS first.")
         return 1
 
     results: list[Result] = []

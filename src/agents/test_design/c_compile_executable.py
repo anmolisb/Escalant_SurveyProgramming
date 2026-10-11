@@ -96,6 +96,17 @@ class ExecutableTest:
 # Answer to field/value pairs
 # --------------------------------------------------------------------------
 
+#: The LimeSurvey question types an answer can be written into, and the kind of
+#: field write each becomes. Agent 4 fills fields by this kind. A type missing
+#: here has no binding, so every test that needs to answer it is refused.
+VALUE_KIND_BY_TYPE = {
+    "T": "text", "S": "text",
+    "N": "number", "K": "number",
+    "L": "answer_code", "F": "answer_code",
+    "M": "checkbox",
+}
+
+
 def _bind_answer(spec: CanonicalSpec, snap: ImplementationSnapshot,
                  qid: str, value: Any) -> tuple[list[ExecutableStep], list[str]]:
     """Turn one canonical answer into physical field writes.

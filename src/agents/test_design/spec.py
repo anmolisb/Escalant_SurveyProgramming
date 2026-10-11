@@ -91,10 +91,17 @@ class Cond:
         return f"{self.left_qid} {self.op} {rhs}"
 
 
+#: Agent 1 names three operators differently from this package. Mapped at load
+#: time so the solver and the oracle see one vocabulary. Without it a canonical
+#: `S3 >= 18` or `Q3 unanswered` reached them as an operator neither knows.
+_CANONICAL_ALIASES = {"ge": "gte", "le": "lte", "unanswered": "not_answered"}
+
+
 def parse_cond(node: Any) -> Cond | None:
     if not isinstance(node, dict):
         return None
     op = str(node.get("op") or "").lower()
+    op = _CANONICAL_ALIASES.get(op, op)
     if not op:
         return None
 

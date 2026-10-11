@@ -52,6 +52,25 @@ from .semantics import Semantics, UNASKED, PRECEDENCE, MULTI_EQ
 # the other names are accepted for the same thing.
 NUMBER_KINDS = ("integer", "number", "numeric")
 
+#: Question kinds a journey can be given an answer for. A mandatory question of
+#: any other kind is left blank, and every journey through it stops there.
+SUPPORTED_KINDS = frozenset({"single", "multi", "text", "matrix", "constant_sum",
+                             *NUMBER_KINDS})
+
+#: Conditions the solver can make true and false, in Agent 1's operator names
+#: (spec.py maps ge, le and unanswered onto this package's own). "plain" is a
+#: question against fixed answers or a number, "sum" a total over a question's
+#: items, "cross_question" one question's answer against another's. And, or
+#: and not are always supported. Kept beside the code it describes: change one,
+#: change the other.
+SUPPORTED_CONDITIONS = {
+    "plain": frozenset({"eq", "ne", "set_eq", "in", "not_in", "contains",
+                        "contains_any", "contains_all", "answered", "unanswered"}),
+    "sum": frozenset({"eq", "ne", "gt", "ge", "lt", "le"}),
+    "cross_question": frozenset({"contains", "contains_any", "contains_all",
+                                 "in", "eq", "ne"}),
+}
+
 
 class Conflict(Exception):
     """Two requirements on the same question cannot both hold. Proven impossible."""

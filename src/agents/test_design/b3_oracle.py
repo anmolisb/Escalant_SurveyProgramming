@@ -32,6 +32,17 @@ from .semantics import Semantics, WHITESPACE, UNASKED, PRECEDENCE, MULTI_EQ
 
 UNRESOLVED = "UNRESOLVED"
 
+#: Conditions the oracle can evaluate, in Agent 1's operator names and the same
+#: shape as b2_witness.SUPPORTED_CONDITIONS. A test needs both: the solver to
+#: build the answers and this to predict what the survey should then do.
+#: Anything else evaluates to UNRESOLVED.
+SUPPORTED_CONDITIONS = {
+    "plain": frozenset({"eq", "ne", "set_eq", "in", "not_in", "contains",
+                        "contains_any", "contains_all", "answered", "unanswered"}),
+    "sum": frozenset({"eq", "ne"}),
+    "cross_question": frozenset({"eq", "ne"}),
+}
+
 
 class Interpreter:
     def __init__(self, spec: CanonicalSpec, semantics: Semantics,
