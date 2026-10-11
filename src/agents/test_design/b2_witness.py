@@ -48,6 +48,10 @@ from .models import (
 from .spec import CanonicalSpec, Cond, Question
 from .semantics import Semantics, UNASKED, PRECEDENCE, MULTI_EQ
 
+# A single number typed into one box. The canonical kind is "integer";
+# the other names are accepted for the same thing.
+NUMBER_KINDS = ("integer", "number", "numeric")
+
 
 class Conflict(Exception):
     """Two requirements on the same question cannot both hold. Proven impossible."""
@@ -457,6 +461,13 @@ def _concretise(spec: CanonicalSpec, assignment: Assignment) -> dict[str, Any]:
             rows = q.matrix_rows or []
             answers[qid] = {r: scale[0] for r in rows} if scale and rows else {}
 
+        elif q.kind in NUMBER_KINDS:
+            if req.number is not None:
+                answers[qid] = req.number
+            else:
+                lo = q.validation.get("min_value")
+                answers[qid] = int(lo) if lo is not None else 1
+
         elif q.kind == "constant_sum":
             # The solver may have set the total it needs; otherwise use the
             # QRE's own required total.
@@ -508,6 +519,9 @@ def _fill_journey(spec: CanonicalSpec, answers: dict[str, Any]) -> dict[str, Any
             scale = [o.option_id for o in q.options]
             if scale and q.matrix_rows:
                 out[q.id] = {r: scale[0] for r in q.matrix_rows}
+        elif q.kind in NUMBER_KINDS:
+            lo = q.validation.get("min_value")
+            out[q.id] = int(lo) if lo is not None else 1
         elif q.kind == "constant_sum":
             total = q.validation.get("sum_to")
             rows = q.matrix_rows or [o.option_id for o in q.options]

@@ -60,6 +60,7 @@ SUBQUESTION_OPTION_TYPES = {"M", "K"}
 ARRAY_TYPES = {"F"}
 FREE_TEXT_TYPES = {"T", "S"}
 SINGLE_TYPES = {"L"}
+NUMBER_TYPES = {"N"}
 
 # What a ticked checkbox stores.
 CHECKED = "Y"
@@ -242,6 +243,11 @@ def parse_lss(lss_path: str | Path, spec: CanonicalSpec) -> ImplementationSnapsh
                 canonical_question=title, canonical_option=None,
                 field_name=title, sgqa=base_sgqa, value=None,
                 value_kind="text", question_type=qtype, qid=qid, gid=gid)
+        elif qtype in NUMBER_TYPES:
+            bindings[title] = FieldBinding(
+                canonical_question=title, canonical_option=None,
+                field_name=title, sgqa=base_sgqa, value=None,
+                value_kind="number", question_type=qtype, qid=qid, gid=gid)
         elif qtype in SINGLE_TYPES:
             bindings[title] = FieldBinding(
                 canonical_question=title, canonical_option=None,

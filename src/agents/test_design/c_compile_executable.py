@@ -133,6 +133,17 @@ def _bind_answer(spec: CanonicalSpec, snap: ImplementationSnapshot,
             human=f"type {str(value)!r} into {qid}"))
         return steps, missing
 
+    # Numerical input: one field, value is the number typed.
+    if built.type == "N":
+        b = snap.binding(qid)
+        if b is None:
+            return [], [f"{qid}: numerical field has no binding"]
+        steps.append(ExecutableStep(
+            step=0, action="set_field", field_name=b.field_name, sgqa=b.sgqa,
+            value=str(value), value_kind="number", canonical=qid,
+            human=f"enter {value} into {qid}"))
+        return steps, missing
+
     # Single choice: one field, value is the answer code.
     if built.type == "L":
         b = snap.binding(qid, str(value))
@@ -449,7 +460,7 @@ def _plain_answer(q) -> tuple[Any, str] | None:
     if q.kind in ("text", "open_text"):
         lo = int(v.get("min_length") or 1)
         return ("x" * max(lo, 1), "text")
-    if q.kind in ("number", "numeric"):
+    if q.kind in ("integer", "number", "numeric"):
         lo = v.get("min_value")
         return (int(lo) if lo is not None else 1, "number")
     return None
