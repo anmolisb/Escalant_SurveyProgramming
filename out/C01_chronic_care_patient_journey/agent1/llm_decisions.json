@@ -780,6 +780,50 @@
           }
         ]
       }
+    },
+    "5793ed1daef8bb777005dc798222516cf221744a03dbc3b6d337e16995cc37ae": {
+      "response_model": "LLMConditionProposal",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-10-11T09:40:31+00:00",
+      "asked": "Condition as written: Q1 contains at least one brand\n\nAnswer options:\nQ1: 'Care Network A', 'Care Network B', 'Care Network C', 'Independent provider', 'None of these' (exclusive)",
+      "response": {
+        "expression": "Q1 contains_any ['Care Network A','Care Network B','Care Network C','Independent provider']",
+        "confidence": 0.98,
+        "reasoning": "The phrase 'contains at least one brand' means the respondent selected any of the brand options. The exclusive 'None of these' must not be selected, so we use the 'contains_any' operator with the list of brand labels."
+      }
+    },
+    "dc2fa88b66eb47e0333751fc36f349e7d4e7cd2f70bc221ff4867ef14417946c": {
+      "response_model": "LLMConditionProposal",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-10-11T09:40:32+00:00",
+      "asked": "Condition as written: Q5 contains any touchpoint\n\nAnswer options:\nQ5: 'Primary-care physician', 'Specialist', 'Hospital', 'Pharmacy', 'Patient portal', 'Support programme', 'None of these' (exclusive)",
+      "response": {
+        "expression": "Q5 contains_any ['Primary-care physician','Specialist','Hospital','Pharmacy','Patient portal','Support programme']",
+        "confidence": 0.98,
+        "reasoning": "The phrase \"contains any touchpoint\" means the respondent selected at least one of the listed touchpoint options. The exclusive option \"None of these\" must be excluded, so we use the contains_any operator with all non\u2011exclusive labels."
+      }
+    },
+    "fd1608d83c755d8550f2190bf49a1406803bc32d809519834832b73207367c0a": {
+      "response_model": "LLMConditionProposal",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-10-11T09:40:34+00:00",
+      "asked": "Condition as written: exclusive option selected with another response at Q1 or Q5\n\nAnswer options:\nQ1: 'Care Network A', 'Care Network B', 'Care Network C', 'Independent provider', 'None of these' (exclusive)\nQ5: 'Primary-care physician', 'Specialist', 'Hospital', 'Pharmacy', 'Patient portal', 'Support programme', 'None of these' (exclusive)",
+      "response": {
+        "expression": "(Q1 contains 'None of these' and not Q1 == ['None of these']) or (Q5 contains 'None of these' and not Q5 == ['None of these'])",
+        "confidence": 0.99,
+        "reasoning": "The condition describes an exclusive option ('None of these') being selected together with another response. Using the grammar, we detect this by checking that the exclusive option is contained (Q1 contains 'None of these') but the answer set is not exactly that exclusive option alone (not Q1 == ['None of these']). The same logic applies to Q5. Combining both possibilities with OR captures the described condition."
+      }
+    },
+    "ad939230231fe95925121c001da83222a9287c01d4f3acdcb62672c652082a79": {
+      "response_model": "LLMConditionProposal",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-10-11T09:40:35+00:00",
+      "asked": "Condition as written: selected option at Q6 was not selected at Q5\n\nAnswer options:\nQ6: 'Primary-care physician', 'Specialist', 'Hospital', 'Pharmacy', 'Patient portal', 'Support programme'\nQ5: 'Primary-care physician', 'Specialist', 'Hospital', 'Pharmacy', 'Patient portal', 'Support programme', 'None of these' (exclusive)",
+      "response": {
+        "expression": "not Q5 contains Q6",
+        "confidence": 0.99,
+        "reasoning": "The condition states that any option chosen in Q6 must not be among those selected in Q5. Using the membership operator, 'Q5 contains Q6' checks if Q5 includes the answer from Q6; applying 'not' gives the required negation. This fits the provided grammar."
+      }
     }
   }
 }

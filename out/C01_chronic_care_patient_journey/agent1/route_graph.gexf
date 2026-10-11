@@ -96,7 +96,7 @@
           <attvalue for="0" value="question" />
           <attvalue for="1" value="6" />
           <attvalue for="2" value="true" />
-          <attvalue for="3" value="Q1 contains_any ['Care Network A', 'Care Network B', 'Care Network C']" />
+          <attvalue for="3" value="Q1 contains_any ['Care Network A', 'Care Network B', 'Care Network C', 'Independent provider']" />
           <attvalue for="4" value="agree" />
           <attvalue for="5" value="false" />
           <attvalue for="6" value="" />
@@ -108,7 +108,7 @@
           <attvalue for="0" value="question" />
           <attvalue for="1" value="7" />
           <attvalue for="2" value="true" />
-          <attvalue for="3" value="Q1 contains_any ['Care Network A', 'Care Network B', 'Care Network C']" />
+          <attvalue for="3" value="Q1 contains_any ['Care Network A', 'Care Network B', 'Care Network C', 'Independent provider']" />
           <attvalue for="4" value="agree" />
           <attvalue for="5" value="false" />
           <attvalue for="6" value="" />
@@ -143,9 +143,9 @@
         <attvalues>
           <attvalue for="0" value="question" />
           <attvalue for="1" value="10" />
-          <attvalue for="2" value="false" />
-          <attvalue for="3" value="" />
-          <attvalue for="4" value="unread" />
+          <attvalue for="2" value="true" />
+          <attvalue for="3" value="Q5 contains_any ['Primary-care physician', 'Specialist', 'Hospital', 'Pharmacy', 'Patient portal', 'Support programme']" />
+          <attvalue for="4" value="agree" />
           <attvalue for="5" value="false" />
           <attvalue for="6" value="" />
           <attvalue for="7" value="" />

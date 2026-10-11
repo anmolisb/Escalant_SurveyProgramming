@@ -1005,6 +1005,7 @@ def _read_condition(
     review: list[AuditFinding],
     label: str,
     target: FlagTarget,
+    exclusive_by_question: dict | None = None,
 ) -> Condition | None:
     """Read a condition, falling back to a model proposal the parser then checks.
 
@@ -1022,7 +1023,7 @@ def _read_condition(
     if condition is None:
         referenced = list(dict.fromkeys(_QID.findall(text)))
         condition, note = part2_conditions.propose(
-            text, referenced, options_by_question
+            text, referenced, options_by_question, exclusive_by_question
         )
         if condition is None:
             review.append(
@@ -1298,11 +1299,20 @@ def run(source: str, parsed: dict) -> CanonicalSurvey:
     options_by_question = {
         q.id: [o.label for o in q.options] for q in parsed.get("questions", []) if q.id
     }
+    # The option that excludes every other ("None of these"), where the QRE
+    # names one. A model told which option it is can read "any touchpoint" as
+    # every option but that one, instead of declining.
+    exclusive_by_question = {
+        q.id: q.exclusive_option
+        for q in parsed.get("questions", [])
+        if q.id and q.exclusive_option
+    }
     cache: dict = {}
 
     def read(text: str, target: FlagTarget, label: str) -> Condition | None:
         return _read_condition(
-            text, options_by_question, cache, review, label, target
+            text, options_by_question, cache, review, label, target,
+            exclusive_by_question,
         )
 
     guards = _build_guards(parsed, review, read)

@@ -485,6 +485,28 @@
           }
         ]
       }
+    },
+    "cf3bb816b407a0b05d8e0d95d30e10ed5365e3859a8fc427d77c215b738965b1": {
+      "response_model": "LLMConditionProposal",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-10-11T09:40:28+00:00",
+      "asked": "Condition as written: Q7 contains any problem\n\nAnswer options:\nQ7: 'Dropped calls', 'Slow data', 'Unexpected charge', 'Coverage gap', 'Support delay', 'None of these' (exclusive)",
+      "response": {
+        "expression": "Q7 contains_any ['Dropped calls','Slow data','Unexpected charge','Coverage gap','Support delay']",
+        "confidence": 0.99,
+        "reasoning": "The phrase 'contains any problem' means the respondent selected at least one of the problem options listed for Q7. The exclusive 'None of these' indicates no other options can be chosen with it, so the condition is expressed as Q7 contains_any of the five problem labels."
+      }
+    },
+    "e010340f5ed265c32bd65576e2703ebaf9020a36b223757e288e3c723d0d8cf7": {
+      "response_model": "LLMConditionProposal",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-10-11T09:40:29+00:00",
+      "asked": "Condition as written: Q7 includes 'None of these' plus another option\n\nAnswer options:\nQ7: 'Dropped calls', 'Slow data', 'Unexpected charge', 'Coverage gap', 'Support delay', 'None of these' (exclusive)",
+      "response": {
+        "expression": "Q7 contains 'None of these' and not Q7 == ['None of these']",
+        "confidence": 0.95,
+        "reasoning": "The condition states that the respondent selected the exclusive option 'None of these' together with at least one other option. This can be expressed as the membership test that Q7 contains 'None of these' combined with the negation of the exact\u2011match test Q7 == ['None of these'], which would indicate only that option was chosen. The grammar supports both 'contains' and 'not' operators, allowing the combined expression."
+      }
     }
   }
 }

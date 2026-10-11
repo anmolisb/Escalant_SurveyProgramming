@@ -8,7 +8,7 @@
     "sha256": "319e6b78a2a1e36ef712ce421e6d2c1db3325a087a07d8d0e93ec38b39207e4b",
     "bytes": 43612
   },
-  "generated_at": "2026-10-11T08:04:41+00:00",
+  "generated_at": "2026-10-11T09:40:35+00:00",
   "item_count": null,
   "content": {
     "counts": {
@@ -1095,8 +1095,8 @@
         "status": "UNVERIFIED",
         "expected": "a reading a person must confirm",
         "actual": {
-          "read": false,
-          "origin": null
+          "read": true,
+          "origin": "inferred"
         },
         "evidence": "Q5 contains any touchpoint",
         "canonical_reference": "questions[Q6]",
@@ -4100,8 +4100,8 @@
         "status": "UNVERIFIED",
         "expected": "a reading a person must confirm",
         "actual": {
-          "read": false,
-          "origin": null
+          "read": true,
+          "origin": "inferred"
         },
         "evidence": "Q5 contains any touchpoint",
         "canonical_reference": "rules[R8]",
@@ -5147,8 +5147,8 @@
         "status": "UNVERIFIED",
         "expected": "a reading a person must confirm",
         "actual": {
-          "read": false,
-          "origin": null
+          "read": true,
+          "origin": "inferred"
         },
         "evidence": "exclusive option selected with another response at Q1 or Q5",
         "canonical_reference": "rules[R19]",

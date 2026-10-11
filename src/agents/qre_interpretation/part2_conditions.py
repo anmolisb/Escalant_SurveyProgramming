@@ -464,6 +464,10 @@ value. Never put the question inside brackets.
 Refer to questions by the ids given. Refer to answers by their exact label in
 single quotes, copied from the option list. Never invent a label or an id.
 
+An option marked (exclusive) cannot be chosen with any other: it means the
+respondent chose none of the rest. A condition about choosing "any" of the
+things a question lists means any option except the exclusive one.
+
 Two operators are easy to confuse and mean different things:
   Q1 == ['None of these']       the answer set is EXACTLY that, nothing else
   Q1 contains 'None of these'   that was chosen, possibly among others
@@ -482,17 +486,28 @@ asks a person to look.
 """
 
 
-def _catalogue(question_ids: list[str], options_by_question: dict) -> str:
+def _catalogue(
+    question_ids: list[str],
+    options_by_question: dict,
+    exclusive_by_question: dict | None = None,
+) -> str:
+    exclusive_by_question = exclusive_by_question or {}
     lines = []
     for qid in question_ids:
         options = options_by_question.get(qid) or []
+        exclusive = exclusive_by_question.get(qid)
         if options:
-            lines.append(f"{qid}: " + ", ".join(repr(o) for o in options))
+            lines.append(f"{qid}: " + ", ".join(
+                repr(o) + (" (exclusive)" if o == exclusive else "")
+                for o in options))
     return "\n".join(lines) if lines else "(no option lists available)"
 
 
 def propose(
-    condition_raw: str, question_ids: list[str], options_by_question: dict
+    condition_raw: str,
+    question_ids: list[str],
+    options_by_question: dict,
+    exclusive_by_question: dict | None = None,
 ) -> tuple[Condition | None, str]:
     """Ask a model to express a prose condition, then check its answer.
 
@@ -508,7 +523,8 @@ def propose(
         proposal = complete(
             _PROPOSE_SYSTEM,
             f"Condition as written: {condition_raw}\n\n"
-            f"Answer options:\n{_catalogue(question_ids, options_by_question)}",
+            f"Answer options:\n"
+            f"{_catalogue(question_ids, options_by_question, exclusive_by_question)}",
             LLMConditionProposal,
             max_tokens=2000,
         )
