@@ -4,9 +4,9 @@ Agent 3 v0.1. Blocks B1 to B4 implemented and run. Blocks A and C are blocked on
 
 ## Headline
 
-- **174 coverage targets** enumerated across nine dimensions
-- **156 logically covered**, each with an independently predicted outcome
-- **156 logical test cases** generated, with steps and assertions
+- **177 coverage targets** enumerated across nine dimensions
+- **161 logically covered**, each with an independently predicted outcome
+- **161 logical test cases** generated, with steps and assertions
 - **0 executable tests** - Block C cannot bind a canonical id to a LimeSurvey field without Agent 2's build manifest
 - **Coverage floor 50.0%** (D8). Reported as a floor, never a sum or an average
 - **Specification replay: 6 agree / 0 disagree / 1 unresolved of 7** against the QRE's own acceptance scenarios
@@ -17,15 +17,15 @@ Nine dimensions, reported side by side. They count different kinds of unit, so a
 
 | Dim | Measures | Enumerated | Covered | Logical % | Status | Why not covered |
 |---|---|---|---|---|---|---|
-| D1 | Visibility | 57 | 57 | 100.0% | EXHAUSTIVE | - |
+| D1 | Visibility | 59 | 59 | 100.0% | EXHAUSTIVE | - |
 | D2 | Terminal outcome | 6 | 5 | 83.3% | PARTIAL | `QUOTA_SIZE_UNDEFINED` x1 |
-| D3 | Validation (explicit) | 32 | 30 | 93.8% | PARTIAL | `UNVERIFIABLE` x1, `INFEASIBLE` x1 |
+| D3 | Validation (explicit) | 32 | 32 | 100.0% | EXHAUSTIVE | - |
 | D4 | Validation (mandatory) | 35 | 35 | 100.0% | EXHAUSTIVE | - |
 | D5 | Option-source dependency | 2 | 2 | 100.0% | EXHAUSTIVE | - |
 | D6 | Text-pipe dependency | 4 | 4 | 100.0% | EXHAUSTIVE | - |
 | D7 | Randomization configuration | 15 | 10 | 66.7% | PARTIAL | `RANDOMIZATION_ANCHOR_UNDEFINED` x5 |
 | D8 | Quota cell state | 20 | 10 | 50.0% | PARTIAL | `QUOTA_SIZE_UNDEFINED` x10 |
-| D9 | Interaction | 3 | 3 | 100.0% | BOUNDED | - |
+| D9 | Interaction | 4 | 4 | 100.0% | BOUNDED | - |
 
 **Floor: 50.0% (D8).** FLOOR - lowest dimension. Never a sum or an average.
 
@@ -43,7 +43,7 @@ B3's interpreter cannot run without these. They are read from Agent 1's `semanti
 | default_mandatory | `True` | derived | CONFIRMED | no | - |
 | whitespace_is_an_answer | `not_an_answer` | agent3_fallback | PROVISIONAL | no | - |
 
-4 reading(s) still provisional. **150 of 156 generated tests lean on at least one of them** and are tagged accordingly, so a change of ruling shows exactly which tests must be regenerated.
+4 reading(s) still provisional. **154 of 161 generated tests lean on at least one of them** and are tagged accordingly, so a change of ruling shows exactly which tests must be regenerated.
 
 ## Specification replay
 
@@ -201,10 +201,6 @@ Then check:
 
 No target is ever silently dropped. Each carries one specific reason.
 
-**`INFEASIBLE`** - 1 target(s)
-
-- D3 R19 / satisfied
-
 **`QUOTA_SIZE_UNDEFINED`** - 11 target(s)
 
 - D2 TERM_QUOTA_FULL / reachable
@@ -226,10 +222,6 @@ No target is ever silently dropped. Each carries one specific reason.
 - D7 Q19 / anchors_held
 - D7 Q5 / anchors_held
 - D7 Q9 / anchors_held
-
-**`UNVERIFIABLE`** - 1 target(s)
-
-- D3 Q5 / satisfied
 
 ## Block A - implementation conformance
 
@@ -254,10 +246,10 @@ Derived from the emitted `.lss` (sha `03b5434d30ce`), not from a self-reported m
 
 ## Block C - executable compilation
 
-- Logically covered: 156
-- **Compiled to executable tests: 156**
+- Logically covered: 161
+- **Compiled to executable tests: 161**
 - Refused rather than guessed: 0
-- Executable coverage: **89.7%**
+- Executable coverage: **91.0%**
 
 ## Sample executable test
 

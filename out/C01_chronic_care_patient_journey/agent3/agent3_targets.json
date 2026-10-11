@@ -9,12 +9,12 @@
   },
   "upstream": {
     "canonical_schema_version": "1.0.0",
-    "canonical_generated_at": "2026-10-11T08:04:41+00:00"
+    "canonical_generated_at": "2026-10-11T10:11:52+00:00"
   },
   "content": {
     "report": {
       "per_dimension": {
-        "D1": 57,
+        "D1": 59,
         "D2": 6,
         "D3": 32,
         "D4": 35,
@@ -22,13 +22,11 @@
         "D6": 4,
         "D7": 15,
         "D8": 20,
-        "D9": 3
+        "D9": 4
       },
-      "records_enumerated": 174,
+      "records_enumerated": 177,
       "predetermined_unresolvable": 16,
-      "orphan_rules": [
-        "R8"
-      ],
+      "orphan_rules": [],
       "note": "Dimensions are reported side by side and never summed. records_enumerated counts records, not coverage."
     },
     "targets": [
@@ -455,6 +453,32 @@
         ],
         "predetermined_reason": null,
         "notes": "guard origin=inferred, reading is provisional: Q1 contains at least one brand"
+      },
+      {
+        "target_id": "T-46ad0b9227",
+        "dimension": "D1",
+        "subject": "Q6",
+        "polarity": "shown",
+        "claim": "Q6 is displayed when its guard holds",
+        "traces_to": [
+          "Q6",
+          "R8"
+        ],
+        "predetermined_reason": null,
+        "notes": "guard origin=inferred, reading is provisional: Q5 contains any touchpoint"
+      },
+      {
+        "target_id": "T-836bcea7a3",
+        "dimension": "D1",
+        "subject": "Q6",
+        "polarity": "hidden",
+        "claim": "Q6 is not displayed when its guard fails",
+        "traces_to": [
+          "Q6",
+          "R8"
+        ],
+        "predetermined_reason": null,
+        "notes": "guard origin=inferred, reading is provisional: Q5 contains any touchpoint"
       },
       {
         "target_id": "T-6959e7ba58",
@@ -2150,6 +2174,19 @@
         "traces_to": [
           "Q3",
           "Q9"
+        ],
+        "predetermined_reason": null,
+        "notes": "risk-selected pair, BOUNDED by design"
+      },
+      {
+        "target_id": "T-84fe582a25",
+        "dimension": "D9",
+        "subject": "Q5+Q6",
+        "polarity": "combined",
+        "claim": "Q6 is shown by its guard and simultaneously reflects its dependency on Q5",
+        "traces_to": [
+          "Q5",
+          "Q6"
         ],
         "predetermined_reason": null,
         "notes": "risk-selected pair, BOUNDED by design"

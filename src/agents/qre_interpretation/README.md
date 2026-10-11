@@ -192,7 +192,6 @@ a Pydantic model, temperature 0.
 | 2 | Shape-match an unmatched heading's content against a target | `LLMHeadingCandidate` |
 | 3 | Transcribe a prose block (completion messages) | `LLMCompletionMessages` |
 | 4 | Label the instructions in one question's cell | `LLMQuestionFields` |
-| 4 | Break one condition into comparisons (routing **and** display) | `LLMRoutingExpression` |
 | 6 | Rewrite a prose condition into the parser's grammar | `LLMConditionProposal` |
 | 6 | Find wording that quotes an earlier answer | `LLMTextPipes` |
 | 6 | Read a quota sentence into parts | `LLMQuota` |
@@ -204,28 +203,19 @@ formally itself. Most conditions never reach a model at all: both fixtures write
 `S1 == 'No'` and `Q12 in ['Fully','Partly']` themselves, and those parse
 deterministically.
 
-### Routing conditions
+### Conditions are read once, in Part 2
 
-Two things decide `condition_expression`, and neither is a model writing syntax.
+Stage 4 keeps every condition exactly as the QRE wrote it: `condition_raw` on a
+routing rule, `display_condition` on a question. It does not interpret them.
 
-**Most conditions never reach a model.** The QRE writes `S1 == 'No'` and
-`Q12 in ['Fully','Partly']` itself, and the deterministic parser reads those
-already. Where it can, the expression is rendered from the parsed tree and
-marked `derived` — 4 of 4 rules on S01, 12 of 20 on C01 and C02. Those calls
-used to be made and returned their own input, spending rate-limit budget to
-mark something the QRE stated outright as `inferred`, which CLAUDE.md §14
-forbids.
-
-**What is left is genuine prose**, such as `exclusive option selected with
-another response at Q1 or Q5`, and only that is sent. The model returns
-*structure* — question, operator, values, and a joiner where there is more than
-one comparison — never a string of syntax:
-
-```json
-{"comparisons": [{"question_id": "Q1", "operator": "contains_any",
-                  "values": ["Auto Brand A", "Auto Brand B"]}],
- "joiner": null, "reasoning": "..."}
-```
+Part 2 (`part2_conditions.py`) reads each one into a condition tree. Formal
+conditions such as `S1 == 'No'` and `Q12 in ['Fully','Partly']` parse
+deterministically, with no model. Only genuine prose, such as `Q5 contains any
+touchpoint`, goes to a model, which is told the question's options and which
+one is exclusive. It answers in the parser's grammar, and the parser decides
+whether to accept it, so a model can only propose what the QRE could have
+written formally itself. A condition nobody could read is left unread and
+becomes a review item.
 
 **Every operator is infix**, so the question is always leftmost:
 
@@ -237,37 +227,14 @@ Q3 answered
 sum(Q18) != 100
 ```
 
-That is what lets one expression read any condition — `^(\w+)\s+(op)\s+(.*)$`
-finds the question in the same place whatever the operator. Membership used to
-be written as a call, `contains_any(Q1, [...])`, which buried the question
-inside the parentheses and made it the one comparison needing a rule of its own.
-The call form is no longer produced *or accepted*; `check_call_form_is_gone`
-fails if it returns.
+`part2_conditions.render` is the only place the written shape is decided, and
+every rendering reads back through the parser as the same condition, which
+`tests/test_conditions.py` checks.
 
-The operator comes from a closed enum, so the vocabulary is enforced by the
-schema rather than asked for in a prompt. `part2_conditions.render` then writes
-the expression, and it is the only place that decides the shape.
-
-This replaced a free-text field. The prompt fixed the operator vocabulary but
-could say nothing binding about the syntax around it, so a single document
-produced all three of these for one operator — each faithful to the prompt, each
-needing its own regex downstream, with no way to know when a fourth would
-appear:
-
-```
-CONTAINS_ANY(Q1, 'Auto Brand A', 'Auto Brand B')
-Q5 CONTAINS_ANY ('Manufacturer website','Dealer visit')
-CONTAINS_ANY(Q1, ['Auto Brand A','Auto Brand B'])
-```
-
-All three now render as `Q1 contains_any [...]`. Every rendering reads back
-through the parser as the same condition, which `src/test_conditions.py`
-checks.
-
-The builder refuses rather than guesses: several comparisons with no joiner, or
-a single-value operator handed several values, produce no expression and a
-review flag. `condition_raw` still holds what the QRE said either way, and
-Part 2 builds its condition tree from that, so a refusal loses nothing.
+Stage 4 used to translate conditions as well, into a `condition_expression`
+field. That was a second model reading of the same text, it could disagree with
+Part 2's, and the Survey Builder used it. It was removed once the Survey
+Builder read the canonical specification, which saves those model calls.
 
 ### Stage 4's files are written bare
 
@@ -279,8 +246,6 @@ it uses:
 
 ```json
 [ { "rule": "R1", "condition_raw": "S1 == 'No'",
-    "condition_expression": "S1 == 'No'",
-    "condition_expression_origin": "derived",
     "action": "terminate", "destination": "TERM_INELIGIBLE" } ]
 ```
 
@@ -294,29 +259,11 @@ checks read the canonical specification instead.
 
 ### One reading for one condition
 
-A QRE states the same rule twice. C02 guards Q2 in the questionnaire with
-`Show if: Q1 contains at least one brand`, and again in the routing table as
-R6. Before, only the routing one came out parseable, so anything reading the
-artifacts had to prefer the routing table and fall back to the questionnaire —
-two sources with nothing keeping them in agreement.
-
-Both columns now go through `_resolve_condition`, one function, so the same
-sentence produces the same string whichever column it was written in:
-
-| Field | Where the QRE wrote it |
-|---|---|
-| `RoutingRule.condition_expression` | the routing table |
-| `Question.display_condition_expression` | the questionnaire's display column |
-
-Each keeps its verbatim text beside it (`condition_raw`, `display_condition`)
-and each carries an origin, so a re-rendered formal condition (`derived`) is
-never confused with a model's reading of prose (`inferred`).
-
-Resolving a display condition needs other questions' options, and the first
-pass parses every question at once, so no question can see another's answer list
-while it runs. A second pass runs once they all exist — the same dependency
-routing already had, kept inside `parse_questionnaire` rather than made
-someone else's problem.
+A QRE often states the same rule twice. C01 guards Q6 in the questionnaire with
+`Show if: Q5 contains any touchpoint`, and again in the routing table as R8.
+Part 2 reads both through the same function, with one cache keyed on the text,
+so the same sentence gives the same tree whichever column wrote it. It then
+combines them into the question's `guard` and records whether the two agree.
 
 ### Reading a display cell
 
@@ -344,23 +291,7 @@ survey tool takes — and a flag says so, because the cell itself does not.
 
 ### Stage 4 concurrency
 
-The parsers run concurrently. Routing awaits the questionnaire task because
-translating a condition needs its option codes:
-
-```python
-questionnaire_task = asyncio.create_task(parse_questionnaire(...))
-
-async def routing_after_questionnaire():
-    questions, _ = await questionnaire_task
-    return await parse_routing(..., questions)
-
-await asyncio.gather(
-    questionnaire_task, routing_after_questionnaire(),
-    parse_scenarios(...), parse_messages(...),
-)
-```
-
-Scenarios and messages never wait.
+The parsers run concurrently. Scenarios and messages never wait.
 
 ---
 
@@ -510,8 +441,7 @@ something the QRE stated. Where the document does not say, the answer is null an
 a review finding names it, rather than a default standing in for evidence.
 
 **Conditions are trees, not strings.** Built from `condition_raw`, which is
-verbatim source text, and never from Stage 4's `condition_expression`, which a
-model wrote. Operators come from a closed set, so the same operator cannot arrive
+verbatim source text, and never from a model's free reading of it. Operators come from a closed set, so the same operator cannot arrive
 written three ways. Values resolve to option ids alongside their original text,
 so nothing downstream matches on a label that changes with any rewording.
 

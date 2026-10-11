@@ -7,7 +7,7 @@ Naming convention: `Stage1*` … `Stage4*` for artifacts written to disk,
 from __future__ import annotations
 
 from enum import Enum
-from typing import Any, Literal
+from typing import Any
 
 from pydantic import BaseModel, Field
 
@@ -352,17 +352,9 @@ class Question(BaseModel):
     type: str
     options: list[Option] = Field(default_factory=list)
     matrix_rows: list[Option] = Field(default_factory=list)
+    #: The display condition exactly as the QRE wrote it. Part 2 reads it into
+    #: a condition tree, the only reading anything downstream uses.
     display_condition: str | None = None
-    #: `display_condition` read into the one canonical grammar, the same way a
-    #: routing rule's `condition_expression` is and by the same code, so the
-    #: two forms of one rule are written identically. C02 stated Q2's guard as
-    #: "Q1 contains at least one brand" in the questionnaire and as a formal
-    #: expression in the routing table, and only the routing one could be read.
-    display_condition_expression: str | None = None
-    #: `derived` where the QRE already wrote the condition formally and it was
-    #: only re-rendered, `inferred` where a model read the prose. Null when
-    #: there is no expression.
-    display_condition_expression_origin: Origin | None = None
     min_length: int | None = None
     max_length: int | None = None
     #: Kept as the QRE wrote it. `int | float` rather than plain `float` so a
@@ -449,102 +441,13 @@ class RoutingRule(BaseModel):
     #: The condition exactly as the QRE wrote it. Trustworthy: on C02 all twenty
     #: match the source document word for word.
     condition_raw: str
-    #: A formal reading of `condition_raw`, produced by a language model.
-    #:
-    #: NOT TRUSTWORTHY, and deliberately kept anyway. On C02 two of the twenty
-    #: changed meaning — R5 turned an "only answer" test into an "among the
-    #: answers" test, and R19 came out as a condition that can never be true —
-    #: one came back empty, and the same operator is written three different
-    #: ways across the set. There is no grammar behind this field.
-    #:
-    #: Do not parse it. Part 2 builds the real condition from `condition_raw`;
-    #: this is kept as a hint and as evidence of what the model thought.
-    #: See `condition_expression_origin`.
-    condition_expression: str | None = None
-    #: How `condition_expression` was produced. Always `inferred` when there is
-    #: one, because a model wrote it. Null when there is none.
-    condition_expression_origin: Origin | None = None
+    #: Part 2 reads it into a condition tree, the only reading anything
+    #: downstream uses. Stage 4 no longer writes a reading of its own.
     action: str
     destination: str
     #: Where this came from in the QRE. None on artifacts written before
     #: provenance existed.
     source_reference: SourceReference | None = None
-
-
-class LLMComparisonOp(str, Enum):
-    """The operators a routing condition may use.
-
-    A separate, smaller enum than `ConditionOp` even though the names overlap.
-    `ConditionOp` also holds `and`, `or` and `not`, which join comparisons
-    rather than being ones - offering those here invites a model to answer
-    "the operator is AND", which is not a question about one comparison.
-    """
-
-    EQ = "eq"
-    NE = "ne"
-    LT = "lt"
-    LE = "le"
-    GT = "gt"
-    GE = "ge"
-    IN = "in"
-    NOT_IN = "not_in"
-    #: The answer set is exactly these values, not merely contains them.
-    SET_EQ = "set_eq"
-    CONTAINS_ANY = "contains_any"
-    CONTAINS_ALL = "contains_all"
-    ANSWERED = "answered"
-    UNANSWERED = "unanswered"
-
-
-class LLMComparison(BaseModel):
-    """One comparison inside a routing condition (Stage 4)."""
-
-    question_id: str = Field(description="The question this compares, e.g. Q1")
-    operator: LLMComparisonOp
-    values: list[str] = Field(
-        default_factory=list,
-        description=(
-            "Option codes where the question has codes, otherwise exact labels. "
-            "Empty for answered and unanswered, and when comparing against "
-            "another question."
-        ),
-    )
-    #: A condition can compare two answers rather than an answer and a value -
-    #: "selected option at Q6 was not selected at Q5". Without this the model
-    #: has to decline such a rule, which is what C02's R20 did.
-    compare_to_question: str | None = Field(
-        default=None,
-        description=(
-            "Set instead of values when this compares against another "
-            "question's answers, e.g. Q6 not in Q5"
-        ),
-    )
-
-
-class LLMRoutingExpression(BaseModel):
-    """LLM response for translating one routing condition (Stage 4).
-
-    Structured rather than a string of formal syntax, which is what this used to
-    be. The prompt fixed the operator vocabulary but could say nothing binding
-    about the syntax around it, so one document produced
-    `CONTAINS_ANY(Q1, 'a', 'b')`, `Q1 CONTAINS_ANY ('a','b')` and
-    `CONTAINS_ANY(Q1, ['a','b'])` for the same operator, and every consumer
-    needed a regex per shape with no way to know when a new one would appear.
-
-    The model now supplies the parts and this codebase writes the syntax, so the
-    shape is not something a model can vary. `part2_conditions.render` is the
-    single place it is decided.
-    """
-
-    comparisons: list[LLMComparison] = Field(
-        default_factory=list,
-        description="Empty when the condition cannot be resolved from the codes given",
-    )
-    joiner: Literal["and", "or"] | None = Field(
-        default=None,
-        description="How to join the comparisons. Required when there is more than one.",
-    )
-    reasoning: str
 
 
 class AcceptanceScenario(BaseModel):
@@ -615,9 +518,9 @@ class SurveyInformation(BaseModel):
 class ConditionOp(str, Enum):
     """Operators a condition can use.
 
-    A closed set on purpose. The whole problem with Stage 4's
-    `condition_expression` is that it is free text, so the same operator comes
-    out written three different ways and nothing can check it. Choosing from a
+    A closed set on purpose. The whole problem with Stage 4's former
+    `condition_expression` was that it was free text, so the same operator comes
+    out written three different ways and nothing could check it. Choosing from a
     fixed list makes that impossible by construction.
     """
 
@@ -682,8 +585,8 @@ class Condition(BaseModel):
     """A condition as a tree, not as a string.
 
     Built from `RoutingRule.condition_raw`, which is verbatim source text, and
-    never from `condition_expression`, which a model wrote and which changed
-    meaning on two of C02's twenty rules.
+    never from a model's free reading of it: Stage 4's former
+    `condition_expression` changed meaning on two of C02's twenty rules.
     """
 
     op: ConditionOp

@@ -6,8 +6,8 @@ what it means. CLAUDE.md draws the line here: Part 1 preserves
 is contains_any.
 
 Built from `RoutingRule.condition_raw`, which is verbatim source text. Never
-from `condition_expression`, which a model wrote and which changed meaning on
-two of C02's twenty rules.
+from a model's free reading of it: Stage 4's former `condition_expression`
+changed meaning on two of C02's twenty rules, and has since been removed.
 
 Deterministic first. Most conditions in the corpus are already formal — the QRE
 writes `S1 == 'No'` and `Q12 in ['Fully','Partly']` itself — and parsing those

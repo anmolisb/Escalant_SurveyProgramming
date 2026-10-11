@@ -17,10 +17,6 @@ import json
 import re
 
 from src.common.llm.groq_client import LLMUnavailable, complete_async
-# The condition parser and its renderer. Deterministic syntax reading with no
-# Part 2 semantics in it, so using it here does not move interpretation
-# earlier - it is what decides that a condition needs no interpreting at all.
-from . import part2_conditions
 from .models import (
     AcceptanceScenario,
     CompletionMessage,
@@ -28,16 +24,10 @@ from .models import (
     FlagSeverity,
     FlagStatus,
     FlagTarget,
-    Condition,
-    ConditionOp,
     DirectiveKind,
     LLMDirective,
-    LLMComparisonOp,
     LLMQuestionFields,
-    LLMRoutingExpression,
-    Operand,
     Option,
-    Origin,
     Paragraph,
     Question,
     ReviewFlag,
@@ -200,9 +190,6 @@ _IDENTIFIER = re.compile(r"\b([A-Z][A-Za-z0-9_]{1,})\b")
 #: An option whose code or label is a bare number, e.g. "3", "10", "-2".
 #: Anchored so "21-29" and "60+" are correctly not numbers.
 _NUMERIC_OPTION = re.compile(r"^-?\d+(?:\.\d+)?$")
-
-#: A question id inside a routing condition, e.g. Q12, S1, A_2.
-_QUESTION_REF = re.compile(r"\b([A-Z]{1,3}[A-Za-z]*_?\d+)\b")
 
 #: Labelled instruction lines, read without a model.
 #:
@@ -541,270 +528,35 @@ async def parse_questionnaire(
         )
     )
 
-    # Second pass. A display condition names other questions - "Q1 contains at
-    # least one brand" needs Q1's options - and the first pass parses every
-    # question at once, so no question can see another's answer list while it
-    # runs. Resolving here, once they all exist, is the same dependency routing
-    # already has, kept inside this function rather than made someone else's.
-    by_id = {q.id: q for q in questions if q.id}
-
-    async def normalise(question: Question) -> None:
-        expression, origin, refusal = await _resolve_condition(
-            question.display_condition or "", by_id
-        )
-        question.display_condition_expression = expression
-        question.display_condition_expression_origin = origin
-        if refusal:
-            flags.append(
-                ReviewFlag(
-                    target_heading=TargetHeading.QUESTIONNAIRE,
-                    status=FlagStatus.POSSIBLE_MATCH,
-                    candidate_heading=question.id,
-                    # The condition is still there in `display_condition`, and
-                    # Part 2 builds its guard from that, so an unresolved
-                    # expression costs the reader convenience, not the fact.
-                    severity=FlagSeverity.WARNING,
-                    target=FlagTarget(kind="question", id=question.id),
-                    reasoning=refusal,
-                )
-            )
-
-    await asyncio.gather(
-        *(normalise(q) for q in questions if q.display_condition)
-    )
     return questions, flags
 
 
 # ---------------------------------------------------------------------------
-# Routing — depends on the questionnaire's option codes
+# Routing — kept verbatim; Part 2 reads the conditions
 # ---------------------------------------------------------------------------
 
-#: Says nothing about syntax, because the model no longer writes any. It reports
-#: which question, which operator and which values; this codebase writes the
-#: expression from that (`part2_conditions.render`).
-_ROUTING_SYSTEM = """\
-You break a routing condition from a questionnaire into its comparisons.
-
-You are given the condition and the option codes of the questions it references.
-
-For each comparison report the question id, the operator, and the values.
-Use a value's CODE where the question has codes, otherwise its exact label. \
-Copy codes and labels exactly as listed; never invent one that is not given.
-
-Operators:
-  eq / ne              the answer is, or is not, the single value
-  set_eq               the answer set is exactly these values and nothing else
-  contains_any         at least one of these values is among the answers
-  contains_all         all of these values are among the answers
-  in / not_in          the answer is, or is not, one of these values
-  lt / le / gt / ge    numeric comparison
-  answered/unanswered  whether the question was put to the respondent at all
-
-Prose such as "Q1 contains at least one brand" is contains_any over the option \
-codes that are brands, excluding any "none of these" option.
-
-Where a condition compares two answers rather than an answer and a value - \
-"selected option at Q6 was not selected at Q5" - set compare_to_question to the \
-other question and leave values empty.
-
-Where the condition has more than one comparison, set joiner to how they \
-combine. Where it has one, leave joiner null.
-
-Return no comparisons at all when the condition cannot be resolved from the \
-codes given. A wrong condition silently routes real respondents down the wrong \
-path, and saying so costs only a review.
-"""
-
-
-#: Comparison operators, as the model names them, mapped onto the closed set the
-#: condition tree uses. Same names, so this is a lookup rather than a
-#: translation, but it is written out so an operator can never reach the tree
-#: without passing through it.
-_LLM_OPS = {op.value: ConditionOp(op.value) for op in LLMComparisonOp}
-
-
-def _condition_from(answer: LLMRoutingExpression) -> Condition | None:
-    """Build a condition tree from what the model reported, or refuse.
-
-    The model supplies parts; the shape is decided here. Nothing it returns is
-    a string of syntax any more, so there is no syntax to vary and no regex
-    needed to read it back.
-    """
-    if not answer.comparisons:
-        return None
-
-    built: list[Condition] = []
-    for comparison in answer.comparisons:
-        op = _LLM_OPS.get(comparison.operator.value)
-        if op is None:
-            return None
-        left = Operand(question_id=comparison.question_id)
-        if op in (ConditionOp.ANSWERED, ConditionOp.UNANSWERED):
-            built.append(Condition(op=op, left=left))
-            continue
-        if comparison.compare_to_question:
-            # Comparing two answers rather than an answer and a value.
-            built.append(
-                Condition(
-                    op=op,
-                    left=left,
-                    right=Operand(question_id=comparison.compare_to_question),
-                )
-            )
-            continue
-        if not comparison.values:
-            return None
-        if op in (ConditionOp.EQ, ConditionOp.NE, ConditionOp.LT, ConditionOp.LE,
-                  ConditionOp.GT, ConditionOp.GE):
-            # A single-value operator handed several values is a contradiction,
-            # not something to resolve by picking one.
-            if len(comparison.values) != 1:
-                return None
-            right = Operand(text=comparison.values[0])
-        else:
-            right = Operand(values=list(comparison.values))
-        built.append(Condition(op=op, left=left, right=right))
-
-    if len(built) == 1:
-        return built[0]
-    if answer.joiner not in ("and", "or"):
-        # Several comparisons and nothing saying how they combine. Reading that
-        # as "and" would be a guess about which respondents are routed.
-        return None
-    return Condition(op=ConditionOp(answer.joiner), operands=built)
-
-
-def _catalogue_line(question: Question) -> str:
-    """One catalogue line. A codeless option is listed by label alone - writing
-    a placeholder for the missing code invites the model to copy the placeholder
-    into the expression."""
-    rendered = ", ".join(
-        f"{o.code}={o.label}" if o.code else o.label for o in question.options
-    )
-    has_codes = any(o.code for o in question.options)
-    suffix = "" if has_codes else "   (no codes; refer to these by label)"
-    return f"{question.id}: {rendered}{suffix}"
-
-
-def _catalogue_for(condition: str, by_id: dict[str, Question]) -> str:
-    """Only the questions this condition actually names.
-
-    Sending every question's options made the prompt scale with the
-    questionnaire - on a 31-question QRE it overflowed the completion budget and
-    buried the one list that mattered.
-    """
-    referenced = [
-        by_id[qid]
-        for qid in dict.fromkeys(_QUESTION_REF.findall(condition))
-        if qid in by_id and by_id[qid].options
-    ]
-    if not referenced:
-        return "(the condition names no question with a known option list)"
-    return "\n".join(_catalogue_line(q) for q in referenced)
-
-
-async def _resolve_condition(
-    condition: str, by_id: dict[str, Question]
-) -> tuple[str | None, Origin | None, str | None]:
-    """Read one condition into the canonical grammar.
-
-    The single path for every condition in the document, whichever column it was
-    written in. C02 states the guard on Q2 twice - the questionnaire writes
-    "Q1 contains at least one brand" and the routing table writes it formally -
-    and before this only the routing one came out parseable, so anything reading
-    the artifact needed the routing table as a first choice and the
-    questionnaire as a fallback, with nothing keeping the two in agreement.
-    Running both through here means the same sentence produces the same string
-    no matter which column it appeared in.
-
-    Returns (expression, origin, refusal reason). Every element is None where
-    there is nothing to read.
-    """
-    if not condition or not condition.strip():
-        return None, None, None
-
-    # Already formal: the QRE wrote the grammar itself, so no model is needed
-    # and none is asked.
-    parsed = part2_conditions.parse(condition)
-    if parsed is not None:
-        return part2_conditions.render(parsed), Origin.DERIVED, None
-
-    try:
-        # answer = await complete_async(
-        #     _ROUTING_SYSTEM,
-        #     f"Condition: {condition}\n\nOption codes:\n{_catalogue_for(condition, by_id)}",
-        #     LLMRoutingExpression,
-        # )
-        answer = await complete_async(
-            _ROUTING_SYSTEM,
-            f"Condition: {condition}\n\nOption codes:\n{_catalogue_for(condition, by_id)}",
-            LLMRoutingExpression,
-            max_tokens=2000,
-        )
-    except LLMUnavailable as exc:
-        return None, None, f"Condition not translated: {exc}"
-
-    tree = _condition_from(answer)
-    expression = part2_conditions.render(tree) if tree is not None else None
-    if expression is None:
-        return (
-            None,
-            None,
-            answer.reasoning
-            if not answer.comparisons
-            else f"The comparisons reported do not form a condition: {answer.reasoning}",
-        )
-    # A model decided the reading, so it is an inference and nothing downstream
-    # may treat it as something the QRE stated (CLAUDE.md §14).
-    return expression, Origin.INFERRED, None
-
-
 async def parse_routing(
-    block: Stage3Block | None, questions: list[Question]
+    block: Stage3Block | None,
 ) -> tuple[list[RoutingRule], list[ReviewFlag]]:
+    """Read the routing table, one rule per row, exactly as the QRE wrote it.
+
+    No condition is interpreted here. Part 2 reads each `condition_raw` into a
+    condition tree, which is the only reading anything downstream uses, so a
+    second reading here would cost model calls and could only disagree with it.
+    """
     if block is None:
         return [], []
-
-    by_id = {q.id: q for q in questions}
-    flags: list[ReviewFlag] = []
-
-    async def one(index: int, row: dict[str, str]) -> RoutingRule:
-        condition = _value(row, "display", _ROUTING_HINTS) or row.get("Condition", "")
-        rule = RoutingRule(
+    rules = [
+        RoutingRule(
             rule=_value(row, "id", _ROUTING_HINTS),
-            condition_raw=condition,
+            condition_raw=_value(row, "display", _ROUTING_HINTS) or row.get("Condition", ""),
             action=_value(row, "action", _ROUTING_HINTS),
             destination=_value(row, "destination", _ROUTING_HINTS),
             source_reference=_source_for(block, index),
         )
-        if not condition:
-            return rule
-
-        expression, origin, refusal = await _resolve_condition(condition, by_id)
-        rule.condition_expression = expression
-        rule.condition_expression_origin = origin
-        if refusal:
-            flags.append(
-                ReviewFlag(
-                    target_heading=TargetHeading.ROUTING_AND_TERMINATION,
-                    status=FlagStatus.POSSIBLE_MATCH,
-                    candidate_heading=rule.rule,
-                    # condition_raw still holds what the QRE said, and Part 2
-                    # builds the real condition from that, so a missing
-                    # expression loses nothing that mattered.
-                    severity=FlagSeverity.WARNING,
-                    target=FlagTarget(kind="rule", id=rule.rule),
-                    reasoning=refusal,
-                )
-            )
-        return rule
-
-    rules = list(
-        await asyncio.gather(
-            *(one(index, row) for index, row in enumerate(block.rows))
-        )
-    )
-    return rules, flags
+        for index, row in enumerate(block.rows)
+    ]
+    return rules, []
 
 
 # ---------------------------------------------------------------------------
@@ -1140,18 +892,6 @@ async def run_async(
 ) -> tuple[dict, list[ReviewFlag]]:
     by_target = {b.target: b for b in blocks}
 
-    questionnaire_task = asyncio.create_task(
-        parse_questionnaire(by_target.get(TargetHeading.QUESTIONNAIRE))
-    )
-
-    async def routing_after_questionnaire():
-        # The only dependency in the stage: routing needs the option codes the
-        # questionnaire task produces, so it awaits that task and nothing else.
-        questions, _ = await questionnaire_task
-        return await parse_routing(
-            by_target.get(TargetHeading.ROUTING_AND_TERMINATION), questions
-        )
-
     (
         (questions, q_flags),
         (routing, r_flags),
@@ -1161,8 +901,8 @@ async def run_async(
         (study, study_flags),
         (programming, programming_flags),
     ) = await asyncio.gather(
-        questionnaire_task,
-        routing_after_questionnaire(),
+        parse_questionnaire(by_target.get(TargetHeading.QUESTIONNAIRE)),
+        parse_routing(by_target.get(TargetHeading.ROUTING_AND_TERMINATION)),
         parse_scenarios(by_target.get(TargetHeading.ACCEPTANCE_TEST_SCENARIOS)),
         parse_messages(by_target.get(TargetHeading.COMPLETION_MESSAGES)),
         parse_statements(by_target.get(TargetHeading.QUOTA_CONTROLS)),

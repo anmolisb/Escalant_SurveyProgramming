@@ -24,6 +24,8 @@ import streamlit as st
 import graphviz
 from graphviz.backend.execute import ExecutableNotFound
 
+from src.agents.qre_interpretation import part2_conditions
+from src.agents.qre_interpretation.models import Condition
 from src.common.paths import agent1_dir, agent2_lss
 
 
@@ -290,6 +292,49 @@ def read_json(directory: Path, name: str, default=None):
         return default
     data = json.loads(path.read_text())
     return data.get("content", data) if isinstance(data, dict) and "content" in data else data
+
+
+def _rendered(condition: dict | None) -> str | None:
+    """A condition tree written out in the one grammar, or None if unread."""
+    if not condition:
+        return None
+    try:
+        return part2_conditions.render(Condition.model_validate(condition))
+    except Exception:  # noqa: BLE001 - a display, not a check
+        return None
+
+
+def read_specification(agent1: Path) -> tuple[dict, list[dict], list[dict]]:
+    """The survey heading, questions and rules, from the canonical specification.
+
+    The same file the Survey Builder and the Test Designer read, so the
+    dashboard shows exactly what was built and tested. Questions and rules are
+    put in the shape the cards below draw: a question keeps the condition the
+    QRE wrote, and a rule keeps its source text beside the reading of it.
+    """
+    spec = read_json(agent1, "part2_canonical.json", {}) or {}
+    questions = []
+    for q in spec.get("questions") or []:
+        guard = q.get("guard") or {}
+        raw = guard.get("raw_texts") or []
+        questions.append({
+            "id": q.get("question_id"),
+            "type": q.get("kind"),
+            "wording": q.get("wording"),
+            "options": q.get("options") or [],
+            "display_condition": raw[0] if raw else None,
+        })
+    routing = []
+    for r in spec.get("rules") or []:
+        when = r.get("when")
+        routing.append({
+            "rule": r.get("rule_id"),
+            "action": r.get("kind"),
+            "destination": (r.get("destination") or {}).get("id"),
+            "condition_raw": (when or {}).get("source_text") or r.get("when_unread"),
+            "reading": _rendered(when),
+        })
+    return spec.get("survey") or {}, questions, routing
 
 
 def load_design_summary(design_dir: Path | None) -> dict | None:
@@ -836,9 +881,7 @@ if not has_run:
             "Upload a questionnaire in the sidebar, or open a previous run")
     st.stop()
 
-survey = read_json(agent1, "stage4_survey.json", {})
-questions = read_json(agent1, "stage4_questionnaire.json", [])
-routing = read_json(agent1, "stage4_routing.json", [])
+survey, questions, routing = read_specification(agent1)
 design = st.session_state.get("design") or load_design_summary(design_dir)
 
 title = survey.get("title") or run_name
@@ -896,9 +939,9 @@ with tab_r:
     else:
         st.markdown("".join(rule_card(r) for r in routing),
                     unsafe_allow_html=True)
-        with st.expander("The expressions these become in LimeSurvey"):
+        with st.expander("How each condition was read"):
             table([{"Rule": r.get("rule"),
-                    "Expression": r.get("condition_expression")}
+                    "Reading": r.get("reading") or "not read, left for a person"}
                    for r in routing],
                   widths={"Rule": "9%"}, height="40vh")
 
