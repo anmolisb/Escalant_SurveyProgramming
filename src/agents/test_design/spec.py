@@ -34,6 +34,11 @@ class SpecError(Exception):
 
 
 LOGICAL_OPS = {"and", "or", "not"}
+
+#: Question kinds that show text and ask nothing, such as a "text display" row
+#: ("You're almost done!"). There is no answer to give, to leave blank or to
+#: get wrong, so the only thing to test is that the respondent moves past it.
+DISPLAY_KINDS = frozenset({"text display"})
 COMPARISON_OPS = {"eq", "ne", "in", "not_in", "contains", "contains_any",
                   "contains_all", "set_eq", "answered", "not_answered",
                   "gt", "gte", "lt", "lte"}

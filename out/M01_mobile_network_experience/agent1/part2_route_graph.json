@@ -5,10 +5,10 @@
   "survey_id": "M01_mobile_network_experience",
   "source_document": {
     "filename": "M01_mobile_network_experience.docx",
-    "sha256": "1be6ec051fbc914680d8add2a2c9e85c568f5468d8f39f5b6e915eb5bfe6f3b5",
-    "bytes": 41874
+    "sha256": "6f7e2db55c2c8ffaabdd4890e35464b4a5325a0ae13e38ffabb37ed06d064964",
+    "bytes": 42042
   },
-  "generated_at": "2026-10-11T10:11:51+00:00",
+  "generated_at": "2026-10-11T10:54:30+00:00",
   "item_count": null,
   "content": {
     "source": "M01_mobile_network_experience.docx",
@@ -63,7 +63,7 @@
           "randomized": false,
           "randomization_scope": null,
           "randomization_anchored": [],
-          "id": "Q1"
+          "id": "DT1"
         },
         {
           "kind": "question",
@@ -74,11 +74,22 @@
           "randomized": false,
           "randomization_scope": null,
           "randomization_anchored": [],
-          "id": "Q2"
+          "id": "Q1"
         },
         {
           "kind": "question",
           "seq": 6,
+          "has_guard": false,
+          "guard": null,
+          "guard_agreement": null,
+          "randomized": false,
+          "randomization_scope": null,
+          "randomization_anchored": [],
+          "id": "Q2"
+        },
+        {
+          "kind": "question",
+          "seq": 7,
           "has_guard": false,
           "guard": null,
           "guard_agreement": null,
@@ -89,7 +100,7 @@
         },
         {
           "kind": "question",
-          "seq": 7,
+          "seq": 8,
           "has_guard": false,
           "guard": null,
           "guard_agreement": null,
@@ -100,7 +111,7 @@
         },
         {
           "kind": "question",
-          "seq": 8,
+          "seq": 9,
           "has_guard": false,
           "guard": null,
           "guard_agreement": null,
@@ -111,7 +122,7 @@
         },
         {
           "kind": "question",
-          "seq": 9,
+          "seq": 10,
           "has_guard": false,
           "guard": null,
           "guard_agreement": null,
@@ -122,7 +133,7 @@
         },
         {
           "kind": "question",
-          "seq": 10,
+          "seq": 11,
           "has_guard": false,
           "guard": null,
           "guard_agreement": null,
@@ -133,7 +144,7 @@
         },
         {
           "kind": "question",
-          "seq": 11,
+          "seq": 12,
           "has_guard": true,
           "guard": "Q7 contains_any ['Dropped calls', 'Slow data', 'Unexpected charge', 'Coverage gap', 'Support delay']",
           "guard_agreement": "agree",
@@ -144,7 +155,7 @@
         },
         {
           "kind": "question",
-          "seq": 12,
+          "seq": 13,
           "has_guard": true,
           "guard": "Q7 contains_any ['Dropped calls', 'Slow data', 'Unexpected charge', 'Coverage gap', 'Support delay']",
           "guard_agreement": "agree",
@@ -155,7 +166,7 @@
         },
         {
           "kind": "question",
-          "seq": 13,
+          "seq": 14,
           "has_guard": true,
           "guard": "Q9 in ['Yes, fully', 'Yes, partly']",
           "guard_agreement": "agree",
@@ -166,7 +177,7 @@
         },
         {
           "kind": "question",
-          "seq": 14,
+          "seq": 15,
           "has_guard": false,
           "guard": null,
           "guard_agreement": null,
@@ -177,7 +188,7 @@
         },
         {
           "kind": "question",
-          "seq": 15,
+          "seq": 16,
           "has_guard": false,
           "guard": null,
           "guard_agreement": null,
@@ -188,7 +199,7 @@
         },
         {
           "kind": "question",
-          "seq": 16,
+          "seq": 17,
           "has_guard": false,
           "guard": null,
           "guard_agreement": null,
@@ -199,7 +210,18 @@
         },
         {
           "kind": "question",
-          "seq": 17,
+          "seq": 18,
+          "has_guard": false,
+          "guard": null,
+          "guard_agreement": null,
+          "randomized": false,
+          "randomization_scope": null,
+          "randomization_anchored": [],
+          "id": "DT2"
+        },
+        {
+          "kind": "question",
+          "seq": 19,
           "has_guard": false,
           "guard": null,
           "guard_agreement": null,
@@ -210,7 +232,7 @@
         },
         {
           "kind": "question",
-          "seq": 18,
+          "seq": 20,
           "has_guard": false,
           "guard": null,
           "guard_agreement": null,
@@ -221,7 +243,7 @@
         },
         {
           "kind": "question",
-          "seq": 19,
+          "seq": 21,
           "has_guard": false,
           "guard": null,
           "guard_agreement": null,
@@ -296,6 +318,13 @@
           "kind": "advance",
           "rule_id": null,
           "source": "S3",
+          "target": "DT1",
+          "key": 0
+        },
+        {
+          "kind": "advance",
+          "rule_id": null,
+          "source": "DT1",
           "target": "Q1",
           "key": 0
         },
@@ -405,6 +434,13 @@
           "kind": "advance",
           "rule_id": null,
           "source": "Q13",
+          "target": "DT2",
+          "key": 0
+        },
+        {
+          "kind": "advance",
+          "rule_id": null,
+          "source": "DT2",
           "target": "D1",
           "key": 0
         },
@@ -462,103 +498,95 @@
         {
           "kind": "question",
           "seq": 4,
-          "id": "Q1"
+          "id": "DT1"
         },
         {
           "kind": "question",
           "seq": 5,
-          "id": "Q2"
+          "id": "Q1"
         },
         {
           "kind": "question",
           "seq": 6,
-          "id": "Q3"
+          "id": "Q2"
         },
         {
           "kind": "question",
           "seq": 7,
-          "id": "Q4"
+          "id": "Q3"
         },
         {
           "kind": "question",
           "seq": 8,
-          "id": "Q5"
+          "id": "Q4"
         },
         {
           "kind": "question",
           "seq": 9,
-          "id": "Q6"
+          "id": "Q5"
         },
         {
           "kind": "question",
           "seq": 10,
-          "id": "Q7"
+          "id": "Q6"
         },
         {
           "kind": "question",
           "seq": 11,
-          "id": "Q8"
+          "id": "Q7"
         },
         {
           "kind": "question",
           "seq": 12,
-          "id": "Q9"
+          "id": "Q8"
         },
         {
           "kind": "question",
           "seq": 13,
-          "id": "Q10"
+          "id": "Q9"
         },
         {
           "kind": "question",
           "seq": 14,
-          "id": "Q11"
+          "id": "Q10"
         },
         {
           "kind": "question",
           "seq": 15,
-          "id": "Q12"
+          "id": "Q11"
         },
         {
           "kind": "question",
           "seq": 16,
-          "id": "Q13"
+          "id": "Q12"
         },
         {
           "kind": "question",
           "seq": 17,
-          "id": "D1"
+          "id": "Q13"
         },
         {
           "kind": "question",
           "seq": 18,
-          "id": "D2"
+          "id": "DT2"
         },
         {
           "kind": "question",
           "seq": 19,
+          "id": "D1"
+        },
+        {
+          "kind": "question",
+          "seq": 20,
+          "id": "D2"
+        },
+        {
+          "kind": "question",
+          "seq": 21,
           "id": "Q14"
         }
       ],
       "edges": [
-        {
-          "kind": "text_pipe",
-          "origin": "inferred",
-          "source": "Q1",
-          "target": "Q2"
-        },
-        {
-          "kind": "text_pipe",
-          "origin": "inferred",
-          "source": "Q1",
-          "target": "Q3"
-        },
-        {
-          "kind": "text_pipe",
-          "origin": "inferred",
-          "source": "Q1",
-          "target": "Q5"
-        },
         {
           "kind": "text_pipe",
           "origin": "inferred",
@@ -578,14 +606,9 @@
           "target": "Q8"
         },
         {
-          "kind": "guard",
-          "source": "Q7",
-          "target": "Q9"
-        },
-        {
           "kind": "text_pipe",
           "origin": "inferred",
-          "source": "Q8",
+          "source": "Q7",
           "target": "Q9"
         },
         {

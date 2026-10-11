@@ -40,6 +40,7 @@ _QUESTION_THEME = {
     "F": "arrays/array",
     "K": "multiplenumeric",
     "N": "numerical",
+    "X": "boilerplate",
 }
 
 _SURVEY_FIELDS = [

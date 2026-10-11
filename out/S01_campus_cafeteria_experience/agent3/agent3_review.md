@@ -4,9 +4,9 @@ Agent 3 v0.1. Blocks B1 to B4 implemented and run. Blocks A and C are blocked on
 
 ## Headline
 
-- **41 coverage targets** enumerated across nine dimensions
-- **41 logically covered**, each with an independently predicted outcome
-- **41 logical test cases** generated, with steps and assertions
+- **42 coverage targets** enumerated across nine dimensions
+- **42 logically covered**, each with an independently predicted outcome
+- **42 logical test cases** generated, with steps and assertions
 - **0 executable tests** - Block C cannot bind a canonical id to a LimeSurvey field without Agent 2's build manifest
 - **Coverage floor 100.0%** (D1). Reported as a floor, never a sum or an average
 - **Specification replay: 3 agree / 0 disagree / 0 unresolved of 3** against the QRE's own acceptance scenarios
@@ -17,7 +17,7 @@ Nine dimensions, reported side by side. They count different kinds of unit, so a
 
 | Dim | Measures | Enumerated | Covered | Logical % | Status | Why not covered |
 |---|---|---|---|---|---|---|
-| D1 | Visibility | 14 | 14 | 100.0% | EXHAUSTIVE | - |
+| D1 | Visibility | 15 | 15 | 100.0% | EXHAUSTIVE | - |
 | D2 | Terminal outcome | 3 | 3 | 100.0% | EXHAUSTIVE | - |
 | D3 | Validation (explicit) | 10 | 10 | 100.0% | EXHAUSTIVE | - |
 | D4 | Validation (mandatory) | 12 | 12 | 100.0% | EXHAUSTIVE | - |
@@ -40,7 +40,7 @@ B3's interpreter cannot run without these. They are read from Agent 1's `semanti
 | default_mandatory | `True` | derived | CONFIRMED | no | - |
 | whitespace_is_an_answer | `not_an_answer` | agent3_fallback | PROVISIONAL | no | - |
 
-3 reading(s) still provisional. **6 of 41 generated tests lean on at least one of them** and are tagged accordingly, so a change of ruling shows exactly which tests must be regenerated.
+3 reading(s) still provisional. **6 of 42 generated tests lean on at least one of them** and are tagged accordingly, so a change of ruling shows exactly which tests must be regenerated.
 
 ## Specification replay
 
@@ -57,6 +57,31 @@ Agent 1's own acceptance scenarios walked through B3. If B3 disagreed with a sce
 _UNRESOLVED means B3 declined to evaluate a condition it cannot read, which is not the same as disagreeing with the QRE. Only DISAGREE indicates a real conflict._
 
 ## Sample generated tests
+
+### `TC-a56a816b0c` - answering DT1 normally moves the respondent on to the question that should come next
+
+Dimension D1. Traces to DT1.
+
+Setup, to reach the question under test:
+
+- `S1` = `S1-O1`
+- `S2` = `S2-O1`
+- `Q1` = `Q1-O1`
+- `Q2` = `Q2-O1`
+- `Q3` = `Q3-O1`
+- `Q4` = `['Q4-O1']`
+- `Q5` = `Q5-O1`
+- `Q6` = `xxxxxxxxxx`
+- `Q7` = `Q7-O1`
+
+Action: Answer through the whole survey as listed, then observe where it ends.
+
+Then check:
+
+- **question_visible** `DT1` = `True`
+  - the question must be on screen so it can be answered
+- **next_question_is** `Q1` = `Q1`
+  - and the very next question the respondent sees must be this one
 
 ### `TC-611fbac190` - answering Q1 normally moves the respondent on to the question that should come next
 
@@ -108,41 +133,16 @@ Then check:
 - **next_question_is** `Q3` = `Q3`
   - and the very next question the respondent sees must be this one
 
-### `TC-98e19afc55` - answering Q3 normally moves the respondent on to the question that should come next
-
-Dimension D1. Traces to Q3.
-
-Setup, to reach the question under test:
-
-- `S1` = `S1-O1`
-- `S2` = `S2-O1`
-- `Q1` = `Q1-O1`
-- `Q2` = `Q2-O1`
-- `Q3` = `Q3-O1`
-- `Q4` = `['Q4-O1']`
-- `Q5` = `Q5-O1`
-- `Q6` = `xxxxxxxxxx`
-- `Q7` = `Q7-O1`
-
-Action: Answer through the whole survey as listed, then observe where it ends.
-
-Then check:
-
-- **question_visible** `Q3` = `True`
-  - the question must be on screen so it can be answered
-- **next_question_is** `Q4` = `Q4`
-  - and the very next question the respondent sees must be this one
-
 ## Uncovered targets
 
 No target is ever silently dropped. Each carries one specific reason.
 
 ## Block A - implementation conformance
 
-Derived from the emitted `.lss` (sha `dfe04160dfda`), not from a self-reported manifest.
+Derived from the emitted `.lss` (sha `e4c658b8d25f`), not from a self-reported manifest.
 
-- Questions specified: 10
-- Questions built: 10
+- Questions specified: 11
+- Questions built: 11
 - Options bound to a physical identifier: 36
 - Verdict: **CONFORMS_WITH_FINDINGS** (0 blocking)
 
@@ -155,36 +155,34 @@ Derived from the emitted `.lss` (sha `dfe04160dfda`), not from a self-reported m
 
 ## Block C - executable compilation
 
-- Logically covered: 41
-- **Compiled to executable tests: 41**
+- Logically covered: 42
+- **Compiled to executable tests: 42**
 - Refused rather than guessed: 0
 - Executable coverage: **100.0%**
 
 ## Sample executable test
 
-### `EX-a9bc875267` - answering Q1 normally moves the respondent on to the question that should come next
+### `EX-ea0690dba1` - answering DT1 normally moves the respondent on to the question that should come next
 
-Survey id 900001. Dimension D1. Traces to Q1.
+Survey id 900001. Dimension D1. Traces to DT1.
 
 | Step | Action | Field | SGQA | Value |
 |---|---|---|---|---|
 | 1 | set_field | `S1` | `900001X100X1000` | `A001` |
 | 2 | set_field | `S2` | `900001X100X1001` | `A001` |
 | 3 | submit_page | `` | `` | `` |
-| 4 | set_field | `Q1` | `900001X101X1002` | `A001` |
-| 5 | set_field | `Q2` | `900001X101X1003` | `1` |
-| 6 | set_field | `Q3` | `900001X101X1004` | `1` |
-| 7 | set_field | `Q4_SQ001` | `900001X101X1005SQ001` | `Y` |
-| 8 | set_field | `Q5` | `900001X101X1012` | `A001` |
-| 9 | set_field | `Q6` | `900001X101X1013` | `xxxxxxxxxx` |
-| 10 | set_field | `Q7` | `900001X101X1014` | `A001` |
+| 4 | set_field | `Q1` | `900001X101X1003` | `A001` |
+| 5 | set_field | `Q2` | `900001X101X1004` | `1` |
+| 6 | set_field | `Q3` | `900001X101X1005` | `1` |
+| 7 | set_field | `Q4_SQ001` | `900001X101X1006SQ001` | `Y` |
+| 8 | set_field | `Q5` | `900001X101X1013` | `A001` |
+| 9 | set_field | `Q6` | `900001X101X1014` | `xxxxxxxxxx` |
+| 10 | set_field | `Q7` | `900001X101X1015` | `A001` |
 | 11 | submit_page | `` | `` | `` |
 
 Assertions:
 
-- **field_present** on `Q1` = `True`
-  - the question must be on screen so it can be answered
-- **next_field_present** on `Q2` = `Q2`
+- **next_field_present** on `Q1` = `Q1`
   - and the very next question the respondent sees must be this one
 
 ## What v0.1 does not do

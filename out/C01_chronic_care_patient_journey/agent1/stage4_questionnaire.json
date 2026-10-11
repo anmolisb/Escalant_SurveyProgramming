@@ -138,8 +138,28 @@
     "other_attributes": {}
   },
   {
-    "id": "Q1",
+    "id": "DT1",
     "seq": 5,
+    "wording": "Great, you're eligible for this survey! Next, a few questions about your care experience.",
+    "type": "text display",
+    "options": [],
+    "matrix_rows": [],
+    "display_condition": null,
+    "min_length": null,
+    "max_length": null,
+    "min_value": null,
+    "max_value": null,
+    "min_selections": null,
+    "exclusive_option": null,
+    "sum_to": null,
+    "randomize": false,
+    "optional": false,
+    "dynamic_option_source": null,
+    "other_attributes": {}
+  },
+  {
+    "id": "Q1",
+    "seq": 6,
     "wording": "Which of these brands have you heard of?",
     "type": "multi",
     "options": [
@@ -190,7 +210,7 @@
   },
   {
     "id": "Q2",
-    "seq": 6,
+    "seq": 7,
     "wording": "Which brands would you consider?",
     "type": "multi",
     "options": [
@@ -235,7 +255,7 @@
   },
   {
     "id": "Q3",
-    "seq": 7,
+    "seq": 8,
     "wording": "Which brand is your current or most recent provider?",
     "type": "single",
     "options": [
@@ -286,7 +306,7 @@
   },
   {
     "id": "Q4",
-    "seq": 8,
+    "seq": 9,
     "wording": "Which stage best describes your current position?",
     "type": "single",
     "options": [
@@ -337,7 +357,7 @@
   },
   {
     "id": "Q5",
-    "seq": 9,
+    "seq": 10,
     "wording": "Which touchpoints did you use?",
     "type": "multi",
     "options": [
@@ -400,7 +420,7 @@
   },
   {
     "id": "Q6",
-    "seq": 10,
+    "seq": 11,
     "wording": "Which touchpoint was most influential?",
     "type": "single",
     "options": [
@@ -457,7 +477,7 @@
   },
   {
     "id": "Q7",
-    "seq": 11,
+    "seq": 12,
     "wording": "How satisfied are you with the overall experience?",
     "type": "single",
     "options": [
@@ -508,7 +528,7 @@
   },
   {
     "id": "Q8",
-    "seq": 12,
+    "seq": 13,
     "wording": "How likely are you to recommend the current provider?",
     "type": "single",
     "options": [
@@ -595,7 +615,7 @@
   },
   {
     "id": "Q9",
-    "seq": 13,
+    "seq": 14,
     "wording": "Please rate each attribute for your current provider.",
     "type": "matrix",
     "options": [
@@ -691,8 +711,28 @@
     }
   },
   {
+    "id": "DT2",
+    "seq": 15,
+    "wording": "Thank you for sharing your care experience so far. Next, we'd like to understand a bit about any support you've used and whether you've considered other providers.",
+    "type": "text display",
+    "options": [],
+    "matrix_rows": [],
+    "display_condition": null,
+    "min_length": null,
+    "max_length": null,
+    "min_value": null,
+    "max_value": null,
+    "min_selections": null,
+    "exclusive_option": null,
+    "sum_to": null,
+    "randomize": false,
+    "optional": false,
+    "dynamic_option_source": null,
+    "other_attributes": {}
+  },
+  {
     "id": "Q10",
-    "seq": 14,
+    "seq": 16,
     "wording": "Did you contact support during the experience?",
     "type": "single",
     "options": [
@@ -725,7 +765,7 @@
   },
   {
     "id": "Q11",
-    "seq": 15,
+    "seq": 17,
     "wording": "Which support channels did you use?",
     "type": "multi",
     "options": [
@@ -776,7 +816,7 @@
   },
   {
     "id": "Q12",
-    "seq": 16,
+    "seq": 18,
     "wording": "Was your issue resolved?",
     "type": "single",
     "options": [
@@ -815,7 +855,7 @@
   },
   {
     "id": "Q13",
-    "seq": 17,
+    "seq": 19,
     "wording": "How much effort did resolution require?",
     "type": "single",
     "options": [
@@ -866,7 +906,7 @@
   },
   {
     "id": "Q14",
-    "seq": 18,
+    "seq": 20,
     "wording": "Why was the issue not resolved?",
     "type": "text",
     "options": [],
@@ -886,7 +926,7 @@
   },
   {
     "id": "Q15",
-    "seq": 19,
+    "seq": 21,
     "wording": "Have you considered switching providers?",
     "type": "single",
     "options": [
@@ -919,7 +959,7 @@
   },
   {
     "id": "Q16",
-    "seq": 20,
+    "seq": 22,
     "wording": "What is the main reason for considering a switch?",
     "type": "single",
     "options": [
@@ -976,7 +1016,7 @@
   },
   {
     "id": "Q17",
-    "seq": 21,
+    "seq": 23,
     "wording": "Please specify the other switching reason.",
     "type": "text",
     "options": [],
@@ -996,7 +1036,7 @@
   },
   {
     "id": "Q18",
-    "seq": 22,
+    "seq": 24,
     "wording": "Allocate 100 points across the factors that drive your decision.",
     "type": "constant_sum",
     "options": [
@@ -1047,7 +1087,7 @@
   },
   {
     "id": "Q19",
-    "seq": 23,
+    "seq": 25,
     "wording": "Which new proposition do you prefer?",
     "type": "single",
     "options": [
@@ -1090,7 +1130,7 @@
   },
   {
     "id": "Q20",
-    "seq": 24,
+    "seq": 26,
     "wording": "How appealing is the selected proposition?",
     "type": "single",
     "options": [
@@ -1141,7 +1181,7 @@
   },
   {
     "id": "Q21",
-    "seq": 25,
+    "seq": 27,
     "wording": "What most influenced your choice?",
     "type": "text",
     "options": [],
@@ -1160,8 +1200,28 @@
     "other_attributes": {}
   },
   {
+    "id": "DT3",
+    "seq": 28,
+    "wording": "You're almost done! Thank you for your answers. Just a few last questions about you to finish up.",
+    "type": "text display",
+    "options": [],
+    "matrix_rows": [],
+    "display_condition": null,
+    "min_length": null,
+    "max_length": null,
+    "min_value": null,
+    "max_value": null,
+    "min_selections": null,
+    "exclusive_option": null,
+    "sum_to": null,
+    "randomize": false,
+    "optional": false,
+    "dynamic_option_source": null,
+    "other_attributes": {}
+  },
+  {
     "id": "D1",
-    "seq": 26,
+    "seq": 29,
     "wording": "Which region do you live in?",
     "type": "single",
     "options": [
@@ -1212,7 +1272,7 @@
   },
   {
     "id": "D2",
-    "seq": 27,
+    "seq": 30,
     "wording": "Which age group describes you?",
     "type": "single",
     "options": [
@@ -1263,7 +1323,7 @@
   },
   {
     "id": "D3",
-    "seq": 28,
+    "seq": 31,
     "wording": "How do you describe your gender?",
     "type": "single",
     "options": [
@@ -1314,7 +1374,7 @@
   },
   {
     "id": "D4",
-    "seq": 29,
+    "seq": 32,
     "wording": "What is your household or organizational decision band?",
     "type": "single",
     "options": [
@@ -1365,7 +1425,7 @@
   },
   {
     "id": "Q22",
-    "seq": 30,
+    "seq": 33,
     "wording": "May we use your anonymized comments in internal reporting?",
     "type": "single",
     "options": [
@@ -1398,7 +1458,7 @@
   },
   {
     "id": "Q23",
-    "seq": 31,
+    "seq": 34,
     "wording": "Any final comments?",
     "type": "text",
     "options": [],

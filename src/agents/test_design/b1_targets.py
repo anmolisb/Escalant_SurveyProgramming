@@ -29,7 +29,7 @@ from .models import (
     RANDOMIZATION_ANCHOR_UNDEFINED,
     stable_id,
 )
-from .spec import CanonicalSpec
+from .spec import DISPLAY_KINDS, CanonicalSpec
 
 
 def _t(dimension, subject, polarity, claim, traces_to=None,
@@ -260,6 +260,8 @@ def d4_mandatory(spec: CanonicalSpec) -> list[CoverageTarget]:
                       [q.id], None, f"question kind: {q.kind}"))
 
     for q in spec.in_order():
+        if q.kind in DISPLAY_KINDS:
+            continue  # nothing to answer, so nothing to leave blank
         if q.mandatory:
             out.append(_t("D4", q.id, "enforced",
                           f"{q.id} blocks progress when left blank",

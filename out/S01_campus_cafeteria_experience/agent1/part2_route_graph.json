@@ -5,10 +5,10 @@
   "survey_id": "S01_campus_cafeteria_experience",
   "source_document": {
     "filename": "S01_campus_cafeteria_experience.docx",
-    "sha256": "2756cb3b6dc3f21cdc7c1d35b7cfb0e2270af2a918ba6fe682e72ae8e121a804",
-    "bytes": 40578
+    "sha256": "3d54ea5480d07ac92b4214947b34c7dab7abf280c5f464475994e8c9066ce9e3",
+    "bytes": 40669
   },
-  "generated_at": "2026-10-11T10:11:49+00:00",
+  "generated_at": "2026-10-11T10:54:25+00:00",
   "item_count": null,
   "content": {
     "source": "S01_campus_cafeteria_experience.docx",
@@ -52,7 +52,7 @@
           "randomized": false,
           "randomization_scope": null,
           "randomization_anchored": [],
-          "id": "Q1"
+          "id": "DT1"
         },
         {
           "kind": "question",
@@ -63,7 +63,7 @@
           "randomized": false,
           "randomization_scope": null,
           "randomization_anchored": [],
-          "id": "Q2"
+          "id": "Q1"
         },
         {
           "kind": "question",
@@ -74,7 +74,7 @@
           "randomized": false,
           "randomization_scope": null,
           "randomization_anchored": [],
-          "id": "Q3"
+          "id": "Q2"
         },
         {
           "kind": "question",
@@ -85,7 +85,7 @@
           "randomized": false,
           "randomization_scope": null,
           "randomization_anchored": [],
-          "id": "Q4"
+          "id": "Q3"
         },
         {
           "kind": "question",
@@ -96,11 +96,22 @@
           "randomized": false,
           "randomization_scope": null,
           "randomization_anchored": [],
-          "id": "Q5"
+          "id": "Q4"
         },
         {
           "kind": "question",
           "seq": 8,
+          "has_guard": false,
+          "guard": null,
+          "guard_agreement": null,
+          "randomized": false,
+          "randomization_scope": null,
+          "randomization_anchored": [],
+          "id": "Q5"
+        },
+        {
+          "kind": "question",
+          "seq": 9,
           "has_guard": true,
           "guard": "Q5 eq 'Yes'",
           "guard_agreement": "agree",
@@ -111,7 +122,7 @@
         },
         {
           "kind": "question",
-          "seq": 9,
+          "seq": 10,
           "has_guard": false,
           "guard": null,
           "guard_agreement": null,
@@ -122,7 +133,7 @@
         },
         {
           "kind": "question",
-          "seq": 10,
+          "seq": 11,
           "has_guard": false,
           "guard": null,
           "guard_agreement": null,
@@ -174,7 +185,7 @@
           "kind": "advance",
           "rule_id": null,
           "source": "S2",
-          "target": "Q1",
+          "target": "DT1",
           "key": 0
         },
         {
@@ -184,6 +195,13 @@
           "precedence": 2,
           "source": "S2",
           "target": "TERM_INELIGIBLE",
+          "key": 0
+        },
+        {
+          "kind": "advance",
+          "rule_id": null,
+          "source": "DT1",
+          "target": "Q1",
           "key": 0
         },
         {
@@ -271,41 +289,46 @@
         {
           "kind": "question",
           "seq": 3,
-          "id": "Q1"
+          "id": "DT1"
         },
         {
           "kind": "question",
           "seq": 4,
-          "id": "Q2"
+          "id": "Q1"
         },
         {
           "kind": "question",
           "seq": 5,
-          "id": "Q3"
+          "id": "Q2"
         },
         {
           "kind": "question",
           "seq": 6,
-          "id": "Q4"
+          "id": "Q3"
         },
         {
           "kind": "question",
           "seq": 7,
-          "id": "Q5"
+          "id": "Q4"
         },
         {
           "kind": "question",
           "seq": 8,
-          "id": "Q6"
+          "id": "Q5"
         },
         {
           "kind": "question",
           "seq": 9,
-          "id": "Q7"
+          "id": "Q6"
         },
         {
           "kind": "question",
           "seq": 10,
+          "id": "Q7"
+        },
+        {
+          "kind": "question",
+          "seq": 11,
           "id": "Q8"
         }
       ],

@@ -5,11 +5,11 @@
   "survey_id": "M01_mobile_network_experience",
   "source_document": {
     "filename": "M01_mobile_network_experience.docx",
-    "sha256": "1be6ec051fbc914680d8add2a2c9e85c568f5468d8f39f5b6e915eb5bfe6f3b5"
+    "sha256": "6f7e2db55c2c8ffaabdd4890e35464b4a5325a0ae13e38ffabb37ed06d064964"
   },
   "upstream": {
     "canonical_schema_version": "1.0.0",
-    "canonical_generated_at": "2026-10-11T10:11:51+00:00"
+    "canonical_generated_at": "2026-10-11T10:54:30+00:00"
   },
   "content": {
     "scenarios": [
@@ -46,6 +46,7 @@
             "S1",
             "S2",
             "S3",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -59,6 +60,7 @@
             "Q11",
             "Q12",
             "Q13",
+            "DT2",
             "D1",
             "D2",
             "Q14"
@@ -70,9 +72,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
-            "Q2": "Provider A",
-            "Q3": "Provider A",
-            "Q5": "Provider A",
             "Q9": "Dropped calls",
             "Q10": "Yes, fully",
             "Q11": "Provider A",
@@ -125,6 +124,7 @@
             "S1",
             "S2",
             "S3",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -138,6 +138,7 @@
             "Q11",
             "Q12",
             "Q13",
+            "DT2",
             "D1",
             "D2",
             "Q14"
@@ -149,9 +150,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
-            "Q2": "Provider A",
-            "Q3": "Provider A",
-            "Q5": "Provider A",
             "Q9": "Dropped calls",
             "Q10": "Yes, fully",
             "Q11": "Provider A",
@@ -164,6 +162,162 @@
           }
         },
         "proof": "after answering D2 the respondent went on to Q14",
+        "provisional_semantics": [
+          "multi_equality"
+        ],
+        "preconditions": {},
+        "campaign": {},
+        "covered_by": null
+      },
+      {
+        "scenario_id": "SC-c6e1034bae",
+        "target_id": "T-4c28ba9a4a",
+        "dimension": "D1",
+        "status": "COVERED",
+        "reason": null,
+        "answers": {
+          "S1": "S1-O1",
+          "S2": "S2-O1",
+          "S3": 18,
+          "Q1": "Q1-O1",
+          "Q2": "Q2-O1",
+          "Q3": "Q3-O1",
+          "Q4": "Q4-O1",
+          "Q5": "Q5-O1",
+          "Q6": "Q6-O1",
+          "Q7": [
+            "Q7-O1"
+          ],
+          "Q8": "Q8-O1",
+          "Q9": "Q9-O1",
+          "Q10": "Q10-O1",
+          "Q11": "Q11-O1",
+          "Q12": "Q12-O1",
+          "Q13": "Q13-O1",
+          "D1": "D1-O1",
+          "D2": "D2-O1"
+        },
+        "expected": {
+          "questions_seen_in_order": [
+            "S1",
+            "S2",
+            "S3",
+            "DT1",
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4",
+            "Q5",
+            "Q6",
+            "Q7",
+            "Q8",
+            "Q9",
+            "Q10",
+            "Q11",
+            "Q12",
+            "Q13",
+            "DT2",
+            "D1",
+            "D2",
+            "Q14"
+          ],
+          "questions_not_seen": [],
+          "ending_reached": "COMPLETE",
+          "blocked_at": null,
+          "quota_stopped": null,
+          "quota_over_target": null,
+          "validation_messages_expected": [],
+          "piped_text_visible": {
+            "Q9": "Dropped calls",
+            "Q10": "Yes, fully",
+            "Q11": "Provider A",
+            "Q12": "Provider A"
+          },
+          "option_lists_visible": {
+            "Q8": [
+              "Dropped calls"
+            ]
+          }
+        },
+        "proof": "after answering DT1 the respondent went on to Q1",
+        "provisional_semantics": [
+          "multi_equality"
+        ],
+        "preconditions": {},
+        "campaign": {},
+        "covered_by": null
+      },
+      {
+        "scenario_id": "SC-d49e6216d5",
+        "target_id": "T-56d0ac2b77",
+        "dimension": "D1",
+        "status": "COVERED",
+        "reason": null,
+        "answers": {
+          "S1": "S1-O1",
+          "S2": "S2-O1",
+          "S3": 18,
+          "Q1": "Q1-O1",
+          "Q2": "Q2-O1",
+          "Q3": "Q3-O1",
+          "Q4": "Q4-O1",
+          "Q5": "Q5-O1",
+          "Q6": "Q6-O1",
+          "Q7": [
+            "Q7-O1"
+          ],
+          "Q8": "Q8-O1",
+          "Q9": "Q9-O1",
+          "Q10": "Q10-O1",
+          "Q11": "Q11-O1",
+          "Q12": "Q12-O1",
+          "Q13": "Q13-O1",
+          "D1": "D1-O1",
+          "D2": "D2-O1"
+        },
+        "expected": {
+          "questions_seen_in_order": [
+            "S1",
+            "S2",
+            "S3",
+            "DT1",
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4",
+            "Q5",
+            "Q6",
+            "Q7",
+            "Q8",
+            "Q9",
+            "Q10",
+            "Q11",
+            "Q12",
+            "Q13",
+            "DT2",
+            "D1",
+            "D2",
+            "Q14"
+          ],
+          "questions_not_seen": [],
+          "ending_reached": "COMPLETE",
+          "blocked_at": null,
+          "quota_stopped": null,
+          "quota_over_target": null,
+          "validation_messages_expected": [],
+          "piped_text_visible": {
+            "Q9": "Dropped calls",
+            "Q10": "Yes, fully",
+            "Q11": "Provider A",
+            "Q12": "Provider A"
+          },
+          "option_lists_visible": {
+            "Q8": [
+              "Dropped calls"
+            ]
+          }
+        },
+        "proof": "after answering DT2 the respondent went on to D1",
         "provisional_semantics": [
           "multi_equality"
         ],
@@ -204,6 +358,7 @@
             "S1",
             "S2",
             "S3",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -217,6 +372,7 @@
             "Q11",
             "Q12",
             "Q13",
+            "DT2",
             "D1",
             "D2",
             "Q14"
@@ -228,9 +384,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
-            "Q2": "Provider A",
-            "Q3": "Provider A",
-            "Q5": "Provider A",
             "Q9": "Dropped calls",
             "Q10": "Yes, fully",
             "Q11": "Provider A",
@@ -283,6 +436,7 @@
             "S1",
             "S2",
             "S3",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -296,6 +450,7 @@
             "Q11",
             "Q12",
             "Q13",
+            "DT2",
             "D1",
             "D2",
             "Q14"
@@ -307,9 +462,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
-            "Q2": "Provider A",
-            "Q3": "Provider A",
-            "Q5": "Provider A",
             "Q9": "Dropped calls",
             "Q10": "Yes, fully",
             "Q11": "Provider A",
@@ -362,6 +514,7 @@
             "S1",
             "S2",
             "S3",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -374,6 +527,7 @@
             "Q11",
             "Q12",
             "Q13",
+            "DT2",
             "D1",
             "D2",
             "Q14"
@@ -387,9 +541,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
-            "Q2": "Provider A",
-            "Q3": "Provider A",
-            "Q5": "Provider A",
             "Q9": "Dropped calls",
             "Q11": "Provider A",
             "Q12": "Provider A"
@@ -442,6 +593,7 @@
             "S1",
             "S2",
             "S3",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -455,6 +607,7 @@
             "Q11",
             "Q12",
             "Q13",
+            "DT2",
             "D1",
             "D2",
             "Q14"
@@ -466,9 +619,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
-            "Q2": "Provider A",
-            "Q3": "Provider A",
-            "Q5": "Provider A",
             "Q9": "Dropped calls",
             "Q10": "Yes, fully",
             "Q11": "Provider A",
@@ -521,6 +671,7 @@
             "S1",
             "S2",
             "S3",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -534,6 +685,7 @@
             "Q11",
             "Q12",
             "Q13",
+            "DT2",
             "D1",
             "D2",
             "Q14"
@@ -545,9 +697,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
-            "Q2": "Provider A",
-            "Q3": "Provider A",
-            "Q5": "Provider A",
             "Q9": "Dropped calls",
             "Q10": "Yes, fully",
             "Q11": "Provider A",
@@ -600,6 +749,7 @@
             "S1",
             "S2",
             "S3",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -613,6 +763,7 @@
             "Q11",
             "Q12",
             "Q13",
+            "DT2",
             "D1",
             "D2",
             "Q14"
@@ -624,9 +775,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
-            "Q2": "Provider A",
-            "Q3": "Provider A",
-            "Q5": "Provider A",
             "Q9": "Dropped calls",
             "Q10": "Yes, fully",
             "Q11": "Provider A",
@@ -679,6 +827,7 @@
             "S1",
             "S2",
             "S3",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -692,6 +841,7 @@
             "Q11",
             "Q12",
             "Q13",
+            "DT2",
             "D1",
             "D2",
             "Q14"
@@ -703,9 +853,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
-            "Q2": "Provider A",
-            "Q3": "Provider A",
-            "Q5": "Provider A",
             "Q9": "Dropped calls",
             "Q10": "Yes, fully",
             "Q11": "Provider A",
@@ -717,7 +864,7 @@
             ]
           }
         },
-        "proof": "after answering Q13 the respondent went on to D1",
+        "proof": "after answering Q13 the respondent went on to DT2",
         "provisional_semantics": [
           "multi_equality"
         ],
@@ -758,6 +905,7 @@
             "S1",
             "S2",
             "S3",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -771,6 +919,7 @@
             "Q11",
             "Q12",
             "Q13",
+            "DT2",
             "D1",
             "D2",
             "Q14"
@@ -782,9 +931,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
-            "Q2": "Provider A",
-            "Q3": "Provider A",
-            "Q5": "Provider A",
             "Q9": "Dropped calls",
             "Q10": "Yes, fully",
             "Q11": "Provider A",
@@ -837,6 +983,7 @@
             "S1",
             "S2",
             "S3",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -850,6 +997,7 @@
             "Q11",
             "Q12",
             "Q13",
+            "DT2",
             "D1",
             "D2",
             "Q14"
@@ -861,9 +1009,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
-            "Q2": "Provider A",
-            "Q3": "Provider A",
-            "Q5": "Provider A",
             "Q9": "Dropped calls",
             "Q10": "Yes, fully",
             "Q11": "Provider A",
@@ -916,6 +1061,7 @@
             "S1",
             "S2",
             "S3",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -929,6 +1075,7 @@
             "Q11",
             "Q12",
             "Q13",
+            "DT2",
             "D1",
             "D2",
             "Q14"
@@ -940,9 +1087,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
-            "Q2": "Provider A",
-            "Q3": "Provider A",
-            "Q5": "Provider A",
             "Q9": "Dropped calls",
             "Q10": "Yes, fully",
             "Q11": "Provider A",
@@ -995,6 +1139,7 @@
             "S1",
             "S2",
             "S3",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -1008,6 +1153,7 @@
             "Q11",
             "Q12",
             "Q13",
+            "DT2",
             "D1",
             "D2",
             "Q14"
@@ -1019,9 +1165,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
-            "Q2": "Provider A",
-            "Q3": "Provider A",
-            "Q5": "Provider A",
             "Q9": "Dropped calls",
             "Q10": "Yes, fully",
             "Q11": "Provider A",
@@ -1074,6 +1217,7 @@
             "S1",
             "S2",
             "S3",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -1087,6 +1231,7 @@
             "Q11",
             "Q12",
             "Q13",
+            "DT2",
             "D1",
             "D2",
             "Q14"
@@ -1098,9 +1243,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
-            "Q2": "Provider A",
-            "Q3": "Provider A",
-            "Q5": "Provider A",
             "Q9": "Dropped calls",
             "Q10": "Yes, fully",
             "Q11": "Provider A",
@@ -1153,6 +1295,7 @@
             "S1",
             "S2",
             "S3",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -1166,6 +1309,7 @@
             "Q11",
             "Q12",
             "Q13",
+            "DT2",
             "D1",
             "D2",
             "Q14"
@@ -1177,9 +1321,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
-            "Q2": "Provider A",
-            "Q3": "Provider A",
-            "Q5": "Provider A",
             "Q9": "Dropped calls",
             "Q10": "Yes, fully",
             "Q11": "Provider A",
@@ -1232,6 +1373,7 @@
             "S1",
             "S2",
             "S3",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -1245,6 +1387,7 @@
             "Q11",
             "Q12",
             "Q13",
+            "DT2",
             "D1",
             "D2",
             "Q14"
@@ -1256,9 +1399,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
-            "Q2": "Provider A",
-            "Q3": "Provider A",
-            "Q5": "Provider A",
             "Q9": "Dropped calls",
             "Q10": "Yes, fully",
             "Q11": "Provider A",
@@ -1311,6 +1451,7 @@
             "S1",
             "S2",
             "S3",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -1324,6 +1465,7 @@
             "Q11",
             "Q12",
             "Q13",
+            "DT2",
             "D1",
             "D2",
             "Q14"
@@ -1335,9 +1477,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
-            "Q2": "Provider A",
-            "Q3": "Provider A",
-            "Q5": "Provider A",
             "Q9": "Dropped calls",
             "Q10": "Yes, fully",
             "Q11": "Provider A",
@@ -1390,6 +1529,7 @@
             "S1",
             "S2",
             "S3",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -1400,6 +1540,7 @@
             "Q11",
             "Q12",
             "Q13",
+            "DT2",
             "D1",
             "D2",
             "Q14"
@@ -1415,9 +1556,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
-            "Q2": "Provider A",
-            "Q3": "Provider A",
-            "Q5": "Provider A",
             "Q11": "Provider A",
             "Q12": "Provider A"
           },
@@ -1465,6 +1603,7 @@
             "S1",
             "S2",
             "S3",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -1478,6 +1617,7 @@
             "Q11",
             "Q12",
             "Q13",
+            "DT2",
             "D1",
             "D2",
             "Q14"
@@ -1489,9 +1629,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
-            "Q2": "Provider A",
-            "Q3": "Provider A",
-            "Q5": "Provider A",
             "Q9": "Dropped calls",
             "Q10": "Yes, fully",
             "Q11": "Provider A",
@@ -1544,6 +1681,7 @@
             "S1",
             "S2",
             "S3",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -1557,6 +1695,7 @@
             "Q11",
             "Q12",
             "Q13",
+            "DT2",
             "D1",
             "D2",
             "Q14"
@@ -1568,9 +1707,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
-            "Q2": "Provider A",
-            "Q3": "Provider A",
-            "Q5": "Provider A",
             "Q9": "Dropped calls",
             "Q10": "Yes, fully",
             "Q11": "Provider A",
@@ -1623,6 +1759,7 @@
             "S1",
             "S2",
             "S3",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -1633,6 +1770,7 @@
             "Q11",
             "Q12",
             "Q13",
+            "DT2",
             "D1",
             "D2",
             "Q14"
@@ -1648,9 +1786,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
-            "Q2": "Provider A",
-            "Q3": "Provider A",
-            "Q5": "Provider A",
             "Q11": "Provider A",
             "Q12": "Provider A"
           },
@@ -1698,6 +1833,7 @@
             "S1",
             "S2",
             "S3",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -1711,6 +1847,7 @@
             "Q11",
             "Q12",
             "Q13",
+            "DT2",
             "D1",
             "D2",
             "Q14"
@@ -1722,9 +1859,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
-            "Q2": "Provider A",
-            "Q3": "Provider A",
-            "Q5": "Provider A",
             "Q9": "Dropped calls",
             "Q10": "Yes, fully",
             "Q11": "Provider A",
@@ -1777,6 +1911,7 @@
             "S1",
             "S2",
             "S3",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -1787,6 +1922,7 @@
             "Q11",
             "Q12",
             "Q13",
+            "DT2",
             "D1",
             "D2",
             "Q14"
@@ -1802,9 +1938,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
-            "Q2": "Provider A",
-            "Q3": "Provider A",
-            "Q5": "Provider A",
             "Q11": "Provider A",
             "Q12": "Provider A"
           },
@@ -1852,6 +1985,7 @@
             "S1",
             "S2",
             "S3",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -1865,6 +1999,7 @@
             "Q11",
             "Q12",
             "Q13",
+            "DT2",
             "D1",
             "D2",
             "Q14"
@@ -1876,9 +2011,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
-            "Q2": "Provider A",
-            "Q3": "Provider A",
-            "Q5": "Provider A",
             "Q9": "Dropped calls",
             "Q10": "Yes, fully",
             "Q11": "Provider A",
@@ -1931,6 +2063,7 @@
             "S1",
             "S2",
             "S3",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -1943,6 +2076,7 @@
             "Q11",
             "Q12",
             "Q13",
+            "DT2",
             "D1",
             "D2",
             "Q14"
@@ -1956,9 +2090,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
-            "Q2": "Provider A",
-            "Q3": "Provider A",
-            "Q5": "Provider A",
             "Q9": "Dropped calls",
             "Q11": "Provider A",
             "Q12": "Provider A"
@@ -2011,6 +2142,7 @@
             "S1",
             "S2",
             "S3",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -2024,6 +2156,7 @@
             "Q11",
             "Q12",
             "Q13",
+            "DT2",
             "D1",
             "D2",
             "Q14"
@@ -2035,9 +2168,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
-            "Q2": "Provider A",
-            "Q3": "Provider A",
-            "Q5": "Provider A",
             "Q9": "Dropped calls",
             "Q10": "Yes, fully",
             "Q11": "Provider A",
@@ -2090,6 +2220,7 @@
             "S1",
             "S2",
             "S3",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -2103,6 +2234,7 @@
             "Q11",
             "Q12",
             "Q13",
+            "DT2",
             "D1",
             "D2",
             "Q14"
@@ -2114,9 +2246,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
-            "Q2": "Provider A",
-            "Q3": "Provider A",
-            "Q5": "Provider A",
             "Q9": "Dropped calls",
             "Q10": "Yes, fully",
             "Q11": "Provider A",
@@ -2169,6 +2298,7 @@
             "S1",
             "S2",
             "S3",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -2182,6 +2312,7 @@
             "Q11",
             "Q12",
             "Q13",
+            "DT2",
             "D1",
             "D2",
             "Q14"
@@ -2193,9 +2324,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
-            "Q2": "Provider A",
-            "Q3": "Provider A",
-            "Q5": "Provider A",
             "Q9": "Dropped calls",
             "Q10": "Yes, fully",
             "Q11": "Provider A",
@@ -2248,6 +2376,7 @@
             "S1",
             "S2",
             "S3",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -2261,6 +2390,7 @@
             "Q11",
             "Q12",
             "Q13",
+            "DT2",
             "D1",
             "D2",
             "Q14"
@@ -2272,9 +2402,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
-            "Q2": "Provider A",
-            "Q3": "Provider A",
-            "Q5": "Provider A",
             "Q9": "Dropped calls",
             "Q10": "Yes, fully",
             "Q11": "Provider A",
@@ -2286,7 +2413,7 @@
             ]
           }
         },
-        "proof": "after answering S3 the respondent went on to Q1",
+        "proof": "after answering S3 the respondent went on to DT1",
         "provisional_semantics": [
           "multi_equality"
         ],
@@ -2327,6 +2454,7 @@
             "S1",
             "S2",
             "S3",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -2340,6 +2468,7 @@
             "Q11",
             "Q12",
             "Q13",
+            "DT2",
             "D1",
             "D2",
             "Q14"
@@ -2351,9 +2480,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
-            "Q2": "Provider A",
-            "Q3": "Provider A",
-            "Q5": "Provider A",
             "Q9": "Dropped calls",
             "Q10": "Yes, fully",
             "Q11": "Provider A",
@@ -2365,7 +2491,7 @@
             ]
           }
         },
-        "proof": "predicted ending is COMPLETE, path ['__START__', 'S1', 'S2', 'S3', 'Q1', 'Q2', 'Q3', 'Q4', 'Q5', 'Q6', 'Q7', 'Q8', 'Q9', 'Q10', 'Q11', 'Q12', 'Q13', 'D1', 'D2', 'Q14', 'COMPLETE']",
+        "proof": "predicted ending is COMPLETE, path ['__START__', 'S1', 'S2', 'S3', 'DT1', 'Q1', 'Q2', 'Q3', 'Q4', 'Q5', 'Q6', 'Q7', 'Q8', 'Q9', 'Q10', 'Q11', 'Q12', 'Q13', 'DT2', 'D1', 'D2', 'Q14', 'COMPLETE']",
         "provisional_semantics": [
           "multi_equality"
         ],
@@ -2520,6 +2646,7 @@
             "S1",
             "S2",
             "S3",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -2533,6 +2660,7 @@
             "Q11",
             "Q12",
             "Q13",
+            "DT2",
             "D1",
             "D2",
             "Q14"
@@ -2544,9 +2672,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
-            "Q2": "Provider A",
-            "Q3": "Provider A",
-            "Q5": "Provider A",
             "Q9": "Dropped calls",
             "Q10": "Yes, fully",
             "Q11": "Provider A",
@@ -2600,6 +2725,7 @@
             "S1",
             "S2",
             "S3",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -2613,6 +2739,7 @@
             "Q11",
             "Q12",
             "Q13",
+            "DT2",
             "D1",
             "D2",
             "Q14"
@@ -2624,9 +2751,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
-            "Q2": "Provider A",
-            "Q3": "Provider A",
-            "Q5": "Provider A",
             "Q9": "Dropped calls",
             "Q10": "Yes, fully",
             "Q11": "Provider A",
@@ -2680,6 +2804,7 @@
             "S1",
             "S2",
             "S3",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -2693,6 +2818,7 @@
             "Q11",
             "Q12",
             "Q13",
+            "DT2",
             "D1",
             "D2",
             "Q14"
@@ -2704,9 +2830,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
-            "Q2": "Provider A",
-            "Q3": "Provider A",
-            "Q5": "Provider A",
             "Q9": "Dropped calls",
             "Q10": "Yes, fully",
             "Q11": "Provider A",
@@ -2760,6 +2883,7 @@
             "S1",
             "S2",
             "S3",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -2773,6 +2897,7 @@
             "Q11",
             "Q12",
             "Q13",
+            "DT2",
             "D1",
             "D2",
             "Q14"
@@ -2791,9 +2916,6 @@
             }
           ],
           "piped_text_visible": {
-            "Q2": "Provider A",
-            "Q3": "Provider A",
-            "Q5": "Provider A",
             "Q9": "Dropped calls",
             "Q10": "Yes, fully",
             "Q11": "Provider A",
@@ -2846,6 +2968,7 @@
             "S1",
             "S2",
             "S3",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -2856,6 +2979,7 @@
             "Q11",
             "Q12",
             "Q13",
+            "DT2",
             "D1",
             "D2",
             "Q14"
@@ -2871,9 +2995,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
-            "Q2": "Provider A",
-            "Q3": "Provider A",
-            "Q5": "Provider A",
             "Q11": "Provider A",
             "Q12": "Provider A"
           },
@@ -2922,6 +3043,7 @@
             "S1",
             "S2",
             "S3",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -2937,6 +3059,7 @@
             "Q11",
             "Q12",
             "Q13",
+            "DT2",
             "D1",
             "D2",
             "Q14"
@@ -2953,11 +3076,7 @@
               "detail": "exclusive option Q7-O6 chosen alongside ['Q7-O1']"
             }
           ],
-          "piped_text_visible": {
-            "Q2": "Provider A",
-            "Q3": "Provider A",
-            "Q5": "Provider A"
-          },
+          "piped_text_visible": {},
           "option_lists_visible": {}
         },
         "proof": "a validation message is predicted for Q7",
@@ -2999,6 +3118,7 @@
             "S1",
             "S2",
             "S3",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -3012,6 +3132,7 @@
             "Q11",
             "Q12",
             "Q13",
+            "DT2",
             "D1",
             "D2",
             "Q14"
@@ -3023,9 +3144,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
-            "Q2": "Provider A",
-            "Q3": "Provider A",
-            "Q5": "Provider A",
             "Q9": "Dropped calls",
             "Q10": "Yes, fully",
             "Q11": "Provider A",
@@ -3078,6 +3196,7 @@
             "S1",
             "S2",
             "S3",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -3091,6 +3210,7 @@
             "Q11",
             "Q12",
             "Q13",
+            "DT2",
             "D1",
             "D2",
             "Q14"
@@ -3102,9 +3222,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
-            "Q2": "Provider A",
-            "Q3": "Provider A",
-            "Q5": "Provider A",
             "Q9": "Dropped calls",
             "Q10": "Yes, fully",
             "Q11": "Provider A",
@@ -3157,6 +3274,7 @@
             "S1",
             "S2",
             "S3",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -3170,6 +3288,7 @@
             "Q11",
             "Q12",
             "Q13",
+            "DT2",
             "D1"
           ],
           "questions_not_seen": [
@@ -3189,9 +3308,6 @@
             }
           ],
           "piped_text_visible": {
-            "Q2": "Provider A",
-            "Q3": "Provider A",
-            "Q5": "Provider A",
             "Q9": "Dropped calls",
             "Q10": "Yes, fully",
             "Q11": "Provider A",
@@ -3244,6 +3360,7 @@
             "S1",
             "S2",
             "S3",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -3257,6 +3374,7 @@
             "Q11",
             "Q12",
             "Q13",
+            "DT2",
             "D1",
             "D2"
           ],
@@ -3276,9 +3394,6 @@
             }
           ],
           "piped_text_visible": {
-            "Q2": "Provider A",
-            "Q3": "Provider A",
-            "Q5": "Provider A",
             "Q9": "Dropped calls",
             "Q10": "Yes, fully",
             "Q11": "Provider A",
@@ -3331,6 +3446,7 @@
             "S1",
             "S2",
             "S3",
+            "DT1",
             "Q1"
           ],
           "questions_not_seen": [
@@ -3346,6 +3462,7 @@
             "Q11",
             "Q12",
             "Q13",
+            "DT2",
             "D1",
             "D2",
             "Q14"
@@ -3404,6 +3521,7 @@
             "S1",
             "S2",
             "S3",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -3419,6 +3537,7 @@
             "Q11",
             "Q12",
             "Q13",
+            "DT2",
             "D1",
             "D2",
             "Q14"
@@ -3436,9 +3555,6 @@
             }
           ],
           "piped_text_visible": {
-            "Q2": "Provider A",
-            "Q3": "Provider A",
-            "Q5": "Provider A",
             "Q9": "Dropped calls",
             "Q10": "Yes, fully"
           },
@@ -3489,6 +3605,7 @@
             "S1",
             "S2",
             "S3",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -3504,6 +3621,7 @@
           "questions_not_seen": [
             "Q12",
             "Q13",
+            "DT2",
             "D1",
             "D2",
             "Q14"
@@ -3521,9 +3639,6 @@
             }
           ],
           "piped_text_visible": {
-            "Q2": "Provider A",
-            "Q3": "Provider A",
-            "Q5": "Provider A",
             "Q9": "Dropped calls",
             "Q10": "Yes, fully",
             "Q11": "Provider A"
@@ -3575,6 +3690,7 @@
             "S1",
             "S2",
             "S3",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -3590,6 +3706,7 @@
           ],
           "questions_not_seen": [
             "Q13",
+            "DT2",
             "D1",
             "D2",
             "Q14"
@@ -3607,9 +3724,6 @@
             }
           ],
           "piped_text_visible": {
-            "Q2": "Provider A",
-            "Q3": "Provider A",
-            "Q5": "Provider A",
             "Q9": "Dropped calls",
             "Q10": "Yes, fully",
             "Q11": "Provider A",
@@ -3662,6 +3776,7 @@
             "S1",
             "S2",
             "S3",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -3677,6 +3792,7 @@
             "Q13"
           ],
           "questions_not_seen": [
+            "DT2",
             "D1",
             "D2",
             "Q14"
@@ -3694,9 +3810,6 @@
             }
           ],
           "piped_text_visible": {
-            "Q2": "Provider A",
-            "Q3": "Provider A",
-            "Q5": "Provider A",
             "Q9": "Dropped calls",
             "Q10": "Yes, fully",
             "Q11": "Provider A",
@@ -3750,6 +3863,7 @@
             "S1",
             "S2",
             "S3",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -3763,6 +3877,7 @@
             "Q11",
             "Q12",
             "Q13",
+            "DT2",
             "D1",
             "D2",
             "Q14"
@@ -3774,9 +3889,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
-            "Q2": "Provider A",
-            "Q3": "Provider A",
-            "Q5": "Provider A",
             "Q9": "Dropped calls",
             "Q10": "Yes, fully",
             "Q11": "Provider A",
@@ -3830,6 +3942,7 @@
             "S1",
             "S2",
             "S3",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -3843,6 +3956,7 @@
             "Q11",
             "Q12",
             "Q13",
+            "DT2",
             "D1",
             "D2",
             "Q14"
@@ -3854,9 +3968,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
-            "Q2": "Provider A",
-            "Q3": "Provider A",
-            "Q5": "Provider A",
             "Q9": "Dropped calls",
             "Q10": "Yes, fully",
             "Q11": "Provider A",
@@ -3910,6 +4021,7 @@
             "S1",
             "S2",
             "S3",
+            "DT1",
             "Q1",
             "Q2"
           ],
@@ -3925,6 +4037,7 @@
             "Q11",
             "Q12",
             "Q13",
+            "DT2",
             "D1",
             "D2",
             "Q14"
@@ -3941,9 +4054,7 @@
               "detail": "mandatory question left blank, progress should be blocked"
             }
           ],
-          "piped_text_visible": {
-            "Q2": "Provider A"
-          },
+          "piped_text_visible": {},
           "option_lists_visible": {}
         },
         "proof": "Q2 blocked the blank answer as required",
@@ -3985,6 +4096,7 @@
             "S1",
             "S2",
             "S3",
+            "DT1",
             "Q1",
             "Q2",
             "Q3"
@@ -4000,6 +4112,7 @@
             "Q11",
             "Q12",
             "Q13",
+            "DT2",
             "D1",
             "D2",
             "Q14"
@@ -4016,10 +4129,7 @@
               "detail": "mandatory question left blank, progress should be blocked"
             }
           ],
-          "piped_text_visible": {
-            "Q2": "Provider A",
-            "Q3": "Provider A"
-          },
+          "piped_text_visible": {},
           "option_lists_visible": {}
         },
         "proof": "Q3 blocked the blank answer as required",
@@ -4061,6 +4171,7 @@
             "S1",
             "S2",
             "S3",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -4076,6 +4187,7 @@
             "Q11",
             "Q12",
             "Q13",
+            "DT2",
             "D1",
             "D2",
             "Q14"
@@ -4092,10 +4204,7 @@
               "detail": "mandatory question left blank, progress should be blocked"
             }
           ],
-          "piped_text_visible": {
-            "Q2": "Provider A",
-            "Q3": "Provider A"
-          },
+          "piped_text_visible": {},
           "option_lists_visible": {}
         },
         "proof": "Q4 blocked the blank answer as required",
@@ -4137,6 +4246,7 @@
             "S1",
             "S2",
             "S3",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -4152,6 +4262,7 @@
             "Q11",
             "Q12",
             "Q13",
+            "DT2",
             "D1",
             "D2",
             "Q14"
@@ -4168,11 +4279,7 @@
               "detail": "mandatory question left blank, progress should be blocked"
             }
           ],
-          "piped_text_visible": {
-            "Q2": "Provider A",
-            "Q3": "Provider A",
-            "Q5": "Provider A"
-          },
+          "piped_text_visible": {},
           "option_lists_visible": {}
         },
         "proof": "Q5 blocked the blank answer as required",
@@ -4214,6 +4321,7 @@
             "S1",
             "S2",
             "S3",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -4229,6 +4337,7 @@
             "Q11",
             "Q12",
             "Q13",
+            "DT2",
             "D1",
             "D2",
             "Q14"
@@ -4245,11 +4354,7 @@
               "detail": "mandatory question left blank, progress should be blocked"
             }
           ],
-          "piped_text_visible": {
-            "Q2": "Provider A",
-            "Q3": "Provider A",
-            "Q5": "Provider A"
-          },
+          "piped_text_visible": {},
           "option_lists_visible": {}
         },
         "proof": "Q6 blocked the blank answer as required",
@@ -4289,6 +4394,7 @@
             "S1",
             "S2",
             "S3",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -4304,6 +4410,7 @@
             "Q11",
             "Q12",
             "Q13",
+            "DT2",
             "D1",
             "D2",
             "Q14"
@@ -4320,11 +4427,7 @@
               "detail": "mandatory question left blank, progress should be blocked"
             }
           ],
-          "piped_text_visible": {
-            "Q2": "Provider A",
-            "Q3": "Provider A",
-            "Q5": "Provider A"
-          },
+          "piped_text_visible": {},
           "option_lists_visible": {}
         },
         "proof": "Q7 blocked the blank answer as required",
@@ -4366,6 +4469,7 @@
             "S1",
             "S2",
             "S3",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -4381,6 +4485,7 @@
             "Q11",
             "Q12",
             "Q13",
+            "DT2",
             "D1",
             "D2",
             "Q14"
@@ -4397,11 +4502,7 @@
               "detail": "mandatory question left blank, progress should be blocked"
             }
           ],
-          "piped_text_visible": {
-            "Q2": "Provider A",
-            "Q3": "Provider A",
-            "Q5": "Provider A"
-          },
+          "piped_text_visible": {},
           "option_lists_visible": {
             "Q8": [
               "Dropped calls"
@@ -4449,6 +4550,7 @@
             "S1",
             "S2",
             "S3",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -4464,6 +4566,7 @@
             "Q11",
             "Q12",
             "Q13",
+            "DT2",
             "D1",
             "D2",
             "Q14"
@@ -4481,9 +4584,6 @@
             }
           ],
           "piped_text_visible": {
-            "Q2": "Provider A",
-            "Q3": "Provider A",
-            "Q5": "Provider A",
             "Q9": "Dropped calls"
           },
           "option_lists_visible": {
@@ -4535,6 +4635,7 @@
           "questions_not_seen": [
             "S2",
             "S3",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -4548,6 +4649,7 @@
             "Q11",
             "Q12",
             "Q13",
+            "DT2",
             "D1",
             "D2",
             "Q14"
@@ -4608,6 +4710,7 @@
           ],
           "questions_not_seen": [
             "S3",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -4621,6 +4724,7 @@
             "Q11",
             "Q12",
             "Q13",
+            "DT2",
             "D1",
             "D2",
             "Q14"
@@ -4681,6 +4785,7 @@
             "S3"
           ],
           "questions_not_seen": [
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -4694,6 +4799,7 @@
             "Q11",
             "Q12",
             "Q13",
+            "DT2",
             "D1",
             "D2",
             "Q14"
@@ -4752,6 +4858,7 @@
             "S1",
             "S2",
             "S3",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -4765,6 +4872,7 @@
             "Q11",
             "Q12",
             "Q13",
+            "DT2",
             "D1",
             "D2",
             "Q14"
@@ -4776,9 +4884,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
-            "Q2": "Provider A",
-            "Q3": "Provider A",
-            "Q5": "Provider A",
             "Q9": "Dropped calls",
             "Q10": "Yes, fully",
             "Q11": "Provider A",
@@ -4831,6 +4936,7 @@
             "S1",
             "S2",
             "S3",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -4844,6 +4950,7 @@
             "Q11",
             "Q12",
             "Q13",
+            "DT2",
             "D1",
             "D2",
             "Q14"
@@ -4855,9 +4962,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
-            "Q2": "Provider A",
-            "Q3": "Provider A",
-            "Q5": "Provider A",
             "Q9": "Dropped calls",
             "Q10": "Yes, fully",
             "Q11": "Provider A",
@@ -4910,6 +5014,7 @@
             "S1",
             "S2",
             "S3",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -4923,6 +5028,7 @@
             "Q11",
             "Q12",
             "Q13",
+            "DT2",
             "D1",
             "D2",
             "Q14"
@@ -4934,9 +5040,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
-            "Q2": "Provider A",
-            "Q3": "Provider A",
-            "Q5": "Provider A",
             "Q9": "Dropped calls",
             "Q10": "Yes, fully",
             "Q11": "Provider A",
@@ -4957,24 +5060,24 @@
         "covered_by": null
       },
       {
-        "scenario_id": "SC-0af650da83",
-        "target_id": "T-6eac8ecd08",
+        "scenario_id": "SC-ca01d1a5cf",
+        "target_id": "T-85ba201aff",
         "dimension": "D6",
         "status": "COVERED",
         "reason": null,
         "answers": {
-          "Q1": "Q1-O1",
+          "Q7": [
+            "Q7-O1"
+          ],
           "S1": "S1-O1",
           "S2": "S2-O1",
           "S3": 18,
+          "Q1": "Q1-O1",
           "Q2": "Q2-O1",
           "Q3": "Q3-O1",
           "Q4": "Q4-O1",
           "Q5": "Q5-O1",
           "Q6": "Q6-O1",
-          "Q7": [
-            "Q7-O1"
-          ],
           "Q8": "Q8-O1",
           "Q9": "Q9-O1",
           "Q10": "Q10-O1",
@@ -4989,6 +5092,7 @@
             "S1",
             "S2",
             "S3",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -5002,6 +5106,7 @@
             "Q11",
             "Q12",
             "Q13",
+            "DT2",
             "D1",
             "D2",
             "Q14"
@@ -5013,246 +5118,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
-            "Q2": "Provider A",
-            "Q3": "Provider A",
-            "Q5": "Provider A",
-            "Q9": "Dropped calls",
-            "Q10": "Yes, fully",
-            "Q11": "Provider A",
-            "Q12": "Provider A"
-          },
-          "option_lists_visible": {
-            "Q8": [
-              "Dropped calls"
-            ]
-          }
-        },
-        "proof": "Q2 predicted to render 'Provider A' in its wording",
-        "provisional_semantics": [
-          "multi_equality"
-        ],
-        "preconditions": {},
-        "campaign": {},
-        "covered_by": null
-      },
-      {
-        "scenario_id": "SC-9bccd855ea",
-        "target_id": "T-d80f93e85d",
-        "dimension": "D6",
-        "status": "COVERED",
-        "reason": null,
-        "answers": {
-          "Q1": "Q1-O1",
-          "S1": "S1-O1",
-          "S2": "S2-O1",
-          "S3": 18,
-          "Q2": "Q2-O1",
-          "Q3": "Q3-O1",
-          "Q4": "Q4-O1",
-          "Q5": "Q5-O1",
-          "Q6": "Q6-O1",
-          "Q7": [
-            "Q7-O1"
-          ],
-          "Q8": "Q8-O1",
-          "Q9": "Q9-O1",
-          "Q10": "Q10-O1",
-          "Q11": "Q11-O1",
-          "Q12": "Q12-O1",
-          "Q13": "Q13-O1",
-          "D1": "D1-O1",
-          "D2": "D2-O1"
-        },
-        "expected": {
-          "questions_seen_in_order": [
-            "S1",
-            "S2",
-            "S3",
-            "Q1",
-            "Q2",
-            "Q3",
-            "Q4",
-            "Q5",
-            "Q6",
-            "Q7",
-            "Q8",
-            "Q9",
-            "Q10",
-            "Q11",
-            "Q12",
-            "Q13",
-            "D1",
-            "D2",
-            "Q14"
-          ],
-          "questions_not_seen": [],
-          "ending_reached": "COMPLETE",
-          "blocked_at": null,
-          "quota_stopped": null,
-          "quota_over_target": null,
-          "validation_messages_expected": [],
-          "piped_text_visible": {
-            "Q2": "Provider A",
-            "Q3": "Provider A",
-            "Q5": "Provider A",
-            "Q9": "Dropped calls",
-            "Q10": "Yes, fully",
-            "Q11": "Provider A",
-            "Q12": "Provider A"
-          },
-          "option_lists_visible": {
-            "Q8": [
-              "Dropped calls"
-            ]
-          }
-        },
-        "proof": "Q3 predicted to render 'Provider A' in its wording",
-        "provisional_semantics": [
-          "multi_equality"
-        ],
-        "preconditions": {},
-        "campaign": {},
-        "covered_by": null
-      },
-      {
-        "scenario_id": "SC-f3faef52db",
-        "target_id": "T-7dd1f6b60f",
-        "dimension": "D6",
-        "status": "COVERED",
-        "reason": null,
-        "answers": {
-          "Q1": "Q1-O1",
-          "S1": "S1-O1",
-          "S2": "S2-O1",
-          "S3": 18,
-          "Q2": "Q2-O1",
-          "Q3": "Q3-O1",
-          "Q4": "Q4-O1",
-          "Q5": "Q5-O1",
-          "Q6": "Q6-O1",
-          "Q7": [
-            "Q7-O1"
-          ],
-          "Q8": "Q8-O1",
-          "Q9": "Q9-O1",
-          "Q10": "Q10-O1",
-          "Q11": "Q11-O1",
-          "Q12": "Q12-O1",
-          "Q13": "Q13-O1",
-          "D1": "D1-O1",
-          "D2": "D2-O1"
-        },
-        "expected": {
-          "questions_seen_in_order": [
-            "S1",
-            "S2",
-            "S3",
-            "Q1",
-            "Q2",
-            "Q3",
-            "Q4",
-            "Q5",
-            "Q6",
-            "Q7",
-            "Q8",
-            "Q9",
-            "Q10",
-            "Q11",
-            "Q12",
-            "Q13",
-            "D1",
-            "D2",
-            "Q14"
-          ],
-          "questions_not_seen": [],
-          "ending_reached": "COMPLETE",
-          "blocked_at": null,
-          "quota_stopped": null,
-          "quota_over_target": null,
-          "validation_messages_expected": [],
-          "piped_text_visible": {
-            "Q2": "Provider A",
-            "Q3": "Provider A",
-            "Q5": "Provider A",
-            "Q9": "Dropped calls",
-            "Q10": "Yes, fully",
-            "Q11": "Provider A",
-            "Q12": "Provider A"
-          },
-          "option_lists_visible": {
-            "Q8": [
-              "Dropped calls"
-            ]
-          }
-        },
-        "proof": "Q5 predicted to render 'Provider A' in its wording",
-        "provisional_semantics": [
-          "multi_equality"
-        ],
-        "preconditions": {},
-        "campaign": {},
-        "covered_by": null
-      },
-      {
-        "scenario_id": "SC-88b7fe6a32",
-        "target_id": "T-937569ef64",
-        "dimension": "D6",
-        "status": "COVERED",
-        "reason": null,
-        "answers": {
-          "Q7": [
-            "Q7-O1"
-          ],
-          "Q8": "Q8-O1",
-          "S1": "S1-O1",
-          "S2": "S2-O1",
-          "S3": 18,
-          "Q1": "Q1-O1",
-          "Q2": "Q2-O1",
-          "Q3": "Q3-O1",
-          "Q4": "Q4-O1",
-          "Q5": "Q5-O1",
-          "Q6": "Q6-O1",
-          "Q9": "Q9-O1",
-          "Q10": "Q10-O1",
-          "Q11": "Q11-O1",
-          "Q12": "Q12-O1",
-          "Q13": "Q13-O1",
-          "D1": "D1-O1",
-          "D2": "D2-O1"
-        },
-        "expected": {
-          "questions_seen_in_order": [
-            "S1",
-            "S2",
-            "S3",
-            "Q1",
-            "Q2",
-            "Q3",
-            "Q4",
-            "Q5",
-            "Q6",
-            "Q7",
-            "Q8",
-            "Q9",
-            "Q10",
-            "Q11",
-            "Q12",
-            "Q13",
-            "D1",
-            "D2",
-            "Q14"
-          ],
-          "questions_not_seen": [],
-          "ending_reached": "COMPLETE",
-          "blocked_at": null,
-          "quota_stopped": null,
-          "quota_over_target": null,
-          "validation_messages_expected": [],
-          "piped_text_visible": {
-            "Q2": "Provider A",
-            "Q3": "Provider A",
-            "Q5": "Provider A",
             "Q9": "Dropped calls",
             "Q10": "Yes, fully",
             "Q11": "Provider A",
@@ -5305,6 +5170,7 @@
             "S1",
             "S2",
             "S3",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -5318,6 +5184,7 @@
             "Q11",
             "Q12",
             "Q13",
+            "DT2",
             "D1",
             "D2",
             "Q14"
@@ -5329,9 +5196,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
-            "Q2": "Provider A",
-            "Q3": "Provider A",
-            "Q5": "Provider A",
             "Q9": "Dropped calls",
             "Q10": "Yes, fully",
             "Q11": "Provider A",
@@ -5398,6 +5262,7 @@
             "S1",
             "S2",
             "S3",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -5411,6 +5276,7 @@
             "Q11",
             "Q12",
             "Q13",
+            "DT2",
             "D1",
             "D2",
             "Q14"
@@ -5422,9 +5288,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
-            "Q2": "Provider A",
-            "Q3": "Provider A",
-            "Q5": "Provider A",
             "Q9": "Dropped calls",
             "Q10": "Yes, fully",
             "Q11": "Provider A",
@@ -5477,6 +5340,7 @@
             "S1",
             "S2",
             "S3",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -5490,6 +5354,7 @@
             "Q11",
             "Q12",
             "Q13",
+            "DT2",
             "D1",
             "D2",
             "Q14"
@@ -5501,9 +5366,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
-            "Q2": "Provider A",
-            "Q3": "Provider A",
-            "Q5": "Provider A",
             "Q9": "Dropped calls",
             "Q10": "Yes, fully",
             "Q11": "Provider A",
@@ -5574,6 +5436,7 @@
             "S1",
             "S2",
             "S3",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -5587,6 +5450,7 @@
             "Q11",
             "Q12",
             "Q13",
+            "DT2",
             "D1",
             "D2",
             "Q14"
@@ -5598,9 +5462,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
-            "Q2": "Provider A",
-            "Q3": "Provider A",
-            "Q5": "Provider A",
             "Q9": "Dropped calls",
             "Q10": "Yes, fully",
             "Q11": "Provider A",
@@ -5653,6 +5514,7 @@
             "S1",
             "S2",
             "S3",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -5666,6 +5528,7 @@
             "Q11",
             "Q12",
             "Q13",
+            "DT2",
             "D1",
             "D2",
             "Q14"
@@ -5677,9 +5540,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
-            "Q2": "Provider A",
-            "Q3": "Provider A",
-            "Q5": "Provider A",
             "Q9": "Dropped calls",
             "Q10": "Yes, fully",
             "Q11": "Provider A",
@@ -5750,6 +5610,7 @@
             "S1",
             "S2",
             "S3",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -5763,6 +5624,7 @@
             "Q11",
             "Q12",
             "Q13",
+            "DT2",
             "D1",
             "D2",
             "Q14"
@@ -5774,9 +5636,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
-            "Q2": "Provider A",
-            "Q3": "Provider A",
-            "Q5": "Provider A",
             "Q9": "Dropped calls",
             "Q10": "Yes, fully",
             "Q11": "Provider A",
@@ -5829,6 +5688,7 @@
             "S1",
             "S2",
             "S3",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -5842,6 +5702,7 @@
             "Q11",
             "Q12",
             "Q13",
+            "DT2",
             "D1",
             "D2",
             "Q14"
@@ -5853,9 +5714,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
-            "Q2": "Provider A",
-            "Q3": "Provider A",
-            "Q5": "Provider A",
             "Q9": "Dropped calls",
             "Q10": "Yes, fully",
             "Q11": "Provider A",
@@ -5912,6 +5770,7 @@
             "S1",
             "S2",
             "S3",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -5925,6 +5784,7 @@
             "Q11",
             "Q12",
             "Q13",
+            "DT2",
             "D1",
             "D2",
             "Q14"
@@ -5936,9 +5796,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
-            "Q2": "Provider A",
-            "Q3": "Provider A",
-            "Q5": "Provider A",
             "Q9": "Dropped calls",
             "Q10": "Yes, fully",
             "Q11": "Provider A",
@@ -6005,6 +5862,7 @@
             "S1",
             "S2",
             "S3",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -6018,6 +5876,7 @@
             "Q11",
             "Q12",
             "Q13",
+            "DT2",
             "D1",
             "D2",
             "Q14"
@@ -6029,9 +5888,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
-            "Q2": "Provider A",
-            "Q3": "Provider A",
-            "Q5": "Provider A",
             "Q9": "Dropped calls",
             "Q10": "Yes, fully",
             "Q11": "Provider A",
@@ -6098,6 +5954,7 @@
             "S1",
             "S2",
             "S3",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -6111,6 +5968,7 @@
             "Q11",
             "Q12",
             "Q13",
+            "DT2",
             "D1",
             "D2",
             "Q14"
@@ -6122,9 +5980,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
-            "Q2": "Provider A",
-            "Q3": "Provider A",
-            "Q5": "Provider A",
             "Q9": "Dropped calls",
             "Q10": "Yes, fully",
             "Q11": "Provider A",
@@ -6191,6 +6046,7 @@
             "S1",
             "S2",
             "S3",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -6204,6 +6060,7 @@
             "Q11",
             "Q12",
             "Q13",
+            "DT2",
             "D1",
             "D2",
             "Q14"
@@ -6215,9 +6072,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
-            "Q2": "Provider A",
-            "Q3": "Provider A",
-            "Q5": "Provider A",
             "Q9": "Dropped calls",
             "Q10": "Yes, fully",
             "Q11": "Provider A",
@@ -6284,6 +6138,7 @@
             "S1",
             "S2",
             "S3",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -6297,6 +6152,7 @@
             "Q11",
             "Q12",
             "Q13",
+            "DT2",
             "D1",
             "D2",
             "Q14"
@@ -6308,9 +6164,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
-            "Q2": "Provider A",
-            "Q3": "Provider A",
-            "Q5": "Provider A",
             "Q9": "Dropped calls",
             "Q10": "Yes, fully",
             "Q11": "Provider A",
@@ -6377,6 +6230,7 @@
             "S1",
             "S2",
             "S3",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -6390,6 +6244,7 @@
             "Q11",
             "Q12",
             "Q13",
+            "DT2",
             "D1",
             "D2",
             "Q14"
@@ -6401,9 +6256,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
-            "Q2": "Provider A",
-            "Q3": "Provider A",
-            "Q5": "Provider A",
             "Q9": "Dropped calls",
             "Q10": "Yes, fully",
             "Q11": "Provider A",
@@ -6424,8 +6276,8 @@
         "covered_by": null
       },
       {
-        "scenario_id": "SC-309bff26c7",
-        "target_id": "T-beab00ecea",
+        "scenario_id": "SC-bb0aa85656",
+        "target_id": "T-72e6818f53",
         "dimension": "D9",
         "status": "COVERED",
         "reason": null,
@@ -6433,7 +6285,6 @@
           "Q7": [
             "Q7-O1"
           ],
-          "Q8": "Q8-O1",
           "S1": "S1-O1",
           "S2": "S2-O1",
           "S3": 18,
@@ -6443,6 +6294,7 @@
           "Q4": "Q4-O1",
           "Q5": "Q5-O1",
           "Q6": "Q6-O1",
+          "Q8": "Q8-O1",
           "Q9": "Q9-O1",
           "Q10": "Q10-O1",
           "Q11": "Q11-O1",
@@ -6456,6 +6308,7 @@
             "S1",
             "S2",
             "S3",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -6469,6 +6322,7 @@
             "Q11",
             "Q12",
             "Q13",
+            "DT2",
             "D1",
             "D2",
             "Q14"
@@ -6480,9 +6334,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
-            "Q2": "Provider A",
-            "Q3": "Provider A",
-            "Q5": "Provider A",
             "Q9": "Dropped calls",
             "Q10": "Yes, fully",
             "Q11": "Provider A",
@@ -6535,6 +6386,7 @@
             "S1",
             "S2",
             "S3",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -6548,6 +6400,7 @@
             "Q11",
             "Q12",
             "Q13",
+            "DT2",
             "D1",
             "D2",
             "Q14"
@@ -6559,9 +6412,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
-            "Q2": "Provider A",
-            "Q3": "Provider A",
-            "Q5": "Provider A",
             "Q9": "Dropped calls",
             "Q10": "Yes, fully",
             "Q11": "Provider A",
@@ -6642,6 +6492,7 @@
             "S1",
             "S2",
             "S3",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -6655,6 +6506,7 @@
             "Q11",
             "Q12",
             "Q13",
+            "DT2",
             "D1",
             "D2",
             "Q14"
@@ -6666,9 +6518,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
-            "Q2": "Provider A",
-            "Q3": "Provider A",
-            "Q5": "Provider A",
             "Q9": "Dropped calls",
             "Q10": "Yes, fully",
             "Q11": "Provider A",
@@ -6722,6 +6571,7 @@
             "S1",
             "S2",
             "S3",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -6737,6 +6587,7 @@
             "Q11",
             "Q12",
             "Q13",
+            "DT2",
             "D1",
             "D2",
             "Q14"
@@ -6753,11 +6604,7 @@
               "detail": "exclusive option Q7-O6 chosen alongside ['Q7-O1']"
             }
           ],
-          "piped_text_visible": {
-            "Q2": "Provider A",
-            "Q3": "Provider A",
-            "Q5": "Provider A"
-          },
+          "piped_text_visible": {},
           "option_lists_visible": {}
         },
         "proof": "reject rule R9 fired as expected, at one of the questions its condition names (['Q7'])",

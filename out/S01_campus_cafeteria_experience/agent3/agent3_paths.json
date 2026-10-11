@@ -5,11 +5,11 @@
   "survey_id": "S01_campus_cafeteria_experience",
   "source_document": {
     "filename": "S01_campus_cafeteria_experience.docx",
-    "sha256": "2756cb3b6dc3f21cdc7c1d35b7cfb0e2270af2a918ba6fe682e72ae8e121a804"
+    "sha256": "3d54ea5480d07ac92b4214947b34c7dab7abf280c5f464475994e8c9066ce9e3"
   },
   "upstream": {
     "canonical_schema_version": "1.0.0",
-    "canonical_generated_at": "2026-10-11T10:11:49+00:00"
+    "canonical_generated_at": "2026-10-11T10:54:25+00:00"
   },
   "content": {
     "report": {
@@ -162,6 +162,7 @@
         "sequence": [
           "S1",
           "S2",
+          "DT1",
           "Q1",
           "Q2",
           "Q3",
@@ -195,7 +196,7 @@
         "preconditions": "Fresh respondent, no prior answers. Both quota cells open.",
         "campaign": {},
         "mechanism": "",
-        "sequence_text": "S1 -> S2 -> Q1 -> Q2 -> Q3 -> Q4 -> Q5 -> Q6 -> Q7 -> Q8  ->  COMPLETE"
+        "sequence_text": "S1 -> S2 -> DT1 -> Q1 -> Q2 -> Q3 -> Q4 -> Q5 -> Q6 -> Q7 -> Q8  ->  COMPLETE"
       },
       {
         "path_id": "P04",
@@ -204,6 +205,7 @@
         "sequence": [
           "S1",
           "S2",
+          "DT1",
           "Q1",
           "Q2",
           "Q3",
@@ -237,7 +239,7 @@
         "preconditions": "Fresh respondent, no prior answers. Both quota cells open.",
         "campaign": {},
         "mechanism": "",
-        "sequence_text": "S1 -> S2 -> Q1 -> Q2 -> Q3 -> Q4 -> Q5 -> Q7 -> Q8  ->  COMPLETE"
+        "sequence_text": "S1 -> S2 -> DT1 -> Q1 -> Q2 -> Q3 -> Q4 -> Q5 -> Q7 -> Q8  ->  COMPLETE"
       }
     ]
   }

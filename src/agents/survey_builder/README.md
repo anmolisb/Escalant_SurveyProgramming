@@ -108,6 +108,10 @@ being let go. The setting is `format` in `emitter.py`.
 **Randomising answers is a word, not a flag.** The `answer_order` attribute
 takes `random` or `normal`.
 
+**A text display is type `X` with the `boilerplate` theme.** It shows its
+wording and asks nothing, so it is never mandatory. The S, M and C QREs use it
+for messages such as "You're almost done!".
+
 **Numeric bounds have an `_n` suffix.** They are `min_num_value_n` and
 `max_num_value_n`. There are similarly named settings without the suffix that
 do something else.
@@ -115,7 +119,7 @@ do something else.
 ## What is not supported yet
 
 - Question types other than single choice, multiple choice, free text, array,
-  constant sum and numeric. Preflight will name any others it finds.
+  constant sum, numeric and text display. Preflight will name any others it finds.
 - Quota controls. The specification carries them, but nothing builds them yet.
 - Conditions using `sum()` or `count()`, `answered` / `unanswered`, an exact
   answer set (`Q1 == ['None of these']`), or comparing one question against

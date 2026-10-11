@@ -507,6 +507,48 @@
         "confidence": 0.95,
         "reasoning": "The condition states that the respondent selected the exclusive option 'None of these' together with at least one other option. This can be expressed as the membership test that Q7 contains 'None of these' combined with the negation of the exact\u2011match test Q7 == ['None of these'], which would indicate only that option was chosen. The grammar supports both 'contains' and 'not' operators, allowing the combined expression."
       }
+    },
+    "9a12af898966dc9bc10d7fe4bbdc1563637380d7a281688cc067bb1298aba996": {
+      "response_model": "LLMTextPipes",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-10-11T10:54:30+00:00",
+      "asked": "S1: Have you used or purchased mobile network services in the past 6 months?\nS2: Are you personally involved in choosing this product or service?\nS3: What is your age?\nDT1: Great, you're eligible for this survey! Next, a few questions about your recent mobile network experience.\nQ1: Which mobile network services channel or provider did you use most recently?\nQ2: When did the most recent experience ...",
+      "response": {
+        "pipes": [
+          {
+            "is_pipe": true,
+            "source_question_id": "Q7",
+            "target_question_id": "Q9",
+            "phrase": "the main problem",
+            "confidence": 0.99,
+            "reasoning": "The wording of Q9 uses the definite phrase \"the main problem\", which can only be understood after the respondent has answered Q7 where they indicated which problems they experienced."
+          },
+          {
+            "is_pipe": true,
+            "source_question_id": "Q9",
+            "target_question_id": "Q10",
+            "phrase": "the resolution",
+            "confidence": 0.99,
+            "reasoning": "Q10 asks about \"the resolution\", a specific outcome that is only defined by the earlier question Q9 which asked whether the main problem was resolved."
+          },
+          {
+            "is_pipe": true,
+            "source_question_id": "Q1",
+            "target_question_id": "Q11",
+            "phrase": "the provider",
+            "confidence": 0.99,
+            "reasoning": "Q11 refers to \"the provider\", which depends on the answer to Q1 where the respondent selected which mobile network provider they used."
+          },
+          {
+            "is_pipe": true,
+            "source_question_id": "Q1",
+            "target_question_id": "Q12",
+            "phrase": "the provider",
+            "confidence": 0.99,
+            "reasoning": "Q12 also uses the definite phrase \"the provider\", linking back to the earlier answer in Q1 that identified the specific provider."
+          }
+        ]
+      }
     }
   }
 }

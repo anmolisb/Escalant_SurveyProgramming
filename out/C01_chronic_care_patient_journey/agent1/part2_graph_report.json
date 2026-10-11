@@ -5,16 +5,16 @@
   "survey_id": "C01_chronic_care_patient_journey",
   "source_document": {
     "filename": "C01_chronic_care_patient_journey.docx",
-    "sha256": "319e6b78a2a1e36ef712ce421e6d2c1db3325a087a07d8d0e93ec38b39207e4b",
-    "bytes": 43612
+    "sha256": "9fe8bb4afcacc91f94918506ae31a1ba231222b73050f346ed10ea91064fc093",
+    "bytes": 43897
   },
-  "generated_at": "2026-10-11T10:11:52+00:00",
+  "generated_at": "2026-10-11T10:54:36+00:00",
   "item_count": null,
   "content": {
     "source": "C01_chronic_care_patient_journey.docx",
-    "nodes": 38,
-    "edges": 39,
-    "questions": 31,
+    "nodes": 41,
+    "edges": 42,
+    "questions": 34,
     "dispositions": 6,
     "rules_mapped": 20,
     "rules_total": 20,
@@ -38,8 +38,8 @@
     "passed": true,
     "coverage": {
       "node_coverage": {
-        "numerator": 37,
-        "denominator": 37,
+        "numerator": 40,
+        "denominator": 40,
         "result": 1.0
       },
       "routing_rule_coverage": {
@@ -63,8 +63,8 @@
         "result": 1.0
       },
       "dependency_coverage": {
-        "numerator": 6,
-        "denominator": 6,
+        "numerator": 4,
+        "denominator": 4,
         "result": 1.0
       },
       "quota_coverage": {

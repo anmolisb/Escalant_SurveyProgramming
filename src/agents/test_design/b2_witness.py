@@ -45,7 +45,7 @@ from .models import (
     QUOTA_SIZE_UNDEFINED,
     RANDOMIZATION_ANCHOR_UNDEFINED,
 )
-from .spec import CanonicalSpec, Cond, Question
+from .spec import DISPLAY_KINDS, CanonicalSpec, Cond, Question
 from .semantics import Semantics, UNASKED, PRECEDENCE, MULTI_EQ
 
 # A single number typed into one box. The canonical kind is "integer";
@@ -54,8 +54,10 @@ NUMBER_KINDS = ("integer", "number", "numeric")
 
 #: Question kinds a journey can be given an answer for. A mandatory question of
 #: any other kind is left blank, and every journey through it stops there.
+#: A text display (spec.DISPLAY_KINDS) needs no answer and is listed so the
+#: readiness check does not report it.
 SUPPORTED_KINDS = frozenset({"single", "multi", "text", "matrix", "constant_sum",
-                             *NUMBER_KINDS})
+                             *NUMBER_KINDS, *DISPLAY_KINDS})
 
 #: Conditions the solver can make true and false, in Agent 1's operator names
 #: (spec.py maps ge, le and unanswered onto this package's own). "plain" is a

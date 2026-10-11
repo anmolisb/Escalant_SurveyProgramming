@@ -481,6 +481,14 @@ class CompletionMessage(BaseModel):
     source_reference: SourceReference | None = None
 
 
+#: Question types that show text and ask nothing, such as the S, M and C QREs'
+#: "text display" rows ("You're almost done!"). Nothing can be answered, so
+#: nothing can be required: the survey-wide mandatory default does not apply.
+#: The type itself is kept as the QRE wrote it. Part 2 and Stage 7 both read
+#: this, so the two independent readings agree on what such a row is.
+DISPLAY_KINDS = frozenset({"text display"})
+
+
 class SurveyInformation(BaseModel):
     """What identifies the study, and what a respondent is shown before it.
 

@@ -26,6 +26,7 @@ from src.agents.respondent_bot.run_browser import FILLABLE_VALUE_KINDS
 from src.agents.survey_builder import loader as survey_loader
 from src.agents.survey_builder.preflight import check_spec as survey_builder_gaps
 from src.agents.test_design import b2_witness, b3_oracle
+from src.agents.test_design.spec import DISPLAY_KINDS
 from src.agents.test_design.c_compile_executable import VALUE_KIND_BY_TYPE
 from src.common.paths import agent1_dir
 
@@ -105,6 +106,8 @@ def test_designer(spec: dict) -> list[Finding]:
                 f"question kind {kind!r} gets no answer, so every journey "
                 f"through it stops there"))
             continue
+        if kind in DISPLAY_KINDS:
+            continue  # nothing to answer, so nothing to bind
         lime_type = survey_loader._TYPE_MAP.get(kind)
         if lime_type and lime_type not in VALUE_KIND_BY_TYPE:
             findings.append(Finding(
@@ -138,6 +141,8 @@ def respondent_bot(spec: dict) -> list[Finding]:
     findings: list[Finding] = []
     for q in spec.get("questions") or []:
         kind = (q.get("kind") or "").strip().lower()
+        if kind in DISPLAY_KINDS:
+            continue  # the bot only presses Next
         value_kind = VALUE_KIND_BY_TYPE.get(survey_loader._TYPE_MAP.get(kind, ""))
         if value_kind and value_kind not in FILLABLE_VALUE_KINDS:
             findings.append(Finding(

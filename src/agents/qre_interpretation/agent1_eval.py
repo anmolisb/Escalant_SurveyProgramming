@@ -28,7 +28,7 @@ from dataclasses import asdict, dataclass, field
 from typing import Any
 
 from . import qre_oracle
-from .models import CanonicalSurvey, ConditionOp
+from .models import DISPLAY_KINDS, CanonicalSurvey, ConditionOp
 
 CRITICAL = "CRITICAL"
 HIGH = "HIGH"
@@ -236,8 +236,13 @@ def build_tests(oracle: qre_oracle.OracleDocument) -> list[TestCase]:
                 add("validation_rules", "validation_extra",
                     source_text="%s: %s" % (key, value), target=q.question_id,
                     expected=value, criticality=NORMAL, source_reference=ref, field=key)
-        add("validation_rules", "mandatory", source_text=("Optional" if q.optional else "not marked optional"),
-            target=q.question_id, expected=(False if q.optional else True),
+        # A text display asks nothing, so nothing can be required of it.
+        display = (q.type or "").strip().lower() in DISPLAY_KINDS
+        add("validation_rules", "mandatory",
+            source_text=("Optional" if q.optional
+                         else "text display, nothing to answer" if display
+                         else "not marked optional"),
+            target=q.question_id, expected=not (q.optional or display),
             criticality=CRITICAL, source_reference=ref)
 
         # -- dependencies / randomization ------------------------------------

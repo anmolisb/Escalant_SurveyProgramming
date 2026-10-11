@@ -5,10 +5,10 @@
   "survey_id": "S01_campus_cafeteria_experience",
   "source_document": {
     "filename": "S01_campus_cafeteria_experience.docx",
-    "sha256": "2756cb3b6dc3f21cdc7c1d35b7cfb0e2270af2a918ba6fe682e72ae8e121a804",
-    "bytes": 40578
+    "sha256": "3d54ea5480d07ac92b4214947b34c7dab7abf280c5f464475994e8c9066ce9e3",
+    "bytes": 40669
   },
-  "generated_at": "2026-10-11T10:11:49+00:00",
+  "generated_at": "2026-10-11T10:54:25+00:00",
   "item_count": null,
   "content": {
     "source": "S01_campus_cafeteria_experience.docx",
@@ -205,8 +205,41 @@
         }
       },
       {
-        "question_id": "Q1",
+        "question_id": "DT1",
         "seq": 3,
+        "kind": "text display",
+        "wording": "Great, you're eligible for this survey! Next, a few quick questions about your recent cafeteria visit.",
+        "options": [],
+        "matrix_rows": [],
+        "validation": {
+          "min_length": null,
+          "max_length": null,
+          "min_value": null,
+          "max_value": null,
+          "min_selections": null,
+          "sum_to": null,
+          "require_each_row": null,
+          "exclusive_option_id": null,
+          "exclusive_option_label": null,
+          "mandatory": false,
+          "mandatory_origin": "derived"
+        },
+        "guard": null,
+        "option_source": null,
+        "extra": {},
+        "source_reference": {
+          "document": "S01_campus_cafeteria_experience.docx",
+          "section": "Questionnaire",
+          "heading_text": "Questionnaire",
+          "block_order": 10,
+          "row_index": 2,
+          "source_kind": "table",
+          "text": "DT1 | Great, you're eligible for this survey! Next, a few quick questions about your recent cafeteria visit. | text display | \u2014 | Always show"
+        }
+      },
+      {
+        "question_id": "Q1",
+        "seq": 4,
         "kind": "single",
         "wording": "Which channel did you primarily use for this cafeteria visit?",
         "options": [
@@ -254,14 +287,14 @@
           "section": "Questionnaire",
           "heading_text": "Questionnaire",
           "block_order": 10,
-          "row_index": 2,
+          "row_index": 3,
           "source_kind": "table",
           "text": "Q1 | Which channel did you primarily use for this cafeteria visit? | single | Counter; Mobile pre-order; Vending kiosk | Always show"
         }
       },
       {
         "question_id": "Q2",
-        "seq": 4,
+        "seq": 5,
         "kind": "single",
         "wording": "Overall, how satisfied were you with the cafeteria visit?",
         "options": [
@@ -323,14 +356,14 @@
           "section": "Questionnaire",
           "heading_text": "Questionnaire",
           "block_order": 10,
-          "row_index": 3,
+          "row_index": 4,
           "source_kind": "table",
           "text": "Q2 | Overall, how satisfied were you with the cafeteria visit? | single | 1 - Very poor; 2 - Poor; 3 - Fair; 4 - Good; 5 - Excellent | Always show"
         }
       },
       {
         "question_id": "Q3",
-        "seq": 5,
+        "seq": 6,
         "kind": "single",
         "wording": "How easy was it to complete what you wanted to do?",
         "options": [
@@ -392,14 +425,14 @@
           "section": "Questionnaire",
           "heading_text": "Questionnaire",
           "block_order": 10,
-          "row_index": 4,
+          "row_index": 5,
           "source_kind": "table",
           "text": "Q3 | How easy was it to complete what you wanted to do? | single | 1 - Very poor; 2 - Poor; 3 - Fair; 4 - Good; 5 - Excellent | Always show"
         }
       },
       {
         "question_id": "Q4",
-        "seq": 6,
+        "seq": 7,
         "kind": "multi",
         "wording": "Which aspects influenced your rating? Select all that apply.",
         "options": [
@@ -468,14 +501,14 @@
           "section": "Questionnaire",
           "heading_text": "Questionnaire",
           "block_order": 10,
-          "row_index": 5,
+          "row_index": 6,
           "source_kind": "table",
           "text": "Q4 | Which aspects influenced your rating? Select all that apply. | multi | Food quality; Menu variety; Waiting time; Cleanliness; Staff behaviour; Price | Validate: {\"min_selections\": 1}"
         }
       },
       {
         "question_id": "Q5",
-        "seq": 7,
+        "seq": 8,
         "kind": "single",
         "wording": "Did you encounter a problem?",
         "options": [
@@ -516,14 +549,14 @@
           "section": "Questionnaire",
           "heading_text": "Questionnaire",
           "block_order": 10,
-          "row_index": 6,
+          "row_index": 7,
           "source_kind": "table",
           "text": "Q5 | Did you encounter a problem? | single | Yes; No | Always show"
         }
       },
       {
         "question_id": "Q6",
-        "seq": 8,
+        "seq": 9,
         "kind": "text",
         "wording": "Please describe the main problem.",
         "options": [],
@@ -584,14 +617,14 @@
           "section": "Questionnaire",
           "heading_text": "Questionnaire",
           "block_order": 10,
-          "row_index": 7,
+          "row_index": 8,
           "source_kind": "table",
           "text": "Q6 | Please describe the main problem. | text | \u2014 | Show if: Q5 == 'Yes'\nValidate: {\"min_length\": 10, \"max_length\": 500}"
         }
       },
       {
         "question_id": "Q7",
-        "seq": 9,
+        "seq": 10,
         "kind": "single",
         "wording": "How likely are you to recommend this service?",
         "options": [
@@ -695,14 +728,14 @@
           "section": "Questionnaire",
           "heading_text": "Questionnaire",
           "block_order": 10,
-          "row_index": 8,
+          "row_index": 9,
           "source_kind": "table",
           "text": "Q7 | How likely are you to recommend this service? | single | 0; 1; 2; 3; 4; 5; 6; 7; 8; 9; 10 | Always show"
         }
       },
       {
         "question_id": "Q8",
-        "seq": 10,
+        "seq": 11,
         "kind": "text",
         "wording": "What is the single most important improvement you would suggest?",
         "options": [],
@@ -728,7 +761,7 @@
           "section": "Questionnaire",
           "heading_text": "Questionnaire",
           "block_order": 10,
-          "row_index": 9,
+          "row_index": 10,
           "source_kind": "table",
           "text": "Q8 | What is the single most important improvement you would suggest? | text | \u2014 | Validate: {\"max_length\": 500}\nOptional"
         }
@@ -971,7 +1004,7 @@
           "section": "Questionnaire",
           "heading_text": "Questionnaire",
           "block_order": 10,
-          "row_index": 7,
+          "row_index": 8,
           "source_kind": "table",
           "text": "Q6 | Please describe the main problem. | text | \u2014 | Show if: Q5 == 'Yes'\nValidate: {\"min_length\": 10, \"max_length\": 500}"
         }

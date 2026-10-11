@@ -21,6 +21,7 @@ from __future__ import annotations
 import re
 
 from .models import (
+    DISPLAY_KINDS,
     AuditFinding,
     CanonicalDisposition,
     CanonicalOption,
@@ -1181,6 +1182,8 @@ def _canonical_validation(question, semantics: Semantics) -> CanonicalValidation
 
     if question.optional:
         mandatory, mandatory_origin = False, Origin.EXTRACTED
+    elif (question.type or "").strip().lower() in DISPLAY_KINDS:
+        mandatory, mandatory_origin = False, Origin.DERIVED
     elif semantics.default_mandatory is not None:
         mandatory, mandatory_origin = semantics.default_mandatory, Origin.DERIVED
     else:

@@ -3,25 +3,25 @@
   "sample_size_supplied": null,
   "anchors_supplied": [],
   "covered_without_a_separate_run": 1,
-  "targets": 177,
+  "targets": 176,
   "per_dimension": {
-    "D1": 59,
+    "D1": 62,
     "D2": 6,
     "D3": 32,
     "D4": 35,
     "D5": 2,
-    "D6": 4,
+    "D6": 2,
     "D7": 15,
     "D8": 20,
-    "D9": 4
+    "D9": 2
   },
-  "feasible_witnesses": 161,
-  "covered": 161,
-  "logical_tests": 161,
+  "feasible_witnesses": 160,
+  "covered": 160,
+  "logical_tests": 160,
   "coverage_floor_pct": 50.0,
   "coverage_floor_dimension": "D8",
-  "executable_tests": 161,
-  "executable_coverage_pct": 91.0,
+  "executable_tests": 160,
+  "executable_coverage_pct": 90.9,
   "compilation_refused": 0,
   "conformance_verdict": "CONFORMS_WITH_FINDINGS",
   "conformance_blocking": 0,
@@ -34,14 +34,14 @@
   "specification_replay": "6 agree / 0 disagree / 1 unresolved of 7",
   "output_dir": "out/C01_chronic_care_patient_journey/agent3",
   "coverage_vector": {
-    "D1": "59/59 (100.0%) EXHAUSTIVE",
+    "D1": "62/62 (100.0%) EXHAUSTIVE",
     "D2": "5/6 (83.3%) PARTIAL",
     "D3": "32/32 (100.0%) EXHAUSTIVE",
     "D4": "35/35 (100.0%) EXHAUSTIVE",
     "D5": "2/2 (100.0%) EXHAUSTIVE",
-    "D6": "4/4 (100.0%) EXHAUSTIVE",
+    "D6": "2/2 (100.0%) EXHAUSTIVE",
     "D7": "10/15 (66.7%) PARTIAL",
     "D8": "10/20 (50.0%) PARTIAL",
-    "D9": "4/4 (100.0%) BOUNDED"
+    "D9": "2/2 (100.0%) BOUNDED"
   }
 }

@@ -183,6 +183,24 @@
           }
         ]
       }
+    },
+    "e5c4644897dd98dcbf1a4794f6b34c76f83327dab99f36f3fb262078103277c7": {
+      "response_model": "LLMTextPipes",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-10-11T10:54:25+00:00",
+      "asked": "S1: Have you purchased food or a beverage from the campus cafeteria in the past 30 days?\nS2: Are you 18 years of age or older?\nDT1: Great, you're eligible for this survey! Next, a few quick questions about your recent cafeteria visit.\nQ1: Which channel did you primarily use for this cafeteria visit?\nQ2: Overall, how satisfied were you with the cafeteria visit?\nQ3: How easy was it to complete what  ...",
+      "response": {
+        "pipes": [
+          {
+            "is_pipe": true,
+            "source_question_id": "Q5",
+            "target_question_id": "Q6",
+            "phrase": "the main problem",
+            "confidence": 0.99,
+            "reasoning": "Q6 asks the respondent to \"describe the main problem,\" which presupposes that a problem was identified earlier in Q5 (\"Did you encounter a problem?\"). The definite article \"the\" makes the reference dependent on the prior answer, so the wording cannot be shown without knowing the answer to Q5."
+          }
+        ]
+      }
     }
   }
 }

@@ -5,10 +5,10 @@
   "survey_id": "M01_mobile_network_experience",
   "source_document": {
     "filename": "M01_mobile_network_experience.docx",
-    "sha256": "1be6ec051fbc914680d8add2a2c9e85c568f5468d8f39f5b6e915eb5bfe6f3b5",
-    "bytes": 41874
+    "sha256": "6f7e2db55c2c8ffaabdd4890e35464b4a5325a0ae13e38ffabb37ed06d064964",
+    "bytes": 42042
   },
-  "generated_at": "2026-10-11T10:11:50+00:00",
+  "generated_at": "2026-10-11T10:54:26+00:00",
   "item_count": null,
   "content": {
     "target": "Questionnaire",
@@ -34,6 +34,13 @@
         "Type": "integer",
         "Options / scale": "\u2014",
         "Display / validation": "Validate: {\"min\": 18, \"max\": 80}"
+      },
+      {
+        "ID": "DT1",
+        "Wording / instruction": "Great, you're eligible for this survey! Next, a few questions about your recent mobile network experience.",
+        "Type": "text display",
+        "Options / scale": "\u2014",
+        "Display / validation": "Always show"
       },
       {
         "ID": "Q1",
@@ -127,6 +134,13 @@
         "Display / validation": "Randomize"
       },
       {
+        "ID": "DT2",
+        "Wording / instruction": "You're almost done! Thank you for your answers. Just a few last questions about you to finish up.",
+        "Type": "text display",
+        "Options / scale": "\u2014",
+        "Display / validation": "Always show"
+      },
+      {
         "ID": "D1",
         "Wording / instruction": "Which region do you live in?",
         "Type": "single",
@@ -183,7 +197,7 @@
         "block_order": 10,
         "row_index": 3,
         "source_kind": "table",
-        "text": "Q1 | Which mobile network services channel or provider did you use most recently? | single | Provider A; Provider B; Provider C; Provider D | Always show"
+        "text": "DT1 | Great, you're eligible for this survey! Next, a few questions about your recent mobile network experience. | text display | \u2014 | Always show"
       },
       {
         "document": "M01_mobile_network_experience.docx",
@@ -192,7 +206,7 @@
         "block_order": 10,
         "row_index": 4,
         "source_kind": "table",
-        "text": "Q2 | When did the most recent experience occur? | single | Within 7 days; 8-30 days; 1-3 months; 4-6 months | Always show"
+        "text": "Q1 | Which mobile network services channel or provider did you use most recently? | single | Provider A; Provider B; Provider C; Provider D | Always show"
       },
       {
         "document": "M01_mobile_network_experience.docx",
@@ -201,7 +215,7 @@
         "block_order": 10,
         "row_index": 5,
         "source_kind": "table",
-        "text": "Q3 | What was the primary purpose of the experience? | single | Calls; Mobile data; Recharge or billing; Customer support; International roaming | Randomize"
+        "text": "Q2 | When did the most recent experience occur? | single | Within 7 days; 8-30 days; 1-3 months; 4-6 months | Always show"
       },
       {
         "document": "M01_mobile_network_experience.docx",
@@ -210,7 +224,7 @@
         "block_order": 10,
         "row_index": 6,
         "source_kind": "table",
-        "text": "Q4 | Rate your overall satisfaction. | single | 1 - Very poor; 2 - Poor; 3 - Fair; 4 - Good; 5 - Excellent | Always show"
+        "text": "Q3 | What was the primary purpose of the experience? | single | Calls; Mobile data; Recharge or billing; Customer support; International roaming | Randomize"
       },
       {
         "document": "M01_mobile_network_experience.docx",
@@ -219,7 +233,7 @@
         "block_order": 10,
         "row_index": 7,
         "source_kind": "table",
-        "text": "Q5 | Rate the ease of completing the experience. | single | 1 - Very poor; 2 - Poor; 3 - Fair; 4 - Good; 5 - Excellent | Always show"
+        "text": "Q4 | Rate your overall satisfaction. | single | 1 - Very poor; 2 - Poor; 3 - Fair; 4 - Good; 5 - Excellent | Always show"
       },
       {
         "document": "M01_mobile_network_experience.docx",
@@ -228,7 +242,7 @@
         "block_order": 10,
         "row_index": 8,
         "source_kind": "table",
-        "text": "Q6 | Rate the clarity of information provided. | single | 1 - Very poor; 2 - Poor; 3 - Fair; 4 - Good; 5 - Excellent | Always show"
+        "text": "Q5 | Rate the ease of completing the experience. | single | 1 - Very poor; 2 - Poor; 3 - Fair; 4 - Good; 5 - Excellent | Always show"
       },
       {
         "document": "M01_mobile_network_experience.docx",
@@ -237,7 +251,7 @@
         "block_order": 10,
         "row_index": 9,
         "source_kind": "table",
-        "text": "Q7 | Did you experience any of the following problems? | multi | Dropped calls; Slow data; Unexpected charge; Coverage gap; Support delay; None of these | Validate: {\"exclusive_option\": \"None of these\"}\nRandomize"
+        "text": "Q6 | Rate the clarity of information provided. | single | 1 - Very poor; 2 - Poor; 3 - Fair; 4 - Good; 5 - Excellent | Always show"
       },
       {
         "document": "M01_mobile_network_experience.docx",
@@ -246,7 +260,7 @@
         "block_order": 10,
         "row_index": 10,
         "source_kind": "table",
-        "text": "Q8 | Which problem had the greatest impact? | single | Dropped calls; Slow data; Unexpected charge; Coverage gap; Support delay | Show if: Q7 contains any problem\nShow only options selected at Q7."
+        "text": "Q7 | Did you experience any of the following problems? | multi | Dropped calls; Slow data; Unexpected charge; Coverage gap; Support delay; None of these | Validate: {\"exclusive_option\": \"None of these\"}\nRandomize"
       },
       {
         "document": "M01_mobile_network_experience.docx",
@@ -255,7 +269,7 @@
         "block_order": 10,
         "row_index": 11,
         "source_kind": "table",
-        "text": "Q9 | Was the main problem resolved? | single | Yes, fully; Yes, partly; No | Show if: Q7 contains any problem"
+        "text": "Q8 | Which problem had the greatest impact? | single | Dropped calls; Slow data; Unexpected charge; Coverage gap; Support delay | Show if: Q7 contains any problem\nShow only options selected at Q7."
       },
       {
         "document": "M01_mobile_network_experience.docx",
@@ -264,7 +278,7 @@
         "block_order": 10,
         "row_index": 12,
         "source_kind": "table",
-        "text": "Q10 | How satisfied were you with the resolution? | single | 1 - Very poor; 2 - Poor; 3 - Fair; 4 - Good; 5 - Excellent | Show if: Q9 in ['Yes, fully','Yes, partly']"
+        "text": "Q9 | Was the main problem resolved? | single | Yes, fully; Yes, partly; No | Show if: Q7 contains any problem"
       },
       {
         "document": "M01_mobile_network_experience.docx",
@@ -273,7 +287,7 @@
         "block_order": 10,
         "row_index": 13,
         "source_kind": "table",
-        "text": "Q11 | How likely are you to recommend the provider? | single | 0; 1; 2; 3; 4; 5; 6; 7; 8; 9; 10 | Always show"
+        "text": "Q10 | How satisfied were you with the resolution? | single | 1 - Very poor; 2 - Poor; 3 - Fair; 4 - Good; 5 - Excellent | Show if: Q9 in ['Yes, fully','Yes, partly']"
       },
       {
         "document": "M01_mobile_network_experience.docx",
@@ -282,7 +296,7 @@
         "block_order": 10,
         "row_index": 14,
         "source_kind": "table",
-        "text": "Q12 | How likely are you to continue using the provider? | single | Definitely not; Probably not; Unsure; Probably; Definitely | Always show"
+        "text": "Q11 | How likely are you to recommend the provider? | single | 0; 1; 2; 3; 4; 5; 6; 7; 8; 9; 10 | Always show"
       },
       {
         "document": "M01_mobile_network_experience.docx",
@@ -291,7 +305,7 @@
         "block_order": 10,
         "row_index": 15,
         "source_kind": "table",
-        "text": "Q13 | Which improvement would have the greatest value? | single | Lower cost; Faster service; Clearer information; Better staff support; Improved digital experience | Randomize"
+        "text": "Q12 | How likely are you to continue using the provider? | single | Definitely not; Probably not; Unsure; Probably; Definitely | Always show"
       },
       {
         "document": "M01_mobile_network_experience.docx",
@@ -300,7 +314,7 @@
         "block_order": 10,
         "row_index": 16,
         "source_kind": "table",
-        "text": "D1 | Which region do you live in? | single | North; South; East; West; Central | Always show"
+        "text": "Q13 | Which improvement would have the greatest value? | single | Lower cost; Faster service; Clearer information; Better staff support; Improved digital experience | Randomize"
       },
       {
         "document": "M01_mobile_network_experience.docx",
@@ -309,7 +323,7 @@
         "block_order": 10,
         "row_index": 17,
         "source_kind": "table",
-        "text": "D2 | Which age group describes you? | single | 18-24; 25-34; 35-44; 45-54; 55+ | Always show"
+        "text": "DT2 | You're almost done! Thank you for your answers. Just a few last questions about you to finish up. | text display | \u2014 | Always show"
       },
       {
         "document": "M01_mobile_network_experience.docx",
@@ -317,6 +331,24 @@
         "heading_text": "Questionnaire",
         "block_order": 10,
         "row_index": 18,
+        "source_kind": "table",
+        "text": "D1 | Which region do you live in? | single | North; South; East; West; Central | Always show"
+      },
+      {
+        "document": "M01_mobile_network_experience.docx",
+        "section": "Questionnaire",
+        "heading_text": "Questionnaire",
+        "block_order": 10,
+        "row_index": 19,
+        "source_kind": "table",
+        "text": "D2 | Which age group describes you? | single | 18-24; 25-34; 35-44; 45-54; 55+ | Always show"
+      },
+      {
+        "document": "M01_mobile_network_experience.docx",
+        "section": "Questionnaire",
+        "heading_text": "Questionnaire",
+        "block_order": 10,
+        "row_index": 20,
         "source_kind": "table",
         "text": "Q14 | Please provide any final comments. | text | \u2014 | Validate: {\"max_length\": 750}\nOptional"
       }

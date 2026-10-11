@@ -5,10 +5,10 @@
   "survey_id": "C01_chronic_care_patient_journey",
   "source_document": {
     "filename": "C01_chronic_care_patient_journey.docx",
-    "sha256": "319e6b78a2a1e36ef712ce421e6d2c1db3325a087a07d8d0e93ec38b39207e4b",
-    "bytes": 43612
+    "sha256": "9fe8bb4afcacc91f94918506ae31a1ba231222b73050f346ed10ea91064fc093",
+    "bytes": 43897
   },
-  "generated_at": "2026-10-11T10:11:52+00:00",
+  "generated_at": "2026-10-11T10:54:32+00:00",
   "item_count": null,
   "content": {
     "source": "C01_chronic_care_patient_journey.docx",
@@ -133,6 +133,13 @@
             "Always show"
           ],
           [
+            "DT1",
+            "Great, you're eligible for this survey! Next, a few questions about your care experience.",
+            "text display",
+            "\u2014",
+            "Always show"
+          ],
+          [
             "Q1",
             "Which of these brands have you heard of?",
             "multi",
@@ -194,6 +201,13 @@
             "matrix",
             "Rows: Access; Communication; Coordination; Treatment information; Emotional support; Digital tools\nScale: 1 - Very poor; 2 - Poor; 3 - Fair; 4 - Good; 5 - Excellent",
             "Show if: Q3 != 'None/currently not using'\nValidate: {\"scale\": [\"1 - Very poor\", \"2 - Poor\", \"3 - Fair\", \"4 - Good\", \"5 - Excellent\"], \"require_each_row\": true}\nRandomize"
+          ],
+          [
+            "DT2",
+            "Thank you for sharing your care experience so far. Next, we'd like to understand a bit about any support you've used and whether you've considered other providers.",
+            "text display",
+            "\u2014",
+            "Always show"
           ],
           [
             "Q10",
@@ -278,6 +292,13 @@
             "text",
             "\u2014",
             "Validate: {\"min_length\": 5, \"max_length\": 500}"
+          ],
+          [
+            "DT3",
+            "You're almost done! Thank you for your answers. Just a few last questions about you to finish up.",
+            "text display",
+            "\u2014",
+            "Always show"
           ],
           [
             "D1",

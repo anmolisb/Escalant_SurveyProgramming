@@ -5,14 +5,64 @@
   "survey_id": "S01_campus_cafeteria_experience",
   "source_document": {
     "filename": "S01_campus_cafeteria_experience.docx",
-    "sha256": "2756cb3b6dc3f21cdc7c1d35b7cfb0e2270af2a918ba6fe682e72ae8e121a804"
+    "sha256": "3d54ea5480d07ac92b4214947b34c7dab7abf280c5f464475994e8c9066ce9e3"
   },
   "upstream": {
     "canonical_schema_version": "1.0.0",
-    "canonical_generated_at": "2026-10-11T10:11:49+00:00"
+    "canonical_generated_at": "2026-10-11T10:54:25+00:00"
   },
   "content": {
     "scenarios": [
+      {
+        "scenario_id": "SC-eac4ebb616",
+        "target_id": "T-4c28ba9a4a",
+        "dimension": "D1",
+        "status": "COVERED",
+        "reason": null,
+        "answers": {
+          "S1": "S1-O1",
+          "S2": "S2-O1",
+          "Q1": "Q1-O1",
+          "Q2": "Q2-O1",
+          "Q3": "Q3-O1",
+          "Q4": [
+            "Q4-O1"
+          ],
+          "Q5": "Q5-O1",
+          "Q6": "xxxxxxxxxx",
+          "Q7": "Q7-O1"
+        },
+        "expected": {
+          "questions_seen_in_order": [
+            "S1",
+            "S2",
+            "DT1",
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4",
+            "Q5",
+            "Q6",
+            "Q7",
+            "Q8"
+          ],
+          "questions_not_seen": [],
+          "ending_reached": "COMPLETE",
+          "blocked_at": null,
+          "quota_stopped": null,
+          "quota_over_target": null,
+          "validation_messages_expected": [],
+          "piped_text_visible": {
+            "Q6": "Yes"
+          },
+          "option_lists_visible": {}
+        },
+        "proof": "after answering DT1 the respondent went on to Q1",
+        "provisional_semantics": [],
+        "preconditions": {},
+        "campaign": {},
+        "covered_by": null
+      },
       {
         "scenario_id": "SC-d0c9f6046b",
         "target_id": "T-f325a4a781",
@@ -36,6 +86,7 @@
           "questions_seen_in_order": [
             "S1",
             "S2",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -85,6 +136,7 @@
           "questions_seen_in_order": [
             "S1",
             "S2",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -134,6 +186,7 @@
           "questions_seen_in_order": [
             "S1",
             "S2",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -183,6 +236,7 @@
           "questions_seen_in_order": [
             "S1",
             "S2",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -232,6 +286,7 @@
           "questions_seen_in_order": [
             "S1",
             "S2",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -281,6 +336,7 @@
           "questions_seen_in_order": [
             "S1",
             "S2",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -330,6 +386,7 @@
           "questions_seen_in_order": [
             "S1",
             "S2",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -380,6 +437,7 @@
           "questions_seen_in_order": [
             "S1",
             "S2",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -429,6 +487,7 @@
           "questions_seen_in_order": [
             "S1",
             "S2",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -478,6 +537,7 @@
           "questions_seen_in_order": [
             "S1",
             "S2",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -527,6 +587,7 @@
           "questions_seen_in_order": [
             "S1",
             "S2",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -577,6 +638,7 @@
           "questions_seen_in_order": [
             "S1",
             "S2",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -626,6 +688,7 @@
           "questions_seen_in_order": [
             "S1",
             "S2",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -675,6 +738,7 @@
           "questions_seen_in_order": [
             "S1",
             "S2",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -695,7 +759,7 @@
           },
           "option_lists_visible": {}
         },
-        "proof": "after answering S2 the respondent went on to Q1",
+        "proof": "after answering S2 the respondent went on to DT1",
         "provisional_semantics": [],
         "preconditions": {},
         "campaign": {},
@@ -724,6 +788,7 @@
           "questions_seen_in_order": [
             "S1",
             "S2",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -744,7 +809,7 @@
           },
           "option_lists_visible": {}
         },
-        "proof": "predicted ending is COMPLETE, path ['__START__', 'S1', 'S2', 'Q1', 'Q2', 'Q3', 'Q4', 'Q5', 'Q6', 'Q7', 'Q8', 'COMPLETE']",
+        "proof": "predicted ending is COMPLETE, path ['__START__', 'S1', 'S2', 'DT1', 'Q1', 'Q2', 'Q3', 'Q4', 'Q5', 'Q6', 'Q7', 'Q8', 'COMPLETE']",
         "provisional_semantics": [],
         "preconditions": {},
         "campaign": {},
@@ -854,6 +919,7 @@
           "questions_seen_in_order": [
             "S1",
             "S2",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -901,6 +967,7 @@
           "questions_seen_in_order": [
             "S1",
             "S2",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -956,6 +1023,7 @@
           "questions_seen_in_order": [
             "S1",
             "S2",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -1005,6 +1073,7 @@
           "questions_seen_in_order": [
             "S1",
             "S2",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -1054,6 +1123,7 @@
           "questions_seen_in_order": [
             "S1",
             "S2",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -1103,6 +1173,7 @@
           "questions_seen_in_order": [
             "S1",
             "S2",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -1161,6 +1232,7 @@
           "questions_seen_in_order": [
             "S1",
             "S2",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -1211,6 +1283,7 @@
           "questions_seen_in_order": [
             "S1",
             "S2",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -1261,6 +1334,7 @@
           "questions_seen_in_order": [
             "S1",
             "S2",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -1311,6 +1385,7 @@
           "questions_seen_in_order": [
             "S1",
             "S2",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -1367,6 +1442,7 @@
           "questions_seen_in_order": [
             "S1",
             "S2",
+            "DT1",
             "Q1"
           ],
           "questions_not_seen": [
@@ -1422,6 +1498,7 @@
           "questions_seen_in_order": [
             "S1",
             "S2",
+            "DT1",
             "Q1",
             "Q2"
           ],
@@ -1477,6 +1554,7 @@
           "questions_seen_in_order": [
             "S1",
             "S2",
+            "DT1",
             "Q1",
             "Q2",
             "Q3"
@@ -1530,6 +1608,7 @@
           "questions_seen_in_order": [
             "S1",
             "S2",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -1585,6 +1664,7 @@
           "questions_seen_in_order": [
             "S1",
             "S2",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -1640,6 +1720,7 @@
           "questions_seen_in_order": [
             "S1",
             "S2",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -1697,6 +1778,7 @@
           "questions_seen_in_order": [
             "S1",
             "S2",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -1756,6 +1838,7 @@
           "questions_seen_in_order": [
             "S1",
             "S2",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -1814,6 +1897,7 @@
           "questions_seen_in_order": [
             "S1",
             "S2",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -1864,6 +1948,7 @@
           "questions_seen_in_order": [
             "S1",
             "S2",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -1917,6 +2002,7 @@
           ],
           "questions_not_seen": [
             "S2",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -1972,6 +2058,7 @@
             "S2"
           ],
           "questions_not_seen": [
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -2025,6 +2112,7 @@
           "questions_seen_in_order": [
             "S1",
             "S2",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -2074,6 +2162,7 @@
           "questions_seen_in_order": [
             "S1",
             "S2",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",

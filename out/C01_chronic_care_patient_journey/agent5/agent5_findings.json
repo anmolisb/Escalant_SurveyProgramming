@@ -1,6 +1,6 @@
 {
   "survey": "C01_chronic_care_patient_journey",
-  "run_at": "2026-10-11T14:14:39",
+  "run_at": "2026-10-11T20:58:03",
   "journeys": [
     {
       "path_id": "P01",
@@ -78,22 +78,21 @@
       "path_id": "P05",
       "name": "QUOTA_REGION cell already full (North) \u2014 measured on D1",
       "route_class": "QUOTA_TERMINATION",
-      "tests": 11,
-      "passed": 5,
+      "tests": 5,
+      "passed": 1,
       "failed": 0,
-      "other": 6,
-      "broke_at": "Q16",
-      "first_failure": "Q16 presents all 6 items exactly once, with none missing and none repeated",
-      "first_order": 97,
+      "other": 4,
+      "broke_at": "D1",
+      "first_failure": "QUOTA_REGION:D1-O2 (South) admits a respondent while below target",
+      "first_order": 136,
       "real_broke_at": "",
       "real_first_failure": "",
       "real_first_order": 9999,
       "causes": [
-        "COVERAGE_GAP",
-        "NEEDS_SAMPLE"
+        "COVERAGE_GAP"
       ],
       "status": "NOT PROVEN",
-      "status_note": "nothing on this journey is known to be wrong, but not everything could be proved: COVERAGE_GAP, NEEDS_SAMPLE"
+      "status_note": "nothing on this journey is known to be wrong, but not everything could be proved: COVERAGE_GAP"
     },
     {
       "path_id": "P06",
@@ -105,7 +104,7 @@
       "other": 4,
       "broke_at": "D2",
       "first_failure": "QUOTA_AGE:D2-O2 (30-39) admits a respondent while below target",
-      "first_order": 139,
+      "first_order": 143,
       "real_broke_at": "",
       "real_first_failure": "",
       "real_first_order": 9999,
@@ -119,41 +118,43 @@
       "path_id": "P07",
       "name": "Completing respondent \u2014 Q1=None of these",
       "route_class": "MAIN",
-      "tests": 14,
-      "passed": 14,
-      "failed": 0,
-      "other": 0,
-      "broke_at": "",
-      "first_failure": "",
-      "first_order": 9999,
-      "real_broke_at": "",
-      "real_first_failure": "",
-      "real_first_order": 9999,
-      "causes": [],
-      "status": "WORKING",
-      "status_note": "every test on this journey passed"
+      "tests": 23,
+      "passed": 21,
+      "failed": 1,
+      "other": 1,
+      "broke_at": "Q6",
+      "first_failure": "reject rule R20 fires when its condition holds",
+      "first_order": 46,
+      "real_broke_at": "Q6",
+      "real_first_failure": "reject rule R20 fires when its condition holds",
+      "real_first_order": 46,
+      "causes": [
+        "NOT_BUILT_YET",
+        "COVERAGE_GAP"
+      ],
+      "status": "BROKEN",
+      "status_note": "a respondent taking this journey would meet something wrong"
     },
     {
       "path_id": "P08",
       "name": "Completing respondent \u2014 Q1=Care Network A; Q10=No; Q15=No",
       "route_class": "MAIN",
-      "tests": 35,
-      "passed": 31,
-      "failed": 1,
+      "tests": 30,
+      "passed": 27,
+      "failed": 0,
       "other": 3,
       "broke_at": "Q2",
-      "first_failure": "Q2 is not displayed when its guard fails",
-      "first_order": 23,
+      "first_failure": "Q2's option list is narrowed to what was chosen at Q1",
+      "first_order": 26,
       "real_broke_at": "",
       "real_first_failure": "",
       "real_first_order": 9999,
       "causes": [
-        "UNSETTLED_QUESTION",
         "COVERAGE_GAP",
         "NEEDS_SAMPLE"
       ],
       "status": "NOT PROVEN",
-      "status_note": "nothing on this journey is known to be wrong, but not everything could be proved: UNSETTLED_QUESTION, COVERAGE_GAP, NEEDS_SAMPLE"
+      "status_note": "nothing on this journey is known to be wrong, but not everything could be proved: COVERAGE_GAP, NEEDS_SAMPLE"
     },
     {
       "path_id": "P09",
@@ -165,7 +166,7 @@
       "other": 0,
       "broke_at": "Q17",
       "first_failure": "Q17 refuses an answer of spaces alone, being compulsory",
-      "first_order": 107,
+      "first_order": 110,
       "real_broke_at": "",
       "real_first_failure": "",
       "real_first_order": 9999,
@@ -177,30 +178,50 @@
     },
     {
       "path_id": "P10",
-      "name": "Completing respondent \u2014 Q1=Independent provider; Q10=No; Q12=Not resolved",
+      "name": "Completing respondent \u2014 Q5=None of these",
+      "route_class": "MAIN",
+      "tests": 6,
+      "passed": 4,
+      "failed": 0,
+      "other": 2,
+      "broke_at": "Q16",
+      "first_failure": "Q16 presents all 6 items exactly once, with none missing and none repeated",
+      "first_order": 100,
+      "real_broke_at": "",
+      "real_first_failure": "",
+      "real_first_order": 9999,
+      "causes": [
+        "COVERAGE_GAP",
+        "NEEDS_SAMPLE"
+      ],
+      "status": "NOT PROVEN",
+      "status_note": "nothing on this journey is known to be wrong, but not everything could be proved: COVERAGE_GAP, NEEDS_SAMPLE"
+    },
+    {
+      "path_id": "P11",
+      "name": "Completing respondent \u2014 Q1=None of these; Q10=No; Q12=Not resolved",
       "route_class": "MAIN",
       "tests": 70,
-      "passed": 56,
-      "failed": 4,
-      "other": 10,
+      "passed": 59,
+      "failed": 3,
+      "other": 8,
       "broke_at": "Q5",
       "first_failure": "reject rule R19 fires when its condition holds",
-      "first_order": 35,
+      "first_order": 38,
       "real_broke_at": "Q5",
       "real_first_failure": "reject rule R19 fires when its condition holds",
-      "real_first_order": 35,
+      "real_first_order": 38,
       "causes": [
         "TEST_MODEL_GAP",
         "COVERAGE_GAP",
         "NEEDS_SAMPLE",
-        "NOT_BUILT_YET",
-        "HARNESS_FAULT"
+        "NOT_BUILT_YET"
       ],
       "status": "BROKEN",
       "status_note": "a respondent taking this journey would meet something wrong"
     },
     {
-      "path_id": "P11",
+      "path_id": "P12",
       "name": "Completing respondent \u2014 Q1=Care Network A; Q10=Yes; Q12=Fully",
       "route_class": "MAIN",
       "tests": 0,
@@ -228,10 +249,10 @@
       "reason": "before the run, Agent 3 already reported REJECT_RULE_NOT_BUILT for R19",
       "to_fix": "no action on this test. It will pass once the survey builder emits that rule",
       "tests": [
-        "TC-FT30"
+        "TC-FT33"
       ],
       "severity": 3,
-      "order": 35
+      "order": 38
     },
     {
       "cause": "NOT_BUILT_YET",
@@ -242,10 +263,10 @@
       "reason": "before the run, Agent 3 already reported REJECT_RULE_NOT_BUILT for R20",
       "to_fix": "no action on this test. It will pass once the survey builder emits that rule",
       "tests": [
-        "TC-FT35"
+        "TC-FT40"
       ],
       "severity": 3,
-      "order": 41
+      "order": 46
     },
     {
       "cause": "TEST_MODEL_GAP",
@@ -256,10 +277,10 @@
       "reason": "the survey was built with LimeSurvey's exclusive option (exclude_all_others), which unticks the other choices when the exclusive one is ticked. The respondent cannot submit both, so there is no error to show",
       "to_fix": "check by hand that ticking the exclusive option clears the others. If it does, the rule works and the test should check the end state, not an error message",
       "tests": [
-        "TC-FT13"
+        "TC-FT14"
       ],
       "severity": 4,
-      "order": 17
+      "order": 18
     },
     {
       "cause": "TEST_MODEL_GAP",
@@ -270,24 +291,10 @@
       "reason": "the survey was built with LimeSurvey's exclusive option (exclude_all_others), which unticks the other choices when the exclusive one is ticked. The respondent cannot submit both, so there is no error to show",
       "to_fix": "check by hand that ticking the exclusive option clears the others. If it does, the rule works and the test should check the end state, not an error message",
       "tests": [
-        "TC-FT29"
+        "TC-FT32"
       ],
       "severity": 4,
-      "order": 34
-    },
-    {
-      "cause": "UNSETTLED_QUESTION",
-      "owner": "the client",
-      "question": "Q2",
-      "count": 1,
-      "means": "The questionnaire never settled this, and a reading was assumed. Neither the survey nor the test is wrong until someone decides.",
-      "reason": "this test depends on an unconfirmed reading: multi_equality, rule_precedence",
-      "to_fix": "ask the client which reading is intended. Until then this is a question, not a defect",
-      "tests": [
-        "TC-FT18"
-      ],
-      "severity": 5,
-      "order": 23
+      "order": 37
     },
     {
       "cause": "UNSETTLED_QUESTION",
@@ -295,27 +302,13 @@
       "question": "Q17",
       "count": 1,
       "means": "The questionnaire never settled this, and a reading was assumed. Neither the survey nor the test is wrong until someone decides.",
-      "reason": "this test depends on an unconfirmed reading: multi_equality, rule_precedence, whitespace_is_an_answer",
+      "reason": "this test depends on an unconfirmed reading: multi_equality, whitespace_is_an_answer",
       "to_fix": "ask the client which reading is intended. Until then this is a question, not a defect",
       "tests": [
-        "TC-FT99"
+        "TC-FT102"
       ],
       "severity": 5,
-      "order": 107
-    },
-    {
-      "cause": "HARNESS_FAULT",
-      "owner": "Respondent Bot",
-      "question": "D1",
-      "count": 1,
-      "means": "The bot could not carry the test out, so nothing was proved either way. This says nothing about the survey.",
-      "reason": "the journey never reached the point it was testing, so nothing about the survey was observed",
-      "to_fix": "fix the bot, then run this test again. Until then it is neither a pass nor a failure",
-      "tests": [
-        "TC-FT120"
-      ],
-      "severity": 6,
-      "order": 129
+      "order": 110
     },
     {
       "cause": "COVERAGE_GAP",
@@ -326,10 +319,10 @@
       "reason": "the bot reached the right place but has no way yet to observe this kind of claim",
       "to_fix": "teach the bot to observe it, or record that this claim cannot be proved by running one respondent through the survey",
       "tests": [
-        "TC-FT15"
+        "TC-FT16"
       ],
       "severity": 7,
-      "order": 19
+      "order": 20
     },
     {
       "cause": "COVERAGE_GAP",
@@ -340,10 +333,10 @@
       "reason": "the bot reached the right place but has no way yet to observe this kind of claim",
       "to_fix": "teach the bot to observe it, or record that this claim cannot be proved by running one respondent through the survey",
       "tests": [
-        "TC-FT20"
+        "TC-FT21"
       ],
       "severity": 7,
-      "order": 25
+      "order": 26
     },
     {
       "cause": "COVERAGE_GAP",
@@ -354,10 +347,10 @@
       "reason": "the bot reached the right place but has no way yet to observe this kind of claim",
       "to_fix": "teach the bot to observe it, or record that this claim cannot be proved by running one respondent through the survey",
       "tests": [
-        "TC-FT32"
+        "TC-FT35"
       ],
       "severity": 7,
-      "order": 37
+      "order": 40
     },
     {
       "cause": "COVERAGE_GAP",
@@ -368,10 +361,10 @@
       "reason": "the bot reached the right place but has no way yet to observe this kind of claim",
       "to_fix": "teach the bot to observe it, or record that this claim cannot be proved by running one respondent through the survey",
       "tests": [
-        "TC-FT37"
+        "TC-FT42"
       ],
       "severity": 7,
-      "order": 43
+      "order": 48
     },
     {
       "cause": "COVERAGE_GAP",
@@ -382,10 +375,10 @@
       "reason": "the bot reached the right place but has no way yet to observe this kind of claim",
       "to_fix": "teach the bot to observe it, or record that this claim cannot be proved by running one respondent through the survey",
       "tests": [
-        "TC-FT55"
+        "TC-FT58"
       ],
       "severity": 7,
-      "order": 61
+      "order": 64
     },
     {
       "cause": "COVERAGE_GAP",
@@ -396,10 +389,10 @@
       "reason": "the bot reached the right place but has no way yet to observe this kind of claim",
       "to_fix": "teach the bot to observe it, or record that this claim cannot be proved by running one respondent through the survey",
       "tests": [
-        "TC-FT90"
+        "TC-FT93"
       ],
       "severity": 7,
-      "order": 97
+      "order": 100
     },
     {
       "cause": "COVERAGE_GAP",
@@ -410,10 +403,10 @@
       "reason": "the bot reached the right place but has no way yet to observe this kind of claim",
       "to_fix": "teach the bot to observe it, or record that this claim cannot be proved by running one respondent through the survey",
       "tests": [
-        "TC-FT108"
+        "TC-FT111"
       ],
       "severity": 7,
-      "order": 116
+      "order": 119
     },
     {
       "cause": "COVERAGE_GAP",
@@ -424,14 +417,14 @@
       "reason": "the bot reached the right place but has no way yet to observe this kind of claim",
       "to_fix": "teach the bot to observe it, or record that this claim cannot be proved by running one respondent through the survey",
       "tests": [
-        "TC-FT122",
-        "TC-FT123",
-        "TC-FT124",
-        "TC-FT125",
-        "TC-FT126"
+        "TC-FT126",
+        "TC-FT127",
+        "TC-FT128",
+        "TC-FT129",
+        "TC-FT130"
       ],
       "severity": 7,
-      "order": 131
+      "order": 135
     },
     {
       "cause": "COVERAGE_GAP",
@@ -442,14 +435,14 @@
       "reason": "the bot reached the right place but has no way yet to observe this kind of claim",
       "to_fix": "teach the bot to observe it, or record that this claim cannot be proved by running one respondent through the survey",
       "tests": [
-        "TC-FT129",
-        "TC-FT130",
-        "TC-FT131",
-        "TC-FT132",
-        "TC-FT133"
+        "TC-FT133",
+        "TC-FT134",
+        "TC-FT135",
+        "TC-FT136",
+        "TC-FT137"
       ],
       "severity": 7,
-      "order": 138
+      "order": 142
     },
     {
       "cause": "NEEDS_SAMPLE",
@@ -463,7 +456,7 @@
         "TC-ST01"
       ],
       "severity": 8,
-      "order": 20
+      "order": 21
     },
     {
       "cause": "NEEDS_SAMPLE",
@@ -477,7 +470,7 @@
         "TC-ST02"
       ],
       "severity": 8,
-      "order": 38
+      "order": 41
     },
     {
       "cause": "NEEDS_SAMPLE",
@@ -491,7 +484,7 @@
         "TC-ST03"
       ],
       "severity": 8,
-      "order": 62
+      "order": 65
     },
     {
       "cause": "NEEDS_SAMPLE",
@@ -505,7 +498,7 @@
         "TC-ST04"
       ],
       "severity": 8,
-      "order": 98
+      "order": 101
     },
     {
       "cause": "NEEDS_SAMPLE",
@@ -519,14 +512,14 @@
         "TC-ST05"
       ],
       "severity": 8,
-      "order": 117
+      "order": 120
     }
   ],
   "judgements": [
     {
-      "test_case_id": "TC-FT13",
+      "test_case_id": "TC-FT14",
       "question": "Q1",
-      "path_id": "P10",
+      "path_id": "P11",
       "title": "Q1 rejects an answer breaking ['exclusive_option_id']",
       "outcome": "FAILED",
       "cause": "TEST_MODEL_GAP",
@@ -534,12 +527,12 @@
       "reason": "the survey was built with LimeSurvey's exclusive option (exclude_all_others), which unticks the other choices when the exclusive one is ticked. The respondent cannot submit both, so there is no error to show",
       "to_fix": "check by hand that ticking the exclusive option clears the others. If it does, the rule works and the test should check the end state, not an error message",
       "observed": "it accepted the answer and moved on, when it should have stopped the respondent",
-      "order": 17
+      "order": 18
     },
     {
-      "test_case_id": "TC-FT15",
+      "test_case_id": "TC-FT16",
       "question": "Q1",
-      "path_id": "P10",
+      "path_id": "P11",
       "title": "Q1 presents all 5 items exactly once, with none missing and none repeated",
       "outcome": "INCONCLUSIVE",
       "cause": "COVERAGE_GAP",
@@ -547,12 +540,12 @@
       "reason": "the bot reached the right place but has no way yet to observe this kind of claim",
       "to_fix": "teach the bot to observe it, or record that this claim cannot be proved by running one respondent through the survey",
       "observed": "",
-      "order": 19
+      "order": 20
     },
     {
       "test_case_id": "TC-ST01",
       "question": "Q1",
-      "path_id": "P10",
+      "path_id": "P11",
       "title": "Q1 presents its items in a different order to different respondents, proving shuffling is switched on",
       "outcome": "SKIPPED",
       "cause": "NEEDS_SAMPLE",
@@ -560,23 +553,10 @@
       "reason": "the claim is about what happens across many respondents, so it is not a single journey and the bot rightly did not run it",
       "to_fix": "no action on this test. It needs a run with a sample, which does not exist yet",
       "observed": "needs several respondents, so it is not a single journey",
-      "order": 20
+      "order": 21
     },
     {
-      "test_case_id": "TC-FT18",
-      "question": "Q2",
-      "path_id": "P08",
-      "title": "Q2 is not displayed when its guard fails",
-      "outcome": "FAILED",
-      "cause": "UNSETTLED_QUESTION",
-      "owner": "the client",
-      "reason": "this test depends on an unconfirmed reading: multi_equality, rule_precedence",
-      "to_fix": "ask the client which reading is intended. Until then this is a question, not a defect",
-      "observed": "Q2 appeared anyway, when it should have been hidden",
-      "order": 23
-    },
-    {
-      "test_case_id": "TC-FT20",
+      "test_case_id": "TC-FT21",
       "question": "Q2",
       "path_id": "P08",
       "title": "Q2's option list is narrowed to what was chosen at Q1",
@@ -586,12 +566,12 @@
       "reason": "the bot reached the right place but has no way yet to observe this kind of claim",
       "to_fix": "teach the bot to observe it, or record that this claim cannot be proved by running one respondent through the survey",
       "observed": "",
-      "order": 25
+      "order": 26
     },
     {
-      "test_case_id": "TC-FT29",
+      "test_case_id": "TC-FT32",
       "question": "Q5",
-      "path_id": "P10",
+      "path_id": "P11",
       "title": "Q5 rejects an answer breaking ['exclusive_option_id']",
       "outcome": "FAILED",
       "cause": "TEST_MODEL_GAP",
@@ -599,12 +579,12 @@
       "reason": "the survey was built with LimeSurvey's exclusive option (exclude_all_others), which unticks the other choices when the exclusive one is ticked. The respondent cannot submit both, so there is no error to show",
       "to_fix": "check by hand that ticking the exclusive option clears the others. If it does, the rule works and the test should check the end state, not an error message",
       "observed": "it accepted the answer and moved on, when it should have stopped the respondent",
-      "order": 34
+      "order": 37
     },
     {
-      "test_case_id": "TC-FT30",
+      "test_case_id": "TC-FT33",
       "question": "Q5",
-      "path_id": "P10",
+      "path_id": "P11",
       "title": "reject rule R19 fires when its condition holds",
       "outcome": "FAILED",
       "cause": "NOT_BUILT_YET",
@@ -612,12 +592,12 @@
       "reason": "before the run, Agent 3 already reported REJECT_RULE_NOT_BUILT for R19",
       "to_fix": "no action on this test. It will pass once the survey builder emits that rule",
       "observed": "it accepted the answer and moved on, when it should have stopped the respondent",
-      "order": 35
+      "order": 38
     },
     {
-      "test_case_id": "TC-FT32",
+      "test_case_id": "TC-FT35",
       "question": "Q5",
-      "path_id": "P10",
+      "path_id": "P11",
       "title": "Q5 presents all 7 items exactly once, with none missing and none repeated",
       "outcome": "INCONCLUSIVE",
       "cause": "COVERAGE_GAP",
@@ -625,12 +605,12 @@
       "reason": "the bot reached the right place but has no way yet to observe this kind of claim",
       "to_fix": "teach the bot to observe it, or record that this claim cannot be proved by running one respondent through the survey",
       "observed": "",
-      "order": 37
+      "order": 40
     },
     {
       "test_case_id": "TC-ST02",
       "question": "Q5",
-      "path_id": "P10",
+      "path_id": "P11",
       "title": "Q5 presents its items in a different order to different respondents, proving shuffling is switched on",
       "outcome": "SKIPPED",
       "cause": "NEEDS_SAMPLE",
@@ -638,12 +618,12 @@
       "reason": "the claim is about what happens across many respondents, so it is not a single journey and the bot rightly did not run it",
       "to_fix": "no action on this test. It needs a run with a sample, which does not exist yet",
       "observed": "needs several respondents, so it is not a single journey",
-      "order": 38
+      "order": 41
     },
     {
-      "test_case_id": "TC-FT35",
+      "test_case_id": "TC-FT40",
       "question": "Q6",
-      "path_id": "P10",
+      "path_id": "P07",
       "title": "reject rule R20 fires when its condition holds",
       "outcome": "FAILED",
       "cause": "NOT_BUILT_YET",
@@ -651,12 +631,12 @@
       "reason": "before the run, Agent 3 already reported REJECT_RULE_NOT_BUILT for R20",
       "to_fix": "no action on this test. It will pass once the survey builder emits that rule",
       "observed": "it accepted the answer and moved on, when it should have stopped the respondent",
-      "order": 41
+      "order": 46
     },
     {
-      "test_case_id": "TC-FT37",
+      "test_case_id": "TC-FT42",
       "question": "Q6",
-      "path_id": "P10",
+      "path_id": "P07",
       "title": "Q6's option list is narrowed to what was chosen at Q5",
       "outcome": "INCONCLUSIVE",
       "cause": "COVERAGE_GAP",
@@ -664,10 +644,10 @@
       "reason": "the bot reached the right place but has no way yet to observe this kind of claim",
       "to_fix": "teach the bot to observe it, or record that this claim cannot be proved by running one respondent through the survey",
       "observed": "",
-      "order": 43
+      "order": 48
     },
     {
-      "test_case_id": "TC-FT55",
+      "test_case_id": "TC-FT58",
       "question": "Q9",
       "path_id": "P08",
       "title": "Q9 presents all 5 items exactly once, with none missing and none repeated",
@@ -677,7 +657,7 @@
       "reason": "the bot reached the right place but has no way yet to observe this kind of claim",
       "to_fix": "teach the bot to observe it, or record that this claim cannot be proved by running one respondent through the survey",
       "observed": "",
-      "order": 61
+      "order": 64
     },
     {
       "test_case_id": "TC-ST03",
@@ -690,12 +670,12 @@
       "reason": "the claim is about what happens across many respondents, so it is not a single journey and the bot rightly did not run it",
       "to_fix": "no action on this test. It needs a run with a sample, which does not exist yet",
       "observed": "needs several respondents, so it is not a single journey",
-      "order": 62
+      "order": 65
     },
     {
-      "test_case_id": "TC-FT90",
+      "test_case_id": "TC-FT93",
       "question": "Q16",
-      "path_id": "P05",
+      "path_id": "P10",
       "title": "Q16 presents all 6 items exactly once, with none missing and none repeated",
       "outcome": "INCONCLUSIVE",
       "cause": "COVERAGE_GAP",
@@ -703,12 +683,12 @@
       "reason": "the bot reached the right place but has no way yet to observe this kind of claim",
       "to_fix": "teach the bot to observe it, or record that this claim cannot be proved by running one respondent through the survey",
       "observed": "",
-      "order": 97
+      "order": 100
     },
     {
       "test_case_id": "TC-ST04",
       "question": "Q16",
-      "path_id": "P05",
+      "path_id": "P10",
       "title": "Q16 presents its items in a different order to different respondents, proving shuffling is switched on",
       "outcome": "SKIPPED",
       "cause": "NEEDS_SAMPLE",
@@ -716,25 +696,25 @@
       "reason": "the claim is about what happens across many respondents, so it is not a single journey and the bot rightly did not run it",
       "to_fix": "no action on this test. It needs a run with a sample, which does not exist yet",
       "observed": "needs several respondents, so it is not a single journey",
-      "order": 98
+      "order": 101
     },
     {
-      "test_case_id": "TC-FT99",
+      "test_case_id": "TC-FT102",
       "question": "Q17",
       "path_id": "P09",
       "title": "Q17 refuses an answer of spaces alone, being compulsory",
       "outcome": "FAILED",
       "cause": "UNSETTLED_QUESTION",
       "owner": "the client",
-      "reason": "this test depends on an unconfirmed reading: multi_equality, rule_precedence, whitespace_is_an_answer",
+      "reason": "this test depends on an unconfirmed reading: multi_equality, whitespace_is_an_answer",
       "to_fix": "ask the client which reading is intended. Until then this is a question, not a defect",
       "observed": "it accepted the answer and moved on, when it should have stopped the respondent",
-      "order": 107
+      "order": 110
     },
     {
-      "test_case_id": "TC-FT108",
+      "test_case_id": "TC-FT111",
       "question": "Q19",
-      "path_id": "P10",
+      "path_id": "P11",
       "title": "Q19 presents all 3 items exactly once, with none missing and none repeated",
       "outcome": "INCONCLUSIVE",
       "cause": "COVERAGE_GAP",
@@ -742,12 +722,12 @@
       "reason": "the bot reached the right place but has no way yet to observe this kind of claim",
       "to_fix": "teach the bot to observe it, or record that this claim cannot be proved by running one respondent through the survey",
       "observed": "",
-      "order": 116
+      "order": 119
     },
     {
       "test_case_id": "TC-ST05",
       "question": "Q19",
-      "path_id": "P10",
+      "path_id": "P11",
       "title": "Q19 presents its items in a different order to different respondents, proving shuffling is switched on",
       "outcome": "SKIPPED",
       "cause": "NEEDS_SAMPLE",
@@ -755,78 +735,13 @@
       "reason": "the claim is about what happens across many respondents, so it is not a single journey and the bot rightly did not run it",
       "to_fix": "no action on this test. It needs a run with a sample, which does not exist yet",
       "observed": "needs several respondents, so it is not a single journey",
-      "order": 117
-    },
-    {
-      "test_case_id": "TC-FT120",
-      "question": "D1",
-      "path_id": "P10",
-      "title": "answering D1 normally moves the respondent on to the question that should come next",
-      "outcome": "BLOCKED",
-      "cause": "HARNESS_FAULT",
-      "owner": "Respondent Bot",
-      "reason": "the journey never reached the point it was testing, so nothing about the survey was observed",
-      "to_fix": "fix the bot, then run this test again. Until then it is neither a pass nor a failure",
-      "observed": "D1 never appeared. The respondent was shown: S1, S2, S3, S4, Q1, Q2, Q3, Q4, Q5, Q6, Q7, Q8, Q9, Q10, Q11; D2 never appeared. The respondent was shown: S1, S2, S3, S4, Q1, Q2, Q3, Q4, Q5, Q6, Q7, Q8, Q9, Q10, Q11",
-      "order": 129
-    },
-    {
-      "test_case_id": "TC-FT122",
-      "question": "D1",
-      "path_id": "P10",
-      "title": "QUOTA_REGION:D1-O1 (North) admits a respondent while below target",
-      "outcome": "INCONCLUSIVE",
-      "cause": "COVERAGE_GAP",
-      "owner": "Respondent Bot (not built yet)",
-      "reason": "the bot reached the right place but has no way yet to observe this kind of claim",
-      "to_fix": "teach the bot to observe it, or record that this claim cannot be proved by running one respondent through the survey",
-      "observed": "",
-      "order": 131
-    },
-    {
-      "test_case_id": "TC-FT123",
-      "question": "D1",
-      "path_id": "P05",
-      "title": "QUOTA_REGION:D1-O2 (South) admits a respondent while below target",
-      "outcome": "INCONCLUSIVE",
-      "cause": "COVERAGE_GAP",
-      "owner": "Respondent Bot (not built yet)",
-      "reason": "the bot reached the right place but has no way yet to observe this kind of claim",
-      "to_fix": "teach the bot to observe it, or record that this claim cannot be proved by running one respondent through the survey",
-      "observed": "",
-      "order": 132
-    },
-    {
-      "test_case_id": "TC-FT124",
-      "question": "D1",
-      "path_id": "P05",
-      "title": "QUOTA_REGION:D1-O3 (East) admits a respondent while below target",
-      "outcome": "INCONCLUSIVE",
-      "cause": "COVERAGE_GAP",
-      "owner": "Respondent Bot (not built yet)",
-      "reason": "the bot reached the right place but has no way yet to observe this kind of claim",
-      "to_fix": "teach the bot to observe it, or record that this claim cannot be proved by running one respondent through the survey",
-      "observed": "",
-      "order": 133
-    },
-    {
-      "test_case_id": "TC-FT125",
-      "question": "D1",
-      "path_id": "P05",
-      "title": "QUOTA_REGION:D1-O4 (West) admits a respondent while below target",
-      "outcome": "INCONCLUSIVE",
-      "cause": "COVERAGE_GAP",
-      "owner": "Respondent Bot (not built yet)",
-      "reason": "the bot reached the right place but has no way yet to observe this kind of claim",
-      "to_fix": "teach the bot to observe it, or record that this claim cannot be proved by running one respondent through the survey",
-      "observed": "",
-      "order": 134
+      "order": 120
     },
     {
       "test_case_id": "TC-FT126",
       "question": "D1",
-      "path_id": "P05",
-      "title": "QUOTA_REGION:D1-O5 (Central) admits a respondent while below target",
+      "path_id": "P11",
+      "title": "QUOTA_REGION:D1-O1 (North) admits a respondent while below target",
       "outcome": "INCONCLUSIVE",
       "cause": "COVERAGE_GAP",
       "owner": "Respondent Bot (not built yet)",
@@ -836,10 +751,36 @@
       "order": 135
     },
     {
+      "test_case_id": "TC-FT127",
+      "question": "D1",
+      "path_id": "P05",
+      "title": "QUOTA_REGION:D1-O2 (South) admits a respondent while below target",
+      "outcome": "INCONCLUSIVE",
+      "cause": "COVERAGE_GAP",
+      "owner": "Respondent Bot (not built yet)",
+      "reason": "the bot reached the right place but has no way yet to observe this kind of claim",
+      "to_fix": "teach the bot to observe it, or record that this claim cannot be proved by running one respondent through the survey",
+      "observed": "",
+      "order": 136
+    },
+    {
+      "test_case_id": "TC-FT128",
+      "question": "D1",
+      "path_id": "P05",
+      "title": "QUOTA_REGION:D1-O3 (East) admits a respondent while below target",
+      "outcome": "INCONCLUSIVE",
+      "cause": "COVERAGE_GAP",
+      "owner": "Respondent Bot (not built yet)",
+      "reason": "the bot reached the right place but has no way yet to observe this kind of claim",
+      "to_fix": "teach the bot to observe it, or record that this claim cannot be proved by running one respondent through the survey",
+      "observed": "",
+      "order": 137
+    },
+    {
       "test_case_id": "TC-FT129",
-      "question": "D2",
-      "path_id": "P10",
-      "title": "QUOTA_AGE:D2-O1 (21-29) admits a respondent while below target",
+      "question": "D1",
+      "path_id": "P05",
+      "title": "QUOTA_REGION:D1-O4 (West) admits a respondent while below target",
       "outcome": "INCONCLUSIVE",
       "cause": "COVERAGE_GAP",
       "owner": "Respondent Bot (not built yet)",
@@ -850,9 +791,9 @@
     },
     {
       "test_case_id": "TC-FT130",
-      "question": "D2",
-      "path_id": "P06",
-      "title": "QUOTA_AGE:D2-O2 (30-39) admits a respondent while below target",
+      "question": "D1",
+      "path_id": "P05",
+      "title": "QUOTA_REGION:D1-O5 (Central) admits a respondent while below target",
       "outcome": "INCONCLUSIVE",
       "cause": "COVERAGE_GAP",
       "owner": "Respondent Bot (not built yet)",
@@ -862,7 +803,33 @@
       "order": 139
     },
     {
-      "test_case_id": "TC-FT131",
+      "test_case_id": "TC-FT133",
+      "question": "D2",
+      "path_id": "P11",
+      "title": "QUOTA_AGE:D2-O1 (21-29) admits a respondent while below target",
+      "outcome": "INCONCLUSIVE",
+      "cause": "COVERAGE_GAP",
+      "owner": "Respondent Bot (not built yet)",
+      "reason": "the bot reached the right place but has no way yet to observe this kind of claim",
+      "to_fix": "teach the bot to observe it, or record that this claim cannot be proved by running one respondent through the survey",
+      "observed": "",
+      "order": 142
+    },
+    {
+      "test_case_id": "TC-FT134",
+      "question": "D2",
+      "path_id": "P06",
+      "title": "QUOTA_AGE:D2-O2 (30-39) admits a respondent while below target",
+      "outcome": "INCONCLUSIVE",
+      "cause": "COVERAGE_GAP",
+      "owner": "Respondent Bot (not built yet)",
+      "reason": "the bot reached the right place but has no way yet to observe this kind of claim",
+      "to_fix": "teach the bot to observe it, or record that this claim cannot be proved by running one respondent through the survey",
+      "observed": "",
+      "order": 143
+    },
+    {
+      "test_case_id": "TC-FT135",
       "question": "D2",
       "path_id": "P06",
       "title": "QUOTA_AGE:D2-O3 (40-49) admits a respondent while below target",
@@ -872,10 +839,10 @@
       "reason": "the bot reached the right place but has no way yet to observe this kind of claim",
       "to_fix": "teach the bot to observe it, or record that this claim cannot be proved by running one respondent through the survey",
       "observed": "",
-      "order": 140
+      "order": 144
     },
     {
-      "test_case_id": "TC-FT132",
+      "test_case_id": "TC-FT136",
       "question": "D2",
       "path_id": "P06",
       "title": "QUOTA_AGE:D2-O4 (50-59) admits a respondent while below target",
@@ -885,10 +852,10 @@
       "reason": "the bot reached the right place but has no way yet to observe this kind of claim",
       "to_fix": "teach the bot to observe it, or record that this claim cannot be proved by running one respondent through the survey",
       "observed": "",
-      "order": 141
+      "order": 145
     },
     {
-      "test_case_id": "TC-FT133",
+      "test_case_id": "TC-FT137",
       "question": "D2",
       "path_id": "P06",
       "title": "QUOTA_AGE:D2-O5 (60+) admits a respondent while below target",
@@ -898,7 +865,7 @@
       "reason": "the bot reached the right place but has no way yet to observe this kind of claim",
       "to_fix": "teach the bot to observe it, or record that this claim cannot be proved by running one respondent through the survey",
       "observed": "",
-      "order": 142
+      "order": 146
     }
   ]
 }

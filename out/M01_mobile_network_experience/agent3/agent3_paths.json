@@ -5,11 +5,11 @@
   "survey_id": "M01_mobile_network_experience",
   "source_document": {
     "filename": "M01_mobile_network_experience.docx",
-    "sha256": "1be6ec051fbc914680d8add2a2c9e85c568f5468d8f39f5b6e915eb5bfe6f3b5"
+    "sha256": "6f7e2db55c2c8ffaabdd4890e35464b4a5325a0ae13e38ffabb37ed06d064964"
   },
   "upstream": {
     "canonical_schema_version": "1.0.0",
-    "canonical_generated_at": "2026-10-11T10:11:51+00:00"
+    "canonical_generated_at": "2026-10-11T10:54:30+00:00"
   },
   "content": {
     "report": {
@@ -219,6 +219,7 @@
           "S1",
           "S2",
           "S3",
+          "DT1",
           "Q1",
           "Q2",
           "Q3",
@@ -232,6 +233,7 @@
           "Q11",
           "Q12",
           "Q13",
+          "DT2",
           "D1",
           "D2",
           "Q14"
@@ -269,7 +271,7 @@
           "label": "North"
         },
         "mechanism": "QUOTA_REGION",
-        "sequence_text": "S1 -> S2 -> S3 -> Q1 -> Q2 -> Q3 -> Q4 -> Q5 -> Q6 -> Q7 -> Q8 -> Q9 -> Q10 -> Q11 -> Q12 -> Q13 -> D1 -> D2 -> Q14  ->  TERM_QUOTA_FULL"
+        "sequence_text": "S1 -> S2 -> S3 -> DT1 -> Q1 -> Q2 -> Q3 -> Q4 -> Q5 -> Q6 -> Q7 -> Q8 -> Q9 -> Q10 -> Q11 -> Q12 -> Q13 -> DT2 -> D1 -> D2 -> Q14  ->  TERM_QUOTA_FULL"
       },
       {
         "path_id": "P04",
@@ -279,6 +281,7 @@
           "S1",
           "S2",
           "S3",
+          "DT1",
           "Q1",
           "Q2",
           "Q3",
@@ -289,6 +292,7 @@
           "Q11",
           "Q12",
           "Q13",
+          "DT2",
           "D1",
           "D2",
           "Q14"
@@ -323,7 +327,7 @@
         "preconditions": "Fresh respondent, no prior answers. Both quota cells open.",
         "campaign": {},
         "mechanism": "",
-        "sequence_text": "S1 -> S2 -> S3 -> Q1 -> Q2 -> Q3 -> Q4 -> Q5 -> Q6 -> Q7 -> Q11 -> Q12 -> Q13 -> D1 -> D2 -> Q14  ->  COMPLETE"
+        "sequence_text": "S1 -> S2 -> S3 -> DT1 -> Q1 -> Q2 -> Q3 -> Q4 -> Q5 -> Q6 -> Q7 -> Q11 -> Q12 -> Q13 -> DT2 -> D1 -> D2 -> Q14  ->  COMPLETE"
       },
       {
         "path_id": "P05",
@@ -333,6 +337,7 @@
           "S1",
           "S2",
           "S3",
+          "DT1",
           "Q1",
           "Q2",
           "Q3",
@@ -346,6 +351,7 @@
           "Q11",
           "Q12",
           "Q13",
+          "DT2",
           "D1",
           "D2",
           "Q14"
@@ -383,7 +389,7 @@
         "preconditions": "Fresh respondent, no prior answers. Both quota cells open.",
         "campaign": {},
         "mechanism": "",
-        "sequence_text": "S1 -> S2 -> S3 -> Q1 -> Q2 -> Q3 -> Q4 -> Q5 -> Q6 -> Q7 -> Q8 -> Q9 -> Q10 -> Q11 -> Q12 -> Q13 -> D1 -> D2 -> Q14  ->  COMPLETE"
+        "sequence_text": "S1 -> S2 -> S3 -> DT1 -> Q1 -> Q2 -> Q3 -> Q4 -> Q5 -> Q6 -> Q7 -> Q8 -> Q9 -> Q10 -> Q11 -> Q12 -> Q13 -> DT2 -> D1 -> D2 -> Q14  ->  COMPLETE"
       },
       {
         "path_id": "P06",
@@ -393,6 +399,7 @@
           "S1",
           "S2",
           "S3",
+          "DT1",
           "Q1",
           "Q2",
           "Q3",
@@ -405,6 +412,7 @@
           "Q11",
           "Q12",
           "Q13",
+          "DT2",
           "D1",
           "D2",
           "Q14"
@@ -443,7 +451,7 @@
         "preconditions": "Fresh respondent, no prior answers. Both quota cells open.",
         "campaign": {},
         "mechanism": "",
-        "sequence_text": "S1 -> S2 -> S3 -> Q1 -> Q2 -> Q3 -> Q4 -> Q5 -> Q6 -> Q7 -> Q8 -> Q9 -> Q11 -> Q12 -> Q13 -> D1 -> D2 -> Q14  ->  COMPLETE"
+        "sequence_text": "S1 -> S2 -> S3 -> DT1 -> Q1 -> Q2 -> Q3 -> Q4 -> Q5 -> Q6 -> Q7 -> Q8 -> Q9 -> Q11 -> Q12 -> Q13 -> DT2 -> D1 -> D2 -> Q14  ->  COMPLETE"
       }
     ]
   }

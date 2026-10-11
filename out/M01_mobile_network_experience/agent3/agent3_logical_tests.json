@@ -5,14 +5,14 @@
   "survey_id": "M01_mobile_network_experience",
   "source_document": {
     "filename": "M01_mobile_network_experience.docx",
-    "sha256": "1be6ec051fbc914680d8add2a2c9e85c568f5468d8f39f5b6e915eb5bfe6f3b5"
+    "sha256": "6f7e2db55c2c8ffaabdd4890e35464b4a5325a0ae13e38ffabb37ed06d064964"
   },
   "upstream": {
     "canonical_schema_version": "1.0.0",
-    "canonical_generated_at": "2026-10-11T10:11:51+00:00"
+    "canonical_generated_at": "2026-10-11T10:54:30+00:00"
   },
   "content": {
-    "count": 83,
+    "count": 82,
     "tests": [
       {
         "test_id": "TC-a8b01845f7",
@@ -404,6 +404,520 @@
         ],
         "traces_to": [
           "D2"
+        ],
+        "executable": false,
+        "non_executable_reason": "NO_BUILD_MANIFEST",
+        "provisional_semantics": [
+          "multi_equality"
+        ],
+        "campaign": {},
+        "setup": [
+          {
+            "question_id": "S1",
+            "question_kind": "single",
+            "value": "S1-O1",
+            "step": 1
+          },
+          {
+            "question_id": "S2",
+            "question_kind": "single",
+            "value": "S2-O1",
+            "step": 2
+          },
+          {
+            "question_id": "S3",
+            "question_kind": "integer",
+            "value": 18,
+            "step": 3
+          },
+          {
+            "question_id": "Q1",
+            "question_kind": "single",
+            "value": "Q1-O1",
+            "step": 4
+          },
+          {
+            "question_id": "Q2",
+            "question_kind": "single",
+            "value": "Q2-O1",
+            "step": 5
+          },
+          {
+            "question_id": "Q3",
+            "question_kind": "single",
+            "value": "Q3-O1",
+            "step": 6
+          },
+          {
+            "question_id": "Q4",
+            "question_kind": "single",
+            "value": "Q4-O1",
+            "step": 7
+          },
+          {
+            "question_id": "Q5",
+            "question_kind": "single",
+            "value": "Q5-O1",
+            "step": 8
+          },
+          {
+            "question_id": "Q6",
+            "question_kind": "single",
+            "value": "Q6-O1",
+            "step": 9
+          },
+          {
+            "question_id": "Q7",
+            "question_kind": "multi",
+            "value": [
+              "Q7-O1"
+            ],
+            "step": 10
+          },
+          {
+            "question_id": "Q8",
+            "question_kind": "single",
+            "value": "Q8-O1",
+            "step": 11
+          },
+          {
+            "question_id": "Q9",
+            "question_kind": "single",
+            "value": "Q9-O1",
+            "step": 12
+          },
+          {
+            "question_id": "Q10",
+            "question_kind": "single",
+            "value": "Q10-O1",
+            "step": 13
+          },
+          {
+            "question_id": "Q11",
+            "question_kind": "single",
+            "value": "Q11-O1",
+            "step": 14
+          },
+          {
+            "question_id": "Q12",
+            "question_kind": "single",
+            "value": "Q12-O1",
+            "step": 15
+          },
+          {
+            "question_id": "Q13",
+            "question_kind": "single",
+            "value": "Q13-O1",
+            "step": 16
+          },
+          {
+            "question_id": "D1",
+            "question_kind": "single",
+            "value": "D1-O1",
+            "step": 17
+          },
+          {
+            "question_id": "D2",
+            "question_kind": "single",
+            "value": "D2-O1",
+            "step": 18
+          }
+        ],
+        "action": [],
+        "action_text": "Answer through the whole survey as listed, then observe where it ends.",
+        "focus": null,
+        "blocks": false
+      },
+      {
+        "test_id": "TC-f4e1e7e3f0",
+        "target_id": "T-4c28ba9a4a",
+        "dimension": "D1",
+        "title": "answering DT1 normally moves the respondent on to the question that should come next",
+        "steps": [
+          {
+            "question_id": "S1",
+            "question_kind": "single",
+            "value": "S1-O1",
+            "step": 1
+          },
+          {
+            "question_id": "S2",
+            "question_kind": "single",
+            "value": "S2-O1",
+            "step": 2
+          },
+          {
+            "question_id": "S3",
+            "question_kind": "integer",
+            "value": 18,
+            "step": 3
+          },
+          {
+            "question_id": "Q1",
+            "question_kind": "single",
+            "value": "Q1-O1",
+            "step": 4
+          },
+          {
+            "question_id": "Q2",
+            "question_kind": "single",
+            "value": "Q2-O1",
+            "step": 5
+          },
+          {
+            "question_id": "Q3",
+            "question_kind": "single",
+            "value": "Q3-O1",
+            "step": 6
+          },
+          {
+            "question_id": "Q4",
+            "question_kind": "single",
+            "value": "Q4-O1",
+            "step": 7
+          },
+          {
+            "question_id": "Q5",
+            "question_kind": "single",
+            "value": "Q5-O1",
+            "step": 8
+          },
+          {
+            "question_id": "Q6",
+            "question_kind": "single",
+            "value": "Q6-O1",
+            "step": 9
+          },
+          {
+            "question_id": "Q7",
+            "question_kind": "multi",
+            "value": [
+              "Q7-O1"
+            ],
+            "step": 10
+          },
+          {
+            "question_id": "Q8",
+            "question_kind": "single",
+            "value": "Q8-O1",
+            "step": 11
+          },
+          {
+            "question_id": "Q9",
+            "question_kind": "single",
+            "value": "Q9-O1",
+            "step": 12
+          },
+          {
+            "question_id": "Q10",
+            "question_kind": "single",
+            "value": "Q10-O1",
+            "step": 13
+          },
+          {
+            "question_id": "Q11",
+            "question_kind": "single",
+            "value": "Q11-O1",
+            "step": 14
+          },
+          {
+            "question_id": "Q12",
+            "question_kind": "single",
+            "value": "Q12-O1",
+            "step": 15
+          },
+          {
+            "question_id": "Q13",
+            "question_kind": "single",
+            "value": "Q13-O1",
+            "step": 16
+          },
+          {
+            "question_id": "D1",
+            "question_kind": "single",
+            "value": "D1-O1",
+            "step": 17
+          },
+          {
+            "question_id": "D2",
+            "question_kind": "single",
+            "value": "D2-O1",
+            "step": 18
+          }
+        ],
+        "assertions": [
+          {
+            "kind": "question_visible",
+            "target": "DT1",
+            "expected": true,
+            "detail": "the question must be on screen so it can be answered"
+          },
+          {
+            "kind": "next_question_is",
+            "target": "Q1",
+            "expected": "Q1",
+            "detail": "and the very next question the respondent sees must be this one"
+          }
+        ],
+        "traces_to": [
+          "DT1"
+        ],
+        "executable": false,
+        "non_executable_reason": "NO_BUILD_MANIFEST",
+        "provisional_semantics": [
+          "multi_equality"
+        ],
+        "campaign": {},
+        "setup": [
+          {
+            "question_id": "S1",
+            "question_kind": "single",
+            "value": "S1-O1",
+            "step": 1
+          },
+          {
+            "question_id": "S2",
+            "question_kind": "single",
+            "value": "S2-O1",
+            "step": 2
+          },
+          {
+            "question_id": "S3",
+            "question_kind": "integer",
+            "value": 18,
+            "step": 3
+          },
+          {
+            "question_id": "Q1",
+            "question_kind": "single",
+            "value": "Q1-O1",
+            "step": 4
+          },
+          {
+            "question_id": "Q2",
+            "question_kind": "single",
+            "value": "Q2-O1",
+            "step": 5
+          },
+          {
+            "question_id": "Q3",
+            "question_kind": "single",
+            "value": "Q3-O1",
+            "step": 6
+          },
+          {
+            "question_id": "Q4",
+            "question_kind": "single",
+            "value": "Q4-O1",
+            "step": 7
+          },
+          {
+            "question_id": "Q5",
+            "question_kind": "single",
+            "value": "Q5-O1",
+            "step": 8
+          },
+          {
+            "question_id": "Q6",
+            "question_kind": "single",
+            "value": "Q6-O1",
+            "step": 9
+          },
+          {
+            "question_id": "Q7",
+            "question_kind": "multi",
+            "value": [
+              "Q7-O1"
+            ],
+            "step": 10
+          },
+          {
+            "question_id": "Q8",
+            "question_kind": "single",
+            "value": "Q8-O1",
+            "step": 11
+          },
+          {
+            "question_id": "Q9",
+            "question_kind": "single",
+            "value": "Q9-O1",
+            "step": 12
+          },
+          {
+            "question_id": "Q10",
+            "question_kind": "single",
+            "value": "Q10-O1",
+            "step": 13
+          },
+          {
+            "question_id": "Q11",
+            "question_kind": "single",
+            "value": "Q11-O1",
+            "step": 14
+          },
+          {
+            "question_id": "Q12",
+            "question_kind": "single",
+            "value": "Q12-O1",
+            "step": 15
+          },
+          {
+            "question_id": "Q13",
+            "question_kind": "single",
+            "value": "Q13-O1",
+            "step": 16
+          },
+          {
+            "question_id": "D1",
+            "question_kind": "single",
+            "value": "D1-O1",
+            "step": 17
+          },
+          {
+            "question_id": "D2",
+            "question_kind": "single",
+            "value": "D2-O1",
+            "step": 18
+          }
+        ],
+        "action": [],
+        "action_text": "Answer through the whole survey as listed, then observe where it ends.",
+        "focus": null,
+        "blocks": false
+      },
+      {
+        "test_id": "TC-72b21a0117",
+        "target_id": "T-56d0ac2b77",
+        "dimension": "D1",
+        "title": "answering DT2 normally moves the respondent on to the question that should come next",
+        "steps": [
+          {
+            "question_id": "S1",
+            "question_kind": "single",
+            "value": "S1-O1",
+            "step": 1
+          },
+          {
+            "question_id": "S2",
+            "question_kind": "single",
+            "value": "S2-O1",
+            "step": 2
+          },
+          {
+            "question_id": "S3",
+            "question_kind": "integer",
+            "value": 18,
+            "step": 3
+          },
+          {
+            "question_id": "Q1",
+            "question_kind": "single",
+            "value": "Q1-O1",
+            "step": 4
+          },
+          {
+            "question_id": "Q2",
+            "question_kind": "single",
+            "value": "Q2-O1",
+            "step": 5
+          },
+          {
+            "question_id": "Q3",
+            "question_kind": "single",
+            "value": "Q3-O1",
+            "step": 6
+          },
+          {
+            "question_id": "Q4",
+            "question_kind": "single",
+            "value": "Q4-O1",
+            "step": 7
+          },
+          {
+            "question_id": "Q5",
+            "question_kind": "single",
+            "value": "Q5-O1",
+            "step": 8
+          },
+          {
+            "question_id": "Q6",
+            "question_kind": "single",
+            "value": "Q6-O1",
+            "step": 9
+          },
+          {
+            "question_id": "Q7",
+            "question_kind": "multi",
+            "value": [
+              "Q7-O1"
+            ],
+            "step": 10
+          },
+          {
+            "question_id": "Q8",
+            "question_kind": "single",
+            "value": "Q8-O1",
+            "step": 11
+          },
+          {
+            "question_id": "Q9",
+            "question_kind": "single",
+            "value": "Q9-O1",
+            "step": 12
+          },
+          {
+            "question_id": "Q10",
+            "question_kind": "single",
+            "value": "Q10-O1",
+            "step": 13
+          },
+          {
+            "question_id": "Q11",
+            "question_kind": "single",
+            "value": "Q11-O1",
+            "step": 14
+          },
+          {
+            "question_id": "Q12",
+            "question_kind": "single",
+            "value": "Q12-O1",
+            "step": 15
+          },
+          {
+            "question_id": "Q13",
+            "question_kind": "single",
+            "value": "Q13-O1",
+            "step": 16
+          },
+          {
+            "question_id": "D1",
+            "question_kind": "single",
+            "value": "D1-O1",
+            "step": 17
+          },
+          {
+            "question_id": "D2",
+            "question_kind": "single",
+            "value": "D2-O1",
+            "step": 18
+          }
+        ],
+        "assertions": [
+          {
+            "kind": "question_visible",
+            "target": "DT2",
+            "expected": true,
+            "detail": "the question must be on screen so it can be answered"
+          },
+          {
+            "kind": "next_question_is",
+            "target": "D1",
+            "expected": "D1",
+            "detail": "and the very next question the respondent sees must be this one"
+          }
+        ],
+        "traces_to": [
+          "DT2"
         ],
         "executable": false,
         "non_executable_reason": "NO_BUILD_MANIFEST",
@@ -2061,8 +2575,8 @@
           },
           {
             "kind": "next_question_is",
-            "target": "D1",
-            "expected": "D1",
+            "target": "DT2",
+            "expected": "DT2",
             "detail": "and the very next question the respondent sees must be this one"
           }
         ],
@@ -6489,8 +7003,8 @@
           },
           {
             "kind": "next_question_is",
-            "target": "Q1",
-            "expected": "Q1",
+            "target": "DT1",
+            "expected": "DT1",
             "detail": "and the very next question the respondent sees must be this one"
           }
         ],
@@ -12138,334 +12652,10 @@
         "blocks": false
       },
       {
-        "test_id": "TC-8db6a8785c",
-        "target_id": "T-6eac8ecd08",
+        "test_id": "TC-874504db82",
+        "target_id": "T-85ba201aff",
         "dimension": "D6",
-        "title": "Q2's wording renders the answer given at Q1",
-        "steps": [
-          {
-            "question_id": "S1",
-            "question_kind": "single",
-            "value": "S1-O1",
-            "step": 1
-          },
-          {
-            "question_id": "S2",
-            "question_kind": "single",
-            "value": "S2-O1",
-            "step": 2
-          },
-          {
-            "question_id": "S3",
-            "question_kind": "integer",
-            "value": 18,
-            "step": 3
-          },
-          {
-            "question_id": "Q1",
-            "question_kind": "single",
-            "value": "Q1-O1",
-            "step": 4
-          },
-          {
-            "question_id": "Q2",
-            "question_kind": "single",
-            "value": "Q2-O1",
-            "step": 5
-          }
-        ],
-        "assertions": [
-          {
-            "kind": "wording_contains",
-            "target": "Q2",
-            "expected": "Provider A",
-            "detail": "the question text must render the answer given at Q1"
-          }
-        ],
-        "traces_to": [
-          "Q1",
-          "Q2"
-        ],
-        "executable": false,
-        "non_executable_reason": "NO_BUILD_MANIFEST",
-        "provisional_semantics": [
-          "multi_equality"
-        ],
-        "campaign": {},
-        "setup": [
-          {
-            "question_id": "S1",
-            "question_kind": "single",
-            "value": "S1-O1",
-            "step": 1
-          },
-          {
-            "question_id": "S2",
-            "question_kind": "single",
-            "value": "S2-O1",
-            "step": 2
-          },
-          {
-            "question_id": "S3",
-            "question_kind": "integer",
-            "value": 18,
-            "step": 3
-          },
-          {
-            "question_id": "Q1",
-            "question_kind": "single",
-            "value": "Q1-O1",
-            "step": 4
-          }
-        ],
-        "action": [
-          {
-            "question_id": "Q2",
-            "question_kind": "single",
-            "value": "Q2-O1"
-          }
-        ],
-        "action_text": "At Q2, choose \u201cWithin 7 days\u201d, then submit.",
-        "focus": "Q2",
-        "blocks": false
-      },
-      {
-        "test_id": "TC-da8242c00a",
-        "target_id": "T-d80f93e85d",
-        "dimension": "D6",
-        "title": "Q3's wording renders the answer given at Q1",
-        "steps": [
-          {
-            "question_id": "S1",
-            "question_kind": "single",
-            "value": "S1-O1",
-            "step": 1
-          },
-          {
-            "question_id": "S2",
-            "question_kind": "single",
-            "value": "S2-O1",
-            "step": 2
-          },
-          {
-            "question_id": "S3",
-            "question_kind": "integer",
-            "value": 18,
-            "step": 3
-          },
-          {
-            "question_id": "Q1",
-            "question_kind": "single",
-            "value": "Q1-O1",
-            "step": 4
-          },
-          {
-            "question_id": "Q2",
-            "question_kind": "single",
-            "value": "Q2-O1",
-            "step": 5
-          },
-          {
-            "question_id": "Q3",
-            "question_kind": "single",
-            "value": "Q3-O1",
-            "step": 6
-          }
-        ],
-        "assertions": [
-          {
-            "kind": "wording_contains",
-            "target": "Q3",
-            "expected": "Provider A",
-            "detail": "the question text must render the answer given at Q1"
-          }
-        ],
-        "traces_to": [
-          "Q1",
-          "Q3"
-        ],
-        "executable": false,
-        "non_executable_reason": "NO_BUILD_MANIFEST",
-        "provisional_semantics": [
-          "multi_equality"
-        ],
-        "campaign": {},
-        "setup": [
-          {
-            "question_id": "S1",
-            "question_kind": "single",
-            "value": "S1-O1",
-            "step": 1
-          },
-          {
-            "question_id": "S2",
-            "question_kind": "single",
-            "value": "S2-O1",
-            "step": 2
-          },
-          {
-            "question_id": "S3",
-            "question_kind": "integer",
-            "value": 18,
-            "step": 3
-          },
-          {
-            "question_id": "Q1",
-            "question_kind": "single",
-            "value": "Q1-O1",
-            "step": 4
-          },
-          {
-            "question_id": "Q2",
-            "question_kind": "single",
-            "value": "Q2-O1",
-            "step": 5
-          }
-        ],
-        "action": [
-          {
-            "question_id": "Q3",
-            "question_kind": "single",
-            "value": "Q3-O1"
-          }
-        ],
-        "action_text": "At Q3, choose \u201cCalls\u201d, then submit.",
-        "focus": "Q3",
-        "blocks": false
-      },
-      {
-        "test_id": "TC-773cfd986f",
-        "target_id": "T-7dd1f6b60f",
-        "dimension": "D6",
-        "title": "Q5's wording renders the answer given at Q1",
-        "steps": [
-          {
-            "question_id": "S1",
-            "question_kind": "single",
-            "value": "S1-O1",
-            "step": 1
-          },
-          {
-            "question_id": "S2",
-            "question_kind": "single",
-            "value": "S2-O1",
-            "step": 2
-          },
-          {
-            "question_id": "S3",
-            "question_kind": "integer",
-            "value": 18,
-            "step": 3
-          },
-          {
-            "question_id": "Q1",
-            "question_kind": "single",
-            "value": "Q1-O1",
-            "step": 4
-          },
-          {
-            "question_id": "Q2",
-            "question_kind": "single",
-            "value": "Q2-O1",
-            "step": 5
-          },
-          {
-            "question_id": "Q3",
-            "question_kind": "single",
-            "value": "Q3-O1",
-            "step": 6
-          },
-          {
-            "question_id": "Q4",
-            "question_kind": "single",
-            "value": "Q4-O1",
-            "step": 7
-          },
-          {
-            "question_id": "Q5",
-            "question_kind": "single",
-            "value": "Q5-O1",
-            "step": 8
-          }
-        ],
-        "assertions": [
-          {
-            "kind": "wording_contains",
-            "target": "Q5",
-            "expected": "Provider A",
-            "detail": "the question text must render the answer given at Q1"
-          }
-        ],
-        "traces_to": [
-          "Q1",
-          "Q5"
-        ],
-        "executable": false,
-        "non_executable_reason": "NO_BUILD_MANIFEST",
-        "provisional_semantics": [
-          "multi_equality"
-        ],
-        "campaign": {},
-        "setup": [
-          {
-            "question_id": "S1",
-            "question_kind": "single",
-            "value": "S1-O1",
-            "step": 1
-          },
-          {
-            "question_id": "S2",
-            "question_kind": "single",
-            "value": "S2-O1",
-            "step": 2
-          },
-          {
-            "question_id": "S3",
-            "question_kind": "integer",
-            "value": 18,
-            "step": 3
-          },
-          {
-            "question_id": "Q1",
-            "question_kind": "single",
-            "value": "Q1-O1",
-            "step": 4
-          },
-          {
-            "question_id": "Q2",
-            "question_kind": "single",
-            "value": "Q2-O1",
-            "step": 5
-          },
-          {
-            "question_id": "Q3",
-            "question_kind": "single",
-            "value": "Q3-O1",
-            "step": 6
-          },
-          {
-            "question_id": "Q4",
-            "question_kind": "single",
-            "value": "Q4-O1",
-            "step": 7
-          }
-        ],
-        "action": [
-          {
-            "question_id": "Q5",
-            "question_kind": "single",
-            "value": "Q5-O1"
-          }
-        ],
-        "action_text": "At Q5, choose \u201cVery poor\u201d, then submit.",
-        "focus": "Q5",
-        "blocks": false
-      },
-      {
-        "test_id": "TC-a0e8410259",
-        "target_id": "T-937569ef64",
-        "dimension": "D6",
-        "title": "Q9's wording renders the answer given at Q8",
+        "title": "Q9's wording renders the answer given at Q7",
         "steps": [
           {
             "question_id": "S1",
@@ -12547,11 +12737,11 @@
             "kind": "wording_contains",
             "target": "Q9",
             "expected": "Dropped calls",
-            "detail": "the question text must render the answer given at Q8"
+            "detail": "the question text must render the answer given at Q7"
           }
         ],
         "traces_to": [
-          "Q8",
+          "Q7",
           "Q9"
         ],
         "executable": false,
@@ -15224,10 +15414,10 @@
         "blocks": false
       },
       {
-        "test_id": "TC-e4c5bba3f8",
-        "target_id": "T-beab00ecea",
+        "test_id": "TC-38d52f5f68",
+        "target_id": "T-72e6818f53",
         "dimension": "D9",
-        "title": "Q9 is shown by its guard and simultaneously reflects its dependency on Q8",
+        "title": "Q9 is shown by its guard and simultaneously reflects its dependency on Q7",
         "steps": [
           {
             "question_id": "S1",
@@ -15315,11 +15505,11 @@
             "kind": "reflects_dependency",
             "target": "Q9",
             "expected": "Dropped calls",
-            "detail": "and must simultaneously reflect its dependency on Q8"
+            "detail": "and must simultaneously reflect its dependency on Q7"
           }
         ],
         "traces_to": [
-          "Q8",
+          "Q7",
           "Q9"
         ],
         "executable": false,

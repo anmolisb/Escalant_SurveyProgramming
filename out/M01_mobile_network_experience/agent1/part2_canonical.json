@@ -5,10 +5,10 @@
   "survey_id": "M01_mobile_network_experience",
   "source_document": {
     "filename": "M01_mobile_network_experience.docx",
-    "sha256": "1be6ec051fbc914680d8add2a2c9e85c568f5468d8f39f5b6e915eb5bfe6f3b5",
-    "bytes": 41874
+    "sha256": "6f7e2db55c2c8ffaabdd4890e35464b4a5325a0ae13e38ffabb37ed06d064964",
+    "bytes": 42042
   },
-  "generated_at": "2026-10-11T10:11:51+00:00",
+  "generated_at": "2026-10-11T10:54:30+00:00",
   "item_count": null,
   "content": {
     "source": "M01_mobile_network_experience.docx",
@@ -238,8 +238,41 @@
         }
       },
       {
-        "question_id": "Q1",
+        "question_id": "DT1",
         "seq": 4,
+        "kind": "text display",
+        "wording": "Great, you're eligible for this survey! Next, a few questions about your recent mobile network experience.",
+        "options": [],
+        "matrix_rows": [],
+        "validation": {
+          "min_length": null,
+          "max_length": null,
+          "min_value": null,
+          "max_value": null,
+          "min_selections": null,
+          "sum_to": null,
+          "require_each_row": null,
+          "exclusive_option_id": null,
+          "exclusive_option_label": null,
+          "mandatory": false,
+          "mandatory_origin": "derived"
+        },
+        "guard": null,
+        "option_source": null,
+        "extra": {},
+        "source_reference": {
+          "document": "M01_mobile_network_experience.docx",
+          "section": "Questionnaire",
+          "heading_text": "Questionnaire",
+          "block_order": 10,
+          "row_index": 3,
+          "source_kind": "table",
+          "text": "DT1 | Great, you're eligible for this survey! Next, a few questions about your recent mobile network experience. | text display | \u2014 | Always show"
+        }
+      },
+      {
+        "question_id": "Q1",
+        "seq": 5,
         "kind": "single",
         "wording": "Which mobile network services channel or provider did you use most recently?",
         "options": [
@@ -294,14 +327,14 @@
           "section": "Questionnaire",
           "heading_text": "Questionnaire",
           "block_order": 10,
-          "row_index": 3,
+          "row_index": 4,
           "source_kind": "table",
           "text": "Q1 | Which mobile network services channel or provider did you use most recently? | single | Provider A; Provider B; Provider C; Provider D | Always show"
         }
       },
       {
         "question_id": "Q2",
-        "seq": 5,
+        "seq": 6,
         "kind": "single",
         "wording": "When did the most recent experience occur?",
         "options": [
@@ -356,14 +389,14 @@
           "section": "Questionnaire",
           "heading_text": "Questionnaire",
           "block_order": 10,
-          "row_index": 4,
+          "row_index": 5,
           "source_kind": "table",
           "text": "Q2 | When did the most recent experience occur? | single | Within 7 days; 8-30 days; 1-3 months; 4-6 months | Always show"
         }
       },
       {
         "question_id": "Q3",
-        "seq": 6,
+        "seq": 7,
         "kind": "single",
         "wording": "What was the primary purpose of the experience?",
         "options": [
@@ -425,14 +458,14 @@
           "section": "Questionnaire",
           "heading_text": "Questionnaire",
           "block_order": 10,
-          "row_index": 5,
+          "row_index": 6,
           "source_kind": "table",
           "text": "Q3 | What was the primary purpose of the experience? | single | Calls; Mobile data; Recharge or billing; Customer support; International roaming | Randomize"
         }
       },
       {
         "question_id": "Q4",
-        "seq": 7,
+        "seq": 8,
         "kind": "single",
         "wording": "Rate your overall satisfaction.",
         "options": [
@@ -494,14 +527,14 @@
           "section": "Questionnaire",
           "heading_text": "Questionnaire",
           "block_order": 10,
-          "row_index": 6,
+          "row_index": 7,
           "source_kind": "table",
           "text": "Q4 | Rate your overall satisfaction. | single | 1 - Very poor; 2 - Poor; 3 - Fair; 4 - Good; 5 - Excellent | Always show"
         }
       },
       {
         "question_id": "Q5",
-        "seq": 8,
+        "seq": 9,
         "kind": "single",
         "wording": "Rate the ease of completing the experience.",
         "options": [
@@ -563,14 +596,14 @@
           "section": "Questionnaire",
           "heading_text": "Questionnaire",
           "block_order": 10,
-          "row_index": 7,
+          "row_index": 8,
           "source_kind": "table",
           "text": "Q5 | Rate the ease of completing the experience. | single | 1 - Very poor; 2 - Poor; 3 - Fair; 4 - Good; 5 - Excellent | Always show"
         }
       },
       {
         "question_id": "Q6",
-        "seq": 9,
+        "seq": 10,
         "kind": "single",
         "wording": "Rate the clarity of information provided.",
         "options": [
@@ -632,14 +665,14 @@
           "section": "Questionnaire",
           "heading_text": "Questionnaire",
           "block_order": 10,
-          "row_index": 8,
+          "row_index": 9,
           "source_kind": "table",
           "text": "Q6 | Rate the clarity of information provided. | single | 1 - Very poor; 2 - Poor; 3 - Fair; 4 - Good; 5 - Excellent | Always show"
         }
       },
       {
         "question_id": "Q7",
-        "seq": 10,
+        "seq": 11,
         "kind": "multi",
         "wording": "Did you experience any of the following problems?",
         "options": [
@@ -708,14 +741,14 @@
           "section": "Questionnaire",
           "heading_text": "Questionnaire",
           "block_order": 10,
-          "row_index": 9,
+          "row_index": 10,
           "source_kind": "table",
           "text": "Q7 | Did you experience any of the following problems? | multi | Dropped calls; Slow data; Unexpected charge; Coverage gap; Support delay; None of these | Validate: {\"exclusive_option\": \"None of these\"}\nRandomize"
         }
       },
       {
         "question_id": "Q8",
-        "seq": 11,
+        "seq": 12,
         "kind": "single",
         "wording": "Which problem had the greatest impact?",
         "options": [
@@ -824,7 +857,7 @@
             "section": "Questionnaire",
             "heading_text": "Questionnaire",
             "block_order": 10,
-            "row_index": 10,
+            "row_index": 11,
             "source_kind": "table",
             "text": "Q8 | Which problem had the greatest impact? | single | Dropped calls; Slow data; Unexpected charge; Coverage gap; Support delay | Show if: Q7 contains any problem\nShow only options selected at Q7."
           }
@@ -835,14 +868,14 @@
           "section": "Questionnaire",
           "heading_text": "Questionnaire",
           "block_order": 10,
-          "row_index": 10,
+          "row_index": 11,
           "source_kind": "table",
           "text": "Q8 | Which problem had the greatest impact? | single | Dropped calls; Slow data; Unexpected charge; Coverage gap; Support delay | Show if: Q7 contains any problem\nShow only options selected at Q7."
         }
       },
       {
         "question_id": "Q9",
-        "seq": 12,
+        "seq": 13,
         "kind": "single",
         "wording": "Was the main problem resolved?",
         "options": [
@@ -935,14 +968,14 @@
           "section": "Questionnaire",
           "heading_text": "Questionnaire",
           "block_order": 10,
-          "row_index": 11,
+          "row_index": 12,
           "source_kind": "table",
           "text": "Q9 | Was the main problem resolved? | single | Yes, fully; Yes, partly; No | Show if: Q7 contains any problem"
         }
       },
       {
         "question_id": "Q10",
-        "seq": 13,
+        "seq": 14,
         "kind": "single",
         "wording": "How satisfied were you with the resolution?",
         "options": [
@@ -1043,14 +1076,14 @@
           "section": "Questionnaire",
           "heading_text": "Questionnaire",
           "block_order": 10,
-          "row_index": 12,
+          "row_index": 13,
           "source_kind": "table",
           "text": "Q10 | How satisfied were you with the resolution? | single | 1 - Very poor; 2 - Poor; 3 - Fair; 4 - Good; 5 - Excellent | Show if: Q9 in ['Yes, fully','Yes, partly']"
         }
       },
       {
         "question_id": "Q11",
-        "seq": 14,
+        "seq": 15,
         "kind": "single",
         "wording": "How likely are you to recommend the provider?",
         "options": [
@@ -1154,14 +1187,14 @@
           "section": "Questionnaire",
           "heading_text": "Questionnaire",
           "block_order": 10,
-          "row_index": 13,
+          "row_index": 14,
           "source_kind": "table",
           "text": "Q11 | How likely are you to recommend the provider? | single | 0; 1; 2; 3; 4; 5; 6; 7; 8; 9; 10 | Always show"
         }
       },
       {
         "question_id": "Q12",
-        "seq": 15,
+        "seq": 16,
         "kind": "single",
         "wording": "How likely are you to continue using the provider?",
         "options": [
@@ -1223,14 +1256,14 @@
           "section": "Questionnaire",
           "heading_text": "Questionnaire",
           "block_order": 10,
-          "row_index": 14,
+          "row_index": 15,
           "source_kind": "table",
           "text": "Q12 | How likely are you to continue using the provider? | single | Definitely not; Probably not; Unsure; Probably; Definitely | Always show"
         }
       },
       {
         "question_id": "Q13",
-        "seq": 16,
+        "seq": 17,
         "kind": "single",
         "wording": "Which improvement would have the greatest value?",
         "options": [
@@ -1292,14 +1325,47 @@
           "section": "Questionnaire",
           "heading_text": "Questionnaire",
           "block_order": 10,
-          "row_index": 15,
+          "row_index": 16,
           "source_kind": "table",
           "text": "Q13 | Which improvement would have the greatest value? | single | Lower cost; Faster service; Clearer information; Better staff support; Improved digital experience | Randomize"
         }
       },
       {
+        "question_id": "DT2",
+        "seq": 18,
+        "kind": "text display",
+        "wording": "You're almost done! Thank you for your answers. Just a few last questions about you to finish up.",
+        "options": [],
+        "matrix_rows": [],
+        "validation": {
+          "min_length": null,
+          "max_length": null,
+          "min_value": null,
+          "max_value": null,
+          "min_selections": null,
+          "sum_to": null,
+          "require_each_row": null,
+          "exclusive_option_id": null,
+          "exclusive_option_label": null,
+          "mandatory": false,
+          "mandatory_origin": "derived"
+        },
+        "guard": null,
+        "option_source": null,
+        "extra": {},
+        "source_reference": {
+          "document": "M01_mobile_network_experience.docx",
+          "section": "Questionnaire",
+          "heading_text": "Questionnaire",
+          "block_order": 10,
+          "row_index": 17,
+          "source_kind": "table",
+          "text": "DT2 | You're almost done! Thank you for your answers. Just a few last questions about you to finish up. | text display | \u2014 | Always show"
+        }
+      },
+      {
         "question_id": "D1",
-        "seq": 17,
+        "seq": 19,
         "kind": "single",
         "wording": "Which region do you live in?",
         "options": [
@@ -1361,14 +1427,14 @@
           "section": "Questionnaire",
           "heading_text": "Questionnaire",
           "block_order": 10,
-          "row_index": 16,
+          "row_index": 18,
           "source_kind": "table",
           "text": "D1 | Which region do you live in? | single | North; South; East; West; Central | Always show"
         }
       },
       {
         "question_id": "D2",
-        "seq": 18,
+        "seq": 20,
         "kind": "single",
         "wording": "Which age group describes you?",
         "options": [
@@ -1430,14 +1496,14 @@
           "section": "Questionnaire",
           "heading_text": "Questionnaire",
           "block_order": 10,
-          "row_index": 17,
+          "row_index": 19,
           "source_kind": "table",
           "text": "D2 | Which age group describes you? | single | 18-24; 25-34; 35-44; 45-54; 55+ | Always show"
         }
       },
       {
         "question_id": "Q14",
-        "seq": 19,
+        "seq": 21,
         "kind": "text",
         "wording": "Please provide any final comments.",
         "options": [],
@@ -1463,7 +1529,7 @@
           "section": "Questionnaire",
           "heading_text": "Questionnaire",
           "block_order": 10,
-          "row_index": 18,
+          "row_index": 20,
           "source_kind": "table",
           "text": "Q14 | Please provide any final comments. | text | \u2014 | Validate: {\"max_length\": 750}\nOptional"
         }
@@ -2042,57 +2108,6 @@
     ],
     "dependencies": [
       {
-        "from_question": "Q1",
-        "to_question": "Q2",
-        "kind": "text_pipe",
-        "detail": "the most recent experience",
-        "origin": "inferred",
-        "confidence": 0.99,
-        "source_reference": {
-          "document": "M01_mobile_network_experience.docx",
-          "section": "Questionnaire",
-          "heading_text": "Questionnaire",
-          "block_order": 10,
-          "row_index": 4,
-          "source_kind": "table",
-          "text": "Q2 | When did the most recent experience occur? | single | Within 7 days; 8-30 days; 1-3 months; 4-6 months | Always show"
-        }
-      },
-      {
-        "from_question": "Q1",
-        "to_question": "Q3",
-        "kind": "text_pipe",
-        "detail": "the experience",
-        "origin": "inferred",
-        "confidence": 0.98,
-        "source_reference": {
-          "document": "M01_mobile_network_experience.docx",
-          "section": "Questionnaire",
-          "heading_text": "Questionnaire",
-          "block_order": 10,
-          "row_index": 5,
-          "source_kind": "table",
-          "text": "Q3 | What was the primary purpose of the experience? | single | Calls; Mobile data; Recharge or billing; Customer support; International roaming | Randomize"
-        }
-      },
-      {
-        "from_question": "Q1",
-        "to_question": "Q5",
-        "kind": "text_pipe",
-        "detail": "the experience",
-        "origin": "inferred",
-        "confidence": 0.98,
-        "source_reference": {
-          "document": "M01_mobile_network_experience.docx",
-          "section": "Questionnaire",
-          "heading_text": "Questionnaire",
-          "block_order": 10,
-          "row_index": 7,
-          "source_kind": "table",
-          "text": "Q5 | Rate the ease of completing the experience. | single | 1 - Very poor; 2 - Poor; 3 - Fair; 4 - Good; 5 - Excellent | Always show"
-        }
-      },
-      {
         "from_question": "Q7",
         "to_question": "Q8",
         "kind": "option_source",
@@ -2104,13 +2119,13 @@
           "section": "Questionnaire",
           "heading_text": "Questionnaire",
           "block_order": 10,
-          "row_index": 10,
+          "row_index": 11,
           "source_kind": "table",
           "text": "Q8 | Which problem had the greatest impact? | single | Dropped calls; Slow data; Unexpected charge; Coverage gap; Support delay | Show if: Q7 contains any problem\nShow only options selected at Q7."
         }
       },
       {
-        "from_question": "Q8",
+        "from_question": "Q7",
         "to_question": "Q9",
         "kind": "text_pipe",
         "detail": "the main problem",
@@ -2121,7 +2136,7 @@
           "section": "Questionnaire",
           "heading_text": "Questionnaire",
           "block_order": 10,
-          "row_index": 11,
+          "row_index": 12,
           "source_kind": "table",
           "text": "Q9 | Was the main problem resolved? | single | Yes, fully; Yes, partly; No | Show if: Q7 contains any problem"
         }
@@ -2138,7 +2153,7 @@
           "section": "Questionnaire",
           "heading_text": "Questionnaire",
           "block_order": 10,
-          "row_index": 12,
+          "row_index": 13,
           "source_kind": "table",
           "text": "Q10 | How satisfied were you with the resolution? | single | 1 - Very poor; 2 - Poor; 3 - Fair; 4 - Good; 5 - Excellent | Show if: Q9 in ['Yes, fully','Yes, partly']"
         }
@@ -2155,7 +2170,7 @@
           "section": "Questionnaire",
           "heading_text": "Questionnaire",
           "block_order": 10,
-          "row_index": 13,
+          "row_index": 14,
           "source_kind": "table",
           "text": "Q11 | How likely are you to recommend the provider? | single | 0; 1; 2; 3; 4; 5; 6; 7; 8; 9; 10 | Always show"
         }
@@ -2172,7 +2187,7 @@
           "section": "Questionnaire",
           "heading_text": "Questionnaire",
           "block_order": 10,
-          "row_index": 14,
+          "row_index": 15,
           "source_kind": "table",
           "text": "Q12 | How likely are you to continue using the provider? | single | Definitely not; Probably not; Unsure; Probably; Definitely | Always show"
         }
@@ -2191,7 +2206,7 @@
           "section": "Questionnaire",
           "heading_text": "Questionnaire",
           "block_order": 10,
-          "row_index": 5,
+          "row_index": 6,
           "source_kind": "table",
           "text": "Q3 | What was the primary purpose of the experience? | single | Calls; Mobile data; Recharge or billing; Customer support; International roaming | Randomize"
         }
@@ -2208,7 +2223,7 @@
           "section": "Questionnaire",
           "heading_text": "Questionnaire",
           "block_order": 10,
-          "row_index": 9,
+          "row_index": 10,
           "source_kind": "table",
           "text": "Q7 | Did you experience any of the following problems? | multi | Dropped calls; Slow data; Unexpected charge; Coverage gap; Support delay; None of these | Validate: {\"exclusive_option\": \"None of these\"}\nRandomize"
         }
@@ -2225,7 +2240,7 @@
           "section": "Questionnaire",
           "heading_text": "Questionnaire",
           "block_order": 10,
-          "row_index": 15,
+          "row_index": 16,
           "source_kind": "table",
           "text": "Q13 | Which improvement would have the greatest value? | single | Lower cost; Faster service; Clearer information; Better staff support; Improved digital experience | Randomize"
         }
@@ -2817,40 +2832,7 @@
       {
         "check": "text_pipe_inferred",
         "severity": "WARNING",
-        "finding": "Q2's wording appears to quote the answer given at Q1. No table states this; it was read out of the sentence, so it is worth confirming.",
-        "target": {
-          "kind": "question",
-          "id": "Q2"
-        },
-        "evidence": "'the most recent experience' (confidence 0.99)",
-        "source_reference": null
-      },
-      {
-        "check": "text_pipe_inferred",
-        "severity": "WARNING",
-        "finding": "Q3's wording appears to quote the answer given at Q1. No table states this; it was read out of the sentence, so it is worth confirming.",
-        "target": {
-          "kind": "question",
-          "id": "Q3"
-        },
-        "evidence": "'the experience' (confidence 0.98)",
-        "source_reference": null
-      },
-      {
-        "check": "text_pipe_inferred",
-        "severity": "WARNING",
-        "finding": "Q5's wording appears to quote the answer given at Q1. No table states this; it was read out of the sentence, so it is worth confirming.",
-        "target": {
-          "kind": "question",
-          "id": "Q5"
-        },
-        "evidence": "'the experience' (confidence 0.98)",
-        "source_reference": null
-      },
-      {
-        "check": "text_pipe_inferred",
-        "severity": "WARNING",
-        "finding": "Q9's wording appears to quote the answer given at Q8. No table states this; it was read out of the sentence, so it is worth confirming.",
+        "finding": "Q9's wording appears to quote the answer given at Q7. No table states this; it was read out of the sentence, so it is worth confirming.",
         "target": {
           "kind": "question",
           "id": "Q9"

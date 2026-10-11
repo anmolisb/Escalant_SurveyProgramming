@@ -1,9 +1,9 @@
 {
   "survey": "S01_campus_cafeteria_experience",
-  "survey_id": "362829",
-  "run_at": "2026-10-11T08:10:10.259231+00:00",
+  "survey_id": "414369",
+  "run_at": "2026-10-11T11:05:59.937114+00:00",
   "counts": {
-    "PASSED": 41,
+    "PASSED": 42,
     "FAILED": 0,
     "BLOCKED": 0,
     "INCONCLUSIVE": 0,
@@ -11,7 +11,7 @@
   },
   "results": [
     {
-      "test_id": "EX-e44e539421",
+      "test_id": "EX-e53c08dc54",
       "title": "answering S1 normally moves the respondent on to the question that should come next",
       "dimension": "D1",
       "case_id": "TC-FT01",
@@ -23,7 +23,7 @@
           "step": 1,
           "question": "S1",
           "did": "chose 'Yes'",
-          "detail": "LimeSurvey calls this question Q788"
+          "detail": "LimeSurvey calls this question Q892"
         },
         {
           "step": 2,
@@ -35,7 +35,7 @@
           "step": 2,
           "question": "S2",
           "did": "chose 'Yes'",
-          "detail": "LimeSurvey calls this question Q789"
+          "detail": "LimeSurvey calls this question Q893"
         },
         {
           "step": 3,
@@ -45,9 +45,15 @@
         },
         {
           "step": 4,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q1 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 4,
           "question": "Q1",
           "did": "chose 'Counter'",
-          "detail": "LimeSurvey calls this question Q790"
+          "detail": "LimeSurvey calls this question Q895"
         },
         {
           "step": 5,
@@ -59,7 +65,7 @@
           "step": 5,
           "question": "Q2",
           "did": "chose 'Very poor'",
-          "detail": "LimeSurvey calls this question Q791"
+          "detail": "LimeSurvey calls this question Q896"
         },
         {
           "step": 6,
@@ -71,7 +77,7 @@
           "step": 6,
           "question": "Q3",
           "did": "chose 'Very poor'",
-          "detail": "LimeSurvey calls this question Q792"
+          "detail": "LimeSurvey calls this question Q897"
         },
         {
           "step": 7,
@@ -83,7 +89,7 @@
           "step": 7,
           "question": "Q4",
           "did": "ticked it",
-          "detail": "LimeSurvey calls this question Q793"
+          "detail": "LimeSurvey calls this question Q898"
         },
         {
           "step": 8,
@@ -95,7 +101,7 @@
           "step": 8,
           "question": "Q5",
           "did": "chose 'Yes'",
-          "detail": "LimeSurvey calls this question Q794"
+          "detail": "LimeSurvey calls this question Q899"
         },
         {
           "step": 9,
@@ -107,7 +113,7 @@
           "step": 9,
           "question": "Q6",
           "did": "typed 'xxxxxxxxxx'",
-          "detail": "LimeSurvey calls this question Q795"
+          "detail": "LimeSurvey calls this question Q900"
         },
         {
           "step": 10,
@@ -119,7 +125,7 @@
           "step": 10,
           "question": "Q7",
           "did": "chose '0'",
-          "detail": "LimeSurvey calls this question Q796"
+          "detail": "LimeSurvey calls this question Q901"
         },
         {
           "step": 11,
@@ -152,10 +158,10 @@
       ],
       "blocked_reason": "",
       "provisional": [],
-      "seconds": 4.5
+      "seconds": 4.61
     },
     {
-      "test_id": "EX-7fd56d04c3",
+      "test_id": "EX-fcc0125b6a",
       "title": "S1 blocks progress when left blank",
       "dimension": "D4",
       "case_id": "TC-FT02",
@@ -200,10 +206,10 @@
       ],
       "blocked_reason": "",
       "provisional": [],
-      "seconds": 0.42
+      "seconds": 0.4
     },
     {
-      "test_id": "EX-c2c5a6c2d0",
+      "test_id": "EX-8a254051ab",
       "title": "ending TERM_INELIGIBLE is reached by rule R1, evaluated at S1",
       "dimension": "D2",
       "case_id": "TC-RT01",
@@ -215,7 +221,7 @@
           "step": 1,
           "question": "S1",
           "did": "chose 'No'",
-          "detail": "LimeSurvey calls this question Q788"
+          "detail": "LimeSurvey calls this question Q892"
         },
         {
           "step": 2,
@@ -250,10 +256,10 @@
       "provisional": [
         "rule_precedence"
       ],
-      "seconds": 0.45
+      "seconds": 0.41
     },
     {
-      "test_id": "EX-a647bf9931",
+      "test_id": "EX-7b2fc26e98",
       "title": "answering S2 normally moves the respondent on to the question that should come next",
       "dimension": "D1",
       "case_id": "TC-FT03",
@@ -265,7 +271,7 @@
           "step": 1,
           "question": "S1",
           "did": "chose 'Yes'",
-          "detail": "LimeSurvey calls this question Q788"
+          "detail": "LimeSurvey calls this question Q892"
         },
         {
           "step": 2,
@@ -277,7 +283,7 @@
           "step": 2,
           "question": "S2",
           "did": "chose 'Yes'",
-          "detail": "LimeSurvey calls this question Q789"
+          "detail": "LimeSurvey calls this question Q893"
         },
         {
           "step": 3,
@@ -287,9 +293,15 @@
         },
         {
           "step": 4,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q1 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 4,
           "question": "Q1",
           "did": "chose 'Counter'",
-          "detail": "LimeSurvey calls this question Q790"
+          "detail": "LimeSurvey calls this question Q895"
         },
         {
           "step": 5,
@@ -301,7 +313,7 @@
           "step": 5,
           "question": "Q2",
           "did": "chose 'Very poor'",
-          "detail": "LimeSurvey calls this question Q791"
+          "detail": "LimeSurvey calls this question Q896"
         },
         {
           "step": 6,
@@ -313,7 +325,7 @@
           "step": 6,
           "question": "Q3",
           "did": "chose 'Very poor'",
-          "detail": "LimeSurvey calls this question Q792"
+          "detail": "LimeSurvey calls this question Q897"
         },
         {
           "step": 7,
@@ -325,7 +337,7 @@
           "step": 7,
           "question": "Q4",
           "did": "ticked it",
-          "detail": "LimeSurvey calls this question Q793"
+          "detail": "LimeSurvey calls this question Q898"
         },
         {
           "step": 8,
@@ -337,7 +349,7 @@
           "step": 8,
           "question": "Q5",
           "did": "chose 'Yes'",
-          "detail": "LimeSurvey calls this question Q794"
+          "detail": "LimeSurvey calls this question Q899"
         },
         {
           "step": 9,
@@ -349,7 +361,7 @@
           "step": 9,
           "question": "Q6",
           "did": "typed 'xxxxxxxxxx'",
-          "detail": "LimeSurvey calls this question Q795"
+          "detail": "LimeSurvey calls this question Q900"
         },
         {
           "step": 10,
@@ -361,7 +373,7 @@
           "step": 10,
           "question": "Q7",
           "did": "chose '0'",
-          "detail": "LimeSurvey calls this question Q796"
+          "detail": "LimeSurvey calls this question Q901"
         },
         {
           "step": 11,
@@ -383,21 +395,21 @@
         },
         {
           "kind": "next_field_present",
-          "target": "Q1",
-          "expected": "Q1",
-          "observed": "Q1 did come next",
+          "target": "DT1",
+          "expected": "DT1",
+          "observed": "DT1 did come next",
           "matched": true,
           "why": "",
-          "should": "after answering, the next question the respondent sees should be Q1",
-          "actually": "Q1 did come next"
+          "should": "after answering, the next question the respondent sees should be DT1",
+          "actually": "DT1 did come next"
         }
       ],
       "blocked_reason": "",
       "provisional": [],
-      "seconds": 4.28
+      "seconds": 4.27
     },
     {
-      "test_id": "EX-b36b518b0a",
+      "test_id": "EX-a75c36d1e3",
       "title": "S2 blocks progress when left blank",
       "dimension": "D4",
       "case_id": "TC-FT04",
@@ -409,7 +421,7 @@
           "step": 1,
           "question": "S1",
           "did": "chose 'Yes'",
-          "detail": "LimeSurvey calls this question Q788"
+          "detail": "LimeSurvey calls this question Q892"
         },
         {
           "step": 2,
@@ -454,10 +466,10 @@
       ],
       "blocked_reason": "",
       "provisional": [],
-      "seconds": 0.62
+      "seconds": 0.58
     },
     {
-      "test_id": "EX-91ec111d63",
+      "test_id": "EX-769e506c7c",
       "title": "ending TERM_INELIGIBLE is reached by rule R2, evaluated at S2",
       "dimension": "D2",
       "case_id": "TC-RT02",
@@ -469,7 +481,7 @@
           "step": 1,
           "question": "S1",
           "did": "chose 'Yes'",
-          "detail": "LimeSurvey calls this question Q788"
+          "detail": "LimeSurvey calls this question Q892"
         },
         {
           "step": 2,
@@ -481,7 +493,7 @@
           "step": 2,
           "question": "S2",
           "did": "chose 'No'",
-          "detail": "LimeSurvey calls this question Q789"
+          "detail": "LimeSurvey calls this question Q893"
         },
         {
           "step": 3,
@@ -516,22 +528,22 @@
       "provisional": [
         "rule_precedence"
       ],
-      "seconds": 0.61
+      "seconds": 0.58
     },
     {
-      "test_id": "EX-a9bc875267",
-      "title": "answering Q1 normally moves the respondent on to the question that should come next",
+      "test_id": "EX-ea0690dba1",
+      "title": "answering DT1 normally moves the respondent on to the question that should come next",
       "dimension": "D1",
       "case_id": "TC-FT05",
       "order": 7,
-      "question": "Q1",
+      "question": "DT1",
       "status": "PASSED",
       "actions": [
         {
           "step": 1,
           "question": "S1",
           "did": "chose 'Yes'",
-          "detail": "LimeSurvey calls this question Q788"
+          "detail": "LimeSurvey calls this question Q892"
         },
         {
           "step": 2,
@@ -543,7 +555,7 @@
           "step": 2,
           "question": "S2",
           "did": "chose 'Yes'",
-          "detail": "LimeSurvey calls this question Q789"
+          "detail": "LimeSurvey calls this question Q893"
         },
         {
           "step": 3,
@@ -553,9 +565,15 @@
         },
         {
           "step": 4,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q1 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 4,
           "question": "Q1",
           "did": "chose 'Counter'",
-          "detail": "LimeSurvey calls this question Q790"
+          "detail": "LimeSurvey calls this question Q895"
         },
         {
           "step": 5,
@@ -567,7 +585,7 @@
           "step": 5,
           "question": "Q2",
           "did": "chose 'Very poor'",
-          "detail": "LimeSurvey calls this question Q791"
+          "detail": "LimeSurvey calls this question Q896"
         },
         {
           "step": 6,
@@ -579,7 +597,7 @@
           "step": 6,
           "question": "Q3",
           "did": "chose 'Very poor'",
-          "detail": "LimeSurvey calls this question Q792"
+          "detail": "LimeSurvey calls this question Q897"
         },
         {
           "step": 7,
@@ -591,7 +609,7 @@
           "step": 7,
           "question": "Q4",
           "did": "ticked it",
-          "detail": "LimeSurvey calls this question Q793"
+          "detail": "LimeSurvey calls this question Q898"
         },
         {
           "step": 8,
@@ -603,7 +621,7 @@
           "step": 8,
           "question": "Q5",
           "did": "chose 'Yes'",
-          "detail": "LimeSurvey calls this question Q794"
+          "detail": "LimeSurvey calls this question Q899"
         },
         {
           "step": 9,
@@ -615,7 +633,7 @@
           "step": 9,
           "question": "Q6",
           "did": "typed 'xxxxxxxxxx'",
-          "detail": "LimeSurvey calls this question Q795"
+          "detail": "LimeSurvey calls this question Q900"
         },
         {
           "step": 10,
@@ -627,7 +645,147 @@
           "step": 10,
           "question": "Q7",
           "did": "chose '0'",
-          "detail": "LimeSurvey calls this question Q796"
+          "detail": "LimeSurvey calls this question Q901"
+        },
+        {
+          "step": 11,
+          "question": "",
+          "did": "submitted the page",
+          "detail": "one Next button sends every question on the page at once. the survey moved on to the next page"
+        }
+      ],
+      "checks": [
+        {
+          "kind": "next_field_present",
+          "target": "Q1",
+          "expected": "Q1",
+          "observed": "Q1 did come next",
+          "matched": true,
+          "why": "",
+          "should": "after answering, the next question the respondent sees should be Q1",
+          "actually": "Q1 did come next"
+        }
+      ],
+      "blocked_reason": "",
+      "provisional": [],
+      "seconds": 4.31
+    },
+    {
+      "test_id": "EX-fcf536da2b",
+      "title": "answering Q1 normally moves the respondent on to the question that should come next",
+      "dimension": "D1",
+      "case_id": "TC-FT06",
+      "order": 8,
+      "question": "Q1",
+      "status": "PASSED",
+      "actions": [
+        {
+          "step": 1,
+          "question": "S1",
+          "did": "chose 'Yes'",
+          "detail": "LimeSurvey calls this question Q892"
+        },
+        {
+          "step": 2,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "S2 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 2,
+          "question": "S2",
+          "did": "chose 'Yes'",
+          "detail": "LimeSurvey calls this question Q893"
+        },
+        {
+          "step": 3,
+          "question": "",
+          "did": "submitted the page",
+          "detail": "one Next button sends every question on the page at once. the survey moved on to the next page"
+        },
+        {
+          "step": 4,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q1 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 4,
+          "question": "Q1",
+          "did": "chose 'Counter'",
+          "detail": "LimeSurvey calls this question Q895"
+        },
+        {
+          "step": 5,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q2 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 5,
+          "question": "Q2",
+          "did": "chose 'Very poor'",
+          "detail": "LimeSurvey calls this question Q896"
+        },
+        {
+          "step": 6,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q3 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 6,
+          "question": "Q3",
+          "did": "chose 'Very poor'",
+          "detail": "LimeSurvey calls this question Q897"
+        },
+        {
+          "step": 7,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q4 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 7,
+          "question": "Q4",
+          "did": "ticked it",
+          "detail": "LimeSurvey calls this question Q898"
+        },
+        {
+          "step": 8,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q5 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 8,
+          "question": "Q5",
+          "did": "chose 'Yes'",
+          "detail": "LimeSurvey calls this question Q899"
+        },
+        {
+          "step": 9,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q6 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 9,
+          "question": "Q6",
+          "did": "typed 'xxxxxxxxxx'",
+          "detail": "LimeSurvey calls this question Q900"
+        },
+        {
+          "step": 10,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q7 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 10,
+          "question": "Q7",
+          "did": "chose '0'",
+          "detail": "LimeSurvey calls this question Q901"
         },
         {
           "step": 11,
@@ -660,14 +818,14 @@
       ],
       "blocked_reason": "",
       "provisional": [],
-      "seconds": 4.16
+      "seconds": 4.3
     },
     {
-      "test_id": "EX-30e0a56758",
+      "test_id": "EX-d326bc095d",
       "title": "Q1 blocks progress when left blank",
       "dimension": "D4",
-      "case_id": "TC-FT06",
-      "order": 8,
+      "case_id": "TC-FT07",
+      "order": 9,
       "question": "Q1",
       "status": "PASSED",
       "actions": [
@@ -675,7 +833,7 @@
           "step": 1,
           "question": "S1",
           "did": "chose 'Yes'",
-          "detail": "LimeSurvey calls this question Q788"
+          "detail": "LimeSurvey calls this question Q892"
         },
         {
           "step": 2,
@@ -687,13 +845,19 @@
           "step": 2,
           "question": "S2",
           "did": "chose 'Yes'",
-          "detail": "LimeSurvey calls this question Q789"
+          "detail": "LimeSurvey calls this question Q893"
         },
         {
           "step": 3,
           "question": "",
           "did": "submitted the page",
           "detail": "one Next button sends every question on the page at once. the survey moved on to the next page"
+        },
+        {
+          "step": 4,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q1 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
         },
         {
           "step": 4,
@@ -732,14 +896,14 @@
       ],
       "blocked_reason": "",
       "provisional": [],
-      "seconds": 0.82
+      "seconds": 0.94
     },
     {
-      "test_id": "EX-d92e1b213a",
+      "test_id": "EX-169ca64d46",
       "title": "answering Q2 normally moves the respondent on to the question that should come next",
       "dimension": "D1",
-      "case_id": "TC-FT07",
-      "order": 9,
+      "case_id": "TC-FT08",
+      "order": 10,
       "question": "Q2",
       "status": "PASSED",
       "actions": [
@@ -747,7 +911,7 @@
           "step": 1,
           "question": "S1",
           "did": "chose 'Yes'",
-          "detail": "LimeSurvey calls this question Q788"
+          "detail": "LimeSurvey calls this question Q892"
         },
         {
           "step": 2,
@@ -759,7 +923,7 @@
           "step": 2,
           "question": "S2",
           "did": "chose 'Yes'",
-          "detail": "LimeSurvey calls this question Q789"
+          "detail": "LimeSurvey calls this question Q893"
         },
         {
           "step": 3,
@@ -769,9 +933,15 @@
         },
         {
           "step": 4,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q1 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 4,
           "question": "Q1",
           "did": "chose 'Counter'",
-          "detail": "LimeSurvey calls this question Q790"
+          "detail": "LimeSurvey calls this question Q895"
         },
         {
           "step": 5,
@@ -783,7 +953,7 @@
           "step": 5,
           "question": "Q2",
           "did": "chose 'Very poor'",
-          "detail": "LimeSurvey calls this question Q791"
+          "detail": "LimeSurvey calls this question Q896"
         },
         {
           "step": 6,
@@ -795,7 +965,7 @@
           "step": 6,
           "question": "Q3",
           "did": "chose 'Very poor'",
-          "detail": "LimeSurvey calls this question Q792"
+          "detail": "LimeSurvey calls this question Q897"
         },
         {
           "step": 7,
@@ -807,7 +977,7 @@
           "step": 7,
           "question": "Q4",
           "did": "ticked it",
-          "detail": "LimeSurvey calls this question Q793"
+          "detail": "LimeSurvey calls this question Q898"
         },
         {
           "step": 8,
@@ -819,7 +989,7 @@
           "step": 8,
           "question": "Q5",
           "did": "chose 'Yes'",
-          "detail": "LimeSurvey calls this question Q794"
+          "detail": "LimeSurvey calls this question Q899"
         },
         {
           "step": 9,
@@ -831,7 +1001,7 @@
           "step": 9,
           "question": "Q6",
           "did": "typed 'xxxxxxxxxx'",
-          "detail": "LimeSurvey calls this question Q795"
+          "detail": "LimeSurvey calls this question Q900"
         },
         {
           "step": 10,
@@ -843,7 +1013,7 @@
           "step": 10,
           "question": "Q7",
           "did": "chose '0'",
-          "detail": "LimeSurvey calls this question Q796"
+          "detail": "LimeSurvey calls this question Q901"
         },
         {
           "step": 11,
@@ -876,14 +1046,14 @@
       ],
       "blocked_reason": "",
       "provisional": [],
-      "seconds": 4.17
+      "seconds": 4.33
     },
     {
-      "test_id": "EX-7b94486781",
+      "test_id": "EX-07709a67ec",
       "title": "Q2 blocks progress when left blank",
       "dimension": "D4",
-      "case_id": "TC-FT08",
-      "order": 10,
+      "case_id": "TC-FT09",
+      "order": 11,
       "question": "Q2",
       "status": "PASSED",
       "actions": [
@@ -891,7 +1061,7 @@
           "step": 1,
           "question": "S1",
           "did": "chose 'Yes'",
-          "detail": "LimeSurvey calls this question Q788"
+          "detail": "LimeSurvey calls this question Q892"
         },
         {
           "step": 2,
@@ -903,7 +1073,7 @@
           "step": 2,
           "question": "S2",
           "did": "chose 'Yes'",
-          "detail": "LimeSurvey calls this question Q789"
+          "detail": "LimeSurvey calls this question Q893"
         },
         {
           "step": 3,
@@ -913,9 +1083,15 @@
         },
         {
           "step": 4,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q1 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 4,
           "question": "Q1",
           "did": "chose 'Counter'",
-          "detail": "LimeSurvey calls this question Q790"
+          "detail": "LimeSurvey calls this question Q895"
         },
         {
           "step": 5,
@@ -960,14 +1136,14 @@
       ],
       "blocked_reason": "",
       "provisional": [],
-      "seconds": 0.96
+      "seconds": 1.14
     },
     {
-      "test_id": "EX-62c97709e7",
+      "test_id": "EX-8caccf0635",
       "title": "answering Q3 normally moves the respondent on to the question that should come next",
       "dimension": "D1",
-      "case_id": "TC-FT09",
-      "order": 11,
+      "case_id": "TC-FT10",
+      "order": 12,
       "question": "Q3",
       "status": "PASSED",
       "actions": [
@@ -975,7 +1151,7 @@
           "step": 1,
           "question": "S1",
           "did": "chose 'Yes'",
-          "detail": "LimeSurvey calls this question Q788"
+          "detail": "LimeSurvey calls this question Q892"
         },
         {
           "step": 2,
@@ -987,7 +1163,7 @@
           "step": 2,
           "question": "S2",
           "did": "chose 'Yes'",
-          "detail": "LimeSurvey calls this question Q789"
+          "detail": "LimeSurvey calls this question Q893"
         },
         {
           "step": 3,
@@ -997,9 +1173,15 @@
         },
         {
           "step": 4,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q1 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 4,
           "question": "Q1",
           "did": "chose 'Counter'",
-          "detail": "LimeSurvey calls this question Q790"
+          "detail": "LimeSurvey calls this question Q895"
         },
         {
           "step": 5,
@@ -1011,7 +1193,7 @@
           "step": 5,
           "question": "Q2",
           "did": "chose 'Very poor'",
-          "detail": "LimeSurvey calls this question Q791"
+          "detail": "LimeSurvey calls this question Q896"
         },
         {
           "step": 6,
@@ -1023,7 +1205,7 @@
           "step": 6,
           "question": "Q3",
           "did": "chose 'Very poor'",
-          "detail": "LimeSurvey calls this question Q792"
+          "detail": "LimeSurvey calls this question Q897"
         },
         {
           "step": 7,
@@ -1035,7 +1217,7 @@
           "step": 7,
           "question": "Q4",
           "did": "ticked it",
-          "detail": "LimeSurvey calls this question Q793"
+          "detail": "LimeSurvey calls this question Q898"
         },
         {
           "step": 8,
@@ -1047,7 +1229,7 @@
           "step": 8,
           "question": "Q5",
           "did": "chose 'Yes'",
-          "detail": "LimeSurvey calls this question Q794"
+          "detail": "LimeSurvey calls this question Q899"
         },
         {
           "step": 9,
@@ -1059,7 +1241,7 @@
           "step": 9,
           "question": "Q6",
           "did": "typed 'xxxxxxxxxx'",
-          "detail": "LimeSurvey calls this question Q795"
+          "detail": "LimeSurvey calls this question Q900"
         },
         {
           "step": 10,
@@ -1071,7 +1253,7 @@
           "step": 10,
           "question": "Q7",
           "did": "chose '0'",
-          "detail": "LimeSurvey calls this question Q796"
+          "detail": "LimeSurvey calls this question Q901"
         },
         {
           "step": 11,
@@ -1104,14 +1286,14 @@
       ],
       "blocked_reason": "",
       "provisional": [],
-      "seconds": 4.16
+      "seconds": 4.48
     },
     {
-      "test_id": "EX-ffa8b7c910",
+      "test_id": "EX-8bdd656698",
       "title": "Q3 blocks progress when left blank",
       "dimension": "D4",
-      "case_id": "TC-FT10",
-      "order": 12,
+      "case_id": "TC-FT11",
+      "order": 13,
       "question": "Q3",
       "status": "PASSED",
       "actions": [
@@ -1119,7 +1301,7 @@
           "step": 1,
           "question": "S1",
           "did": "chose 'Yes'",
-          "detail": "LimeSurvey calls this question Q788"
+          "detail": "LimeSurvey calls this question Q892"
         },
         {
           "step": 2,
@@ -1131,7 +1313,7 @@
           "step": 2,
           "question": "S2",
           "did": "chose 'Yes'",
-          "detail": "LimeSurvey calls this question Q789"
+          "detail": "LimeSurvey calls this question Q893"
         },
         {
           "step": 3,
@@ -1141,9 +1323,15 @@
         },
         {
           "step": 4,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q1 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 4,
           "question": "Q1",
           "did": "chose 'Counter'",
-          "detail": "LimeSurvey calls this question Q790"
+          "detail": "LimeSurvey calls this question Q895"
         },
         {
           "step": 5,
@@ -1155,7 +1343,7 @@
           "step": 5,
           "question": "Q2",
           "did": "chose 'Very poor'",
-          "detail": "LimeSurvey calls this question Q791"
+          "detail": "LimeSurvey calls this question Q896"
         },
         {
           "step": 6,
@@ -1200,14 +1388,14 @@
       ],
       "blocked_reason": "",
       "provisional": [],
-      "seconds": 1.21
+      "seconds": 1.4
     },
     {
-      "test_id": "EX-ce5279ad4b",
+      "test_id": "EX-1eb6c80ed7",
       "title": "answering Q4 normally moves the respondent on to the question that should come next",
       "dimension": "D1",
-      "case_id": "TC-FT11",
-      "order": 13,
+      "case_id": "TC-FT12",
+      "order": 14,
       "question": "Q4",
       "status": "PASSED",
       "actions": [
@@ -1215,7 +1403,7 @@
           "step": 1,
           "question": "S1",
           "did": "chose 'Yes'",
-          "detail": "LimeSurvey calls this question Q788"
+          "detail": "LimeSurvey calls this question Q892"
         },
         {
           "step": 2,
@@ -1227,7 +1415,7 @@
           "step": 2,
           "question": "S2",
           "did": "chose 'Yes'",
-          "detail": "LimeSurvey calls this question Q789"
+          "detail": "LimeSurvey calls this question Q893"
         },
         {
           "step": 3,
@@ -1237,9 +1425,15 @@
         },
         {
           "step": 4,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q1 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 4,
           "question": "Q1",
           "did": "chose 'Counter'",
-          "detail": "LimeSurvey calls this question Q790"
+          "detail": "LimeSurvey calls this question Q895"
         },
         {
           "step": 5,
@@ -1251,7 +1445,7 @@
           "step": 5,
           "question": "Q2",
           "did": "chose 'Very poor'",
-          "detail": "LimeSurvey calls this question Q791"
+          "detail": "LimeSurvey calls this question Q896"
         },
         {
           "step": 6,
@@ -1263,7 +1457,7 @@
           "step": 6,
           "question": "Q3",
           "did": "chose 'Very poor'",
-          "detail": "LimeSurvey calls this question Q792"
+          "detail": "LimeSurvey calls this question Q897"
         },
         {
           "step": 7,
@@ -1275,7 +1469,7 @@
           "step": 7,
           "question": "Q4",
           "did": "ticked it",
-          "detail": "LimeSurvey calls this question Q793"
+          "detail": "LimeSurvey calls this question Q898"
         },
         {
           "step": 8,
@@ -1287,7 +1481,7 @@
           "step": 8,
           "question": "Q5",
           "did": "chose 'Yes'",
-          "detail": "LimeSurvey calls this question Q794"
+          "detail": "LimeSurvey calls this question Q899"
         },
         {
           "step": 9,
@@ -1299,7 +1493,7 @@
           "step": 9,
           "question": "Q6",
           "did": "typed 'xxxxxxxxxx'",
-          "detail": "LimeSurvey calls this question Q795"
+          "detail": "LimeSurvey calls this question Q900"
         },
         {
           "step": 10,
@@ -1311,7 +1505,7 @@
           "step": 10,
           "question": "Q7",
           "did": "chose '0'",
-          "detail": "LimeSurvey calls this question Q796"
+          "detail": "LimeSurvey calls this question Q901"
         },
         {
           "step": 11,
@@ -1344,14 +1538,14 @@
       ],
       "blocked_reason": "",
       "provisional": [],
-      "seconds": 4.22
+      "seconds": 4.33
     },
     {
-      "test_id": "EX-f7d72ac768",
+      "test_id": "EX-fe7969f71a",
       "title": "Q4 accepts an answer meeting ['min_selections']",
       "dimension": "D3",
-      "case_id": "TC-FT12",
-      "order": 14,
+      "case_id": "TC-FT13",
+      "order": 15,
       "question": "Q4",
       "status": "PASSED",
       "actions": [
@@ -1359,7 +1553,7 @@
           "step": 1,
           "question": "S1",
           "did": "chose 'Yes'",
-          "detail": "LimeSurvey calls this question Q788"
+          "detail": "LimeSurvey calls this question Q892"
         },
         {
           "step": 2,
@@ -1371,7 +1565,7 @@
           "step": 2,
           "question": "S2",
           "did": "chose 'Yes'",
-          "detail": "LimeSurvey calls this question Q789"
+          "detail": "LimeSurvey calls this question Q893"
         },
         {
           "step": 3,
@@ -1381,9 +1575,15 @@
         },
         {
           "step": 4,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q1 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 4,
           "question": "Q1",
           "did": "chose 'Counter'",
-          "detail": "LimeSurvey calls this question Q790"
+          "detail": "LimeSurvey calls this question Q895"
         },
         {
           "step": 5,
@@ -1395,7 +1595,7 @@
           "step": 5,
           "question": "Q2",
           "did": "chose 'Very poor'",
-          "detail": "LimeSurvey calls this question Q791"
+          "detail": "LimeSurvey calls this question Q896"
         },
         {
           "step": 6,
@@ -1407,7 +1607,7 @@
           "step": 6,
           "question": "Q3",
           "did": "chose 'Very poor'",
-          "detail": "LimeSurvey calls this question Q792"
+          "detail": "LimeSurvey calls this question Q897"
         },
         {
           "step": 7,
@@ -1419,7 +1619,7 @@
           "step": 7,
           "question": "Q4",
           "did": "ticked it",
-          "detail": "LimeSurvey calls this question Q793"
+          "detail": "LimeSurvey calls this question Q898"
         },
         {
           "step": 8,
@@ -1442,120 +1642,12 @@
       ],
       "blocked_reason": "",
       "provisional": [],
-      "seconds": 3.65
+      "seconds": 3.77
     },
     {
-      "test_id": "EX-bef1be4a41",
+      "test_id": "EX-ff7bca4f75",
       "title": "Q4 rejects an answer breaking ['min_selections']",
       "dimension": "D3",
-      "case_id": "TC-FT13",
-      "order": 15,
-      "question": "Q4",
-      "status": "PASSED",
-      "actions": [
-        {
-          "step": 1,
-          "question": "S1",
-          "did": "chose 'Yes'",
-          "detail": "LimeSurvey calls this question Q788"
-        },
-        {
-          "step": 2,
-          "question": "",
-          "did": "moved on a page",
-          "detail": "S2 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
-        },
-        {
-          "step": 2,
-          "question": "S2",
-          "did": "chose 'Yes'",
-          "detail": "LimeSurvey calls this question Q789"
-        },
-        {
-          "step": 3,
-          "question": "",
-          "did": "submitted the page",
-          "detail": "one Next button sends every question on the page at once. the survey moved on to the next page"
-        },
-        {
-          "step": 4,
-          "question": "Q1",
-          "did": "chose 'Counter'",
-          "detail": "LimeSurvey calls this question Q790"
-        },
-        {
-          "step": 5,
-          "question": "",
-          "did": "moved on a page",
-          "detail": "Q2 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
-        },
-        {
-          "step": 5,
-          "question": "Q2",
-          "did": "chose 'Very poor'",
-          "detail": "LimeSurvey calls this question Q791"
-        },
-        {
-          "step": 6,
-          "question": "",
-          "did": "moved on a page",
-          "detail": "Q3 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
-        },
-        {
-          "step": 6,
-          "question": "Q3",
-          "did": "chose 'Very poor'",
-          "detail": "LimeSurvey calls this question Q792"
-        },
-        {
-          "step": 7,
-          "question": "",
-          "did": "moved on a page",
-          "detail": "Q4 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
-        },
-        {
-          "step": 7,
-          "question": "Q4",
-          "did": "left it blank",
-          "detail": "deliberately answered nothing"
-        },
-        {
-          "step": 8,
-          "question": "",
-          "did": "submitted the page",
-          "detail": "one Next button sends every question on the page at once. the survey stayed on the same page"
-        }
-      ],
-      "checks": [
-        {
-          "kind": "page_does_not_advance",
-          "target": "Q4",
-          "expected": true,
-          "observed": "it refused to move on, as it should",
-          "matched": true,
-          "why": "",
-          "should": "the survey should refuse to move on, because the answer breaks a rule the questionnaire sets",
-          "actually": "it refused to move on, as it should"
-        },
-        {
-          "kind": "error_shown_on_question",
-          "target": "Q4",
-          "expected": true,
-          "observed": "an error message appeared",
-          "matched": true,
-          "why": "",
-          "should": "an error message should appear on Q4, telling the respondent what is wrong",
-          "actually": "an error message appeared"
-        }
-      ],
-      "blocked_reason": "",
-      "provisional": [],
-      "seconds": 1.32
-    },
-    {
-      "test_id": "EX-5a0661ec7e",
-      "title": "Q4 blocks progress when left blank",
-      "dimension": "D4",
       "case_id": "TC-FT14",
       "order": 16,
       "question": "Q4",
@@ -1565,7 +1657,7 @@
           "step": 1,
           "question": "S1",
           "did": "chose 'Yes'",
-          "detail": "LimeSurvey calls this question Q788"
+          "detail": "LimeSurvey calls this question Q892"
         },
         {
           "step": 2,
@@ -1577,7 +1669,7 @@
           "step": 2,
           "question": "S2",
           "did": "chose 'Yes'",
-          "detail": "LimeSurvey calls this question Q789"
+          "detail": "LimeSurvey calls this question Q893"
         },
         {
           "step": 3,
@@ -1587,9 +1679,15 @@
         },
         {
           "step": 4,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q1 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 4,
           "question": "Q1",
           "did": "chose 'Counter'",
-          "detail": "LimeSurvey calls this question Q790"
+          "detail": "LimeSurvey calls this question Q895"
         },
         {
           "step": 5,
@@ -1601,7 +1699,7 @@
           "step": 5,
           "question": "Q2",
           "did": "chose 'Very poor'",
-          "detail": "LimeSurvey calls this question Q791"
+          "detail": "LimeSurvey calls this question Q896"
         },
         {
           "step": 6,
@@ -1613,7 +1711,7 @@
           "step": 6,
           "question": "Q3",
           "did": "chose 'Very poor'",
-          "detail": "LimeSurvey calls this question Q792"
+          "detail": "LimeSurvey calls this question Q897"
         },
         {
           "step": 7,
@@ -1658,22 +1756,22 @@
       ],
       "blocked_reason": "",
       "provisional": [],
-      "seconds": 1.32
+      "seconds": 1.45
     },
     {
-      "test_id": "EX-cd2869c6f5",
-      "title": "answering Q5 normally moves the respondent on to the question that should come next",
-      "dimension": "D1",
+      "test_id": "EX-9665be0e87",
+      "title": "Q4 blocks progress when left blank",
+      "dimension": "D4",
       "case_id": "TC-FT15",
       "order": 17,
-      "question": "Q5",
+      "question": "Q4",
       "status": "PASSED",
       "actions": [
         {
           "step": 1,
           "question": "S1",
           "did": "chose 'Yes'",
-          "detail": "LimeSurvey calls this question Q788"
+          "detail": "LimeSurvey calls this question Q892"
         },
         {
           "step": 2,
@@ -1685,7 +1783,7 @@
           "step": 2,
           "question": "S2",
           "did": "chose 'Yes'",
-          "detail": "LimeSurvey calls this question Q789"
+          "detail": "LimeSurvey calls this question Q893"
         },
         {
           "step": 3,
@@ -1695,9 +1793,15 @@
         },
         {
           "step": 4,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q1 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 4,
           "question": "Q1",
           "did": "chose 'Counter'",
-          "detail": "LimeSurvey calls this question Q790"
+          "detail": "LimeSurvey calls this question Q895"
         },
         {
           "step": 5,
@@ -1709,7 +1813,7 @@
           "step": 5,
           "question": "Q2",
           "did": "chose 'Very poor'",
-          "detail": "LimeSurvey calls this question Q791"
+          "detail": "LimeSurvey calls this question Q896"
         },
         {
           "step": 6,
@@ -1721,7 +1825,121 @@
           "step": 6,
           "question": "Q3",
           "did": "chose 'Very poor'",
-          "detail": "LimeSurvey calls this question Q792"
+          "detail": "LimeSurvey calls this question Q897"
+        },
+        {
+          "step": 7,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q4 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 7,
+          "question": "Q4",
+          "did": "left it blank",
+          "detail": "deliberately answered nothing"
+        },
+        {
+          "step": 8,
+          "question": "",
+          "did": "submitted the page",
+          "detail": "one Next button sends every question on the page at once. the survey stayed on the same page"
+        }
+      ],
+      "checks": [
+        {
+          "kind": "page_does_not_advance",
+          "target": "Q4",
+          "expected": true,
+          "observed": "it refused to move on, as it should",
+          "matched": true,
+          "why": "",
+          "should": "the survey should refuse to move on, because the answer breaks a rule the questionnaire sets",
+          "actually": "it refused to move on, as it should"
+        },
+        {
+          "kind": "error_shown_on_question",
+          "target": "Q4",
+          "expected": true,
+          "observed": "an error message appeared",
+          "matched": true,
+          "why": "",
+          "should": "an error message should appear on Q4, telling the respondent what is wrong",
+          "actually": "an error message appeared"
+        }
+      ],
+      "blocked_reason": "",
+      "provisional": [],
+      "seconds": 1.45
+    },
+    {
+      "test_id": "EX-543a7972df",
+      "title": "answering Q5 normally moves the respondent on to the question that should come next",
+      "dimension": "D1",
+      "case_id": "TC-FT16",
+      "order": 18,
+      "question": "Q5",
+      "status": "PASSED",
+      "actions": [
+        {
+          "step": 1,
+          "question": "S1",
+          "did": "chose 'Yes'",
+          "detail": "LimeSurvey calls this question Q892"
+        },
+        {
+          "step": 2,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "S2 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 2,
+          "question": "S2",
+          "did": "chose 'Yes'",
+          "detail": "LimeSurvey calls this question Q893"
+        },
+        {
+          "step": 3,
+          "question": "",
+          "did": "submitted the page",
+          "detail": "one Next button sends every question on the page at once. the survey moved on to the next page"
+        },
+        {
+          "step": 4,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q1 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 4,
+          "question": "Q1",
+          "did": "chose 'Counter'",
+          "detail": "LimeSurvey calls this question Q895"
+        },
+        {
+          "step": 5,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q2 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 5,
+          "question": "Q2",
+          "did": "chose 'Very poor'",
+          "detail": "LimeSurvey calls this question Q896"
+        },
+        {
+          "step": 6,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q3 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 6,
+          "question": "Q3",
+          "did": "chose 'Very poor'",
+          "detail": "LimeSurvey calls this question Q897"
         },
         {
           "step": 7,
@@ -1733,7 +1951,7 @@
           "step": 7,
           "question": "Q4",
           "did": "ticked it",
-          "detail": "LimeSurvey calls this question Q793"
+          "detail": "LimeSurvey calls this question Q898"
         },
         {
           "step": 8,
@@ -1745,7 +1963,7 @@
           "step": 8,
           "question": "Q5",
           "did": "chose 'Yes'",
-          "detail": "LimeSurvey calls this question Q794"
+          "detail": "LimeSurvey calls this question Q899"
         },
         {
           "step": 9,
@@ -1757,7 +1975,7 @@
           "step": 9,
           "question": "Q6",
           "did": "typed 'xxxxxxxxxx'",
-          "detail": "LimeSurvey calls this question Q795"
+          "detail": "LimeSurvey calls this question Q900"
         },
         {
           "step": 10,
@@ -1769,7 +1987,7 @@
           "step": 10,
           "question": "Q7",
           "did": "chose '0'",
-          "detail": "LimeSurvey calls this question Q796"
+          "detail": "LimeSurvey calls this question Q901"
         },
         {
           "step": 11,
@@ -1802,14 +2020,14 @@
       ],
       "blocked_reason": "",
       "provisional": [],
-      "seconds": 4.19
+      "seconds": 4.51
     },
     {
-      "test_id": "EX-a888630c33",
+      "test_id": "EX-564da8df5f",
       "title": "R4 jumps to Q7 when its condition holds",
       "dimension": "D1",
-      "case_id": "TC-FT16",
-      "order": 18,
+      "case_id": "TC-FT17",
+      "order": 19,
       "question": "Q5",
       "status": "PASSED",
       "actions": [
@@ -1817,7 +2035,7 @@
           "step": 1,
           "question": "S1",
           "did": "chose 'Yes'",
-          "detail": "LimeSurvey calls this question Q788"
+          "detail": "LimeSurvey calls this question Q892"
         },
         {
           "step": 2,
@@ -1829,7 +2047,7 @@
           "step": 2,
           "question": "S2",
           "did": "chose 'Yes'",
-          "detail": "LimeSurvey calls this question Q789"
+          "detail": "LimeSurvey calls this question Q893"
         },
         {
           "step": 3,
@@ -1839,9 +2057,15 @@
         },
         {
           "step": 4,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q1 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 4,
           "question": "Q1",
           "did": "chose 'Counter'",
-          "detail": "LimeSurvey calls this question Q790"
+          "detail": "LimeSurvey calls this question Q895"
         },
         {
           "step": 5,
@@ -1853,7 +2077,7 @@
           "step": 5,
           "question": "Q2",
           "did": "chose 'Very poor'",
-          "detail": "LimeSurvey calls this question Q791"
+          "detail": "LimeSurvey calls this question Q896"
         },
         {
           "step": 6,
@@ -1865,7 +2089,7 @@
           "step": 6,
           "question": "Q3",
           "did": "chose 'Very poor'",
-          "detail": "LimeSurvey calls this question Q792"
+          "detail": "LimeSurvey calls this question Q897"
         },
         {
           "step": 7,
@@ -1877,7 +2101,7 @@
           "step": 7,
           "question": "Q4",
           "did": "ticked it",
-          "detail": "LimeSurvey calls this question Q793"
+          "detail": "LimeSurvey calls this question Q898"
         },
         {
           "step": 8,
@@ -1889,7 +2113,7 @@
           "step": 8,
           "question": "Q5",
           "did": "chose 'No'",
-          "detail": "LimeSurvey calls this question Q794"
+          "detail": "LimeSurvey calls this question Q899"
         },
         {
           "step": 9,
@@ -1914,14 +2138,14 @@
       "provisional": [
         "rule_precedence"
       ],
-      "seconds": 3.83
+      "seconds": 4.08
     },
     {
-      "test_id": "EX-229751e262",
+      "test_id": "EX-018fb4501e",
       "title": "R4 does not jump when its condition fails, so the respondent continues in sequence",
       "dimension": "D1",
-      "case_id": "TC-FT17",
-      "order": 19,
+      "case_id": "TC-FT18",
+      "order": 20,
       "question": "Q5",
       "status": "PASSED",
       "actions": [
@@ -1929,7 +2153,7 @@
           "step": 1,
           "question": "S1",
           "did": "chose 'Yes'",
-          "detail": "LimeSurvey calls this question Q788"
+          "detail": "LimeSurvey calls this question Q892"
         },
         {
           "step": 2,
@@ -1941,7 +2165,7 @@
           "step": 2,
           "question": "S2",
           "did": "chose 'Yes'",
-          "detail": "LimeSurvey calls this question Q789"
+          "detail": "LimeSurvey calls this question Q893"
         },
         {
           "step": 3,
@@ -1951,9 +2175,15 @@
         },
         {
           "step": 4,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q1 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 4,
           "question": "Q1",
           "did": "chose 'Counter'",
-          "detail": "LimeSurvey calls this question Q790"
+          "detail": "LimeSurvey calls this question Q895"
         },
         {
           "step": 5,
@@ -1965,7 +2195,7 @@
           "step": 5,
           "question": "Q2",
           "did": "chose 'Very poor'",
-          "detail": "LimeSurvey calls this question Q791"
+          "detail": "LimeSurvey calls this question Q896"
         },
         {
           "step": 6,
@@ -1977,7 +2207,7 @@
           "step": 6,
           "question": "Q3",
           "did": "chose 'Very poor'",
-          "detail": "LimeSurvey calls this question Q792"
+          "detail": "LimeSurvey calls this question Q897"
         },
         {
           "step": 7,
@@ -1989,7 +2219,7 @@
           "step": 7,
           "question": "Q4",
           "did": "ticked it",
-          "detail": "LimeSurvey calls this question Q793"
+          "detail": "LimeSurvey calls this question Q898"
         },
         {
           "step": 8,
@@ -2001,7 +2231,7 @@
           "step": 8,
           "question": "Q5",
           "did": "chose 'Yes'",
-          "detail": "LimeSurvey calls this question Q794"
+          "detail": "LimeSurvey calls this question Q899"
         },
         {
           "step": 9,
@@ -2024,14 +2254,14 @@
       ],
       "blocked_reason": "",
       "provisional": [],
-      "seconds": 3.81
+      "seconds": 4.1
     },
     {
-      "test_id": "EX-40f6d0df76",
+      "test_id": "EX-65c9fba674",
       "title": "Q5 blocks progress when left blank",
       "dimension": "D4",
-      "case_id": "TC-FT18",
-      "order": 20,
+      "case_id": "TC-FT19",
+      "order": 21,
       "question": "Q5",
       "status": "PASSED",
       "actions": [
@@ -2039,7 +2269,7 @@
           "step": 1,
           "question": "S1",
           "did": "chose 'Yes'",
-          "detail": "LimeSurvey calls this question Q788"
+          "detail": "LimeSurvey calls this question Q892"
         },
         {
           "step": 2,
@@ -2051,7 +2281,7 @@
           "step": 2,
           "question": "S2",
           "did": "chose 'Yes'",
-          "detail": "LimeSurvey calls this question Q789"
+          "detail": "LimeSurvey calls this question Q893"
         },
         {
           "step": 3,
@@ -2061,9 +2291,15 @@
         },
         {
           "step": 4,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q1 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 4,
           "question": "Q1",
           "did": "chose 'Counter'",
-          "detail": "LimeSurvey calls this question Q790"
+          "detail": "LimeSurvey calls this question Q895"
         },
         {
           "step": 5,
@@ -2075,7 +2311,7 @@
           "step": 5,
           "question": "Q2",
           "did": "chose 'Very poor'",
-          "detail": "LimeSurvey calls this question Q791"
+          "detail": "LimeSurvey calls this question Q896"
         },
         {
           "step": 6,
@@ -2087,7 +2323,7 @@
           "step": 6,
           "question": "Q3",
           "did": "chose 'Very poor'",
-          "detail": "LimeSurvey calls this question Q792"
+          "detail": "LimeSurvey calls this question Q897"
         },
         {
           "step": 7,
@@ -2099,7 +2335,7 @@
           "step": 7,
           "question": "Q4",
           "did": "ticked it",
-          "detail": "LimeSurvey calls this question Q793"
+          "detail": "LimeSurvey calls this question Q898"
         },
         {
           "step": 8,
@@ -2144,14 +2380,14 @@
       ],
       "blocked_reason": "",
       "provisional": [],
-      "seconds": 3.83
+      "seconds": 4.02
     },
     {
-      "test_id": "EX-86266105c0",
+      "test_id": "EX-810a6fc85f",
       "title": "answering Q6 normally moves the respondent on to the question that should come next",
       "dimension": "D1",
-      "case_id": "TC-FT19",
-      "order": 21,
+      "case_id": "TC-FT20",
+      "order": 22,
       "question": "Q6",
       "status": "PASSED",
       "actions": [
@@ -2159,7 +2395,7 @@
           "step": 1,
           "question": "S1",
           "did": "chose 'Yes'",
-          "detail": "LimeSurvey calls this question Q788"
+          "detail": "LimeSurvey calls this question Q892"
         },
         {
           "step": 2,
@@ -2171,7 +2407,7 @@
           "step": 2,
           "question": "S2",
           "did": "chose 'Yes'",
-          "detail": "LimeSurvey calls this question Q789"
+          "detail": "LimeSurvey calls this question Q893"
         },
         {
           "step": 3,
@@ -2181,9 +2417,15 @@
         },
         {
           "step": 4,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q1 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 4,
           "question": "Q1",
           "did": "chose 'Counter'",
-          "detail": "LimeSurvey calls this question Q790"
+          "detail": "LimeSurvey calls this question Q895"
         },
         {
           "step": 5,
@@ -2195,7 +2437,7 @@
           "step": 5,
           "question": "Q2",
           "did": "chose 'Very poor'",
-          "detail": "LimeSurvey calls this question Q791"
+          "detail": "LimeSurvey calls this question Q896"
         },
         {
           "step": 6,
@@ -2207,7 +2449,7 @@
           "step": 6,
           "question": "Q3",
           "did": "chose 'Very poor'",
-          "detail": "LimeSurvey calls this question Q792"
+          "detail": "LimeSurvey calls this question Q897"
         },
         {
           "step": 7,
@@ -2219,7 +2461,7 @@
           "step": 7,
           "question": "Q4",
           "did": "ticked it",
-          "detail": "LimeSurvey calls this question Q793"
+          "detail": "LimeSurvey calls this question Q898"
         },
         {
           "step": 8,
@@ -2231,7 +2473,7 @@
           "step": 8,
           "question": "Q5",
           "did": "chose 'Yes'",
-          "detail": "LimeSurvey calls this question Q794"
+          "detail": "LimeSurvey calls this question Q899"
         },
         {
           "step": 9,
@@ -2243,7 +2485,7 @@
           "step": 9,
           "question": "Q6",
           "did": "typed 'xxxxxxxxxx'",
-          "detail": "LimeSurvey calls this question Q795"
+          "detail": "LimeSurvey calls this question Q900"
         },
         {
           "step": 10,
@@ -2255,7 +2497,7 @@
           "step": 10,
           "question": "Q7",
           "did": "chose '0'",
-          "detail": "LimeSurvey calls this question Q796"
+          "detail": "LimeSurvey calls this question Q901"
         },
         {
           "step": 11,
@@ -2288,14 +2530,14 @@
       ],
       "blocked_reason": "",
       "provisional": [],
-      "seconds": 4.16
+      "seconds": 4.28
     },
     {
-      "test_id": "EX-9f054be4d7",
+      "test_id": "EX-126f5dfd38",
       "title": "Q6 is displayed when its guard holds",
       "dimension": "D1",
-      "case_id": "TC-FT20",
-      "order": 22,
+      "case_id": "TC-FT21",
+      "order": 23,
       "question": "Q6",
       "status": "PASSED",
       "actions": [
@@ -2303,7 +2545,7 @@
           "step": 1,
           "question": "S1",
           "did": "chose 'Yes'",
-          "detail": "LimeSurvey calls this question Q788"
+          "detail": "LimeSurvey calls this question Q892"
         },
         {
           "step": 2,
@@ -2315,7 +2557,7 @@
           "step": 2,
           "question": "S2",
           "did": "chose 'Yes'",
-          "detail": "LimeSurvey calls this question Q789"
+          "detail": "LimeSurvey calls this question Q893"
         },
         {
           "step": 3,
@@ -2325,9 +2567,15 @@
         },
         {
           "step": 4,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q1 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 4,
           "question": "Q1",
           "did": "chose 'Counter'",
-          "detail": "LimeSurvey calls this question Q790"
+          "detail": "LimeSurvey calls this question Q895"
         },
         {
           "step": 5,
@@ -2339,7 +2587,7 @@
           "step": 5,
           "question": "Q2",
           "did": "chose 'Very poor'",
-          "detail": "LimeSurvey calls this question Q791"
+          "detail": "LimeSurvey calls this question Q896"
         },
         {
           "step": 6,
@@ -2351,7 +2599,7 @@
           "step": 6,
           "question": "Q3",
           "did": "chose 'Very poor'",
-          "detail": "LimeSurvey calls this question Q792"
+          "detail": "LimeSurvey calls this question Q897"
         },
         {
           "step": 7,
@@ -2363,7 +2611,7 @@
           "step": 7,
           "question": "Q4",
           "did": "ticked it",
-          "detail": "LimeSurvey calls this question Q793"
+          "detail": "LimeSurvey calls this question Q898"
         },
         {
           "step": 8,
@@ -2375,7 +2623,7 @@
           "step": 8,
           "question": "Q5",
           "did": "chose 'Yes'",
-          "detail": "LimeSurvey calls this question Q794"
+          "detail": "LimeSurvey calls this question Q899"
         },
         {
           "step": 9,
@@ -2387,7 +2635,7 @@
           "step": 9,
           "question": "Q6",
           "did": "typed 'xxxxxxxxxx'",
-          "detail": "LimeSurvey calls this question Q795"
+          "detail": "LimeSurvey calls this question Q900"
         },
         {
           "step": 10,
@@ -2410,14 +2658,14 @@
       ],
       "blocked_reason": "",
       "provisional": [],
-      "seconds": 4.02
+      "seconds": 4.16
     },
     {
-      "test_id": "EX-4fdc284215",
+      "test_id": "EX-bcbe7f1463",
       "title": "Q6 is not displayed when its guard fails",
       "dimension": "D1",
-      "case_id": "TC-FT21",
-      "order": 23,
+      "case_id": "TC-FT22",
+      "order": 24,
       "question": "Q6",
       "status": "PASSED",
       "actions": [
@@ -2425,7 +2673,7 @@
           "step": 1,
           "question": "S1",
           "did": "chose 'Yes'",
-          "detail": "LimeSurvey calls this question Q788"
+          "detail": "LimeSurvey calls this question Q892"
         },
         {
           "step": 2,
@@ -2437,7 +2685,7 @@
           "step": 2,
           "question": "S2",
           "did": "chose 'Yes'",
-          "detail": "LimeSurvey calls this question Q789"
+          "detail": "LimeSurvey calls this question Q893"
         },
         {
           "step": 3,
@@ -2447,9 +2695,15 @@
         },
         {
           "step": 4,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q1 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 4,
           "question": "Q1",
           "did": "chose 'Counter'",
-          "detail": "LimeSurvey calls this question Q790"
+          "detail": "LimeSurvey calls this question Q895"
         },
         {
           "step": 5,
@@ -2461,7 +2715,7 @@
           "step": 5,
           "question": "Q2",
           "did": "chose 'Very poor'",
-          "detail": "LimeSurvey calls this question Q791"
+          "detail": "LimeSurvey calls this question Q896"
         },
         {
           "step": 6,
@@ -2473,7 +2727,7 @@
           "step": 6,
           "question": "Q3",
           "did": "chose 'Very poor'",
-          "detail": "LimeSurvey calls this question Q792"
+          "detail": "LimeSurvey calls this question Q897"
         },
         {
           "step": 7,
@@ -2485,7 +2739,7 @@
           "step": 7,
           "question": "Q4",
           "did": "ticked it",
-          "detail": "LimeSurvey calls this question Q793"
+          "detail": "LimeSurvey calls this question Q898"
         },
         {
           "step": 8,
@@ -2497,7 +2751,7 @@
           "step": 8,
           "question": "Q5",
           "did": "chose 'No'",
-          "detail": "LimeSurvey calls this question Q794"
+          "detail": "LimeSurvey calls this question Q899"
         },
         {
           "step": 9,
@@ -2532,14 +2786,14 @@
       "provisional": [
         "rule_precedence"
       ],
-      "seconds": 3.87
+      "seconds": 4.18
     },
     {
-      "test_id": "EX-cd2f11f147",
+      "test_id": "EX-1583dd0399",
       "title": "Q6 accepts an answer meeting ['max_length', 'min_length']",
       "dimension": "D3",
-      "case_id": "TC-FT22",
-      "order": 24,
+      "case_id": "TC-FT23",
+      "order": 25,
       "question": "Q6",
       "status": "PASSED",
       "actions": [
@@ -2547,7 +2801,7 @@
           "step": 1,
           "question": "S1",
           "did": "chose 'Yes'",
-          "detail": "LimeSurvey calls this question Q788"
+          "detail": "LimeSurvey calls this question Q892"
         },
         {
           "step": 2,
@@ -2559,7 +2813,7 @@
           "step": 2,
           "question": "S2",
           "did": "chose 'Yes'",
-          "detail": "LimeSurvey calls this question Q789"
+          "detail": "LimeSurvey calls this question Q893"
         },
         {
           "step": 3,
@@ -2569,9 +2823,15 @@
         },
         {
           "step": 4,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q1 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 4,
           "question": "Q1",
           "did": "chose 'Counter'",
-          "detail": "LimeSurvey calls this question Q790"
+          "detail": "LimeSurvey calls this question Q895"
         },
         {
           "step": 5,
@@ -2583,7 +2843,7 @@
           "step": 5,
           "question": "Q2",
           "did": "chose 'Very poor'",
-          "detail": "LimeSurvey calls this question Q791"
+          "detail": "LimeSurvey calls this question Q896"
         },
         {
           "step": 6,
@@ -2595,7 +2855,7 @@
           "step": 6,
           "question": "Q3",
           "did": "chose 'Very poor'",
-          "detail": "LimeSurvey calls this question Q792"
+          "detail": "LimeSurvey calls this question Q897"
         },
         {
           "step": 7,
@@ -2607,7 +2867,7 @@
           "step": 7,
           "question": "Q4",
           "did": "ticked it",
-          "detail": "LimeSurvey calls this question Q793"
+          "detail": "LimeSurvey calls this question Q898"
         },
         {
           "step": 8,
@@ -2619,7 +2879,7 @@
           "step": 8,
           "question": "Q5",
           "did": "chose 'Yes'",
-          "detail": "LimeSurvey calls this question Q794"
+          "detail": "LimeSurvey calls this question Q899"
         },
         {
           "step": 9,
@@ -2631,7 +2891,7 @@
           "step": 9,
           "question": "Q6",
           "did": "typed 'xxxxxxxxxx'",
-          "detail": "LimeSurvey calls this question Q795"
+          "detail": "LimeSurvey calls this question Q900"
         },
         {
           "step": 10,
@@ -2654,14 +2914,14 @@
       ],
       "blocked_reason": "",
       "provisional": [],
-      "seconds": 4.01
+      "seconds": 4.13
     },
     {
-      "test_id": "EX-cde700d6d1",
+      "test_id": "EX-c1dad41eeb",
       "title": "Q6 rejects an answer breaking ['max_length', 'min_length']",
       "dimension": "D3",
-      "case_id": "TC-FT23",
-      "order": 25,
+      "case_id": "TC-FT24",
+      "order": 26,
       "question": "Q6",
       "status": "PASSED",
       "actions": [
@@ -2669,7 +2929,7 @@
           "step": 1,
           "question": "S1",
           "did": "chose 'Yes'",
-          "detail": "LimeSurvey calls this question Q788"
+          "detail": "LimeSurvey calls this question Q892"
         },
         {
           "step": 2,
@@ -2681,7 +2941,7 @@
           "step": 2,
           "question": "S2",
           "did": "chose 'Yes'",
-          "detail": "LimeSurvey calls this question Q789"
+          "detail": "LimeSurvey calls this question Q893"
         },
         {
           "step": 3,
@@ -2691,9 +2951,15 @@
         },
         {
           "step": 4,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q1 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 4,
           "question": "Q1",
           "did": "chose 'Counter'",
-          "detail": "LimeSurvey calls this question Q790"
+          "detail": "LimeSurvey calls this question Q895"
         },
         {
           "step": 5,
@@ -2705,7 +2971,7 @@
           "step": 5,
           "question": "Q2",
           "did": "chose 'Very poor'",
-          "detail": "LimeSurvey calls this question Q791"
+          "detail": "LimeSurvey calls this question Q896"
         },
         {
           "step": 6,
@@ -2717,7 +2983,7 @@
           "step": 6,
           "question": "Q3",
           "did": "chose 'Very poor'",
-          "detail": "LimeSurvey calls this question Q792"
+          "detail": "LimeSurvey calls this question Q897"
         },
         {
           "step": 7,
@@ -2729,7 +2995,7 @@
           "step": 7,
           "question": "Q4",
           "did": "ticked it",
-          "detail": "LimeSurvey calls this question Q793"
+          "detail": "LimeSurvey calls this question Q898"
         },
         {
           "step": 8,
@@ -2741,7 +3007,7 @@
           "step": 8,
           "question": "Q5",
           "did": "chose 'Yes'",
-          "detail": "LimeSurvey calls this question Q794"
+          "detail": "LimeSurvey calls this question Q899"
         },
         {
           "step": 9,
@@ -2753,7 +3019,7 @@
           "step": 9,
           "question": "Q6",
           "did": "typed a 501-character answer",
-          "detail": "LimeSurvey calls this question Q795"
+          "detail": "LimeSurvey calls this question Q900"
         },
         {
           "step": 10,
@@ -2786,14 +3052,14 @@
       ],
       "blocked_reason": "",
       "provisional": [],
-      "seconds": 4.02
+      "seconds": 4.14
     },
     {
-      "test_id": "EX-10342d3516",
+      "test_id": "EX-5d9a56339e",
       "title": "Q6 blocks progress when left blank",
       "dimension": "D4",
-      "case_id": "TC-FT24",
-      "order": 26,
+      "case_id": "TC-FT25",
+      "order": 27,
       "question": "Q6",
       "status": "PASSED",
       "actions": [
@@ -2801,7 +3067,7 @@
           "step": 1,
           "question": "S1",
           "did": "chose 'Yes'",
-          "detail": "LimeSurvey calls this question Q788"
+          "detail": "LimeSurvey calls this question Q892"
         },
         {
           "step": 2,
@@ -2813,7 +3079,7 @@
           "step": 2,
           "question": "S2",
           "did": "chose 'Yes'",
-          "detail": "LimeSurvey calls this question Q789"
+          "detail": "LimeSurvey calls this question Q893"
         },
         {
           "step": 3,
@@ -2823,9 +3089,15 @@
         },
         {
           "step": 4,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q1 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 4,
           "question": "Q1",
           "did": "chose 'Counter'",
-          "detail": "LimeSurvey calls this question Q790"
+          "detail": "LimeSurvey calls this question Q895"
         },
         {
           "step": 5,
@@ -2837,7 +3109,7 @@
           "step": 5,
           "question": "Q2",
           "did": "chose 'Very poor'",
-          "detail": "LimeSurvey calls this question Q791"
+          "detail": "LimeSurvey calls this question Q896"
         },
         {
           "step": 6,
@@ -2849,7 +3121,7 @@
           "step": 6,
           "question": "Q3",
           "did": "chose 'Very poor'",
-          "detail": "LimeSurvey calls this question Q792"
+          "detail": "LimeSurvey calls this question Q897"
         },
         {
           "step": 7,
@@ -2861,7 +3133,7 @@
           "step": 7,
           "question": "Q4",
           "did": "ticked it",
-          "detail": "LimeSurvey calls this question Q793"
+          "detail": "LimeSurvey calls this question Q898"
         },
         {
           "step": 8,
@@ -2873,7 +3145,7 @@
           "step": 8,
           "question": "Q5",
           "did": "chose 'Yes'",
-          "detail": "LimeSurvey calls this question Q794"
+          "detail": "LimeSurvey calls this question Q899"
         },
         {
           "step": 9,
@@ -2918,14 +3190,14 @@
       ],
       "blocked_reason": "",
       "provisional": [],
-      "seconds": 4.06
+      "seconds": 4.29
     },
     {
-      "test_id": "EX-df46d2fc9c",
+      "test_id": "EX-fa24271db7",
       "title": "Q6's wording renders the answer given at Q5",
       "dimension": "D6",
-      "case_id": "TC-FT25",
-      "order": 27,
+      "case_id": "TC-FT26",
+      "order": 28,
       "question": "Q6",
       "status": "PASSED",
       "actions": [
@@ -2933,7 +3205,7 @@
           "step": 1,
           "question": "S1",
           "did": "chose 'Yes'",
-          "detail": "LimeSurvey calls this question Q788"
+          "detail": "LimeSurvey calls this question Q892"
         },
         {
           "step": 2,
@@ -2945,7 +3217,7 @@
           "step": 2,
           "question": "S2",
           "did": "chose 'Yes'",
-          "detail": "LimeSurvey calls this question Q789"
+          "detail": "LimeSurvey calls this question Q893"
         },
         {
           "step": 3,
@@ -2955,9 +3227,15 @@
         },
         {
           "step": 4,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q1 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 4,
           "question": "Q1",
           "did": "chose 'Counter'",
-          "detail": "LimeSurvey calls this question Q790"
+          "detail": "LimeSurvey calls this question Q895"
         },
         {
           "step": 5,
@@ -2969,7 +3247,7 @@
           "step": 5,
           "question": "Q2",
           "did": "chose 'Very poor'",
-          "detail": "LimeSurvey calls this question Q791"
+          "detail": "LimeSurvey calls this question Q896"
         },
         {
           "step": 6,
@@ -2981,7 +3259,7 @@
           "step": 6,
           "question": "Q3",
           "did": "chose 'Very poor'",
-          "detail": "LimeSurvey calls this question Q792"
+          "detail": "LimeSurvey calls this question Q897"
         },
         {
           "step": 7,
@@ -2993,7 +3271,7 @@
           "step": 7,
           "question": "Q4",
           "did": "ticked it",
-          "detail": "LimeSurvey calls this question Q793"
+          "detail": "LimeSurvey calls this question Q898"
         },
         {
           "step": 8,
@@ -3005,7 +3283,7 @@
           "step": 8,
           "question": "Q5",
           "did": "chose 'Yes'",
-          "detail": "LimeSurvey calls this question Q794"
+          "detail": "LimeSurvey calls this question Q899"
         },
         {
           "step": 9,
@@ -3017,7 +3295,7 @@
           "step": 9,
           "question": "Q6",
           "did": "typed 'xxxxxxxxxx'",
-          "detail": "LimeSurvey calls this question Q795"
+          "detail": "LimeSurvey calls this question Q900"
         },
         {
           "step": 10,
@@ -3040,14 +3318,14 @@
       ],
       "blocked_reason": "",
       "provisional": [],
-      "seconds": 3.99
+      "seconds": 4.16
     },
     {
-      "test_id": "EX-25f876ca34",
+      "test_id": "EX-44ef21a0bc",
       "title": "Q6 is shown by its guard and simultaneously reflects its dependency on Q5",
       "dimension": "D9",
-      "case_id": "TC-FT26",
-      "order": 28,
+      "case_id": "TC-FT27",
+      "order": 29,
       "question": "Q6",
       "status": "PASSED",
       "actions": [
@@ -3055,7 +3333,7 @@
           "step": 1,
           "question": "S1",
           "did": "chose 'Yes'",
-          "detail": "LimeSurvey calls this question Q788"
+          "detail": "LimeSurvey calls this question Q892"
         },
         {
           "step": 2,
@@ -3067,7 +3345,7 @@
           "step": 2,
           "question": "S2",
           "did": "chose 'Yes'",
-          "detail": "LimeSurvey calls this question Q789"
+          "detail": "LimeSurvey calls this question Q893"
         },
         {
           "step": 3,
@@ -3077,9 +3355,15 @@
         },
         {
           "step": 4,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q1 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 4,
           "question": "Q1",
           "did": "chose 'Counter'",
-          "detail": "LimeSurvey calls this question Q790"
+          "detail": "LimeSurvey calls this question Q895"
         },
         {
           "step": 5,
@@ -3091,7 +3375,7 @@
           "step": 5,
           "question": "Q2",
           "did": "chose 'Very poor'",
-          "detail": "LimeSurvey calls this question Q791"
+          "detail": "LimeSurvey calls this question Q896"
         },
         {
           "step": 6,
@@ -3103,7 +3387,7 @@
           "step": 6,
           "question": "Q3",
           "did": "chose 'Very poor'",
-          "detail": "LimeSurvey calls this question Q792"
+          "detail": "LimeSurvey calls this question Q897"
         },
         {
           "step": 7,
@@ -3115,7 +3399,7 @@
           "step": 7,
           "question": "Q4",
           "did": "ticked it",
-          "detail": "LimeSurvey calls this question Q793"
+          "detail": "LimeSurvey calls this question Q898"
         },
         {
           "step": 8,
@@ -3127,7 +3411,7 @@
           "step": 8,
           "question": "Q5",
           "did": "chose 'Yes'",
-          "detail": "LimeSurvey calls this question Q794"
+          "detail": "LimeSurvey calls this question Q899"
         },
         {
           "step": 9,
@@ -3139,7 +3423,7 @@
           "step": 9,
           "question": "Q6",
           "did": "typed 'xxxxxxxxxx'",
-          "detail": "LimeSurvey calls this question Q795"
+          "detail": "LimeSurvey calls this question Q900"
         },
         {
           "step": 10,
@@ -3172,14 +3456,14 @@
       ],
       "blocked_reason": "",
       "provisional": [],
-      "seconds": 3.97
+      "seconds": 4.14
     },
     {
-      "test_id": "EX-73ea9c5925",
+      "test_id": "EX-55ce063063",
       "title": "Q6 accepts an answer of exactly 500 characters, its stated maximum",
       "dimension": "D3",
-      "case_id": "TC-FT27",
-      "order": 29,
+      "case_id": "TC-FT28",
+      "order": 30,
       "question": "Q6",
       "status": "PASSED",
       "actions": [
@@ -3187,7 +3471,7 @@
           "step": 1,
           "question": "S1",
           "did": "chose 'Yes'",
-          "detail": "LimeSurvey calls this question Q788"
+          "detail": "LimeSurvey calls this question Q892"
         },
         {
           "step": 2,
@@ -3199,7 +3483,7 @@
           "step": 2,
           "question": "S2",
           "did": "chose 'Yes'",
-          "detail": "LimeSurvey calls this question Q789"
+          "detail": "LimeSurvey calls this question Q893"
         },
         {
           "step": 3,
@@ -3209,9 +3493,15 @@
         },
         {
           "step": 4,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q1 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 4,
           "question": "Q1",
           "did": "chose 'Counter'",
-          "detail": "LimeSurvey calls this question Q790"
+          "detail": "LimeSurvey calls this question Q895"
         },
         {
           "step": 5,
@@ -3223,7 +3513,7 @@
           "step": 5,
           "question": "Q2",
           "did": "chose 'Very poor'",
-          "detail": "LimeSurvey calls this question Q791"
+          "detail": "LimeSurvey calls this question Q896"
         },
         {
           "step": 6,
@@ -3235,7 +3525,7 @@
           "step": 6,
           "question": "Q3",
           "did": "chose 'Very poor'",
-          "detail": "LimeSurvey calls this question Q792"
+          "detail": "LimeSurvey calls this question Q897"
         },
         {
           "step": 7,
@@ -3247,7 +3537,7 @@
           "step": 7,
           "question": "Q4",
           "did": "ticked it",
-          "detail": "LimeSurvey calls this question Q793"
+          "detail": "LimeSurvey calls this question Q898"
         },
         {
           "step": 8,
@@ -3259,7 +3549,7 @@
           "step": 8,
           "question": "Q5",
           "did": "chose 'Yes'",
-          "detail": "LimeSurvey calls this question Q794"
+          "detail": "LimeSurvey calls this question Q899"
         },
         {
           "step": 9,
@@ -3271,7 +3561,7 @@
           "step": 9,
           "question": "Q6",
           "did": "typed a 500-character answer",
-          "detail": "LimeSurvey calls this question Q795"
+          "detail": "LimeSurvey calls this question Q900"
         },
         {
           "step": 10,
@@ -3294,14 +3584,14 @@
       ],
       "blocked_reason": "",
       "provisional": [],
-      "seconds": 4.01
+      "seconds": 4.19
     },
     {
-      "test_id": "EX-c6e96c7923",
+      "test_id": "EX-de86a38654",
       "title": "Q6 accepts punctuation and quotation marks, because its rule constrains length and not content",
       "dimension": "D3",
-      "case_id": "TC-FT28",
-      "order": 30,
+      "case_id": "TC-FT29",
+      "order": 31,
       "question": "Q6",
       "status": "PASSED",
       "actions": [
@@ -3309,7 +3599,7 @@
           "step": 1,
           "question": "S1",
           "did": "chose 'Yes'",
-          "detail": "LimeSurvey calls this question Q788"
+          "detail": "LimeSurvey calls this question Q892"
         },
         {
           "step": 2,
@@ -3321,7 +3611,7 @@
           "step": 2,
           "question": "S2",
           "did": "chose 'Yes'",
-          "detail": "LimeSurvey calls this question Q789"
+          "detail": "LimeSurvey calls this question Q893"
         },
         {
           "step": 3,
@@ -3331,9 +3621,15 @@
         },
         {
           "step": 4,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q1 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 4,
           "question": "Q1",
           "did": "chose 'Counter'",
-          "detail": "LimeSurvey calls this question Q790"
+          "detail": "LimeSurvey calls this question Q895"
         },
         {
           "step": 5,
@@ -3345,7 +3641,7 @@
           "step": 5,
           "question": "Q2",
           "did": "chose 'Very poor'",
-          "detail": "LimeSurvey calls this question Q791"
+          "detail": "LimeSurvey calls this question Q896"
         },
         {
           "step": 6,
@@ -3357,7 +3653,7 @@
           "step": 6,
           "question": "Q3",
           "did": "chose 'Very poor'",
-          "detail": "LimeSurvey calls this question Q792"
+          "detail": "LimeSurvey calls this question Q897"
         },
         {
           "step": 7,
@@ -3369,7 +3665,7 @@
           "step": 7,
           "question": "Q4",
           "did": "ticked it",
-          "detail": "LimeSurvey calls this question Q793"
+          "detail": "LimeSurvey calls this question Q898"
         },
         {
           "step": 8,
@@ -3381,7 +3677,7 @@
           "step": 8,
           "question": "Q5",
           "did": "chose 'Yes'",
-          "detail": "LimeSurvey calls this question Q794"
+          "detail": "LimeSurvey calls this question Q899"
         },
         {
           "step": 9,
@@ -3393,7 +3689,7 @@
           "step": 9,
           "question": "Q6",
           "did": "typed 'O\\'Brien said \"yes\" <50% & more'",
-          "detail": "LimeSurvey calls this question Q795"
+          "detail": "LimeSurvey calls this question Q900"
         },
         {
           "step": 10,
@@ -3416,14 +3712,14 @@
       ],
       "blocked_reason": "",
       "provisional": [],
-      "seconds": 4.0
+      "seconds": 4.56
     },
     {
-      "test_id": "EX-1c0a3ad9f5",
+      "test_id": "EX-4d3207101e",
       "title": "Q6 refuses an answer of spaces alone, being compulsory",
       "dimension": "D4",
-      "case_id": "TC-FT29",
-      "order": 31,
+      "case_id": "TC-FT30",
+      "order": 32,
       "question": "Q6",
       "status": "PASSED",
       "actions": [
@@ -3431,7 +3727,7 @@
           "step": 1,
           "question": "S1",
           "did": "chose 'Yes'",
-          "detail": "LimeSurvey calls this question Q788"
+          "detail": "LimeSurvey calls this question Q892"
         },
         {
           "step": 2,
@@ -3443,7 +3739,7 @@
           "step": 2,
           "question": "S2",
           "did": "chose 'Yes'",
-          "detail": "LimeSurvey calls this question Q789"
+          "detail": "LimeSurvey calls this question Q893"
         },
         {
           "step": 3,
@@ -3453,9 +3749,15 @@
         },
         {
           "step": 4,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q1 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 4,
           "question": "Q1",
           "did": "chose 'Counter'",
-          "detail": "LimeSurvey calls this question Q790"
+          "detail": "LimeSurvey calls this question Q895"
         },
         {
           "step": 5,
@@ -3467,7 +3769,7 @@
           "step": 5,
           "question": "Q2",
           "did": "chose 'Very poor'",
-          "detail": "LimeSurvey calls this question Q791"
+          "detail": "LimeSurvey calls this question Q896"
         },
         {
           "step": 6,
@@ -3479,7 +3781,7 @@
           "step": 6,
           "question": "Q3",
           "did": "chose 'Very poor'",
-          "detail": "LimeSurvey calls this question Q792"
+          "detail": "LimeSurvey calls this question Q897"
         },
         {
           "step": 7,
@@ -3491,7 +3793,7 @@
           "step": 7,
           "question": "Q4",
           "did": "ticked it",
-          "detail": "LimeSurvey calls this question Q793"
+          "detail": "LimeSurvey calls this question Q898"
         },
         {
           "step": 8,
@@ -3503,7 +3805,7 @@
           "step": 8,
           "question": "Q5",
           "did": "chose 'Yes'",
-          "detail": "LimeSurvey calls this question Q794"
+          "detail": "LimeSurvey calls this question Q899"
         },
         {
           "step": 9,
@@ -3515,7 +3817,7 @@
           "step": 9,
           "question": "Q6",
           "did": "typed 3 spaces",
-          "detail": "LimeSurvey calls this question Q795"
+          "detail": "LimeSurvey calls this question Q900"
         },
         {
           "step": 10,
@@ -3550,14 +3852,14 @@
       "provisional": [
         "whitespace_is_an_answer"
       ],
-      "seconds": 4.0
+      "seconds": 4.33
     },
     {
-      "test_id": "EX-e4f864f412",
+      "test_id": "EX-74c2e31646",
       "title": "answering Q7 normally moves the respondent on to the question that should come next",
       "dimension": "D1",
-      "case_id": "TC-FT30",
-      "order": 32,
+      "case_id": "TC-FT31",
+      "order": 33,
       "question": "Q7",
       "status": "PASSED",
       "actions": [
@@ -3565,7 +3867,7 @@
           "step": 1,
           "question": "S1",
           "did": "chose 'Yes'",
-          "detail": "LimeSurvey calls this question Q788"
+          "detail": "LimeSurvey calls this question Q892"
         },
         {
           "step": 2,
@@ -3577,7 +3879,7 @@
           "step": 2,
           "question": "S2",
           "did": "chose 'Yes'",
-          "detail": "LimeSurvey calls this question Q789"
+          "detail": "LimeSurvey calls this question Q893"
         },
         {
           "step": 3,
@@ -3587,9 +3889,15 @@
         },
         {
           "step": 4,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q1 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 4,
           "question": "Q1",
           "did": "chose 'Counter'",
-          "detail": "LimeSurvey calls this question Q790"
+          "detail": "LimeSurvey calls this question Q895"
         },
         {
           "step": 5,
@@ -3601,7 +3909,7 @@
           "step": 5,
           "question": "Q2",
           "did": "chose 'Very poor'",
-          "detail": "LimeSurvey calls this question Q791"
+          "detail": "LimeSurvey calls this question Q896"
         },
         {
           "step": 6,
@@ -3613,7 +3921,7 @@
           "step": 6,
           "question": "Q3",
           "did": "chose 'Very poor'",
-          "detail": "LimeSurvey calls this question Q792"
+          "detail": "LimeSurvey calls this question Q897"
         },
         {
           "step": 7,
@@ -3625,7 +3933,7 @@
           "step": 7,
           "question": "Q4",
           "did": "ticked it",
-          "detail": "LimeSurvey calls this question Q793"
+          "detail": "LimeSurvey calls this question Q898"
         },
         {
           "step": 8,
@@ -3637,7 +3945,7 @@
           "step": 8,
           "question": "Q5",
           "did": "chose 'Yes'",
-          "detail": "LimeSurvey calls this question Q794"
+          "detail": "LimeSurvey calls this question Q899"
         },
         {
           "step": 9,
@@ -3649,7 +3957,7 @@
           "step": 9,
           "question": "Q6",
           "did": "typed 'xxxxxxxxxx'",
-          "detail": "LimeSurvey calls this question Q795"
+          "detail": "LimeSurvey calls this question Q900"
         },
         {
           "step": 10,
@@ -3661,7 +3969,7 @@
           "step": 10,
           "question": "Q7",
           "did": "chose '0'",
-          "detail": "LimeSurvey calls this question Q796"
+          "detail": "LimeSurvey calls this question Q901"
         },
         {
           "step": 11,
@@ -3694,14 +4002,14 @@
       ],
       "blocked_reason": "",
       "provisional": [],
-      "seconds": 4.15
+      "seconds": 4.43
     },
     {
-      "test_id": "EX-0463d69d31",
+      "test_id": "EX-ce49333171",
       "title": "Q7 blocks progress when left blank",
       "dimension": "D4",
-      "case_id": "TC-FT31",
-      "order": 33,
+      "case_id": "TC-FT32",
+      "order": 34,
       "question": "Q7",
       "status": "PASSED",
       "actions": [
@@ -3709,7 +4017,7 @@
           "step": 1,
           "question": "S1",
           "did": "chose 'Yes'",
-          "detail": "LimeSurvey calls this question Q788"
+          "detail": "LimeSurvey calls this question Q892"
         },
         {
           "step": 2,
@@ -3721,7 +4029,7 @@
           "step": 2,
           "question": "S2",
           "did": "chose 'Yes'",
-          "detail": "LimeSurvey calls this question Q789"
+          "detail": "LimeSurvey calls this question Q893"
         },
         {
           "step": 3,
@@ -3731,9 +4039,15 @@
         },
         {
           "step": 4,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q1 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 4,
           "question": "Q1",
           "did": "chose 'Counter'",
-          "detail": "LimeSurvey calls this question Q790"
+          "detail": "LimeSurvey calls this question Q895"
         },
         {
           "step": 5,
@@ -3745,7 +4059,7 @@
           "step": 5,
           "question": "Q2",
           "did": "chose 'Very poor'",
-          "detail": "LimeSurvey calls this question Q791"
+          "detail": "LimeSurvey calls this question Q896"
         },
         {
           "step": 6,
@@ -3757,7 +4071,7 @@
           "step": 6,
           "question": "Q3",
           "did": "chose 'Very poor'",
-          "detail": "LimeSurvey calls this question Q792"
+          "detail": "LimeSurvey calls this question Q897"
         },
         {
           "step": 7,
@@ -3769,7 +4083,7 @@
           "step": 7,
           "question": "Q4",
           "did": "ticked it",
-          "detail": "LimeSurvey calls this question Q793"
+          "detail": "LimeSurvey calls this question Q898"
         },
         {
           "step": 8,
@@ -3781,7 +4095,7 @@
           "step": 8,
           "question": "Q5",
           "did": "chose 'Yes'",
-          "detail": "LimeSurvey calls this question Q794"
+          "detail": "LimeSurvey calls this question Q899"
         },
         {
           "step": 9,
@@ -3793,7 +4107,7 @@
           "step": 9,
           "question": "Q6",
           "did": "typed 'xxxxxxxxxx'",
-          "detail": "LimeSurvey calls this question Q795"
+          "detail": "LimeSurvey calls this question Q900"
         },
         {
           "step": 10,
@@ -3838,14 +4152,14 @@
       ],
       "blocked_reason": "",
       "provisional": [],
-      "seconds": 4.12
+      "seconds": 4.3
     },
     {
-      "test_id": "EX-ca7766b213",
+      "test_id": "EX-383393e005",
       "title": "answering Q8 normally moves the respondent on to the question that should come next",
       "dimension": "D1",
-      "case_id": "TC-FT32",
-      "order": 34,
+      "case_id": "TC-FT33",
+      "order": 35,
       "question": "Q8",
       "status": "PASSED",
       "actions": [
@@ -3853,7 +4167,7 @@
           "step": 1,
           "question": "S1",
           "did": "chose 'Yes'",
-          "detail": "LimeSurvey calls this question Q788"
+          "detail": "LimeSurvey calls this question Q892"
         },
         {
           "step": 2,
@@ -3865,7 +4179,7 @@
           "step": 2,
           "question": "S2",
           "did": "chose 'Yes'",
-          "detail": "LimeSurvey calls this question Q789"
+          "detail": "LimeSurvey calls this question Q893"
         },
         {
           "step": 3,
@@ -3875,9 +4189,15 @@
         },
         {
           "step": 4,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q1 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 4,
           "question": "Q1",
           "did": "chose 'Counter'",
-          "detail": "LimeSurvey calls this question Q790"
+          "detail": "LimeSurvey calls this question Q895"
         },
         {
           "step": 5,
@@ -3889,7 +4209,7 @@
           "step": 5,
           "question": "Q2",
           "did": "chose 'Very poor'",
-          "detail": "LimeSurvey calls this question Q791"
+          "detail": "LimeSurvey calls this question Q896"
         },
         {
           "step": 6,
@@ -3901,7 +4221,7 @@
           "step": 6,
           "question": "Q3",
           "did": "chose 'Very poor'",
-          "detail": "LimeSurvey calls this question Q792"
+          "detail": "LimeSurvey calls this question Q897"
         },
         {
           "step": 7,
@@ -3913,7 +4233,7 @@
           "step": 7,
           "question": "Q4",
           "did": "ticked it",
-          "detail": "LimeSurvey calls this question Q793"
+          "detail": "LimeSurvey calls this question Q898"
         },
         {
           "step": 8,
@@ -3925,7 +4245,7 @@
           "step": 8,
           "question": "Q5",
           "did": "chose 'Yes'",
-          "detail": "LimeSurvey calls this question Q794"
+          "detail": "LimeSurvey calls this question Q899"
         },
         {
           "step": 9,
@@ -3937,7 +4257,7 @@
           "step": 9,
           "question": "Q6",
           "did": "typed 'xxxxxxxxxx'",
-          "detail": "LimeSurvey calls this question Q795"
+          "detail": "LimeSurvey calls this question Q900"
         },
         {
           "step": 10,
@@ -3949,7 +4269,7 @@
           "step": 10,
           "question": "Q7",
           "did": "chose '0'",
-          "detail": "LimeSurvey calls this question Q796"
+          "detail": "LimeSurvey calls this question Q901"
         },
         {
           "step": 11,
@@ -3982,14 +4302,14 @@
       ],
       "blocked_reason": "",
       "provisional": [],
-      "seconds": 4.24
+      "seconds": 4.46
     },
     {
-      "test_id": "EX-8ae1e165ef",
+      "test_id": "EX-d63b46eec2",
       "title": "Q8 accepts an answer meeting ['max_length']",
       "dimension": "D3",
-      "case_id": "TC-FT33",
-      "order": 35,
+      "case_id": "TC-FT34",
+      "order": 36,
       "question": "Q8",
       "status": "PASSED",
       "actions": [
@@ -3997,7 +4317,7 @@
           "step": 1,
           "question": "S1",
           "did": "chose 'Yes'",
-          "detail": "LimeSurvey calls this question Q788"
+          "detail": "LimeSurvey calls this question Q892"
         },
         {
           "step": 2,
@@ -4009,7 +4329,7 @@
           "step": 2,
           "question": "S2",
           "did": "chose 'Yes'",
-          "detail": "LimeSurvey calls this question Q789"
+          "detail": "LimeSurvey calls this question Q893"
         },
         {
           "step": 3,
@@ -4019,9 +4339,15 @@
         },
         {
           "step": 4,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q1 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 4,
           "question": "Q1",
           "did": "chose 'Counter'",
-          "detail": "LimeSurvey calls this question Q790"
+          "detail": "LimeSurvey calls this question Q895"
         },
         {
           "step": 5,
@@ -4033,7 +4359,7 @@
           "step": 5,
           "question": "Q2",
           "did": "chose 'Very poor'",
-          "detail": "LimeSurvey calls this question Q791"
+          "detail": "LimeSurvey calls this question Q896"
         },
         {
           "step": 6,
@@ -4045,7 +4371,7 @@
           "step": 6,
           "question": "Q3",
           "did": "chose 'Very poor'",
-          "detail": "LimeSurvey calls this question Q792"
+          "detail": "LimeSurvey calls this question Q897"
         },
         {
           "step": 7,
@@ -4057,7 +4383,7 @@
           "step": 7,
           "question": "Q4",
           "did": "ticked it",
-          "detail": "LimeSurvey calls this question Q793"
+          "detail": "LimeSurvey calls this question Q898"
         },
         {
           "step": 8,
@@ -4069,7 +4395,7 @@
           "step": 8,
           "question": "Q5",
           "did": "chose 'Yes'",
-          "detail": "LimeSurvey calls this question Q794"
+          "detail": "LimeSurvey calls this question Q899"
         },
         {
           "step": 9,
@@ -4081,7 +4407,7 @@
           "step": 9,
           "question": "Q6",
           "did": "typed 'xxxxxxxxxx'",
-          "detail": "LimeSurvey calls this question Q795"
+          "detail": "LimeSurvey calls this question Q900"
         },
         {
           "step": 10,
@@ -4093,7 +4419,7 @@
           "step": 10,
           "question": "Q7",
           "did": "chose '0'",
-          "detail": "LimeSurvey calls this question Q796"
+          "detail": "LimeSurvey calls this question Q901"
         },
         {
           "step": 11,
@@ -4105,7 +4431,7 @@
           "step": 11,
           "question": "Q8",
           "did": "typed 'x'",
-          "detail": "LimeSurvey calls this question Q797"
+          "detail": "LimeSurvey calls this question Q902"
         },
         {
           "step": 12,
@@ -4128,14 +4454,14 @@
       ],
       "blocked_reason": "",
       "provisional": [],
-      "seconds": 4.27
+      "seconds": 4.43
     },
     {
-      "test_id": "EX-517fcfe12d",
+      "test_id": "EX-6dc16e9122",
       "title": "Q8 rejects an answer breaking ['max_length']",
       "dimension": "D3",
-      "case_id": "TC-FT34",
-      "order": 36,
+      "case_id": "TC-FT35",
+      "order": 37,
       "question": "Q8",
       "status": "PASSED",
       "actions": [
@@ -4143,7 +4469,7 @@
           "step": 1,
           "question": "S1",
           "did": "chose 'Yes'",
-          "detail": "LimeSurvey calls this question Q788"
+          "detail": "LimeSurvey calls this question Q892"
         },
         {
           "step": 2,
@@ -4155,7 +4481,7 @@
           "step": 2,
           "question": "S2",
           "did": "chose 'Yes'",
-          "detail": "LimeSurvey calls this question Q789"
+          "detail": "LimeSurvey calls this question Q893"
         },
         {
           "step": 3,
@@ -4165,9 +4491,15 @@
         },
         {
           "step": 4,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q1 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 4,
           "question": "Q1",
           "did": "chose 'Counter'",
-          "detail": "LimeSurvey calls this question Q790"
+          "detail": "LimeSurvey calls this question Q895"
         },
         {
           "step": 5,
@@ -4179,7 +4511,7 @@
           "step": 5,
           "question": "Q2",
           "did": "chose 'Very poor'",
-          "detail": "LimeSurvey calls this question Q791"
+          "detail": "LimeSurvey calls this question Q896"
         },
         {
           "step": 6,
@@ -4191,7 +4523,7 @@
           "step": 6,
           "question": "Q3",
           "did": "chose 'Very poor'",
-          "detail": "LimeSurvey calls this question Q792"
+          "detail": "LimeSurvey calls this question Q897"
         },
         {
           "step": 7,
@@ -4203,7 +4535,7 @@
           "step": 7,
           "question": "Q4",
           "did": "ticked it",
-          "detail": "LimeSurvey calls this question Q793"
+          "detail": "LimeSurvey calls this question Q898"
         },
         {
           "step": 8,
@@ -4215,7 +4547,7 @@
           "step": 8,
           "question": "Q5",
           "did": "chose 'Yes'",
-          "detail": "LimeSurvey calls this question Q794"
+          "detail": "LimeSurvey calls this question Q899"
         },
         {
           "step": 9,
@@ -4227,7 +4559,7 @@
           "step": 9,
           "question": "Q6",
           "did": "typed 'xxxxxxxxxx'",
-          "detail": "LimeSurvey calls this question Q795"
+          "detail": "LimeSurvey calls this question Q900"
         },
         {
           "step": 10,
@@ -4239,7 +4571,7 @@
           "step": 10,
           "question": "Q7",
           "did": "chose '0'",
-          "detail": "LimeSurvey calls this question Q796"
+          "detail": "LimeSurvey calls this question Q901"
         },
         {
           "step": 11,
@@ -4251,7 +4583,7 @@
           "step": 11,
           "question": "Q8",
           "did": "typed a 501-character answer",
-          "detail": "LimeSurvey calls this question Q797"
+          "detail": "LimeSurvey calls this question Q902"
         },
         {
           "step": 12,
@@ -4284,14 +4616,14 @@
       ],
       "blocked_reason": "",
       "provisional": [],
-      "seconds": 4.32
+      "seconds": 4.47
     },
     {
-      "test_id": "EX-84e1dd487e",
+      "test_id": "EX-a85ef26fa6",
       "title": "Q8 is optional and permits progress when left blank",
       "dimension": "D4",
-      "case_id": "TC-FT35",
-      "order": 37,
+      "case_id": "TC-FT36",
+      "order": 38,
       "question": "Q8",
       "status": "PASSED",
       "actions": [
@@ -4299,7 +4631,7 @@
           "step": 1,
           "question": "S1",
           "did": "chose 'Yes'",
-          "detail": "LimeSurvey calls this question Q788"
+          "detail": "LimeSurvey calls this question Q892"
         },
         {
           "step": 2,
@@ -4311,7 +4643,7 @@
           "step": 2,
           "question": "S2",
           "did": "chose 'Yes'",
-          "detail": "LimeSurvey calls this question Q789"
+          "detail": "LimeSurvey calls this question Q893"
         },
         {
           "step": 3,
@@ -4321,9 +4653,15 @@
         },
         {
           "step": 4,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q1 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 4,
           "question": "Q1",
           "did": "chose 'Counter'",
-          "detail": "LimeSurvey calls this question Q790"
+          "detail": "LimeSurvey calls this question Q895"
         },
         {
           "step": 5,
@@ -4335,7 +4673,7 @@
           "step": 5,
           "question": "Q2",
           "did": "chose 'Very poor'",
-          "detail": "LimeSurvey calls this question Q791"
+          "detail": "LimeSurvey calls this question Q896"
         },
         {
           "step": 6,
@@ -4347,7 +4685,7 @@
           "step": 6,
           "question": "Q3",
           "did": "chose 'Very poor'",
-          "detail": "LimeSurvey calls this question Q792"
+          "detail": "LimeSurvey calls this question Q897"
         },
         {
           "step": 7,
@@ -4359,7 +4697,7 @@
           "step": 7,
           "question": "Q4",
           "did": "ticked it",
-          "detail": "LimeSurvey calls this question Q793"
+          "detail": "LimeSurvey calls this question Q898"
         },
         {
           "step": 8,
@@ -4371,7 +4709,7 @@
           "step": 8,
           "question": "Q5",
           "did": "chose 'Yes'",
-          "detail": "LimeSurvey calls this question Q794"
+          "detail": "LimeSurvey calls this question Q899"
         },
         {
           "step": 9,
@@ -4383,7 +4721,7 @@
           "step": 9,
           "question": "Q6",
           "did": "typed 'xxxxxxxxxx'",
-          "detail": "LimeSurvey calls this question Q795"
+          "detail": "LimeSurvey calls this question Q900"
         },
         {
           "step": 10,
@@ -4395,7 +4733,7 @@
           "step": 10,
           "question": "Q7",
           "did": "chose '0'",
-          "detail": "LimeSurvey calls this question Q796"
+          "detail": "LimeSurvey calls this question Q901"
         },
         {
           "step": 11,
@@ -4430,14 +4768,14 @@
       ],
       "blocked_reason": "",
       "provisional": [],
-      "seconds": 4.27
+      "seconds": 4.49
     },
     {
-      "test_id": "EX-2e4c93ff06",
+      "test_id": "EX-c654d4f699",
       "title": "Q8 accepts an answer of exactly 500 characters, its stated maximum",
       "dimension": "D3",
-      "case_id": "TC-FT36",
-      "order": 38,
+      "case_id": "TC-FT37",
+      "order": 39,
       "question": "Q8",
       "status": "PASSED",
       "actions": [
@@ -4445,7 +4783,7 @@
           "step": 1,
           "question": "S1",
           "did": "chose 'Yes'",
-          "detail": "LimeSurvey calls this question Q788"
+          "detail": "LimeSurvey calls this question Q892"
         },
         {
           "step": 2,
@@ -4457,7 +4795,7 @@
           "step": 2,
           "question": "S2",
           "did": "chose 'Yes'",
-          "detail": "LimeSurvey calls this question Q789"
+          "detail": "LimeSurvey calls this question Q893"
         },
         {
           "step": 3,
@@ -4467,9 +4805,15 @@
         },
         {
           "step": 4,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q1 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 4,
           "question": "Q1",
           "did": "chose 'Counter'",
-          "detail": "LimeSurvey calls this question Q790"
+          "detail": "LimeSurvey calls this question Q895"
         },
         {
           "step": 5,
@@ -4481,7 +4825,7 @@
           "step": 5,
           "question": "Q2",
           "did": "chose 'Very poor'",
-          "detail": "LimeSurvey calls this question Q791"
+          "detail": "LimeSurvey calls this question Q896"
         },
         {
           "step": 6,
@@ -4493,7 +4837,7 @@
           "step": 6,
           "question": "Q3",
           "did": "chose 'Very poor'",
-          "detail": "LimeSurvey calls this question Q792"
+          "detail": "LimeSurvey calls this question Q897"
         },
         {
           "step": 7,
@@ -4505,7 +4849,7 @@
           "step": 7,
           "question": "Q4",
           "did": "ticked it",
-          "detail": "LimeSurvey calls this question Q793"
+          "detail": "LimeSurvey calls this question Q898"
         },
         {
           "step": 8,
@@ -4517,7 +4861,7 @@
           "step": 8,
           "question": "Q5",
           "did": "chose 'Yes'",
-          "detail": "LimeSurvey calls this question Q794"
+          "detail": "LimeSurvey calls this question Q899"
         },
         {
           "step": 9,
@@ -4529,7 +4873,7 @@
           "step": 9,
           "question": "Q6",
           "did": "typed 'xxxxxxxxxx'",
-          "detail": "LimeSurvey calls this question Q795"
+          "detail": "LimeSurvey calls this question Q900"
         },
         {
           "step": 10,
@@ -4541,7 +4885,7 @@
           "step": 10,
           "question": "Q7",
           "did": "chose '0'",
-          "detail": "LimeSurvey calls this question Q796"
+          "detail": "LimeSurvey calls this question Q901"
         },
         {
           "step": 11,
@@ -4553,7 +4897,7 @@
           "step": 11,
           "question": "Q8",
           "did": "typed a 500-character answer",
-          "detail": "LimeSurvey calls this question Q797"
+          "detail": "LimeSurvey calls this question Q902"
         },
         {
           "step": 12,
@@ -4576,14 +4920,14 @@
       ],
       "blocked_reason": "",
       "provisional": [],
-      "seconds": 4.29
+      "seconds": 4.63
     },
     {
-      "test_id": "EX-16b5fff164",
+      "test_id": "EX-e6fb7a1cef",
       "title": "Q8 accepts punctuation and quotation marks, because its rule constrains length and not content",
       "dimension": "D3",
-      "case_id": "TC-FT37",
-      "order": 39,
+      "case_id": "TC-FT38",
+      "order": 40,
       "question": "Q8",
       "status": "PASSED",
       "actions": [
@@ -4591,7 +4935,7 @@
           "step": 1,
           "question": "S1",
           "did": "chose 'Yes'",
-          "detail": "LimeSurvey calls this question Q788"
+          "detail": "LimeSurvey calls this question Q892"
         },
         {
           "step": 2,
@@ -4603,7 +4947,7 @@
           "step": 2,
           "question": "S2",
           "did": "chose 'Yes'",
-          "detail": "LimeSurvey calls this question Q789"
+          "detail": "LimeSurvey calls this question Q893"
         },
         {
           "step": 3,
@@ -4613,9 +4957,15 @@
         },
         {
           "step": 4,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q1 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 4,
           "question": "Q1",
           "did": "chose 'Counter'",
-          "detail": "LimeSurvey calls this question Q790"
+          "detail": "LimeSurvey calls this question Q895"
         },
         {
           "step": 5,
@@ -4627,7 +4977,7 @@
           "step": 5,
           "question": "Q2",
           "did": "chose 'Very poor'",
-          "detail": "LimeSurvey calls this question Q791"
+          "detail": "LimeSurvey calls this question Q896"
         },
         {
           "step": 6,
@@ -4639,7 +4989,7 @@
           "step": 6,
           "question": "Q3",
           "did": "chose 'Very poor'",
-          "detail": "LimeSurvey calls this question Q792"
+          "detail": "LimeSurvey calls this question Q897"
         },
         {
           "step": 7,
@@ -4651,7 +5001,7 @@
           "step": 7,
           "question": "Q4",
           "did": "ticked it",
-          "detail": "LimeSurvey calls this question Q793"
+          "detail": "LimeSurvey calls this question Q898"
         },
         {
           "step": 8,
@@ -4663,7 +5013,7 @@
           "step": 8,
           "question": "Q5",
           "did": "chose 'Yes'",
-          "detail": "LimeSurvey calls this question Q794"
+          "detail": "LimeSurvey calls this question Q899"
         },
         {
           "step": 9,
@@ -4675,7 +5025,7 @@
           "step": 9,
           "question": "Q6",
           "did": "typed 'xxxxxxxxxx'",
-          "detail": "LimeSurvey calls this question Q795"
+          "detail": "LimeSurvey calls this question Q900"
         },
         {
           "step": 10,
@@ -4687,7 +5037,7 @@
           "step": 10,
           "question": "Q7",
           "did": "chose '0'",
-          "detail": "LimeSurvey calls this question Q796"
+          "detail": "LimeSurvey calls this question Q901"
         },
         {
           "step": 11,
@@ -4699,7 +5049,7 @@
           "step": 11,
           "question": "Q8",
           "did": "typed 'O\\'Brien said \"yes\" <50% & more'",
-          "detail": "LimeSurvey calls this question Q797"
+          "detail": "LimeSurvey calls this question Q902"
         },
         {
           "step": 12,
@@ -4722,14 +5072,14 @@
       ],
       "blocked_reason": "",
       "provisional": [],
-      "seconds": 4.36
+      "seconds": 4.46
     },
     {
-      "test_id": "EX-c15e365b89",
+      "test_id": "EX-b3a96f96e9",
       "title": "Q8 accepts an answer of spaces alone, being optional",
       "dimension": "D4",
-      "case_id": "TC-FT38",
-      "order": 40,
+      "case_id": "TC-FT39",
+      "order": 41,
       "question": "Q8",
       "status": "PASSED",
       "actions": [
@@ -4737,7 +5087,7 @@
           "step": 1,
           "question": "S1",
           "did": "chose 'Yes'",
-          "detail": "LimeSurvey calls this question Q788"
+          "detail": "LimeSurvey calls this question Q892"
         },
         {
           "step": 2,
@@ -4749,7 +5099,7 @@
           "step": 2,
           "question": "S2",
           "did": "chose 'Yes'",
-          "detail": "LimeSurvey calls this question Q789"
+          "detail": "LimeSurvey calls this question Q893"
         },
         {
           "step": 3,
@@ -4759,9 +5109,15 @@
         },
         {
           "step": 4,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q1 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 4,
           "question": "Q1",
           "did": "chose 'Counter'",
-          "detail": "LimeSurvey calls this question Q790"
+          "detail": "LimeSurvey calls this question Q895"
         },
         {
           "step": 5,
@@ -4773,7 +5129,7 @@
           "step": 5,
           "question": "Q2",
           "did": "chose 'Very poor'",
-          "detail": "LimeSurvey calls this question Q791"
+          "detail": "LimeSurvey calls this question Q896"
         },
         {
           "step": 6,
@@ -4785,7 +5141,7 @@
           "step": 6,
           "question": "Q3",
           "did": "chose 'Very poor'",
-          "detail": "LimeSurvey calls this question Q792"
+          "detail": "LimeSurvey calls this question Q897"
         },
         {
           "step": 7,
@@ -4797,7 +5153,7 @@
           "step": 7,
           "question": "Q4",
           "did": "ticked it",
-          "detail": "LimeSurvey calls this question Q793"
+          "detail": "LimeSurvey calls this question Q898"
         },
         {
           "step": 8,
@@ -4809,7 +5165,7 @@
           "step": 8,
           "question": "Q5",
           "did": "chose 'Yes'",
-          "detail": "LimeSurvey calls this question Q794"
+          "detail": "LimeSurvey calls this question Q899"
         },
         {
           "step": 9,
@@ -4821,7 +5177,7 @@
           "step": 9,
           "question": "Q6",
           "did": "typed 'xxxxxxxxxx'",
-          "detail": "LimeSurvey calls this question Q795"
+          "detail": "LimeSurvey calls this question Q900"
         },
         {
           "step": 10,
@@ -4833,7 +5189,7 @@
           "step": 10,
           "question": "Q7",
           "did": "chose '0'",
-          "detail": "LimeSurvey calls this question Q796"
+          "detail": "LimeSurvey calls this question Q901"
         },
         {
           "step": 11,
@@ -4845,7 +5201,7 @@
           "step": 11,
           "question": "Q8",
           "did": "typed 3 spaces",
-          "detail": "LimeSurvey calls this question Q797"
+          "detail": "LimeSurvey calls this question Q902"
         },
         {
           "step": 12,
@@ -4870,14 +5226,14 @@
       "provisional": [
         "whitespace_is_an_answer"
       ],
-      "seconds": 4.27
+      "seconds": 4.47
     },
     {
-      "test_id": "EX-db2af9d2d5",
+      "test_id": "EX-c0e9222b0e",
       "title": "a respondent can reach ending COMPLETE",
       "dimension": "D2",
       "case_id": "TC-RT03",
-      "order": 41,
+      "order": 42,
       "question": "COMPLETE",
       "status": "PASSED",
       "actions": [
@@ -4885,7 +5241,7 @@
           "step": 1,
           "question": "S1",
           "did": "chose 'Yes'",
-          "detail": "LimeSurvey calls this question Q788"
+          "detail": "LimeSurvey calls this question Q892"
         },
         {
           "step": 2,
@@ -4897,7 +5253,7 @@
           "step": 2,
           "question": "S2",
           "did": "chose 'Yes'",
-          "detail": "LimeSurvey calls this question Q789"
+          "detail": "LimeSurvey calls this question Q893"
         },
         {
           "step": 3,
@@ -4907,9 +5263,15 @@
         },
         {
           "step": 4,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q1 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 4,
           "question": "Q1",
           "did": "chose 'Counter'",
-          "detail": "LimeSurvey calls this question Q790"
+          "detail": "LimeSurvey calls this question Q895"
         },
         {
           "step": 5,
@@ -4921,7 +5283,7 @@
           "step": 5,
           "question": "Q2",
           "did": "chose 'Very poor'",
-          "detail": "LimeSurvey calls this question Q791"
+          "detail": "LimeSurvey calls this question Q896"
         },
         {
           "step": 6,
@@ -4933,7 +5295,7 @@
           "step": 6,
           "question": "Q3",
           "did": "chose 'Very poor'",
-          "detail": "LimeSurvey calls this question Q792"
+          "detail": "LimeSurvey calls this question Q897"
         },
         {
           "step": 7,
@@ -4945,7 +5307,7 @@
           "step": 7,
           "question": "Q4",
           "did": "ticked it",
-          "detail": "LimeSurvey calls this question Q793"
+          "detail": "LimeSurvey calls this question Q898"
         },
         {
           "step": 8,
@@ -4957,7 +5319,7 @@
           "step": 8,
           "question": "Q5",
           "did": "chose 'Yes'",
-          "detail": "LimeSurvey calls this question Q794"
+          "detail": "LimeSurvey calls this question Q899"
         },
         {
           "step": 9,
@@ -4969,7 +5331,7 @@
           "step": 9,
           "question": "Q6",
           "did": "typed 'xxxxxxxxxx'",
-          "detail": "LimeSurvey calls this question Q795"
+          "detail": "LimeSurvey calls this question Q900"
         },
         {
           "step": 10,
@@ -4981,7 +5343,7 @@
           "step": 10,
           "question": "Q7",
           "did": "chose '0'",
-          "detail": "LimeSurvey calls this question Q796"
+          "detail": "LimeSurvey calls this question Q901"
         },
         {
           "step": 11,
@@ -5004,7 +5366,7 @@
       ],
       "blocked_reason": "",
       "provisional": [],
-      "seconds": 4.29
+      "seconds": 4.43
     }
   ]
 }

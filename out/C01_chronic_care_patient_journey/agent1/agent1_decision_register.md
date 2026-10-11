@@ -1,6 +1,6 @@
 # Decision register — C01_chronic_care_patient_journey
 
-Source: `C01_chronic_care_patient_journey.docx` (sha256 `319e6b78a2a1e36e…`)
+Source: `C01_chronic_care_patient_journey.docx` (sha256 `9fe8bb4afcacc91f…`)
 
 A decision is resolved by editing its entry in `agent1_decisions.json` -
 set `status` to `RESOLVED`, fill `decision` with the ruling and
@@ -9,43 +9,23 @@ reused from then on unless the source document or this module's
 vocabulary changes, in which case it returns here as pending, with the
 old ruling kept under `previous_decision` for a quick re-confirmation.
 
-**17 PENDING_CONFIRMATION, 4 NOT_REQUIRED**
+**15 PENDING_CONFIRMATION, 8 NOT_REQUIRED**
 
 ## 🔴 `ambiguous_piping` — PENDING_CONFIRMATION (BLOCKING)
 
-- **id:** `1ec9aae9480e1e36`
-- **affects:** Q9
-- **evidence:** 'your current provider' (confidence 0.99)
-- **current reading:** A question's wording was read as quoting an earlier answer, from the phrasing alone; no table states the link.
-- **alternatives:** The wording is generic and does not actually depend on the earlier answer.
-- **downstream impact:** Whether this question's wording depends on an earlier answer, which decides the order a respondent bot must answer in and what text it should expect on screen.
-- **recommendation:** Confirm the dependency with the project owner.
-
-## 🔴 `ambiguous_piping` — PENDING_CONFIRMATION (BLOCKING)
-
-- **id:** `228e9670e903e41a`
-- **affects:** Q20
-- **evidence:** 'the selected proposition' (confidence 0.99)
-- **current reading:** A question's wording was read as quoting an earlier answer, from the phrasing alone; no table states the link.
-- **alternatives:** The wording is generic and does not actually depend on the earlier answer.
-- **downstream impact:** Whether this question's wording depends on an earlier answer, which decides the order a respondent bot must answer in and what text it should expect on screen.
-- **recommendation:** Confirm the dependency with the project owner.
-
-## 🔴 `ambiguous_piping` — PENDING_CONFIRMATION (BLOCKING)
-
-- **id:** `79a4044dc9e2bc30`
-- **affects:** Q8
-- **evidence:** 'the current provider' (confidence 0.99)
-- **current reading:** A question's wording was read as quoting an earlier answer, from the phrasing alone; no table states the link.
-- **alternatives:** The wording is generic and does not actually depend on the earlier answer.
-- **downstream impact:** Whether this question's wording depends on an earlier answer, which decides the order a respondent bot must answer in and what text it should expect on screen.
-- **recommendation:** Confirm the dependency with the project owner.
-
-## 🔴 `ambiguous_piping` — PENDING_CONFIRMATION (BLOCKING)
-
-- **id:** `f4c9e4d91d41f98c`
+- **id:** `c5f3dfc6dfabf018`
 - **affects:** Q21
-- **evidence:** 'your choice' (confidence 0.75)
+- **evidence:** 'your choice' (confidence 0.95)
+- **current reading:** A question's wording was read as quoting an earlier answer, from the phrasing alone; no table states the link.
+- **alternatives:** The wording is generic and does not actually depend on the earlier answer.
+- **downstream impact:** Whether this question's wording depends on an earlier answer, which decides the order a respondent bot must answer in and what text it should expect on screen.
+- **recommendation:** Confirm the dependency with the project owner.
+
+## 🔴 `ambiguous_piping` — PENDING_CONFIRMATION (BLOCKING)
+
+- **id:** `e4c971197a4cd683`
+- **affects:** Q20
+- **evidence:** 'the selected proposition' (confidence 1.00)
 - **current reading:** A question's wording was read as quoting an earlier answer, from the phrasing alone; no table states the link.
 - **alternatives:** The wording is generic and does not actually depend on the earlier answer.
 - **downstream impact:** Whether this question's wording depends on an earlier answer, which decides the order a respondent bot must answer in and what text it should expect on screen.
@@ -60,6 +40,7 @@ old ruling kept under `previous_decision` for a quick re-confirmation.
 - **alternatives:** A different formal reading of the same sentence is possible.
 - **downstream impact:** Whether this rule or guard fires for a given respondent, so which questions they see and which ending they reach.
 - **recommendation:** A person familiar with the survey should confirm the reading recorded here matches what the sentence intends.
+- **⚠ context changed since last resolved** — was `None` by None on None; confirm it still applies.
 
 ## 🔴 `ambiguous_routing_condition` — PENDING_CONFIRMATION (BLOCKING)
 
@@ -70,6 +51,7 @@ old ruling kept under `previous_decision` for a quick re-confirmation.
 - **alternatives:** A different formal reading of the same sentence is possible.
 - **downstream impact:** Whether this rule or guard fires for a given respondent, so which questions they see and which ending they reach.
 - **recommendation:** A person familiar with the survey should confirm the reading recorded here matches what the sentence intends.
+- **⚠ context changed since last resolved** — was `None` by None on None; confirm it still applies.
 
 ## 🔴 `ambiguous_routing_condition` — PENDING_CONFIRMATION (BLOCKING)
 
@@ -80,6 +62,7 @@ old ruling kept under `previous_decision` for a quick re-confirmation.
 - **alternatives:** A different formal reading of the same sentence is possible.
 - **downstream impact:** Whether this rule or guard fires for a given respondent, so which questions they see and which ending they reach.
 - **recommendation:** A person familiar with the survey should confirm the reading recorded here matches what the sentence intends.
+- **⚠ context changed since last resolved** — was `None` by None on None; confirm it still applies.
 
 ## 🔴 `ambiguous_routing_condition` — PENDING_CONFIRMATION (BLOCKING)
 
@@ -90,6 +73,7 @@ old ruling kept under `previous_decision` for a quick re-confirmation.
 - **alternatives:** A different formal reading of the same sentence is possible.
 - **downstream impact:** Whether this rule or guard fires for a given respondent, so which questions they see and which ending they reach.
 - **recommendation:** A person familiar with the survey should confirm the reading recorded here matches what the sentence intends.
+- **⚠ context changed since last resolved** — was `None` by None on None; confirm it still applies.
 
 ## 🔴 `missing_option_codes` — PENDING_CONFIRMATION (BLOCKING)
 
@@ -99,6 +83,7 @@ old ruling kept under `previous_decision` for a quick re-confirmation.
 - **current reading:** Some but not all of this question's options carry an answer code; the rest are left null rather than invented.
 - **downstream impact:** A respondent bot told to answer by code cannot resolve the uncoded options.
 - **recommendation:** Ask the project owner for the missing codes.
+- **⚠ context changed since last resolved** — was `None` by None on None; confirm it still applies.
 
 ## 🔴 `multi_select_equality` — PENDING_CONFIRMATION (BLOCKING)
 
@@ -109,6 +94,7 @@ old ruling kept under `previous_decision` for a quick re-confirmation.
 - **alternatives:** '==' means the value is among those chosen, alongside others.; '==' against a multi-select is a document error and should be read as a different operator.
 - **downstream impact:** Changes the outcome of every equality condition written against a multi-select question.
 - **recommendation:** Confirm the intended reading with the project owner.
+- **⚠ context changed since last resolved** — was `None` by None on None; confirm it still applies.
 
 ## 🔴 `quota_behaviour` — PENDING_CONFIRMATION (BLOCKING)
 
@@ -119,6 +105,7 @@ old ruling kept under `previous_decision` for a quick re-confirmation.
 - **alternatives:** The sentence intends a different variable, grouping, or split.
 - **downstream impact:** Which respondents are counted against which quota, and when they are turned away.
 - **recommendation:** Confirm the quota reading with the project owner.
+- **⚠ context changed since last resolved** — was `None` by None on None; confirm it still applies.
 
 ## 🔴 `quota_behaviour` — PENDING_CONFIRMATION (BLOCKING)
 
@@ -129,6 +116,7 @@ old ruling kept under `previous_decision` for a quick re-confirmation.
 - **alternatives:** The sentence intends a different variable, grouping, or split.
 - **downstream impact:** Which respondents are counted against which quota, and when they are turned away.
 - **recommendation:** Confirm the quota reading with the project owner.
+- **⚠ context changed since last resolved** — was `None` by None on None; confirm it still applies.
 
 ## 🔴 `rule_precedence` — PENDING_CONFIRMATION (BLOCKING)
 
@@ -139,6 +127,7 @@ old ruling kept under `previous_decision` for a quick re-confirmation.
 - **alternatives:** The most specific matching condition wins.; Every matching rule applies, and a later one can override an earlier one.
 - **downstream impact:** Changes which destination is used whenever more than one rule's condition can be true for the same respondent.
 - **recommendation:** Confirm the intended precedence with the project owner.
+- **⚠ context changed since last resolved** — was `None` by None on None; confirm it still applies.
 
 ## 🔴 `unasked_question_semantics` — PENDING_CONFIRMATION (BLOCKING)
 
@@ -149,6 +138,7 @@ old ruling kept under `previous_decision` for a quick re-confirmation.
 - **alternatives:** Treat it as true instead, so the rule fires.; Treat it as an error state needing its own handling.
 - **downstream impact:** Changes which questions are shown and which ending is reached whenever a condition names a question that was skipped.
 - **recommendation:** Confirm the intended reading with the project owner. Once recorded here it applies to every rule in this survey and does not need asking again unless the document changes.
+- **⚠ context changed since last resolved** — was `None` by None on None; confirm it still applies.
 
 ## ⚪ `guard_single_source` — PENDING_CONFIRMATION (NON_BLOCKING)
 
@@ -158,6 +148,7 @@ old ruling kept under `previous_decision` for a quick re-confirmation.
 - **current reading:** The display condition is stated only in the questionnaire table, not in the routing table, and is carried from the one place that states it.
 - **downstream impact:** None to this specification, which already combines both sources. Worth flagging back to whoever maintains the QRE, since a reader of only the routing table would miss it.
 - **recommendation:** No action needed here; consider noting the asymmetry to the QRE author.
+- **⚠ context changed since last resolved** — was `None` by None on None; confirm it still applies.
 
 ## ⚪ `missing_disposition_message` — PENDING_CONFIRMATION (NON_BLOCKING)
 
@@ -167,6 +158,7 @@ old ruling kept under `previous_decision` for a quick re-confirmation.
 - **current reading:** This ending is reachable and the document never states what it shows the respondent who reaches it.
 - **downstream impact:** Nothing can be asserted about what this respondent is shown. Does not change routing: the destination itself is correct.
 - **recommendation:** Ask the project owner for the missing message text.
+- **⚠ context changed since last resolved** — was `None` by None on None; confirm it still applies.
 
 ## ⚪ `randomization_anchoring` — PENDING_CONFIRMATION (NON_BLOCKING)
 
@@ -177,6 +169,47 @@ old ruling kept under `previous_decision` for a quick re-confirmation.
 - **alternatives:** An exclusive option (such as "None of these") stays anchored at the bottom, by convention.
 - **downstream impact:** Where an exclusive option appears when the list is shuffled, which decides whether a displayed-order assertion is correct. Does not change which questions are asked or how they route.
 - **recommendation:** Confirm anchoring convention with the project owner.
+- **⚠ context changed since last resolved** — was `None` by None on None; confirm it still applies.
+
+## 🔴 `ambiguous_piping` — NOT_REQUIRED (BLOCKING)
+
+- **id:** `1ec9aae9480e1e36`
+- **affects:** Q9
+- **evidence:** 'your current provider' (confidence 0.99)
+- **current reading:** A question's wording was read as quoting an earlier answer, from the phrasing alone; no table states the link.
+- **alternatives:** The wording is generic and does not actually depend on the earlier answer.
+- **downstream impact:** Whether this question's wording depends on an earlier answer, which decides the order a respondent bot must answer in and what text it should expect on screen.
+- **recommendation:** Confirm the dependency with the project owner.
+
+## 🔴 `ambiguous_piping` — NOT_REQUIRED (BLOCKING)
+
+- **id:** `228e9670e903e41a`
+- **affects:** Q20
+- **evidence:** 'the selected proposition' (confidence 0.99)
+- **current reading:** A question's wording was read as quoting an earlier answer, from the phrasing alone; no table states the link.
+- **alternatives:** The wording is generic and does not actually depend on the earlier answer.
+- **downstream impact:** Whether this question's wording depends on an earlier answer, which decides the order a respondent bot must answer in and what text it should expect on screen.
+- **recommendation:** Confirm the dependency with the project owner.
+
+## 🔴 `ambiguous_piping` — NOT_REQUIRED (BLOCKING)
+
+- **id:** `79a4044dc9e2bc30`
+- **affects:** Q8
+- **evidence:** 'the current provider' (confidence 0.99)
+- **current reading:** A question's wording was read as quoting an earlier answer, from the phrasing alone; no table states the link.
+- **alternatives:** The wording is generic and does not actually depend on the earlier answer.
+- **downstream impact:** Whether this question's wording depends on an earlier answer, which decides the order a respondent bot must answer in and what text it should expect on screen.
+- **recommendation:** Confirm the dependency with the project owner.
+
+## 🔴 `ambiguous_piping` — NOT_REQUIRED (BLOCKING)
+
+- **id:** `f4c9e4d91d41f98c`
+- **affects:** Q21
+- **evidence:** 'your choice' (confidence 0.75)
+- **current reading:** A question's wording was read as quoting an earlier answer, from the phrasing alone; no table states the link.
+- **alternatives:** The wording is generic and does not actually depend on the earlier answer.
+- **downstream impact:** Whether this question's wording depends on an earlier answer, which decides the order a respondent bot must answer in and what text it should expect on screen.
+- **recommendation:** Confirm the dependency with the project owner.
 
 ## 🔴 `ambiguous_routing_condition` — NOT_REQUIRED (BLOCKING)
 

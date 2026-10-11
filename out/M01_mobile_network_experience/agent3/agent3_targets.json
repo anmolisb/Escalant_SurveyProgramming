@@ -5,26 +5,26 @@
   "survey_id": "M01_mobile_network_experience",
   "source_document": {
     "filename": "M01_mobile_network_experience.docx",
-    "sha256": "1be6ec051fbc914680d8add2a2c9e85c568f5468d8f39f5b6e915eb5bfe6f3b5"
+    "sha256": "6f7e2db55c2c8ffaabdd4890e35464b4a5325a0ae13e38ffabb37ed06d064964"
   },
   "upstream": {
     "canonical_schema_version": "1.0.0",
-    "canonical_generated_at": "2026-10-11T10:11:51+00:00"
+    "canonical_generated_at": "2026-10-11T10:54:30+00:00"
   },
   "content": {
     "report": {
       "per_dimension": {
-        "D1": 29,
+        "D1": 31,
         "D2": 4,
         "D3": 12,
         "D4": 20,
         "D5": 1,
-        "D6": 7,
+        "D6": 4,
         "D7": 9,
         "D8": 10,
         "D9": 3
       },
-      "records_enumerated": 95,
+      "records_enumerated": 94,
       "predetermined_unresolvable": 9,
       "orphan_rules": [],
       "note": "Dimensions are reported side by side and never summed. records_enumerated counts records, not coverage."
@@ -62,6 +62,18 @@
         "claim": "answering S3 normally moves the respondent on to the question that should come next",
         "traces_to": [
           "S3"
+        ],
+        "predetermined_reason": null,
+        "notes": null
+      },
+      {
+        "target_id": "T-4c28ba9a4a",
+        "dimension": "D1",
+        "subject": "DT1",
+        "polarity": "advances",
+        "claim": "answering DT1 normally moves the respondent on to the question that should come next",
+        "traces_to": [
+          "DT1"
         ],
         "predetermined_reason": null,
         "notes": null
@@ -218,6 +230,18 @@
         "claim": "answering Q13 normally moves the respondent on to the question that should come next",
         "traces_to": [
           "Q13"
+        ],
+        "predetermined_reason": null,
+        "notes": null
+      },
+      {
+        "target_id": "T-56d0ac2b77",
+        "dimension": "D1",
+        "subject": "DT2",
+        "polarity": "advances",
+        "claim": "answering DT2 normally moves the respondent on to the question that should come next",
+        "traces_to": [
+          "DT2"
         ],
         "predetermined_reason": null,
         "notes": null
@@ -830,52 +854,13 @@
         "notes": null
       },
       {
-        "target_id": "T-6eac8ecd08",
+        "target_id": "T-85ba201aff",
         "dimension": "D6",
-        "subject": "Q1->Q2",
+        "subject": "Q7->Q9",
         "polarity": "rendered",
-        "claim": "Q2's wording renders the answer given at Q1",
+        "claim": "Q9's wording renders the answer given at Q7",
         "traces_to": [
-          "Q1",
-          "Q2"
-        ],
-        "predetermined_reason": null,
-        "notes": "origin=inferred, no table in the QRE states this link"
-      },
-      {
-        "target_id": "T-d80f93e85d",
-        "dimension": "D6",
-        "subject": "Q1->Q3",
-        "polarity": "rendered",
-        "claim": "Q3's wording renders the answer given at Q1",
-        "traces_to": [
-          "Q1",
-          "Q3"
-        ],
-        "predetermined_reason": null,
-        "notes": "origin=inferred, no table in the QRE states this link"
-      },
-      {
-        "target_id": "T-7dd1f6b60f",
-        "dimension": "D6",
-        "subject": "Q1->Q5",
-        "polarity": "rendered",
-        "claim": "Q5's wording renders the answer given at Q1",
-        "traces_to": [
-          "Q1",
-          "Q5"
-        ],
-        "predetermined_reason": null,
-        "notes": "origin=inferred, no table in the QRE states this link"
-      },
-      {
-        "target_id": "T-937569ef64",
-        "dimension": "D6",
-        "subject": "Q8->Q9",
-        "polarity": "rendered",
-        "claim": "Q9's wording renders the answer given at Q8",
-        "traces_to": [
-          "Q8",
+          "Q7",
           "Q9"
         ],
         "predetermined_reason": null,
@@ -1162,13 +1147,13 @@
         "notes": "risk-selected pair, BOUNDED by design"
       },
       {
-        "target_id": "T-beab00ecea",
+        "target_id": "T-72e6818f53",
         "dimension": "D9",
-        "subject": "Q8+Q9",
+        "subject": "Q7+Q9",
         "polarity": "combined",
-        "claim": "Q9 is shown by its guard and simultaneously reflects its dependency on Q8",
+        "claim": "Q9 is shown by its guard and simultaneously reflects its dependency on Q7",
         "traces_to": [
-          "Q8",
+          "Q7",
           "Q9"
         ],
         "predetermined_reason": null,

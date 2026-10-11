@@ -5,14 +5,14 @@
   "survey_id": "M01_mobile_network_experience",
   "source_document": {
     "filename": "M01_mobile_network_experience.docx",
-    "sha256": "1be6ec051fbc914680d8add2a2c9e85c568f5468d8f39f5b6e915eb5bfe6f3b5",
-    "bytes": 41874
+    "sha256": "6f7e2db55c2c8ffaabdd4890e35464b4a5325a0ae13e38ffabb37ed06d064964",
+    "bytes": 42042
   },
-  "generated_at": "2026-10-11T10:11:51+00:00",
+  "generated_at": "2026-10-11T10:54:30+00:00",
   "item_count": null,
   "content": {
     "counts": {
-      "PASS": 216,
+      "PASS": 226,
       "FAIL": 2,
       "UNVERIFIED": 21,
       "BLOCKED": 0
@@ -20,8 +20,8 @@
     "coverage": {
       "question_coverage": {
         "definition": "questions the QRE asks that the specification carries, in the right order",
-        "numerator": 39,
-        "denominator": 39,
+        "numerator": 43,
+        "denominator": 43,
         "unverified_excluded": 0,
         "result": 1.0,
         "target": 1.0,
@@ -29,8 +29,8 @@
       },
       "question_type_coverage": {
         "definition": "questions whose type is carried as the QRE wrote it",
-        "numerator": 19,
-        "denominator": 19,
+        "numerator": 21,
+        "denominator": 21,
         "unverified_excluded": 0,
         "result": 1.0,
         "target": 1.0,
@@ -47,8 +47,8 @@
       },
       "display_rule_coverage": {
         "definition": "display conditions carried, and behaving as the QRE's own condition does",
-        "numerator": 16,
-        "denominator": 16,
+        "numerator": 18,
+        "denominator": 18,
         "unverified_excluded": 2,
         "result": 1.0,
         "target": 1.0,
@@ -83,10 +83,10 @@
       },
       "validation_coverage": {
         "definition": "validation instructions carried, including whether an answer is required",
-        "numerator": 21,
-        "denominator": 23,
+        "numerator": 23,
+        "denominator": 25,
         "unverified_excluded": 0,
-        "result": 0.913,
+        "result": 0.92,
         "target": 1.0,
         "meets_target": false
       },
@@ -164,8 +164,8 @@
       },
       "critical_rule_recall": {
         "definition": "executable logic - display, skip, routing, termination, validation, dependencies, quotas, randomization - carried correctly",
-        "numerator": 96,
-        "denominator": 96,
+        "numerator": 100,
+        "denominator": 100,
         "unverified_excluded": 21,
         "result": 1.0,
         "target": 1.0,
@@ -406,10 +406,10 @@
         "category": "question_extraction",
         "criticality": "HIGH",
         "status": "PASS",
-        "expected": "Q1",
-        "actual": "Q1",
-        "evidence": "Which mobile network services channel or provider did you use most recently?",
-        "canonical_reference": "questions[Q1]",
+        "expected": "DT1",
+        "actual": "DT1",
+        "evidence": "Great, you're eligible for this survey! Next, a few questions about your recent mobile network experience.",
+        "canonical_reference": "questions[DT1]",
         "explanation": "present",
         "severity": "none"
       },
@@ -421,12 +421,72 @@
         "expected": 4,
         "actual": 4,
         "evidence": "row 3",
-        "canonical_reference": "questions[Q1].seq",
+        "canonical_reference": "questions[DT1].seq",
         "explanation": "asked in document order",
         "severity": "none"
       },
       {
         "test_id": "T021",
+        "category": "question_type",
+        "criticality": "HIGH",
+        "status": "PASS",
+        "expected": "text display",
+        "actual": "text display",
+        "evidence": "text display",
+        "canonical_reference": "questions[DT1].kind",
+        "explanation": "type carried as written",
+        "severity": "none"
+      },
+      {
+        "test_id": "T022",
+        "category": "display_logic",
+        "criticality": "CRITICAL",
+        "status": "PASS",
+        "expected": null,
+        "actual": null,
+        "evidence": "Always show",
+        "canonical_reference": "questions[DT1].guard",
+        "explanation": "always shown, and unguarded",
+        "severity": "none"
+      },
+      {
+        "test_id": "T023",
+        "category": "validation_rules",
+        "criticality": "CRITICAL",
+        "status": "PASS",
+        "expected": false,
+        "actual": false,
+        "evidence": "text display, nothing to answer",
+        "canonical_reference": "questions[DT1].validation.mandatory",
+        "explanation": "matches what the document says",
+        "severity": "none"
+      },
+      {
+        "test_id": "T024",
+        "category": "question_extraction",
+        "criticality": "HIGH",
+        "status": "PASS",
+        "expected": "Q1",
+        "actual": "Q1",
+        "evidence": "Which mobile network services channel or provider did you use most recently?",
+        "canonical_reference": "questions[Q1]",
+        "explanation": "present",
+        "severity": "none"
+      },
+      {
+        "test_id": "T025",
+        "category": "question_extraction",
+        "criticality": "HIGH",
+        "status": "PASS",
+        "expected": 5,
+        "actual": 5,
+        "evidence": "row 4",
+        "canonical_reference": "questions[Q1].seq",
+        "explanation": "asked in document order",
+        "severity": "none"
+      },
+      {
+        "test_id": "T026",
         "category": "question_type",
         "criticality": "HIGH",
         "status": "PASS",
@@ -438,7 +498,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T022",
+        "test_id": "T027",
         "category": "options",
         "criticality": "HIGH",
         "status": "PASS",
@@ -460,7 +520,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T023",
+        "test_id": "T028",
         "category": "display_logic",
         "criticality": "CRITICAL",
         "status": "PASS",
@@ -472,7 +532,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T024",
+        "test_id": "T029",
         "category": "validation_rules",
         "criticality": "CRITICAL",
         "status": "PASS",
@@ -484,7 +544,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T025",
+        "test_id": "T030",
         "category": "question_extraction",
         "criticality": "HIGH",
         "status": "PASS",
@@ -496,19 +556,19 @@
         "severity": "none"
       },
       {
-        "test_id": "T026",
+        "test_id": "T031",
         "category": "question_extraction",
         "criticality": "HIGH",
         "status": "PASS",
-        "expected": 5,
-        "actual": 5,
-        "evidence": "row 4",
+        "expected": 6,
+        "actual": 6,
+        "evidence": "row 5",
         "canonical_reference": "questions[Q2].seq",
         "explanation": "asked in document order",
         "severity": "none"
       },
       {
-        "test_id": "T027",
+        "test_id": "T032",
         "category": "question_type",
         "criticality": "HIGH",
         "status": "PASS",
@@ -520,7 +580,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T028",
+        "test_id": "T033",
         "category": "options",
         "criticality": "HIGH",
         "status": "PASS",
@@ -542,7 +602,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T029",
+        "test_id": "T034",
         "category": "display_logic",
         "criticality": "CRITICAL",
         "status": "PASS",
@@ -554,7 +614,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T030",
+        "test_id": "T035",
         "category": "validation_rules",
         "criticality": "CRITICAL",
         "status": "PASS",
@@ -566,7 +626,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T031",
+        "test_id": "T036",
         "category": "question_extraction",
         "criticality": "HIGH",
         "status": "PASS",
@@ -578,19 +638,19 @@
         "severity": "none"
       },
       {
-        "test_id": "T032",
+        "test_id": "T037",
         "category": "question_extraction",
         "criticality": "HIGH",
         "status": "PASS",
-        "expected": 6,
-        "actual": 6,
-        "evidence": "row 5",
+        "expected": 7,
+        "actual": 7,
+        "evidence": "row 6",
         "canonical_reference": "questions[Q3].seq",
         "explanation": "asked in document order",
         "severity": "none"
       },
       {
-        "test_id": "T033",
+        "test_id": "T038",
         "category": "question_type",
         "criticality": "HIGH",
         "status": "PASS",
@@ -602,7 +662,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T034",
+        "test_id": "T039",
         "category": "options",
         "criticality": "HIGH",
         "status": "PASS",
@@ -626,7 +686,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T035",
+        "test_id": "T040",
         "category": "validation_rules",
         "criticality": "CRITICAL",
         "status": "PASS",
@@ -638,7 +698,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T036",
+        "test_id": "T041",
         "category": "randomization",
         "criticality": "CRITICAL",
         "status": "PASS",
@@ -650,7 +710,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T037",
+        "test_id": "T042",
         "category": "randomization",
         "criticality": "CRITICAL",
         "status": "UNVERIFIED",
@@ -665,7 +725,7 @@
         "severity": "review"
       },
       {
-        "test_id": "T038",
+        "test_id": "T043",
         "category": "question_extraction",
         "criticality": "HIGH",
         "status": "PASS",
@@ -677,19 +737,19 @@
         "severity": "none"
       },
       {
-        "test_id": "T039",
+        "test_id": "T044",
         "category": "question_extraction",
         "criticality": "HIGH",
         "status": "PASS",
-        "expected": 7,
-        "actual": 7,
-        "evidence": "row 6",
+        "expected": 8,
+        "actual": 8,
+        "evidence": "row 7",
         "canonical_reference": "questions[Q4].seq",
         "explanation": "asked in document order",
         "severity": "none"
       },
       {
-        "test_id": "T040",
+        "test_id": "T045",
         "category": "question_type",
         "criticality": "HIGH",
         "status": "PASS",
@@ -701,7 +761,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T041",
+        "test_id": "T046",
         "category": "options",
         "criticality": "HIGH",
         "status": "PASS",
@@ -725,7 +785,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T042",
+        "test_id": "T047",
         "category": "options",
         "criticality": "HIGH",
         "status": "PASS",
@@ -749,7 +809,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T043",
+        "test_id": "T048",
         "category": "display_logic",
         "criticality": "CRITICAL",
         "status": "PASS",
@@ -761,7 +821,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T044",
+        "test_id": "T049",
         "category": "validation_rules",
         "criticality": "CRITICAL",
         "status": "PASS",
@@ -773,7 +833,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T045",
+        "test_id": "T050",
         "category": "question_extraction",
         "criticality": "HIGH",
         "status": "PASS",
@@ -785,19 +845,19 @@
         "severity": "none"
       },
       {
-        "test_id": "T046",
+        "test_id": "T051",
         "category": "question_extraction",
         "criticality": "HIGH",
         "status": "PASS",
-        "expected": 8,
-        "actual": 8,
-        "evidence": "row 7",
+        "expected": 9,
+        "actual": 9,
+        "evidence": "row 8",
         "canonical_reference": "questions[Q5].seq",
         "explanation": "asked in document order",
         "severity": "none"
       },
       {
-        "test_id": "T047",
+        "test_id": "T052",
         "category": "question_type",
         "criticality": "HIGH",
         "status": "PASS",
@@ -809,7 +869,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T048",
+        "test_id": "T053",
         "category": "options",
         "criticality": "HIGH",
         "status": "PASS",
@@ -833,7 +893,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T049",
+        "test_id": "T054",
         "category": "options",
         "criticality": "HIGH",
         "status": "PASS",
@@ -857,7 +917,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T050",
+        "test_id": "T055",
         "category": "display_logic",
         "criticality": "CRITICAL",
         "status": "PASS",
@@ -869,7 +929,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T051",
+        "test_id": "T056",
         "category": "validation_rules",
         "criticality": "CRITICAL",
         "status": "PASS",
@@ -881,7 +941,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T052",
+        "test_id": "T057",
         "category": "question_extraction",
         "criticality": "HIGH",
         "status": "PASS",
@@ -893,19 +953,19 @@
         "severity": "none"
       },
       {
-        "test_id": "T053",
+        "test_id": "T058",
         "category": "question_extraction",
         "criticality": "HIGH",
         "status": "PASS",
-        "expected": 9,
-        "actual": 9,
-        "evidence": "row 8",
+        "expected": 10,
+        "actual": 10,
+        "evidence": "row 9",
         "canonical_reference": "questions[Q6].seq",
         "explanation": "asked in document order",
         "severity": "none"
       },
       {
-        "test_id": "T054",
+        "test_id": "T059",
         "category": "question_type",
         "criticality": "HIGH",
         "status": "PASS",
@@ -917,7 +977,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T055",
+        "test_id": "T060",
         "category": "options",
         "criticality": "HIGH",
         "status": "PASS",
@@ -941,7 +1001,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T056",
+        "test_id": "T061",
         "category": "options",
         "criticality": "HIGH",
         "status": "PASS",
@@ -965,7 +1025,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T057",
+        "test_id": "T062",
         "category": "display_logic",
         "criticality": "CRITICAL",
         "status": "PASS",
@@ -977,7 +1037,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T058",
+        "test_id": "T063",
         "category": "validation_rules",
         "criticality": "CRITICAL",
         "status": "PASS",
@@ -989,7 +1049,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T059",
+        "test_id": "T064",
         "category": "question_extraction",
         "criticality": "HIGH",
         "status": "PASS",
@@ -1001,19 +1061,19 @@
         "severity": "none"
       },
       {
-        "test_id": "T060",
+        "test_id": "T065",
         "category": "question_extraction",
         "criticality": "HIGH",
         "status": "PASS",
-        "expected": 10,
-        "actual": 10,
-        "evidence": "row 9",
+        "expected": 11,
+        "actual": 11,
+        "evidence": "row 10",
         "canonical_reference": "questions[Q7].seq",
         "explanation": "asked in document order",
         "severity": "none"
       },
       {
-        "test_id": "T061",
+        "test_id": "T066",
         "category": "question_type",
         "criticality": "HIGH",
         "status": "PASS",
@@ -1025,7 +1085,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T062",
+        "test_id": "T067",
         "category": "options",
         "criticality": "HIGH",
         "status": "PASS",
@@ -1051,7 +1111,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T063",
+        "test_id": "T068",
         "category": "validation_rules",
         "criticality": "CRITICAL",
         "status": "PASS",
@@ -1066,7 +1126,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T064",
+        "test_id": "T069",
         "category": "validation_rules",
         "criticality": "CRITICAL",
         "status": "PASS",
@@ -1078,7 +1138,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T065",
+        "test_id": "T070",
         "category": "randomization",
         "criticality": "CRITICAL",
         "status": "PASS",
@@ -1090,7 +1150,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T066",
+        "test_id": "T071",
         "category": "randomization",
         "criticality": "CRITICAL",
         "status": "UNVERIFIED",
@@ -1105,7 +1165,7 @@
         "severity": "review"
       },
       {
-        "test_id": "T067",
+        "test_id": "T072",
         "category": "question_extraction",
         "criticality": "HIGH",
         "status": "PASS",
@@ -1117,19 +1177,19 @@
         "severity": "none"
       },
       {
-        "test_id": "T068",
+        "test_id": "T073",
         "category": "question_extraction",
         "criticality": "HIGH",
         "status": "PASS",
-        "expected": 11,
-        "actual": 11,
-        "evidence": "row 10",
+        "expected": 12,
+        "actual": 12,
+        "evidence": "row 11",
         "canonical_reference": "questions[Q8].seq",
         "explanation": "asked in document order",
         "severity": "none"
       },
       {
-        "test_id": "T069",
+        "test_id": "T074",
         "category": "question_type",
         "criticality": "HIGH",
         "status": "PASS",
@@ -1141,7 +1201,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T070",
+        "test_id": "T075",
         "category": "options",
         "criticality": "HIGH",
         "status": "PASS",
@@ -1165,7 +1225,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T071",
+        "test_id": "T076",
         "category": "display_logic",
         "criticality": "CRITICAL",
         "status": "PASS",
@@ -1177,7 +1237,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T072",
+        "test_id": "T077",
         "category": "display_logic",
         "criticality": "CRITICAL",
         "status": "UNVERIFIED",
@@ -1192,7 +1252,7 @@
         "severity": "review"
       },
       {
-        "test_id": "T073",
+        "test_id": "T078",
         "category": "validation_rules",
         "criticality": "CRITICAL",
         "status": "PASS",
@@ -1204,7 +1264,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T074",
+        "test_id": "T079",
         "category": "dependencies_piping",
         "criticality": "CRITICAL",
         "status": "PASS",
@@ -1219,7 +1279,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T075",
+        "test_id": "T080",
         "category": "question_extraction",
         "criticality": "HIGH",
         "status": "PASS",
@@ -1231,19 +1291,19 @@
         "severity": "none"
       },
       {
-        "test_id": "T076",
+        "test_id": "T081",
         "category": "question_extraction",
         "criticality": "HIGH",
         "status": "PASS",
-        "expected": 12,
-        "actual": 12,
-        "evidence": "row 11",
+        "expected": 13,
+        "actual": 13,
+        "evidence": "row 12",
         "canonical_reference": "questions[Q9].seq",
         "explanation": "asked in document order",
         "severity": "none"
       },
       {
-        "test_id": "T077",
+        "test_id": "T082",
         "category": "question_type",
         "criticality": "HIGH",
         "status": "PASS",
@@ -1255,7 +1315,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T078",
+        "test_id": "T083",
         "category": "options",
         "criticality": "HIGH",
         "status": "PASS",
@@ -1275,7 +1335,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T079",
+        "test_id": "T084",
         "category": "display_logic",
         "criticality": "CRITICAL",
         "status": "PASS",
@@ -1287,7 +1347,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T080",
+        "test_id": "T085",
         "category": "display_logic",
         "criticality": "CRITICAL",
         "status": "UNVERIFIED",
@@ -1302,7 +1362,7 @@
         "severity": "review"
       },
       {
-        "test_id": "T081",
+        "test_id": "T086",
         "category": "validation_rules",
         "criticality": "CRITICAL",
         "status": "PASS",
@@ -1314,7 +1374,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T082",
+        "test_id": "T087",
         "category": "question_extraction",
         "criticality": "HIGH",
         "status": "PASS",
@@ -1326,19 +1386,19 @@
         "severity": "none"
       },
       {
-        "test_id": "T083",
+        "test_id": "T088",
         "category": "question_extraction",
         "criticality": "HIGH",
         "status": "PASS",
-        "expected": 13,
-        "actual": 13,
-        "evidence": "row 12",
+        "expected": 14,
+        "actual": 14,
+        "evidence": "row 13",
         "canonical_reference": "questions[Q10].seq",
         "explanation": "asked in document order",
         "severity": "none"
       },
       {
-        "test_id": "T084",
+        "test_id": "T089",
         "category": "question_type",
         "criticality": "HIGH",
         "status": "PASS",
@@ -1350,7 +1410,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T085",
+        "test_id": "T090",
         "category": "options",
         "criticality": "HIGH",
         "status": "PASS",
@@ -1374,7 +1434,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T086",
+        "test_id": "T091",
         "category": "options",
         "criticality": "HIGH",
         "status": "PASS",
@@ -1398,7 +1458,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T087",
+        "test_id": "T092",
         "category": "display_logic",
         "criticality": "CRITICAL",
         "status": "PASS",
@@ -1410,7 +1470,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T088",
+        "test_id": "T093",
         "category": "display_logic",
         "criticality": "CRITICAL",
         "status": "PASS",
@@ -1422,7 +1482,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T089",
+        "test_id": "T094",
         "category": "display_logic",
         "criticality": "CRITICAL",
         "status": "PASS",
@@ -1434,7 +1494,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T090",
+        "test_id": "T095",
         "category": "validation_rules",
         "criticality": "CRITICAL",
         "status": "PASS",
@@ -1446,7 +1506,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T091",
+        "test_id": "T096",
         "category": "question_extraction",
         "criticality": "HIGH",
         "status": "PASS",
@@ -1458,19 +1518,19 @@
         "severity": "none"
       },
       {
-        "test_id": "T092",
+        "test_id": "T097",
         "category": "question_extraction",
         "criticality": "HIGH",
         "status": "PASS",
-        "expected": 14,
-        "actual": 14,
-        "evidence": "row 13",
+        "expected": 15,
+        "actual": 15,
+        "evidence": "row 14",
         "canonical_reference": "questions[Q11].seq",
         "explanation": "asked in document order",
         "severity": "none"
       },
       {
-        "test_id": "T093",
+        "test_id": "T098",
         "category": "question_type",
         "criticality": "HIGH",
         "status": "PASS",
@@ -1482,7 +1542,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T094",
+        "test_id": "T099",
         "category": "options",
         "criticality": "HIGH",
         "status": "PASS",
@@ -1518,7 +1578,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T095",
+        "test_id": "T100",
         "category": "display_logic",
         "criticality": "CRITICAL",
         "status": "PASS",
@@ -1530,7 +1590,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T096",
+        "test_id": "T101",
         "category": "validation_rules",
         "criticality": "CRITICAL",
         "status": "PASS",
@@ -1542,7 +1602,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T097",
+        "test_id": "T102",
         "category": "question_extraction",
         "criticality": "HIGH",
         "status": "PASS",
@@ -1554,19 +1614,19 @@
         "severity": "none"
       },
       {
-        "test_id": "T098",
+        "test_id": "T103",
         "category": "question_extraction",
         "criticality": "HIGH",
         "status": "PASS",
-        "expected": 15,
-        "actual": 15,
-        "evidence": "row 14",
+        "expected": 16,
+        "actual": 16,
+        "evidence": "row 15",
         "canonical_reference": "questions[Q12].seq",
         "explanation": "asked in document order",
         "severity": "none"
       },
       {
-        "test_id": "T099",
+        "test_id": "T104",
         "category": "question_type",
         "criticality": "HIGH",
         "status": "PASS",
@@ -1578,7 +1638,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T100",
+        "test_id": "T105",
         "category": "options",
         "criticality": "HIGH",
         "status": "PASS",
@@ -1602,7 +1662,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T101",
+        "test_id": "T106",
         "category": "display_logic",
         "criticality": "CRITICAL",
         "status": "PASS",
@@ -1614,7 +1674,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T102",
+        "test_id": "T107",
         "category": "validation_rules",
         "criticality": "CRITICAL",
         "status": "PASS",
@@ -1626,7 +1686,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T103",
+        "test_id": "T108",
         "category": "question_extraction",
         "criticality": "HIGH",
         "status": "PASS",
@@ -1638,19 +1698,19 @@
         "severity": "none"
       },
       {
-        "test_id": "T104",
+        "test_id": "T109",
         "category": "question_extraction",
         "criticality": "HIGH",
         "status": "PASS",
-        "expected": 16,
-        "actual": 16,
-        "evidence": "row 15",
+        "expected": 17,
+        "actual": 17,
+        "evidence": "row 16",
         "canonical_reference": "questions[Q13].seq",
         "explanation": "asked in document order",
         "severity": "none"
       },
       {
-        "test_id": "T105",
+        "test_id": "T110",
         "category": "question_type",
         "criticality": "HIGH",
         "status": "PASS",
@@ -1662,7 +1722,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T106",
+        "test_id": "T111",
         "category": "options",
         "criticality": "HIGH",
         "status": "PASS",
@@ -1686,7 +1746,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T107",
+        "test_id": "T112",
         "category": "validation_rules",
         "criticality": "CRITICAL",
         "status": "PASS",
@@ -1698,7 +1758,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T108",
+        "test_id": "T113",
         "category": "randomization",
         "criticality": "CRITICAL",
         "status": "PASS",
@@ -1710,7 +1770,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T109",
+        "test_id": "T114",
         "category": "randomization",
         "criticality": "CRITICAL",
         "status": "UNVERIFIED",
@@ -1725,7 +1785,67 @@
         "severity": "review"
       },
       {
-        "test_id": "T110",
+        "test_id": "T115",
+        "category": "question_extraction",
+        "criticality": "HIGH",
+        "status": "PASS",
+        "expected": "DT2",
+        "actual": "DT2",
+        "evidence": "You're almost done! Thank you for your answers. Just a few last questions about you to finish up.",
+        "canonical_reference": "questions[DT2]",
+        "explanation": "present",
+        "severity": "none"
+      },
+      {
+        "test_id": "T116",
+        "category": "question_extraction",
+        "criticality": "HIGH",
+        "status": "PASS",
+        "expected": 18,
+        "actual": 18,
+        "evidence": "row 17",
+        "canonical_reference": "questions[DT2].seq",
+        "explanation": "asked in document order",
+        "severity": "none"
+      },
+      {
+        "test_id": "T117",
+        "category": "question_type",
+        "criticality": "HIGH",
+        "status": "PASS",
+        "expected": "text display",
+        "actual": "text display",
+        "evidence": "text display",
+        "canonical_reference": "questions[DT2].kind",
+        "explanation": "type carried as written",
+        "severity": "none"
+      },
+      {
+        "test_id": "T118",
+        "category": "display_logic",
+        "criticality": "CRITICAL",
+        "status": "PASS",
+        "expected": null,
+        "actual": null,
+        "evidence": "Always show",
+        "canonical_reference": "questions[DT2].guard",
+        "explanation": "always shown, and unguarded",
+        "severity": "none"
+      },
+      {
+        "test_id": "T119",
+        "category": "validation_rules",
+        "criticality": "CRITICAL",
+        "status": "PASS",
+        "expected": false,
+        "actual": false,
+        "evidence": "text display, nothing to answer",
+        "canonical_reference": "questions[DT2].validation.mandatory",
+        "explanation": "matches what the document says",
+        "severity": "none"
+      },
+      {
+        "test_id": "T120",
         "category": "question_extraction",
         "criticality": "HIGH",
         "status": "PASS",
@@ -1737,19 +1857,19 @@
         "severity": "none"
       },
       {
-        "test_id": "T111",
+        "test_id": "T121",
         "category": "question_extraction",
         "criticality": "HIGH",
         "status": "PASS",
-        "expected": 17,
-        "actual": 17,
-        "evidence": "row 16",
+        "expected": 19,
+        "actual": 19,
+        "evidence": "row 18",
         "canonical_reference": "questions[D1].seq",
         "explanation": "asked in document order",
         "severity": "none"
       },
       {
-        "test_id": "T112",
+        "test_id": "T122",
         "category": "question_type",
         "criticality": "HIGH",
         "status": "PASS",
@@ -1761,7 +1881,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T113",
+        "test_id": "T123",
         "category": "options",
         "criticality": "HIGH",
         "status": "PASS",
@@ -1785,7 +1905,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T114",
+        "test_id": "T124",
         "category": "display_logic",
         "criticality": "CRITICAL",
         "status": "PASS",
@@ -1797,7 +1917,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T115",
+        "test_id": "T125",
         "category": "validation_rules",
         "criticality": "CRITICAL",
         "status": "PASS",
@@ -1809,7 +1929,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T116",
+        "test_id": "T126",
         "category": "question_extraction",
         "criticality": "HIGH",
         "status": "PASS",
@@ -1821,19 +1941,19 @@
         "severity": "none"
       },
       {
-        "test_id": "T117",
+        "test_id": "T127",
         "category": "question_extraction",
         "criticality": "HIGH",
         "status": "PASS",
-        "expected": 18,
-        "actual": 18,
-        "evidence": "row 17",
+        "expected": 20,
+        "actual": 20,
+        "evidence": "row 19",
         "canonical_reference": "questions[D2].seq",
         "explanation": "asked in document order",
         "severity": "none"
       },
       {
-        "test_id": "T118",
+        "test_id": "T128",
         "category": "question_type",
         "criticality": "HIGH",
         "status": "PASS",
@@ -1845,7 +1965,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T119",
+        "test_id": "T129",
         "category": "options",
         "criticality": "HIGH",
         "status": "PASS",
@@ -1869,7 +1989,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T120",
+        "test_id": "T130",
         "category": "display_logic",
         "criticality": "CRITICAL",
         "status": "PASS",
@@ -1881,7 +2001,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T121",
+        "test_id": "T131",
         "category": "validation_rules",
         "criticality": "CRITICAL",
         "status": "PASS",
@@ -1893,7 +2013,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T122",
+        "test_id": "T132",
         "category": "question_extraction",
         "criticality": "HIGH",
         "status": "PASS",
@@ -1905,19 +2025,19 @@
         "severity": "none"
       },
       {
-        "test_id": "T123",
+        "test_id": "T133",
         "category": "question_extraction",
         "criticality": "HIGH",
         "status": "PASS",
-        "expected": 19,
-        "actual": 19,
-        "evidence": "row 18",
+        "expected": 21,
+        "actual": 21,
+        "evidence": "row 20",
         "canonical_reference": "questions[Q14].seq",
         "explanation": "asked in document order",
         "severity": "none"
       },
       {
-        "test_id": "T124",
+        "test_id": "T134",
         "category": "question_type",
         "criticality": "HIGH",
         "status": "PASS",
@@ -1929,7 +2049,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T125",
+        "test_id": "T135",
         "category": "validation_rules",
         "criticality": "CRITICAL",
         "status": "PASS",
@@ -1941,7 +2061,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T126",
+        "test_id": "T136",
         "category": "validation_rules",
         "criticality": "CRITICAL",
         "status": "PASS",
@@ -1953,19 +2073,19 @@
         "severity": "none"
       },
       {
-        "test_id": "T127",
+        "test_id": "T137",
         "category": "question_extraction",
         "criticality": "HIGH",
         "status": "PASS",
-        "expected": 19,
-        "actual": 19,
-        "evidence": "19 rows in the questionnaire table",
+        "expected": 21,
+        "actual": 21,
+        "evidence": "21 rows in the questionnaire table",
         "canonical_reference": "questions[]",
         "explanation": "counts agree",
         "severity": "none"
       },
       {
-        "test_id": "T128",
+        "test_id": "T138",
         "category": "termination_logic",
         "criticality": "CRITICAL",
         "status": "PASS",
@@ -1977,7 +2097,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T129",
+        "test_id": "T139",
         "category": "termination_logic",
         "criticality": "CRITICAL",
         "status": "PASS",
@@ -1989,7 +2109,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T130",
+        "test_id": "T140",
         "category": "termination_logic",
         "criticality": "CRITICAL",
         "status": "PASS",
@@ -2001,7 +2121,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T131",
+        "test_id": "T141",
         "category": "termination_logic",
         "criticality": "CRITICAL",
         "status": "PASS",
@@ -2013,7 +2133,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T132",
+        "test_id": "T142",
         "category": "termination_logic",
         "criticality": "CRITICAL",
         "status": "PASS",
@@ -2025,7 +2145,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T133",
+        "test_id": "T143",
         "category": "termination_logic",
         "criticality": "CRITICAL",
         "status": "PASS",
@@ -2037,7 +2157,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T134",
+        "test_id": "T144",
         "category": "termination_logic",
         "criticality": "CRITICAL",
         "status": "PASS",
@@ -2049,7 +2169,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T135",
+        "test_id": "T145",
         "category": "termination_logic",
         "criticality": "NORMAL",
         "status": "PASS",
@@ -2061,7 +2181,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T136",
+        "test_id": "T146",
         "category": "termination_logic",
         "criticality": "CRITICAL",
         "status": "UNVERIFIED",
@@ -2073,7 +2193,7 @@
         "severity": "review"
       },
       {
-        "test_id": "T137",
+        "test_id": "T147",
         "category": "termination_logic",
         "criticality": "CRITICAL",
         "status": "PASS",
@@ -2085,7 +2205,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T138",
+        "test_id": "T148",
         "category": "termination_logic",
         "criticality": "CRITICAL",
         "status": "PASS",
@@ -2097,7 +2217,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T139",
+        "test_id": "T149",
         "category": "termination_logic",
         "criticality": "CRITICAL",
         "status": "PASS",
@@ -2109,7 +2229,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T140",
+        "test_id": "T150",
         "category": "termination_logic",
         "criticality": "CRITICAL",
         "status": "PASS",
@@ -2121,7 +2241,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T141",
+        "test_id": "T151",
         "category": "termination_logic",
         "criticality": "CRITICAL",
         "status": "PASS",
@@ -2133,7 +2253,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T142",
+        "test_id": "T152",
         "category": "termination_logic",
         "criticality": "CRITICAL",
         "status": "PASS",
@@ -2145,7 +2265,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T143",
+        "test_id": "T153",
         "category": "termination_logic",
         "criticality": "CRITICAL",
         "status": "PASS",
@@ -2157,7 +2277,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T144",
+        "test_id": "T154",
         "category": "termination_logic",
         "criticality": "NORMAL",
         "status": "PASS",
@@ -2169,7 +2289,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T145",
+        "test_id": "T155",
         "category": "termination_logic",
         "criticality": "CRITICAL",
         "status": "UNVERIFIED",
@@ -2181,7 +2301,7 @@
         "severity": "review"
       },
       {
-        "test_id": "T146",
+        "test_id": "T156",
         "category": "routing_logic",
         "criticality": "CRITICAL",
         "status": "PASS",
@@ -2193,7 +2313,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T147",
+        "test_id": "T157",
         "category": "routing_logic",
         "criticality": "CRITICAL",
         "status": "PASS",
@@ -2205,7 +2325,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T148",
+        "test_id": "T158",
         "category": "routing_logic",
         "criticality": "CRITICAL",
         "status": "PASS",
@@ -2217,7 +2337,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T149",
+        "test_id": "T159",
         "category": "routing_logic",
         "criticality": "CRITICAL",
         "status": "PASS",
@@ -2229,7 +2349,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T150",
+        "test_id": "T160",
         "category": "routing_logic",
         "criticality": "CRITICAL",
         "status": "UNVERIFIED",
@@ -2244,7 +2364,7 @@
         "severity": "review"
       },
       {
-        "test_id": "T151",
+        "test_id": "T161",
         "category": "routing_logic",
         "criticality": "NORMAL",
         "status": "PASS",
@@ -2256,7 +2376,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T152",
+        "test_id": "T162",
         "category": "routing_logic",
         "criticality": "CRITICAL",
         "status": "UNVERIFIED",
@@ -2268,7 +2388,7 @@
         "severity": "review"
       },
       {
-        "test_id": "T153",
+        "test_id": "T163",
         "category": "routing_logic",
         "criticality": "CRITICAL",
         "status": "PASS",
@@ -2280,7 +2400,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T154",
+        "test_id": "T164",
         "category": "routing_logic",
         "criticality": "CRITICAL",
         "status": "PASS",
@@ -2292,7 +2412,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T155",
+        "test_id": "T165",
         "category": "routing_logic",
         "criticality": "CRITICAL",
         "status": "PASS",
@@ -2304,7 +2424,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T156",
+        "test_id": "T166",
         "category": "routing_logic",
         "criticality": "CRITICAL",
         "status": "PASS",
@@ -2316,7 +2436,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T157",
+        "test_id": "T167",
         "category": "routing_logic",
         "criticality": "CRITICAL",
         "status": "UNVERIFIED",
@@ -2331,7 +2451,7 @@
         "severity": "review"
       },
       {
-        "test_id": "T158",
+        "test_id": "T168",
         "category": "routing_logic",
         "criticality": "NORMAL",
         "status": "PASS",
@@ -2343,7 +2463,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T159",
+        "test_id": "T169",
         "category": "routing_logic",
         "criticality": "CRITICAL",
         "status": "UNVERIFIED",
@@ -2355,7 +2475,7 @@
         "severity": "review"
       },
       {
-        "test_id": "T160",
+        "test_id": "T170",
         "category": "routing_logic",
         "criticality": "CRITICAL",
         "status": "PASS",
@@ -2367,7 +2487,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T161",
+        "test_id": "T171",
         "category": "routing_logic",
         "criticality": "CRITICAL",
         "status": "PASS",
@@ -2379,7 +2499,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T162",
+        "test_id": "T172",
         "category": "routing_logic",
         "criticality": "CRITICAL",
         "status": "PASS",
@@ -2391,7 +2511,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T163",
+        "test_id": "T173",
         "category": "routing_logic",
         "criticality": "CRITICAL",
         "status": "PASS",
@@ -2403,7 +2523,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T164",
+        "test_id": "T174",
         "category": "routing_logic",
         "criticality": "CRITICAL",
         "status": "UNVERIFIED",
@@ -2418,7 +2538,7 @@
         "severity": "review"
       },
       {
-        "test_id": "T165",
+        "test_id": "T175",
         "category": "routing_logic",
         "criticality": "NORMAL",
         "status": "PASS",
@@ -2430,7 +2550,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T166",
+        "test_id": "T176",
         "category": "routing_logic",
         "criticality": "CRITICAL",
         "status": "UNVERIFIED",
@@ -2442,7 +2562,7 @@
         "severity": "review"
       },
       {
-        "test_id": "T167",
+        "test_id": "T177",
         "category": "skip_logic",
         "criticality": "CRITICAL",
         "status": "PASS",
@@ -2454,7 +2574,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T168",
+        "test_id": "T178",
         "category": "skip_logic",
         "criticality": "CRITICAL",
         "status": "PASS",
@@ -2466,7 +2586,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T169",
+        "test_id": "T179",
         "category": "skip_logic",
         "criticality": "CRITICAL",
         "status": "PASS",
@@ -2478,7 +2598,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T170",
+        "test_id": "T180",
         "category": "skip_logic",
         "criticality": "CRITICAL",
         "status": "PASS",
@@ -2490,7 +2610,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T171",
+        "test_id": "T181",
         "category": "skip_logic",
         "criticality": "CRITICAL",
         "status": "PASS",
@@ -2502,7 +2622,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T172",
+        "test_id": "T182",
         "category": "skip_logic",
         "criticality": "CRITICAL",
         "status": "PASS",
@@ -2514,7 +2634,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T173",
+        "test_id": "T183",
         "category": "skip_logic",
         "criticality": "NORMAL",
         "status": "PASS",
@@ -2526,7 +2646,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T174",
+        "test_id": "T184",
         "category": "skip_logic",
         "criticality": "CRITICAL",
         "status": "UNVERIFIED",
@@ -2538,7 +2658,7 @@
         "severity": "review"
       },
       {
-        "test_id": "T175",
+        "test_id": "T185",
         "category": "routing_logic",
         "criticality": "CRITICAL",
         "status": "PASS",
@@ -2550,7 +2670,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T176",
+        "test_id": "T186",
         "category": "routing_logic",
         "criticality": "CRITICAL",
         "status": "PASS",
@@ -2562,7 +2682,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T177",
+        "test_id": "T187",
         "category": "routing_logic",
         "criticality": "CRITICAL",
         "status": "PASS",
@@ -2574,7 +2694,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T178",
+        "test_id": "T188",
         "category": "routing_logic",
         "criticality": "CRITICAL",
         "status": "PASS",
@@ -2586,7 +2706,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T179",
+        "test_id": "T189",
         "category": "routing_logic",
         "criticality": "CRITICAL",
         "status": "PASS",
@@ -2598,7 +2718,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T180",
+        "test_id": "T190",
         "category": "routing_logic",
         "criticality": "CRITICAL",
         "status": "PASS",
@@ -2610,7 +2730,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T181",
+        "test_id": "T191",
         "category": "routing_logic",
         "criticality": "NORMAL",
         "status": "PASS",
@@ -2622,7 +2742,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T182",
+        "test_id": "T192",
         "category": "routing_logic",
         "criticality": "CRITICAL",
         "status": "UNVERIFIED",
@@ -2634,7 +2754,7 @@
         "severity": "review"
       },
       {
-        "test_id": "T183",
+        "test_id": "T193",
         "category": "skip_logic",
         "criticality": "CRITICAL",
         "status": "PASS",
@@ -2646,7 +2766,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T184",
+        "test_id": "T194",
         "category": "skip_logic",
         "criticality": "CRITICAL",
         "status": "PASS",
@@ -2658,7 +2778,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T185",
+        "test_id": "T195",
         "category": "skip_logic",
         "criticality": "CRITICAL",
         "status": "PASS",
@@ -2670,7 +2790,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T186",
+        "test_id": "T196",
         "category": "skip_logic",
         "criticality": "CRITICAL",
         "status": "PASS",
@@ -2682,7 +2802,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T187",
+        "test_id": "T197",
         "category": "skip_logic",
         "criticality": "CRITICAL",
         "status": "PASS",
@@ -2694,7 +2814,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T188",
+        "test_id": "T198",
         "category": "skip_logic",
         "criticality": "CRITICAL",
         "status": "PASS",
@@ -2706,7 +2826,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T189",
+        "test_id": "T199",
         "category": "skip_logic",
         "criticality": "NORMAL",
         "status": "PASS",
@@ -2718,7 +2838,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T190",
+        "test_id": "T200",
         "category": "skip_logic",
         "criticality": "CRITICAL",
         "status": "UNVERIFIED",
@@ -2730,7 +2850,7 @@
         "severity": "review"
       },
       {
-        "test_id": "T191",
+        "test_id": "T201",
         "category": "routing_logic",
         "criticality": "CRITICAL",
         "status": "PASS",
@@ -2742,7 +2862,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T192",
+        "test_id": "T202",
         "category": "routing_logic",
         "criticality": "CRITICAL",
         "status": "PASS",
@@ -2754,7 +2874,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T193",
+        "test_id": "T203",
         "category": "routing_logic",
         "criticality": "CRITICAL",
         "status": "PASS",
@@ -2766,7 +2886,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T194",
+        "test_id": "T204",
         "category": "routing_logic",
         "criticality": "CRITICAL",
         "status": "PASS",
@@ -2778,7 +2898,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T195",
+        "test_id": "T205",
         "category": "routing_logic",
         "criticality": "CRITICAL",
         "status": "UNVERIFIED",
@@ -2793,7 +2913,7 @@
         "severity": "review"
       },
       {
-        "test_id": "T196",
+        "test_id": "T206",
         "category": "routing_logic",
         "criticality": "NORMAL",
         "status": "PASS",
@@ -2805,7 +2925,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T197",
+        "test_id": "T207",
         "category": "routing_logic",
         "criticality": "CRITICAL",
         "status": "UNVERIFIED",
@@ -2817,7 +2937,7 @@
         "severity": "review"
       },
       {
-        "test_id": "T198",
+        "test_id": "T208",
         "category": "routing_logic",
         "criticality": "CRITICAL",
         "status": "PASS",
@@ -2829,7 +2949,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T199",
+        "test_id": "T209",
         "category": "dispositions_messages",
         "criticality": "HIGH",
         "status": "PASS",
@@ -2841,7 +2961,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T200",
+        "test_id": "T210",
         "category": "dispositions_messages",
         "criticality": "HIGH",
         "status": "PASS",
@@ -2853,7 +2973,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T201",
+        "test_id": "T211",
         "category": "quotas",
         "criticality": "CRITICAL",
         "status": "PASS",
@@ -2865,7 +2985,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T202",
+        "test_id": "T212",
         "category": "quotas",
         "criticality": "CRITICAL",
         "status": "PASS",
@@ -2877,7 +2997,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T203",
+        "test_id": "T213",
         "category": "quotas",
         "criticality": "CRITICAL",
         "status": "PASS",
@@ -2889,7 +3009,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T204",
+        "test_id": "T214",
         "category": "quotas",
         "criticality": "CRITICAL",
         "status": "PASS",
@@ -2913,7 +3033,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T205",
+        "test_id": "T215",
         "category": "quotas",
         "criticality": "CRITICAL",
         "status": "PASS",
@@ -2925,7 +3045,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T206",
+        "test_id": "T216",
         "category": "acceptance_scenarios",
         "criticality": "HIGH",
         "status": "PASS",
@@ -2937,7 +3057,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T207",
+        "test_id": "T217",
         "category": "acceptance_scenarios",
         "criticality": "HIGH",
         "status": "PASS",
@@ -2953,7 +3073,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T208",
+        "test_id": "T218",
         "category": "acceptance_scenarios",
         "criticality": "HIGH",
         "status": "PASS",
@@ -2969,7 +3089,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T209",
+        "test_id": "T219",
         "category": "acceptance_scenarios",
         "criticality": "HIGH",
         "status": "PASS",
@@ -2981,7 +3101,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T210",
+        "test_id": "T220",
         "category": "acceptance_scenarios",
         "criticality": "HIGH",
         "status": "PASS",
@@ -3007,7 +3127,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T211",
+        "test_id": "T221",
         "category": "acceptance_scenarios",
         "criticality": "HIGH",
         "status": "PASS",
@@ -3033,7 +3153,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T212",
+        "test_id": "T222",
         "category": "acceptance_scenarios",
         "criticality": "HIGH",
         "status": "PASS",
@@ -3045,7 +3165,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T213",
+        "test_id": "T223",
         "category": "acceptance_scenarios",
         "criticality": "HIGH",
         "status": "PASS",
@@ -3073,7 +3193,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T214",
+        "test_id": "T224",
         "category": "acceptance_scenarios",
         "criticality": "HIGH",
         "status": "PASS",
@@ -3099,7 +3219,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T215",
+        "test_id": "T225",
         "category": "acceptance_scenarios",
         "criticality": "HIGH",
         "status": "PASS",
@@ -3111,7 +3231,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T216",
+        "test_id": "T226",
         "category": "acceptance_scenarios",
         "criticality": "HIGH",
         "status": "PASS",
@@ -3139,7 +3259,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T217",
+        "test_id": "T227",
         "category": "acceptance_scenarios",
         "criticality": "HIGH",
         "status": "PASS",
@@ -3161,7 +3281,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T218",
+        "test_id": "T228",
         "category": "acceptance_scenarios",
         "criticality": "HIGH",
         "status": "PASS",
@@ -3173,7 +3293,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T219",
+        "test_id": "T229",
         "category": "acceptance_scenarios",
         "criticality": "HIGH",
         "status": "PASS",
@@ -3195,7 +3315,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T220",
+        "test_id": "T230",
         "category": "acceptance_scenarios",
         "criticality": "HIGH",
         "status": "PASS",
@@ -3211,7 +3331,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T221",
+        "test_id": "T231",
         "category": "programming_qa",
         "criticality": "NORMAL",
         "status": "PASS",
@@ -3223,7 +3343,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T222",
+        "test_id": "T232",
         "category": "programming_qa",
         "criticality": "NORMAL",
         "status": "PASS",
@@ -3235,7 +3355,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T223",
+        "test_id": "T233",
         "category": "programming_qa",
         "criticality": "NORMAL",
         "status": "PASS",
@@ -3247,7 +3367,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T224",
+        "test_id": "T234",
         "category": "programming_qa",
         "criticality": "NORMAL",
         "status": "PASS",
@@ -3259,7 +3379,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T225",
+        "test_id": "T235",
         "category": "programming_qa",
         "criticality": "NORMAL",
         "status": "PASS",
@@ -3271,7 +3391,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T226",
+        "test_id": "T236",
         "category": "programming_qa",
         "criticality": "NORMAL",
         "status": "PASS",
@@ -3283,7 +3403,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T227",
+        "test_id": "T237",
         "category": "study_metadata",
         "criticality": "NORMAL",
         "status": "PASS",
@@ -3295,7 +3415,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T228",
+        "test_id": "T238",
         "category": "study_metadata",
         "criticality": "NORMAL",
         "status": "PASS",
@@ -3307,7 +3427,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T229",
+        "test_id": "T239",
         "category": "study_metadata",
         "criticality": "NORMAL",
         "status": "PASS",
@@ -3319,7 +3439,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T230",
+        "test_id": "T240",
         "category": "study_metadata",
         "criticality": "NORMAL",
         "status": "PASS",
@@ -3331,7 +3451,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T231",
+        "test_id": "T241",
         "category": "study_metadata",
         "criticality": "NORMAL",
         "status": "PASS",
@@ -3343,7 +3463,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T232",
+        "test_id": "T242",
         "category": "provenance",
         "criticality": "NORMAL",
         "status": "PASS",
@@ -3355,7 +3475,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T233",
+        "test_id": "T243",
         "category": "provenance",
         "criticality": "NORMAL",
         "status": "PASS",
@@ -3367,7 +3487,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T234",
+        "test_id": "T244",
         "category": "provenance",
         "criticality": "NORMAL",
         "status": "PASS",
@@ -3379,7 +3499,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T235",
+        "test_id": "T245",
         "category": "provenance",
         "criticality": "NORMAL",
         "status": "PASS",
@@ -3391,7 +3511,7 @@
         "severity": "none"
       },
       {
-        "test_id": "T236",
+        "test_id": "T246",
         "category": "semantic_assumptions",
         "criticality": "CRITICAL",
         "status": "UNVERIFIED",
@@ -3406,7 +3526,7 @@
         "severity": "review"
       },
       {
-        "test_id": "T237",
+        "test_id": "T247",
         "category": "semantic_assumptions",
         "criticality": "CRITICAL",
         "status": "UNVERIFIED",
@@ -3421,7 +3541,7 @@
         "severity": "review"
       },
       {
-        "test_id": "T238",
+        "test_id": "T248",
         "category": "semantic_assumptions",
         "criticality": "CRITICAL",
         "status": "UNVERIFIED",
@@ -3436,7 +3556,7 @@
         "severity": "review"
       },
       {
-        "test_id": "T239",
+        "test_id": "T249",
         "category": "semantic_assumptions",
         "criticality": "CRITICAL",
         "status": "PASS",

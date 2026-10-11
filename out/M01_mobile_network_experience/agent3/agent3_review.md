@@ -4,9 +4,9 @@ Agent 3 v0.1. Blocks B1 to B4 implemented and run. Blocks A and C are blocked on
 
 ## Headline
 
-- **95 coverage targets** enumerated across nine dimensions
-- **83 logically covered**, each with an independently predicted outcome
-- **83 logical test cases** generated, with steps and assertions
+- **94 coverage targets** enumerated across nine dimensions
+- **82 logically covered**, each with an independently predicted outcome
+- **82 logical test cases** generated, with steps and assertions
 - **0 executable tests** - Block C cannot bind a canonical id to a LimeSurvey field without Agent 2's build manifest
 - **Coverage floor 50.0%** (D8). Reported as a floor, never a sum or an average
 - **Specification replay: 5 agree / 0 disagree / 0 unresolved of 5** against the QRE's own acceptance scenarios
@@ -17,12 +17,12 @@ Nine dimensions, reported side by side. They count different kinds of unit, so a
 
 | Dim | Measures | Enumerated | Covered | Logical % | Status | Why not covered |
 |---|---|---|---|---|---|---|
-| D1 | Visibility | 29 | 29 | 100.0% | EXHAUSTIVE | - |
+| D1 | Visibility | 31 | 31 | 100.0% | EXHAUSTIVE | - |
 | D2 | Terminal outcome | 4 | 3 | 75.0% | PARTIAL | `QUOTA_SIZE_UNDEFINED` x1 |
 | D3 | Validation (explicit) | 12 | 9 | 75.0% | BOUNDED | `UNVERIFIABLE` x1, `BOUND_REACHED` x2 |
 | D4 | Validation (mandatory) | 20 | 20 | 100.0% | EXHAUSTIVE | - |
 | D5 | Option-source dependency | 1 | 1 | 100.0% | EXHAUSTIVE | - |
-| D6 | Text-pipe dependency | 7 | 7 | 100.0% | EXHAUSTIVE | - |
+| D6 | Text-pipe dependency | 4 | 4 | 100.0% | EXHAUSTIVE | - |
 | D7 | Randomization configuration | 9 | 6 | 66.7% | PARTIAL | `RANDOMIZATION_ANCHOR_UNDEFINED` x3 |
 | D8 | Quota cell state | 10 | 5 | 50.0% | PARTIAL | `QUOTA_SIZE_UNDEFINED` x5 |
 | D9 | Interaction | 3 | 3 | 100.0% | BOUNDED | - |
@@ -43,7 +43,7 @@ B3's interpreter cannot run without these. They are read from Agent 1's `semanti
 | default_mandatory | `True` | derived | CONFIRMED | no | - |
 | whitespace_is_an_answer | `not_an_answer` | agent3_fallback | PROVISIONAL | no | - |
 
-4 reading(s) still provisional. **71 of 83 generated tests lean on at least one of them** and are tagged accordingly, so a change of ruling shows exactly which tests must be regenerated.
+4 reading(s) still provisional. **70 of 82 generated tests lean on at least one of them** and are tagged accordingly, so a change of ruling shows exactly which tests must be regenerated.
 
 ## Specification replay
 
@@ -131,9 +131,9 @@ Then check:
 - **next_question_is** `Q14` = `Q14`
   - and the very next question the respondent sees must be this one
 
-### `TC-d23422ef01` - answering Q1 normally moves the respondent on to the question that should come next
+### `TC-f4e1e7e3f0` - answering DT1 normally moves the respondent on to the question that should come next
 
-Dimension D1. Traces to Q1.
+Dimension D1. Traces to DT1.
 
 Setup, to reach the question under test:
 
@@ -160,9 +160,9 @@ Action: Answer through the whole survey as listed, then observe where it ends.
 
 Then check:
 
-- **question_visible** `Q1` = `True`
+- **question_visible** `DT1` = `True`
   - the question must be on screen so it can be answered
-- **next_question_is** `Q2` = `Q2`
+- **next_question_is** `Q1` = `Q1`
   - and the very next question the respondent sees must be this one
 
 ## Uncovered targets
@@ -195,10 +195,10 @@ No target is ever silently dropped. Each carries one specific reason.
 
 ## Block A - implementation conformance
 
-Derived from the emitted `.lss` (sha `30f1e2649fbd`), not from a self-reported manifest.
+Derived from the emitted `.lss` (sha `e3dea4f0832e`), not from a self-reported manifest.
 
-- Questions specified: 19
-- Questions built: 19
+- Questions specified: 21
+- Questions built: 21
 - Options bound to a physical identifier: 82
 - Verdict: **CONFORMS_WITH_FINDINGS** (0 blocking)
 
@@ -215,14 +215,14 @@ Derived from the emitted `.lss` (sha `30f1e2649fbd`), not from a self-reported m
 
 ## Block C - executable compilation
 
-- Logically covered: 83
-- **Compiled to executable tests: 83**
+- Logically covered: 82
+- **Compiled to executable tests: 82**
 - Refused rather than guessed: 0
-- Executable coverage: **87.4%**
+- Executable coverage: **87.2%**
 
 ## Sample executable test
 
-### `EX-1c2bcc2d27` - answering D1 normally moves the respondent on to the question that should come next
+### `EX-f0ed820606` - answering D1 normally moves the respondent on to the question that should come next
 
 Survey id 900001. Dimension D1. Traces to D1.
 
@@ -232,21 +232,21 @@ Survey id 900001. Dimension D1. Traces to D1.
 | 2 | set_field | `S2` | `900001X100X1001` | `A001` |
 | 3 | set_field | `S3` | `900001X100X1002` | `18` |
 | 4 | submit_page | `` | `` | `` |
-| 5 | set_field | `Q1` | `900001X101X1003` | `A001` |
-| 6 | set_field | `Q2` | `900001X101X1004` | `A001` |
-| 7 | set_field | `Q3` | `900001X101X1005` | `A001` |
-| 8 | set_field | `Q4` | `900001X101X1006` | `1` |
-| 9 | set_field | `Q5` | `900001X101X1007` | `1` |
-| 10 | set_field | `Q6` | `900001X101X1008` | `1` |
-| 11 | set_field | `Q7_SQ001` | `900001X101X1009SQ001` | `Y` |
-| 12 | set_field | `Q8` | `900001X101X1016` | `A001` |
-| 13 | set_field | `Q9` | `900001X101X1017` | `A001` |
-| 14 | set_field | `Q10` | `900001X101X1018` | `1` |
-| 15 | set_field | `Q11` | `900001X101X1019` | `A001` |
-| 16 | set_field | `Q12` | `900001X101X1020` | `A001` |
-| 17 | set_field | `Q13` | `900001X101X1021` | `A001` |
-| 18 | set_field | `D1` | `900001X101X1022` | `A001` |
-| 19 | set_field | `D2` | `900001X101X1023` | `A001` |
+| 5 | set_field | `Q1` | `900001X101X1004` | `A001` |
+| 6 | set_field | `Q2` | `900001X101X1005` | `A001` |
+| 7 | set_field | `Q3` | `900001X101X1006` | `A001` |
+| 8 | set_field | `Q4` | `900001X101X1007` | `1` |
+| 9 | set_field | `Q5` | `900001X101X1008` | `1` |
+| 10 | set_field | `Q6` | `900001X101X1009` | `1` |
+| 11 | set_field | `Q7_SQ001` | `900001X101X1010SQ001` | `Y` |
+| 12 | set_field | `Q8` | `900001X101X1017` | `A001` |
+| 13 | set_field | `Q9` | `900001X101X1018` | `A001` |
+| 14 | set_field | `Q10` | `900001X101X1019` | `1` |
+| 15 | set_field | `Q11` | `900001X101X1020` | `A001` |
+| 16 | set_field | `Q12` | `900001X101X1021` | `A001` |
+| 17 | set_field | `Q13` | `900001X101X1022` | `A001` |
+| 18 | set_field | `D1` | `900001X101X1024` | `A001` |
+| 19 | set_field | `D2` | `900001X101X1025` | `A001` |
 | 20 | submit_page | `` | `` | `` |
 
 Assertions:

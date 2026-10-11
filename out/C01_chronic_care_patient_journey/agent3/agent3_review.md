@@ -4,9 +4,9 @@ Agent 3 v0.1. Blocks B1 to B4 implemented and run. Blocks A and C are blocked on
 
 ## Headline
 
-- **177 coverage targets** enumerated across nine dimensions
-- **161 logically covered**, each with an independently predicted outcome
-- **161 logical test cases** generated, with steps and assertions
+- **176 coverage targets** enumerated across nine dimensions
+- **160 logically covered**, each with an independently predicted outcome
+- **160 logical test cases** generated, with steps and assertions
 - **0 executable tests** - Block C cannot bind a canonical id to a LimeSurvey field without Agent 2's build manifest
 - **Coverage floor 50.0%** (D8). Reported as a floor, never a sum or an average
 - **Specification replay: 6 agree / 0 disagree / 1 unresolved of 7** against the QRE's own acceptance scenarios
@@ -17,15 +17,15 @@ Nine dimensions, reported side by side. They count different kinds of unit, so a
 
 | Dim | Measures | Enumerated | Covered | Logical % | Status | Why not covered |
 |---|---|---|---|---|---|---|
-| D1 | Visibility | 59 | 59 | 100.0% | EXHAUSTIVE | - |
+| D1 | Visibility | 62 | 62 | 100.0% | EXHAUSTIVE | - |
 | D2 | Terminal outcome | 6 | 5 | 83.3% | PARTIAL | `QUOTA_SIZE_UNDEFINED` x1 |
 | D3 | Validation (explicit) | 32 | 32 | 100.0% | EXHAUSTIVE | - |
 | D4 | Validation (mandatory) | 35 | 35 | 100.0% | EXHAUSTIVE | - |
 | D5 | Option-source dependency | 2 | 2 | 100.0% | EXHAUSTIVE | - |
-| D6 | Text-pipe dependency | 4 | 4 | 100.0% | EXHAUSTIVE | - |
+| D6 | Text-pipe dependency | 2 | 2 | 100.0% | EXHAUSTIVE | - |
 | D7 | Randomization configuration | 15 | 10 | 66.7% | PARTIAL | `RANDOMIZATION_ANCHOR_UNDEFINED` x5 |
 | D8 | Quota cell state | 20 | 10 | 50.0% | PARTIAL | `QUOTA_SIZE_UNDEFINED` x10 |
-| D9 | Interaction | 4 | 4 | 100.0% | BOUNDED | - |
+| D9 | Interaction | 2 | 2 | 100.0% | BOUNDED | - |
 
 **Floor: 50.0% (D8).** FLOOR - lowest dimension. Never a sum or an average.
 
@@ -43,7 +43,7 @@ B3's interpreter cannot run without these. They are read from Agent 1's `semanti
 | default_mandatory | `True` | derived | CONFIRMED | no | - |
 | whitespace_is_an_answer | `not_an_answer` | agent3_fallback | PROVISIONAL | no | - |
 
-4 reading(s) still provisional. **154 of 161 generated tests lean on at least one of them** and are tagged accordingly, so a change of ruling shows exactly which tests must be regenerated.
+4 reading(s) still provisional. **153 of 160 generated tests lean on at least one of them** and are tagged accordingly, so a change of ruling shows exactly which tests must be regenerated.
 
 ## Specification replay
 
@@ -225,10 +225,10 @@ No target is ever silently dropped. Each carries one specific reason.
 
 ## Block A - implementation conformance
 
-Derived from the emitted `.lss` (sha `03b5434d30ce`), not from a self-reported manifest.
+Derived from the emitted `.lss` (sha `d652e4e3eb85`), not from a self-reported manifest.
 
-- Questions specified: 31
-- Questions built: 31
+- Questions specified: 34
+- Questions built: 34
 - Options bound to a physical identifier: 126
 - Verdict: **CONFORMS_WITH_FINDINGS** (0 blocking)
 
@@ -246,14 +246,14 @@ Derived from the emitted `.lss` (sha `03b5434d30ce`), not from a self-reported m
 
 ## Block C - executable compilation
 
-- Logically covered: 161
-- **Compiled to executable tests: 161**
+- Logically covered: 160
+- **Compiled to executable tests: 160**
 - Refused rather than guessed: 0
-- Executable coverage: **91.0%**
+- Executable coverage: **90.9%**
 
 ## Sample executable test
 
-### `EX-29a663bf75` - answering D1 normally moves the respondent on to the question that should come next
+### `EX-8aceaaee41` - answering D1 normally moves the respondent on to the question that should come next
 
 Survey id 900001. Dimension D1. Traces to D1.
 
@@ -264,39 +264,39 @@ Survey id 900001. Dimension D1. Traces to D1.
 | 3 | set_field | `S3` | `900001X100X1002` | `A002` |
 | 4 | set_field | `S4` | `900001X100X1003` | `A002` |
 | 5 | submit_page | `` | `` | `` |
-| 6 | set_field | `Q1_SQ001` | `900001X101X1004SQ001` | `Y` |
-| 7 | set_field | `Q2_SQ001` | `900001X101X1010SQ001` | `Y` |
-| 8 | set_field | `Q3` | `900001X101X1015` | `A001` |
-| 9 | set_field | `Q4` | `900001X101X1016` | `A001` |
-| 10 | set_field | `Q5_SQ001` | `900001X101X1017SQ001` | `Y` |
-| 11 | set_field | `Q6` | `900001X101X1025` | `A001` |
-| 12 | set_field | `Q7` | `900001X101X1026` | `1` |
-| 13 | set_field | `Q8` | `900001X101X1027` | `A001` |
-| 14 | set_field | `Q9_SQ001` | `900001X101X1028SQ001` | `1` |
-| 15 | set_field | `Q9_SQ002` | `900001X101X1028SQ002` | `1` |
-| 16 | set_field | `Q9_SQ003` | `900001X101X1028SQ003` | `1` |
-| 17 | set_field | `Q9_SQ004` | `900001X101X1028SQ004` | `1` |
-| 18 | set_field | `Q9_SQ005` | `900001X101X1028SQ005` | `1` |
-| 19 | set_field | `Q9_SQ006` | `900001X101X1028SQ006` | `1` |
-| 20 | set_field | `Q10` | `900001X101X1035` | `A001` |
-| 21 | set_field | `Q11_SQ001` | `900001X101X1036SQ001` | `Y` |
-| 22 | set_field | `Q12` | `900001X101X1042` | `A001` |
-| 23 | set_field | `Q13` | `900001X101X1043` | `1` |
-| 24 | set_field | `Q15` | `900001X101X1045` | `A001` |
-| 25 | set_field | `Q16` | `900001X101X1046` | `A001` |
-| 26 | set_field | `Q18_SQ001` | `900001X101X1048SQ001` | `20` |
-| 27 | set_field | `Q18_SQ002` | `900001X101X1048SQ002` | `20` |
-| 28 | set_field | `Q18_SQ003` | `900001X101X1048SQ003` | `20` |
-| 29 | set_field | `Q18_SQ004` | `900001X101X1048SQ004` | `20` |
-| 30 | set_field | `Q18_SQ005` | `900001X101X1048SQ005` | `20` |
-| 31 | set_field | `Q19` | `900001X101X1054` | `A001` |
-| 32 | set_field | `Q20` | `900001X101X1055` | `1` |
-| 33 | set_field | `Q21` | `900001X101X1056` | `xxxxx` |
-| 34 | set_field | `D1` | `900001X101X1057` | `A001` |
-| 35 | set_field | `D2` | `900001X101X1058` | `A001` |
-| 36 | set_field | `D3` | `900001X101X1059` | `A001` |
-| 37 | set_field | `D4` | `900001X101X1060` | `A001` |
-| 38 | set_field | `Q22` | `900001X101X1061` | `A001` |
+| 6 | set_field | `Q1_SQ001` | `900001X101X1005SQ001` | `Y` |
+| 7 | set_field | `Q2_SQ001` | `900001X101X1011SQ001` | `Y` |
+| 8 | set_field | `Q3` | `900001X101X1016` | `A001` |
+| 9 | set_field | `Q4` | `900001X101X1017` | `A001` |
+| 10 | set_field | `Q5_SQ001` | `900001X101X1018SQ001` | `Y` |
+| 11 | set_field | `Q6` | `900001X101X1026` | `A001` |
+| 12 | set_field | `Q7` | `900001X101X1027` | `1` |
+| 13 | set_field | `Q8` | `900001X101X1028` | `A001` |
+| 14 | set_field | `Q9_SQ001` | `900001X101X1029SQ001` | `1` |
+| 15 | set_field | `Q9_SQ002` | `900001X101X1029SQ002` | `1` |
+| 16 | set_field | `Q9_SQ003` | `900001X101X1029SQ003` | `1` |
+| 17 | set_field | `Q9_SQ004` | `900001X101X1029SQ004` | `1` |
+| 18 | set_field | `Q9_SQ005` | `900001X101X1029SQ005` | `1` |
+| 19 | set_field | `Q9_SQ006` | `900001X101X1029SQ006` | `1` |
+| 20 | set_field | `Q10` | `900001X101X1037` | `A001` |
+| 21 | set_field | `Q11_SQ001` | `900001X101X1038SQ001` | `Y` |
+| 22 | set_field | `Q12` | `900001X101X1044` | `A001` |
+| 23 | set_field | `Q13` | `900001X101X1045` | `1` |
+| 24 | set_field | `Q15` | `900001X101X1047` | `A001` |
+| 25 | set_field | `Q16` | `900001X101X1048` | `A001` |
+| 26 | set_field | `Q18_SQ001` | `900001X101X1050SQ001` | `20` |
+| 27 | set_field | `Q18_SQ002` | `900001X101X1050SQ002` | `20` |
+| 28 | set_field | `Q18_SQ003` | `900001X101X1050SQ003` | `20` |
+| 29 | set_field | `Q18_SQ004` | `900001X101X1050SQ004` | `20` |
+| 30 | set_field | `Q18_SQ005` | `900001X101X1050SQ005` | `20` |
+| 31 | set_field | `Q19` | `900001X101X1056` | `A001` |
+| 32 | set_field | `Q20` | `900001X101X1057` | `1` |
+| 33 | set_field | `Q21` | `900001X101X1058` | `xxxxx` |
+| 34 | set_field | `D1` | `900001X101X1060` | `A001` |
+| 35 | set_field | `D2` | `900001X101X1061` | `A001` |
+| 36 | set_field | `D3` | `900001X101X1062` | `A001` |
+| 37 | set_field | `D4` | `900001X101X1063` | `A001` |
+| 38 | set_field | `Q22` | `900001X101X1064` | `A001` |
 | 39 | submit_page | `` | `` | `` |
 
 Assertions:

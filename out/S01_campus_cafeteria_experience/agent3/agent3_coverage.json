@@ -5,11 +5,11 @@
   "survey_id": "S01_campus_cafeteria_experience",
   "source_document": {
     "filename": "S01_campus_cafeteria_experience.docx",
-    "sha256": "2756cb3b6dc3f21cdc7c1d35b7cfb0e2270af2a918ba6fe682e72ae8e121a804"
+    "sha256": "3d54ea5480d07ac92b4214947b34c7dab7abf280c5f464475994e8c9066ce9e3"
   },
   "upstream": {
     "canonical_schema_version": "1.0.0",
-    "canonical_generated_at": "2026-10-11T10:11:49+00:00"
+    "canonical_generated_at": "2026-10-11T10:54:25+00:00"
   },
   "content": {
     "project_inputs": {},
@@ -62,7 +62,7 @@
     },
     "b1": {
       "per_dimension": {
-        "D1": 14,
+        "D1": 15,
         "D2": 3,
         "D3": 10,
         "D4": 12,
@@ -72,7 +72,7 @@
         "D8": 0,
         "D9": 1
       },
-      "records_enumerated": 41,
+      "records_enumerated": 42,
       "predetermined_unresolvable": 0,
       "orphan_rules": [],
       "note": "Dimensions are reported side by side and never summed. records_enumerated counts records, not coverage."
@@ -81,8 +81,8 @@
       "coverage_vector": {
         "D1": {
           "name": "Visibility",
-          "enumerated": 14,
-          "covered": 14,
+          "enumerated": 15,
+          "covered": 15,
           "uncovered": 0,
           "reasons": {},
           "provisional": 2,
@@ -207,6 +207,7 @@
             "__START__",
             "S1",
             "S2",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -247,6 +248,7 @@
             "__START__",
             "S1",
             "S2",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",

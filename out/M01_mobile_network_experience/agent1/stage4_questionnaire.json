@@ -86,8 +86,28 @@
     "other_attributes": {}
   },
   {
-    "id": "Q1",
+    "id": "DT1",
     "seq": 4,
+    "wording": "Great, you're eligible for this survey! Next, a few questions about your recent mobile network experience.",
+    "type": "text display",
+    "options": [],
+    "matrix_rows": [],
+    "display_condition": null,
+    "min_length": null,
+    "max_length": null,
+    "min_value": null,
+    "max_value": null,
+    "min_selections": null,
+    "exclusive_option": null,
+    "sum_to": null,
+    "randomize": false,
+    "optional": false,
+    "dynamic_option_source": null,
+    "other_attributes": {}
+  },
+  {
+    "id": "Q1",
+    "seq": 5,
     "wording": "Which mobile network services channel or provider did you use most recently?",
     "type": "single",
     "options": [
@@ -132,7 +152,7 @@
   },
   {
     "id": "Q2",
-    "seq": 5,
+    "seq": 6,
     "wording": "When did the most recent experience occur?",
     "type": "single",
     "options": [
@@ -177,7 +197,7 @@
   },
   {
     "id": "Q3",
-    "seq": 6,
+    "seq": 7,
     "wording": "What was the primary purpose of the experience?",
     "type": "single",
     "options": [
@@ -228,7 +248,7 @@
   },
   {
     "id": "Q4",
-    "seq": 7,
+    "seq": 8,
     "wording": "Rate your overall satisfaction.",
     "type": "single",
     "options": [
@@ -279,7 +299,7 @@
   },
   {
     "id": "Q5",
-    "seq": 8,
+    "seq": 9,
     "wording": "Rate the ease of completing the experience.",
     "type": "single",
     "options": [
@@ -330,7 +350,7 @@
   },
   {
     "id": "Q6",
-    "seq": 9,
+    "seq": 10,
     "wording": "Rate the clarity of information provided.",
     "type": "single",
     "options": [
@@ -381,7 +401,7 @@
   },
   {
     "id": "Q7",
-    "seq": 10,
+    "seq": 11,
     "wording": "Did you experience any of the following problems?",
     "type": "multi",
     "options": [
@@ -438,7 +458,7 @@
   },
   {
     "id": "Q8",
-    "seq": 11,
+    "seq": 12,
     "wording": "Which problem had the greatest impact?",
     "type": "single",
     "options": [
@@ -489,7 +509,7 @@
   },
   {
     "id": "Q9",
-    "seq": 12,
+    "seq": 13,
     "wording": "Was the main problem resolved?",
     "type": "single",
     "options": [
@@ -528,7 +548,7 @@
   },
   {
     "id": "Q10",
-    "seq": 13,
+    "seq": 14,
     "wording": "How satisfied were you with the resolution?",
     "type": "single",
     "options": [
@@ -579,7 +599,7 @@
   },
   {
     "id": "Q11",
-    "seq": 14,
+    "seq": 15,
     "wording": "How likely are you to recommend the provider?",
     "type": "single",
     "options": [
@@ -666,7 +686,7 @@
   },
   {
     "id": "Q12",
-    "seq": 15,
+    "seq": 16,
     "wording": "How likely are you to continue using the provider?",
     "type": "single",
     "options": [
@@ -717,7 +737,7 @@
   },
   {
     "id": "Q13",
-    "seq": 16,
+    "seq": 17,
     "wording": "Which improvement would have the greatest value?",
     "type": "single",
     "options": [
@@ -767,8 +787,28 @@
     "other_attributes": {}
   },
   {
+    "id": "DT2",
+    "seq": 18,
+    "wording": "You're almost done! Thank you for your answers. Just a few last questions about you to finish up.",
+    "type": "text display",
+    "options": [],
+    "matrix_rows": [],
+    "display_condition": null,
+    "min_length": null,
+    "max_length": null,
+    "min_value": null,
+    "max_value": null,
+    "min_selections": null,
+    "exclusive_option": null,
+    "sum_to": null,
+    "randomize": false,
+    "optional": false,
+    "dynamic_option_source": null,
+    "other_attributes": {}
+  },
+  {
     "id": "D1",
-    "seq": 17,
+    "seq": 19,
     "wording": "Which region do you live in?",
     "type": "single",
     "options": [
@@ -819,7 +859,7 @@
   },
   {
     "id": "D2",
-    "seq": 18,
+    "seq": 20,
     "wording": "Which age group describes you?",
     "type": "single",
     "options": [
@@ -870,7 +910,7 @@
   },
   {
     "id": "Q14",
-    "seq": 19,
+    "seq": 21,
     "wording": "Please provide any final comments.",
     "type": "text",
     "options": [],

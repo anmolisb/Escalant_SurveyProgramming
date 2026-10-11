@@ -45,6 +45,8 @@ _TYPE_MAP = {
     "constant_sum": "K",
     "integer": "N",
     "number": "N",
+    # Shows text and asks nothing, such as "You're almost done!".
+    "text display": "X",
 }
 
 #: Types that take a typed-in number rather than a choice.
@@ -110,7 +112,11 @@ def _build_question(raw: dict, order: int, randomized: bool) -> Question:
         text=raw["wording"],
         type=_limesurvey_type(raw),
         question_order=order,
-        mandatory="Y" if validation.get("mandatory", True) else "N",
+        # A text display has nothing to answer, so it is never mandatory
+        # whatever the specification says.
+        mandatory=("Y" if validation.get("mandatory", True)
+                   and _TYPE_MAP.get((raw.get("kind") or "").strip().lower()) != "X"
+                   else "N"),
     )
 
     raw_options = raw.get("options") or []

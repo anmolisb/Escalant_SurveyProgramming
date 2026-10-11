@@ -5,15 +5,15 @@
   "survey_id": "M01_mobile_network_experience",
   "source_document": {
     "filename": "M01_mobile_network_experience.docx",
-    "sha256": "1be6ec051fbc914680d8add2a2c9e85c568f5468d8f39f5b6e915eb5bfe6f3b5"
+    "sha256": "6f7e2db55c2c8ffaabdd4890e35464b4a5325a0ae13e38ffabb37ed06d064964"
   },
   "upstream": {
     "canonical_schema_version": "1.0.0",
-    "canonical_generated_at": "2026-10-11T10:11:51+00:00"
+    "canonical_generated_at": "2026-10-11T10:54:30+00:00"
   },
   "content": {
-    "feasible": 84,
-    "total": 95,
+    "feasible": 83,
+    "total": 94,
     "witnesses": [
       {
         "target_id": "T-94ce2e5d20",
@@ -104,6 +104,37 @@
         },
         "method": "answered normally, nothing forced to fire",
         "evidence": "S3 is reached and answered validly, so the respondent should continue rather than stop here [leaned on provisional semantics: ['rule_precedence']]",
+        "reason": null,
+        "preconditions": {},
+        "campaign": {}
+      },
+      {
+        "target_id": "T-4c28ba9a4a",
+        "feasible": true,
+        "answers": {
+          "S1": "S1-O1",
+          "S2": "S2-O1",
+          "S3": 18,
+          "Q1": "Q1-O1",
+          "Q2": "Q2-O1",
+          "Q3": "Q3-O1",
+          "Q4": "Q4-O1",
+          "Q5": "Q5-O1",
+          "Q6": "Q6-O1",
+          "Q7": [
+            "Q7-O1"
+          ],
+          "Q8": "Q8-O1",
+          "Q9": "Q9-O1",
+          "Q10": "Q10-O1",
+          "Q11": "Q11-O1",
+          "Q12": "Q12-O1",
+          "Q13": "Q13-O1",
+          "D1": "D1-O1",
+          "D2": "D2-O1"
+        },
+        "method": "answered normally, nothing forced to fire",
+        "evidence": "DT1 is reached and answered validly, so the respondent should continue rather than stop here [leaned on provisional semantics: ['rule_precedence']]",
         "reason": null,
         "preconditions": {},
         "campaign": {}
@@ -507,6 +538,37 @@
         },
         "method": "answered normally, nothing forced to fire",
         "evidence": "Q13 is reached and answered validly, so the respondent should continue rather than stop here [leaned on provisional semantics: ['rule_precedence']]",
+        "reason": null,
+        "preconditions": {},
+        "campaign": {}
+      },
+      {
+        "target_id": "T-56d0ac2b77",
+        "feasible": true,
+        "answers": {
+          "S1": "S1-O1",
+          "S2": "S2-O1",
+          "S3": 18,
+          "Q1": "Q1-O1",
+          "Q2": "Q2-O1",
+          "Q3": "Q3-O1",
+          "Q4": "Q4-O1",
+          "Q5": "Q5-O1",
+          "Q6": "Q6-O1",
+          "Q7": [
+            "Q7-O1"
+          ],
+          "Q8": "Q8-O1",
+          "Q9": "Q9-O1",
+          "Q10": "Q10-O1",
+          "Q11": "Q11-O1",
+          "Q12": "Q12-O1",
+          "Q13": "Q13-O1",
+          "D1": "D1-O1",
+          "D2": "D2-O1"
+        },
+        "method": "answered normally, nothing forced to fire",
+        "evidence": "DT2 is reached and answered validly, so the respondent should continue rather than stop here [leaned on provisional semantics: ['rule_precedence']]",
         "reason": null,
         "preconditions": {},
         "campaign": {}
@@ -2005,21 +2067,21 @@
         "campaign": {}
       },
       {
-        "target_id": "T-6eac8ecd08",
+        "target_id": "T-85ba201aff",
         "feasible": true,
         "answers": {
-          "Q1": "Q1-O1",
+          "Q7": [
+            "Q7-O1"
+          ],
           "S1": "S1-O1",
           "S2": "S2-O1",
           "S3": 18,
+          "Q1": "Q1-O1",
           "Q2": "Q2-O1",
           "Q3": "Q3-O1",
           "Q4": "Q4-O1",
           "Q5": "Q5-O1",
           "Q6": "Q6-O1",
-          "Q7": [
-            "Q7-O1"
-          ],
           "Q8": "Q8-O1",
           "Q9": "Q9-O1",
           "Q10": "Q10-O1",
@@ -2030,100 +2092,7 @@
           "D2": "D2-O1"
         },
         "method": "source answered, dependent question shown",
-        "evidence": "Q1 answered so Q2's wording can reflect it [leaned on provisional semantics: ['rule_precedence']]",
-        "reason": null,
-        "preconditions": {},
-        "campaign": {}
-      },
-      {
-        "target_id": "T-d80f93e85d",
-        "feasible": true,
-        "answers": {
-          "Q1": "Q1-O1",
-          "S1": "S1-O1",
-          "S2": "S2-O1",
-          "S3": 18,
-          "Q2": "Q2-O1",
-          "Q3": "Q3-O1",
-          "Q4": "Q4-O1",
-          "Q5": "Q5-O1",
-          "Q6": "Q6-O1",
-          "Q7": [
-            "Q7-O1"
-          ],
-          "Q8": "Q8-O1",
-          "Q9": "Q9-O1",
-          "Q10": "Q10-O1",
-          "Q11": "Q11-O1",
-          "Q12": "Q12-O1",
-          "Q13": "Q13-O1",
-          "D1": "D1-O1",
-          "D2": "D2-O1"
-        },
-        "method": "source answered, dependent question shown",
-        "evidence": "Q1 answered so Q3's wording can reflect it [leaned on provisional semantics: ['rule_precedence']]",
-        "reason": null,
-        "preconditions": {},
-        "campaign": {}
-      },
-      {
-        "target_id": "T-7dd1f6b60f",
-        "feasible": true,
-        "answers": {
-          "Q1": "Q1-O1",
-          "S1": "S1-O1",
-          "S2": "S2-O1",
-          "S3": 18,
-          "Q2": "Q2-O1",
-          "Q3": "Q3-O1",
-          "Q4": "Q4-O1",
-          "Q5": "Q5-O1",
-          "Q6": "Q6-O1",
-          "Q7": [
-            "Q7-O1"
-          ],
-          "Q8": "Q8-O1",
-          "Q9": "Q9-O1",
-          "Q10": "Q10-O1",
-          "Q11": "Q11-O1",
-          "Q12": "Q12-O1",
-          "Q13": "Q13-O1",
-          "D1": "D1-O1",
-          "D2": "D2-O1"
-        },
-        "method": "source answered, dependent question shown",
-        "evidence": "Q1 answered so Q5's wording can reflect it [leaned on provisional semantics: ['rule_precedence']]",
-        "reason": null,
-        "preconditions": {},
-        "campaign": {}
-      },
-      {
-        "target_id": "T-937569ef64",
-        "feasible": true,
-        "answers": {
-          "Q7": [
-            "Q7-O1"
-          ],
-          "Q8": "Q8-O1",
-          "S1": "S1-O1",
-          "S2": "S2-O1",
-          "S3": 18,
-          "Q1": "Q1-O1",
-          "Q2": "Q2-O1",
-          "Q3": "Q3-O1",
-          "Q4": "Q4-O1",
-          "Q5": "Q5-O1",
-          "Q6": "Q6-O1",
-          "Q9": "Q9-O1",
-          "Q10": "Q10-O1",
-          "Q11": "Q11-O1",
-          "Q12": "Q12-O1",
-          "Q13": "Q13-O1",
-          "D1": "D1-O1",
-          "D2": "D2-O1"
-        },
-        "method": "source answered, dependent question shown",
-        "evidence": "Q8 answered so Q9's wording can reflect it [leaned on provisional semantics: ['rule_precedence']]",
+        "evidence": "Q7 answered so Q9's wording can reflect it [leaned on provisional semantics: ['rule_precedence']]",
         "reason": null,
         "preconditions": {},
         "campaign": {}
@@ -2686,13 +2655,12 @@
         "campaign": {}
       },
       {
-        "target_id": "T-beab00ecea",
+        "target_id": "T-72e6818f53",
         "feasible": true,
         "answers": {
           "Q7": [
             "Q7-O1"
           ],
-          "Q8": "Q8-O1",
           "S1": "S1-O1",
           "S2": "S2-O1",
           "S3": 18,
@@ -2702,6 +2670,7 @@
           "Q4": "Q4-O1",
           "Q5": "Q5-O1",
           "Q6": "Q6-O1",
+          "Q8": "Q8-O1",
           "Q9": "Q9-O1",
           "Q10": "Q10-O1",
           "Q11": "Q11-O1",
@@ -2711,7 +2680,7 @@
           "D2": "D2-O1"
         },
         "method": "guard satisfied with dependency present",
-        "evidence": "Q9 shown while dependent on Q8 [leaned on provisional semantics: ['rule_precedence']]",
+        "evidence": "Q9 shown while dependent on Q7 [leaned on provisional semantics: ['rule_precedence']]",
         "reason": null,
         "preconditions": {},
         "campaign": {}

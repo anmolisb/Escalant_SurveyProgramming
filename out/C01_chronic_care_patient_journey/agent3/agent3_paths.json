@@ -5,11 +5,11 @@
   "survey_id": "C01_chronic_care_patient_journey",
   "source_document": {
     "filename": "C01_chronic_care_patient_journey.docx",
-    "sha256": "319e6b78a2a1e36ef712ce421e6d2c1db3325a087a07d8d0e93ec38b39207e4b"
+    "sha256": "9fe8bb4afcacc91f94918506ae31a1ba231222b73050f346ed10ea91064fc093"
   },
   "upstream": {
     "canonical_schema_version": "1.0.0",
-    "canonical_generated_at": "2026-10-11T10:11:52+00:00"
+    "canonical_generated_at": "2026-10-11T10:54:35+00:00"
   },
   "content": {
     "report": {
@@ -408,6 +408,7 @@
           "S2",
           "S3",
           "S4",
+          "DT1",
           "Q1",
           "Q2",
           "Q3",
@@ -417,6 +418,7 @@
           "Q7",
           "Q8",
           "Q9",
+          "DT2",
           "Q10",
           "Q11",
           "Q12",
@@ -427,6 +429,7 @@
           "Q19",
           "Q20",
           "Q21",
+          "DT3",
           "D1",
           "D2",
           "D3",
@@ -490,7 +493,7 @@
           "label": "North"
         },
         "mechanism": "QUOTA_REGION",
-        "sequence_text": "S1 -> S2 -> S3 -> S4 -> Q1 -> Q2 -> Q3 -> Q4 -> Q5 -> Q6 -> Q7 -> Q8 -> Q9 -> Q10 -> Q11 -> Q12 -> Q13 -> Q15 -> Q16 -> Q18 -> Q19 -> Q20 -> Q21 -> D1 -> D2 -> D3 -> D4 -> Q22 -> Q23  ->  TERM_QUOTA_FULL"
+        "sequence_text": "S1 -> S2 -> S3 -> S4 -> DT1 -> Q1 -> Q2 -> Q3 -> Q4 -> Q5 -> Q6 -> Q7 -> Q8 -> Q9 -> DT2 -> Q10 -> Q11 -> Q12 -> Q13 -> Q15 -> Q16 -> Q18 -> Q19 -> Q20 -> Q21 -> DT3 -> D1 -> D2 -> D3 -> D4 -> Q22 -> Q23  ->  TERM_QUOTA_FULL"
       },
       {
         "path_id": "P06",
@@ -501,6 +504,7 @@
           "S2",
           "S3",
           "S4",
+          "DT1",
           "Q1",
           "Q2",
           "Q3",
@@ -510,6 +514,7 @@
           "Q7",
           "Q8",
           "Q9",
+          "DT2",
           "Q10",
           "Q11",
           "Q12",
@@ -520,6 +525,7 @@
           "Q19",
           "Q20",
           "Q21",
+          "DT3",
           "D1",
           "D2",
           "D3",
@@ -583,7 +589,7 @@
           "label": "21-29"
         },
         "mechanism": "QUOTA_AGE",
-        "sequence_text": "S1 -> S2 -> S3 -> S4 -> Q1 -> Q2 -> Q3 -> Q4 -> Q5 -> Q6 -> Q7 -> Q8 -> Q9 -> Q10 -> Q11 -> Q12 -> Q13 -> Q15 -> Q16 -> Q18 -> Q19 -> Q20 -> Q21 -> D1 -> D2 -> D3 -> D4 -> Q22 -> Q23  ->  TERM_QUOTA_FULL"
+        "sequence_text": "S1 -> S2 -> S3 -> S4 -> DT1 -> Q1 -> Q2 -> Q3 -> Q4 -> Q5 -> Q6 -> Q7 -> Q8 -> Q9 -> DT2 -> Q10 -> Q11 -> Q12 -> Q13 -> Q15 -> Q16 -> Q18 -> Q19 -> Q20 -> Q21 -> DT3 -> D1 -> D2 -> D3 -> D4 -> Q22 -> Q23  ->  TERM_QUOTA_FULL"
       },
       {
         "path_id": "P07",
@@ -594,10 +600,12 @@
           "S2",
           "S3",
           "S4",
+          "DT1",
           "Q1",
           "Q4",
           "Q5",
           "Q6",
+          "DT2",
           "Q10",
           "Q11",
           "Q12",
@@ -606,6 +614,7 @@
           "Q19",
           "Q20",
           "Q21",
+          "DT3",
           "D1",
           "D2",
           "D3",
@@ -668,7 +677,7 @@
         "preconditions": "Fresh respondent, no prior answers. Both quota cells open.",
         "campaign": {},
         "mechanism": "",
-        "sequence_text": "S1 -> S2 -> S3 -> S4 -> Q1 -> Q4 -> Q5 -> Q6 -> Q10 -> Q11 -> Q12 -> Q13 -> Q18 -> Q19 -> Q20 -> Q21 -> D1 -> D2 -> D3 -> D4 -> Q22 -> Q23  ->  COMPLETE"
+        "sequence_text": "S1 -> S2 -> S3 -> S4 -> DT1 -> Q1 -> Q4 -> Q5 -> Q6 -> DT2 -> Q10 -> Q11 -> Q12 -> Q13 -> Q18 -> Q19 -> Q20 -> Q21 -> DT3 -> D1 -> D2 -> D3 -> D4 -> Q22 -> Q23  ->  COMPLETE"
       },
       {
         "path_id": "P08",
@@ -679,6 +688,7 @@
           "S2",
           "S3",
           "S4",
+          "DT1",
           "Q1",
           "Q2",
           "Q3",
@@ -688,12 +698,14 @@
           "Q7",
           "Q8",
           "Q9",
+          "DT2",
           "Q10",
           "Q15",
           "Q18",
           "Q19",
           "Q20",
           "Q21",
+          "DT3",
           "D1",
           "D2",
           "D3",
@@ -758,7 +770,7 @@
         "preconditions": "Fresh respondent, no prior answers. Both quota cells open.",
         "campaign": {},
         "mechanism": "",
-        "sequence_text": "S1 -> S2 -> S3 -> S4 -> Q1 -> Q2 -> Q3 -> Q4 -> Q5 -> Q6 -> Q7 -> Q8 -> Q9 -> Q10 -> Q15 -> Q18 -> Q19 -> Q20 -> Q21 -> D1 -> D2 -> D3 -> D4 -> Q22 -> Q23  ->  COMPLETE"
+        "sequence_text": "S1 -> S2 -> S3 -> S4 -> DT1 -> Q1 -> Q2 -> Q3 -> Q4 -> Q5 -> Q6 -> Q7 -> Q8 -> Q9 -> DT2 -> Q10 -> Q15 -> Q18 -> Q19 -> Q20 -> Q21 -> DT3 -> D1 -> D2 -> D3 -> D4 -> Q22 -> Q23  ->  COMPLETE"
       },
       {
         "path_id": "P09",
@@ -769,6 +781,7 @@
           "S2",
           "S3",
           "S4",
+          "DT1",
           "Q1",
           "Q2",
           "Q3",
@@ -778,6 +791,7 @@
           "Q7",
           "Q8",
           "Q9",
+          "DT2",
           "Q10",
           "Q11",
           "Q12",
@@ -789,6 +803,7 @@
           "Q19",
           "Q20",
           "Q21",
+          "DT3",
           "D1",
           "D2",
           "D3",
@@ -855,7 +870,7 @@
         "preconditions": "Fresh respondent, no prior answers. Both quota cells open.",
         "campaign": {},
         "mechanism": "",
-        "sequence_text": "S1 -> S2 -> S3 -> S4 -> Q1 -> Q2 -> Q3 -> Q4 -> Q5 -> Q6 -> Q7 -> Q8 -> Q9 -> Q10 -> Q11 -> Q12 -> Q14 -> Q15 -> Q16 -> Q17 -> Q18 -> Q19 -> Q20 -> Q21 -> D1 -> D2 -> D3 -> D4 -> Q22 -> Q23  ->  COMPLETE"
+        "sequence_text": "S1 -> S2 -> S3 -> S4 -> DT1 -> Q1 -> Q2 -> Q3 -> Q4 -> Q5 -> Q6 -> Q7 -> Q8 -> Q9 -> DT2 -> Q10 -> Q11 -> Q12 -> Q14 -> Q15 -> Q16 -> Q17 -> Q18 -> Q19 -> Q20 -> Q21 -> DT3 -> D1 -> D2 -> D3 -> D4 -> Q22 -> Q23  ->  COMPLETE"
       },
       {
         "path_id": "P10",
@@ -866,6 +881,7 @@
           "S2",
           "S3",
           "S4",
+          "DT1",
           "Q1",
           "Q2",
           "Q3",
@@ -874,6 +890,7 @@
           "Q7",
           "Q8",
           "Q9",
+          "DT2",
           "Q10",
           "Q11",
           "Q12",
@@ -884,6 +901,7 @@
           "Q19",
           "Q20",
           "Q21",
+          "DT3",
           "D1",
           "D2",
           "D3",
@@ -945,7 +963,7 @@
         "preconditions": "Fresh respondent, no prior answers. Both quota cells open.",
         "campaign": {},
         "mechanism": "",
-        "sequence_text": "S1 -> S2 -> S3 -> S4 -> Q1 -> Q2 -> Q3 -> Q4 -> Q5 -> Q7 -> Q8 -> Q9 -> Q10 -> Q11 -> Q12 -> Q13 -> Q15 -> Q16 -> Q18 -> Q19 -> Q20 -> Q21 -> D1 -> D2 -> D3 -> D4 -> Q22 -> Q23  ->  COMPLETE"
+        "sequence_text": "S1 -> S2 -> S3 -> S4 -> DT1 -> Q1 -> Q2 -> Q3 -> Q4 -> Q5 -> Q7 -> Q8 -> Q9 -> DT2 -> Q10 -> Q11 -> Q12 -> Q13 -> Q15 -> Q16 -> Q18 -> Q19 -> Q20 -> Q21 -> DT3 -> D1 -> D2 -> D3 -> D4 -> Q22 -> Q23  ->  COMPLETE"
       },
       {
         "path_id": "P11",
@@ -956,15 +974,18 @@
           "S2",
           "S3",
           "S4",
+          "DT1",
           "Q1",
           "Q4",
           "Q5",
+          "DT2",
           "Q10",
           "Q14",
           "Q18",
           "Q19",
           "Q20",
           "Q21",
+          "DT3",
           "D1",
           "D2",
           "D3",
@@ -1035,7 +1056,7 @@
         "preconditions": "Fresh respondent, no prior answers. Both quota cells open.",
         "campaign": {},
         "mechanism": "",
-        "sequence_text": "S1 -> S2 -> S3 -> S4 -> Q1 -> Q4 -> Q5 -> Q10 -> Q14 -> Q18 -> Q19 -> Q20 -> Q21 -> D1 -> D2 -> D3 -> D4 -> Q22 -> Q23  ->  COMPLETE"
+        "sequence_text": "S1 -> S2 -> S3 -> S4 -> DT1 -> Q1 -> Q4 -> Q5 -> DT2 -> Q10 -> Q14 -> Q18 -> Q19 -> Q20 -> Q21 -> DT3 -> D1 -> D2 -> D3 -> D4 -> Q22 -> Q23  ->  COMPLETE"
       },
       {
         "path_id": "P12",
@@ -1046,6 +1067,7 @@
           "S2",
           "S3",
           "S4",
+          "DT1",
           "Q1",
           "Q2",
           "Q3",
@@ -1055,6 +1077,7 @@
           "Q7",
           "Q8",
           "Q9",
+          "DT2",
           "Q10",
           "Q11",
           "Q12",
@@ -1066,6 +1089,7 @@
           "Q19",
           "Q20",
           "Q21",
+          "DT3",
           "D1",
           "D2",
           "D3",
@@ -1131,11 +1155,11 @@
         ],
         "scenario": null,
         "why_selected": "The longest completing journey. Branch coverage reaches every switch on its own; this is the one where they are all on together.",
-        "what_it_adds": "Every optional question present at once, 30 in all. The longest journey, and the one most likely to expose an ordering fault late in the survey.",
+        "what_it_adds": "Every optional question present at once, 33 in all. The longest journey, and the one most likely to expose an ordering fault late in the survey.",
         "preconditions": "Fresh respondent, no prior answers. Both quota cells open.",
         "campaign": {},
         "mechanism": "",
-        "sequence_text": "S1 -> S2 -> S3 -> S4 -> Q1 -> Q2 -> Q3 -> Q4 -> Q5 -> Q6 -> Q7 -> Q8 -> Q9 -> Q10 -> Q11 -> Q12 -> Q13 -> Q15 -> Q16 -> Q17 -> Q18 -> Q19 -> Q20 -> Q21 -> D1 -> D2 -> D3 -> D4 -> Q22 -> Q23  ->  COMPLETE"
+        "sequence_text": "S1 -> S2 -> S3 -> S4 -> DT1 -> Q1 -> Q2 -> Q3 -> Q4 -> Q5 -> Q6 -> Q7 -> Q8 -> Q9 -> DT2 -> Q10 -> Q11 -> Q12 -> Q13 -> Q15 -> Q16 -> Q17 -> Q18 -> Q19 -> Q20 -> Q21 -> DT3 -> D1 -> D2 -> D3 -> D4 -> Q22 -> Q23  ->  COMPLETE"
       }
     ]
   }

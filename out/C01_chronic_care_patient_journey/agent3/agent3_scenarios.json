@@ -5,11 +5,11 @@
   "survey_id": "C01_chronic_care_patient_journey",
   "source_document": {
     "filename": "C01_chronic_care_patient_journey.docx",
-    "sha256": "319e6b78a2a1e36ef712ce421e6d2c1db3325a087a07d8d0e93ec38b39207e4b"
+    "sha256": "9fe8bb4afcacc91f94918506ae31a1ba231222b73050f346ed10ea91064fc093"
   },
   "upstream": {
     "canonical_schema_version": "1.0.0",
-    "canonical_generated_at": "2026-10-11T10:11:52+00:00"
+    "canonical_generated_at": "2026-10-11T10:54:35+00:00"
   },
   "content": {
     "scenarios": [
@@ -78,6 +78,7 @@
             "S2",
             "S3",
             "S4",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -87,6 +88,7 @@
             "Q7",
             "Q8",
             "Q9",
+            "DT2",
             "Q10",
             "Q11",
             "Q12",
@@ -97,6 +99,7 @@
             "Q19",
             "Q20",
             "Q21",
+            "DT3",
             "D1",
             "D2",
             "D3",
@@ -114,8 +117,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
-            "Q8": "Care Network A",
-            "Q9": "Care Network A",
             "Q20": "Concept A",
             "Q21": "Concept A"
           },
@@ -201,6 +202,7 @@
             "S2",
             "S3",
             "S4",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -210,6 +212,7 @@
             "Q7",
             "Q8",
             "Q9",
+            "DT2",
             "Q10",
             "Q11",
             "Q12",
@@ -220,6 +223,7 @@
             "Q19",
             "Q20",
             "Q21",
+            "DT3",
             "D1",
             "D2",
             "D3",
@@ -237,8 +241,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
-            "Q8": "Care Network A",
-            "Q9": "Care Network A",
             "Q20": "Concept A",
             "Q21": "Concept A"
           },
@@ -324,6 +326,7 @@
             "S2",
             "S3",
             "S4",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -333,6 +336,7 @@
             "Q7",
             "Q8",
             "Q9",
+            "DT2",
             "Q10",
             "Q11",
             "Q12",
@@ -343,6 +347,7 @@
             "Q19",
             "Q20",
             "Q21",
+            "DT3",
             "D1",
             "D2",
             "D3",
@@ -360,8 +365,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
-            "Q8": "Care Network A",
-            "Q9": "Care Network A",
             "Q20": "Concept A",
             "Q21": "Concept A"
           },
@@ -447,6 +450,7 @@
             "S2",
             "S3",
             "S4",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -456,6 +460,7 @@
             "Q7",
             "Q8",
             "Q9",
+            "DT2",
             "Q10",
             "Q11",
             "Q12",
@@ -466,6 +471,7 @@
             "Q19",
             "Q20",
             "Q21",
+            "DT3",
             "D1",
             "D2",
             "D3",
@@ -483,8 +489,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
-            "Q8": "Care Network A",
-            "Q9": "Care Network A",
             "Q20": "Concept A",
             "Q21": "Concept A"
           },
@@ -498,6 +502,378 @@
           }
         },
         "proof": "after answering D4 the respondent went on to Q22",
+        "provisional_semantics": [
+          "multi_equality"
+        ],
+        "preconditions": {},
+        "campaign": {},
+        "covered_by": null
+      },
+      {
+        "scenario_id": "SC-6f4b64d89d",
+        "target_id": "T-4c28ba9a4a",
+        "dimension": "D1",
+        "status": "COVERED",
+        "reason": null,
+        "answers": {
+          "S1": "S1-O1",
+          "S2": "S2-O1",
+          "S3": "S3-O2",
+          "S4": "S4-O2",
+          "Q1": [
+            "Q1-O1"
+          ],
+          "Q2": [
+            "Q2-O1"
+          ],
+          "Q3": "Q3-O1",
+          "Q4": "Q4-O1",
+          "Q5": [
+            "Q5-O1"
+          ],
+          "Q6": "Q6-O1",
+          "Q7": "Q7-O1",
+          "Q8": "Q8-O1",
+          "Q9": {
+            "Q9-R1": "Q9-O1",
+            "Q9-R2": "Q9-O1",
+            "Q9-R3": "Q9-O1",
+            "Q9-R4": "Q9-O1",
+            "Q9-R5": "Q9-O1",
+            "Q9-R6": "Q9-O1"
+          },
+          "Q10": "Q10-O1",
+          "Q11": [
+            "Q11-O1"
+          ],
+          "Q12": "Q12-O1",
+          "Q13": "Q13-O1",
+          "Q14": "xxxxxxxxxx",
+          "Q15": "Q15-O1",
+          "Q16": "Q16-O1",
+          "Q17": "xxx",
+          "Q18": {
+            "Q18-O1": 20,
+            "Q18-O2": 20,
+            "Q18-O3": 20,
+            "Q18-O4": 20,
+            "Q18-O5": 20
+          },
+          "Q19": "Q19-O1",
+          "Q20": "Q20-O1",
+          "Q21": "xxxxx",
+          "D1": "D1-O1",
+          "D2": "D2-O1",
+          "D3": "D3-O1",
+          "D4": "D4-O1",
+          "Q22": "Q22-O1"
+        },
+        "expected": {
+          "questions_seen_in_order": [
+            "S1",
+            "S2",
+            "S3",
+            "S4",
+            "DT1",
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4",
+            "Q5",
+            "Q6",
+            "Q7",
+            "Q8",
+            "Q9",
+            "DT2",
+            "Q10",
+            "Q11",
+            "Q12",
+            "Q13",
+            "Q15",
+            "Q16",
+            "Q18",
+            "Q19",
+            "Q20",
+            "Q21",
+            "DT3",
+            "D1",
+            "D2",
+            "D3",
+            "D4",
+            "Q22",
+            "Q23"
+          ],
+          "questions_not_seen": [
+            "Q14",
+            "Q17"
+          ],
+          "ending_reached": "COMPLETE",
+          "blocked_at": null,
+          "quota_stopped": null,
+          "quota_over_target": null,
+          "validation_messages_expected": [],
+          "piped_text_visible": {
+            "Q20": "Concept A",
+            "Q21": "Concept A"
+          },
+          "option_lists_visible": {
+            "Q2": [
+              "Care Network A"
+            ],
+            "Q6": [
+              "Primary-care physician"
+            ]
+          }
+        },
+        "proof": "after answering DT1 the respondent went on to Q1",
+        "provisional_semantics": [
+          "multi_equality"
+        ],
+        "preconditions": {},
+        "campaign": {},
+        "covered_by": null
+      },
+      {
+        "scenario_id": "SC-89285e7317",
+        "target_id": "T-56d0ac2b77",
+        "dimension": "D1",
+        "status": "COVERED",
+        "reason": null,
+        "answers": {
+          "S1": "S1-O1",
+          "S2": "S2-O1",
+          "S3": "S3-O2",
+          "S4": "S4-O2",
+          "Q1": [
+            "Q1-O1"
+          ],
+          "Q2": [
+            "Q2-O1"
+          ],
+          "Q3": "Q3-O1",
+          "Q4": "Q4-O1",
+          "Q5": [
+            "Q5-O1"
+          ],
+          "Q6": "Q6-O1",
+          "Q7": "Q7-O1",
+          "Q8": "Q8-O1",
+          "Q9": {
+            "Q9-R1": "Q9-O1",
+            "Q9-R2": "Q9-O1",
+            "Q9-R3": "Q9-O1",
+            "Q9-R4": "Q9-O1",
+            "Q9-R5": "Q9-O1",
+            "Q9-R6": "Q9-O1"
+          },
+          "Q10": "Q10-O1",
+          "Q11": [
+            "Q11-O1"
+          ],
+          "Q12": "Q12-O1",
+          "Q13": "Q13-O1",
+          "Q14": "xxxxxxxxxx",
+          "Q15": "Q15-O1",
+          "Q16": "Q16-O1",
+          "Q17": "xxx",
+          "Q18": {
+            "Q18-O1": 20,
+            "Q18-O2": 20,
+            "Q18-O3": 20,
+            "Q18-O4": 20,
+            "Q18-O5": 20
+          },
+          "Q19": "Q19-O1",
+          "Q20": "Q20-O1",
+          "Q21": "xxxxx",
+          "D1": "D1-O1",
+          "D2": "D2-O1",
+          "D3": "D3-O1",
+          "D4": "D4-O1",
+          "Q22": "Q22-O1"
+        },
+        "expected": {
+          "questions_seen_in_order": [
+            "S1",
+            "S2",
+            "S3",
+            "S4",
+            "DT1",
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4",
+            "Q5",
+            "Q6",
+            "Q7",
+            "Q8",
+            "Q9",
+            "DT2",
+            "Q10",
+            "Q11",
+            "Q12",
+            "Q13",
+            "Q15",
+            "Q16",
+            "Q18",
+            "Q19",
+            "Q20",
+            "Q21",
+            "DT3",
+            "D1",
+            "D2",
+            "D3",
+            "D4",
+            "Q22",
+            "Q23"
+          ],
+          "questions_not_seen": [
+            "Q14",
+            "Q17"
+          ],
+          "ending_reached": "COMPLETE",
+          "blocked_at": null,
+          "quota_stopped": null,
+          "quota_over_target": null,
+          "validation_messages_expected": [],
+          "piped_text_visible": {
+            "Q20": "Concept A",
+            "Q21": "Concept A"
+          },
+          "option_lists_visible": {
+            "Q2": [
+              "Care Network A"
+            ],
+            "Q6": [
+              "Primary-care physician"
+            ]
+          }
+        },
+        "proof": "after answering DT2 the respondent went on to Q10",
+        "provisional_semantics": [
+          "multi_equality"
+        ],
+        "preconditions": {},
+        "campaign": {},
+        "covered_by": null
+      },
+      {
+        "scenario_id": "SC-85a2d7cf59",
+        "target_id": "T-e9c19f76b4",
+        "dimension": "D1",
+        "status": "COVERED",
+        "reason": null,
+        "answers": {
+          "S1": "S1-O1",
+          "S2": "S2-O1",
+          "S3": "S3-O2",
+          "S4": "S4-O2",
+          "Q1": [
+            "Q1-O1"
+          ],
+          "Q2": [
+            "Q2-O1"
+          ],
+          "Q3": "Q3-O1",
+          "Q4": "Q4-O1",
+          "Q5": [
+            "Q5-O1"
+          ],
+          "Q6": "Q6-O1",
+          "Q7": "Q7-O1",
+          "Q8": "Q8-O1",
+          "Q9": {
+            "Q9-R1": "Q9-O1",
+            "Q9-R2": "Q9-O1",
+            "Q9-R3": "Q9-O1",
+            "Q9-R4": "Q9-O1",
+            "Q9-R5": "Q9-O1",
+            "Q9-R6": "Q9-O1"
+          },
+          "Q10": "Q10-O1",
+          "Q11": [
+            "Q11-O1"
+          ],
+          "Q12": "Q12-O1",
+          "Q13": "Q13-O1",
+          "Q14": "xxxxxxxxxx",
+          "Q15": "Q15-O1",
+          "Q16": "Q16-O1",
+          "Q17": "xxx",
+          "Q18": {
+            "Q18-O1": 20,
+            "Q18-O2": 20,
+            "Q18-O3": 20,
+            "Q18-O4": 20,
+            "Q18-O5": 20
+          },
+          "Q19": "Q19-O1",
+          "Q20": "Q20-O1",
+          "Q21": "xxxxx",
+          "D1": "D1-O1",
+          "D2": "D2-O1",
+          "D3": "D3-O1",
+          "D4": "D4-O1",
+          "Q22": "Q22-O1"
+        },
+        "expected": {
+          "questions_seen_in_order": [
+            "S1",
+            "S2",
+            "S3",
+            "S4",
+            "DT1",
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4",
+            "Q5",
+            "Q6",
+            "Q7",
+            "Q8",
+            "Q9",
+            "DT2",
+            "Q10",
+            "Q11",
+            "Q12",
+            "Q13",
+            "Q15",
+            "Q16",
+            "Q18",
+            "Q19",
+            "Q20",
+            "Q21",
+            "DT3",
+            "D1",
+            "D2",
+            "D3",
+            "D4",
+            "Q22",
+            "Q23"
+          ],
+          "questions_not_seen": [
+            "Q14",
+            "Q17"
+          ],
+          "ending_reached": "COMPLETE",
+          "blocked_at": null,
+          "quota_stopped": null,
+          "quota_over_target": null,
+          "validation_messages_expected": [],
+          "piped_text_visible": {
+            "Q20": "Concept A",
+            "Q21": "Concept A"
+          },
+          "option_lists_visible": {
+            "Q2": [
+              "Care Network A"
+            ],
+            "Q6": [
+              "Primary-care physician"
+            ]
+          }
+        },
+        "proof": "after answering DT3 the respondent went on to D1",
         "provisional_semantics": [
           "multi_equality"
         ],
@@ -570,6 +946,7 @@
             "S2",
             "S3",
             "S4",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -579,6 +956,7 @@
             "Q7",
             "Q8",
             "Q9",
+            "DT2",
             "Q10",
             "Q11",
             "Q12",
@@ -589,6 +967,7 @@
             "Q19",
             "Q20",
             "Q21",
+            "DT3",
             "D1",
             "D2",
             "D3",
@@ -606,8 +985,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
-            "Q8": "Care Network A",
-            "Q9": "Care Network A",
             "Q20": "Concept A",
             "Q21": "Concept A"
           },
@@ -693,6 +1070,7 @@
             "S2",
             "S3",
             "S4",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -702,6 +1080,7 @@
             "Q7",
             "Q8",
             "Q9",
+            "DT2",
             "Q10",
             "Q11",
             "Q12",
@@ -712,6 +1091,7 @@
             "Q19",
             "Q20",
             "Q21",
+            "DT3",
             "D1",
             "D2",
             "D3",
@@ -729,8 +1109,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
-            "Q8": "Care Network A",
-            "Q9": "Care Network A",
             "Q20": "Concept A",
             "Q21": "Concept A"
           },
@@ -816,6 +1194,7 @@
             "S2",
             "S3",
             "S4",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -825,6 +1204,7 @@
             "Q7",
             "Q8",
             "Q9",
+            "DT2",
             "Q10",
             "Q11",
             "Q12",
@@ -835,6 +1215,7 @@
             "Q19",
             "Q20",
             "Q21",
+            "DT3",
             "D1",
             "D2",
             "D3",
@@ -852,8 +1233,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
-            "Q8": "Care Network A",
-            "Q9": "Care Network A",
             "Q20": "Concept A",
             "Q21": "Concept A"
           },
@@ -939,6 +1318,7 @@
             "S2",
             "S3",
             "S4",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -948,6 +1328,7 @@
             "Q7",
             "Q8",
             "Q9",
+            "DT2",
             "Q10",
             "Q13",
             "Q15",
@@ -956,6 +1337,7 @@
             "Q19",
             "Q20",
             "Q21",
+            "DT3",
             "D1",
             "D2",
             "D3",
@@ -975,8 +1357,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
-            "Q8": "Care Network A",
-            "Q9": "Care Network A",
             "Q20": "Concept A",
             "Q21": "Concept A"
           },
@@ -1062,6 +1442,7 @@
             "S2",
             "S3",
             "S4",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -1071,6 +1452,7 @@
             "Q7",
             "Q8",
             "Q9",
+            "DT2",
             "Q10",
             "Q11",
             "Q12",
@@ -1081,6 +1463,7 @@
             "Q19",
             "Q20",
             "Q21",
+            "DT3",
             "D1",
             "D2",
             "D3",
@@ -1098,8 +1481,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
-            "Q8": "Care Network A",
-            "Q9": "Care Network A",
             "Q20": "Concept A",
             "Q21": "Concept A"
           },
@@ -1185,6 +1566,7 @@
             "S2",
             "S3",
             "S4",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -1194,6 +1576,7 @@
             "Q7",
             "Q8",
             "Q9",
+            "DT2",
             "Q10",
             "Q11",
             "Q12",
@@ -1204,6 +1587,7 @@
             "Q19",
             "Q20",
             "Q21",
+            "DT3",
             "D1",
             "D2",
             "D3",
@@ -1221,8 +1605,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
-            "Q8": "Care Network A",
-            "Q9": "Care Network A",
             "Q20": "Concept A",
             "Q21": "Concept A"
           },
@@ -1308,6 +1690,7 @@
             "S2",
             "S3",
             "S4",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -1317,6 +1700,7 @@
             "Q7",
             "Q8",
             "Q9",
+            "DT2",
             "Q10",
             "Q13",
             "Q15",
@@ -1325,6 +1709,7 @@
             "Q19",
             "Q20",
             "Q21",
+            "DT3",
             "D1",
             "D2",
             "D3",
@@ -1344,8 +1729,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
-            "Q8": "Care Network A",
-            "Q9": "Care Network A",
             "Q20": "Concept A",
             "Q21": "Concept A"
           },
@@ -1431,6 +1814,7 @@
             "S2",
             "S3",
             "S4",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -1440,6 +1824,7 @@
             "Q7",
             "Q8",
             "Q9",
+            "DT2",
             "Q10",
             "Q11",
             "Q12",
@@ -1450,6 +1835,7 @@
             "Q19",
             "Q20",
             "Q21",
+            "DT3",
             "D1",
             "D2",
             "D3",
@@ -1467,8 +1853,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
-            "Q8": "Care Network A",
-            "Q9": "Care Network A",
             "Q20": "Concept A",
             "Q21": "Concept A"
           },
@@ -1554,6 +1938,7 @@
             "S2",
             "S3",
             "S4",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -1563,6 +1948,7 @@
             "Q7",
             "Q8",
             "Q9",
+            "DT2",
             "Q10",
             "Q11",
             "Q12",
@@ -1573,6 +1959,7 @@
             "Q19",
             "Q20",
             "Q21",
+            "DT3",
             "D1",
             "D2",
             "D3",
@@ -1590,8 +1977,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
-            "Q8": "Care Network A",
-            "Q9": "Care Network A",
             "Q20": "Concept A",
             "Q21": "Concept A"
           },
@@ -1677,6 +2062,7 @@
             "S2",
             "S3",
             "S4",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -1686,6 +2072,7 @@
             "Q7",
             "Q8",
             "Q9",
+            "DT2",
             "Q10",
             "Q11",
             "Q12",
@@ -1696,6 +2083,7 @@
             "Q19",
             "Q20",
             "Q21",
+            "DT3",
             "D1",
             "D2",
             "D3",
@@ -1713,8 +2101,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
-            "Q8": "Care Network A",
-            "Q9": "Care Network A",
             "Q20": "Concept A",
             "Q21": "Concept A"
           },
@@ -1800,6 +2186,7 @@
             "S2",
             "S3",
             "S4",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -1809,6 +2196,7 @@
             "Q7",
             "Q8",
             "Q9",
+            "DT2",
             "Q10",
             "Q11",
             "Q12",
@@ -1819,6 +2207,7 @@
             "Q19",
             "Q20",
             "Q21",
+            "DT3",
             "D1",
             "D2",
             "D3",
@@ -1836,8 +2225,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
-            "Q8": "Care Network A",
-            "Q9": "Care Network A",
             "Q20": "Concept A",
             "Q21": "Concept A"
           },
@@ -1923,6 +2310,7 @@
             "S2",
             "S3",
             "S4",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -1932,6 +2320,7 @@
             "Q7",
             "Q8",
             "Q9",
+            "DT2",
             "Q10",
             "Q11",
             "Q12",
@@ -1942,6 +2331,7 @@
             "Q19",
             "Q20",
             "Q21",
+            "DT3",
             "D1",
             "D2",
             "D3",
@@ -1959,8 +2349,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
-            "Q8": "Care Network A",
-            "Q9": "Care Network A",
             "Q20": "Concept A",
             "Q21": "Concept A"
           },
@@ -2046,6 +2434,7 @@
             "S2",
             "S3",
             "S4",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -2055,6 +2444,7 @@
             "Q7",
             "Q8",
             "Q9",
+            "DT2",
             "Q10",
             "Q11",
             "Q12",
@@ -2065,6 +2455,7 @@
             "Q19",
             "Q20",
             "Q21",
+            "DT3",
             "D1",
             "D2",
             "D3",
@@ -2082,8 +2473,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
-            "Q8": "Care Network A",
-            "Q9": "Care Network A",
             "Q20": "Concept A",
             "Q21": "Concept A"
           },
@@ -2169,6 +2558,7 @@
             "S2",
             "S3",
             "S4",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -2178,6 +2568,7 @@
             "Q7",
             "Q8",
             "Q9",
+            "DT2",
             "Q10",
             "Q11",
             "Q12",
@@ -2188,6 +2579,7 @@
             "Q19",
             "Q20",
             "Q21",
+            "DT3",
             "D1",
             "D2",
             "D3",
@@ -2205,8 +2597,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
-            "Q8": "Care Network A",
-            "Q9": "Care Network A",
             "Q20": "Concept A",
             "Q21": "Concept A"
           },
@@ -2292,6 +2682,7 @@
             "S2",
             "S3",
             "S4",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -2301,6 +2692,7 @@
             "Q7",
             "Q8",
             "Q9",
+            "DT2",
             "Q10",
             "Q11",
             "Q12",
@@ -2311,6 +2703,7 @@
             "Q19",
             "Q20",
             "Q21",
+            "DT3",
             "D1",
             "D2",
             "D3",
@@ -2328,8 +2721,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
-            "Q8": "Care Network A",
-            "Q9": "Care Network A",
             "Q20": "Concept A",
             "Q21": "Concept A"
           },
@@ -2415,12 +2806,14 @@
             "S2",
             "S3",
             "S4",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
             "Q4",
             "Q5",
             "Q6",
+            "DT2",
             "Q10",
             "Q11",
             "Q12",
@@ -2430,6 +2823,7 @@
             "Q19",
             "Q20",
             "Q21",
+            "DT3",
             "D1",
             "D2",
             "D3",
@@ -2536,6 +2930,7 @@
             "S2",
             "S3",
             "S4",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -2545,6 +2940,7 @@
             "Q7",
             "Q8",
             "Q9",
+            "DT2",
             "Q10",
             "Q11",
             "Q12",
@@ -2555,6 +2951,7 @@
             "Q19",
             "Q20",
             "Q21",
+            "DT3",
             "D1",
             "D2",
             "D3",
@@ -2572,8 +2969,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
-            "Q8": "Care Network A",
-            "Q9": "Care Network A",
             "Q20": "Concept A",
             "Q21": "Concept A"
           },
@@ -2659,6 +3054,7 @@
             "S2",
             "S3",
             "S4",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -2668,6 +3064,7 @@
             "Q7",
             "Q8",
             "Q9",
+            "DT2",
             "Q10",
             "Q11",
             "Q12",
@@ -2678,6 +3075,7 @@
             "Q19",
             "Q20",
             "Q21",
+            "DT3",
             "D1",
             "D2",
             "D3",
@@ -2695,8 +3093,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
-            "Q8": "Care Network A",
-            "Q9": "Care Network A",
             "Q20": "Concept A",
             "Q21": "Concept A"
           },
@@ -2782,6 +3178,7 @@
             "S2",
             "S3",
             "S4",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -2791,6 +3188,7 @@
             "Q7",
             "Q8",
             "Q9",
+            "DT2",
             "Q10",
             "Q11",
             "Q12",
@@ -2800,6 +3198,7 @@
             "Q19",
             "Q20",
             "Q21",
+            "DT3",
             "D1",
             "D2",
             "D3",
@@ -2818,8 +3217,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
-            "Q8": "Care Network A",
-            "Q9": "Care Network A",
             "Q20": "Concept A",
             "Q21": "Concept A"
           },
@@ -2905,6 +3302,7 @@
             "S2",
             "S3",
             "S4",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -2914,6 +3312,7 @@
             "Q7",
             "Q8",
             "Q9",
+            "DT2",
             "Q10",
             "Q11",
             "Q12",
@@ -2924,6 +3323,7 @@
             "Q19",
             "Q20",
             "Q21",
+            "DT3",
             "D1",
             "D2",
             "D3",
@@ -2941,8 +3341,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
-            "Q8": "Care Network A",
-            "Q9": "Care Network A",
             "Q20": "Concept A",
             "Q21": "Concept A"
           },
@@ -3028,6 +3426,7 @@
             "S2",
             "S3",
             "S4",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -3037,6 +3436,7 @@
             "Q7",
             "Q8",
             "Q9",
+            "DT2",
             "Q10",
             "Q11",
             "Q12",
@@ -3048,6 +3448,7 @@
             "Q19",
             "Q20",
             "Q21",
+            "DT3",
             "D1",
             "D2",
             "D3",
@@ -3064,8 +3465,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
-            "Q8": "Care Network A",
-            "Q9": "Care Network A",
             "Q20": "Concept A",
             "Q21": "Concept A"
           },
@@ -3151,6 +3550,7 @@
             "S2",
             "S3",
             "S4",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -3160,6 +3560,7 @@
             "Q7",
             "Q8",
             "Q9",
+            "DT2",
             "Q10",
             "Q11",
             "Q12",
@@ -3170,6 +3571,7 @@
             "Q19",
             "Q20",
             "Q21",
+            "DT3",
             "D1",
             "D2",
             "D3",
@@ -3187,8 +3589,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
-            "Q8": "Care Network A",
-            "Q9": "Care Network A",
             "Q20": "Concept A",
             "Q21": "Concept A"
           },
@@ -3274,6 +3674,7 @@
             "S2",
             "S3",
             "S4",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -3283,6 +3684,7 @@
             "Q7",
             "Q8",
             "Q9",
+            "DT2",
             "Q10",
             "Q11",
             "Q12",
@@ -3294,6 +3696,7 @@
             "Q19",
             "Q20",
             "Q21",
+            "DT3",
             "D1",
             "D2",
             "D3",
@@ -3310,8 +3713,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
-            "Q8": "Care Network A",
-            "Q9": "Care Network A",
             "Q20": "Concept A",
             "Q21": "Concept A"
           },
@@ -3397,6 +3798,7 @@
             "S2",
             "S3",
             "S4",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -3406,6 +3808,7 @@
             "Q7",
             "Q8",
             "Q9",
+            "DT2",
             "Q10",
             "Q11",
             "Q12",
@@ -3416,6 +3819,7 @@
             "Q19",
             "Q20",
             "Q21",
+            "DT3",
             "D1",
             "D2",
             "D3",
@@ -3433,8 +3837,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
-            "Q8": "Care Network A",
-            "Q9": "Care Network A",
             "Q20": "Concept A",
             "Q21": "Concept A"
           },
@@ -3520,6 +3922,7 @@
             "S2",
             "S3",
             "S4",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -3529,6 +3932,7 @@
             "Q7",
             "Q8",
             "Q9",
+            "DT2",
             "Q10",
             "Q11",
             "Q12",
@@ -3539,6 +3943,7 @@
             "Q19",
             "Q20",
             "Q21",
+            "DT3",
             "D1",
             "D2",
             "D3",
@@ -3556,8 +3961,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
-            "Q8": "Care Network A",
-            "Q9": "Care Network A",
             "Q20": "Concept A",
             "Q21": "Concept A"
           },
@@ -3643,6 +4046,7 @@
             "S2",
             "S3",
             "S4",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -3652,6 +4056,7 @@
             "Q7",
             "Q8",
             "Q9",
+            "DT2",
             "Q10",
             "Q11",
             "Q12",
@@ -3662,6 +4067,7 @@
             "Q19",
             "Q20",
             "Q21",
+            "DT3",
             "D1",
             "D2",
             "D3",
@@ -3679,8 +4085,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
-            "Q8": "Care Network A",
-            "Q9": "Care Network A",
             "Q20": "Concept A",
             "Q21": "Concept A"
           },
@@ -3766,6 +4170,7 @@
             "S2",
             "S3",
             "S4",
+            "DT1",
             "Q1",
             "Q4",
             "Q5",
@@ -3773,6 +4178,7 @@
             "Q7",
             "Q8",
             "Q9",
+            "DT2",
             "Q10",
             "Q11",
             "Q12",
@@ -3783,6 +4189,7 @@
             "Q19",
             "Q20",
             "Q21",
+            "DT3",
             "D1",
             "D2",
             "D3",
@@ -3802,8 +4209,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
-            "Q8": "Care Network A",
-            "Q9": "Care Network A",
             "Q20": "Concept A",
             "Q21": "Concept A"
           },
@@ -3887,6 +4292,7 @@
             "S2",
             "S3",
             "S4",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -3896,6 +4302,7 @@
             "Q7",
             "Q8",
             "Q9",
+            "DT2",
             "Q10",
             "Q11",
             "Q12",
@@ -3906,6 +4313,7 @@
             "Q19",
             "Q20",
             "Q21",
+            "DT3",
             "D1",
             "D2",
             "D3",
@@ -3923,8 +4331,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
-            "Q8": "Care Network A",
-            "Q9": "Care Network A",
             "Q20": "Concept A",
             "Q21": "Concept A"
           },
@@ -4010,6 +4416,7 @@
             "S2",
             "S3",
             "S4",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -4019,6 +4426,7 @@
             "Q7",
             "Q8",
             "Q9",
+            "DT2",
             "Q10",
             "Q11",
             "Q12",
@@ -4029,6 +4437,7 @@
             "Q19",
             "Q20",
             "Q21",
+            "DT3",
             "D1",
             "D2",
             "D3",
@@ -4046,8 +4455,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
-            "Q8": "Care Network A",
-            "Q9": "Care Network A",
             "Q20": "Concept A",
             "Q21": "Concept A"
           },
@@ -4133,6 +4540,7 @@
             "S2",
             "S3",
             "S4",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -4142,6 +4550,7 @@
             "Q7",
             "Q8",
             "Q9",
+            "DT2",
             "Q10",
             "Q11",
             "Q12",
@@ -4152,6 +4561,7 @@
             "Q19",
             "Q20",
             "Q21",
+            "DT3",
             "D1",
             "D2",
             "D3",
@@ -4169,8 +4579,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
-            "Q8": "Care Network A",
-            "Q9": "Care Network A",
             "Q20": "Concept A",
             "Q21": "Concept A"
           },
@@ -4183,7 +4591,7 @@
             ]
           }
         },
-        "proof": "after answering Q21 the respondent went on to D1",
+        "proof": "after answering Q21 the respondent went on to DT3",
         "provisional_semantics": [
           "multi_equality"
         ],
@@ -4256,6 +4664,7 @@
             "S2",
             "S3",
             "S4",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -4265,6 +4674,7 @@
             "Q7",
             "Q8",
             "Q9",
+            "DT2",
             "Q10",
             "Q11",
             "Q12",
@@ -4275,6 +4685,7 @@
             "Q19",
             "Q20",
             "Q21",
+            "DT3",
             "D1",
             "D2",
             "D3",
@@ -4292,8 +4703,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
-            "Q8": "Care Network A",
-            "Q9": "Care Network A",
             "Q20": "Concept A",
             "Q21": "Concept A"
           },
@@ -4379,6 +4788,7 @@
             "S2",
             "S3",
             "S4",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -4388,6 +4798,7 @@
             "Q7",
             "Q8",
             "Q9",
+            "DT2",
             "Q10",
             "Q11",
             "Q12",
@@ -4398,6 +4809,7 @@
             "Q19",
             "Q20",
             "Q21",
+            "DT3",
             "D1",
             "D2",
             "D3",
@@ -4415,8 +4827,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
-            "Q8": "Care Network A",
-            "Q9": "Care Network A",
             "Q20": "Concept A",
             "Q21": "Concept A"
           },
@@ -4502,6 +4912,7 @@
             "S2",
             "S3",
             "S4",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -4511,6 +4922,7 @@
             "Q7",
             "Q8",
             "Q9",
+            "DT2",
             "Q10",
             "Q11",
             "Q12",
@@ -4521,6 +4933,7 @@
             "Q19",
             "Q20",
             "Q21",
+            "DT3",
             "D1",
             "D2",
             "D3",
@@ -4538,8 +4951,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
-            "Q8": "Care Network A",
-            "Q9": "Care Network A",
             "Q20": "Concept A",
             "Q21": "Concept A"
           },
@@ -4625,6 +5036,7 @@
             "S2",
             "S3",
             "S4",
+            "DT1",
             "Q1",
             "Q4",
             "Q5",
@@ -4632,6 +5044,7 @@
             "Q7",
             "Q8",
             "Q9",
+            "DT2",
             "Q10",
             "Q11",
             "Q12",
@@ -4642,6 +5055,7 @@
             "Q19",
             "Q20",
             "Q21",
+            "DT3",
             "D1",
             "D2",
             "D3",
@@ -4661,8 +5075,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
-            "Q8": "Care Network A",
-            "Q9": "Care Network A",
             "Q20": "Concept A",
             "Q21": "Concept A"
           },
@@ -4746,6 +5158,7 @@
             "S2",
             "S3",
             "S4",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -4755,6 +5168,7 @@
             "Q7",
             "Q8",
             "Q9",
+            "DT2",
             "Q10",
             "Q11",
             "Q12",
@@ -4765,6 +5179,7 @@
             "Q19",
             "Q20",
             "Q21",
+            "DT3",
             "D1",
             "D2",
             "D3",
@@ -4782,8 +5197,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
-            "Q8": "Care Network A",
-            "Q9": "Care Network A",
             "Q20": "Concept A",
             "Q21": "Concept A"
           },
@@ -4869,6 +5282,7 @@
             "S2",
             "S3",
             "S4",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -4878,6 +5292,7 @@
             "Q7",
             "Q8",
             "Q9",
+            "DT2",
             "Q10",
             "Q11",
             "Q12",
@@ -4888,6 +5303,7 @@
             "Q19",
             "Q20",
             "Q21",
+            "DT3",
             "D1",
             "D2",
             "D3",
@@ -4905,8 +5321,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
-            "Q8": "Care Network A",
-            "Q9": "Care Network A",
             "Q20": "Concept A",
             "Q21": "Concept A"
           },
@@ -4992,6 +5406,7 @@
             "S2",
             "S3",
             "S4",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -5001,6 +5416,7 @@
             "Q7",
             "Q8",
             "Q9",
+            "DT2",
             "Q10",
             "Q11",
             "Q12",
@@ -5011,6 +5427,7 @@
             "Q19",
             "Q20",
             "Q21",
+            "DT3",
             "D1",
             "D2",
             "D3",
@@ -5028,8 +5445,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
-            "Q8": "Care Network A",
-            "Q9": "Care Network A",
             "Q20": "Concept A",
             "Q21": "Concept A"
           },
@@ -5115,6 +5530,7 @@
             "S2",
             "S3",
             "S4",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -5124,6 +5540,7 @@
             "Q7",
             "Q8",
             "Q9",
+            "DT2",
             "Q10",
             "Q11",
             "Q12",
@@ -5134,6 +5551,7 @@
             "Q19",
             "Q20",
             "Q21",
+            "DT3",
             "D1",
             "D2",
             "D3",
@@ -5151,8 +5569,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
-            "Q8": "Care Network A",
-            "Q9": "Care Network A",
             "Q20": "Concept A",
             "Q21": "Concept A"
           },
@@ -5238,6 +5654,7 @@
             "S2",
             "S3",
             "S4",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -5246,6 +5663,7 @@
             "Q7",
             "Q8",
             "Q9",
+            "DT2",
             "Q10",
             "Q11",
             "Q12",
@@ -5256,6 +5674,7 @@
             "Q19",
             "Q20",
             "Q21",
+            "DT3",
             "D1",
             "D2",
             "D3",
@@ -5274,8 +5693,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
-            "Q8": "Care Network A",
-            "Q9": "Care Network A",
             "Q20": "Concept A",
             "Q21": "Concept A"
           },
@@ -5358,6 +5775,7 @@
             "S2",
             "S3",
             "S4",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -5367,6 +5785,7 @@
             "Q7",
             "Q8",
             "Q9",
+            "DT2",
             "Q10",
             "Q11",
             "Q12",
@@ -5377,6 +5796,7 @@
             "Q19",
             "Q20",
             "Q21",
+            "DT3",
             "D1",
             "D2",
             "D3",
@@ -5394,8 +5814,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
-            "Q8": "Care Network A",
-            "Q9": "Care Network A",
             "Q20": "Concept A",
             "Q21": "Concept A"
           },
@@ -5481,6 +5899,7 @@
             "S2",
             "S3",
             "S4",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -5490,6 +5909,7 @@
             "Q7",
             "Q8",
             "Q9",
+            "DT2",
             "Q10",
             "Q11",
             "Q12",
@@ -5500,6 +5920,7 @@
             "Q19",
             "Q20",
             "Q21",
+            "DT3",
             "D1",
             "D2",
             "D3",
@@ -5517,8 +5938,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
-            "Q8": "Care Network A",
-            "Q9": "Care Network A",
             "Q20": "Concept A",
             "Q21": "Concept A"
           },
@@ -5604,12 +6023,14 @@
             "S2",
             "S3",
             "S4",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
             "Q4",
             "Q5",
             "Q6",
+            "DT2",
             "Q10",
             "Q11",
             "Q12",
@@ -5619,6 +6040,7 @@
             "Q19",
             "Q20",
             "Q21",
+            "DT3",
             "D1",
             "D2",
             "D3",
@@ -5725,6 +6147,7 @@
             "S2",
             "S3",
             "S4",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -5734,6 +6157,7 @@
             "Q7",
             "Q8",
             "Q9",
+            "DT2",
             "Q10",
             "Q11",
             "Q12",
@@ -5744,6 +6168,7 @@
             "Q19",
             "Q20",
             "Q21",
+            "DT3",
             "D1",
             "D2",
             "D3",
@@ -5761,8 +6186,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
-            "Q8": "Care Network A",
-            "Q9": "Care Network A",
             "Q20": "Concept A",
             "Q21": "Concept A"
           },
@@ -5848,6 +6271,7 @@
             "S2",
             "S3",
             "S4",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -5857,6 +6281,7 @@
             "Q7",
             "Q8",
             "Q9",
+            "DT2",
             "Q10",
             "Q11",
             "Q12",
@@ -5867,6 +6292,7 @@
             "Q19",
             "Q20",
             "Q21",
+            "DT3",
             "D1",
             "D2",
             "D3",
@@ -5884,8 +6310,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
-            "Q8": "Care Network A",
-            "Q9": "Care Network A",
             "Q20": "Concept A",
             "Q21": "Concept A"
           },
@@ -5971,12 +6395,14 @@
             "S2",
             "S3",
             "S4",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
             "Q4",
             "Q5",
             "Q6",
+            "DT2",
             "Q10",
             "Q11",
             "Q12",
@@ -5986,6 +6412,7 @@
             "Q19",
             "Q20",
             "Q21",
+            "DT3",
             "D1",
             "D2",
             "D3",
@@ -6092,6 +6519,7 @@
             "S2",
             "S3",
             "S4",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -6101,6 +6529,7 @@
             "Q7",
             "Q8",
             "Q9",
+            "DT2",
             "Q10",
             "Q11",
             "Q12",
@@ -6111,6 +6540,7 @@
             "Q19",
             "Q20",
             "Q21",
+            "DT3",
             "D1",
             "D2",
             "D3",
@@ -6128,8 +6558,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
-            "Q8": "Care Network A",
-            "Q9": "Care Network A",
             "Q20": "Concept A",
             "Q21": "Concept A"
           },
@@ -6215,6 +6643,7 @@
             "S2",
             "S3",
             "S4",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -6224,6 +6653,7 @@
             "Q7",
             "Q8",
             "Q9",
+            "DT2",
             "Q10",
             "Q11",
             "Q12",
@@ -6234,6 +6664,7 @@
             "Q19",
             "Q20",
             "Q21",
+            "DT3",
             "D1",
             "D2",
             "D3",
@@ -6251,8 +6682,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
-            "Q8": "Care Network A",
-            "Q9": "Care Network A",
             "Q20": "Concept A",
             "Q21": "Concept A"
           },
@@ -6265,7 +6694,7 @@
             ]
           }
         },
-        "proof": "after answering Q9 the respondent went on to Q10",
+        "proof": "after answering Q9 the respondent went on to DT2",
         "provisional_semantics": [
           "multi_equality"
         ],
@@ -6338,12 +6767,14 @@
             "S2",
             "S3",
             "S4",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
             "Q4",
             "Q5",
             "Q6",
+            "DT2",
             "Q10",
             "Q11",
             "Q12",
@@ -6353,6 +6784,7 @@
             "Q19",
             "Q20",
             "Q21",
+            "DT3",
             "D1",
             "D2",
             "D3",
@@ -6459,6 +6891,7 @@
             "S2",
             "S3",
             "S4",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -6468,6 +6901,7 @@
             "Q7",
             "Q8",
             "Q9",
+            "DT2",
             "Q10",
             "Q11",
             "Q12",
@@ -6478,6 +6912,7 @@
             "Q19",
             "Q20",
             "Q21",
+            "DT3",
             "D1",
             "D2",
             "D3",
@@ -6495,8 +6930,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
-            "Q8": "Care Network A",
-            "Q9": "Care Network A",
             "Q20": "Concept A",
             "Q21": "Concept A"
           },
@@ -6582,6 +7015,7 @@
             "S2",
             "S3",
             "S4",
+            "DT1",
             "Q1",
             "Q4",
             "Q5",
@@ -6589,6 +7023,7 @@
             "Q7",
             "Q8",
             "Q9",
+            "DT2",
             "Q10",
             "Q11",
             "Q12",
@@ -6599,6 +7034,7 @@
             "Q19",
             "Q20",
             "Q21",
+            "DT3",
             "D1",
             "D2",
             "D3",
@@ -6618,8 +7054,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
-            "Q8": "Care Network A",
-            "Q9": "Care Network A",
             "Q20": "Concept A",
             "Q21": "Concept A"
           },
@@ -6703,6 +7137,7 @@
             "S2",
             "S3",
             "S4",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -6712,6 +7147,7 @@
             "Q7",
             "Q8",
             "Q9",
+            "DT2",
             "Q10",
             "Q11",
             "Q12",
@@ -6722,6 +7158,7 @@
             "Q19",
             "Q20",
             "Q21",
+            "DT3",
             "D1",
             "D2",
             "D3",
@@ -6739,8 +7176,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
-            "Q8": "Care Network A",
-            "Q9": "Care Network A",
             "Q20": "Concept A",
             "Q21": "Concept A"
           },
@@ -6826,6 +7261,7 @@
             "S2",
             "S3",
             "S4",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -6835,6 +7271,7 @@
             "Q7",
             "Q8",
             "Q9",
+            "DT2",
             "Q10",
             "Q11",
             "Q12",
@@ -6845,6 +7282,7 @@
             "Q19",
             "Q20",
             "Q21",
+            "DT3",
             "D1",
             "D2",
             "D3",
@@ -6862,8 +7300,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
-            "Q8": "Care Network A",
-            "Q9": "Care Network A",
             "Q20": "Concept A",
             "Q21": "Concept A"
           },
@@ -6949,6 +7385,7 @@
             "S2",
             "S3",
             "S4",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -6958,6 +7395,7 @@
             "Q7",
             "Q8",
             "Q9",
+            "DT2",
             "Q10",
             "Q11",
             "Q12",
@@ -6968,6 +7406,7 @@
             "Q19",
             "Q20",
             "Q21",
+            "DT3",
             "D1",
             "D2",
             "D3",
@@ -6985,8 +7424,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
-            "Q8": "Care Network A",
-            "Q9": "Care Network A",
             "Q20": "Concept A",
             "Q21": "Concept A"
           },
@@ -7072,6 +7509,7 @@
             "S2",
             "S3",
             "S4",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -7081,6 +7519,7 @@
             "Q7",
             "Q8",
             "Q9",
+            "DT2",
             "Q10",
             "Q11",
             "Q12",
@@ -7091,6 +7530,7 @@
             "Q19",
             "Q20",
             "Q21",
+            "DT3",
             "D1",
             "D2",
             "D3",
@@ -7108,8 +7548,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
-            "Q8": "Care Network A",
-            "Q9": "Care Network A",
             "Q20": "Concept A",
             "Q21": "Concept A"
           },
@@ -7195,6 +7633,7 @@
             "S2",
             "S3",
             "S4",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -7204,6 +7643,7 @@
             "Q7",
             "Q8",
             "Q9",
+            "DT2",
             "Q10",
             "Q11",
             "Q12",
@@ -7214,6 +7654,7 @@
             "Q19",
             "Q20",
             "Q21",
+            "DT3",
             "D1",
             "D2",
             "D3",
@@ -7231,8 +7672,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
-            "Q8": "Care Network A",
-            "Q9": "Care Network A",
             "Q20": "Concept A",
             "Q21": "Concept A"
           },
@@ -7245,7 +7684,7 @@
             ]
           }
         },
-        "proof": "after answering S4 the respondent went on to Q1",
+        "proof": "after answering S4 the respondent went on to DT1",
         "provisional_semantics": [
           "multi_equality"
         ],
@@ -7318,6 +7757,7 @@
             "S2",
             "S3",
             "S4",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -7327,6 +7767,7 @@
             "Q7",
             "Q8",
             "Q9",
+            "DT2",
             "Q10",
             "Q11",
             "Q12",
@@ -7337,6 +7778,7 @@
             "Q19",
             "Q20",
             "Q21",
+            "DT3",
             "D1",
             "D2",
             "D3",
@@ -7354,8 +7796,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
-            "Q8": "Care Network A",
-            "Q9": "Care Network A",
             "Q20": "Concept A",
             "Q21": "Concept A"
           },
@@ -7368,7 +7808,7 @@
             ]
           }
         },
-        "proof": "predicted ending is COMPLETE, path ['__START__', 'S1', 'S2', 'S3', 'S4', 'Q1', 'Q2', 'Q3', 'Q4', 'Q5', 'Q6', 'Q7', 'Q8', 'Q9', 'Q10', 'Q11', 'Q12', 'Q13', 'Q15', 'Q16', 'Q18', 'Q19', 'Q20', 'Q21', 'D1', 'D2', 'D3', 'D4', 'Q22', 'Q23', 'COMPLETE']",
+        "proof": "predicted ending is COMPLETE, path ['__START__', 'S1', 'S2', 'S3', 'S4', 'DT1', 'Q1', 'Q2', 'Q3', 'Q4', 'Q5', 'Q6', 'Q7', 'Q8', 'Q9', 'DT2', 'Q10', 'Q11', 'Q12', 'Q13', 'Q15', 'Q16', 'Q18', 'Q19', 'Q20', 'Q21', 'DT3', 'D1', 'D2', 'D3', 'D4', 'Q22', 'Q23', 'COMPLETE']",
         "provisional_semantics": [
           "multi_equality"
         ],
@@ -7781,6 +8221,7 @@
             "S2",
             "S3",
             "S4",
+            "DT1",
             "Q1",
             "Q4",
             "Q5",
@@ -7788,6 +8229,7 @@
             "Q7",
             "Q8",
             "Q9",
+            "DT2",
             "Q10",
             "Q11",
             "Q12",
@@ -7798,6 +8240,7 @@
             "Q19",
             "Q20",
             "Q21",
+            "DT3",
             "D1",
             "D2",
             "D3",
@@ -7817,8 +8260,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
-            "Q8": "Care Network A",
-            "Q9": "Care Network A",
             "Q20": "Concept A",
             "Q21": "Concept A"
           },
@@ -7903,6 +8344,7 @@
             "S2",
             "S3",
             "S4",
+            "DT1",
             "Q1"
           ],
           "questions_not_seen": [
@@ -7914,6 +8356,7 @@
             "Q7",
             "Q8",
             "Q9",
+            "DT2",
             "Q10",
             "Q11",
             "Q12",
@@ -7926,6 +8369,7 @@
             "Q19",
             "Q20",
             "Q21",
+            "DT3",
             "D1",
             "D2",
             "D3",
@@ -8019,6 +8463,7 @@
             "S2",
             "S3",
             "S4",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -8028,6 +8473,7 @@
             "Q7",
             "Q8",
             "Q9",
+            "DT2",
             "Q10",
             "Q11",
             "Q12",
@@ -8038,6 +8484,7 @@
             "Q19",
             "Q20",
             "Q21",
+            "DT3",
             "D1",
             "D2",
             "D3",
@@ -8055,8 +8502,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
-            "Q8": "Care Network A",
-            "Q9": "Care Network A",
             "Q20": "Concept A",
             "Q21": "Concept A"
           },
@@ -8140,6 +8585,7 @@
             "S2",
             "S3",
             "S4",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -8149,6 +8595,7 @@
             "Q7",
             "Q8",
             "Q9",
+            "DT2",
             "Q10",
             "Q11"
           ],
@@ -8163,6 +8610,7 @@
             "Q19",
             "Q20",
             "Q21",
+            "DT3",
             "D1",
             "D2",
             "D3",
@@ -8182,10 +8630,7 @@
               "detail": "mandatory question left blank, progress should be blocked"
             }
           ],
-          "piped_text_visible": {
-            "Q8": "Care Network A",
-            "Q9": "Care Network A"
-          },
+          "piped_text_visible": {},
           "option_lists_visible": {
             "Q2": [
               "Care Network A"
@@ -8268,6 +8713,7 @@
             "S2",
             "S3",
             "S4",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -8277,6 +8723,7 @@
             "Q7",
             "Q8",
             "Q9",
+            "DT2",
             "Q10",
             "Q11",
             "Q12",
@@ -8287,6 +8734,7 @@
             "Q19",
             "Q20",
             "Q21",
+            "DT3",
             "D1",
             "D2",
             "D3",
@@ -8304,8 +8752,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
-            "Q8": "Care Network A",
-            "Q9": "Care Network A",
             "Q20": "Concept A",
             "Q21": "Concept A"
           },
@@ -8391,6 +8837,7 @@
             "S2",
             "S3",
             "S4",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -8400,6 +8847,7 @@
             "Q7",
             "Q8",
             "Q9",
+            "DT2",
             "Q10",
             "Q11",
             "Q12",
@@ -8410,6 +8858,7 @@
             "Q19",
             "Q20",
             "Q21",
+            "DT3",
             "D1",
             "D2",
             "D3",
@@ -8427,8 +8876,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
-            "Q8": "Care Network A",
-            "Q9": "Care Network A",
             "Q20": "Concept A",
             "Q21": "Concept A"
           },
@@ -8514,6 +8961,7 @@
             "S2",
             "S3",
             "S4",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -8523,6 +8971,7 @@
             "Q7",
             "Q8",
             "Q9",
+            "DT2",
             "Q10",
             "Q11",
             "Q12",
@@ -8533,6 +8982,7 @@
             "Q19",
             "Q20",
             "Q21",
+            "DT3",
             "D1",
             "D2",
             "D3",
@@ -8550,8 +9000,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
-            "Q8": "Care Network A",
-            "Q9": "Care Network A",
             "Q20": "Concept A",
             "Q21": "Concept A"
           },
@@ -8637,6 +9085,7 @@
             "S2",
             "S3",
             "S4",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -8646,6 +9095,7 @@
             "Q7",
             "Q8",
             "Q9",
+            "DT2",
             "Q10",
             "Q11",
             "Q12",
@@ -8660,6 +9110,7 @@
             "Q19",
             "Q20",
             "Q21",
+            "DT3",
             "D1",
             "D2",
             "D3",
@@ -8679,10 +9130,7 @@
               "detail": "length 501 above maximum 500"
             }
           ],
-          "piped_text_visible": {
-            "Q8": "Care Network A",
-            "Q9": "Care Network A"
-          },
+          "piped_text_visible": {},
           "option_lists_visible": {
             "Q2": [
               "Care Network A"
@@ -8765,6 +9213,7 @@
             "S2",
             "S3",
             "S4",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -8774,6 +9223,7 @@
             "Q7",
             "Q8",
             "Q9",
+            "DT2",
             "Q10",
             "Q11",
             "Q12",
@@ -8785,6 +9235,7 @@
             "Q19",
             "Q20",
             "Q21",
+            "DT3",
             "D1",
             "D2",
             "D3",
@@ -8801,8 +9252,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
-            "Q8": "Care Network A",
-            "Q9": "Care Network A",
             "Q20": "Concept A",
             "Q21": "Concept A"
           },
@@ -8888,6 +9337,7 @@
             "S2",
             "S3",
             "S4",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -8897,6 +9347,7 @@
             "Q7",
             "Q8",
             "Q9",
+            "DT2",
             "Q10",
             "Q11",
             "Q12",
@@ -8908,6 +9359,7 @@
             "Q19",
             "Q20",
             "Q21",
+            "DT3",
             "D1",
             "D2",
             "D3",
@@ -8924,8 +9376,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
-            "Q8": "Care Network A",
-            "Q9": "Care Network A",
             "Q20": "Concept A",
             "Q21": "Concept A"
           },
@@ -9011,6 +9461,7 @@
             "S2",
             "S3",
             "S4",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -9020,6 +9471,7 @@
             "Q7",
             "Q8",
             "Q9",
+            "DT2",
             "Q10",
             "Q11",
             "Q12",
@@ -9031,6 +9483,7 @@
             "Q19",
             "Q20",
             "Q21",
+            "DT3",
             "D1",
             "D2",
             "D3",
@@ -9047,8 +9500,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
-            "Q8": "Care Network A",
-            "Q9": "Care Network A",
             "Q20": "Concept A",
             "Q21": "Concept A"
           },
@@ -9134,6 +9585,7 @@
             "S2",
             "S3",
             "S4",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -9143,6 +9595,7 @@
             "Q7",
             "Q8",
             "Q9",
+            "DT2",
             "Q10",
             "Q11",
             "Q12",
@@ -9157,6 +9610,7 @@
             "Q19",
             "Q20",
             "Q21",
+            "DT3",
             "D1",
             "D2",
             "D3",
@@ -9176,10 +9630,7 @@
               "detail": "length 201 above maximum 200"
             }
           ],
-          "piped_text_visible": {
-            "Q8": "Care Network A",
-            "Q9": "Care Network A"
-          },
+          "piped_text_visible": {},
           "option_lists_visible": {
             "Q2": [
               "Care Network A"
@@ -9262,6 +9713,7 @@
             "S2",
             "S3",
             "S4",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -9271,6 +9723,7 @@
             "Q7",
             "Q8",
             "Q9",
+            "DT2",
             "Q10",
             "Q11",
             "Q12",
@@ -9281,6 +9734,7 @@
             "Q19",
             "Q20",
             "Q21",
+            "DT3",
             "D1",
             "D2",
             "D3",
@@ -9298,8 +9752,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
-            "Q8": "Care Network A",
-            "Q9": "Care Network A",
             "Q20": "Concept A",
             "Q21": "Concept A"
           },
@@ -9385,6 +9837,7 @@
             "S2",
             "S3",
             "S4",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -9394,6 +9847,7 @@
             "Q7",
             "Q8",
             "Q9",
+            "DT2",
             "Q10",
             "Q11",
             "Q12",
@@ -9408,6 +9862,7 @@
             "Q19",
             "Q20",
             "Q21",
+            "DT3",
             "D1",
             "D2",
             "D3",
@@ -9427,10 +9882,7 @@
               "detail": "values total 99, required 100"
             }
           ],
-          "piped_text_visible": {
-            "Q8": "Care Network A",
-            "Q9": "Care Network A"
-          },
+          "piped_text_visible": {},
           "option_lists_visible": {
             "Q2": [
               "Care Network A"
@@ -9513,6 +9965,7 @@
             "S2",
             "S3",
             "S4",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -9522,6 +9975,7 @@
             "Q7",
             "Q8",
             "Q9",
+            "DT2",
             "Q10",
             "Q11",
             "Q12",
@@ -9532,6 +9986,7 @@
             "Q19",
             "Q20",
             "Q21",
+            "DT3",
             "D1",
             "D2",
             "D3",
@@ -9549,8 +10004,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
-            "Q8": "Care Network A",
-            "Q9": "Care Network A",
             "Q20": "Concept A",
             "Q21": "Concept A"
           },
@@ -9636,6 +10089,7 @@
             "S2",
             "S3",
             "S4",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -9645,6 +10099,7 @@
             "Q7",
             "Q8",
             "Q9",
+            "DT2",
             "Q10",
             "Q11",
             "Q12",
@@ -9655,6 +10110,7 @@
             "Q19",
             "Q20",
             "Q21",
+            "DT3",
             "D1",
             "D2",
             "D3",
@@ -9672,8 +10128,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
-            "Q8": "Care Network A",
-            "Q9": "Care Network A",
             "Q20": "Concept A",
             "Q21": "Concept A"
           },
@@ -9759,6 +10213,7 @@
             "S2",
             "S3",
             "S4",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -9768,6 +10223,7 @@
             "Q7",
             "Q8",
             "Q9",
+            "DT2",
             "Q10",
             "Q11",
             "Q12",
@@ -9778,6 +10234,7 @@
             "Q19",
             "Q20",
             "Q21",
+            "DT3",
             "D1",
             "D2",
             "D3",
@@ -9795,8 +10252,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
-            "Q8": "Care Network A",
-            "Q9": "Care Network A",
             "Q20": "Concept A",
             "Q21": "Concept A"
           },
@@ -9882,6 +10337,7 @@
             "S2",
             "S3",
             "S4",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -9891,6 +10347,7 @@
             "Q7",
             "Q8",
             "Q9",
+            "DT2",
             "Q10",
             "Q11",
             "Q12",
@@ -9905,6 +10362,7 @@
           "questions_not_seen": [
             "Q14",
             "Q17",
+            "DT3",
             "D1",
             "D2",
             "D3",
@@ -9925,8 +10383,6 @@
             }
           ],
           "piped_text_visible": {
-            "Q8": "Care Network A",
-            "Q9": "Care Network A",
             "Q20": "Concept A",
             "Q21": "Concept A"
           },
@@ -10013,6 +10469,7 @@
             "S2",
             "S3",
             "S4",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -10022,6 +10479,7 @@
             "Q7",
             "Q8",
             "Q9",
+            "DT2",
             "Q10",
             "Q11",
             "Q12",
@@ -10032,6 +10490,7 @@
             "Q19",
             "Q20",
             "Q21",
+            "DT3",
             "D1",
             "D2",
             "D3",
@@ -10049,8 +10508,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
-            "Q8": "Care Network A",
-            "Q9": "Care Network A",
             "Q20": "Concept A",
             "Q21": "Concept A"
           },
@@ -10137,6 +10594,7 @@
             "S2",
             "S3",
             "S4",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -10146,6 +10604,7 @@
             "Q7",
             "Q8",
             "Q9",
+            "DT2",
             "Q10",
             "Q11",
             "Q12",
@@ -10156,6 +10615,7 @@
             "Q19",
             "Q20",
             "Q21",
+            "DT3",
             "D1",
             "D2",
             "D3",
@@ -10173,8 +10633,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
-            "Q8": "Care Network A",
-            "Q9": "Care Network A",
             "Q20": "Concept A",
             "Q21": "Concept A"
           },
@@ -10261,6 +10719,7 @@
             "S2",
             "S3",
             "S4",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -10270,6 +10729,7 @@
             "Q7",
             "Q8",
             "Q9",
+            "DT2",
             "Q10",
             "Q11",
             "Q12",
@@ -10280,6 +10740,7 @@
             "Q19",
             "Q20",
             "Q21",
+            "DT3",
             "D1",
             "D2",
             "D3",
@@ -10297,8 +10758,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
-            "Q8": "Care Network A",
-            "Q9": "Care Network A",
             "Q20": "Concept A",
             "Q21": "Concept A"
           },
@@ -10385,6 +10844,7 @@
             "S2",
             "S3",
             "S4",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -10394,6 +10854,7 @@
             "Q7",
             "Q8",
             "Q9",
+            "DT2",
             "Q10",
             "Q11",
             "Q12",
@@ -10404,6 +10865,7 @@
             "Q19",
             "Q20",
             "Q21",
+            "DT3",
             "D1",
             "D2",
             "D3",
@@ -10428,8 +10890,6 @@
             }
           ],
           "piped_text_visible": {
-            "Q8": "Care Network A",
-            "Q9": "Care Network A",
             "Q20": "Concept A",
             "Q21": "Concept A"
           },
@@ -10515,6 +10975,7 @@
             "S2",
             "S3",
             "S4",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -10523,6 +10984,7 @@
             "Q7",
             "Q8",
             "Q9",
+            "DT2",
             "Q10",
             "Q11",
             "Q12",
@@ -10533,6 +10995,7 @@
             "Q19",
             "Q20",
             "Q21",
+            "DT3",
             "D1",
             "D2",
             "D3",
@@ -10551,8 +11014,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
-            "Q8": "Care Network A",
-            "Q9": "Care Network A",
             "Q20": "Concept A",
             "Q21": "Concept A"
           },
@@ -10636,6 +11097,7 @@
             "S2",
             "S3",
             "S4",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -10647,6 +11109,7 @@
             "Q7",
             "Q8",
             "Q9",
+            "DT2",
             "Q10",
             "Q11",
             "Q12",
@@ -10659,6 +11122,7 @@
             "Q19",
             "Q20",
             "Q21",
+            "DT3",
             "D1",
             "D2",
             "D3",
@@ -10758,6 +11222,7 @@
             "S2",
             "S3",
             "S4",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -10767,6 +11232,7 @@
             "Q7",
             "Q8",
             "Q9",
+            "DT2",
             "Q10",
             "Q11",
             "Q12",
@@ -10777,6 +11243,7 @@
             "Q19",
             "Q20",
             "Q21",
+            "DT3",
             "D1",
             "D2",
             "D3",
@@ -10794,8 +11261,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
-            "Q8": "Care Network A",
-            "Q9": "Care Network A",
             "Q20": "Concept A",
             "Q21": "Concept A"
           },
@@ -10880,6 +11345,7 @@
             "S2",
             "S3",
             "S4",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -10891,6 +11357,7 @@
             "Q9"
           ],
           "questions_not_seen": [
+            "DT2",
             "Q10",
             "Q11",
             "Q12",
@@ -10903,6 +11370,7 @@
             "Q19",
             "Q20",
             "Q21",
+            "DT3",
             "D1",
             "D2",
             "D3",
@@ -10922,10 +11390,7 @@
               "detail": "rows left blank: ['Q9-R6']"
             }
           ],
-          "piped_text_visible": {
-            "Q8": "Care Network A",
-            "Q9": "Care Network A"
-          },
+          "piped_text_visible": {},
           "option_lists_visible": {
             "Q2": [
               "Care Network A"
@@ -11008,6 +11473,7 @@
             "S2",
             "S3",
             "S4",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -11017,6 +11483,7 @@
             "Q7",
             "Q8",
             "Q9",
+            "DT2",
             "Q10",
             "Q11",
             "Q12",
@@ -11027,6 +11494,7 @@
             "Q19",
             "Q20",
             "Q21",
+            "DT3",
             "D1"
           ],
           "questions_not_seen": [
@@ -11051,8 +11519,6 @@
             }
           ],
           "piped_text_visible": {
-            "Q8": "Care Network A",
-            "Q9": "Care Network A",
             "Q20": "Concept A",
             "Q21": "Concept A"
           },
@@ -11138,6 +11604,7 @@
             "S2",
             "S3",
             "S4",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -11147,6 +11614,7 @@
             "Q7",
             "Q8",
             "Q9",
+            "DT2",
             "Q10",
             "Q11",
             "Q12",
@@ -11157,6 +11625,7 @@
             "Q19",
             "Q20",
             "Q21",
+            "DT3",
             "D1",
             "D2"
           ],
@@ -11181,8 +11650,6 @@
             }
           ],
           "piped_text_visible": {
-            "Q8": "Care Network A",
-            "Q9": "Care Network A",
             "Q20": "Concept A",
             "Q21": "Concept A"
           },
@@ -11268,6 +11735,7 @@
             "S2",
             "S3",
             "S4",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -11277,6 +11745,7 @@
             "Q7",
             "Q8",
             "Q9",
+            "DT2",
             "Q10",
             "Q11",
             "Q12",
@@ -11287,6 +11756,7 @@
             "Q19",
             "Q20",
             "Q21",
+            "DT3",
             "D1",
             "D2",
             "D3"
@@ -11311,8 +11781,6 @@
             }
           ],
           "piped_text_visible": {
-            "Q8": "Care Network A",
-            "Q9": "Care Network A",
             "Q20": "Concept A",
             "Q21": "Concept A"
           },
@@ -11398,6 +11866,7 @@
             "S2",
             "S3",
             "S4",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -11407,6 +11876,7 @@
             "Q7",
             "Q8",
             "Q9",
+            "DT2",
             "Q10",
             "Q11",
             "Q12",
@@ -11417,6 +11887,7 @@
             "Q19",
             "Q20",
             "Q21",
+            "DT3",
             "D1",
             "D2",
             "D3",
@@ -11441,8 +11912,6 @@
             }
           ],
           "piped_text_visible": {
-            "Q8": "Care Network A",
-            "Q9": "Care Network A",
             "Q20": "Concept A",
             "Q21": "Concept A"
           },
@@ -11526,6 +11995,7 @@
             "S2",
             "S3",
             "S4",
+            "DT1",
             "Q1"
           ],
           "questions_not_seen": [
@@ -11537,6 +12007,7 @@
             "Q7",
             "Q8",
             "Q9",
+            "DT2",
             "Q10",
             "Q11",
             "Q12",
@@ -11549,6 +12020,7 @@
             "Q19",
             "Q20",
             "Q21",
+            "DT3",
             "D1",
             "D2",
             "D3",
@@ -11642,6 +12114,7 @@
             "S2",
             "S3",
             "S4",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -11651,6 +12124,7 @@
             "Q7",
             "Q8",
             "Q9",
+            "DT2",
             "Q10"
           ],
           "questions_not_seen": [
@@ -11665,6 +12139,7 @@
             "Q19",
             "Q20",
             "Q21",
+            "DT3",
             "D1",
             "D2",
             "D3",
@@ -11684,10 +12159,7 @@
               "detail": "mandatory question left blank, progress should be blocked"
             }
           ],
-          "piped_text_visible": {
-            "Q8": "Care Network A",
-            "Q9": "Care Network A"
-          },
+          "piped_text_visible": {},
           "option_lists_visible": {
             "Q2": [
               "Care Network A"
@@ -11768,6 +12240,7 @@
             "S2",
             "S3",
             "S4",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -11777,6 +12250,7 @@
             "Q7",
             "Q8",
             "Q9",
+            "DT2",
             "Q10",
             "Q11"
           ],
@@ -11791,6 +12265,7 @@
             "Q19",
             "Q20",
             "Q21",
+            "DT3",
             "D1",
             "D2",
             "D3",
@@ -11810,10 +12285,7 @@
               "detail": "mandatory question left blank, progress should be blocked"
             }
           ],
-          "piped_text_visible": {
-            "Q8": "Care Network A",
-            "Q9": "Care Network A"
-          },
+          "piped_text_visible": {},
           "option_lists_visible": {
             "Q2": [
               "Care Network A"
@@ -11896,6 +12368,7 @@
             "S2",
             "S3",
             "S4",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -11905,6 +12378,7 @@
             "Q7",
             "Q8",
             "Q9",
+            "DT2",
             "Q10",
             "Q11",
             "Q12"
@@ -11919,6 +12393,7 @@
             "Q19",
             "Q20",
             "Q21",
+            "DT3",
             "D1",
             "D2",
             "D3",
@@ -11938,10 +12413,7 @@
               "detail": "mandatory question left blank, progress should be blocked"
             }
           ],
-          "piped_text_visible": {
-            "Q8": "Care Network A",
-            "Q9": "Care Network A"
-          },
+          "piped_text_visible": {},
           "option_lists_visible": {
             "Q2": [
               "Care Network A"
@@ -12024,6 +12496,7 @@
             "S2",
             "S3",
             "S4",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -12033,6 +12506,7 @@
             "Q7",
             "Q8",
             "Q9",
+            "DT2",
             "Q10",
             "Q11",
             "Q12",
@@ -12047,6 +12521,7 @@
             "Q19",
             "Q20",
             "Q21",
+            "DT3",
             "D1",
             "D2",
             "D3",
@@ -12066,10 +12541,7 @@
               "detail": "mandatory question left blank, progress should be blocked"
             }
           ],
-          "piped_text_visible": {
-            "Q8": "Care Network A",
-            "Q9": "Care Network A"
-          },
+          "piped_text_visible": {},
           "option_lists_visible": {
             "Q2": [
               "Care Network A"
@@ -12152,6 +12624,7 @@
             "S2",
             "S3",
             "S4",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -12161,6 +12634,7 @@
             "Q7",
             "Q8",
             "Q9",
+            "DT2",
             "Q10",
             "Q11",
             "Q12",
@@ -12175,6 +12649,7 @@
             "Q19",
             "Q20",
             "Q21",
+            "DT3",
             "D1",
             "D2",
             "D3",
@@ -12194,10 +12669,7 @@
               "detail": "mandatory question left blank, progress should be blocked"
             }
           ],
-          "piped_text_visible": {
-            "Q8": "Care Network A",
-            "Q9": "Care Network A"
-          },
+          "piped_text_visible": {},
           "option_lists_visible": {
             "Q2": [
               "Care Network A"
@@ -12280,6 +12752,7 @@
             "S2",
             "S3",
             "S4",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -12289,6 +12762,7 @@
             "Q7",
             "Q8",
             "Q9",
+            "DT2",
             "Q10",
             "Q11",
             "Q12",
@@ -12303,6 +12777,7 @@
             "Q19",
             "Q20",
             "Q21",
+            "DT3",
             "D1",
             "D2",
             "D3",
@@ -12322,10 +12797,7 @@
               "detail": "mandatory question left blank, progress should be blocked"
             }
           ],
-          "piped_text_visible": {
-            "Q8": "Care Network A",
-            "Q9": "Care Network A"
-          },
+          "piped_text_visible": {},
           "option_lists_visible": {
             "Q2": [
               "Care Network A"
@@ -12409,6 +12881,7 @@
             "S2",
             "S3",
             "S4",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -12418,6 +12891,7 @@
             "Q7",
             "Q8",
             "Q9",
+            "DT2",
             "Q10",
             "Q11",
             "Q12",
@@ -12432,6 +12906,7 @@
             "Q19",
             "Q20",
             "Q21",
+            "DT3",
             "D1",
             "D2",
             "D3",
@@ -12451,10 +12926,7 @@
               "detail": "mandatory question left blank, progress should be blocked"
             }
           ],
-          "piped_text_visible": {
-            "Q8": "Care Network A",
-            "Q9": "Care Network A"
-          },
+          "piped_text_visible": {},
           "option_lists_visible": {
             "Q2": [
               "Care Network A"
@@ -12537,6 +13009,7 @@
             "S2",
             "S3",
             "S4",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -12546,6 +13019,7 @@
             "Q7",
             "Q8",
             "Q9",
+            "DT2",
             "Q10",
             "Q11",
             "Q12",
@@ -12560,6 +13034,7 @@
             "Q19",
             "Q20",
             "Q21",
+            "DT3",
             "D1",
             "D2",
             "D3",
@@ -12579,10 +13054,7 @@
               "detail": "mandatory question left blank, progress should be blocked"
             }
           ],
-          "piped_text_visible": {
-            "Q8": "Care Network A",
-            "Q9": "Care Network A"
-          },
+          "piped_text_visible": {},
           "option_lists_visible": {
             "Q2": [
               "Care Network A"
@@ -12665,6 +13137,7 @@
             "S2",
             "S3",
             "S4",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -12674,6 +13147,7 @@
             "Q7",
             "Q8",
             "Q9",
+            "DT2",
             "Q10",
             "Q11",
             "Q12",
@@ -12688,6 +13162,7 @@
             "Q19",
             "Q20",
             "Q21",
+            "DT3",
             "D1",
             "D2",
             "D3",
@@ -12707,10 +13182,7 @@
               "detail": "mandatory question left blank, progress should be blocked"
             }
           ],
-          "piped_text_visible": {
-            "Q8": "Care Network A",
-            "Q9": "Care Network A"
-          },
+          "piped_text_visible": {},
           "option_lists_visible": {
             "Q2": [
               "Care Network A"
@@ -12793,6 +13265,7 @@
             "S2",
             "S3",
             "S4",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -12802,6 +13275,7 @@
             "Q7",
             "Q8",
             "Q9",
+            "DT2",
             "Q10",
             "Q11",
             "Q12",
@@ -12816,6 +13290,7 @@
             "Q19",
             "Q20",
             "Q21",
+            "DT3",
             "D1",
             "D2",
             "D3",
@@ -12835,10 +13310,7 @@
               "detail": "mandatory question left blank, progress should be blocked"
             }
           ],
-          "piped_text_visible": {
-            "Q8": "Care Network A",
-            "Q9": "Care Network A"
-          },
+          "piped_text_visible": {},
           "option_lists_visible": {
             "Q2": [
               "Care Network A"
@@ -12916,6 +13388,7 @@
             "S2",
             "S3",
             "S4",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -12925,6 +13398,7 @@
             "Q7",
             "Q8",
             "Q9",
+            "DT2",
             "Q10",
             "Q11",
             "Q12",
@@ -12939,6 +13413,7 @@
             "Q19",
             "Q20",
             "Q21",
+            "DT3",
             "D1",
             "D2",
             "D3",
@@ -12958,10 +13433,7 @@
               "detail": "mandatory question left blank, progress should be blocked"
             }
           ],
-          "piped_text_visible": {
-            "Q8": "Care Network A",
-            "Q9": "Care Network A"
-          },
+          "piped_text_visible": {},
           "option_lists_visible": {
             "Q2": [
               "Care Network A"
@@ -13044,6 +13516,7 @@
             "S2",
             "S3",
             "S4",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -13053,6 +13526,7 @@
             "Q7",
             "Q8",
             "Q9",
+            "DT2",
             "Q10",
             "Q11",
             "Q12",
@@ -13067,6 +13541,7 @@
             "Q17",
             "Q20",
             "Q21",
+            "DT3",
             "D1",
             "D2",
             "D3",
@@ -13086,10 +13561,7 @@
               "detail": "mandatory question left blank, progress should be blocked"
             }
           ],
-          "piped_text_visible": {
-            "Q8": "Care Network A",
-            "Q9": "Care Network A"
-          },
+          "piped_text_visible": {},
           "option_lists_visible": {
             "Q2": [
               "Care Network A"
@@ -13170,6 +13642,7 @@
             "S2",
             "S3",
             "S4",
+            "DT1",
             "Q1",
             "Q2"
           ],
@@ -13181,6 +13654,7 @@
             "Q7",
             "Q8",
             "Q9",
+            "DT2",
             "Q10",
             "Q11",
             "Q12",
@@ -13193,6 +13667,7 @@
             "Q19",
             "Q20",
             "Q21",
+            "DT3",
             "D1",
             "D2",
             "D3",
@@ -13292,6 +13767,7 @@
             "S2",
             "S3",
             "S4",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -13301,6 +13777,7 @@
             "Q7",
             "Q8",
             "Q9",
+            "DT2",
             "Q10",
             "Q11",
             "Q12",
@@ -13315,6 +13792,7 @@
             "Q14",
             "Q17",
             "Q21",
+            "DT3",
             "D1",
             "D2",
             "D3",
@@ -13335,8 +13813,6 @@
             }
           ],
           "piped_text_visible": {
-            "Q8": "Care Network A",
-            "Q9": "Care Network A",
             "Q20": "Concept A"
           },
           "option_lists_visible": {
@@ -13421,6 +13897,7 @@
             "S2",
             "S3",
             "S4",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -13430,6 +13907,7 @@
             "Q7",
             "Q8",
             "Q9",
+            "DT2",
             "Q10",
             "Q11",
             "Q12",
@@ -13444,6 +13922,7 @@
           "questions_not_seen": [
             "Q14",
             "Q17",
+            "DT3",
             "D1",
             "D2",
             "D3",
@@ -13464,8 +13943,6 @@
             }
           ],
           "piped_text_visible": {
-            "Q8": "Care Network A",
-            "Q9": "Care Network A",
             "Q20": "Concept A",
             "Q21": "Concept A"
           },
@@ -13551,6 +14028,7 @@
             "S2",
             "S3",
             "S4",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -13560,6 +14038,7 @@
             "Q7",
             "Q8",
             "Q9",
+            "DT2",
             "Q10",
             "Q11",
             "Q12",
@@ -13574,6 +14053,7 @@
           "questions_not_seen": [
             "Q14",
             "Q17",
+            "DT3",
             "D1",
             "D2",
             "D3",
@@ -13594,8 +14074,6 @@
             }
           ],
           "piped_text_visible": {
-            "Q8": "Care Network A",
-            "Q9": "Care Network A",
             "Q20": "Concept A",
             "Q21": "Concept A"
           },
@@ -13682,6 +14160,7 @@
             "S2",
             "S3",
             "S4",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -13691,6 +14170,7 @@
             "Q7",
             "Q8",
             "Q9",
+            "DT2",
             "Q10",
             "Q11",
             "Q12",
@@ -13701,6 +14181,7 @@
             "Q19",
             "Q20",
             "Q21",
+            "DT3",
             "D1",
             "D2",
             "D3",
@@ -13725,8 +14206,6 @@
             }
           ],
           "piped_text_visible": {
-            "Q8": "Care Network A",
-            "Q9": "Care Network A",
             "Q20": "Concept A",
             "Q21": "Concept A"
           },
@@ -13813,6 +14292,7 @@
             "S2",
             "S3",
             "S4",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -13822,6 +14302,7 @@
             "Q7",
             "Q8",
             "Q9",
+            "DT2",
             "Q10",
             "Q11",
             "Q12",
@@ -13832,6 +14313,7 @@
             "Q19",
             "Q20",
             "Q21",
+            "DT3",
             "D1",
             "D2",
             "D3",
@@ -13849,8 +14331,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
-            "Q8": "Care Network A",
-            "Q9": "Care Network A",
             "Q20": "Concept A",
             "Q21": "Concept A"
           },
@@ -13937,6 +14417,7 @@
             "S2",
             "S3",
             "S4",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -13946,6 +14427,7 @@
             "Q7",
             "Q8",
             "Q9",
+            "DT2",
             "Q10",
             "Q11",
             "Q12",
@@ -13956,6 +14438,7 @@
             "Q19",
             "Q20",
             "Q21",
+            "DT3",
             "D1",
             "D2",
             "D3",
@@ -13973,8 +14456,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
-            "Q8": "Care Network A",
-            "Q9": "Care Network A",
             "Q20": "Concept A",
             "Q21": "Concept A"
           },
@@ -14061,6 +14542,7 @@
             "S2",
             "S3",
             "S4",
+            "DT1",
             "Q1",
             "Q2",
             "Q3"
@@ -14072,6 +14554,7 @@
             "Q7",
             "Q8",
             "Q9",
+            "DT2",
             "Q10",
             "Q11",
             "Q12",
@@ -14084,6 +14567,7 @@
             "Q19",
             "Q20",
             "Q21",
+            "DT3",
             "D1",
             "D2",
             "D3",
@@ -14183,6 +14667,7 @@
             "S2",
             "S3",
             "S4",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -14194,6 +14679,7 @@
             "Q7",
             "Q8",
             "Q9",
+            "DT2",
             "Q10",
             "Q11",
             "Q12",
@@ -14206,6 +14692,7 @@
             "Q19",
             "Q20",
             "Q21",
+            "DT3",
             "D1",
             "D2",
             "D3",
@@ -14303,6 +14790,7 @@
             "S2",
             "S3",
             "S4",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -14314,6 +14802,7 @@
             "Q7",
             "Q8",
             "Q9",
+            "DT2",
             "Q10",
             "Q11",
             "Q12",
@@ -14326,6 +14815,7 @@
             "Q19",
             "Q20",
             "Q21",
+            "DT3",
             "D1",
             "D2",
             "D3",
@@ -14425,6 +14915,7 @@
             "S2",
             "S3",
             "S4",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -14436,6 +14927,7 @@
             "Q7",
             "Q8",
             "Q9",
+            "DT2",
             "Q10",
             "Q11",
             "Q12",
@@ -14448,6 +14940,7 @@
             "Q19",
             "Q20",
             "Q21",
+            "DT3",
             "D1",
             "D2",
             "D3",
@@ -14550,6 +15043,7 @@
             "S2",
             "S3",
             "S4",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -14561,6 +15055,7 @@
           "questions_not_seen": [
             "Q8",
             "Q9",
+            "DT2",
             "Q10",
             "Q11",
             "Q12",
@@ -14573,6 +15068,7 @@
             "Q19",
             "Q20",
             "Q21",
+            "DT3",
             "D1",
             "D2",
             "D3",
@@ -14675,6 +15171,7 @@
             "S2",
             "S3",
             "S4",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -14686,6 +15183,7 @@
           ],
           "questions_not_seen": [
             "Q9",
+            "DT2",
             "Q10",
             "Q11",
             "Q12",
@@ -14698,6 +15196,7 @@
             "Q19",
             "Q20",
             "Q21",
+            "DT3",
             "D1",
             "D2",
             "D3",
@@ -14717,9 +15216,7 @@
               "detail": "mandatory question left blank, progress should be blocked"
             }
           ],
-          "piped_text_visible": {
-            "Q8": "Care Network A"
-          },
+          "piped_text_visible": {},
           "option_lists_visible": {
             "Q2": [
               "Care Network A"
@@ -14795,6 +15292,7 @@
             "S2",
             "S3",
             "S4",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -14806,6 +15304,7 @@
             "Q9"
           ],
           "questions_not_seen": [
+            "DT2",
             "Q10",
             "Q11",
             "Q12",
@@ -14818,6 +15317,7 @@
             "Q19",
             "Q20",
             "Q21",
+            "DT3",
             "D1",
             "D2",
             "D3",
@@ -14837,10 +15337,7 @@
               "detail": "mandatory question left blank, progress should be blocked"
             }
           ],
-          "piped_text_visible": {
-            "Q8": "Care Network A",
-            "Q9": "Care Network A"
-          },
+          "piped_text_visible": {},
           "option_lists_visible": {
             "Q2": [
               "Care Network A"
@@ -14925,6 +15422,7 @@
             "S2",
             "S3",
             "S4",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -14934,6 +15432,7 @@
             "Q7",
             "Q8",
             "Q9",
+            "DT2",
             "Q10",
             "Q11",
             "Q12",
@@ -14946,6 +15445,7 @@
             "Q19",
             "Q20",
             "Q21",
+            "DT3",
             "D1",
             "D2",
             "D3",
@@ -15041,6 +15541,7 @@
           "questions_not_seen": [
             "S3",
             "S4",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -15050,6 +15551,7 @@
             "Q7",
             "Q8",
             "Q9",
+            "DT2",
             "Q10",
             "Q11",
             "Q12",
@@ -15062,6 +15564,7 @@
             "Q19",
             "Q20",
             "Q21",
+            "DT3",
             "D1",
             "D2",
             "D3",
@@ -15157,6 +15660,7 @@
           ],
           "questions_not_seen": [
             "S4",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -15166,6 +15670,7 @@
             "Q7",
             "Q8",
             "Q9",
+            "DT2",
             "Q10",
             "Q11",
             "Q12",
@@ -15178,6 +15683,7 @@
             "Q19",
             "Q20",
             "Q21",
+            "DT3",
             "D1",
             "D2",
             "D3",
@@ -15273,6 +15779,7 @@
             "S4"
           ],
           "questions_not_seen": [
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -15282,6 +15789,7 @@
             "Q7",
             "Q8",
             "Q9",
+            "DT2",
             "Q10",
             "Q11",
             "Q12",
@@ -15294,6 +15802,7 @@
             "Q19",
             "Q20",
             "Q21",
+            "DT3",
             "D1",
             "D2",
             "D3",
@@ -15387,6 +15896,7 @@
             "S2",
             "S3",
             "S4",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -15396,6 +15906,7 @@
             "Q7",
             "Q8",
             "Q9",
+            "DT2",
             "Q10",
             "Q11",
             "Q12",
@@ -15406,6 +15917,7 @@
             "Q19",
             "Q20",
             "Q21",
+            "DT3",
             "D1",
             "D2",
             "D3",
@@ -15423,8 +15935,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
-            "Q8": "Care Network A",
-            "Q9": "Care Network A",
             "Q20": "Concept A",
             "Q21": "Concept A"
           },
@@ -15510,6 +16020,7 @@
             "S2",
             "S3",
             "S4",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -15519,6 +16030,7 @@
             "Q7",
             "Q8",
             "Q9",
+            "DT2",
             "Q10",
             "Q11",
             "Q12",
@@ -15529,6 +16041,7 @@
             "Q19",
             "Q20",
             "Q21",
+            "DT3",
             "D1",
             "D2",
             "D3",
@@ -15546,8 +16059,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
-            "Q8": "Care Network A",
-            "Q9": "Care Network A",
             "Q20": "Concept A",
             "Q21": "Concept A"
           },
@@ -15633,6 +16144,7 @@
             "S2",
             "S3",
             "S4",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -15642,6 +16154,7 @@
             "Q7",
             "Q8",
             "Q9",
+            "DT2",
             "Q10",
             "Q11",
             "Q12",
@@ -15652,6 +16165,7 @@
             "Q19",
             "Q20",
             "Q21",
+            "DT3",
             "D1",
             "D2",
             "D3",
@@ -15669,8 +16183,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
-            "Q8": "Care Network A",
-            "Q9": "Care Network A",
             "Q20": "Concept A",
             "Q21": "Concept A"
           },
@@ -15756,6 +16268,7 @@
             "S2",
             "S3",
             "S4",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -15765,6 +16278,7 @@
             "Q7",
             "Q8",
             "Q9",
+            "DT2",
             "Q10",
             "Q11",
             "Q12",
@@ -15775,6 +16289,7 @@
             "Q19",
             "Q20",
             "Q21",
+            "DT3",
             "D1",
             "D2",
             "D3",
@@ -15792,8 +16307,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
-            "Q8": "Care Network A",
-            "Q9": "Care Network A",
             "Q20": "Concept A",
             "Q21": "Concept A"
           },
@@ -15807,252 +16320,6 @@
           }
         },
         "proof": "Q21 predicted to render 'Concept A' in its wording",
-        "provisional_semantics": [
-          "multi_equality"
-        ],
-        "preconditions": {},
-        "campaign": {},
-        "covered_by": null
-      },
-      {
-        "scenario_id": "SC-38175030e6",
-        "target_id": "T-87e77431ff",
-        "dimension": "D6",
-        "status": "COVERED",
-        "reason": null,
-        "answers": {
-          "Q3": "Q3-O1",
-          "S1": "S1-O1",
-          "S2": "S2-O1",
-          "S3": "S3-O2",
-          "S4": "S4-O2",
-          "Q1": [
-            "Q1-O1"
-          ],
-          "Q2": [
-            "Q2-O1"
-          ],
-          "Q4": "Q4-O1",
-          "Q5": [
-            "Q5-O1"
-          ],
-          "Q6": "Q6-O1",
-          "Q7": "Q7-O1",
-          "Q8": "Q8-O1",
-          "Q9": {
-            "Q9-R1": "Q9-O1",
-            "Q9-R2": "Q9-O1",
-            "Q9-R3": "Q9-O1",
-            "Q9-R4": "Q9-O1",
-            "Q9-R5": "Q9-O1",
-            "Q9-R6": "Q9-O1"
-          },
-          "Q10": "Q10-O1",
-          "Q11": [
-            "Q11-O1"
-          ],
-          "Q12": "Q12-O1",
-          "Q13": "Q13-O1",
-          "Q14": "xxxxxxxxxx",
-          "Q15": "Q15-O1",
-          "Q16": "Q16-O1",
-          "Q17": "xxx",
-          "Q18": {
-            "Q18-O1": 20,
-            "Q18-O2": 20,
-            "Q18-O3": 20,
-            "Q18-O4": 20,
-            "Q18-O5": 20
-          },
-          "Q19": "Q19-O1",
-          "Q20": "Q20-O1",
-          "Q21": "xxxxx",
-          "D1": "D1-O1",
-          "D2": "D2-O1",
-          "D3": "D3-O1",
-          "D4": "D4-O1",
-          "Q22": "Q22-O1"
-        },
-        "expected": {
-          "questions_seen_in_order": [
-            "S1",
-            "S2",
-            "S3",
-            "S4",
-            "Q1",
-            "Q2",
-            "Q3",
-            "Q4",
-            "Q5",
-            "Q6",
-            "Q7",
-            "Q8",
-            "Q9",
-            "Q10",
-            "Q11",
-            "Q12",
-            "Q13",
-            "Q15",
-            "Q16",
-            "Q18",
-            "Q19",
-            "Q20",
-            "Q21",
-            "D1",
-            "D2",
-            "D3",
-            "D4",
-            "Q22",
-            "Q23"
-          ],
-          "questions_not_seen": [
-            "Q14",
-            "Q17"
-          ],
-          "ending_reached": "COMPLETE",
-          "blocked_at": null,
-          "quota_stopped": null,
-          "quota_over_target": null,
-          "validation_messages_expected": [],
-          "piped_text_visible": {
-            "Q8": "Care Network A",
-            "Q9": "Care Network A",
-            "Q20": "Concept A",
-            "Q21": "Concept A"
-          },
-          "option_lists_visible": {
-            "Q2": [
-              "Care Network A"
-            ],
-            "Q6": [
-              "Primary-care physician"
-            ]
-          }
-        },
-        "proof": "Q8 predicted to render 'Care Network A' in its wording",
-        "provisional_semantics": [
-          "multi_equality"
-        ],
-        "preconditions": {},
-        "campaign": {},
-        "covered_by": null
-      },
-      {
-        "scenario_id": "SC-d9fd4f6a89",
-        "target_id": "T-7600190035",
-        "dimension": "D6",
-        "status": "COVERED",
-        "reason": null,
-        "answers": {
-          "Q3": "Q3-O1",
-          "S1": "S1-O1",
-          "S2": "S2-O1",
-          "S3": "S3-O2",
-          "S4": "S4-O2",
-          "Q1": [
-            "Q1-O1"
-          ],
-          "Q2": [
-            "Q2-O1"
-          ],
-          "Q4": "Q4-O1",
-          "Q5": [
-            "Q5-O1"
-          ],
-          "Q6": "Q6-O1",
-          "Q7": "Q7-O1",
-          "Q8": "Q8-O1",
-          "Q9": {
-            "Q9-R1": "Q9-O1",
-            "Q9-R2": "Q9-O1",
-            "Q9-R3": "Q9-O1",
-            "Q9-R4": "Q9-O1",
-            "Q9-R5": "Q9-O1",
-            "Q9-R6": "Q9-O1"
-          },
-          "Q10": "Q10-O1",
-          "Q11": [
-            "Q11-O1"
-          ],
-          "Q12": "Q12-O1",
-          "Q13": "Q13-O1",
-          "Q14": "xxxxxxxxxx",
-          "Q15": "Q15-O1",
-          "Q16": "Q16-O1",
-          "Q17": "xxx",
-          "Q18": {
-            "Q18-O1": 20,
-            "Q18-O2": 20,
-            "Q18-O3": 20,
-            "Q18-O4": 20,
-            "Q18-O5": 20
-          },
-          "Q19": "Q19-O1",
-          "Q20": "Q20-O1",
-          "Q21": "xxxxx",
-          "D1": "D1-O1",
-          "D2": "D2-O1",
-          "D3": "D3-O1",
-          "D4": "D4-O1",
-          "Q22": "Q22-O1"
-        },
-        "expected": {
-          "questions_seen_in_order": [
-            "S1",
-            "S2",
-            "S3",
-            "S4",
-            "Q1",
-            "Q2",
-            "Q3",
-            "Q4",
-            "Q5",
-            "Q6",
-            "Q7",
-            "Q8",
-            "Q9",
-            "Q10",
-            "Q11",
-            "Q12",
-            "Q13",
-            "Q15",
-            "Q16",
-            "Q18",
-            "Q19",
-            "Q20",
-            "Q21",
-            "D1",
-            "D2",
-            "D3",
-            "D4",
-            "Q22",
-            "Q23"
-          ],
-          "questions_not_seen": [
-            "Q14",
-            "Q17"
-          ],
-          "ending_reached": "COMPLETE",
-          "blocked_at": null,
-          "quota_stopped": null,
-          "quota_over_target": null,
-          "validation_messages_expected": [],
-          "piped_text_visible": {
-            "Q8": "Care Network A",
-            "Q9": "Care Network A",
-            "Q20": "Concept A",
-            "Q21": "Concept A"
-          },
-          "option_lists_visible": {
-            "Q2": [
-              "Care Network A"
-            ],
-            "Q6": [
-              "Primary-care physician"
-            ]
-          }
-        },
-        "proof": "Q9 predicted to render 'Care Network A' in its wording",
         "provisional_semantics": [
           "multi_equality"
         ],
@@ -16139,6 +16406,7 @@
             "S2",
             "S3",
             "S4",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -16148,6 +16416,7 @@
             "Q7",
             "Q8",
             "Q9",
+            "DT2",
             "Q10",
             "Q11",
             "Q12",
@@ -16158,6 +16427,7 @@
             "Q19",
             "Q20",
             "Q21",
+            "DT3",
             "D1",
             "D2",
             "D3",
@@ -16175,8 +16445,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
-            "Q8": "Care Network A",
-            "Q9": "Care Network A",
             "Q20": "Concept A",
             "Q21": "Concept A"
           },
@@ -16262,6 +16530,7 @@
             "S2",
             "S3",
             "S4",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -16271,6 +16540,7 @@
             "Q7",
             "Q8",
             "Q9",
+            "DT2",
             "Q10",
             "Q11",
             "Q12",
@@ -16281,6 +16551,7 @@
             "Q19",
             "Q20",
             "Q21",
+            "DT3",
             "D1",
             "D2",
             "D3",
@@ -16298,8 +16569,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
-            "Q8": "Care Network A",
-            "Q9": "Care Network A",
             "Q20": "Concept A",
             "Q21": "Concept A"
           },
@@ -16403,6 +16672,7 @@
             "S2",
             "S3",
             "S4",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -16412,6 +16682,7 @@
             "Q7",
             "Q8",
             "Q9",
+            "DT2",
             "Q10",
             "Q11",
             "Q12",
@@ -16422,6 +16693,7 @@
             "Q19",
             "Q20",
             "Q21",
+            "DT3",
             "D1",
             "D2",
             "D3",
@@ -16439,8 +16711,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
-            "Q8": "Care Network A",
-            "Q9": "Care Network A",
             "Q20": "Concept A",
             "Q21": "Concept A"
           },
@@ -16526,6 +16796,7 @@
             "S2",
             "S3",
             "S4",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -16535,6 +16806,7 @@
             "Q7",
             "Q8",
             "Q9",
+            "DT2",
             "Q10",
             "Q11",
             "Q12",
@@ -16545,6 +16817,7 @@
             "Q19",
             "Q20",
             "Q21",
+            "DT3",
             "D1",
             "D2",
             "D3",
@@ -16562,8 +16835,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
-            "Q8": "Care Network A",
-            "Q9": "Care Network A",
             "Q20": "Concept A",
             "Q21": "Concept A"
           },
@@ -16667,6 +16938,7 @@
             "S2",
             "S3",
             "S4",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -16676,6 +16948,7 @@
             "Q7",
             "Q8",
             "Q9",
+            "DT2",
             "Q10",
             "Q11",
             "Q12",
@@ -16686,6 +16959,7 @@
             "Q19",
             "Q20",
             "Q21",
+            "DT3",
             "D1",
             "D2",
             "D3",
@@ -16703,8 +16977,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
-            "Q8": "Care Network A",
-            "Q9": "Care Network A",
             "Q20": "Concept A",
             "Q21": "Concept A"
           },
@@ -16790,6 +17062,7 @@
             "S2",
             "S3",
             "S4",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -16799,6 +17072,7 @@
             "Q7",
             "Q8",
             "Q9",
+            "DT2",
             "Q10",
             "Q11",
             "Q12",
@@ -16809,6 +17083,7 @@
             "Q19",
             "Q20",
             "Q21",
+            "DT3",
             "D1",
             "D2",
             "D3",
@@ -16826,8 +17101,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
-            "Q8": "Care Network A",
-            "Q9": "Care Network A",
             "Q20": "Concept A",
             "Q21": "Concept A"
           },
@@ -16931,6 +17204,7 @@
             "S2",
             "S3",
             "S4",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -16940,6 +17214,7 @@
             "Q7",
             "Q8",
             "Q9",
+            "DT2",
             "Q10",
             "Q11",
             "Q12",
@@ -16950,6 +17225,7 @@
             "Q19",
             "Q20",
             "Q21",
+            "DT3",
             "D1",
             "D2",
             "D3",
@@ -16967,8 +17243,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
-            "Q8": "Care Network A",
-            "Q9": "Care Network A",
             "Q20": "Concept A",
             "Q21": "Concept A"
           },
@@ -17054,6 +17328,7 @@
             "S2",
             "S3",
             "S4",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -17063,6 +17338,7 @@
             "Q7",
             "Q8",
             "Q9",
+            "DT2",
             "Q10",
             "Q11",
             "Q12",
@@ -17073,6 +17349,7 @@
             "Q19",
             "Q20",
             "Q21",
+            "DT3",
             "D1",
             "D2",
             "D3",
@@ -17090,8 +17367,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
-            "Q8": "Care Network A",
-            "Q9": "Care Network A",
             "Q20": "Concept A",
             "Q21": "Concept A"
           },
@@ -17195,6 +17470,7 @@
             "S2",
             "S3",
             "S4",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -17204,6 +17480,7 @@
             "Q7",
             "Q8",
             "Q9",
+            "DT2",
             "Q10",
             "Q11",
             "Q12",
@@ -17214,6 +17491,7 @@
             "Q19",
             "Q20",
             "Q21",
+            "DT3",
             "D1",
             "D2",
             "D3",
@@ -17231,8 +17509,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
-            "Q8": "Care Network A",
-            "Q9": "Care Network A",
             "Q20": "Concept A",
             "Q21": "Concept A"
           },
@@ -17318,6 +17594,7 @@
             "S2",
             "S3",
             "S4",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -17327,6 +17604,7 @@
             "Q7",
             "Q8",
             "Q9",
+            "DT2",
             "Q10",
             "Q11",
             "Q12",
@@ -17337,6 +17615,7 @@
             "Q19",
             "Q20",
             "Q21",
+            "DT3",
             "D1",
             "D2",
             "D3",
@@ -17354,8 +17633,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
-            "Q8": "Care Network A",
-            "Q9": "Care Network A",
             "Q20": "Concept A",
             "Q21": "Concept A"
           },
@@ -17445,6 +17722,7 @@
             "S2",
             "S3",
             "S4",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -17454,6 +17732,7 @@
             "Q7",
             "Q8",
             "Q9",
+            "DT2",
             "Q10",
             "Q11",
             "Q12",
@@ -17464,6 +17743,7 @@
             "Q19",
             "Q20",
             "Q21",
+            "DT3",
             "D1",
             "D2",
             "D3",
@@ -17481,8 +17761,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
-            "Q8": "Care Network A",
-            "Q9": "Care Network A",
             "Q20": "Concept A",
             "Q21": "Concept A"
           },
@@ -17582,6 +17860,7 @@
             "S2",
             "S3",
             "S4",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -17591,6 +17870,7 @@
             "Q7",
             "Q8",
             "Q9",
+            "DT2",
             "Q10",
             "Q11",
             "Q12",
@@ -17601,6 +17881,7 @@
             "Q19",
             "Q20",
             "Q21",
+            "DT3",
             "D1",
             "D2",
             "D3",
@@ -17618,8 +17899,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
-            "Q8": "Care Network A",
-            "Q9": "Care Network A",
             "Q20": "Concept A",
             "Q21": "Concept A"
           },
@@ -17719,6 +17998,7 @@
             "S2",
             "S3",
             "S4",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -17728,6 +18008,7 @@
             "Q7",
             "Q8",
             "Q9",
+            "DT2",
             "Q10",
             "Q11",
             "Q12",
@@ -17738,6 +18019,7 @@
             "Q19",
             "Q20",
             "Q21",
+            "DT3",
             "D1",
             "D2",
             "D3",
@@ -17755,8 +18037,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
-            "Q8": "Care Network A",
-            "Q9": "Care Network A",
             "Q20": "Concept A",
             "Q21": "Concept A"
           },
@@ -17856,6 +18136,7 @@
             "S2",
             "S3",
             "S4",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -17865,6 +18146,7 @@
             "Q7",
             "Q8",
             "Q9",
+            "DT2",
             "Q10",
             "Q11",
             "Q12",
@@ -17875,6 +18157,7 @@
             "Q19",
             "Q20",
             "Q21",
+            "DT3",
             "D1",
             "D2",
             "D3",
@@ -17892,8 +18175,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
-            "Q8": "Care Network A",
-            "Q9": "Care Network A",
             "Q20": "Concept A",
             "Q21": "Concept A"
           },
@@ -17993,6 +18274,7 @@
             "S2",
             "S3",
             "S4",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -18002,6 +18284,7 @@
             "Q7",
             "Q8",
             "Q9",
+            "DT2",
             "Q10",
             "Q11",
             "Q12",
@@ -18012,6 +18295,7 @@
             "Q19",
             "Q20",
             "Q21",
+            "DT3",
             "D1",
             "D2",
             "D3",
@@ -18029,8 +18313,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
-            "Q8": "Care Network A",
-            "Q9": "Care Network A",
             "Q20": "Concept A",
             "Q21": "Concept A"
           },
@@ -18130,6 +18412,7 @@
             "S2",
             "S3",
             "S4",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -18139,6 +18422,7 @@
             "Q7",
             "Q8",
             "Q9",
+            "DT2",
             "Q10",
             "Q11",
             "Q12",
@@ -18149,6 +18433,7 @@
             "Q19",
             "Q20",
             "Q21",
+            "DT3",
             "D1",
             "D2",
             "D3",
@@ -18166,8 +18451,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
-            "Q8": "Care Network A",
-            "Q9": "Care Network A",
             "Q20": "Concept A",
             "Q21": "Concept A"
           },
@@ -18267,6 +18550,7 @@
             "S2",
             "S3",
             "S4",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -18276,6 +18560,7 @@
             "Q7",
             "Q8",
             "Q9",
+            "DT2",
             "Q10",
             "Q11",
             "Q12",
@@ -18286,6 +18571,7 @@
             "Q19",
             "Q20",
             "Q21",
+            "DT3",
             "D1",
             "D2",
             "D3",
@@ -18303,8 +18589,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
-            "Q8": "Care Network A",
-            "Q9": "Care Network A",
             "Q20": "Concept A",
             "Q21": "Concept A"
           },
@@ -18404,6 +18688,7 @@
             "S2",
             "S3",
             "S4",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -18413,6 +18698,7 @@
             "Q7",
             "Q8",
             "Q9",
+            "DT2",
             "Q10",
             "Q11",
             "Q12",
@@ -18423,6 +18709,7 @@
             "Q19",
             "Q20",
             "Q21",
+            "DT3",
             "D1",
             "D2",
             "D3",
@@ -18440,8 +18727,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
-            "Q8": "Care Network A",
-            "Q9": "Care Network A",
             "Q20": "Concept A",
             "Q21": "Concept A"
           },
@@ -18541,6 +18826,7 @@
             "S2",
             "S3",
             "S4",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -18550,6 +18836,7 @@
             "Q7",
             "Q8",
             "Q9",
+            "DT2",
             "Q10",
             "Q11",
             "Q12",
@@ -18560,6 +18847,7 @@
             "Q19",
             "Q20",
             "Q21",
+            "DT3",
             "D1",
             "D2",
             "D3",
@@ -18577,8 +18865,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
-            "Q8": "Care Network A",
-            "Q9": "Care Network A",
             "Q20": "Concept A",
             "Q21": "Concept A"
           },
@@ -18678,6 +18964,7 @@
             "S2",
             "S3",
             "S4",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -18687,6 +18974,7 @@
             "Q7",
             "Q8",
             "Q9",
+            "DT2",
             "Q10",
             "Q11",
             "Q12",
@@ -18697,6 +18985,7 @@
             "Q19",
             "Q20",
             "Q21",
+            "DT3",
             "D1",
             "D2",
             "D3",
@@ -18714,8 +19003,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
-            "Q8": "Care Network A",
-            "Q9": "Care Network A",
             "Q20": "Concept A",
             "Q21": "Concept A"
           },
@@ -18815,6 +19102,7 @@
             "S2",
             "S3",
             "S4",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -18824,6 +19112,7 @@
             "Q7",
             "Q8",
             "Q9",
+            "DT2",
             "Q10",
             "Q11",
             "Q12",
@@ -18834,6 +19123,7 @@
             "Q19",
             "Q20",
             "Q21",
+            "DT3",
             "D1",
             "D2",
             "D3",
@@ -18851,8 +19141,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
-            "Q8": "Care Network A",
-            "Q9": "Care Network A",
             "Q20": "Concept A",
             "Q21": "Concept A"
           },
@@ -18866,252 +19154,6 @@
           }
         },
         "proof": "Q2 shown by its guard and reflecting its dependency",
-        "provisional_semantics": [
-          "multi_equality"
-        ],
-        "preconditions": {},
-        "campaign": {},
-        "covered_by": null
-      },
-      {
-        "scenario_id": "SC-d1631159b8",
-        "target_id": "T-46a8d52129",
-        "dimension": "D9",
-        "status": "COVERED",
-        "reason": null,
-        "answers": {
-          "Q3": "Q3-O1",
-          "S1": "S1-O1",
-          "S2": "S2-O1",
-          "S3": "S3-O2",
-          "S4": "S4-O2",
-          "Q1": [
-            "Q1-O1"
-          ],
-          "Q2": [
-            "Q2-O1"
-          ],
-          "Q4": "Q4-O1",
-          "Q5": [
-            "Q5-O1"
-          ],
-          "Q6": "Q6-O1",
-          "Q7": "Q7-O1",
-          "Q8": "Q8-O1",
-          "Q9": {
-            "Q9-R1": "Q9-O1",
-            "Q9-R2": "Q9-O1",
-            "Q9-R3": "Q9-O1",
-            "Q9-R4": "Q9-O1",
-            "Q9-R5": "Q9-O1",
-            "Q9-R6": "Q9-O1"
-          },
-          "Q10": "Q10-O1",
-          "Q11": [
-            "Q11-O1"
-          ],
-          "Q12": "Q12-O1",
-          "Q13": "Q13-O1",
-          "Q14": "xxxxxxxxxx",
-          "Q15": "Q15-O1",
-          "Q16": "Q16-O1",
-          "Q17": "xxx",
-          "Q18": {
-            "Q18-O1": 20,
-            "Q18-O2": 20,
-            "Q18-O3": 20,
-            "Q18-O4": 20,
-            "Q18-O5": 20
-          },
-          "Q19": "Q19-O1",
-          "Q20": "Q20-O1",
-          "Q21": "xxxxx",
-          "D1": "D1-O1",
-          "D2": "D2-O1",
-          "D3": "D3-O1",
-          "D4": "D4-O1",
-          "Q22": "Q22-O1"
-        },
-        "expected": {
-          "questions_seen_in_order": [
-            "S1",
-            "S2",
-            "S3",
-            "S4",
-            "Q1",
-            "Q2",
-            "Q3",
-            "Q4",
-            "Q5",
-            "Q6",
-            "Q7",
-            "Q8",
-            "Q9",
-            "Q10",
-            "Q11",
-            "Q12",
-            "Q13",
-            "Q15",
-            "Q16",
-            "Q18",
-            "Q19",
-            "Q20",
-            "Q21",
-            "D1",
-            "D2",
-            "D3",
-            "D4",
-            "Q22",
-            "Q23"
-          ],
-          "questions_not_seen": [
-            "Q14",
-            "Q17"
-          ],
-          "ending_reached": "COMPLETE",
-          "blocked_at": null,
-          "quota_stopped": null,
-          "quota_over_target": null,
-          "validation_messages_expected": [],
-          "piped_text_visible": {
-            "Q8": "Care Network A",
-            "Q9": "Care Network A",
-            "Q20": "Concept A",
-            "Q21": "Concept A"
-          },
-          "option_lists_visible": {
-            "Q2": [
-              "Care Network A"
-            ],
-            "Q6": [
-              "Primary-care physician"
-            ]
-          }
-        },
-        "proof": "Q8 shown by its guard and reflecting its dependency",
-        "provisional_semantics": [
-          "multi_equality"
-        ],
-        "preconditions": {},
-        "campaign": {},
-        "covered_by": null
-      },
-      {
-        "scenario_id": "SC-f3a9c99051",
-        "target_id": "T-9b537ecefd",
-        "dimension": "D9",
-        "status": "COVERED",
-        "reason": null,
-        "answers": {
-          "Q3": "Q3-O1",
-          "S1": "S1-O1",
-          "S2": "S2-O1",
-          "S3": "S3-O2",
-          "S4": "S4-O2",
-          "Q1": [
-            "Q1-O1"
-          ],
-          "Q2": [
-            "Q2-O1"
-          ],
-          "Q4": "Q4-O1",
-          "Q5": [
-            "Q5-O1"
-          ],
-          "Q6": "Q6-O1",
-          "Q7": "Q7-O1",
-          "Q8": "Q8-O1",
-          "Q9": {
-            "Q9-R1": "Q9-O1",
-            "Q9-R2": "Q9-O1",
-            "Q9-R3": "Q9-O1",
-            "Q9-R4": "Q9-O1",
-            "Q9-R5": "Q9-O1",
-            "Q9-R6": "Q9-O1"
-          },
-          "Q10": "Q10-O1",
-          "Q11": [
-            "Q11-O1"
-          ],
-          "Q12": "Q12-O1",
-          "Q13": "Q13-O1",
-          "Q14": "xxxxxxxxxx",
-          "Q15": "Q15-O1",
-          "Q16": "Q16-O1",
-          "Q17": "xxx",
-          "Q18": {
-            "Q18-O1": 20,
-            "Q18-O2": 20,
-            "Q18-O3": 20,
-            "Q18-O4": 20,
-            "Q18-O5": 20
-          },
-          "Q19": "Q19-O1",
-          "Q20": "Q20-O1",
-          "Q21": "xxxxx",
-          "D1": "D1-O1",
-          "D2": "D2-O1",
-          "D3": "D3-O1",
-          "D4": "D4-O1",
-          "Q22": "Q22-O1"
-        },
-        "expected": {
-          "questions_seen_in_order": [
-            "S1",
-            "S2",
-            "S3",
-            "S4",
-            "Q1",
-            "Q2",
-            "Q3",
-            "Q4",
-            "Q5",
-            "Q6",
-            "Q7",
-            "Q8",
-            "Q9",
-            "Q10",
-            "Q11",
-            "Q12",
-            "Q13",
-            "Q15",
-            "Q16",
-            "Q18",
-            "Q19",
-            "Q20",
-            "Q21",
-            "D1",
-            "D2",
-            "D3",
-            "D4",
-            "Q22",
-            "Q23"
-          ],
-          "questions_not_seen": [
-            "Q14",
-            "Q17"
-          ],
-          "ending_reached": "COMPLETE",
-          "blocked_at": null,
-          "quota_stopped": null,
-          "quota_over_target": null,
-          "validation_messages_expected": [],
-          "piped_text_visible": {
-            "Q8": "Care Network A",
-            "Q9": "Care Network A",
-            "Q20": "Concept A",
-            "Q21": "Concept A"
-          },
-          "option_lists_visible": {
-            "Q2": [
-              "Care Network A"
-            ],
-            "Q6": [
-              "Primary-care physician"
-            ]
-          }
-        },
-        "proof": "Q9 shown by its guard and reflecting its dependency",
         "provisional_semantics": [
           "multi_equality"
         ],
@@ -19184,6 +19226,7 @@
             "S2",
             "S3",
             "S4",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -19193,6 +19236,7 @@
             "Q7",
             "Q8",
             "Q9",
+            "DT2",
             "Q10",
             "Q11",
             "Q12",
@@ -19203,6 +19247,7 @@
             "Q19",
             "Q20",
             "Q21",
+            "DT3",
             "D1",
             "D2",
             "D3",
@@ -19220,8 +19265,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
-            "Q8": "Care Network A",
-            "Q9": "Care Network A",
             "Q20": "Concept A",
             "Q21": "Concept A"
           },
@@ -19307,6 +19350,7 @@
             "S2",
             "S3",
             "S4",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -19316,6 +19360,7 @@
             "Q7",
             "Q8",
             "Q9",
+            "DT2",
             "Q10",
             "Q11",
             "Q12",
@@ -19326,6 +19371,7 @@
             "Q19",
             "Q20",
             "Q21",
+            "DT3",
             "D1",
             "D2",
             "D3",
@@ -19343,8 +19389,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
-            "Q8": "Care Network A",
-            "Q9": "Care Network A",
             "Q20": "Concept A",
             "Q21": "Concept A"
           },
@@ -19430,6 +19474,7 @@
             "S2",
             "S3",
             "S4",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -19439,6 +19484,7 @@
             "Q7",
             "Q8",
             "Q9",
+            "DT2",
             "Q10",
             "Q11",
             "Q12",
@@ -19453,6 +19499,7 @@
             "Q19",
             "Q20",
             "Q21",
+            "DT3",
             "D1",
             "D2",
             "D3",
@@ -19472,10 +19519,7 @@
               "detail": "values total 101, required 100"
             }
           ],
-          "piped_text_visible": {
-            "Q8": "Care Network A",
-            "Q9": "Care Network A"
-          },
+          "piped_text_visible": {},
           "option_lists_visible": {
             "Q2": [
               "Care Network A"
@@ -19558,6 +19602,7 @@
             "S2",
             "S3",
             "S4",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -19567,6 +19612,7 @@
             "Q7",
             "Q8",
             "Q9",
+            "DT2",
             "Q10",
             "Q11",
             "Q12",
@@ -19577,6 +19623,7 @@
             "Q19",
             "Q20",
             "Q21",
+            "DT3",
             "D1",
             "D2",
             "D3",
@@ -19594,8 +19641,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
-            "Q8": "Care Network A",
-            "Q9": "Care Network A",
             "Q20": "Concept A",
             "Q21": "Concept A"
           },
@@ -19682,6 +19727,7 @@
             "S2",
             "S3",
             "S4",
+            "DT1",
             "Q1"
           ],
           "questions_not_seen": [
@@ -19693,6 +19739,7 @@
             "Q7",
             "Q8",
             "Q9",
+            "DT2",
             "Q10",
             "Q11",
             "Q12",
@@ -19705,6 +19752,7 @@
             "Q19",
             "Q20",
             "Q21",
+            "DT3",
             "D1",
             "D2",
             "D3",
@@ -19798,6 +19846,7 @@
             "S2",
             "S3",
             "S4",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -19807,6 +19856,7 @@
             "Q7",
             "Q8",
             "Q9",
+            "DT2",
             "Q10",
             "Q11",
             "Q12",
@@ -19817,6 +19867,7 @@
             "Q19",
             "Q20",
             "Q21",
+            "DT3",
             "D1",
             "D2",
             "D3",
@@ -19834,8 +19885,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
-            "Q8": "Care Network A",
-            "Q9": "Care Network A",
             "Q20": "Concept A",
             "Q21": "Concept A"
           },
@@ -19921,6 +19970,7 @@
             "S2",
             "S3",
             "S4",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -19930,6 +19980,7 @@
             "Q7",
             "Q8",
             "Q9",
+            "DT2",
             "Q10",
             "Q11",
             "Q12",
@@ -19940,6 +19991,7 @@
             "Q19",
             "Q20",
             "Q21",
+            "DT3",
             "D1",
             "D2",
             "D3",
@@ -19957,8 +20009,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [],
           "piped_text_visible": {
-            "Q8": "Care Network A",
-            "Q9": "Care Network A",
             "Q20": "Concept A",
             "Q21": "Concept A"
           },

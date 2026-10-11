@@ -5,16 +5,16 @@
   "survey_id": "S01_campus_cafeteria_experience",
   "source_document": {
     "filename": "S01_campus_cafeteria_experience.docx",
-    "sha256": "2756cb3b6dc3f21cdc7c1d35b7cfb0e2270af2a918ba6fe682e72ae8e121a804"
+    "sha256": "3d54ea5480d07ac92b4214947b34c7dab7abf280c5f464475994e8c9066ce9e3"
   },
   "upstream": {
     "canonical_schema_version": "1.0.0",
-    "canonical_generated_at": "2026-10-11T10:11:49+00:00"
+    "canonical_generated_at": "2026-10-11T10:54:25+00:00"
   },
   "content": {
     "report": {
       "per_dimension": {
-        "D1": 14,
+        "D1": 15,
         "D2": 3,
         "D3": 10,
         "D4": 12,
@@ -24,7 +24,7 @@
         "D8": 0,
         "D9": 1
       },
-      "records_enumerated": 41,
+      "records_enumerated": 42,
       "predetermined_unresolvable": 0,
       "orphan_rules": [],
       "note": "Dimensions are reported side by side and never summed. records_enumerated counts records, not coverage."
@@ -50,6 +50,18 @@
         "claim": "answering S2 normally moves the respondent on to the question that should come next",
         "traces_to": [
           "S2"
+        ],
+        "predetermined_reason": null,
+        "notes": null
+      },
+      {
+        "target_id": "T-4c28ba9a4a",
+        "dimension": "D1",
+        "subject": "DT1",
+        "polarity": "advances",
+        "claim": "answering DT1 normally moves the respondent on to the question that should come next",
+        "traces_to": [
+          "DT1"
         ],
         "predetermined_reason": null,
         "notes": null

@@ -66,8 +66,28 @@
     "other_attributes": {}
   },
   {
-    "id": "Q1",
+    "id": "DT1",
     "seq": 3,
+    "wording": "Great, you're eligible for this survey! Next, a few quick questions about your recent cafeteria visit.",
+    "type": "text display",
+    "options": [],
+    "matrix_rows": [],
+    "display_condition": null,
+    "min_length": null,
+    "max_length": null,
+    "min_value": null,
+    "max_value": null,
+    "min_selections": null,
+    "exclusive_option": null,
+    "sum_to": null,
+    "randomize": false,
+    "optional": false,
+    "dynamic_option_source": null,
+    "other_attributes": {}
+  },
+  {
+    "id": "Q1",
+    "seq": 4,
     "wording": "Which channel did you primarily use for this cafeteria visit?",
     "type": "single",
     "options": [
@@ -106,7 +126,7 @@
   },
   {
     "id": "Q2",
-    "seq": 4,
+    "seq": 5,
     "wording": "Overall, how satisfied were you with the cafeteria visit?",
     "type": "single",
     "options": [
@@ -157,7 +177,7 @@
   },
   {
     "id": "Q3",
-    "seq": 5,
+    "seq": 6,
     "wording": "How easy was it to complete what you wanted to do?",
     "type": "single",
     "options": [
@@ -208,7 +228,7 @@
   },
   {
     "id": "Q4",
-    "seq": 6,
+    "seq": 7,
     "wording": "Which aspects influenced your rating? Select all that apply.",
     "type": "multi",
     "options": [
@@ -265,7 +285,7 @@
   },
   {
     "id": "Q5",
-    "seq": 7,
+    "seq": 8,
     "wording": "Did you encounter a problem?",
     "type": "single",
     "options": [
@@ -298,7 +318,7 @@
   },
   {
     "id": "Q6",
-    "seq": 8,
+    "seq": 9,
     "wording": "Please describe the main problem.",
     "type": "text",
     "options": [],
@@ -318,7 +338,7 @@
   },
   {
     "id": "Q7",
-    "seq": 9,
+    "seq": 10,
     "wording": "How likely are you to recommend this service?",
     "type": "single",
     "options": [
@@ -405,7 +425,7 @@
   },
   {
     "id": "Q8",
-    "seq": 10,
+    "seq": 11,
     "wording": "What is the single most important improvement you would suggest?",
     "type": "text",
     "options": [],

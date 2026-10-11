@@ -5,11 +5,11 @@
   "survey_id": "M01_mobile_network_experience",
   "source_document": {
     "filename": "M01_mobile_network_experience.docx",
-    "sha256": "1be6ec051fbc914680d8add2a2c9e85c568f5468d8f39f5b6e915eb5bfe6f3b5",
-    "bytes": 41874
+    "sha256": "6f7e2db55c2c8ffaabdd4890e35464b4a5325a0ae13e38ffabb37ed06d064964",
+    "bytes": 42042
   },
-  "generated_at": "2026-10-11T10:11:51+00:00",
-  "item_count": 239,
+  "generated_at": "2026-10-11T10:54:30+00:00",
+  "item_count": 249,
   "content": [
     {
       "test_id": "T001",
@@ -336,10 +336,10 @@
         "block_order": 10,
         "row_index": 3
       },
-      "source_text": "Which mobile network services channel or provider did you use most recently?",
-      "target": "Q1",
+      "source_text": "Great, you're eligible for this survey! Next, a few questions about your recent mobile network experience.",
+      "target": "DT1",
       "input_state": null,
-      "expected": "Q1",
+      "expected": "DT1",
       "criticality": "HIGH",
       "ground_truth_status": "VERIFIED",
       "params": {}
@@ -354,7 +354,7 @@
         "row_index": 3
       },
       "source_text": "row 3",
-      "target": "Q1",
+      "target": "DT1",
       "input_state": null,
       "expected": 4,
       "criticality": "HIGH",
@@ -370,6 +370,91 @@
         "block_order": 10,
         "row_index": 3
       },
+      "source_text": "text display",
+      "target": "DT1",
+      "input_state": null,
+      "expected": "text display",
+      "criticality": "HIGH",
+      "ground_truth_status": "VERIFIED",
+      "params": {}
+    },
+    {
+      "test_id": "T022",
+      "category": "display_logic",
+      "check": "guard_absent",
+      "source_reference": {
+        "section": "questionnaire",
+        "block_order": 10,
+        "row_index": 3
+      },
+      "source_text": "Always show",
+      "target": "DT1",
+      "input_state": null,
+      "expected": null,
+      "criticality": "CRITICAL",
+      "ground_truth_status": "VERIFIED",
+      "params": {}
+    },
+    {
+      "test_id": "T023",
+      "category": "validation_rules",
+      "check": "mandatory",
+      "source_reference": {
+        "section": "questionnaire",
+        "block_order": 10,
+        "row_index": 3
+      },
+      "source_text": "text display, nothing to answer",
+      "target": "DT1",
+      "input_state": null,
+      "expected": false,
+      "criticality": "CRITICAL",
+      "ground_truth_status": "VERIFIED",
+      "params": {}
+    },
+    {
+      "test_id": "T024",
+      "category": "question_extraction",
+      "check": "question_present",
+      "source_reference": {
+        "section": "questionnaire",
+        "block_order": 10,
+        "row_index": 4
+      },
+      "source_text": "Which mobile network services channel or provider did you use most recently?",
+      "target": "Q1",
+      "input_state": null,
+      "expected": "Q1",
+      "criticality": "HIGH",
+      "ground_truth_status": "VERIFIED",
+      "params": {}
+    },
+    {
+      "test_id": "T025",
+      "category": "question_extraction",
+      "check": "question_seq",
+      "source_reference": {
+        "section": "questionnaire",
+        "block_order": 10,
+        "row_index": 4
+      },
+      "source_text": "row 4",
+      "target": "Q1",
+      "input_state": null,
+      "expected": 5,
+      "criticality": "HIGH",
+      "ground_truth_status": "VERIFIED",
+      "params": {}
+    },
+    {
+      "test_id": "T026",
+      "category": "question_type",
+      "check": "question_type",
+      "source_reference": {
+        "section": "questionnaire",
+        "block_order": 10,
+        "row_index": 4
+      },
       "source_text": "single",
       "target": "Q1",
       "input_state": null,
@@ -379,13 +464,13 @@
       "params": {}
     },
     {
-      "test_id": "T022",
+      "test_id": "T027",
       "category": "options",
       "check": "option_labels",
       "source_reference": {
         "section": "questionnaire",
         "block_order": 10,
-        "row_index": 3
+        "row_index": 4
       },
       "source_text": "Provider A; Provider B; Provider C; Provider D",
       "target": "Q1",
@@ -401,13 +486,13 @@
       "params": {}
     },
     {
-      "test_id": "T023",
+      "test_id": "T028",
       "category": "display_logic",
       "check": "guard_absent",
       "source_reference": {
         "section": "questionnaire",
         "block_order": 10,
-        "row_index": 3
+        "row_index": 4
       },
       "source_text": "Always show",
       "target": "Q1",
@@ -418,13 +503,13 @@
       "params": {}
     },
     {
-      "test_id": "T024",
+      "test_id": "T029",
       "category": "validation_rules",
       "check": "mandatory",
       "source_reference": {
         "section": "questionnaire",
         "block_order": 10,
-        "row_index": 3
+        "row_index": 4
       },
       "source_text": "not marked optional",
       "target": "Q1",
@@ -435,13 +520,13 @@
       "params": {}
     },
     {
-      "test_id": "T025",
+      "test_id": "T030",
       "category": "question_extraction",
       "check": "question_present",
       "source_reference": {
         "section": "questionnaire",
         "block_order": 10,
-        "row_index": 4
+        "row_index": 5
       },
       "source_text": "When did the most recent experience occur?",
       "target": "Q2",
@@ -452,30 +537,30 @@
       "params": {}
     },
     {
-      "test_id": "T026",
+      "test_id": "T031",
       "category": "question_extraction",
       "check": "question_seq",
       "source_reference": {
         "section": "questionnaire",
         "block_order": 10,
-        "row_index": 4
+        "row_index": 5
       },
-      "source_text": "row 4",
+      "source_text": "row 5",
       "target": "Q2",
       "input_state": null,
-      "expected": 5,
+      "expected": 6,
       "criticality": "HIGH",
       "ground_truth_status": "VERIFIED",
       "params": {}
     },
     {
-      "test_id": "T027",
+      "test_id": "T032",
       "category": "question_type",
       "check": "question_type",
       "source_reference": {
         "section": "questionnaire",
         "block_order": 10,
-        "row_index": 4
+        "row_index": 5
       },
       "source_text": "single",
       "target": "Q2",
@@ -486,13 +571,13 @@
       "params": {}
     },
     {
-      "test_id": "T028",
+      "test_id": "T033",
       "category": "options",
       "check": "option_labels",
       "source_reference": {
         "section": "questionnaire",
         "block_order": 10,
-        "row_index": 4
+        "row_index": 5
       },
       "source_text": "Within 7 days; 8-30 days; 1-3 months; 4-6 months",
       "target": "Q2",
@@ -508,13 +593,13 @@
       "params": {}
     },
     {
-      "test_id": "T029",
+      "test_id": "T034",
       "category": "display_logic",
       "check": "guard_absent",
       "source_reference": {
         "section": "questionnaire",
         "block_order": 10,
-        "row_index": 4
+        "row_index": 5
       },
       "source_text": "Always show",
       "target": "Q2",
@@ -525,13 +610,13 @@
       "params": {}
     },
     {
-      "test_id": "T030",
+      "test_id": "T035",
       "category": "validation_rules",
       "check": "mandatory",
       "source_reference": {
         "section": "questionnaire",
         "block_order": 10,
-        "row_index": 4
+        "row_index": 5
       },
       "source_text": "not marked optional",
       "target": "Q2",
@@ -542,13 +627,13 @@
       "params": {}
     },
     {
-      "test_id": "T031",
+      "test_id": "T036",
       "category": "question_extraction",
       "check": "question_present",
       "source_reference": {
         "section": "questionnaire",
         "block_order": 10,
-        "row_index": 5
+        "row_index": 6
       },
       "source_text": "What was the primary purpose of the experience?",
       "target": "Q3",
@@ -559,30 +644,30 @@
       "params": {}
     },
     {
-      "test_id": "T032",
+      "test_id": "T037",
       "category": "question_extraction",
       "check": "question_seq",
       "source_reference": {
         "section": "questionnaire",
         "block_order": 10,
-        "row_index": 5
+        "row_index": 6
       },
-      "source_text": "row 5",
+      "source_text": "row 6",
       "target": "Q3",
       "input_state": null,
-      "expected": 6,
+      "expected": 7,
       "criticality": "HIGH",
       "ground_truth_status": "VERIFIED",
       "params": {}
     },
     {
-      "test_id": "T033",
+      "test_id": "T038",
       "category": "question_type",
       "check": "question_type",
       "source_reference": {
         "section": "questionnaire",
         "block_order": 10,
-        "row_index": 5
+        "row_index": 6
       },
       "source_text": "single",
       "target": "Q3",
@@ -593,13 +678,13 @@
       "params": {}
     },
     {
-      "test_id": "T034",
+      "test_id": "T039",
       "category": "options",
       "check": "option_labels",
       "source_reference": {
         "section": "questionnaire",
         "block_order": 10,
-        "row_index": 5
+        "row_index": 6
       },
       "source_text": "Calls; Mobile data; Recharge or billing; Customer support; International roaming",
       "target": "Q3",
@@ -616,13 +701,13 @@
       "params": {}
     },
     {
-      "test_id": "T035",
+      "test_id": "T040",
       "category": "validation_rules",
       "check": "mandatory",
       "source_reference": {
         "section": "questionnaire",
         "block_order": 10,
-        "row_index": 5
+        "row_index": 6
       },
       "source_text": "not marked optional",
       "target": "Q3",
@@ -633,13 +718,13 @@
       "params": {}
     },
     {
-      "test_id": "T036",
+      "test_id": "T041",
       "category": "randomization",
       "check": "randomization_present",
       "source_reference": {
         "section": "questionnaire",
         "block_order": 10,
-        "row_index": 5
+        "row_index": 6
       },
       "source_text": "Randomize",
       "target": "Q3",
@@ -650,13 +735,13 @@
       "params": {}
     },
     {
-      "test_id": "T037",
+      "test_id": "T042",
       "category": "randomization",
       "check": "randomization_anchoring",
       "source_reference": {
         "section": "questionnaire",
         "block_order": 10,
-        "row_index": 5
+        "row_index": 6
       },
       "source_text": "Randomize",
       "target": "Q3",
@@ -667,13 +752,13 @@
       "params": {}
     },
     {
-      "test_id": "T038",
+      "test_id": "T043",
       "category": "question_extraction",
       "check": "question_present",
       "source_reference": {
         "section": "questionnaire",
         "block_order": 10,
-        "row_index": 6
+        "row_index": 7
       },
       "source_text": "Rate your overall satisfaction.",
       "target": "Q4",
@@ -684,30 +769,30 @@
       "params": {}
     },
     {
-      "test_id": "T039",
+      "test_id": "T044",
       "category": "question_extraction",
       "check": "question_seq",
       "source_reference": {
         "section": "questionnaire",
         "block_order": 10,
-        "row_index": 6
+        "row_index": 7
       },
-      "source_text": "row 6",
+      "source_text": "row 7",
       "target": "Q4",
       "input_state": null,
-      "expected": 7,
+      "expected": 8,
       "criticality": "HIGH",
       "ground_truth_status": "VERIFIED",
       "params": {}
     },
     {
-      "test_id": "T040",
+      "test_id": "T045",
       "category": "question_type",
       "check": "question_type",
       "source_reference": {
         "section": "questionnaire",
         "block_order": 10,
-        "row_index": 6
+        "row_index": 7
       },
       "source_text": "single",
       "target": "Q4",
@@ -718,13 +803,13 @@
       "params": {}
     },
     {
-      "test_id": "T041",
+      "test_id": "T046",
       "category": "options",
       "check": "option_labels",
       "source_reference": {
         "section": "questionnaire",
         "block_order": 10,
-        "row_index": 6
+        "row_index": 7
       },
       "source_text": "Very poor; Poor; Fair; Good; Excellent",
       "target": "Q4",
@@ -741,13 +826,13 @@
       "params": {}
     },
     {
-      "test_id": "T042",
+      "test_id": "T047",
       "category": "options",
       "check": "option_codes",
       "source_reference": {
         "section": "questionnaire",
         "block_order": 10,
-        "row_index": 6
+        "row_index": 7
       },
       "source_text": "1=Very poor; 2=Poor; 3=Fair; 4=Good; 5=Excellent",
       "target": "Q4",
@@ -764,13 +849,13 @@
       "params": {}
     },
     {
-      "test_id": "T043",
+      "test_id": "T048",
       "category": "display_logic",
       "check": "guard_absent",
       "source_reference": {
         "section": "questionnaire",
         "block_order": 10,
-        "row_index": 6
+        "row_index": 7
       },
       "source_text": "Always show",
       "target": "Q4",
@@ -781,13 +866,13 @@
       "params": {}
     },
     {
-      "test_id": "T044",
+      "test_id": "T049",
       "category": "validation_rules",
       "check": "mandatory",
       "source_reference": {
         "section": "questionnaire",
         "block_order": 10,
-        "row_index": 6
+        "row_index": 7
       },
       "source_text": "not marked optional",
       "target": "Q4",
@@ -798,13 +883,13 @@
       "params": {}
     },
     {
-      "test_id": "T045",
+      "test_id": "T050",
       "category": "question_extraction",
       "check": "question_present",
       "source_reference": {
         "section": "questionnaire",
         "block_order": 10,
-        "row_index": 7
+        "row_index": 8
       },
       "source_text": "Rate the ease of completing the experience.",
       "target": "Q5",
@@ -815,30 +900,30 @@
       "params": {}
     },
     {
-      "test_id": "T046",
+      "test_id": "T051",
       "category": "question_extraction",
       "check": "question_seq",
       "source_reference": {
         "section": "questionnaire",
         "block_order": 10,
-        "row_index": 7
+        "row_index": 8
       },
-      "source_text": "row 7",
+      "source_text": "row 8",
       "target": "Q5",
       "input_state": null,
-      "expected": 8,
+      "expected": 9,
       "criticality": "HIGH",
       "ground_truth_status": "VERIFIED",
       "params": {}
     },
     {
-      "test_id": "T047",
+      "test_id": "T052",
       "category": "question_type",
       "check": "question_type",
       "source_reference": {
         "section": "questionnaire",
         "block_order": 10,
-        "row_index": 7
+        "row_index": 8
       },
       "source_text": "single",
       "target": "Q5",
@@ -849,13 +934,13 @@
       "params": {}
     },
     {
-      "test_id": "T048",
+      "test_id": "T053",
       "category": "options",
       "check": "option_labels",
       "source_reference": {
         "section": "questionnaire",
         "block_order": 10,
-        "row_index": 7
+        "row_index": 8
       },
       "source_text": "Very poor; Poor; Fair; Good; Excellent",
       "target": "Q5",
@@ -872,13 +957,13 @@
       "params": {}
     },
     {
-      "test_id": "T049",
+      "test_id": "T054",
       "category": "options",
       "check": "option_codes",
       "source_reference": {
         "section": "questionnaire",
         "block_order": 10,
-        "row_index": 7
+        "row_index": 8
       },
       "source_text": "1=Very poor; 2=Poor; 3=Fair; 4=Good; 5=Excellent",
       "target": "Q5",
@@ -895,13 +980,13 @@
       "params": {}
     },
     {
-      "test_id": "T050",
+      "test_id": "T055",
       "category": "display_logic",
       "check": "guard_absent",
       "source_reference": {
         "section": "questionnaire",
         "block_order": 10,
-        "row_index": 7
+        "row_index": 8
       },
       "source_text": "Always show",
       "target": "Q5",
@@ -912,13 +997,13 @@
       "params": {}
     },
     {
-      "test_id": "T051",
+      "test_id": "T056",
       "category": "validation_rules",
       "check": "mandatory",
       "source_reference": {
         "section": "questionnaire",
         "block_order": 10,
-        "row_index": 7
+        "row_index": 8
       },
       "source_text": "not marked optional",
       "target": "Q5",
@@ -929,13 +1014,13 @@
       "params": {}
     },
     {
-      "test_id": "T052",
+      "test_id": "T057",
       "category": "question_extraction",
       "check": "question_present",
       "source_reference": {
         "section": "questionnaire",
         "block_order": 10,
-        "row_index": 8
+        "row_index": 9
       },
       "source_text": "Rate the clarity of information provided.",
       "target": "Q6",
@@ -946,30 +1031,30 @@
       "params": {}
     },
     {
-      "test_id": "T053",
+      "test_id": "T058",
       "category": "question_extraction",
       "check": "question_seq",
       "source_reference": {
         "section": "questionnaire",
         "block_order": 10,
-        "row_index": 8
+        "row_index": 9
       },
-      "source_text": "row 8",
+      "source_text": "row 9",
       "target": "Q6",
       "input_state": null,
-      "expected": 9,
+      "expected": 10,
       "criticality": "HIGH",
       "ground_truth_status": "VERIFIED",
       "params": {}
     },
     {
-      "test_id": "T054",
+      "test_id": "T059",
       "category": "question_type",
       "check": "question_type",
       "source_reference": {
         "section": "questionnaire",
         "block_order": 10,
-        "row_index": 8
+        "row_index": 9
       },
       "source_text": "single",
       "target": "Q6",
@@ -980,13 +1065,13 @@
       "params": {}
     },
     {
-      "test_id": "T055",
+      "test_id": "T060",
       "category": "options",
       "check": "option_labels",
       "source_reference": {
         "section": "questionnaire",
         "block_order": 10,
-        "row_index": 8
+        "row_index": 9
       },
       "source_text": "Very poor; Poor; Fair; Good; Excellent",
       "target": "Q6",
@@ -1003,13 +1088,13 @@
       "params": {}
     },
     {
-      "test_id": "T056",
+      "test_id": "T061",
       "category": "options",
       "check": "option_codes",
       "source_reference": {
         "section": "questionnaire",
         "block_order": 10,
-        "row_index": 8
+        "row_index": 9
       },
       "source_text": "1=Very poor; 2=Poor; 3=Fair; 4=Good; 5=Excellent",
       "target": "Q6",
@@ -1026,13 +1111,13 @@
       "params": {}
     },
     {
-      "test_id": "T057",
+      "test_id": "T062",
       "category": "display_logic",
       "check": "guard_absent",
       "source_reference": {
         "section": "questionnaire",
         "block_order": 10,
-        "row_index": 8
+        "row_index": 9
       },
       "source_text": "Always show",
       "target": "Q6",
@@ -1043,13 +1128,13 @@
       "params": {}
     },
     {
-      "test_id": "T058",
+      "test_id": "T063",
       "category": "validation_rules",
       "check": "mandatory",
       "source_reference": {
         "section": "questionnaire",
         "block_order": 10,
-        "row_index": 8
+        "row_index": 9
       },
       "source_text": "not marked optional",
       "target": "Q6",
@@ -1060,13 +1145,13 @@
       "params": {}
     },
     {
-      "test_id": "T059",
+      "test_id": "T064",
       "category": "question_extraction",
       "check": "question_present",
       "source_reference": {
         "section": "questionnaire",
         "block_order": 10,
-        "row_index": 9
+        "row_index": 10
       },
       "source_text": "Did you experience any of the following problems?",
       "target": "Q7",
@@ -1077,30 +1162,30 @@
       "params": {}
     },
     {
-      "test_id": "T060",
+      "test_id": "T065",
       "category": "question_extraction",
       "check": "question_seq",
       "source_reference": {
         "section": "questionnaire",
         "block_order": 10,
-        "row_index": 9
+        "row_index": 10
       },
-      "source_text": "row 9",
+      "source_text": "row 10",
       "target": "Q7",
       "input_state": null,
-      "expected": 10,
+      "expected": 11,
       "criticality": "HIGH",
       "ground_truth_status": "VERIFIED",
       "params": {}
     },
     {
-      "test_id": "T061",
+      "test_id": "T066",
       "category": "question_type",
       "check": "question_type",
       "source_reference": {
         "section": "questionnaire",
         "block_order": 10,
-        "row_index": 9
+        "row_index": 10
       },
       "source_text": "multi",
       "target": "Q7",
@@ -1111,13 +1196,13 @@
       "params": {}
     },
     {
-      "test_id": "T062",
+      "test_id": "T067",
       "category": "options",
       "check": "option_labels",
       "source_reference": {
         "section": "questionnaire",
         "block_order": 10,
-        "row_index": 9
+        "row_index": 10
       },
       "source_text": "Dropped calls; Slow data; Unexpected charge; Coverage gap; Support delay; None of these",
       "target": "Q7",
@@ -1135,13 +1220,13 @@
       "params": {}
     },
     {
-      "test_id": "T063",
+      "test_id": "T068",
       "category": "validation_rules",
       "check": "exclusive_option",
       "source_reference": {
         "section": "questionnaire",
         "block_order": 10,
-        "row_index": 9
+        "row_index": 10
       },
       "source_text": "exclusive_option: None of these",
       "target": "Q7",
@@ -1152,13 +1237,13 @@
       "params": {}
     },
     {
-      "test_id": "T064",
+      "test_id": "T069",
       "category": "validation_rules",
       "check": "mandatory",
       "source_reference": {
         "section": "questionnaire",
         "block_order": 10,
-        "row_index": 9
+        "row_index": 10
       },
       "source_text": "not marked optional",
       "target": "Q7",
@@ -1169,13 +1254,13 @@
       "params": {}
     },
     {
-      "test_id": "T065",
+      "test_id": "T070",
       "category": "randomization",
       "check": "randomization_present",
       "source_reference": {
         "section": "questionnaire",
         "block_order": 10,
-        "row_index": 9
+        "row_index": 10
       },
       "source_text": "Randomize",
       "target": "Q7",
@@ -1186,13 +1271,13 @@
       "params": {}
     },
     {
-      "test_id": "T066",
+      "test_id": "T071",
       "category": "randomization",
       "check": "randomization_anchoring",
       "source_reference": {
         "section": "questionnaire",
         "block_order": 10,
-        "row_index": 9
+        "row_index": 10
       },
       "source_text": "Randomize",
       "target": "Q7",
@@ -1203,13 +1288,13 @@
       "params": {}
     },
     {
-      "test_id": "T067",
+      "test_id": "T072",
       "category": "question_extraction",
       "check": "question_present",
       "source_reference": {
         "section": "questionnaire",
         "block_order": 10,
-        "row_index": 10
+        "row_index": 11
       },
       "source_text": "Which problem had the greatest impact?",
       "target": "Q8",
@@ -1220,30 +1305,30 @@
       "params": {}
     },
     {
-      "test_id": "T068",
+      "test_id": "T073",
       "category": "question_extraction",
       "check": "question_seq",
       "source_reference": {
         "section": "questionnaire",
         "block_order": 10,
-        "row_index": 10
+        "row_index": 11
       },
-      "source_text": "row 10",
+      "source_text": "row 11",
       "target": "Q8",
       "input_state": null,
-      "expected": 11,
+      "expected": 12,
       "criticality": "HIGH",
       "ground_truth_status": "VERIFIED",
       "params": {}
     },
     {
-      "test_id": "T069",
+      "test_id": "T074",
       "category": "question_type",
       "check": "question_type",
       "source_reference": {
         "section": "questionnaire",
         "block_order": 10,
-        "row_index": 10
+        "row_index": 11
       },
       "source_text": "single",
       "target": "Q8",
@@ -1254,13 +1339,13 @@
       "params": {}
     },
     {
-      "test_id": "T070",
+      "test_id": "T075",
       "category": "options",
       "check": "option_labels",
       "source_reference": {
         "section": "questionnaire",
         "block_order": 10,
-        "row_index": 10
+        "row_index": 11
       },
       "source_text": "Dropped calls; Slow data; Unexpected charge; Coverage gap; Support delay",
       "target": "Q8",
@@ -1277,13 +1362,13 @@
       "params": {}
     },
     {
-      "test_id": "T071",
+      "test_id": "T076",
       "category": "display_logic",
       "check": "guard_present",
       "source_reference": {
         "section": "questionnaire",
         "block_order": 10,
-        "row_index": 10
+        "row_index": 11
       },
       "source_text": "Q7 contains any problem",
       "target": "Q8",
@@ -1294,13 +1379,13 @@
       "params": {}
     },
     {
-      "test_id": "T072",
+      "test_id": "T077",
       "category": "display_logic",
       "check": "guard_reading_unverifiable",
       "source_reference": {
         "section": "questionnaire",
         "block_order": 10,
-        "row_index": 10
+        "row_index": 11
       },
       "source_text": "Q7 contains any problem",
       "target": "Q8",
@@ -1311,13 +1396,13 @@
       "params": {}
     },
     {
-      "test_id": "T073",
+      "test_id": "T078",
       "category": "validation_rules",
       "check": "mandatory",
       "source_reference": {
         "section": "questionnaire",
         "block_order": 10,
-        "row_index": 10
+        "row_index": 11
       },
       "source_text": "not marked optional",
       "target": "Q8",
@@ -1328,13 +1413,13 @@
       "params": {}
     },
     {
-      "test_id": "T074",
+      "test_id": "T079",
       "category": "dependencies_piping",
       "check": "option_source",
       "source_reference": {
         "section": "questionnaire",
         "block_order": 10,
-        "row_index": 10
+        "row_index": 11
       },
       "source_text": "Show only options selected at Q7.",
       "target": "Q8",
@@ -1345,13 +1430,13 @@
       "params": {}
     },
     {
-      "test_id": "T075",
+      "test_id": "T080",
       "category": "question_extraction",
       "check": "question_present",
       "source_reference": {
         "section": "questionnaire",
         "block_order": 10,
-        "row_index": 11
+        "row_index": 12
       },
       "source_text": "Was the main problem resolved?",
       "target": "Q9",
@@ -1362,30 +1447,30 @@
       "params": {}
     },
     {
-      "test_id": "T076",
+      "test_id": "T081",
       "category": "question_extraction",
       "check": "question_seq",
       "source_reference": {
         "section": "questionnaire",
         "block_order": 10,
-        "row_index": 11
+        "row_index": 12
       },
-      "source_text": "row 11",
+      "source_text": "row 12",
       "target": "Q9",
       "input_state": null,
-      "expected": 12,
+      "expected": 13,
       "criticality": "HIGH",
       "ground_truth_status": "VERIFIED",
       "params": {}
     },
     {
-      "test_id": "T077",
+      "test_id": "T082",
       "category": "question_type",
       "check": "question_type",
       "source_reference": {
         "section": "questionnaire",
         "block_order": 10,
-        "row_index": 11
+        "row_index": 12
       },
       "source_text": "single",
       "target": "Q9",
@@ -1396,13 +1481,13 @@
       "params": {}
     },
     {
-      "test_id": "T078",
+      "test_id": "T083",
       "category": "options",
       "check": "option_labels",
       "source_reference": {
         "section": "questionnaire",
         "block_order": 10,
-        "row_index": 11
+        "row_index": 12
       },
       "source_text": "Yes, fully; Yes, partly; No",
       "target": "Q9",
@@ -1417,13 +1502,13 @@
       "params": {}
     },
     {
-      "test_id": "T079",
+      "test_id": "T084",
       "category": "display_logic",
       "check": "guard_present",
       "source_reference": {
         "section": "questionnaire",
         "block_order": 10,
-        "row_index": 11
+        "row_index": 12
       },
       "source_text": "Q7 contains any problem",
       "target": "Q9",
@@ -1434,13 +1519,13 @@
       "params": {}
     },
     {
-      "test_id": "T080",
+      "test_id": "T085",
       "category": "display_logic",
       "check": "guard_reading_unverifiable",
       "source_reference": {
         "section": "questionnaire",
         "block_order": 10,
-        "row_index": 11
+        "row_index": 12
       },
       "source_text": "Q7 contains any problem",
       "target": "Q9",
@@ -1451,13 +1536,13 @@
       "params": {}
     },
     {
-      "test_id": "T081",
+      "test_id": "T086",
       "category": "validation_rules",
       "check": "mandatory",
       "source_reference": {
         "section": "questionnaire",
         "block_order": 10,
-        "row_index": 11
+        "row_index": 12
       },
       "source_text": "not marked optional",
       "target": "Q9",
@@ -1468,13 +1553,13 @@
       "params": {}
     },
     {
-      "test_id": "T082",
+      "test_id": "T087",
       "category": "question_extraction",
       "check": "question_present",
       "source_reference": {
         "section": "questionnaire",
         "block_order": 10,
-        "row_index": 12
+        "row_index": 13
       },
       "source_text": "How satisfied were you with the resolution?",
       "target": "Q10",
@@ -1485,30 +1570,30 @@
       "params": {}
     },
     {
-      "test_id": "T083",
+      "test_id": "T088",
       "category": "question_extraction",
       "check": "question_seq",
       "source_reference": {
         "section": "questionnaire",
         "block_order": 10,
-        "row_index": 12
+        "row_index": 13
       },
-      "source_text": "row 12",
+      "source_text": "row 13",
       "target": "Q10",
       "input_state": null,
-      "expected": 13,
+      "expected": 14,
       "criticality": "HIGH",
       "ground_truth_status": "VERIFIED",
       "params": {}
     },
     {
-      "test_id": "T084",
+      "test_id": "T089",
       "category": "question_type",
       "check": "question_type",
       "source_reference": {
         "section": "questionnaire",
         "block_order": 10,
-        "row_index": 12
+        "row_index": 13
       },
       "source_text": "single",
       "target": "Q10",
@@ -1519,13 +1604,13 @@
       "params": {}
     },
     {
-      "test_id": "T085",
+      "test_id": "T090",
       "category": "options",
       "check": "option_labels",
       "source_reference": {
         "section": "questionnaire",
         "block_order": 10,
-        "row_index": 12
+        "row_index": 13
       },
       "source_text": "Very poor; Poor; Fair; Good; Excellent",
       "target": "Q10",
@@ -1542,13 +1627,13 @@
       "params": {}
     },
     {
-      "test_id": "T086",
+      "test_id": "T091",
       "category": "options",
       "check": "option_codes",
       "source_reference": {
         "section": "questionnaire",
         "block_order": 10,
-        "row_index": 12
+        "row_index": 13
       },
       "source_text": "1=Very poor; 2=Poor; 3=Fair; 4=Good; 5=Excellent",
       "target": "Q10",
@@ -1565,13 +1650,13 @@
       "params": {}
     },
     {
-      "test_id": "T087",
+      "test_id": "T092",
       "category": "display_logic",
       "check": "guard_present",
       "source_reference": {
         "section": "questionnaire",
         "block_order": 10,
-        "row_index": 12
+        "row_index": 13
       },
       "source_text": "Q9 in ['Yes, fully','Yes, partly']",
       "target": "Q10",
@@ -1582,13 +1667,13 @@
       "params": {}
     },
     {
-      "test_id": "T088",
+      "test_id": "T093",
       "category": "display_logic",
       "check": "condition_eval",
       "source_reference": {
         "section": "questionnaire",
         "block_order": 10,
-        "row_index": 12
+        "row_index": 13
       },
       "source_text": "Q9 in ['Yes, fully','Yes, partly']",
       "target": "Q10",
@@ -1603,13 +1688,13 @@
       }
     },
     {
-      "test_id": "T089",
+      "test_id": "T094",
       "category": "display_logic",
       "check": "condition_eval",
       "source_reference": {
         "section": "questionnaire",
         "block_order": 10,
-        "row_index": 12
+        "row_index": 13
       },
       "source_text": "Q9 in ['Yes, fully','Yes, partly']",
       "target": "Q10",
@@ -1624,13 +1709,13 @@
       }
     },
     {
-      "test_id": "T090",
+      "test_id": "T095",
       "category": "validation_rules",
       "check": "mandatory",
       "source_reference": {
         "section": "questionnaire",
         "block_order": 10,
-        "row_index": 12
+        "row_index": 13
       },
       "source_text": "not marked optional",
       "target": "Q10",
@@ -1641,13 +1726,13 @@
       "params": {}
     },
     {
-      "test_id": "T091",
+      "test_id": "T096",
       "category": "question_extraction",
       "check": "question_present",
       "source_reference": {
         "section": "questionnaire",
         "block_order": 10,
-        "row_index": 13
+        "row_index": 14
       },
       "source_text": "How likely are you to recommend the provider?",
       "target": "Q11",
@@ -1658,30 +1743,30 @@
       "params": {}
     },
     {
-      "test_id": "T092",
+      "test_id": "T097",
       "category": "question_extraction",
       "check": "question_seq",
       "source_reference": {
         "section": "questionnaire",
         "block_order": 10,
-        "row_index": 13
+        "row_index": 14
       },
-      "source_text": "row 13",
+      "source_text": "row 14",
       "target": "Q11",
       "input_state": null,
-      "expected": 14,
+      "expected": 15,
       "criticality": "HIGH",
       "ground_truth_status": "VERIFIED",
       "params": {}
     },
     {
-      "test_id": "T093",
+      "test_id": "T098",
       "category": "question_type",
       "check": "question_type",
       "source_reference": {
         "section": "questionnaire",
         "block_order": 10,
-        "row_index": 13
+        "row_index": 14
       },
       "source_text": "single",
       "target": "Q11",
@@ -1692,13 +1777,13 @@
       "params": {}
     },
     {
-      "test_id": "T094",
+      "test_id": "T099",
       "category": "options",
       "check": "option_labels",
       "source_reference": {
         "section": "questionnaire",
         "block_order": 10,
-        "row_index": 13
+        "row_index": 14
       },
       "source_text": "0; 1; 2; 3; 4; 5; 6; 7; 8; 9; 10",
       "target": "Q11",
@@ -1721,13 +1806,13 @@
       "params": {}
     },
     {
-      "test_id": "T095",
+      "test_id": "T100",
       "category": "display_logic",
       "check": "guard_absent",
       "source_reference": {
         "section": "questionnaire",
         "block_order": 10,
-        "row_index": 13
+        "row_index": 14
       },
       "source_text": "Always show",
       "target": "Q11",
@@ -1738,13 +1823,13 @@
       "params": {}
     },
     {
-      "test_id": "T096",
+      "test_id": "T101",
       "category": "validation_rules",
       "check": "mandatory",
       "source_reference": {
         "section": "questionnaire",
         "block_order": 10,
-        "row_index": 13
+        "row_index": 14
       },
       "source_text": "not marked optional",
       "target": "Q11",
@@ -1755,13 +1840,13 @@
       "params": {}
     },
     {
-      "test_id": "T097",
+      "test_id": "T102",
       "category": "question_extraction",
       "check": "question_present",
       "source_reference": {
         "section": "questionnaire",
         "block_order": 10,
-        "row_index": 14
+        "row_index": 15
       },
       "source_text": "How likely are you to continue using the provider?",
       "target": "Q12",
@@ -1772,30 +1857,30 @@
       "params": {}
     },
     {
-      "test_id": "T098",
+      "test_id": "T103",
       "category": "question_extraction",
       "check": "question_seq",
       "source_reference": {
         "section": "questionnaire",
         "block_order": 10,
-        "row_index": 14
+        "row_index": 15
       },
-      "source_text": "row 14",
+      "source_text": "row 15",
       "target": "Q12",
       "input_state": null,
-      "expected": 15,
+      "expected": 16,
       "criticality": "HIGH",
       "ground_truth_status": "VERIFIED",
       "params": {}
     },
     {
-      "test_id": "T099",
+      "test_id": "T104",
       "category": "question_type",
       "check": "question_type",
       "source_reference": {
         "section": "questionnaire",
         "block_order": 10,
-        "row_index": 14
+        "row_index": 15
       },
       "source_text": "single",
       "target": "Q12",
@@ -1806,13 +1891,13 @@
       "params": {}
     },
     {
-      "test_id": "T100",
+      "test_id": "T105",
       "category": "options",
       "check": "option_labels",
       "source_reference": {
         "section": "questionnaire",
         "block_order": 10,
-        "row_index": 14
+        "row_index": 15
       },
       "source_text": "Definitely not; Probably not; Unsure; Probably; Definitely",
       "target": "Q12",
@@ -1829,13 +1914,13 @@
       "params": {}
     },
     {
-      "test_id": "T101",
+      "test_id": "T106",
       "category": "display_logic",
       "check": "guard_absent",
       "source_reference": {
         "section": "questionnaire",
         "block_order": 10,
-        "row_index": 14
+        "row_index": 15
       },
       "source_text": "Always show",
       "target": "Q12",
@@ -1846,13 +1931,13 @@
       "params": {}
     },
     {
-      "test_id": "T102",
+      "test_id": "T107",
       "category": "validation_rules",
       "check": "mandatory",
       "source_reference": {
         "section": "questionnaire",
         "block_order": 10,
-        "row_index": 14
+        "row_index": 15
       },
       "source_text": "not marked optional",
       "target": "Q12",
@@ -1863,13 +1948,13 @@
       "params": {}
     },
     {
-      "test_id": "T103",
+      "test_id": "T108",
       "category": "question_extraction",
       "check": "question_present",
       "source_reference": {
         "section": "questionnaire",
         "block_order": 10,
-        "row_index": 15
+        "row_index": 16
       },
       "source_text": "Which improvement would have the greatest value?",
       "target": "Q13",
@@ -1880,30 +1965,30 @@
       "params": {}
     },
     {
-      "test_id": "T104",
+      "test_id": "T109",
       "category": "question_extraction",
       "check": "question_seq",
       "source_reference": {
         "section": "questionnaire",
         "block_order": 10,
-        "row_index": 15
+        "row_index": 16
       },
-      "source_text": "row 15",
+      "source_text": "row 16",
       "target": "Q13",
       "input_state": null,
-      "expected": 16,
+      "expected": 17,
       "criticality": "HIGH",
       "ground_truth_status": "VERIFIED",
       "params": {}
     },
     {
-      "test_id": "T105",
+      "test_id": "T110",
       "category": "question_type",
       "check": "question_type",
       "source_reference": {
         "section": "questionnaire",
         "block_order": 10,
-        "row_index": 15
+        "row_index": 16
       },
       "source_text": "single",
       "target": "Q13",
@@ -1914,13 +1999,13 @@
       "params": {}
     },
     {
-      "test_id": "T106",
+      "test_id": "T111",
       "category": "options",
       "check": "option_labels",
       "source_reference": {
         "section": "questionnaire",
         "block_order": 10,
-        "row_index": 15
+        "row_index": 16
       },
       "source_text": "Lower cost; Faster service; Clearer information; Better staff support; Improved digital experience",
       "target": "Q13",
@@ -1937,13 +2022,13 @@
       "params": {}
     },
     {
-      "test_id": "T107",
+      "test_id": "T112",
       "category": "validation_rules",
       "check": "mandatory",
       "source_reference": {
         "section": "questionnaire",
         "block_order": 10,
-        "row_index": 15
+        "row_index": 16
       },
       "source_text": "not marked optional",
       "target": "Q13",
@@ -1954,13 +2039,13 @@
       "params": {}
     },
     {
-      "test_id": "T108",
+      "test_id": "T113",
       "category": "randomization",
       "check": "randomization_present",
       "source_reference": {
         "section": "questionnaire",
         "block_order": 10,
-        "row_index": 15
+        "row_index": 16
       },
       "source_text": "Randomize",
       "target": "Q13",
@@ -1971,13 +2056,13 @@
       "params": {}
     },
     {
-      "test_id": "T109",
+      "test_id": "T114",
       "category": "randomization",
       "check": "randomization_anchoring",
       "source_reference": {
         "section": "questionnaire",
         "block_order": 10,
-        "row_index": 15
+        "row_index": 16
       },
       "source_text": "Randomize",
       "target": "Q13",
@@ -1988,13 +2073,98 @@
       "params": {}
     },
     {
-      "test_id": "T110",
+      "test_id": "T115",
       "category": "question_extraction",
       "check": "question_present",
       "source_reference": {
         "section": "questionnaire",
         "block_order": 10,
-        "row_index": 16
+        "row_index": 17
+      },
+      "source_text": "You're almost done! Thank you for your answers. Just a few last questions about you to finish up.",
+      "target": "DT2",
+      "input_state": null,
+      "expected": "DT2",
+      "criticality": "HIGH",
+      "ground_truth_status": "VERIFIED",
+      "params": {}
+    },
+    {
+      "test_id": "T116",
+      "category": "question_extraction",
+      "check": "question_seq",
+      "source_reference": {
+        "section": "questionnaire",
+        "block_order": 10,
+        "row_index": 17
+      },
+      "source_text": "row 17",
+      "target": "DT2",
+      "input_state": null,
+      "expected": 18,
+      "criticality": "HIGH",
+      "ground_truth_status": "VERIFIED",
+      "params": {}
+    },
+    {
+      "test_id": "T117",
+      "category": "question_type",
+      "check": "question_type",
+      "source_reference": {
+        "section": "questionnaire",
+        "block_order": 10,
+        "row_index": 17
+      },
+      "source_text": "text display",
+      "target": "DT2",
+      "input_state": null,
+      "expected": "text display",
+      "criticality": "HIGH",
+      "ground_truth_status": "VERIFIED",
+      "params": {}
+    },
+    {
+      "test_id": "T118",
+      "category": "display_logic",
+      "check": "guard_absent",
+      "source_reference": {
+        "section": "questionnaire",
+        "block_order": 10,
+        "row_index": 17
+      },
+      "source_text": "Always show",
+      "target": "DT2",
+      "input_state": null,
+      "expected": null,
+      "criticality": "CRITICAL",
+      "ground_truth_status": "VERIFIED",
+      "params": {}
+    },
+    {
+      "test_id": "T119",
+      "category": "validation_rules",
+      "check": "mandatory",
+      "source_reference": {
+        "section": "questionnaire",
+        "block_order": 10,
+        "row_index": 17
+      },
+      "source_text": "text display, nothing to answer",
+      "target": "DT2",
+      "input_state": null,
+      "expected": false,
+      "criticality": "CRITICAL",
+      "ground_truth_status": "VERIFIED",
+      "params": {}
+    },
+    {
+      "test_id": "T120",
+      "category": "question_extraction",
+      "check": "question_present",
+      "source_reference": {
+        "section": "questionnaire",
+        "block_order": 10,
+        "row_index": 18
       },
       "source_text": "Which region do you live in?",
       "target": "D1",
@@ -2005,30 +2175,30 @@
       "params": {}
     },
     {
-      "test_id": "T111",
+      "test_id": "T121",
       "category": "question_extraction",
       "check": "question_seq",
       "source_reference": {
         "section": "questionnaire",
         "block_order": 10,
-        "row_index": 16
+        "row_index": 18
       },
-      "source_text": "row 16",
+      "source_text": "row 18",
       "target": "D1",
       "input_state": null,
-      "expected": 17,
+      "expected": 19,
       "criticality": "HIGH",
       "ground_truth_status": "VERIFIED",
       "params": {}
     },
     {
-      "test_id": "T112",
+      "test_id": "T122",
       "category": "question_type",
       "check": "question_type",
       "source_reference": {
         "section": "questionnaire",
         "block_order": 10,
-        "row_index": 16
+        "row_index": 18
       },
       "source_text": "single",
       "target": "D1",
@@ -2039,13 +2209,13 @@
       "params": {}
     },
     {
-      "test_id": "T113",
+      "test_id": "T123",
       "category": "options",
       "check": "option_labels",
       "source_reference": {
         "section": "questionnaire",
         "block_order": 10,
-        "row_index": 16
+        "row_index": 18
       },
       "source_text": "North; South; East; West; Central",
       "target": "D1",
@@ -2062,13 +2232,13 @@
       "params": {}
     },
     {
-      "test_id": "T114",
+      "test_id": "T124",
       "category": "display_logic",
       "check": "guard_absent",
       "source_reference": {
         "section": "questionnaire",
         "block_order": 10,
-        "row_index": 16
+        "row_index": 18
       },
       "source_text": "Always show",
       "target": "D1",
@@ -2079,13 +2249,13 @@
       "params": {}
     },
     {
-      "test_id": "T115",
+      "test_id": "T125",
       "category": "validation_rules",
       "check": "mandatory",
       "source_reference": {
         "section": "questionnaire",
         "block_order": 10,
-        "row_index": 16
+        "row_index": 18
       },
       "source_text": "not marked optional",
       "target": "D1",
@@ -2096,13 +2266,13 @@
       "params": {}
     },
     {
-      "test_id": "T116",
+      "test_id": "T126",
       "category": "question_extraction",
       "check": "question_present",
       "source_reference": {
         "section": "questionnaire",
         "block_order": 10,
-        "row_index": 17
+        "row_index": 19
       },
       "source_text": "Which age group describes you?",
       "target": "D2",
@@ -2113,30 +2283,30 @@
       "params": {}
     },
     {
-      "test_id": "T117",
+      "test_id": "T127",
       "category": "question_extraction",
       "check": "question_seq",
       "source_reference": {
         "section": "questionnaire",
         "block_order": 10,
-        "row_index": 17
+        "row_index": 19
       },
-      "source_text": "row 17",
+      "source_text": "row 19",
       "target": "D2",
       "input_state": null,
-      "expected": 18,
+      "expected": 20,
       "criticality": "HIGH",
       "ground_truth_status": "VERIFIED",
       "params": {}
     },
     {
-      "test_id": "T118",
+      "test_id": "T128",
       "category": "question_type",
       "check": "question_type",
       "source_reference": {
         "section": "questionnaire",
         "block_order": 10,
-        "row_index": 17
+        "row_index": 19
       },
       "source_text": "single",
       "target": "D2",
@@ -2147,13 +2317,13 @@
       "params": {}
     },
     {
-      "test_id": "T119",
+      "test_id": "T129",
       "category": "options",
       "check": "option_labels",
       "source_reference": {
         "section": "questionnaire",
         "block_order": 10,
-        "row_index": 17
+        "row_index": 19
       },
       "source_text": "18-24; 25-34; 35-44; 45-54; 55+",
       "target": "D2",
@@ -2170,13 +2340,13 @@
       "params": {}
     },
     {
-      "test_id": "T120",
+      "test_id": "T130",
       "category": "display_logic",
       "check": "guard_absent",
       "source_reference": {
         "section": "questionnaire",
         "block_order": 10,
-        "row_index": 17
+        "row_index": 19
       },
       "source_text": "Always show",
       "target": "D2",
@@ -2187,13 +2357,13 @@
       "params": {}
     },
     {
-      "test_id": "T121",
+      "test_id": "T131",
       "category": "validation_rules",
       "check": "mandatory",
       "source_reference": {
         "section": "questionnaire",
         "block_order": 10,
-        "row_index": 17
+        "row_index": 19
       },
       "source_text": "not marked optional",
       "target": "D2",
@@ -2204,13 +2374,13 @@
       "params": {}
     },
     {
-      "test_id": "T122",
+      "test_id": "T132",
       "category": "question_extraction",
       "check": "question_present",
       "source_reference": {
         "section": "questionnaire",
         "block_order": 10,
-        "row_index": 18
+        "row_index": 20
       },
       "source_text": "Please provide any final comments.",
       "target": "Q14",
@@ -2221,30 +2391,30 @@
       "params": {}
     },
     {
-      "test_id": "T123",
+      "test_id": "T133",
       "category": "question_extraction",
       "check": "question_seq",
       "source_reference": {
         "section": "questionnaire",
         "block_order": 10,
-        "row_index": 18
+        "row_index": 20
       },
-      "source_text": "row 18",
+      "source_text": "row 20",
       "target": "Q14",
       "input_state": null,
-      "expected": 19,
+      "expected": 21,
       "criticality": "HIGH",
       "ground_truth_status": "VERIFIED",
       "params": {}
     },
     {
-      "test_id": "T124",
+      "test_id": "T134",
       "category": "question_type",
       "check": "question_type",
       "source_reference": {
         "section": "questionnaire",
         "block_order": 10,
-        "row_index": 18
+        "row_index": 20
       },
       "source_text": "text",
       "target": "Q14",
@@ -2255,13 +2425,13 @@
       "params": {}
     },
     {
-      "test_id": "T125",
+      "test_id": "T135",
       "category": "validation_rules",
       "check": "validation_field",
       "source_reference": {
         "section": "questionnaire",
         "block_order": 10,
-        "row_index": 18
+        "row_index": 20
       },
       "source_text": "max_length: 750",
       "target": "Q14",
@@ -2274,13 +2444,13 @@
       }
     },
     {
-      "test_id": "T126",
+      "test_id": "T136",
       "category": "validation_rules",
       "check": "mandatory",
       "source_reference": {
         "section": "questionnaire",
         "block_order": 10,
-        "row_index": 18
+        "row_index": 20
       },
       "source_text": "Optional",
       "target": "Q14",
@@ -2291,20 +2461,20 @@
       "params": {}
     },
     {
-      "test_id": "T127",
+      "test_id": "T137",
       "category": "question_extraction",
       "check": "question_count",
       "source_reference": {},
       "source_text": "questionnaire table",
       "target": "survey",
       "input_state": null,
-      "expected": 19,
+      "expected": 21,
       "criticality": "HIGH",
       "ground_truth_status": "VERIFIED",
       "params": {}
     },
     {
-      "test_id": "T128",
+      "test_id": "T138",
       "category": "termination_logic",
       "check": "rule_present",
       "source_reference": {
@@ -2321,7 +2491,7 @@
       "params": {}
     },
     {
-      "test_id": "T129",
+      "test_id": "T139",
       "category": "termination_logic",
       "check": "rule_action",
       "source_reference": {
@@ -2338,7 +2508,7 @@
       "params": {}
     },
     {
-      "test_id": "T130",
+      "test_id": "T140",
       "category": "termination_logic",
       "check": "rule_destination",
       "source_reference": {
@@ -2355,7 +2525,7 @@
       "params": {}
     },
     {
-      "test_id": "T131",
+      "test_id": "T141",
       "category": "termination_logic",
       "check": "rule_condition_text",
       "source_reference": {
@@ -2372,7 +2542,7 @@
       "params": {}
     },
     {
-      "test_id": "T132",
+      "test_id": "T142",
       "category": "termination_logic",
       "check": "termination_defined",
       "source_reference": {
@@ -2391,7 +2561,7 @@
       }
     },
     {
-      "test_id": "T133",
+      "test_id": "T143",
       "category": "termination_logic",
       "check": "condition_eval",
       "source_reference": {
@@ -2412,7 +2582,7 @@
       }
     },
     {
-      "test_id": "T134",
+      "test_id": "T144",
       "category": "termination_logic",
       "check": "condition_eval",
       "source_reference": {
@@ -2433,7 +2603,7 @@
       }
     },
     {
-      "test_id": "T135",
+      "test_id": "T145",
       "category": "termination_logic",
       "check": "rule_provenance",
       "source_reference": {
@@ -2450,7 +2620,7 @@
       "params": {}
     },
     {
-      "test_id": "T136",
+      "test_id": "T146",
       "category": "termination_logic",
       "check": "rule_evaluation_point",
       "source_reference": {
@@ -2467,7 +2637,7 @@
       "params": {}
     },
     {
-      "test_id": "T137",
+      "test_id": "T147",
       "category": "termination_logic",
       "check": "rule_present",
       "source_reference": {
@@ -2484,7 +2654,7 @@
       "params": {}
     },
     {
-      "test_id": "T138",
+      "test_id": "T148",
       "category": "termination_logic",
       "check": "rule_action",
       "source_reference": {
@@ -2501,7 +2671,7 @@
       "params": {}
     },
     {
-      "test_id": "T139",
+      "test_id": "T149",
       "category": "termination_logic",
       "check": "rule_destination",
       "source_reference": {
@@ -2518,7 +2688,7 @@
       "params": {}
     },
     {
-      "test_id": "T140",
+      "test_id": "T150",
       "category": "termination_logic",
       "check": "rule_condition_text",
       "source_reference": {
@@ -2535,7 +2705,7 @@
       "params": {}
     },
     {
-      "test_id": "T141",
+      "test_id": "T151",
       "category": "termination_logic",
       "check": "termination_defined",
       "source_reference": {
@@ -2554,7 +2724,7 @@
       }
     },
     {
-      "test_id": "T142",
+      "test_id": "T152",
       "category": "termination_logic",
       "check": "condition_eval",
       "source_reference": {
@@ -2575,7 +2745,7 @@
       }
     },
     {
-      "test_id": "T143",
+      "test_id": "T153",
       "category": "termination_logic",
       "check": "condition_eval",
       "source_reference": {
@@ -2596,7 +2766,7 @@
       }
     },
     {
-      "test_id": "T144",
+      "test_id": "T154",
       "category": "termination_logic",
       "check": "rule_provenance",
       "source_reference": {
@@ -2613,7 +2783,7 @@
       "params": {}
     },
     {
-      "test_id": "T145",
+      "test_id": "T155",
       "category": "termination_logic",
       "check": "rule_evaluation_point",
       "source_reference": {
@@ -2630,7 +2800,7 @@
       "params": {}
     },
     {
-      "test_id": "T146",
+      "test_id": "T156",
       "category": "routing_logic",
       "check": "rule_present",
       "source_reference": {
@@ -2647,7 +2817,7 @@
       "params": {}
     },
     {
-      "test_id": "T147",
+      "test_id": "T157",
       "category": "routing_logic",
       "check": "rule_action",
       "source_reference": {
@@ -2664,7 +2834,7 @@
       "params": {}
     },
     {
-      "test_id": "T148",
+      "test_id": "T158",
       "category": "routing_logic",
       "check": "rule_destination",
       "source_reference": {
@@ -2681,7 +2851,7 @@
       "params": {}
     },
     {
-      "test_id": "T149",
+      "test_id": "T159",
       "category": "routing_logic",
       "check": "rule_condition_text",
       "source_reference": {
@@ -2698,7 +2868,7 @@
       "params": {}
     },
     {
-      "test_id": "T150",
+      "test_id": "T160",
       "category": "routing_logic",
       "check": "rule_reading_unverifiable",
       "source_reference": {
@@ -2715,7 +2885,7 @@
       "params": {}
     },
     {
-      "test_id": "T151",
+      "test_id": "T161",
       "category": "routing_logic",
       "check": "rule_provenance",
       "source_reference": {
@@ -2732,7 +2902,7 @@
       "params": {}
     },
     {
-      "test_id": "T152",
+      "test_id": "T162",
       "category": "routing_logic",
       "check": "rule_evaluation_point",
       "source_reference": {
@@ -2749,7 +2919,7 @@
       "params": {}
     },
     {
-      "test_id": "T153",
+      "test_id": "T163",
       "category": "routing_logic",
       "check": "rule_present",
       "source_reference": {
@@ -2766,7 +2936,7 @@
       "params": {}
     },
     {
-      "test_id": "T154",
+      "test_id": "T164",
       "category": "routing_logic",
       "check": "rule_action",
       "source_reference": {
@@ -2783,7 +2953,7 @@
       "params": {}
     },
     {
-      "test_id": "T155",
+      "test_id": "T165",
       "category": "routing_logic",
       "check": "rule_destination",
       "source_reference": {
@@ -2800,7 +2970,7 @@
       "params": {}
     },
     {
-      "test_id": "T156",
+      "test_id": "T166",
       "category": "routing_logic",
       "check": "rule_condition_text",
       "source_reference": {
@@ -2817,7 +2987,7 @@
       "params": {}
     },
     {
-      "test_id": "T157",
+      "test_id": "T167",
       "category": "routing_logic",
       "check": "rule_reading_unverifiable",
       "source_reference": {
@@ -2834,7 +3004,7 @@
       "params": {}
     },
     {
-      "test_id": "T158",
+      "test_id": "T168",
       "category": "routing_logic",
       "check": "rule_provenance",
       "source_reference": {
@@ -2851,7 +3021,7 @@
       "params": {}
     },
     {
-      "test_id": "T159",
+      "test_id": "T169",
       "category": "routing_logic",
       "check": "rule_evaluation_point",
       "source_reference": {
@@ -2868,7 +3038,7 @@
       "params": {}
     },
     {
-      "test_id": "T160",
+      "test_id": "T170",
       "category": "routing_logic",
       "check": "rule_present",
       "source_reference": {
@@ -2885,7 +3055,7 @@
       "params": {}
     },
     {
-      "test_id": "T161",
+      "test_id": "T171",
       "category": "routing_logic",
       "check": "rule_action",
       "source_reference": {
@@ -2902,7 +3072,7 @@
       "params": {}
     },
     {
-      "test_id": "T162",
+      "test_id": "T172",
       "category": "routing_logic",
       "check": "rule_destination",
       "source_reference": {
@@ -2919,7 +3089,7 @@
       "params": {}
     },
     {
-      "test_id": "T163",
+      "test_id": "T173",
       "category": "routing_logic",
       "check": "rule_condition_text",
       "source_reference": {
@@ -2936,7 +3106,7 @@
       "params": {}
     },
     {
-      "test_id": "T164",
+      "test_id": "T174",
       "category": "routing_logic",
       "check": "rule_reading_unverifiable",
       "source_reference": {
@@ -2953,7 +3123,7 @@
       "params": {}
     },
     {
-      "test_id": "T165",
+      "test_id": "T175",
       "category": "routing_logic",
       "check": "rule_provenance",
       "source_reference": {
@@ -2970,7 +3140,7 @@
       "params": {}
     },
     {
-      "test_id": "T166",
+      "test_id": "T176",
       "category": "routing_logic",
       "check": "rule_evaluation_point",
       "source_reference": {
@@ -2987,7 +3157,7 @@
       "params": {}
     },
     {
-      "test_id": "T167",
+      "test_id": "T177",
       "category": "skip_logic",
       "check": "rule_present",
       "source_reference": {
@@ -3004,7 +3174,7 @@
       "params": {}
     },
     {
-      "test_id": "T168",
+      "test_id": "T178",
       "category": "skip_logic",
       "check": "rule_action",
       "source_reference": {
@@ -3021,7 +3191,7 @@
       "params": {}
     },
     {
-      "test_id": "T169",
+      "test_id": "T179",
       "category": "skip_logic",
       "check": "rule_destination",
       "source_reference": {
@@ -3038,7 +3208,7 @@
       "params": {}
     },
     {
-      "test_id": "T170",
+      "test_id": "T180",
       "category": "skip_logic",
       "check": "rule_condition_text",
       "source_reference": {
@@ -3055,7 +3225,7 @@
       "params": {}
     },
     {
-      "test_id": "T171",
+      "test_id": "T181",
       "category": "skip_logic",
       "check": "condition_eval",
       "source_reference": {
@@ -3078,7 +3248,7 @@
       }
     },
     {
-      "test_id": "T172",
+      "test_id": "T182",
       "category": "skip_logic",
       "check": "condition_eval",
       "source_reference": {
@@ -3102,7 +3272,7 @@
       }
     },
     {
-      "test_id": "T173",
+      "test_id": "T183",
       "category": "skip_logic",
       "check": "rule_provenance",
       "source_reference": {
@@ -3119,7 +3289,7 @@
       "params": {}
     },
     {
-      "test_id": "T174",
+      "test_id": "T184",
       "category": "skip_logic",
       "check": "rule_evaluation_point",
       "source_reference": {
@@ -3136,7 +3306,7 @@
       "params": {}
     },
     {
-      "test_id": "T175",
+      "test_id": "T185",
       "category": "routing_logic",
       "check": "rule_present",
       "source_reference": {
@@ -3153,7 +3323,7 @@
       "params": {}
     },
     {
-      "test_id": "T176",
+      "test_id": "T186",
       "category": "routing_logic",
       "check": "rule_action",
       "source_reference": {
@@ -3170,7 +3340,7 @@
       "params": {}
     },
     {
-      "test_id": "T177",
+      "test_id": "T187",
       "category": "routing_logic",
       "check": "rule_destination",
       "source_reference": {
@@ -3187,7 +3357,7 @@
       "params": {}
     },
     {
-      "test_id": "T178",
+      "test_id": "T188",
       "category": "routing_logic",
       "check": "rule_condition_text",
       "source_reference": {
@@ -3204,7 +3374,7 @@
       "params": {}
     },
     {
-      "test_id": "T179",
+      "test_id": "T189",
       "category": "routing_logic",
       "check": "condition_eval",
       "source_reference": {
@@ -3225,7 +3395,7 @@
       }
     },
     {
-      "test_id": "T180",
+      "test_id": "T190",
       "category": "routing_logic",
       "check": "condition_eval",
       "source_reference": {
@@ -3246,7 +3416,7 @@
       }
     },
     {
-      "test_id": "T181",
+      "test_id": "T191",
       "category": "routing_logic",
       "check": "rule_provenance",
       "source_reference": {
@@ -3263,7 +3433,7 @@
       "params": {}
     },
     {
-      "test_id": "T182",
+      "test_id": "T192",
       "category": "routing_logic",
       "check": "rule_evaluation_point",
       "source_reference": {
@@ -3280,7 +3450,7 @@
       "params": {}
     },
     {
-      "test_id": "T183",
+      "test_id": "T193",
       "category": "skip_logic",
       "check": "rule_present",
       "source_reference": {
@@ -3297,7 +3467,7 @@
       "params": {}
     },
     {
-      "test_id": "T184",
+      "test_id": "T194",
       "category": "skip_logic",
       "check": "rule_action",
       "source_reference": {
@@ -3314,7 +3484,7 @@
       "params": {}
     },
     {
-      "test_id": "T185",
+      "test_id": "T195",
       "category": "skip_logic",
       "check": "rule_destination",
       "source_reference": {
@@ -3331,7 +3501,7 @@
       "params": {}
     },
     {
-      "test_id": "T186",
+      "test_id": "T196",
       "category": "skip_logic",
       "check": "rule_condition_text",
       "source_reference": {
@@ -3348,7 +3518,7 @@
       "params": {}
     },
     {
-      "test_id": "T187",
+      "test_id": "T197",
       "category": "skip_logic",
       "check": "condition_eval",
       "source_reference": {
@@ -3369,7 +3539,7 @@
       }
     },
     {
-      "test_id": "T188",
+      "test_id": "T198",
       "category": "skip_logic",
       "check": "condition_eval",
       "source_reference": {
@@ -3390,7 +3560,7 @@
       }
     },
     {
-      "test_id": "T189",
+      "test_id": "T199",
       "category": "skip_logic",
       "check": "rule_provenance",
       "source_reference": {
@@ -3407,7 +3577,7 @@
       "params": {}
     },
     {
-      "test_id": "T190",
+      "test_id": "T200",
       "category": "skip_logic",
       "check": "rule_evaluation_point",
       "source_reference": {
@@ -3424,7 +3594,7 @@
       "params": {}
     },
     {
-      "test_id": "T191",
+      "test_id": "T201",
       "category": "routing_logic",
       "check": "rule_present",
       "source_reference": {
@@ -3441,7 +3611,7 @@
       "params": {}
     },
     {
-      "test_id": "T192",
+      "test_id": "T202",
       "category": "routing_logic",
       "check": "rule_action",
       "source_reference": {
@@ -3458,7 +3628,7 @@
       "params": {}
     },
     {
-      "test_id": "T193",
+      "test_id": "T203",
       "category": "routing_logic",
       "check": "rule_destination",
       "source_reference": {
@@ -3475,7 +3645,7 @@
       "params": {}
     },
     {
-      "test_id": "T194",
+      "test_id": "T204",
       "category": "routing_logic",
       "check": "rule_condition_text",
       "source_reference": {
@@ -3492,7 +3662,7 @@
       "params": {}
     },
     {
-      "test_id": "T195",
+      "test_id": "T205",
       "category": "routing_logic",
       "check": "rule_reading_unverifiable",
       "source_reference": {
@@ -3509,7 +3679,7 @@
       "params": {}
     },
     {
-      "test_id": "T196",
+      "test_id": "T206",
       "category": "routing_logic",
       "check": "rule_provenance",
       "source_reference": {
@@ -3526,7 +3696,7 @@
       "params": {}
     },
     {
-      "test_id": "T197",
+      "test_id": "T207",
       "category": "routing_logic",
       "check": "rule_evaluation_point",
       "source_reference": {
@@ -3543,7 +3713,7 @@
       "params": {}
     },
     {
-      "test_id": "T198",
+      "test_id": "T208",
       "category": "routing_logic",
       "check": "rule_count",
       "source_reference": {},
@@ -3556,7 +3726,7 @@
       "params": {}
     },
     {
-      "test_id": "T199",
+      "test_id": "T209",
       "category": "dispositions_messages",
       "check": "disposition_message",
       "source_reference": {
@@ -3572,7 +3742,7 @@
       "params": {}
     },
     {
-      "test_id": "T200",
+      "test_id": "T210",
       "category": "dispositions_messages",
       "check": "disposition_message",
       "source_reference": {
@@ -3588,7 +3758,7 @@
       "params": {}
     },
     {
-      "test_id": "T201",
+      "test_id": "T211",
       "category": "quotas",
       "check": "quota_present",
       "source_reference": {
@@ -3604,7 +3774,7 @@
       "params": {}
     },
     {
-      "test_id": "T202",
+      "test_id": "T212",
       "category": "quotas",
       "check": "quota_variable",
       "source_reference": {
@@ -3620,7 +3790,7 @@
       "params": {}
     },
     {
-      "test_id": "T203",
+      "test_id": "T213",
       "category": "quotas",
       "check": "quota_enforcement",
       "source_reference": {
@@ -3636,7 +3806,7 @@
       "params": {}
     },
     {
-      "test_id": "T204",
+      "test_id": "T214",
       "category": "quotas",
       "check": "quota_cells",
       "source_reference": {
@@ -3658,7 +3828,7 @@
       "params": {}
     },
     {
-      "test_id": "T205",
+      "test_id": "T215",
       "category": "quotas",
       "check": "quota_statement_preserved",
       "source_reference": {
@@ -3674,7 +3844,7 @@
       "params": {}
     },
     {
-      "test_id": "T206",
+      "test_id": "T216",
       "category": "acceptance_scenarios",
       "check": "scenario_present",
       "source_reference": {
@@ -3690,7 +3860,7 @@
       "params": {}
     },
     {
-      "test_id": "T207",
+      "test_id": "T217",
       "category": "acceptance_scenarios",
       "check": "scenario_inputs",
       "source_reference": {
@@ -3708,7 +3878,7 @@
       "params": {}
     },
     {
-      "test_id": "T208",
+      "test_id": "T218",
       "category": "acceptance_scenarios",
       "check": "scenario_expected",
       "source_reference": {
@@ -3726,7 +3896,7 @@
       "params": {}
     },
     {
-      "test_id": "T209",
+      "test_id": "T219",
       "category": "acceptance_scenarios",
       "check": "scenario_present",
       "source_reference": {
@@ -3742,7 +3912,7 @@
       "params": {}
     },
     {
-      "test_id": "T210",
+      "test_id": "T220",
       "category": "acceptance_scenarios",
       "check": "scenario_inputs",
       "source_reference": {
@@ -3765,7 +3935,7 @@
       "params": {}
     },
     {
-      "test_id": "T211",
+      "test_id": "T221",
       "category": "acceptance_scenarios",
       "check": "scenario_expected",
       "source_reference": {
@@ -3788,7 +3958,7 @@
       "params": {}
     },
     {
-      "test_id": "T212",
+      "test_id": "T222",
       "category": "acceptance_scenarios",
       "check": "scenario_present",
       "source_reference": {
@@ -3804,7 +3974,7 @@
       "params": {}
     },
     {
-      "test_id": "T213",
+      "test_id": "T223",
       "category": "acceptance_scenarios",
       "check": "scenario_inputs",
       "source_reference": {
@@ -3828,7 +3998,7 @@
       "params": {}
     },
     {
-      "test_id": "T214",
+      "test_id": "T224",
       "category": "acceptance_scenarios",
       "check": "scenario_expected",
       "source_reference": {
@@ -3851,7 +4021,7 @@
       "params": {}
     },
     {
-      "test_id": "T215",
+      "test_id": "T225",
       "category": "acceptance_scenarios",
       "check": "scenario_present",
       "source_reference": {
@@ -3867,7 +4037,7 @@
       "params": {}
     },
     {
-      "test_id": "T216",
+      "test_id": "T226",
       "category": "acceptance_scenarios",
       "check": "scenario_inputs",
       "source_reference": {
@@ -3891,7 +4061,7 @@
       "params": {}
     },
     {
-      "test_id": "T217",
+      "test_id": "T227",
       "category": "acceptance_scenarios",
       "check": "scenario_expected",
       "source_reference": {
@@ -3912,7 +4082,7 @@
       "params": {}
     },
     {
-      "test_id": "T218",
+      "test_id": "T228",
       "category": "acceptance_scenarios",
       "check": "scenario_present",
       "source_reference": {
@@ -3928,7 +4098,7 @@
       "params": {}
     },
     {
-      "test_id": "T219",
+      "test_id": "T229",
       "category": "acceptance_scenarios",
       "check": "scenario_inputs",
       "source_reference": {
@@ -3949,7 +4119,7 @@
       "params": {}
     },
     {
-      "test_id": "T220",
+      "test_id": "T230",
       "category": "acceptance_scenarios",
       "check": "scenario_expected",
       "source_reference": {
@@ -3967,7 +4137,7 @@
       "params": {}
     },
     {
-      "test_id": "T221",
+      "test_id": "T231",
       "category": "programming_qa",
       "check": "requirement_present",
       "source_reference": {
@@ -3983,7 +4153,7 @@
       "params": {}
     },
     {
-      "test_id": "T222",
+      "test_id": "T232",
       "category": "programming_qa",
       "check": "requirement_present",
       "source_reference": {
@@ -3999,7 +4169,7 @@
       "params": {}
     },
     {
-      "test_id": "T223",
+      "test_id": "T233",
       "category": "programming_qa",
       "check": "requirement_present",
       "source_reference": {
@@ -4015,7 +4185,7 @@
       "params": {}
     },
     {
-      "test_id": "T224",
+      "test_id": "T234",
       "category": "programming_qa",
       "check": "requirement_present",
       "source_reference": {
@@ -4031,7 +4201,7 @@
       "params": {}
     },
     {
-      "test_id": "T225",
+      "test_id": "T235",
       "category": "programming_qa",
       "check": "requirement_present",
       "source_reference": {
@@ -4047,7 +4217,7 @@
       "params": {}
     },
     {
-      "test_id": "T226",
+      "test_id": "T236",
       "category": "programming_qa",
       "check": "requirement_present",
       "source_reference": {
@@ -4063,7 +4233,7 @@
       "params": {}
     },
     {
-      "test_id": "T227",
+      "test_id": "T237",
       "category": "study_metadata",
       "check": "metadata_present",
       "source_reference": {
@@ -4079,7 +4249,7 @@
       "params": {}
     },
     {
-      "test_id": "T228",
+      "test_id": "T238",
       "category": "study_metadata",
       "check": "metadata_present",
       "source_reference": {
@@ -4095,7 +4265,7 @@
       "params": {}
     },
     {
-      "test_id": "T229",
+      "test_id": "T239",
       "category": "study_metadata",
       "check": "metadata_present",
       "source_reference": {
@@ -4111,7 +4281,7 @@
       "params": {}
     },
     {
-      "test_id": "T230",
+      "test_id": "T240",
       "category": "study_metadata",
       "check": "metadata_present",
       "source_reference": {
@@ -4127,7 +4297,7 @@
       "params": {}
     },
     {
-      "test_id": "T231",
+      "test_id": "T241",
       "category": "study_metadata",
       "check": "metadata_present",
       "source_reference": {
@@ -4143,7 +4313,7 @@
       "params": {}
     },
     {
-      "test_id": "T232",
+      "test_id": "T242",
       "category": "provenance",
       "check": "provenance_complete",
       "source_reference": {},
@@ -4158,7 +4328,7 @@
       }
     },
     {
-      "test_id": "T233",
+      "test_id": "T243",
       "category": "provenance",
       "check": "provenance_complete",
       "source_reference": {},
@@ -4173,7 +4343,7 @@
       }
     },
     {
-      "test_id": "T234",
+      "test_id": "T244",
       "category": "provenance",
       "check": "provenance_complete",
       "source_reference": {},
@@ -4188,7 +4358,7 @@
       }
     },
     {
-      "test_id": "T235",
+      "test_id": "T245",
       "category": "provenance",
       "check": "provenance_complete",
       "source_reference": {},
@@ -4203,7 +4373,7 @@
       }
     },
     {
-      "test_id": "T236",
+      "test_id": "T246",
       "category": "semantic_assumptions",
       "check": "assumption_not_claimed_as_extracted",
       "source_reference": {},
@@ -4218,7 +4388,7 @@
       }
     },
     {
-      "test_id": "T237",
+      "test_id": "T247",
       "category": "semantic_assumptions",
       "check": "assumption_not_claimed_as_extracted",
       "source_reference": {},
@@ -4233,7 +4403,7 @@
       }
     },
     {
-      "test_id": "T238",
+      "test_id": "T248",
       "category": "semantic_assumptions",
       "check": "assumption_not_claimed_as_extracted",
       "source_reference": {},
@@ -4248,7 +4418,7 @@
       }
     },
     {
-      "test_id": "T239",
+      "test_id": "T249",
       "category": "semantic_assumptions",
       "check": "default_mandatory_traceable",
       "source_reference": {},

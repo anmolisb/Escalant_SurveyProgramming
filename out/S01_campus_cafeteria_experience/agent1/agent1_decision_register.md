@@ -1,6 +1,6 @@
 # Decision register — S01_campus_cafeteria_experience
 
-Source: `S01_campus_cafeteria_experience.docx` (sha256 `2756cb3b6dc3f21c…`)
+Source: `S01_campus_cafeteria_experience.docx` (sha256 `3d54ea5480d07ac9…`)
 
 A decision is resolved by editing its entry in `agent1_decisions.json` -
 set `status` to `RESOLVED`, fill `decision` with the ruling and
@@ -20,6 +20,7 @@ old ruling kept under `previous_decision` for a quick re-confirmation.
 - **alternatives:** The wording is generic and does not actually depend on the earlier answer.
 - **downstream impact:** Whether this question's wording depends on an earlier answer, which decides the order a respondent bot must answer in and what text it should expect on screen.
 - **recommendation:** Confirm the dependency with the project owner.
+- **⚠ context changed since last resolved** — was `None` by None on None; confirm it still applies.
 
 ## 🔴 `rule_precedence` — PENDING_CONFIRMATION (BLOCKING)
 
@@ -30,6 +31,7 @@ old ruling kept under `previous_decision` for a quick re-confirmation.
 - **alternatives:** The most specific matching condition wins.; Every matching rule applies, and a later one can override an earlier one.
 - **downstream impact:** Changes which destination is used whenever more than one rule's condition can be true for the same respondent.
 - **recommendation:** Confirm the intended precedence with the project owner.
+- **⚠ context changed since last resolved** — was `None` by None on None; confirm it still applies.
 
 ## 🔴 `unasked_question_semantics` — PENDING_CONFIRMATION (BLOCKING)
 
@@ -40,3 +42,4 @@ old ruling kept under `previous_decision` for a quick re-confirmation.
 - **alternatives:** Treat it as true instead, so the rule fires.; Treat it as an error state needing its own handling.
 - **downstream impact:** Changes which questions are shown and which ending is reached whenever a condition names a question that was skipped.
 - **recommendation:** Confirm the intended reading with the project owner. Once recorded here it applies to every rule in this survey and does not need asking again unless the document changes.
+- **⚠ context changed since last resolved** — was `None` by None on None; confirm it still applies.

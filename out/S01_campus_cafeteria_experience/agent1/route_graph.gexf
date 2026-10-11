@@ -54,7 +54,7 @@
           <attvalue for="7" value="" />
         </attvalues>
       </node>
-      <node id="Q1" label="Q1">
+      <node id="DT1" label="DT1">
         <attvalues>
           <attvalue for="0" value="question" />
           <attvalue for="1" value="3" />
@@ -66,7 +66,7 @@
           <attvalue for="7" value="" />
         </attvalues>
       </node>
-      <node id="Q2" label="Q2">
+      <node id="Q1" label="Q1">
         <attvalues>
           <attvalue for="0" value="question" />
           <attvalue for="1" value="4" />
@@ -78,7 +78,7 @@
           <attvalue for="7" value="" />
         </attvalues>
       </node>
-      <node id="Q3" label="Q3">
+      <node id="Q2" label="Q2">
         <attvalues>
           <attvalue for="0" value="question" />
           <attvalue for="1" value="5" />
@@ -90,7 +90,7 @@
           <attvalue for="7" value="" />
         </attvalues>
       </node>
-      <node id="Q4" label="Q4">
+      <node id="Q3" label="Q3">
         <attvalues>
           <attvalue for="0" value="question" />
           <attvalue for="1" value="6" />
@@ -102,7 +102,7 @@
           <attvalue for="7" value="" />
         </attvalues>
       </node>
-      <node id="Q5" label="Q5">
+      <node id="Q4" label="Q4">
         <attvalues>
           <attvalue for="0" value="question" />
           <attvalue for="1" value="7" />
@@ -114,10 +114,22 @@
           <attvalue for="7" value="" />
         </attvalues>
       </node>
-      <node id="Q6" label="Q6">
+      <node id="Q5" label="Q5">
         <attvalues>
           <attvalue for="0" value="question" />
           <attvalue for="1" value="8" />
+          <attvalue for="2" value="false" />
+          <attvalue for="3" value="" />
+          <attvalue for="4" value="" />
+          <attvalue for="5" value="false" />
+          <attvalue for="6" value="" />
+          <attvalue for="7" value="" />
+        </attvalues>
+      </node>
+      <node id="Q6" label="Q6">
+        <attvalues>
+          <attvalue for="0" value="question" />
+          <attvalue for="1" value="9" />
           <attvalue for="2" value="true" />
           <attvalue for="3" value="Q5 eq 'Yes'" />
           <attvalue for="4" value="agree" />
@@ -129,7 +141,7 @@
       <node id="Q7" label="Q7">
         <attvalues>
           <attvalue for="0" value="question" />
-          <attvalue for="1" value="9" />
+          <attvalue for="1" value="10" />
           <attvalue for="2" value="false" />
           <attvalue for="3" value="" />
           <attvalue for="4" value="" />
@@ -141,7 +153,7 @@
       <node id="Q8" label="Q8">
         <attvalues>
           <attvalue for="0" value="question" />
-          <attvalue for="1" value="10" />
+          <attvalue for="1" value="11" />
           <attvalue for="2" value="false" />
           <attvalue for="3" value="" />
           <attvalue for="4" value="" />
@@ -191,7 +203,7 @@
           <attvalue for="13" value="0" />
         </attvalues>
       </edge>
-      <edge source="S2" target="Q1" id="3">
+      <edge source="S2" target="DT1" id="3">
         <attvalues>
           <attvalue for="11" value="advance" />
           <attvalue for="12" value="" />
@@ -207,42 +219,49 @@
           <attvalue for="13" value="0" />
         </attvalues>
       </edge>
-      <edge source="Q1" target="Q2" id="5">
+      <edge source="DT1" target="Q1" id="5">
         <attvalues>
           <attvalue for="11" value="advance" />
           <attvalue for="12" value="" />
           <attvalue for="13" value="0" />
         </attvalues>
       </edge>
-      <edge source="Q2" target="Q3" id="6">
+      <edge source="Q1" target="Q2" id="6">
         <attvalues>
           <attvalue for="11" value="advance" />
           <attvalue for="12" value="" />
           <attvalue for="13" value="0" />
         </attvalues>
       </edge>
-      <edge source="Q3" target="Q4" id="7">
+      <edge source="Q2" target="Q3" id="7">
         <attvalues>
           <attvalue for="11" value="advance" />
           <attvalue for="12" value="" />
           <attvalue for="13" value="0" />
         </attvalues>
       </edge>
-      <edge source="Q4" target="Q5" id="8">
+      <edge source="Q3" target="Q4" id="8">
         <attvalues>
           <attvalue for="11" value="advance" />
           <attvalue for="12" value="" />
           <attvalue for="13" value="0" />
         </attvalues>
       </edge>
-      <edge source="Q5" target="Q6" id="9">
+      <edge source="Q4" target="Q5" id="9">
         <attvalues>
           <attvalue for="11" value="advance" />
           <attvalue for="12" value="" />
           <attvalue for="13" value="0" />
         </attvalues>
       </edge>
-      <edge source="Q5" target="Q7" id="10">
+      <edge source="Q5" target="Q6" id="10">
+        <attvalues>
+          <attvalue for="11" value="advance" />
+          <attvalue for="12" value="" />
+          <attvalue for="13" value="0" />
+        </attvalues>
+      </edge>
+      <edge source="Q5" target="Q7" id="11">
         <attvalues>
           <attvalue for="11" value="jump" />
           <attvalue for="12" value="R4" />
@@ -251,21 +270,21 @@
           <attvalue for="13" value="0" />
         </attvalues>
       </edge>
-      <edge source="Q6" target="Q7" id="11">
+      <edge source="Q6" target="Q7" id="12">
         <attvalues>
           <attvalue for="11" value="advance" />
           <attvalue for="12" value="" />
           <attvalue for="13" value="0" />
         </attvalues>
       </edge>
-      <edge source="Q7" target="Q8" id="12">
+      <edge source="Q7" target="Q8" id="13">
         <attvalues>
           <attvalue for="11" value="advance" />
           <attvalue for="12" value="" />
           <attvalue for="13" value="0" />
         </attvalues>
       </edge>
-      <edge source="Q8" target="COMPLETE" id="13">
+      <edge source="Q8" target="COMPLETE" id="14">
         <attvalues>
           <attvalue for="11" value="advance" />
           <attvalue for="12" value="" />

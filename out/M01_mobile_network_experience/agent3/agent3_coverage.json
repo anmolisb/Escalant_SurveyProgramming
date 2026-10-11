@@ -5,11 +5,11 @@
   "survey_id": "M01_mobile_network_experience",
   "source_document": {
     "filename": "M01_mobile_network_experience.docx",
-    "sha256": "1be6ec051fbc914680d8add2a2c9e85c568f5468d8f39f5b6e915eb5bfe6f3b5"
+    "sha256": "6f7e2db55c2c8ffaabdd4890e35464b4a5325a0ae13e38ffabb37ed06d064964"
   },
   "upstream": {
     "canonical_schema_version": "1.0.0",
-    "canonical_generated_at": "2026-10-11T10:11:51+00:00"
+    "canonical_generated_at": "2026-10-11T10:54:30+00:00"
   },
   "content": {
     "project_inputs": {},
@@ -63,17 +63,17 @@
     },
     "b1": {
       "per_dimension": {
-        "D1": 29,
+        "D1": 31,
         "D2": 4,
         "D3": 12,
         "D4": 20,
         "D5": 1,
-        "D6": 7,
+        "D6": 4,
         "D7": 9,
         "D8": 10,
         "D9": 3
       },
-      "records_enumerated": 95,
+      "records_enumerated": 94,
       "predetermined_unresolvable": 9,
       "orphan_rules": [],
       "note": "Dimensions are reported side by side and never summed. records_enumerated counts records, not coverage."
@@ -82,11 +82,11 @@
       "coverage_vector": {
         "D1": {
           "name": "Visibility",
-          "enumerated": 29,
-          "covered": 29,
+          "enumerated": 31,
+          "covered": 31,
           "uncovered": 0,
           "reasons": {},
-          "provisional": 29,
+          "provisional": 31,
           "enumeration_status": "EXHAUSTIVE",
           "logical_coverage_pct": 100.0
         },
@@ -137,11 +137,11 @@
         },
         "D6": {
           "name": "Text-pipe dependency",
-          "enumerated": 7,
-          "covered": 7,
+          "enumerated": 4,
+          "covered": 4,
           "uncovered": 0,
           "reasons": {},
-          "provisional": 7,
+          "provisional": 4,
           "enumeration_status": "EXHAUSTIVE",
           "logical_coverage_pct": 100.0
         },
@@ -263,6 +263,7 @@
             "S1",
             "S2",
             "S3",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -273,6 +274,7 @@
             "Q11",
             "Q12",
             "Q13",
+            "DT2",
             "D1",
             "D2",
             "Q14",
@@ -280,9 +282,6 @@
           ],
           "unresolved": [
             "R3: condition could not be evaluated at S3",
-            "Q2: text pipe from Q1 has nothing to render",
-            "Q3: text pipe from Q1 has nothing to render",
-            "Q5: text pipe from Q1 has nothing to render",
             "Q11: text pipe from Q1 has nothing to render",
             "Q12: text pipe from Q1 has nothing to render"
           ]
@@ -332,6 +331,7 @@
             "S1",
             "S2",
             "S3",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -345,6 +345,7 @@
             "Q11",
             "Q12",
             "Q13",
+            "DT2",
             "D1",
             "D2",
             "Q14",
@@ -352,10 +353,6 @@
           ],
           "unresolved": [
             "R3: condition could not be evaluated at S3",
-            "Q2: text pipe from Q1 has nothing to render",
-            "Q3: text pipe from Q1 has nothing to render",
-            "Q5: text pipe from Q1 has nothing to render",
-            "Q9: text pipe from Q8 has nothing to render",
             "Q11: text pipe from Q1 has nothing to render",
             "Q12: text pipe from Q1 has nothing to render"
           ]
@@ -393,6 +390,7 @@
             "S1",
             "S2",
             "S3",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -405,6 +403,7 @@
             "Q11",
             "Q12",
             "Q13",
+            "DT2",
             "D1",
             "D2",
             "Q14",
@@ -412,10 +411,6 @@
           ],
           "unresolved": [
             "R3: condition could not be evaluated at S3",
-            "Q2: text pipe from Q1 has nothing to render",
-            "Q3: text pipe from Q1 has nothing to render",
-            "Q5: text pipe from Q1 has nothing to render",
-            "Q9: text pipe from Q8 has nothing to render",
             "Q11: text pipe from Q1 has nothing to render",
             "Q12: text pipe from Q1 has nothing to render"
           ]
@@ -444,6 +439,7 @@
             "S1",
             "S2",
             "S3",
+            "DT1",
             "Q1",
             "Q2",
             "Q3",
@@ -453,11 +449,7 @@
             "Q7",
             "BLOCKED_AT:Q7"
           ],
-          "unresolved": [
-            "Q2: text pipe from Q1 has nothing to render",
-            "Q3: text pipe from Q1 has nothing to render",
-            "Q5: text pipe from Q1 has nothing to render"
-          ]
+          "unresolved": []
         }
       ]
     }

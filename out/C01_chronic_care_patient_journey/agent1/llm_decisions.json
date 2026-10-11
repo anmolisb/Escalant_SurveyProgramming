@@ -824,6 +824,32 @@
         "confidence": 0.99,
         "reasoning": "The condition states that any option chosen in Q6 must not be among those selected in Q5. Using the membership operator, 'Q5 contains Q6' checks if Q5 includes the answer from Q6; applying 'not' gives the required negation. This fits the provided grammar."
       }
+    },
+    "bb8520128ba1ea7af1d166f3cdafd567d91b343c5cf9c55dae40c82274446c03": {
+      "response_model": "LLMTextPipes",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-10-11T10:54:35+00:00",
+      "asked": "S1: Are you 21 years of age or older?\nS2: Which statement best describes your involvement?\nS3: Have you participated in market research in the past 3 months?\nS4: Do you or an immediate family member work in market research, advertising, or the category being studied?\nDT1: Great, you're eligible for this survey! Next, a few questions about your care experience.\nQ1: Which of these brands have you he ...",
+      "response": {
+        "pipes": [
+          {
+            "is_pipe": true,
+            "source_question_id": "Q19",
+            "target_question_id": "Q20",
+            "phrase": "the selected proposition",
+            "confidence": 1.0,
+            "reasoning": "Q20 asks 'How appealing is the selected proposition?'. The phrase 'the selected proposition' can only be identified after the respondent answers Q19 ('Which new proposition do you prefer?'), so the wording depends on that earlier answer."
+          },
+          {
+            "is_pipe": true,
+            "source_question_id": "Q19",
+            "target_question_id": "Q21",
+            "phrase": "your choice",
+            "confidence": 0.95,
+            "reasoning": "Q21 asks 'What most influenced your choice?'. The phrase 'your choice' refers back to the proposition the respondent selected in Q19, making the wording reliant on the earlier answer."
+          }
+        ]
+      }
     }
   }
 }
