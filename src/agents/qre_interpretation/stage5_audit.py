@@ -8,10 +8,11 @@ Every check here is deterministic. No model is called, nothing is inferred, and
 the same inputs always produce the same findings — which is what makes this
 usable as a gate rather than as advice.
 
-Five checks:
+Six checks:
 
     source_coverage        every block Stage 1 read is accounted for
     row_accounting         every Stage 3 row became a Stage 4 object
+    content_fidelity       each question and rule says what its Stage 3 row says
     reference_integrity    every identifier points at something that exists
     condition_consistency  scenarios treat identical conditions identically
     piping_symmetry        piped questions are validated the way their peers are
@@ -24,10 +25,12 @@ without an evaluator, by comparing condition text for equality.
 
 from __future__ import annotations
 
+import json
 import re
 
 from .models import (
     AuditFinding,
+    DirectiveKind,
     FlagSeverity,
     FlagTarget,
     SectionScore,
@@ -36,6 +39,13 @@ from .models import (
     Stage3Block,
     Stage5Audit,
     TargetHeading,
+)
+from .stage4_deep_parse import (
+    _JSON_OBJECT,
+    _LABELLED_LINES,
+    _MATRIX_PART,
+    _ROUTING_HINTS,
+    _value,
 )
 
 #: From the README. Small sections get 100% because a percentage over four rows
@@ -227,6 +237,142 @@ def check_row_accounting(
                 )
             )
     return scores, findings
+
+
+# ---------------------------------------------------------------------------
+# 2b. Content fidelity - does each object say what its row says?
+# ---------------------------------------------------------------------------
+#
+# Row accounting counts objects; this compares their content. Stage 3 is a
+# literal copy of the document's cells, so every question and rule can be held
+# against the row it came from: an altered wording, a lost option, a changed
+# validation bound or a dropped instruction all show here, where a count would
+# pass them. Column roles, matrix labels and instruction labels are read with
+# Stage 4's own definitions, so both stages agree on the document's notation.
+
+#: `Validate:` JSON keys and the Question field each lands on. A key not listed
+#: here is kept in `other_attributes` under its own name.
+_VALIDATION_FIELDS = {
+    "min_length": "min_length",
+    "max_length": "max_length",
+    "min": "min_value",
+    "max": "max_value",
+    "min_selections": "min_selections",
+    "exclusive_option": "exclusive_option",
+    "sum": "sum_to",
+}
+
+
+def _norm(text) -> str:
+    return re.sub(r"\s+", " ", str(text or "")).strip()
+
+
+def _option_text_left(cell: str, question) -> str:
+    """What remains of the options cell once every option label and code the
+    question holds is taken out, along with matrix part labels."""
+    parts = []
+    for segment in re.split(r"\n|\|\|", cell):
+        match = _MATRIX_PART.match(segment)
+        parts.append(match.group(2) if match else segment)
+    rest = _norm(" ".join(parts))
+    for option in [*question.options, *question.matrix_rows]:
+        for piece in (option.label, option.code):
+            if piece:
+                rest = rest.replace(_norm(piece), " ", 1)
+    return _norm(rest)
+
+
+def _question_differences(row: dict, question) -> list[str]:
+    found: list[str] = []
+    for role in ("id", "wording", "type"):
+        cell, got = _norm(_value(row, role)), _norm(getattr(question, role))
+        if cell != got:
+            found.append(f"{role}: QRE says {cell!r}, Stage 4 has {got!r}")
+
+    options_cell = _value(row, "options")
+    for option in [*question.options, *question.matrix_rows]:
+        for piece in (option.label, option.code):
+            if piece and _norm(piece) not in _norm(options_cell):
+                found.append(f"option {piece!r} is not in the QRE's options cell")
+    left = _option_text_left(options_cell, question)
+    if re.search(r"[A-Za-z0-9]", left):
+        found.append(f"options cell text missing from Stage 4: {left!r}")
+
+    carried = [
+        question.display_condition or "",
+        question.dynamic_option_source or "",
+        *question.other_attributes.get("other_instructions", []),
+    ]
+    flags_set = {
+        DirectiveKind.ALWAYS_SHOW: True,
+        DirectiveKind.RANDOMIZE: question.randomize is True,
+        DirectiveKind.OPTIONAL: question.optional is True,
+        DirectiveKind.MANDATORY: question.optional is False,
+    }
+    for line in (l.strip() for l in _value(row, "display").split("\n")):
+        if not line:
+            continue
+        payload = _JSON_OBJECT.search(line)
+        if payload and "validate" in line.lower():
+            try:
+                stated = json.loads(payload.group(0))
+            except json.JSONDecodeError:
+                continue  # Stage 4 already flags unreadable validation JSON
+            for key, value in stated.items():
+                field = _VALIDATION_FIELDS.get(key)
+                got = (getattr(question, field) if field
+                       else question.other_attributes.get(key))
+                if got != value:
+                    found.append(f"validation {key}: QRE says {value!r}, Stage 4 has {got!r}")
+            continue
+        kind = next((k for pattern, k, _ in _LABELLED_LINES if pattern.match(line)), None)
+        ok = flags_set.get(kind)
+        if ok is None:
+            ok = any(c and _norm(c) in _norm(line) for c in carried)
+        if not ok:
+            found.append(f"instruction missing from Stage 4: {line!r}")
+    return found
+
+
+def _rule_differences(row: dict, rule) -> list[str]:
+    found: list[str] = []
+    for role, field in (("id", "rule"), ("display", "condition_raw"),
+                        ("action", "action"), ("destination", "destination")):
+        cell = _norm(_value(row, role, _ROUTING_HINTS))
+        got = _norm(getattr(rule, field))
+        if cell != got:
+            found.append(f"{field}: QRE says {cell!r}, Stage 4 has {got!r}")
+    return found
+
+
+def check_content_fidelity(stage3: list[Stage3Block], parsed: dict) -> list[AuditFinding]:
+    """Hold every question and routing rule against the Stage 3 row it came from.
+
+    Rows and objects are paired by position. Where the counts differ,
+    row accounting has already reported it and the pairing is skipped rather
+    than compared out of step.
+    """
+    findings: list[AuditFinding] = []
+    pairs = (
+        (TargetHeading.QUESTIONNAIRE, "questions", "question", "id", _question_differences),
+        (TargetHeading.ROUTING_AND_TERMINATION, "routing", "rule", "rule", _rule_differences),
+    )
+    for target, key, kind, id_field, compare in pairs:
+        block = next((b for b in stage3 if b.target is target), None)
+        objects = parsed.get(key, [])
+        if block is None or len(block.rows) != len(objects):
+            continue
+        for row, obj in zip(block.rows, objects):
+            for difference in compare(row, obj):
+                findings.append(
+                    _finding(
+                        "content_fidelity",
+                        FlagSeverity.BLOCKING,
+                        difference,
+                        target=FlagTarget(kind=kind, id=getattr(obj, id_field) or "?"),
+                    )
+                )
+    return findings
 
 
 # ---------------------------------------------------------------------------
@@ -483,6 +629,7 @@ def run(
     findings += check_source_coverage(document, stage2)
     scores, row_findings = check_row_accounting(stage3, parsed)
     findings += row_findings
+    findings += check_content_fidelity(stage3, parsed)
     findings += check_reference_integrity(parsed)
     findings += check_condition_consistency(parsed)
     findings += check_piping_symmetry(parsed)
@@ -493,6 +640,7 @@ def run(
         checks_run=[
             "source_coverage",
             "row_accounting",
+            "content_fidelity",
             "reference_integrity",
             "condition_consistency",
             "piping_symmetry",
