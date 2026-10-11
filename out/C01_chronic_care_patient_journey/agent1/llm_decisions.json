@@ -766,6 +766,20 @@
           }
         ]
       }
+    },
+    "cc3630e6f26736a827fad1de665593c11673af2a0516c21188aeb14631f72172": {
+      "response_model": "LLMQuestionFields",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-10-11T05:15:12+00:00",
+      "asked": "Question Q19 cell:\nConcept descriptions are displayed in randomized order; store display order.",
+      "response": {
+        "directives": [
+          {
+            "kind": "randomize",
+            "text": "Concept descriptions are displayed in randomized order; store display order."
+          }
+        ]
+      }
     }
   }
 }

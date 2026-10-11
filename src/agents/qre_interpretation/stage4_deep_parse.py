@@ -31,6 +31,7 @@ from .models import (
     Condition,
     ConditionOp,
     DirectiveKind,
+    LLMDirective,
     LLMComparisonOp,
     LLMQuestionFields,
     LLMRoutingExpression,
@@ -203,6 +204,50 @@ _NUMERIC_OPTION = re.compile(r"^-?\d+(?:\.\d+)?$")
 #: A question id inside a routing condition, e.g. Q12, S1, A_2.
 _QUESTION_REF = re.compile(r"\b([A-Z]{1,3}[A-Za-z]*_?\d+)\b")
 
+#: Labelled instruction lines, read without a model.
+#:
+#: This is the instruction vocabulary of the supported QRE format (the S, M and
+#: C QREs). It is the one place to extend for another format: add a label here
+#: and its lines stop going to the model. A line that matches none of these is
+#: never dropped; it goes to the model, which labels it or files it as `other`.
+#:
+#: Each entry: pattern for one whole line, the kind it states, and the regex
+#: group holding the instruction's text (None where the label is the whole
+#: instruction).
+_LABELLED_LINES: list[tuple[re.Pattern, DirectiveKind, int | None]] = [
+    (re.compile(r"^always show\.?$", re.I), DirectiveKind.ALWAYS_SHOW, None),
+    (re.compile(r"^show if\s*:\s*(.+)$", re.I), DirectiveKind.DISPLAY_CONDITION, 1),
+    (re.compile(r"^validate\s*:\s*(.+)$", re.I), DirectiveKind.VALIDATION, 1),
+    (re.compile(r"^randomi[sz]e\.?$", re.I), DirectiveKind.RANDOMIZE, None),
+    (re.compile(r"^show only\s+(.+\bselected at\b.+)$", re.I), DirectiveKind.OPTION_SOURCE, 1),
+    (re.compile(r"^optional\.?$", re.I), DirectiveKind.OPTIONAL, None),
+    (re.compile(r"^(?:mandatory|required)\.?$", re.I), DirectiveKind.MANDATORY, None),
+]
+
+
+def _read_labelled_lines(cell: str) -> tuple[list[LLMDirective], list[str]]:
+    """Split a question's instruction cell into lines read here and lines left.
+
+    Returns the directives read from labelled lines, and the remaining lines,
+    in document order, for the model.
+    """
+    directives: list[LLMDirective] = []
+    unread: list[str] = []
+    for raw in cell.split("\n"):
+        line = raw.strip()
+        if not line:
+            continue
+        for pattern, kind, group in _LABELLED_LINES:
+            match = pattern.match(line)
+            if match:
+                text = match.group(group).strip() if group else ""
+                directives.append(LLMDirective(kind=kind, text=text))
+                break
+        else:
+            unread.append(line)
+    return directives, unread
+
+
 _QUESTION_SYSTEM = """\
 You read the instructions written in one questionnaire cell and label each one.
 
@@ -350,6 +395,15 @@ def _assign_option_ids(question: Question) -> None:
         row.option_id = f"{question.id}-R{position}"
 
 
+#: Kinds whose meaning is the label itself; any text they carry is extra.
+_FLAG_KINDS = {
+    DirectiveKind.ALWAYS_SHOW,
+    DirectiveKind.RANDOMIZE,
+    DirectiveKind.OPTIONAL,
+    DirectiveKind.MANDATORY,
+}
+
+
 def _apply_directives(
     question: Question, fields: LLMQuestionFields
 ) -> list[ReviewFlag]:
@@ -400,6 +454,11 @@ def _apply_directives(
             # Kept under the kind that was read, so a reader can tell an
             # unclassified instruction from a recognised one (CLAUDE.md §16).
             question.other_attributes.setdefault("other_instructions", []).append(text)
+        if directive.kind in _FLAG_KINDS and text:
+            # A flag kind is set by its label alone. Text beyond the label says
+            # more than the flag can hold ("...randomized order; store display
+            # order."), so it is kept rather than dropped.
+            question.other_attributes.setdefault("other_instructions", []).append(text)
     return flags
 
 
@@ -446,26 +505,34 @@ async def parse_questionnaire(
             )
 
         if display_cell:
+            # Labelled lines are read here; only what is left goes to the model.
+            directives, unread = _read_labelled_lines(display_cell)
             try:
-                fields = await complete_async(
-                    _QUESTION_SYSTEM,
-                    f"Question {question.id} cell:\n{display_cell}",
-                    LLMQuestionFields,
-                )
-                flags.extend(_apply_directives(question, fields))
+                if unread:
+                    fields = await complete_async(
+                        _QUESTION_SYSTEM,
+                        f"Question {question.id} cell:\n" + "\n".join(unread),
+                        LLMQuestionFields,
+                    )
+                    directives += fields.directives
             except LLMUnavailable as exc:
                 flags.append(
                     ReviewFlag(
                         target_heading=TargetHeading.QUESTIONNAIRE,
                         status=FlagStatus.POSSIBLE_MATCH,
                         candidate_heading=question.id,
-                        # The display condition and randomisation flag are in
-                        # that cell. Without them the question is incomplete.
+                        # Whatever those lines ask for is missing from the
+                        # question; the labelled lines were still read.
                         severity=FlagSeverity.BLOCKING,
                         target=FlagTarget(kind="question", id=question.id),
-                        reasoning=f"Inline attributes not split: {exc}",
+                        reasoning=(
+                            f"Instruction lines not read: {unread}. {exc}"
+                        ),
                     )
                 )
+            flags.extend(
+                _apply_directives(question, LLMQuestionFields(directives=directives))
+            )
         return question
 
     questions = list(
