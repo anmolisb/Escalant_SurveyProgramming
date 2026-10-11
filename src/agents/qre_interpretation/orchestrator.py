@@ -2,28 +2,28 @@
 
     python -m src.agents.qre_interpretation.orchestrator <file.docx>
 
-A re-run replays every model answer already recorded in llm_decisions.json, so
-it costs no model calls unless a prompt or the document changed.
+A re-run replays every model answer already recorded in agent1_llm_cache.json,
+so it costs no model calls unless a prompt or the document changed.
 
 Artifacts, under out/<document stem>/agent1/, in the order the pipeline actually
-produces them:
-    stage1_document.json
-    stage2_blocks.json      stage2_flags.json
-    stage3_<target>.json    (one per matched target)
-    stage4_<target>.json    stage4_flags.json
-    stage5_audit.json
-    part2_canonical.json             (Part 2 — what the QRE means)
-    agent1_evaluation_tests.json     (Stage 7 — validation, always run)
-    agent1_evaluation_results.json
-    part2_validation.json
-    agent1_decisions.json            (the human decision register)
-    agent1_decision_register.md      (its human-readable form)
-    part2_route_graph.json           (Stage 8 — the graph builder, always run)
-    part2_graph_report.json
-    route_graph.gexf                 (the dashboard's flow graph)
-    agent1_stage9_gate.json          (Agent 3 execution approval, computed last;
-                                      the name predates Stage 9's removal and is
-                                      kept because Test Designer reads it)
+produces them (names are defined in src/common/paths.py):
+    agent1_s1_document.json
+    agent1_s2_blocks.json         agent1_s2_flags.json
+    agent1_s3_<target>.json       (one per matched target)  agent1_s3_flags.json
+    agent1_s4_<target>.json       agent1_s4_survey.json     agent1_s4_flags.json
+    agent1_s5_audit.json
+    agent1_canonical_survey_spec.json   (Stage 6, Part 2: what the QRE means,
+                                         the one file other agents read)
+    agent1_s7_evaluation_tests.json     (Stage 7: validation, always run)
+    agent1_s7_evaluation_results.json
+    agent1_s7_validation.json
+    agent1_s7_decisions.json            (the human decision register)
+    agent1_s7_decision_register.md      (its human-readable form)
+    agent1_s8_route_graph.json          (Stage 8: the graph builder, always run)
+    agent1_s8_graph_report.json
+    agent1_s8_route_graph.gexf          (the dashboard's flow graph)
+    agent1_ready.json                   (whether Agent 3 may run, computed last)
+    agent1_llm_cache.json               (every model answer, for replay)
 
 Targets: questionnaire, routing, scenarios, messages, quotas, study,
 programming. A target absent from the document is flagged, not fatal.
@@ -31,12 +31,12 @@ programming. A target absent from the document is flagged, not fatal.
 Stage 7 runs on every call, right after the canonical specification exists -
 not as a separate command a person has to remember to run. It checks the
 canonical output against the raw document independently, and writes
-`part2_validation.json` next to `part2_canonical.json`. Its verdict is a gate:
+`agent1_s7_validation.json` next to `agent1_canonical_survey_spec.json`. Its verdict is a gate:
 `main` exits 0 only when `canonical_status` is not FAILED.
 
 Part of Stage 7 is a persistent decision register. Anything Part 2 could only
 infer, derive or guess at - not what the document plainly states - is written
-to `agent1_decisions.json`, one entry per decision, and reused unchanged on
+to `agent1_s7_decisions.json`, one entry per decision, and reused unchanged on
 the next run as long as the document and the reading it depends on have not
 moved. A project owner resolves one by hand-editing its entry (`status`,
 `decision`, `decision_provenance`) and re-running; nothing in this pipeline
@@ -45,7 +45,7 @@ verdict is CLEAR only once every BLOCKING decision has been resolved this way.
 
 Stage 8, the graph builder, runs after Stage 7 and always - it needs no
 model, and nothing about how it builds depends on Stage 7's verdict. What
-does depend on that verdict is what `part2_graph_report.json` is allowed to
+does depend on that verdict is what `agent1_s8_graph_report.json` is allowed to
 say about the result: `structurally_buildable` is a fact about the graph
 alone, true the moment it builds and passes its own fidelity checks;
 `behaviorally_approved` additionally requires `canonical_status` not FAILED
@@ -54,7 +54,7 @@ nobody supplied a verdict to judge it against.
 
 The Agent 3 execution approval is computed last, by `main`, as the plain
 conjunction of three conditions: Stage 7's canonical verdict, Stage 7's human
-decision gate, and Stage 8's own graph check. `agent1_stage9_gate.json` records
+decision gate, and Stage 8's own graph check. `agent1_ready.json` records
 it. A sound graph never stands in for a human decision nobody has made yet.
 """
 
@@ -188,7 +188,7 @@ def _write_bare(path: Path, payload) -> Path:
 
     Nothing in memory changes. Stage 5 and Part 2 are handed the objects
     directly, not the file, so both still see full provenance and
-    `part2_canonical.json` still carries a source reference for every item.
+    `agent1_canonical_survey_spec.json` still carries a source reference for every item.
     """
     path.parent.mkdir(parents=True, exist_ok=True)
     if hasattr(payload, "model_dump"):
@@ -219,9 +219,9 @@ def _out_dir(document: str) -> Path:
 def run_stage1(docx_path: Path) -> Stage1Document:
     document = stage1_ingestion.run(docx_path)
     _write(
-        _out_dir(docx_path.name) / "stage1_document.json",
+        _out_dir(docx_path.name) / paths.agent1_stage(1, "document.json"),
         document,
-        artifact="stage1_document",
+        artifact=paths.agent1_stage(1, "document"),
         stage=1,
         source=docx_path.name,
     )
@@ -232,16 +232,16 @@ def run_stage2(document: Stage1Document) -> Stage2Blocks:
     blocks = stage2_headings.run(document)
     out = _out_dir(document.source)
     _write(
-        out / "stage2_blocks.json",
+        out / paths.agent1_stage(2, "blocks.json"),
         blocks,
-        artifact="stage2_blocks",
+        artifact=paths.agent1_stage(2, "blocks"),
         stage=2,
         source=document.source,
     )
     _write(
-        out / "stage2_flags.json",
+        out / paths.agent1_stage(2, "flags.json"),
         blocks.flags,
-        artifact="stage2_flags",
+        artifact=paths.agent1_stage(2, "flags"),
         stage=2,
         source=document.source,
     )
@@ -253,18 +253,18 @@ def run_stage3(stage2: Stage2Blocks) -> tuple[list[Stage3Block], list[ReviewFlag
     out = _out_dir(stage2.source)
     for block in blocks:
         _write(
-            out / f"stage3_{_SLUG[block.target]}.json",
+            out / paths.agent1_stage(3, f"{_SLUG[block.target]}.json"),
             block,
-            artifact=f"stage3_{_SLUG[block.target]}",
+            artifact=paths.agent1_stage(3, _SLUG[block.target]),
             stage=3,
             source=stage2.source,
         )
     # Always written, even when empty: an absent file is ambiguous between
     # "no flags" and "stage did not run".
     _write(
-        out / "stage3_flags.json",
+        out / paths.agent1_stage(3, "flags.json"),
         flags,
-        artifact="stage3_flags",
+        artifact=paths.agent1_stage(3, "flags"),
         stage=3,
         source=stage2.source,
     )
@@ -302,9 +302,9 @@ def run_stage4(
         ("study", "study"),
         ("programming", "programming"),
     ):
-        _write_bare(out / f"stage4_{slug}.json", parsed[key])
-    _write_bare(out / "stage4_survey.json", parsed["survey"])
-    _write_bare(out / "stage4_flags.json", flags)
+        _write_bare(out / paths.agent1_stage(4, f"{slug}.json"), parsed[key])
+    _write_bare(out / paths.agent1_stage(4, "survey.json"), parsed["survey"])
+    _write_bare(out / paths.agent1_stage(4, "flags.json"), flags)
     return parsed, flags
 
 
@@ -316,16 +316,16 @@ def run_stage5(
 ) -> Stage5Audit:
     """Audit Stage 4 against what produced it.
 
-    Written as one artifact rather than appended to `stage4_flags.json`. The
+    Written as one artifact rather than appended to `agent1_s4_flags.json`. The
     README left that open; keeping them apart preserves which of the two you are
     reading — a Stage 4 flag is trouble that stage hit while working, an audit
     finding is a disagreement between artifacts that each looked fine alone.
     """
     audit = stage5_audit.run(document, stage2, stage3, parsed)
     _write(
-        _out_dir(document.source) / "stage5_audit.json",
+        _out_dir(document.source) / paths.agent1_stage(5, "audit.json"),
         audit,
-        artifact="stage5_audit",
+        artifact=paths.agent1_stage(5, "audit"),
         stage=5,
         source=document.source,
     )
@@ -341,9 +341,9 @@ def run_part2(source: str, parsed: dict) -> CanonicalSurvey:
     """
     survey = part2_canonical.run(source, parsed)
     _write(
-        _out_dir(source) / "part2_canonical.json",
+        _out_dir(source) / paths.CANONICAL,
         survey,
-        artifact="part2_canonical",
+        artifact=paths.artifact_id(paths.CANONICAL),
         stage=6,
         source=source,
     )
@@ -377,16 +377,16 @@ def run_graphs(
     out = _out_dir(source)
     part2_graph.export_route_gexf(graphs, out)
     _write(
-        out / "part2_route_graph.json",
+        out / paths.agent1_stage(8, "route_graph.json"),
         graphs,
-        artifact="part2_route_graph",
+        artifact=paths.agent1_stage(8, "route_graph"),
         stage=8,
         source=source,
     )
     _write(
-        out / "part2_graph_report.json",
+        out / paths.agent1_stage(8, "graph_report.json"),
         report,
-        artifact="part2_graph_report",
+        artifact=paths.agent1_stage(8, "graph_report"),
         stage=8,
         source=source,
     )
@@ -426,7 +426,7 @@ def agent3_execution_approval(validation_report: dict, graph_report: GraphReport
     }
 
 
-def write_stage9_gate(source: str, survey_id: str, gate: dict) -> Path:
+def write_ready(source: str, survey_id: str, gate: dict) -> Path:
     """Persist AGENT3_EXECUTION_APPROVAL beside the artifacts it was computed
     from, without touching either of them.
 
@@ -435,9 +435,9 @@ def write_stage9_gate(source: str, survey_id: str, gate: dict) -> Path:
     anything without `model_dump` as a list of records, which would turn this
     single object into a list of its own keys.
     """
-    path = _out_dir(source) / "agent1_stage9_gate.json"
+    path = _out_dir(source) / paths.READY
     envelope = ArtifactEnvelope(
-        schema_version=SCHEMA_VERSION, artifact="agent1_stage9_gate", stage=8,
+        schema_version=SCHEMA_VERSION, artifact=paths.artifact_id(paths.READY), stage=8,
         survey_id=survey_id, source_document=_source_for(source),
         generated_at=datetime.now(timezone.utc).isoformat(timespec="seconds"),
         item_count=None, content=gate,
@@ -597,7 +597,7 @@ def _summarise_validation(report: dict) -> bool:
     print(f"  agent 3 ready    {verdict['agent3_ready']}")
     if verdict["pending_blocking_decisions"]:
         print(f"  pending blocking decisions: {len(verdict['pending_blocking_decisions'])} "
-              f"(see agent1_decision_register.md)")
+              f"(see agent1_s7_decision_register.md)")
     if verdict["agent3_blocked_by"]:
         print(f"  agent 3 blocked by: {', '.join(verdict['agent3_blocked_by'])}")
     if status == "FAILED":
@@ -607,7 +607,7 @@ def _summarise_validation(report: dict) -> bool:
     return status != "FAILED"
 
 
-def _summarise_stage9_gate(gate: dict) -> None:
+def _summarise_ready(gate: dict) -> None:
     print("\nAGENT 3 EXECUTION APPROVAL")
     print(f"  AGENT3_EXECUTION_APPROVAL {gate['status']}")
     print(f"    canonical validation clear   {gate['canonical_validation_clear']}")
@@ -641,14 +641,14 @@ def main(argv: list[str]) -> int:
     validation_report = run_agent1_validation(docx_path, source, survey, parsed)
     _graphs, graph_report = run_graphs(source, survey, validation_report)
     gate = agent3_execution_approval(validation_report, graph_report)
-    write_stage9_gate(source, Path(source).stem, gate)
+    write_ready(source, Path(source).stem, gate)
 
     _summarise(blocks, stage3, parsed, [*stage3_flags, *stage4_flags])
     _summarise_audit(audit)
     _summarise_part2(survey)
     passed = _summarise_validation(validation_report)
     _summarise_graphs(graph_report)
-    _summarise_stage9_gate(gate)
+    _summarise_ready(gate)
     print(f"\nArtifacts: {_out_dir(source)}")
     return 0 if passed else 2
 

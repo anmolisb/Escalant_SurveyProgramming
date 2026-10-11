@@ -1,0 +1,23 @@
+{
+  "schema_version": "1.0.0",
+  "artifact": "agent1_ready",
+  "stage": 8,
+  "survey_id": "M03_insurance_claims_experience",
+  "source_document": {
+    "filename": "M03_insurance_claims_experience.docx",
+    "sha256": "78c2eabe629581e09af4cec1f22515348e0c344c7fea67dfd8a89e85ff02748a",
+    "bytes": 42026
+  },
+  "generated_at": "2026-10-11T16:40:54+00:00",
+  "item_count": null,
+  "content": {
+    "status": "BLOCKED",
+    "canonical_validation_clear": false,
+    "human_decision_gate_clear": false,
+    "graph_validation_passed": true,
+    "blocked_by": [
+      "canonical_status=FAILED",
+      "human_decision_gate=PENDING_BLOCKING_DECISIONS"
+    ]
+  }
+}

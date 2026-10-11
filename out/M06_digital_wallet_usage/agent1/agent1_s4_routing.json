@@ -1,0 +1,56 @@
+[
+  {
+    "rule": "R1",
+    "condition_raw": "S1 == 'No'",
+    "action": "terminate",
+    "destination": "TERM_INELIGIBLE"
+  },
+  {
+    "rule": "R2",
+    "condition_raw": "S2 == 'No'",
+    "action": "terminate",
+    "destination": "TERM_INELIGIBLE"
+  },
+  {
+    "rule": "R3",
+    "condition_raw": "S3 < 18 or S3 > 80",
+    "action": "reject",
+    "destination": "S3"
+  },
+  {
+    "rule": "R4",
+    "condition_raw": "Q7 contains any problem",
+    "action": "show",
+    "destination": "Q8"
+  },
+  {
+    "rule": "R5",
+    "condition_raw": "Q7 contains any problem",
+    "action": "show",
+    "destination": "Q9"
+  },
+  {
+    "rule": "R6",
+    "condition_raw": "Q7 == ['None of these']",
+    "action": "skip",
+    "destination": "Q11"
+  },
+  {
+    "rule": "R7",
+    "condition_raw": "Q9 in ['Yes, fully','Yes, partly']",
+    "action": "show",
+    "destination": "Q10"
+  },
+  {
+    "rule": "R8",
+    "condition_raw": "Q9 == 'No'",
+    "action": "skip",
+    "destination": "Q11"
+  },
+  {
+    "rule": "R9",
+    "condition_raw": "Q7 includes 'None of these' plus another option",
+    "action": "reject",
+    "destination": "Q7"
+  }
+]

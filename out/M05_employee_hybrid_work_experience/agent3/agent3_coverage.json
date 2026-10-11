@@ -1,0 +1,454 @@
+{
+  "schema_version": "0.1.0",
+  "artifact": "agent3_coverage",
+  "agent": 3,
+  "survey_id": "M05_employee_hybrid_work_experience",
+  "source_document": {
+    "filename": "M05_employee_hybrid_work_experience.docx",
+    "sha256": "992ebf4849f39a999f5c28690a87ec8d50ad44af4dc86dbe9cb8375b3e7a6595"
+  },
+  "upstream": {
+    "canonical_schema_version": "1.0.0",
+    "canonical_generated_at": "2026-10-11T17:07:00+00:00"
+  },
+  "content": {
+    "project_inputs": {},
+    "semantics": {
+      "unasked_reference": {
+        "value": "condition_false",
+        "origin": "inferred",
+        "status": "PROVISIONAL",
+        "blocking": true,
+        "decision_id": "78b20e7bb125102a"
+      },
+      "rule_precedence": {
+        "value": "document_order_first_match",
+        "origin": "inferred",
+        "status": "PROVISIONAL",
+        "blocking": true,
+        "decision_id": "7a0150e507d37e01"
+      },
+      "multi_equality": {
+        "value": "set_equality",
+        "origin": "derived",
+        "status": "PROVISIONAL",
+        "blocking": true,
+        "decision_id": "7a12eb0820dd1323"
+      },
+      "default_mandatory": {
+        "value": true,
+        "origin": "derived",
+        "status": "CONFIRMED",
+        "blocking": false,
+        "decision_id": null
+      },
+      "whitespace_is_an_answer": {
+        "value": "not_an_answer",
+        "origin": "agent3_fallback",
+        "status": "PROVISIONAL",
+        "blocking": false,
+        "decision_id": null
+      }
+    },
+    "semantics_all_resolved": false,
+    "upstream_gate": {
+      "status": "BLOCKED",
+      "canonical_validation_clear": false,
+      "human_decision_gate_clear": false,
+      "graph_validation_passed": true,
+      "blocked_by": [
+        "canonical_status=FAILED",
+        "human_decision_gate=PENDING_BLOCKING_DECISIONS"
+      ]
+    },
+    "b1": {
+      "per_dimension": {
+        "D1": 31,
+        "D2": 4,
+        "D3": 12,
+        "D4": 20,
+        "D5": 1,
+        "D6": 2,
+        "D7": 9,
+        "D8": 10,
+        "D9": 3
+      },
+      "records_enumerated": 92,
+      "predetermined_unresolvable": 9,
+      "orphan_rules": [],
+      "note": "Dimensions are reported side by side and never summed. records_enumerated counts records, not coverage."
+    },
+    "coverage": {
+      "coverage_vector": {
+        "D1": {
+          "name": "Visibility",
+          "enumerated": 31,
+          "covered": 31,
+          "uncovered": 0,
+          "reasons": {},
+          "provisional": 31,
+          "enumeration_status": "EXHAUSTIVE",
+          "logical_coverage_pct": 100.0
+        },
+        "D2": {
+          "name": "Terminal outcome",
+          "enumerated": 4,
+          "covered": 3,
+          "uncovered": 1,
+          "reasons": {
+            "QUOTA_SIZE_UNDEFINED": 1
+          },
+          "provisional": 3,
+          "enumeration_status": "PARTIAL",
+          "logical_coverage_pct": 75.0
+        },
+        "D3": {
+          "name": "Validation (explicit)",
+          "enumerated": 12,
+          "covered": 8,
+          "uncovered": 4,
+          "reasons": {
+            "UNVERIFIABLE": 1,
+            "BOUND_REACHED": 2,
+            "INFEASIBLE": 1
+          },
+          "provisional": 7,
+          "enumeration_status": "BOUNDED",
+          "logical_coverage_pct": 66.7
+        },
+        "D4": {
+          "name": "Validation (mandatory)",
+          "enumerated": 20,
+          "covered": 20,
+          "uncovered": 0,
+          "reasons": {},
+          "provisional": 10,
+          "enumeration_status": "EXHAUSTIVE",
+          "logical_coverage_pct": 100.0
+        },
+        "D5": {
+          "name": "Option-source dependency",
+          "enumerated": 1,
+          "covered": 1,
+          "uncovered": 0,
+          "reasons": {},
+          "provisional": 1,
+          "enumeration_status": "EXHAUSTIVE",
+          "logical_coverage_pct": 100.0
+        },
+        "D6": {
+          "name": "Text-pipe dependency",
+          "enumerated": 2,
+          "covered": 2,
+          "uncovered": 0,
+          "reasons": {},
+          "provisional": 2,
+          "enumeration_status": "EXHAUSTIVE",
+          "logical_coverage_pct": 100.0
+        },
+        "D7": {
+          "name": "Randomization configuration",
+          "enumerated": 9,
+          "covered": 6,
+          "uncovered": 3,
+          "reasons": {
+            "RANDOMIZATION_ANCHOR_UNDEFINED": 3
+          },
+          "provisional": 6,
+          "enumeration_status": "PARTIAL",
+          "logical_coverage_pct": 66.7
+        },
+        "D8": {
+          "name": "Quota cell state",
+          "enumerated": 10,
+          "covered": 5,
+          "uncovered": 5,
+          "reasons": {
+            "QUOTA_SIZE_UNDEFINED": 5
+          },
+          "provisional": 5,
+          "enumeration_status": "PARTIAL",
+          "logical_coverage_pct": 50.0
+        },
+        "D9": {
+          "name": "Interaction",
+          "enumerated": 3,
+          "covered": 3,
+          "uncovered": 0,
+          "reasons": {},
+          "provisional": 3,
+          "enumeration_status": "BOUNDED",
+          "logical_coverage_pct": 100.0
+        }
+      },
+      "single_figure": {
+        "value_pct": 50.0,
+        "dimension": "D8",
+        "label": "FLOOR - lowest dimension. Never a sum or an average."
+      },
+      "executable_coverage_pct": 0.0,
+      "executable_coverage_note": "0% for every target and every survey. Block C cannot bind a canonical id to a LimeSurvey field without Agent 2's build manifest, which is not published yet. Logical and executable coverage are tracked separately precisely so this gap is visible.",
+      "known_blind_spot": "B4 compares, it does not re-derive. Two independently-wrong components that happen to agree will pass. Mitigated by B2/B3 structural independence, not by a check in B4."
+    },
+    "specification_replay": {
+      "total": 5,
+      "agreed": 5,
+      "unresolved": 0,
+      "disagreed": 0,
+      "note": "UNRESOLVED means B3 declined to evaluate a condition it cannot read, which is not the same as disagreeing with the QRE. Only DISAGREE indicates a real conflict.",
+      "results": [
+        {
+          "scenario_id": "T1",
+          "purpose": "category non-user",
+          "inputs": {
+            "S1": "No"
+          },
+          "outcome": "AGREE",
+          "checks": [
+            {
+              "kind": "expected_end",
+              "expected": "TERM_INELIGIBLE",
+              "actual": "TERM_INELIGIBLE",
+              "verdict": "AGREE"
+            }
+          ],
+          "problem_checks": [],
+          "path": [
+            "__START__",
+            "S1",
+            "TERM_INELIGIBLE"
+          ],
+          "unresolved": []
+        },
+        {
+          "scenario_id": "T2",
+          "purpose": "eligible, no problems",
+          "inputs": {
+            "S1": "Yes",
+            "S2": "Yes",
+            "S3": 34,
+            "Q7": [
+              "None of these"
+            ]
+          },
+          "outcome": "AGREE",
+          "checks": [
+            {
+              "kind": "expected_end",
+              "expected": "COMPLETE",
+              "actual": "COMPLETE",
+              "verdict": "AGREE"
+            },
+            {
+              "kind": "expected_hidden",
+              "target": "Q8",
+              "actual": "hidden",
+              "verdict": "AGREE"
+            },
+            {
+              "kind": "expected_hidden",
+              "target": "Q9",
+              "actual": "hidden",
+              "verdict": "AGREE"
+            },
+            {
+              "kind": "expected_hidden",
+              "target": "Q10",
+              "actual": "hidden",
+              "verdict": "AGREE"
+            }
+          ],
+          "problem_checks": [],
+          "path": [
+            "__START__",
+            "S1",
+            "S2",
+            "S3",
+            "DT1",
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4",
+            "Q5",
+            "Q6",
+            "Q7",
+            "Q11",
+            "Q12",
+            "Q13",
+            "DT2",
+            "D1",
+            "D2",
+            "Q14",
+            "COMPLETE"
+          ],
+          "unresolved": [
+            "R3: condition could not be evaluated at S3"
+          ]
+        },
+        {
+          "scenario_id": "T3",
+          "purpose": "problem resolved",
+          "inputs": {
+            "S1": "Yes",
+            "S2": "Yes",
+            "S3": 42,
+            "Q7": [
+              "Meeting overload"
+            ],
+            "Q9": "Yes, fully"
+          },
+          "outcome": "AGREE",
+          "checks": [
+            {
+              "kind": "expected_end",
+              "expected": "COMPLETE",
+              "actual": "COMPLETE",
+              "verdict": "AGREE"
+            },
+            {
+              "kind": "expected_visible",
+              "target": "Q8",
+              "actual": "visible",
+              "verdict": "AGREE"
+            },
+            {
+              "kind": "expected_visible",
+              "target": "Q9",
+              "actual": "visible",
+              "verdict": "AGREE"
+            },
+            {
+              "kind": "expected_visible",
+              "target": "Q10",
+              "actual": "visible",
+              "verdict": "AGREE"
+            }
+          ],
+          "problem_checks": [],
+          "path": [
+            "__START__",
+            "S1",
+            "S2",
+            "S3",
+            "DT1",
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4",
+            "Q5",
+            "Q6",
+            "Q7",
+            "Q8",
+            "Q9",
+            "Q10",
+            "Q11",
+            "Q12",
+            "Q13",
+            "DT2",
+            "D1",
+            "D2",
+            "Q14",
+            "COMPLETE"
+          ],
+          "unresolved": [
+            "R3: condition could not be evaluated at S3",
+            "Q9: text pipe from Q8 has nothing to render"
+          ]
+        },
+        {
+          "scenario_id": "T4",
+          "purpose": "problem unresolved",
+          "inputs": {
+            "S1": "Yes",
+            "S2": "Yes",
+            "S3": 29,
+            "Q7": [
+              "Workspace difficulty"
+            ],
+            "Q9": "No"
+          },
+          "outcome": "AGREE",
+          "checks": [
+            {
+              "kind": "expected_end",
+              "expected": "COMPLETE",
+              "actual": "COMPLETE",
+              "verdict": "AGREE"
+            },
+            {
+              "kind": "expected_hidden",
+              "target": "Q10",
+              "actual": "hidden",
+              "verdict": "AGREE"
+            }
+          ],
+          "problem_checks": [],
+          "path": [
+            "__START__",
+            "S1",
+            "S2",
+            "S3",
+            "DT1",
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4",
+            "Q5",
+            "Q6",
+            "Q7",
+            "Q8",
+            "Q9",
+            "Q11",
+            "Q12",
+            "Q13",
+            "DT2",
+            "D1",
+            "D2",
+            "Q14",
+            "COMPLETE"
+          ],
+          "unresolved": [
+            "R3: condition could not be evaluated at S3",
+            "Q9: text pipe from Q8 has nothing to render"
+          ]
+        },
+        {
+          "scenario_id": "T5",
+          "purpose": "exclusive response validation",
+          "inputs": {
+            "Q7": [
+              "Meeting overload",
+              "None of these"
+            ]
+          },
+          "outcome": "AGREE",
+          "checks": [
+            {
+              "kind": "expected_validation_error",
+              "target": "Q7",
+              "actual": "error raised",
+              "verdict": "AGREE"
+            }
+          ],
+          "problem_checks": [],
+          "path": [
+            "__START__",
+            "S1",
+            "S2",
+            "S3",
+            "DT1",
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4",
+            "Q5",
+            "Q6",
+            "Q7",
+            "BLOCKED_AT:Q7"
+          ],
+          "unresolved": []
+        }
+      ]
+    }
+  }
+}

@@ -65,14 +65,14 @@ re-run, but a `load_stage4` would remove the rest.
         │ STAGE 1  ingestion                    │  no LLM
         │ body XML walked in document order     │
         └───────────────────┬───────────────────┘
-                            │  stage1_document.json
+                            │  agent1_s1_document.json
                             │  blocks[] — paragraphs (text, style, bold)
                             │             and tables (row/column grids)
         ┌───────────────────▼───────────────────┐
         │ STAGE 2  heading identification       │  LLM: shape-matching
         │ 7 targets, name match then shape      │
         └───────────────────┬───────────────────┘
-                            │  stage2_blocks.json + stage2_flags.json
+                            │  agent1_s2_blocks.json + agent1_s2_flags.json
                             │  one ContentBlock per target = the heading
                             │  plus every block beneath it, and every
                             │  unmatched section kept as `unclassified`
@@ -80,7 +80,7 @@ re-run, but a `load_stage4` would remove the rest.
         │ STAGE 3  raw JSON                     │  LLM: prose only
         │ literal transcription per block       │
         └───────────────────┬───────────────────┘
-                            │  stage3_<target>.json + stage3_flags.json
+                            │  agent1_s3_<target>.json + agent1_s3_flags.json
                             │  rows[] — source column names as keys,
                             │           cell text verbatim as values
                             │  row_sources[] — index-aligned provenance
@@ -88,39 +88,39 @@ re-run, but a `load_stage4` would remove the rest.
         │ STAGE 4  deep parse                   │  LLM: field split,
         │ parsers run under asyncio.gather      │       condition translation
         └───────────────────┬───────────────────┘
-                            │  stage4_<target>.json + stage4_flags.json
+                            │  agent1_s4_<target>.json + agent1_s4_flags.json
                             │  typed objects: Question, RoutingRule,
                             │  AcceptanceScenario, CompletionMessage,
                             │  ExtractedStatement
-                            │  stage4_survey.json — the survey's own headings
+                            │  agent1_s4_survey.json — the survey's own headings
                             │  written bare: no envelope, no source_reference
         ┌───────────────────▼───────────────────┐
         │ STAGE 5  extraction quality check     │  no LLM
         │ audits stage 4 against 2 and 3        │
         └───────────────────┬───────────────────┘
-                            │  stage5_audit.json
+                            │  agent1_s5_audit.json
      ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─│─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─  Part 1 ends here
         ┌───────────────────▼───────────────────┐
         │ STAGE 6  canonical specification      │  LLM: prose conditions,
         │ what the QRE means                    │       text pipes, quotas
         └───────────────────┬───────────────────┘
-                            │  part2_canonical.json
+                            │  agent1_canonical_survey_spec.json
                             │  every added value carries an origin
         ┌───────────────────▼───────────────────┐
         │ STAGE 7  canonical validation         │  no LLM
         │ is the specification right?           │
         └───────────────────┬───────────────────┘
-                            │  part2_validation.json
-                            │  agent1_evaluation_tests.json
-                            │  agent1_evaluation_results.json
-                            │  agent1_decisions.json
-                            │  agent1_decision_register.md
+                            │  agent1_s7_validation.json
+                            │  agent1_s7_evaluation_tests.json
+                            │  agent1_s7_evaluation_results.json
+                            │  agent1_s7_decisions.json
+                            │  agent1_s7_decision_register.md
         ┌───────────────────▼───────────────────┐
         │ STAGE 8  route + dependency graphs    │  no LLM
         │ a view of the validated specification │
         └───────────────────┬───────────────────┘
-                            │  part2_route_graph.json
-                            │  part2_graph_report.json
+                            │  agent1_s8_route_graph.json
+                            │  agent1_s8_graph_report.json
                             │  route_graph.graphml / .gexf
                             │  dependency_graph.graphml / .gexf
         ┌───────────────────▼───────────────────┐
@@ -128,7 +128,7 @@ re-run, but a `load_stage4` would remove the rest.
         │ does the graph behave as specified?   │
         └───────────────────┬───────────────────┘
                             │  part2_graph_validation.json
-                            │  agent1_stage9_gate.json
+                            │  agent1_ready.json
                             ▼
                     Agent 2 (build) · Agent 3 (test design)
 ```
@@ -145,7 +145,7 @@ normalised, inferred or split before Stage 4. That is what makes Stage 5's audit
 possible: Stage 3's output is a faithful record of the source, so any difference
 between it and Stage 4 is attributable to Stage 4.
 
-**Survey information.** `stage4_survey.json` carries the five things that
+**Survey information.** `agent1_s4_survey.json` carries the five things that
 identify a study and introduce it, which nothing else in the pipeline held:
 
 ```json
@@ -251,7 +251,7 @@ it uses:
 
 **No provenance is lost.** Only the serialisation drops it; the objects in
 memory are unchanged. Stage 5 and Part 2 are handed those objects rather than
-the file, so `part2_canonical.json` still carries a source reference for every
+the file, so `agent1_canonical_survey_spec.json` still carries a source reference for every
 question and every rule, and Stage 9's `traceability_coverage` still resolves in
 full. Anything re-reading Stage 4 from disk — `run_validation.py` does — gets
 records without provenance, which costs nothing today because the traceability
@@ -304,7 +304,7 @@ twice. Each of those changes which questions a respondent sees, so a test built
 on one reading cannot be told apart from a test built on another.
 
 Every model call goes through `llm.complete`, so the record sits there. Each
-answer is written to `out/<stem>/llm_decisions.json` and reused, keyed by a
+answer is written to `out/<stem>/agent1_llm_cache.json` and reused, keyed by a
 digest of the model, the system prompt, the user prompt, the response schema and
 the token cap. Change any of those — including editing the QRE, which changes the
 prompt — and it asks again rather than reusing an answer to a different question.
@@ -329,11 +329,11 @@ Ambiguity emits a flag rather than a guess.
  "severity": "BLOCKING | WARNING | INFO", "target": {"kind": "...", "id": "..."}}
 ```
 
-`stage2_flags.json`, `stage3_flags.json` and `stage4_flags.json` are always
+`agent1_s2_flags.json`, `agent1_s3_flags.json` and `agent1_s4_flags.json` are always
 written, empty array included — an absent file would be ambiguous between "no
 flags" and "the stage did not run".
 
-Part 2's equivalent is the `review` list inside `part2_canonical.json`. It reuses
+Part 2's equivalent is the `review` list inside `agent1_canonical_survey_spec.json`. It reuses
 the audit's finding shape so the two queues can be read together.
 
 ---
@@ -355,8 +355,8 @@ same findings, which is what makes this usable as a gate rather than as advice.
 | `condition_consistency` | Do scenarios treat identical conditions identically? |
 | `piping_symmetry` | Are piped questions guarded the way their peers are? |
 
-Written to `stage5_audit.json`, holding the per-section scores, the findings and
-a pass/fail. Kept separate from `stage4_flags.json` rather than appended to it:
+Written to `agent1_s5_audit.json`, holding the per-section scores, the findings and
+a pass/fail. Kept separate from `agent1_s4_flags.json` rather than appended to it:
 a Stage 4 flag is trouble that stage hit while working, an audit finding is a
 disagreement between artifacts that each looked fine alone, and conflating the
 two loses which you are reading.
@@ -374,9 +374,9 @@ produced from. Everything required is already on disk.
 
 | Input | File | Role in the audit |
 |---|---|---|
-| Stage 4 output | `stage4_<target>.json` | The thing being audited |
-| Literal transcription | `stage3_<target>.json` | Field-by-field comparand. Row-aligned with Stage 4, so a discrepancy points at one item and one field |
-| Original content block | `stage2_blocks.json` | Completeness check. Catches anything Stage 3 itself dropped, which comparing only against Stage 3 would miss |
+| Stage 4 output | `agent1_s4_<target>.json` | The thing being audited |
+| Literal transcription | `agent1_s3_<target>.json` | Field-by-field comparand. Row-aligned with Stage 4, so a discrepancy points at one item and one field |
+| Original content block | `agent1_s2_blocks.json` | Completeness check. Catches anything Stage 3 itself dropped, which comparing only against Stage 3 would miss |
 | Existing flags | `stage2/3/4_flags.json` | Already-known problems, so the audit does not re-report them as new findings |
 
 Both sources are needed. Stage 3 alone cannot show that a whole row was lost
@@ -515,7 +515,7 @@ or every route ends at a quota.
 guard. It is what lets a failing test point back at the sentence in the QRE that
 asked for the behaviour.
 
-`part2_graph_report.json` says whether the graph faithfully represents the
+`agent1_s8_graph_report.json` says whether the graph faithfully represents the
 specification: node and rule coverage, unreachable nodes, endings with a way out
 of them, and cycles in either graph. That is a different question from whether
 the specification is right, which is what Stage 5 asks.
@@ -534,13 +534,13 @@ Two questions, again kept apart:
 - **behavioural** — walked as a respondent would, does the graph do what the
   specification says?
 
-It reads `part2_canonical.json` and the graph files already on disk. No Stage 4,
+It reads `agent1_canonical_survey_spec.json` and the graph files already on disk. No Stage 4,
 no Part 2, no model call, no rebuild: the graph it validates is exactly the one
 Stage 8 wrote.
 
 ### The approval gate
 
-`agent1_stage9_gate.json` separates two things that were previously one:
+`agent1_ready.json` separates two things that were previously one:
 
 ```
 GRAPH_INPUT_SUFFICIENCY     is the graph complete enough to build on?

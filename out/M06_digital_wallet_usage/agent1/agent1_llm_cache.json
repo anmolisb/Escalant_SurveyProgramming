@@ -1,0 +1,164 @@
+{
+  "entries": {
+    "2e0fe22c7492acd0ab2271d603bc491d211f5d136b73aea137166ba33cf2fb27": {
+      "response_model": "LLMCompletionMessages",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-10-11T16:43:14+00:00",
+      "asked": "Section: Completion messages\n\nSource text:\nTERM_INELIGIBLE: Thank you for your interest. You do not qualify for this survey.\nCOMPLETE: Thank you. Your response has been recorded.",
+      "response": {
+        "rows": [
+          {
+            "code": "TERM_INELIGIBLE",
+            "message": "Thank you for your interest. You do not qualify for this survey."
+          },
+          {
+            "code": "COMPLETE",
+            "message": "Thank you. Your response has been recorded."
+          }
+        ]
+      }
+    },
+    "97a2855e59c43d57a2ce63e42179f43226bb3b0a26bfc5426fda8666aaea4278": {
+      "response_model": "LLMConditionProposal",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-10-11T16:43:24+00:00",
+      "asked": "Condition as written: Q7 contains any problem\n\nAnswer options:\nQ7: 'Payment failure', 'Refund delay', 'Incorrect debit', 'Authentication issue', 'Merchant acceptance', 'None of these' (exclusive)",
+      "response": {
+        "expression": "Q7 contains_any ['Payment failure','Refund delay','Incorrect debit','Authentication issue','Merchant acceptance']",
+        "confidence": 0.99,
+        "reasoning": "The phrase 'contains any problem' means the respondent selected at least one of the listed problem options. The exclusive 'None of these' indicates no other selections, so we include all non\u2011exclusive options in a contains_any list per the provided grammar."
+      }
+    },
+    "37c9e96a6f480e2ed92f18e809808b8f0d8cd5a2d53e9b3bd1515c73fb1c7d19": {
+      "response_model": "LLMConditionProposal",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-10-11T16:43:40+00:00",
+      "asked": "Condition as written: Q7 includes 'None of these' plus another option\n\nAnswer options:\nQ7: 'Payment failure', 'Refund delay', 'Incorrect debit', 'Authentication issue', 'Merchant acceptance', 'None of these' (exclusive)",
+      "response": {
+        "expression": null,
+        "confidence": 1.0,
+        "reasoning": "The condition states that Q7 must contain 'None of these' together with another option. However, the answer list marks 'None of these' as (exclusive), meaning it cannot be selected alongside any other option. This makes the condition logically impossible to satisfy, and the provided grammar cannot represent such an impossible condition. Therefore the appropriate response is a null expression."
+      }
+    },
+    "05472c80cdb9a81602a597e77c6b8691b31e48da642c66cbd6e7c4096a7229e2": {
+      "response_model": "LLMQuota",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-10-11T16:43:47+00:00",
+      "asked": "Whole quota section, for context:\nQUOTA_REGION: soft quota on D1: North=20%, South=20%, East=20%, West=20%, Central=20%\nQuota-full respondents terminate at TERM_QUOTA_FULL before the next substantive question. Quota status must be logged.\n\nSentence to read now: QUOTA_REGION: soft quota on D1: North=20%, South=20%, East=20%, West=20%, Central=20%\n\nAnswer options:\nS1: 'Yes', 'No'\nS2: 'Yes', 'No'\nQ1: ...",
+      "response": {
+        "is_quota": true,
+        "quota_id": "QUOTA_REGION",
+        "enforcement": "soft",
+        "variable_question_id": "D1",
+        "cell_labels": [
+          "North",
+          "South",
+          "East",
+          "West",
+          "Central"
+        ],
+        "cell_percents": [
+          20.0,
+          20.0,
+          20.0,
+          20.0,
+          20.0
+        ],
+        "on_full": "TERM_QUOTA_FULL",
+        "confidence": 1.0,
+        "reasoning": "The sentence defines a quota (QUOTA_REGION) with a soft enforcement, counting responses to question D1. It lists the five answer labels exactly as provided for D1 and assigns each a 20% share. The section states that quota\u2011full respondents terminate at TERM_QUOTA_FULL, which is used as the on_full code."
+      }
+    },
+    "e9c078fe9fa18e6cd3b09802ca530426b9fbed2e65fcfd8b4ac78b0fcfa20403": {
+      "response_model": "LLMQuota",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-10-11T16:44:02+00:00",
+      "asked": "Whole quota section, for context:\nQUOTA_REGION: soft quota on D1: North=20%, South=20%, East=20%, West=20%, Central=20%\nQuota-full respondents terminate at TERM_QUOTA_FULL before the next substantive question. Quota status must be logged.\n\nSentence to read now: Quota-full respondents terminate at TERM_QUOTA_FULL before the next substantive question. Quota status must be logged.\n\nAnswer options:\nS1 ...",
+      "response": {
+        "is_quota": false,
+        "quota_id": null,
+        "enforcement": null,
+        "variable_question_id": null,
+        "cell_labels": [],
+        "cell_percents": [],
+        "on_full": null,
+        "confidence": 0.99,
+        "reasoning": "The sentence only describes the action taken when a quota is full (terminating respondents at TERM_QUOTA_FULL) and mentions that quota status must be logged. It does not specify a quota definition such as which question determines the groups, the answer labels, percentages, or whether the quota is hard or soft. Therefore it does not set a quota."
+      }
+    },
+    "e3eca7e67f79d58be651e51534f092311cc0b0d5d06a12fa6d099fbe48ab3954": {
+      "response_model": "LLMTextPipes",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-10-11T16:44:23+00:00",
+      "asked": "S1: Have you used or purchased digital wallet services in the past 6 months?\nS2: Are you personally involved in choosing this product or service?\nS3: What is your age?\nDT1: Great, you're eligible for this survey! Next, a few questions about your recent digital wallet experience.\nQ1: Which digital wallet services channel or provider did you use most recently?\nQ2: When did the most recent experience ...",
+      "response": {
+        "pipes": [
+          {
+            "is_pipe": true,
+            "source_question_id": "Q1",
+            "target_question_id": "Q2",
+            "phrase": "most recent experience",
+            "confidence": 0.99,
+            "reasoning": "Q2 asks about \"When did the most recent experience occur?\" which depends on the specific experience identified in Q1."
+          },
+          {
+            "is_pipe": true,
+            "source_question_id": "Q1",
+            "target_question_id": "Q3",
+            "phrase": "the experience",
+            "confidence": 0.99,
+            "reasoning": "Q3 asks \"What was the primary purpose of the experience?\" referring to the experience mentioned in Q1."
+          },
+          {
+            "is_pipe": true,
+            "source_question_id": "Q1",
+            "target_question_id": "Q5",
+            "phrase": "the experience",
+            "confidence": 0.99,
+            "reasoning": "Q5 asks \"Rate the ease of completing the experience,\" which references the specific experience from Q1."
+          },
+          {
+            "is_pipe": true,
+            "source_question_id": "Q7",
+            "target_question_id": "Q8",
+            "phrase": "the greatest impact",
+            "confidence": 0.99,
+            "reasoning": "Q8 asks \"Which problem had the greatest impact?\" referring to the set of problems identified in Q7."
+          },
+          {
+            "is_pipe": true,
+            "source_question_id": "Q8",
+            "target_question_id": "Q9",
+            "phrase": "the main problem",
+            "confidence": 0.99,
+            "reasoning": "Q9 asks \"Was the main problem resolved?\" which depends on the problem selected in Q8."
+          },
+          {
+            "is_pipe": true,
+            "source_question_id": "Q9",
+            "target_question_id": "Q10",
+            "phrase": "the resolution",
+            "confidence": 0.99,
+            "reasoning": "Q10 asks \"How satisfied were you with the resolution?\" referencing the resolution outcome from Q9."
+          },
+          {
+            "is_pipe": true,
+            "source_question_id": "Q1",
+            "target_question_id": "Q11",
+            "phrase": "the provider",
+            "confidence": 0.99,
+            "reasoning": "Q11 asks \"How likely are you to recommend the provider?\" which refers to the provider named in Q1."
+          },
+          {
+            "is_pipe": true,
+            "source_question_id": "Q1",
+            "target_question_id": "Q12",
+            "phrase": "the provider",
+            "confidence": 0.99,
+            "reasoning": "Q12 asks \"How likely are you to continue using the provider?\" which also refers back to the provider identified in Q1."
+          }
+        ]
+      }
+    }
+  }
+}

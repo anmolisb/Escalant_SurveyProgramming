@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0.0",
+  "artifact": "agent1_s3_messages",
+  "stage": 3,
+  "survey_id": "S05_clinic_appointment_booking",
+  "source_document": {
+    "filename": "S05_clinic_appointment_booking.docx",
+    "sha256": "8f7a44cf016c447817c94a85b25d826fa176cdca6f8d11f76130941321849c0b",
+    "bytes": 40655
+  },
+  "generated_at": "2026-10-11T16:36:42+00:00",
+  "item_count": null,
+  "content": {
+    "target": "Completion messages",
+    "source_kind": "prose",
+    "rows": [
+      {
+        "code": "TERM_INELIGIBLE",
+        "message": "Thank you for your interest. You do not qualify for this survey."
+      },
+      {
+        "code": "COMPLETE",
+        "message": "Thank you. Your response has been recorded."
+      }
+    ],
+    "row_sources": [
+      {
+        "document": "S05_clinic_appointment_booking.docx",
+        "section": "Completion messages",
+        "heading_text": "Completion messages",
+        "block_order": 23,
+        "row_index": null,
+        "source_kind": "prose",
+        "text": "TERM_INELIGIBLE: Thank you for your interest. You do not qualify for this survey."
+      },
+      {
+        "document": "S05_clinic_appointment_booking.docx",
+        "section": "Completion messages",
+        "heading_text": "Completion messages",
+        "block_order": 24,
+        "row_index": null,
+        "source_kind": "prose",
+        "text": "COMPLETE: Thank you. Your response has been recorded."
+      }
+    ]
+  }
+}

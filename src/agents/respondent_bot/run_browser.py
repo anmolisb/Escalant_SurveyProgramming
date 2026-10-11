@@ -45,6 +45,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
+from src.common import paths as fnames
 from src.common.paths import agent1_dir
 
 PASSED, FAILED, BLOCKED = "PASSED", "FAILED", "BLOCKED"
@@ -1153,7 +1154,7 @@ def main() -> int:
     options: dict[str, dict[str, str]] = {}
     rows: dict[str, dict[str, str]] = {}
     completion = ""
-    canonical = agent1_dir(directory) / "part2_canonical.json"
+    canonical = agent1_dir(directory) / fnames.CANONICAL
     if canonical.exists():
         doc = json.loads(canonical.read_text(encoding="utf-8"))
         for d in (doc.get("content") or doc).get("dispositions", []):

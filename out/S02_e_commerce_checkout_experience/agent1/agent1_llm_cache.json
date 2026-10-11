@@ -1,0 +1,40 @@
+{
+  "entries": {
+    "2e0fe22c7492acd0ab2271d603bc491d211f5d136b73aea137166ba33cf2fb27": {
+      "response_model": "LLMCompletionMessages",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-10-11T16:34:17+00:00",
+      "asked": "Section: Completion messages\n\nSource text:\nTERM_INELIGIBLE: Thank you for your interest. You do not qualify for this survey.\nCOMPLETE: Thank you. Your response has been recorded.",
+      "response": {
+        "rows": [
+          {
+            "code": "TERM_INELIGIBLE",
+            "message": "Thank you for your interest. You do not qualify for this survey."
+          },
+          {
+            "code": "COMPLETE",
+            "message": "Thank you. Your response has been recorded."
+          }
+        ]
+      }
+    },
+    "9a5ab7e4c7dcc07f85967b0d02c81a0969d0ed0b8ce6cf690e7ac024650adfcd": {
+      "response_model": "LLMTextPipes",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-10-11T16:34:19+00:00",
+      "asked": "S1: Have you completed an online retail purchase in the past 30 days?\nS2: Are you 18 years of age or older?\nDT1: Great, you're eligible for this survey! Next, a few quick questions about your recent online checkout.\nQ1: Which channel did you primarily use for this online checkout?\nQ2: Overall, how satisfied were you with the online checkout?\nQ3: How easy was it to complete what you wanted to do?\nQ ...",
+      "response": {
+        "pipes": [
+          {
+            "is_pipe": true,
+            "source_question_id": "Q5",
+            "target_question_id": "Q6",
+            "phrase": "the main problem",
+            "confidence": 1.0,
+            "reasoning": "Q6 asks the respondent to describe \"the main problem\". Whether there is a problem to describe depends on the answer to Q5 (Did you encounter a problem?). Without knowing the answer to Q5, the phrase \"the main problem\" would be undefined, so Q6's wording references the earlier answer."
+          }
+        ]
+      }
+    }
+  }
+}

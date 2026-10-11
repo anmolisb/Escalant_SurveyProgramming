@@ -1,0 +1,124 @@
+{
+  "entries": {
+    "2e0fe22c7492acd0ab2271d603bc491d211f5d136b73aea137166ba33cf2fb27": {
+      "response_model": "LLMCompletionMessages",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-10-11T16:40:57+00:00",
+      "asked": "Section: Completion messages\n\nSource text:\nTERM_INELIGIBLE: Thank you for your interest. You do not qualify for this survey.\nCOMPLETE: Thank you. Your response has been recorded.",
+      "response": {
+        "rows": [
+          {
+            "code": "TERM_INELIGIBLE",
+            "message": "Thank you for your interest. You do not qualify for this survey."
+          },
+          {
+            "code": "COMPLETE",
+            "message": "Thank you. Your response has been recorded."
+          }
+        ]
+      }
+    },
+    "85f9fabdaacb39c4edd58189af59b353cd7aa41aa93cf175c8d792a9ec49bde7": {
+      "response_model": "LLMConditionProposal",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-10-11T16:41:07+00:00",
+      "asked": "Condition as written: Q7 contains any problem\n\nAnswer options:\nQ7: 'Room cleanliness', 'Noise', 'Check-in delay', 'Wi-Fi issue', 'Billing problem', 'None of these' (exclusive)",
+      "response": {
+        "expression": "Q7 contains_any ['Room cleanliness','Noise','Check-in delay','Wi-Fi issue','Billing problem']",
+        "confidence": 0.99,
+        "reasoning": "The phrase 'contains any problem' means the respondent selected at least one of the problem options. The exclusive 'None of these' indicates no other options can be chosen with it, so we list all non\u2011exclusive problem choices and use the 'contains_any' operator."
+      }
+    },
+    "8f3edf89af3461c06913c8d028142cc016c45638aede3f2f836cacb756adae97": {
+      "response_model": "LLMConditionProposal",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-10-11T16:41:17+00:00",
+      "asked": "Condition as written: Q7 includes 'None of these' plus another option\n\nAnswer options:\nQ7: 'Room cleanliness', 'Noise', 'Check-in delay', 'Wi-Fi issue', 'Billing problem', 'None of these' (exclusive)",
+      "response": {
+        "expression": "Q7 contains 'None of these' and Q7 contains_any ['Room cleanliness','Noise','Check-in delay','Wi-Fi issue','Billing problem']",
+        "confidence": 0.99,
+        "reasoning": "The condition states that the respondent selected the exclusive option 'None of these' together with at least one other option. This can be expressed using the membership operators: 'contains' for the exclusive option and 'contains_any' for any of the remaining options, combined with 'and'. The grammar supports these operators, so the expression is valid even though such a response would be contradictory in practice."
+      }
+    },
+    "68ed36a45c9d761c9415105cb5a31bf4c4fd87a4d13ccadcf72a527fffabe405": {
+      "response_model": "LLMQuota",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-10-11T16:41:31+00:00",
+      "asked": "Whole quota section, for context:\nQUOTA_REGION: soft quota on D1: North=20%, South=20%, East=20%, West=20%, Central=20%\nQuota-full respondents terminate at TERM_QUOTA_FULL before the next substantive question. Quota status must be logged.\n\nSentence to read now: QUOTA_REGION: soft quota on D1: North=20%, South=20%, East=20%, West=20%, Central=20%\n\nAnswer options:\nS1: 'Yes', 'No'\nS2: 'Yes', 'No'\nQ1: ...",
+      "response": {
+        "is_quota": true,
+        "quota_id": "QUOTA_REGION",
+        "enforcement": "soft",
+        "variable_question_id": "D1",
+        "cell_labels": [
+          "North",
+          "South",
+          "East",
+          "West",
+          "Central"
+        ],
+        "cell_percents": [
+          20.0,
+          20.0,
+          20.0,
+          20.0,
+          20.0
+        ],
+        "on_full": "TERM_QUOTA_FULL",
+        "confidence": 0.99,
+        "reasoning": "The sentence defines a soft quota named QUOTA_REGION on question D1 with five region labels (North, South, East, West, Central) each allocated 20%. The next sentence in the section states that quota\u2011full respondents terminate at TERM_QUOTA_FULL, which is taken as the on_full code for this quota."
+      }
+    },
+    "f1ebfcdca6b96ddfac6f5292fd9743884d73ad5a552a344cf6f913d315046f83": {
+      "response_model": "LLMQuota",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-10-11T16:41:46+00:00",
+      "asked": "Whole quota section, for context:\nQUOTA_REGION: soft quota on D1: North=20%, South=20%, East=20%, West=20%, Central=20%\nQuota-full respondents terminate at TERM_QUOTA_FULL before the next substantive question. Quota status must be logged.\n\nSentence to read now: Quota-full respondents terminate at TERM_QUOTA_FULL before the next substantive question. Quota status must be logged.\n\nAnswer options:\nS1 ...",
+      "response": {
+        "is_quota": false,
+        "quota_id": null,
+        "enforcement": null,
+        "variable_question_id": null,
+        "cell_labels": [],
+        "cell_percents": [],
+        "on_full": null,
+        "confidence": 0.99,
+        "reasoning": "The sentence only describes the action taken when a quota is full (terminating at TERM_QUOTA_FULL) and mentions that quota status must be logged. It does not specify a quota ID, enforcement type, variable question, answer labels, percentages, or an on\u2011full ending distinct from the one already described, so it does not define a quota."
+      }
+    },
+    "4b22095b31c2a877a437ea4c587f2367713b8fc24257a24d2a585bce7c92532f": {
+      "response_model": "LLMTextPipes",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-10-11T16:42:01+00:00",
+      "asked": "S1: Have you used or purchased hotel stays in the past 6 months?\nS2: Are you personally involved in choosing this product or service?\nS3: What is your age?\nDT1: Great, you're eligible for this survey! Next, a few questions about your recent hotel stay experience.\nQ1: Which hotel stays channel or provider did you use most recently?\nQ2: When did the most recent experience occur?\nQ3: What was the pri ...",
+      "response": {
+        "pipes": [
+          {
+            "is_pipe": true,
+            "source_question_id": "Q7",
+            "target_question_id": "Q8",
+            "phrase": "Which problem",
+            "confidence": 1.0,
+            "reasoning": "Q8 asks \"Which problem had the greatest impact?\" The phrase \"Which problem\" refers to the set of problems the respondent selected in the previous question Q7 (\"Did you experience any of the following problems?\"). Without the answer to Q7 the wording would be ambiguous."
+          },
+          {
+            "is_pipe": true,
+            "source_question_id": "Q8",
+            "target_question_id": "Q9",
+            "phrase": "the main problem",
+            "confidence": 1.0,
+            "reasoning": "Q9 asks \"Was the main problem resolved?\" The phrase \"the main problem\" points to the specific problem the respondent identified as having the greatest impact in Q8. The reference depends on the earlier answer."
+          },
+          {
+            "is_pipe": true,
+            "source_question_id": "Q9",
+            "target_question_id": "Q10",
+            "phrase": "the resolution",
+            "confidence": 1.0,
+            "reasoning": "Q10 asks \"How satisfied were you with the resolution?\" The term \"the resolution\" refers to the outcome of the problem discussed in Q9 (whether the main problem was resolved). The wording cannot be displayed meaningfully without the answer to Q9."
+          }
+        ]
+      }
+    }
+  }
+}

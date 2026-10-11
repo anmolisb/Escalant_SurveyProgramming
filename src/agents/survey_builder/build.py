@@ -2,7 +2,7 @@
 
     python -m src.agents.survey_builder.build out/S01_campus_cafeteria_experience
 
-Agent 1's canonical specification, part2_canonical.json, is read from the
+Agent 1's canonical specification, agent1_canonical_survey_spec.json, is read from the
 run's agent1/ folder and the survey is written to its agent2/ folder. A folder
 that holds that file directly, such as tests/survey_builder/canonical/S01,
 also works and writes to out/.
@@ -24,11 +24,11 @@ from pathlib import Path
 from src.agents.survey_builder.emitter import write
 from src.agents.survey_builder.loader import load
 from src.agents.survey_builder.preflight import check
-from src.common.paths import AGENT1, OUT_ROOT, agent1_dir, agent2_lss
+from src.common.paths import AGENT1, OUT_ROOT, agent1_dir, agent2_lss, lss_name
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("directory", help="a QRE run folder, or a folder holding part2_canonical.json")
+    parser.add_argument("directory", help="a QRE run folder, or a folder holding agent1_canonical_survey_spec.json")
     parser.add_argument("--notes", action="store_true",
                         help="also list input the builder is ignoring")
     args = parser.parse_args()
@@ -62,7 +62,7 @@ def main() -> int:
     if directory.resolve().parent == OUT_ROOT.resolve():
         path = agent2_lss(directory)
     else:
-        path = OUT_ROOT / f"{directory.name}_generated.lss"
+        path = OUT_ROOT / lss_name(directory.name)
     path.parent.mkdir(parents=True, exist_ok=True)
     write(survey, path)
 

@@ -1,0 +1,22 @@
+{
+  "schema_version": "1.0.0",
+  "artifact": "agent1_ready",
+  "stage": 8,
+  "survey_id": "S03_employee_training_feedback",
+  "source_document": {
+    "filename": "S03_employee_training_feedback.docx",
+    "sha256": "e4d831ce056a2300513e98431ecd5ba8507cf5a533bbf81626679adf97a05cb1",
+    "bytes": 40650
+  },
+  "generated_at": "2026-10-11T16:36:35+00:00",
+  "item_count": null,
+  "content": {
+    "status": "BLOCKED",
+    "canonical_validation_clear": true,
+    "human_decision_gate_clear": false,
+    "graph_validation_passed": true,
+    "blocked_by": [
+      "human_decision_gate=PENDING_BLOCKING_DECISIONS"
+    ]
+  }
+}

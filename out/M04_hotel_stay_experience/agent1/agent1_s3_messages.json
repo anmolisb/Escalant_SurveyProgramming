@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0.0",
+  "artifact": "agent1_s3_messages",
+  "stage": 3,
+  "survey_id": "M04_hotel_stay_experience",
+  "source_document": {
+    "filename": "M04_hotel_stay_experience.docx",
+    "sha256": "2f65aef53dbea391830fd1ca701a87474b803b7ec1af35e08a7fa3cccb5dd404",
+    "bytes": 42025
+  },
+  "generated_at": "2026-10-11T16:40:57+00:00",
+  "item_count": null,
+  "content": {
+    "target": "Completion messages",
+    "source_kind": "prose",
+    "rows": [
+      {
+        "code": "TERM_INELIGIBLE",
+        "message": "Thank you for your interest. You do not qualify for this survey."
+      },
+      {
+        "code": "COMPLETE",
+        "message": "Thank you. Your response has been recorded."
+      }
+    ],
+    "row_sources": [
+      {
+        "document": "M04_hotel_stay_experience.docx",
+        "section": "Completion messages",
+        "heading_text": "Completion messages",
+        "block_order": 26,
+        "row_index": null,
+        "source_kind": "prose",
+        "text": "TERM_INELIGIBLE: Thank you for your interest. You do not qualify for this survey."
+      },
+      {
+        "document": "M04_hotel_stay_experience.docx",
+        "section": "Completion messages",
+        "heading_text": "Completion messages",
+        "block_order": 27,
+        "row_index": null,
+        "source_kind": "prose",
+        "text": "COMPLETE: Thank you. Your response has been recorded."
+      }
+    ]
+  }
+}

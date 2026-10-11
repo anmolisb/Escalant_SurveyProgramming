@@ -1,0 +1,115 @@
+{
+  "schema_version": "1.0.0",
+  "artifact": "agent1_s5_audit",
+  "stage": 5,
+  "survey_id": "M02_electric_vehicle_consideration",
+  "source_document": {
+    "filename": "M02_electric_vehicle_consideration.docx",
+    "sha256": "13a0b7cc45ed6f6b7e0c570e5fe3d70c5ae6a7693ffff9dd6e7a970c5c854006",
+    "bytes": 42038
+  },
+  "generated_at": "2026-10-11T16:38:04+00:00",
+  "item_count": null,
+  "content": {
+    "source": "M02_electric_vehicle_consideration.docx",
+    "checks_run": [
+      "source_coverage",
+      "row_accounting",
+      "content_fidelity",
+      "reference_integrity",
+      "condition_consistency",
+      "piping_symmetry"
+    ],
+    "sections": [
+      {
+        "target": "Questionnaire",
+        "rows_in": 21,
+        "objects_out": 21,
+        "identified": 21,
+        "score": 1.0,
+        "threshold": 0.95,
+        "passed": true
+      },
+      {
+        "target": "Routing and termination",
+        "rows_in": 9,
+        "objects_out": 9,
+        "identified": 9,
+        "score": 1.0,
+        "threshold": 0.95,
+        "passed": true
+      },
+      {
+        "target": "Acceptance test scenarios",
+        "rows_in": 5,
+        "objects_out": 5,
+        "identified": 5,
+        "score": 1.0,
+        "threshold": 1.0,
+        "passed": true
+      },
+      {
+        "target": "Completion messages",
+        "rows_in": 2,
+        "objects_out": 2,
+        "identified": 2,
+        "score": 1.0,
+        "threshold": 1.0,
+        "passed": true
+      },
+      {
+        "target": "Quota controls",
+        "rows_in": 2,
+        "objects_out": 2,
+        "identified": 2,
+        "score": 1.0,
+        "threshold": 1.0,
+        "passed": true
+      },
+      {
+        "target": "Study specification",
+        "rows_in": 5,
+        "objects_out": 5,
+        "identified": 5,
+        "score": 1.0,
+        "threshold": 1.0,
+        "passed": true
+      },
+      {
+        "target": "Programming and QA requirements",
+        "rows_in": 6,
+        "objects_out": 6,
+        "identified": 6,
+        "score": 1.0,
+        "threshold": 1.0,
+        "passed": true
+      }
+    ],
+    "findings": [
+      {
+        "check": "source_coverage",
+        "severity": "WARNING",
+        "finding": "3 block(s) sit outside every heading and reached no stage. Content before the first heading is not captured by any target.",
+        "target": {
+          "kind": "document",
+          "id": "M02_electric_vehicle_consideration.docx"
+        },
+        "evidence": "M02 \u2022 MEDIUM; Electric Vehicle Consideration; Questionnaire Requirement Document (QRE)",
+        "source_reference": null
+      },
+      {
+        "check": "reference_integrity",
+        "severity": "WARNING",
+        "finding": "'TERM_QUOTA_FULL' is named in a quotas statement but is not a question or an ending in this QRE.",
+        "target": {
+          "kind": "statement",
+          "id": "TERM_QUOTA_FULL"
+        },
+        "evidence": "Quota-full respondents terminate at TERM_QUOTA_FULL before the next substantive question. Quota status must be logged.",
+        "source_reference": null
+      }
+    ],
+    "blocking": 0,
+    "passed": true
+  }
+}

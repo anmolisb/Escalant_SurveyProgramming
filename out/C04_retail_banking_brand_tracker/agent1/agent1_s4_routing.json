@@ -1,0 +1,122 @@
+[
+  {
+    "rule": "R1",
+    "condition_raw": "S1 == 'No'",
+    "action": "terminate",
+    "destination": "TERM_AGE"
+  },
+  {
+    "rule": "R2",
+    "condition_raw": "S2 != 'Personally choose or manage at least one banking product'",
+    "action": "terminate",
+    "destination": "TERM_INVOLVEMENT"
+  },
+  {
+    "rule": "R3",
+    "condition_raw": "S3 == 'Yes'",
+    "action": "terminate",
+    "destination": "TERM_RECENT_RESEARCH"
+  },
+  {
+    "rule": "R4",
+    "condition_raw": "S4 == 'Yes'",
+    "action": "terminate",
+    "destination": "TERM_CONFLICT"
+  },
+  {
+    "rule": "R5",
+    "condition_raw": "Q1 == ['None of these']",
+    "action": "skip",
+    "destination": "Q4"
+  },
+  {
+    "rule": "R6",
+    "condition_raw": "Q1 contains at least one brand",
+    "action": "show",
+    "destination": "Q2"
+  },
+  {
+    "rule": "R7",
+    "condition_raw": "Q1 contains at least one brand",
+    "action": "show",
+    "destination": "Q3"
+  },
+  {
+    "rule": "R8",
+    "condition_raw": "Q5 contains any touchpoint",
+    "action": "show",
+    "destination": "Q6"
+  },
+  {
+    "rule": "R9",
+    "condition_raw": "Q3 != 'None/currently not using'",
+    "action": "show",
+    "destination": "Q7"
+  },
+  {
+    "rule": "R10",
+    "condition_raw": "Q3 != 'None/currently not using'",
+    "action": "show",
+    "destination": "Q8"
+  },
+  {
+    "rule": "R11",
+    "condition_raw": "Q3 != 'None/currently not using'",
+    "action": "show",
+    "destination": "Q9"
+  },
+  {
+    "rule": "R12",
+    "condition_raw": "Q10 == 'Yes'",
+    "action": "show",
+    "destination": "Q11"
+  },
+  {
+    "rule": "R13",
+    "condition_raw": "Q10 == 'Yes'",
+    "action": "show",
+    "destination": "Q12"
+  },
+  {
+    "rule": "R14",
+    "condition_raw": "Q12 in ['Fully','Partly']",
+    "action": "show",
+    "destination": "Q13"
+  },
+  {
+    "rule": "R15",
+    "condition_raw": "Q12 == 'Not resolved'",
+    "action": "show",
+    "destination": "Q14"
+  },
+  {
+    "rule": "R16",
+    "condition_raw": "Q15 == 'Yes'",
+    "action": "show",
+    "destination": "Q16"
+  },
+  {
+    "rule": "R17",
+    "condition_raw": "Q16 == 'Other'",
+    "action": "show",
+    "destination": "Q17"
+  },
+  {
+    "rule": "R18",
+    "condition_raw": "sum(Q18) != 100",
+    "action": "reject",
+    "destination": "Q18"
+  },
+  {
+    "rule": "R19",
+    "condition_raw": "exclusive option selected with another response at Q1 or Q5",
+    "action": "reject",
+    "destination": "CURRENT_QUESTION"
+  },
+  {
+    "rule": "R20",
+    "condition_raw": "selected option at Q6 was not selected at Q5",
+    "action": "reject",
+    "destination": "Q6"
+  }
+]

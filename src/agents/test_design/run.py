@@ -23,6 +23,7 @@ from . import (a_implementation, b1_targets, b2_witness, b3_oracle,
                qre_validation_workbook, report, spec)
 from .models import COVERED
 from .semantics import Semantics
+from src.common import paths as fnames
 from src.common.paths import agent1_dir
 
 SCHEMA_VERSION = "0.1.0"
@@ -47,9 +48,9 @@ def run(out_dir: str | Path, lss_path: str | Path | None = None,
         inputs_path: str | Path | None = None) -> dict:
     out_dir = Path(out_dir)
     agent1 = agent1_dir(out_dir)
-    canonical = agent1 / "part2_canonical.json"
-    decisions = agent1 / "agent1_decisions.json"
-    gate = agent1 / "agent1_stage9_gate.json"
+    canonical = agent1 / fnames.CANONICAL
+    decisions = agent1 / fnames.DECISIONS
+    gate = agent1 / fnames.READY
 
     # Facts the QRE never states but a test needs. Supplied by the project,
     # recorded in the output, never guessed.
@@ -150,8 +151,8 @@ def run(out_dir: str | Path, lss_path: str | Path | None = None,
     }
 
     if snap is not None:
-        artifacts["implementation_snapshot.json"] = _envelope(
-            s, "implementation_snapshot", snap.to_dict())
+        artifacts[fnames.SNAPSHOT] = _envelope(
+            s, fnames.artifact_id(fnames.SNAPSHOT), snap.to_dict())
         artifacts["agent3_conformance.json"] = _envelope(
             s, "agent3_conformance", conf)
         artifacts["agent3_executable_tests.json"] = _envelope(

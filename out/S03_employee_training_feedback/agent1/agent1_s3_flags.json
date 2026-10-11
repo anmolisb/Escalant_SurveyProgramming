@@ -1,0 +1,27 @@
+{
+  "schema_version": "1.0.0",
+  "artifact": "agent1_s3_flags",
+  "stage": 3,
+  "survey_id": "S03_employee_training_feedback",
+  "source_document": {
+    "filename": "S03_employee_training_feedback.docx",
+    "sha256": "e4d831ce056a2300513e98431ecd5ba8507cf5a533bbf81626679adf97a05cb1",
+    "bytes": 40650
+  },
+  "generated_at": "2026-10-11T16:36:32+00:00",
+  "item_count": 1,
+  "content": [
+    {
+      "target_heading": "Quota controls",
+      "status": "NOT_PRESENT",
+      "candidate_heading": null,
+      "confidence": null,
+      "reasoning": "No block reached Stage 3 for this target.",
+      "severity": "WARNING",
+      "target": {
+        "kind": "section",
+        "id": "Quota controls"
+      }
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "schema_version": "1.0.0",
+  "artifact": "agent1_s2_flags",
+  "stage": 2,
+  "survey_id": "S02_e_commerce_checkout_experience",
+  "source_document": {
+    "filename": "S02_e_commerce_checkout_experience.docx",
+    "sha256": "bec693bec7542129c45b2669329a90aa00207496eb912d1d51723439099b9895",
+    "bytes": 40667
+  },
+  "generated_at": "2026-10-11T16:34:16+00:00",
+  "item_count": 1,
+  "content": [
+    {
+      "target_heading": "Quota controls",
+      "status": "NOT_PRESENT",
+      "candidate_heading": null,
+      "confidence": null,
+      "reasoning": "No heading matched by name, and no unmatched heading's content had this section's shape.",
+      "severity": "WARNING",
+      "target": {
+        "kind": "section",
+        "id": "Quota controls"
+      }
+    }
+  ]
+}

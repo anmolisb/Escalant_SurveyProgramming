@@ -49,6 +49,8 @@ from datetime import datetime
 from pathlib import Path
 from typing import Any
 
+from src.common import paths as fnames
+
 # ---------------------------------------------------------------- causes
 
 SURVEY_DEFECT = "SURVEY_DEFECT"
@@ -349,7 +351,7 @@ def adjudicate(directory: Path) -> dict:
     # What the survey was actually built with, read from the file Agent 3
     # derived from the .lss. Lets a rule check the mechanism, not guess at it.
     built: dict = {}
-    snap_file = directory / "agent3" / "implementation_snapshot.json"
+    snap_file = directory / "agent3" / fnames.SNAPSHOT
     if snap_file.exists():
         snap = json.loads(snap_file.read_text(encoding="utf-8"))
         built = {qid: (q.get("attributes") or {})

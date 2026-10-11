@@ -17,7 +17,7 @@ This module does three things:
                  carrying a resolution forward only when the thing it resolved
                  has not changed, and demoting it back to pending, loudly,
                  the moment it might have
-    register     the persisted file itself: `agent1_decisions.json`, one entry
+    register     the persisted file itself: `agent1_s7_decisions.json`, one entry
                  per decision, editable by hand - a project owner resolves a
                  decision by setting `status`, `decision` and
                  `decision_provenance` on its entry and re-running the pipeline
@@ -36,6 +36,8 @@ from dataclasses import dataclass
 from datetime import datetime, timezone
 from pathlib import Path
 
+from src.common import paths as fnames
+
 from .models import (
     CanonicalSurvey, Condition, ConditionOp, Origin, RuleKind, SourceDocument,
 )
@@ -53,8 +55,8 @@ NOT_REQUIRED = "NOT_REQUIRED"
 BLOCKING = "BLOCKING"
 NON_BLOCKING = "NON_BLOCKING"
 
-REGISTER_ARTIFACT = "agent1_decisions.json"
-REGISTER_MARKDOWN = "agent1_decision_register.md"
+REGISTER_ARTIFACT = fnames.DECISIONS
+REGISTER_MARKDOWN = fnames.DECISION_REGISTER
 
 
 # ---------------------------------------------------------------------------
@@ -647,7 +649,7 @@ def save_register(path: Path, entries: dict[str, dict], survey_id: str,
     path.parent.mkdir(parents=True, exist_ok=True)
     payload = {
         "schema_version": DECISION_SCHEMA_VERSION,
-        "artifact": "agent1_decisions",
+        "artifact": fnames.artifact_id(fnames.DECISIONS),
         "survey_id": survey_id,
         "source_document": source.model_dump(mode="json"),
         "generated_at": _now(),
@@ -798,7 +800,7 @@ def to_markdown(register: dict[str, dict], survey_id: str, source: SourceDocumen
         "",
         f"Source: `{source.filename}` (sha256 `{(source.sha256 or '')[:16]}…`)",
         "",
-        "A decision is resolved by editing its entry in `agent1_decisions.json` -",
+        "A decision is resolved by editing its entry in `agent1_s7_decisions.json` -",
         "set `status` to `RESOLVED`, fill `decision` with the ruling and",
         "`decision_provenance` with who made it - then re-run the pipeline. It is",
         "reused from then on unless the source document or this module's",

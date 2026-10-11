@@ -1,0 +1,185 @@
+{
+  "entries": {
+    "414f609f6b68171c751b5408a0aa6eb4bec3e1fbb793ba7e3dfd634cd69cbe6e": {
+      "response_model": "LLMCompletionMessages",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-10-11T17:12:03+00:00",
+      "asked": "Section: Completion messages\n\nSource text:\nTERM_AGE: Thank you for your interest. You do not qualify for this survey.\nTERM_CONFLICT: Thank you for your interest. You do not qualify for this survey.\nTERM_INVOLVEMENT: Thank you for your interest. You do not qualify for this survey.\nTERM_RECENT_RESEARCH: Thank you for your interest. You do not qualify for this survey.\nCOMPLETE: Thank you. Your respon ...",
+      "response": {
+        "rows": [
+          {
+            "code": "TERM_AGE",
+            "message": "Thank you for your interest. You do not qualify for this survey."
+          },
+          {
+            "code": "TERM_CONFLICT",
+            "message": "Thank you for your interest. You do not qualify for this survey."
+          },
+          {
+            "code": "TERM_INVOLVEMENT",
+            "message": "Thank you for your interest. You do not qualify for this survey."
+          },
+          {
+            "code": "TERM_RECENT_RESEARCH",
+            "message": "Thank you for your interest. You do not qualify for this survey."
+          },
+          {
+            "code": "COMPLETE",
+            "message": "Thank you. Your response has been recorded."
+          }
+        ]
+      }
+    },
+    "cc3630e6f26736a827fad1de665593c11673af2a0516c21188aeb14631f72172": {
+      "response_model": "LLMQuestionFields",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-10-11T17:12:04+00:00",
+      "asked": "Question Q19 cell:\nConcept descriptions are displayed in randomized order; store display order.",
+      "response": {
+        "directives": [
+          {
+            "kind": "randomize",
+            "text": "Concept descriptions are displayed in randomized order; store display order."
+          }
+        ]
+      }
+    },
+    "13bdf337e7961ed0e2683f29b815f89fb0f5ea71f3574ebc50f24a5fffadf480": {
+      "response_model": "LLMConditionProposal",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-10-11T17:12:05+00:00",
+      "asked": "Condition as written: Q1 contains at least one brand\n\nAnswer options:\nQ1: 'SaaS Brand A', 'SaaS Brand B', 'SaaS Brand C', 'Open-source alternative', 'None of these' (exclusive)",
+      "response": {
+        "expression": "Q1 contains_any ['SaaS Brand A','SaaS Brand B','SaaS Brand C','Open-source alternative']",
+        "confidence": 0.99,
+        "reasoning": "The phrase 'contains at least one brand' means the respondent selected any of the brand options. The exclusive 'None of these' should not be included, so we use the 'contains_any' operator with the four brand labels."
+      }
+    },
+    "d73da275fd11b03abdd36b769fde50ed4b017910913e398b879132eb63a364c8": {
+      "response_model": "LLMConditionProposal",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-10-11T17:12:06+00:00",
+      "asked": "Condition as written: Q5 contains any touchpoint\n\nAnswer options:\nQ5: 'Vendor website', 'Sales demonstration', 'Peer recommendation', 'Analyst report', 'Trial', 'Procurement process', 'None of these' (exclusive)",
+      "response": {
+        "expression": "Q5 contains_any ['Vendor website','Sales demonstration','Peer recommendation','Analyst report','Trial','Procurement process']",
+        "confidence": 0.98,
+        "reasoning": "The phrase 'contains any touchpoint' means the respondent selected at least one of the touchpoint options. The exclusive 'None of these' indicates selecting none of the others, so we include all non\u2011exclusive options in a contains_any list."
+      }
+    },
+    "a8c3704cf537adc6ede1e91967ad6170952a4a491a42119f11371bcb73c40e52": {
+      "response_model": "LLMConditionProposal",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-10-11T17:12:08+00:00",
+      "asked": "Condition as written: exclusive option selected with another response at Q1 or Q5\n\nAnswer options:\nQ1: 'SaaS Brand A', 'SaaS Brand B', 'SaaS Brand C', 'Open-source alternative', 'None of these' (exclusive)\nQ5: 'Vendor website', 'Sales demonstration', 'Peer recommendation', 'Analyst report', 'Trial', 'Procurement process', 'None of these' (exclusive)",
+      "response": {
+        "expression": "(Q1 contains 'None of these' and Q1 contains_any ['SaaS Brand A','SaaS Brand B','SaaS Brand C','Open-source alternative']) or (Q5 contains 'None of these' and Q5 contains_any ['Vendor website','Sales demonstration','Peer recommendation','Analyst report','Trial','Procurement process'])",
+        "confidence": 0.96,
+        "reasoning": "The condition describes the exclusive option 'None of these' being chosen together with any other option for Q1 or Q5. Using the grammar, this is expressed as the exclusive option being contained and also containing any of the non\u2011exclusive options, combined with OR for the two questions."
+      }
+    },
+    "3980b5f2122b86d696f1dd821be6c31cd698add276de62306641043e5f72b73c": {
+      "response_model": "LLMConditionProposal",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-10-11T17:12:09+00:00",
+      "asked": "Condition as written: selected option at Q6 was not selected at Q5\n\nAnswer options:\nQ6: 'Vendor website', 'Sales demonstration', 'Peer recommendation', 'Analyst report', 'Trial', 'Procurement process'\nQ5: 'Vendor website', 'Sales demonstration', 'Peer recommendation', 'Analyst report', 'Trial', 'Procurement process', 'None of these' (exclusive)",
+      "response": {
+        "expression": "not Q5 contains Q6",
+        "confidence": 0.99,
+        "reasoning": "The condition states that any option chosen in Q6 must not be among those chosen in Q5. Using the membership operator, 'Q5 contains Q6' checks if Q5 includes the answer(s) from Q6; negating it with 'not' yields the required condition."
+      }
+    },
+    "fc90cd57090ee92fb6cc0cfe67d444c2716e6221cd46d8d243ae8a201ba64234": {
+      "response_model": "LLMQuota",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-10-11T17:12:18+00:00",
+      "asked": "Whole quota section, for context:\nQUOTA_REGION: hard quota on D1: North=20%, South=20%, East=20%, West=20%, Central=20%\nQUOTA_AGE: soft quota on D2: 21-29=20%, 30-39=25%, 40-49=25%, 50-59=20%, 60+=10%\nQuota-full respondents terminate at TERM_QUOTA_FULL before the next substantive question. Quota status must be logged.\n\nSentence to read now: QUOTA_REGION: hard quota on D1: North=20%, South=20%, Eas ...",
+      "response": {
+        "is_quota": true,
+        "quota_id": "QUOTA_REGION",
+        "enforcement": "hard",
+        "variable_question_id": "D1",
+        "cell_labels": [
+          "North",
+          "South",
+          "East",
+          "West",
+          "Central"
+        ],
+        "cell_percents": [
+          20.0,
+          20.0,
+          20.0,
+          20.0,
+          20.0
+        ],
+        "on_full": "TERM_QUOTA_FULL",
+        "confidence": 0.99,
+        "reasoning": "The sentence explicitly defines a quota: it starts with the quota identifier QUOTA_REGION, specifies a hard quota, and states it is on question D1. The answer options for D1 are listed in the provided options, matching the labels in the sentence. Percentages are given for each label. The section later states that quota\u2011full respondents terminate at TERM_QUOTA_FULL, which applies to this quota as no different ending is specified."
+      }
+    },
+    "7de67082c591a8cba692c9a2372b62e36aa810c8a4dab958e995ff1569a26452": {
+      "response_model": "LLMQuota",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-10-11T17:12:35+00:00",
+      "asked": "Whole quota section, for context:\nQUOTA_REGION: hard quota on D1: North=20%, South=20%, East=20%, West=20%, Central=20%\nQUOTA_AGE: soft quota on D2: 21-29=20%, 30-39=25%, 40-49=25%, 50-59=20%, 60+=10%\nQuota-full respondents terminate at TERM_QUOTA_FULL before the next substantive question. Quota status must be logged.\n\nSentence to read now: QUOTA_AGE: soft quota on D2: 21-29=20%, 30-39=25%, 40-49= ...",
+      "response": {
+        "is_quota": true,
+        "quota_id": "QUOTA_AGE",
+        "enforcement": "soft",
+        "variable_question_id": "D2",
+        "cell_labels": [
+          "21-29",
+          "30-39",
+          "40-49",
+          "50-59",
+          "60+"
+        ],
+        "cell_percents": [
+          20.0,
+          25.0,
+          25.0,
+          20.0,
+          10.0
+        ],
+        "on_full": "TERM_QUOTA_FULL",
+        "confidence": 0.99,
+        "reasoning": "The sentence defines a quota (QUOTA_AGE) with a soft enforcement on question D2. The answer options for D2 are listed in the provided options, matching the labels in the quota definition. Percentages are extracted directly from the clause after each label. The section states that quota\u2011full respondents terminate at TERM_QUOTA_FULL, which applies to this quota as no alternative ending is specified."
+      }
+    },
+    "a0f0903b95027615d8362eeab2b8ae82dcc8865b3f6a31eac728b8001b2fafa3": {
+      "response_model": "LLMQuota",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-10-11T17:12:45+00:00",
+      "asked": "Whole quota section, for context:\nQUOTA_REGION: hard quota on D1: North=20%, South=20%, East=20%, West=20%, Central=20%\nQUOTA_AGE: soft quota on D2: 21-29=20%, 30-39=25%, 40-49=25%, 50-59=20%, 60+=10%\nQuota-full respondents terminate at TERM_QUOTA_FULL before the next substantive question. Quota status must be logged.\n\nSentence to read now: Quota-full respondents terminate at TERM_QUOTA_FULL befor ...",
+      "response": {
+        "is_quota": false,
+        "quota_id": null,
+        "enforcement": null,
+        "variable_question_id": null,
+        "cell_labels": [],
+        "cell_percents": [],
+        "on_full": null,
+        "confidence": 1.0,
+        "reasoning": "The sentence only describes what happens to respondents when a quota is full and that quota status must be logged; it does not define a quota (no quota id, enforcement type, question, or cell percentages)."
+      }
+    },
+    "8c87bf34cf4e97e1eea5612a75f8211a7803af33476322ff2524bfa30829f917": {
+      "response_model": "LLMTextPipes",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-10-11T17:13:00+00:00",
+      "asked": "S1: Are you 21 years of age or older?\nS2: Which statement best describes your involvement?\nS3: Have you participated in market research in the past 3 months?\nS4: Do you or an immediate family member work in market research, advertising, or the category being studied?\nDT1: Great, you're eligible for this survey! Next, a few questions about your software buying experience.\nQ1: Which of these brands  ...",
+      "response": {
+        "pipes": [
+          {
+            "is_pipe": true,
+            "source_question_id": "Q19",
+            "target_question_id": "Q20",
+            "phrase": "the selected proposition",
+            "confidence": 0.99,
+            "reasoning": "Q20 asks about \"the selected proposition\", which can only be identified from the answer to Q19 where the respondent chose a proposition."
+          }
+        ]
+      }
+    }
+  }
+}

@@ -26,6 +26,7 @@ from graphviz.backend.execute import ExecutableNotFound
 
 from src.agents.qre_interpretation import part2_conditions
 from src.agents.qre_interpretation.models import Condition
+from src.common import paths as fnames
 from src.common.paths import agent1_dir, agent2_lss
 
 
@@ -79,13 +80,14 @@ DESIGN_INPUTS = Path("data/inputs/test_design")
 OUT = Path("out")
 
 GROUPS = {
-    "Survey specification (stage 4)": ("stage4_",),
-    "Raw extraction (stage 3)": ("stage3_",),
-    "Ingestion (stages 1 and 2)": ("stage1_", "stage2_"),
-    "Audit (stage 5)": ("stage5_",),
-    "Canonical and graph (part 2)": ("part2_",),
-    "Graphs": ("route_graph", "dependency_graph"),
-    "Decisions and gate": ("agent1_",),
+    "Survey specification (stage 4)": ("agent1_s4_",),
+    "Raw extraction (stage 3)": ("agent1_s3_",),
+    "Ingestion (stages 1 and 2)": ("agent1_s1_", "agent1_s2_"),
+    "Audit (stage 5)": ("agent1_s5_",),
+    "Canonical survey specification (stage 6)": ("agent1_canonical",),
+    "Checks and decisions (stage 7)": ("agent1_s7_",),
+    "Route graph (stage 8)": ("agent1_s8_",),
+    "Readiness and model answers": ("agent1_ready", "agent1_llm_cache", "agent1_run"),
 }
 
 
@@ -316,7 +318,7 @@ def read_specification(agent1: Path) -> tuple[dict, list[dict], list[dict]]:
     put in the shape the cards below draw: a question keeps the condition the
     QRE wrote, and a rule keeps its source text beside the reading of it.
     """
-    spec = read_json(agent1, "part2_canonical.json", {}) or {}
+    spec = read_json(agent1, fnames.CANONICAL, {}) or {}
     questions = []
     for q in spec.get("questions") or []:
         guard = q.get("guard") or {}
@@ -978,7 +980,7 @@ with tab_r:
                   widths={"Rule": "9%"}, height="40vh")
 
 with tab_g:
-    gexf = agent1 / "route_graph.gexf"
+    gexf = agent1 / fnames.ROUTE_GRAPH_GEXF
     if not gexf.exists():
         st.info("No route graph was produced for this run.")
     else:
@@ -1084,7 +1086,7 @@ with tab_t:
             "and writes a test for each behaviour the questionnaire claims. "
             "It never opens the survey; that comes next.")
 
-    if not (agent1 / "part2_canonical.json").exists():
+    if not (agent1 / fnames.CANONICAL).exists():
         waiting("No specification to work from",
                 "The interpreter has not produced a canonical specification "
                 "for this run, so there is nothing to design tests against.")

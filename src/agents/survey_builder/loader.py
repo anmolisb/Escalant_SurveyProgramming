@@ -1,6 +1,6 @@
 """Load Agent 1's canonical specification into the survey IR.
 
-Reads one file, `part2_canonical.json`. Everything the builder needs is in it:
+Reads one file, `agent1_canonical_survey_spec.json`. Everything the builder needs is in it:
 the survey heading, the questions with their options and validation, the
 routing rules and display guards as parsed condition trees, and the endings.
 
@@ -25,10 +25,11 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
+from src.common import paths as fnames
 from src.agents.survey_builder.models import Group, Option, Question, Subquestion, Survey
 
 #: The file this loader reads, inside Agent 1's output folder.
-CANONICAL_FILE = "part2_canonical.json"
+CANONICAL_FILE = fnames.CANONICAL
 
 # Questions whose id starts with S are screening; everything else is main body.
 _SCREENING_PREFIX = "S"

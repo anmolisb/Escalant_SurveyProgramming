@@ -13,6 +13,7 @@ from pathlib import Path
 
 from src.agents.qre_interpretation.models import Question, RoutingRule, Stage3Block
 from src.agents.qre_interpretation.stage5_audit import check_content_fidelity
+from src.common import paths
 
 AGENT1 = Path(__file__).resolve().parents[1] / "out" / "S01_campus_cafeteria_experience" / "agent1"
 
@@ -24,12 +25,12 @@ def _content(name: str):
 
 def _load():
     stage3 = [
-        Stage3Block.model_validate(_content("stage3_questionnaire.json")),
-        Stage3Block.model_validate(_content("stage3_routing.json")),
+        Stage3Block.model_validate(_content(paths.agent1_stage(3, "questionnaire.json"))),
+        Stage3Block.model_validate(_content(paths.agent1_stage(3, "routing.json"))),
     ]
     parsed = {
-        "questions": [Question.model_validate(q) for q in _content("stage4_questionnaire.json")],
-        "routing": [RoutingRule.model_validate(r) for r in _content("stage4_routing.json")],
+        "questions": [Question.model_validate(q) for q in _content(paths.agent1_stage(4, "questionnaire.json"))],
+        "routing": [RoutingRule.model_validate(r) for r in _content(paths.agent1_stage(4, "routing.json"))],
     }
     return stage3, parsed
 

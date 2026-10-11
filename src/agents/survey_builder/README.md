@@ -1,7 +1,7 @@
 # Survey Builder
 
 The Survey Builder takes the QRE Interpreter's canonical specification,
-`part2_canonical.json`, and builds a `.lss` file, which is an XML file that LimeSurvey can import to create the whole
+`agent1_canonical_survey_spec.json`, and builds a `.lss` file, which is an XML file that LimeSurvey can import to create the whole
 survey in one step.
 
 ## Running it
@@ -34,7 +34,7 @@ python -m src.agents.survey_builder.preflight out/S01_campus_cafeteria_experienc
 
 ## What goes in
 
-One file from the QRE Interpreter, `part2_canonical.json`, read from the run's
+One file from the QRE Interpreter, `agent1_canonical_survey_spec.json`, read from the run's
 `agent1/` folder. The parts the builder uses:
 
 | Part | Holds |

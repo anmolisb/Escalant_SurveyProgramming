@@ -1,0 +1,116 @@
+{
+  "entries": {
+    "2e0fe22c7492acd0ab2271d603bc491d211f5d136b73aea137166ba33cf2fb27": {
+      "response_model": "LLMCompletionMessages",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-10-11T16:42:08+00:00",
+      "asked": "Section: Completion messages\n\nSource text:\nTERM_INELIGIBLE: Thank you for your interest. You do not qualify for this survey.\nCOMPLETE: Thank you. Your response has been recorded.",
+      "response": {
+        "rows": [
+          {
+            "code": "TERM_INELIGIBLE",
+            "message": "Thank you for your interest. You do not qualify for this survey."
+          },
+          {
+            "code": "COMPLETE",
+            "message": "Thank you. Your response has been recorded."
+          }
+        ]
+      }
+    },
+    "fd4589fb6b20f740ddd570175c675bb1c459cdc7a50c935fb2a246c922acd0be": {
+      "response_model": "LLMConditionProposal",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-10-11T16:42:20+00:00",
+      "asked": "Condition as written: Q7 contains any problem\n\nAnswer options:\nQ7: 'Meeting overload', 'Technology failure', 'Access to information', 'Isolation', 'Workspace difficulty', 'None of these' (exclusive)",
+      "response": {
+        "expression": "Q7 contains_any ['Meeting overload','Technology failure','Access to information','Isolation','Workspace difficulty']",
+        "confidence": 0.99,
+        "reasoning": "The phrase 'contains any problem' means the respondent selected at least one of the problem options. The exclusive option 'None of these' indicates no problems, so we list all other options with the contains_any operator."
+      }
+    },
+    "98c99b7915c420062eca7b37d83886d96ad8f6829d6f7f8f782f8b339a099dfd": {
+      "response_model": "LLMConditionProposal",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-10-11T16:42:29+00:00",
+      "asked": "Condition as written: Q7 includes 'None of these' plus another option\n\nAnswer options:\nQ7: 'Meeting overload', 'Technology failure', 'Access to information', 'Isolation', 'Workspace difficulty', 'None of these' (exclusive)",
+      "response": {
+        "expression": null,
+        "confidence": 1.0,
+        "reasoning": "The condition states that Q7 includes the exclusive option 'None of these' together with another option. Since 'None of these' is marked exclusive, it cannot be selected alongside any other option, making the condition impossible to represent in the given grammar. Therefore the appropriate response is null."
+      }
+    },
+    "16bbfc281d963ef466323b3b5af842c6a3fb1988170cc0826c23a6f8ffa75e82": {
+      "response_model": "LLMQuota",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-10-11T16:42:41+00:00",
+      "asked": "Whole quota section, for context:\nQUOTA_REGION: soft quota on D1: North=20%, South=20%, East=20%, West=20%, Central=20%\nQuota-full respondents terminate at TERM_QUOTA_FULL before the next substantive question. Quota status must be logged.\n\nSentence to read now: QUOTA_REGION: soft quota on D1: North=20%, South=20%, East=20%, West=20%, Central=20%\n\nAnswer options:\nS1: 'Yes', 'No'\nS2: 'Yes', 'No'\nQ1: ...",
+      "response": {
+        "is_quota": true,
+        "quota_id": "QUOTA_REGION",
+        "enforcement": "soft",
+        "variable_question_id": "D1",
+        "cell_labels": [
+          "North",
+          "South",
+          "East",
+          "West",
+          "Central"
+        ],
+        "cell_percents": [
+          20.0,
+          20.0,
+          20.0,
+          20.0,
+          20.0
+        ],
+        "on_full": "TERM_QUOTA_FULL",
+        "confidence": 0.99,
+        "reasoning": "The sentence begins with the identifier QUOTA_REGION, followed by \"soft quota\" indicating enforcement. It specifies the variable question D1 and lists the answer labels with their percentages. The section\u2019s other sentence states that quota\u2011full respondents terminate at TERM_QUOTA_FULL, which is used as the on_full code. All labels match the D1 option list provided."
+      }
+    },
+    "842cd2ac04e224469a874cd833812bd59209662e721f16ff916fc63c228d3ff7": {
+      "response_model": "LLMQuota",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-10-11T16:42:55+00:00",
+      "asked": "Whole quota section, for context:\nQUOTA_REGION: soft quota on D1: North=20%, South=20%, East=20%, West=20%, Central=20%\nQuota-full respondents terminate at TERM_QUOTA_FULL before the next substantive question. Quota status must be logged.\n\nSentence to read now: Quota-full respondents terminate at TERM_QUOTA_FULL before the next substantive question. Quota status must be logged.\n\nAnswer options:\nS1 ...",
+      "response": {
+        "is_quota": false,
+        "quota_id": null,
+        "enforcement": null,
+        "variable_question_id": null,
+        "cell_labels": [],
+        "cell_percents": [],
+        "on_full": null,
+        "confidence": 1.0,
+        "reasoning": "The sentence only states the action for respondents when a quota is full and that quota status must be logged; it does not define a quota (no quota id, enforcement type, question, answer labels, or percentages)."
+      }
+    },
+    "dd1e1df8c4e14e4b73beb1f462815c1b654c2519f62b1396b212f3d410cf048b": {
+      "response_model": "LLMTextPipes",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-10-11T17:07:00+00:00",
+      "asked": "S1: Have you used or purchased hybrid-work arrangements in the past 6 months?\nS2: Are you personally involved in choosing this product or service?\nS3: What is your age?\nDT1: Great, you're eligible for this survey! Next, a few questions about your recent hybrid-work experience.\nQ1: Which hybrid-work arrangements channel or provider did you use most recently?\nQ2: When did the most recent experience  ...",
+      "response": {
+        "pipes": [
+          {
+            "is_pipe": true,
+            "source_question_id": "Q8",
+            "target_question_id": "Q9",
+            "phrase": "the main problem",
+            "confidence": 0.99,
+            "reasoning": "Q9 uses the definite phrase 'the main problem', which can only be identified from the answer to Q8 that asked which problem had the greatest impact."
+          },
+          {
+            "is_pipe": true,
+            "source_question_id": "Q9",
+            "target_question_id": "Q10",
+            "phrase": "the resolution",
+            "confidence": 0.99,
+            "reasoning": "Q10 refers to 'the resolution', which depends on the answer to Q9 that asked whether the main problem was resolved."
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0.0",
+  "artifact": "agent1_s3_messages",
+  "stage": 3,
+  "survey_id": "M05_employee_hybrid_work_experience",
+  "source_document": {
+    "filename": "M05_employee_hybrid_work_experience.docx",
+    "sha256": "992ebf4849f39a999f5c28690a87ec8d50ad44af4dc86dbe9cb8375b3e7a6595",
+    "bytes": 42072
+  },
+  "generated_at": "2026-10-11T17:06:57+00:00",
+  "item_count": null,
+  "content": {
+    "target": "Completion messages",
+    "source_kind": "prose",
+    "rows": [
+      {
+        "code": "TERM_INELIGIBLE",
+        "message": "Thank you for your interest. You do not qualify for this survey."
+      },
+      {
+        "code": "COMPLETE",
+        "message": "Thank you. Your response has been recorded."
+      }
+    ],
+    "row_sources": [
+      {
+        "document": "M05_employee_hybrid_work_experience.docx",
+        "section": "Completion messages",
+        "heading_text": "Completion messages",
+        "block_order": 26,
+        "row_index": null,
+        "source_kind": "prose",
+        "text": "TERM_INELIGIBLE: Thank you for your interest. You do not qualify for this survey."
+      },
+      {
+        "document": "M05_employee_hybrid_work_experience.docx",
+        "section": "Completion messages",
+        "heading_text": "Completion messages",
+        "block_order": 27,
+        "row_index": null,
+        "source_kind": "prose",
+        "text": "COMPLETE: Thank you. Your response has been recorded."
+      }
+    ]
+  }
+}

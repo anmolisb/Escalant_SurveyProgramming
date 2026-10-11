@@ -1,0 +1,64 @@
+{
+  "entries": {
+    "2e0fe22c7492acd0ab2271d603bc491d211f5d136b73aea137166ba33cf2fb27": {
+      "response_model": "LLMCompletionMessages",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-10-11T16:36:32+00:00",
+      "asked": "Section: Completion messages\n\nSource text:\nTERM_INELIGIBLE: Thank you for your interest. You do not qualify for this survey.\nCOMPLETE: Thank you. Your response has been recorded.",
+      "response": {
+        "rows": [
+          {
+            "code": "TERM_INELIGIBLE",
+            "message": "Thank you for your interest. You do not qualify for this survey."
+          },
+          {
+            "code": "COMPLETE",
+            "message": "Thank you. Your response has been recorded."
+          }
+        ]
+      }
+    },
+    "91aa132c040c6bd945dd0d1435905ea869f6d22a5bdb8d362ce33e6eb4a9af92": {
+      "response_model": "LLMTextPipes",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-10-11T16:36:35+00:00",
+      "asked": "S1: Have you completed an employer-provided training session in the past 30 days?\nS2: Are you 18 years of age or older?\nDT1: Great, you're eligible for this survey! Next, a few quick questions about your recent training session.\nQ1: Which channel did you primarily use for this training session?\nQ2: Overall, how satisfied were you with the training session?\nQ3: How easy was it to complete what you  ...",
+      "response": {
+        "pipes": [
+          {
+            "is_pipe": true,
+            "source_question_id": "S1",
+            "target_question_id": "DT1",
+            "phrase": "your recent training session",
+            "confidence": 0.99,
+            "reasoning": "The phrase 'your recent training session' depends on whether the respondent answered 'yes' to S1 about completing a training session. Without that answer the wording would be meaningless."
+          },
+          {
+            "is_pipe": true,
+            "source_question_id": "S1",
+            "target_question_id": "Q1",
+            "phrase": "this training session",
+            "confidence": 0.99,
+            "reasoning": "The wording 'this training session' presumes the existence of a training session, which is established only if the respondent answered affirmatively to S1."
+          },
+          {
+            "is_pipe": true,
+            "source_question_id": "S1",
+            "target_question_id": "Q2",
+            "phrase": "the training session",
+            "confidence": 0.99,
+            "reasoning": "The phrase 'the training session' refers back to the specific session whose existence is confirmed by the answer to S1."
+          },
+          {
+            "is_pipe": true,
+            "source_question_id": "Q5",
+            "target_question_id": "Q6",
+            "phrase": "the main problem",
+            "confidence": 0.99,
+            "reasoning": "The request to 'describe the main problem' only makes sense if the respondent indicated in Q5 that they encountered a problem; thus it references Q5's answer."
+          }
+        ]
+      }
+    }
+  }
+}

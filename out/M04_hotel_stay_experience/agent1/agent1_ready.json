@@ -1,0 +1,23 @@
+{
+  "schema_version": "1.0.0",
+  "artifact": "agent1_ready",
+  "stage": 8,
+  "survey_id": "M04_hotel_stay_experience",
+  "source_document": {
+    "filename": "M04_hotel_stay_experience.docx",
+    "sha256": "2f65aef53dbea391830fd1ca701a87474b803b7ec1af35e08a7fa3cccb5dd404",
+    "bytes": 42025
+  },
+  "generated_at": "2026-10-11T16:42:01+00:00",
+  "item_count": null,
+  "content": {
+    "status": "BLOCKED",
+    "canonical_validation_clear": false,
+    "human_decision_gate_clear": false,
+    "graph_validation_passed": true,
+    "blocked_by": [
+      "canonical_status=FAILED",
+      "human_decision_gate=PENDING_BLOCKING_DECISIONS"
+    ]
+  }
+}

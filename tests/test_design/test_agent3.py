@@ -24,6 +24,7 @@ from src.agents.test_design import (
     b1_targets, b2_witness, b3_oracle, b4_reconcile, compile_logical, spec)
 from src.agents.test_design.models import COVERED
 from src.agents.test_design.semantics import Semantics
+from src.common import paths
 
 # Fixtures live beside this file, the same way tests/survey_builder keeps its
 # canonical/ fixtures. Nothing is resolved relative to the repository root, so the
@@ -35,7 +36,7 @@ def _discover() -> list[Path]:
     if not FIXTURE_ROOT.is_dir():
         return []
     return [d for d in sorted(FIXTURE_ROOT.iterdir())
-            if d.is_dir() and (d / "part2_canonical.json").exists()]
+            if d.is_dir() and (d / paths.CANONICAL).exists()]
 
 
 AVAILABLE = _discover()
@@ -47,12 +48,12 @@ AVAILABLE = _discover()
 if not AVAILABLE:
     raise RuntimeError(
         f"no Agent 1 output found under {FIXTURE_ROOT}. Each survey needs its "
-        f"own directory there containing part2_canonical.json.")
+        f"own directory there containing agent1_canonical_survey_spec.json.")
 
 
 def _load(d: Path):
-    s = spec.load(d / "part2_canonical.json")
-    dec = d / "agent1_decisions.json"
+    s = spec.load(d / paths.CANONICAL)
+    dec = d / paths.DECISIONS
     sem = Semantics.load(s.raw, dec if dec.exists() else None)
     return s, sem
 

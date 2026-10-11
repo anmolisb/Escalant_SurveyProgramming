@@ -1,0 +1,48 @@
+{
+  "schema_version": "1.0.0",
+  "artifact": "agent1_s3_quotas",
+  "stage": 3,
+  "survey_id": "M05_employee_hybrid_work_experience",
+  "source_document": {
+    "filename": "M05_employee_hybrid_work_experience.docx",
+    "sha256": "992ebf4849f39a999f5c28690a87ec8d50ad44af4dc86dbe9cb8375b3e7a6595",
+    "bytes": 42072
+  },
+  "generated_at": "2026-10-11T17:06:57+00:00",
+  "item_count": null,
+  "content": {
+    "target": "Quota controls",
+    "source_kind": "prose",
+    "rows": [
+      {
+        "raw_text": "QUOTA_REGION: soft quota on D1: North=20%, South=20%, East=20%, West=20%, Central=20%",
+        "code": "QUOTA_REGION",
+        "text": "soft quota on D1: North=20%, South=20%, East=20%, West=20%, Central=20%"
+      },
+      {
+        "raw_text": "Quota-full respondents terminate at TERM_QUOTA_FULL before the next substantive question. Quota status must be logged.",
+        "text": "Quota-full respondents terminate at TERM_QUOTA_FULL before the next substantive question. Quota status must be logged."
+      }
+    ],
+    "row_sources": [
+      {
+        "document": "M05_employee_hybrid_work_experience.docx",
+        "section": "Quota controls",
+        "heading_text": "Quota controls",
+        "block_order": 14,
+        "row_index": null,
+        "source_kind": "prose",
+        "text": "QUOTA_REGION: soft quota on D1: North=20%, South=20%, East=20%, West=20%, Central=20%"
+      },
+      {
+        "document": "M05_employee_hybrid_work_experience.docx",
+        "section": "Quota controls",
+        "heading_text": "Quota controls",
+        "block_order": 15,
+        "row_index": null,
+        "source_kind": "prose",
+        "text": "Quota-full respondents terminate at TERM_QUOTA_FULL before the next substantive question. Quota status must be logged."
+      }
+    ]
+  }
+}

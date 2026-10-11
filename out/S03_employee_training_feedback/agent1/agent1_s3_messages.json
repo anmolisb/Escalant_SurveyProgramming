@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0.0",
+  "artifact": "agent1_s3_messages",
+  "stage": 3,
+  "survey_id": "S03_employee_training_feedback",
+  "source_document": {
+    "filename": "S03_employee_training_feedback.docx",
+    "sha256": "e4d831ce056a2300513e98431ecd5ba8507cf5a533bbf81626679adf97a05cb1",
+    "bytes": 40650
+  },
+  "generated_at": "2026-10-11T16:36:32+00:00",
+  "item_count": null,
+  "content": {
+    "target": "Completion messages",
+    "source_kind": "prose",
+    "rows": [
+      {
+        "code": "TERM_INELIGIBLE",
+        "message": "Thank you for your interest. You do not qualify for this survey."
+      },
+      {
+        "code": "COMPLETE",
+        "message": "Thank you. Your response has been recorded."
+      }
+    ],
+    "row_sources": [
+      {
+        "document": "S03_employee_training_feedback.docx",
+        "section": "Completion messages",
+        "heading_text": "Completion messages",
+        "block_order": 23,
+        "row_index": null,
+        "source_kind": "prose",
+        "text": "TERM_INELIGIBLE: Thank you for your interest. You do not qualify for this survey."
+      },
+      {
+        "document": "S03_employee_training_feedback.docx",
+        "section": "Completion messages",
+        "heading_text": "Completion messages",
+        "block_order": 24,
+        "row_index": null,
+        "source_kind": "prose",
+        "text": "COMPLETE: Thank you. Your response has been recorded."
+      }
+    ]
+  }
+}

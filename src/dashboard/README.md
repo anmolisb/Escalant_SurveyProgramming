@@ -36,12 +36,12 @@ file changing.
 Everything is read off disk, so any run can be reopened without re-running
 anything. A run directory is `out/<survey>/`.
 
-- `stage4_*.json` for the questions and routing tables
-- `route_graph.gexf` for the flow graph
-- `agent1_stage9_gate.json` for the approval status
+- `agent1_s4_*.json` for the questions and routing tables
+- `agent1_s8_route_graph.gexf` for the flow graph
+- `agent1_ready.json` for the approval status
 - `agent3/agent3_summary.json` and `agent3/agent3_paths.json` for the test
   design figures
-- `out/<survey>_generated.lss` for the survey file, which sits beside the run
+- `out/<survey>/agent2/agent2_<survey>.lss` for the survey file
   directory rather than inside it
 
 Test design inputs, the sample size and the anchored options, are project facts

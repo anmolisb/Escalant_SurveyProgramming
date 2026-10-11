@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0.0",
+  "artifact": "agent1_s3_messages",
+  "stage": 3,
+  "survey_id": "S02_e_commerce_checkout_experience",
+  "source_document": {
+    "filename": "S02_e_commerce_checkout_experience.docx",
+    "sha256": "bec693bec7542129c45b2669329a90aa00207496eb912d1d51723439099b9895",
+    "bytes": 40667
+  },
+  "generated_at": "2026-10-11T16:34:17+00:00",
+  "item_count": null,
+  "content": {
+    "target": "Completion messages",
+    "source_kind": "prose",
+    "rows": [
+      {
+        "code": "TERM_INELIGIBLE",
+        "message": "Thank you for your interest. You do not qualify for this survey."
+      },
+      {
+        "code": "COMPLETE",
+        "message": "Thank you. Your response has been recorded."
+      }
+    ],
+    "row_sources": [
+      {
+        "document": "S02_e_commerce_checkout_experience.docx",
+        "section": "Completion messages",
+        "heading_text": "Completion messages",
+        "block_order": 23,
+        "row_index": null,
+        "source_kind": "prose",
+        "text": "TERM_INELIGIBLE: Thank you for your interest. You do not qualify for this survey."
+      },
+      {
+        "document": "S02_e_commerce_checkout_experience.docx",
+        "section": "Completion messages",
+        "heading_text": "Completion messages",
+        "block_order": 24,
+        "row_index": null,
+        "source_kind": "prose",
+        "text": "COMPLETE: Thank you. Your response has been recorded."
+      }
+    ]
+  }
+}

@@ -4,11 +4,11 @@ Called by the orchestrator right after Part 2, with the document, the Stage 4
 result and the canonical specification it already holds in memory.
 
 Writes, under out/<stem>/agent1/:
-    agent1_evaluation_tests.json
-    agent1_evaluation_results.json
-    part2_validation.json
-    agent1_decisions.json           (the decision register)
-    agent1_decision_register.md     (its human-readable form)
+    agent1_s7_evaluation_tests.json
+    agent1_s7_evaluation_results.json
+    agent1_s7_validation.json
+    agent1_s7_decisions.json         (the decision register)
+    agent1_s7_decision_register.md   (its human-readable form)
 """
 
 from __future__ import annotations
@@ -105,12 +105,12 @@ def validate(stem: str, docx_path: Path, survey: CanonicalSurvey, stage4: dict) 
     counts = {status: sum(1 for r in results if r.status == status)
               for status in ("PASS", "FAIL", "UNVERIFIED", "BLOCKED")}
 
-    _write(out / "agent1_evaluation_tests.json", agent1_eval.to_json(tests),
-           artifact="agent1_evaluation_tests", stage=7, source=docx.name)
-    _write(out / "agent1_evaluation_results.json",
+    _write(out / paths.agent1_stage(7, "evaluation_tests.json"), agent1_eval.to_json(tests),
+           artifact=paths.agent1_stage(7, "evaluation_tests"), stage=7, source=docx.name)
+    _write(out / paths.agent1_stage(7, "evaluation_results.json"),
            {"counts": counts, "coverage": coverage, "results": agent1_eval.to_json(results)},
-           artifact="agent1_evaluation_results", stage=7, source=docx.name)
-    _write(out / "part2_validation.json",
+           artifact=paths.agent1_stage(7, "evaluation_results"), stage=7, source=docx.name)
+    _write(out / paths.agent1_stage(7, "validation.json"),
            {"cross_source": cross, "graph": graph,
             "confirmation_required": gate,
             "decisions": {
@@ -119,7 +119,7 @@ def validate(stem: str, docx_path: Path, survey: CanonicalSurvey, stage4: dict) 
                 "summary": decisions_summary,
             },
             "verdict": decision},
-           artifact="part2_validation", stage=7, source=docx.name)
+           artifact=paths.agent1_stage(7, "validation"), stage=7, source=docx.name)
 
     return {"stem": stem, "counts": counts, "coverage": coverage, "cross": cross,
             "gate": gate, "verdict": decision, "graph": graph,

@@ -46,6 +46,8 @@ from pathlib import Path
 
 import networkx as nx
 
+from src.common import paths as fnames
+
 from .models import (
     AuditFinding,
     CanonicalSurvey,
@@ -584,7 +586,7 @@ def run(
 
 def _sanitise(value):
     """One value made safe for GEXF, which rejects a Python `None` and has no
-    list type. `part2_route_graph.json` stays the lossless record; the GEXF
+    list type. `agent1_s8_route_graph.json` stays the lossless record; the GEXF
     file trades a little precision for being drawable."""
     if value is None:
         return ""
@@ -594,7 +596,7 @@ def _sanitise(value):
 
 
 def export_route_gexf(graphs: RouteGraphs, out_dir: Path) -> Path:
-    """Write the route graph as `route_graph.gexf`, the file the dashboard
+    """Write the route graph as `agent1_s8_route_graph.gexf`, the file the dashboard
     draws its flow graph from."""
     route = nx.node_link_graph(
         graphs.model_dump(mode="json")["route_graph"],
@@ -607,6 +609,6 @@ def export_route_gexf(graphs: RouteGraphs, out_dir: Path) -> Path:
         for key in list(data):
             data[key] = _sanitise(data[key])
     out_dir.mkdir(parents=True, exist_ok=True)
-    path = out_dir / "route_graph.gexf"
+    path = out_dir / fnames.ROUTE_GRAPH_GEXF
     nx.write_gexf(route, path)
     return path

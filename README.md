@@ -24,9 +24,9 @@ Agents are separate command-line programs connected by files, not by an in-proce
 
 ```
 QRE (.docx)
-  └─▶ Agent 1  QRE Interpreter  ──▶ out/<survey>/stage*_*.json, part2_*.json, agent1_*.json
-        ├─▶ Agent 2  Survey Builder  ──▶ out/<survey>_generated.lss        reads stage4_*.json
-        └─▶ Agent 3  Test Designer   ──▶ out/<survey>/agent3/              reads part2_canonical.json
+  └─▶ Agent 1  QRE Interpreter  ──▶ out/<survey>/agent1/agent1_*.json
+        ├─▶ Agent 2  Survey Builder  ──▶ out/<survey>/agent2/agent2_<survey>.lss   reads agent1_canonical_survey_spec.json
+        └─▶ Agent 3  Test Designer   ──▶ out/<survey>/agent3/              reads agent1_canonical_survey_spec.json
                                                                            (+ the .lss, if given)
 ```
 
@@ -46,11 +46,11 @@ python -m src.agents.qre_interpretation.orchestrator fixtures/qre-samples/<file>
 
 | Stage | What it does | Model use | Writes |
 |---|---|---|---|
-| **1 Ingestion**<br>`stage1_ingestion.py` | Reads the document body in order: paragraphs (text, style, bold, heading level) and tables (rows of cell text). | — | `stage1_document.json` |
-| **2 Sections**<br>`stage2_headings.py` | Assigns headings to seven target sections — Questionnaire, Routing and termination, Acceptance test scenarios, Completion messages, Quota controls, Study specification, Programming and QA requirements — by name, otherwise by content shape. One heading per target. Every target is optional; other sections are kept as `unclassified`. | Shape match | `stage2_blocks.json`<br>`stage2_flags.json` |
-| **3 Transcription**<br>`stage3_raw_json.py` | Copies each section verbatim. Table rows keep the document's own column names and a source reference per row. | Completion messages only | `stage3_<section>.json`<br>`stage3_flags.json` |
-| **4 Deep parse**<br>`stage4_deep_parse.py` | Builds typed questions, routing rules, scenarios, messages and statements. Column meanings come from synonym lists. Formal conditions are rendered by a parser (`derived`); prose ones by the model (`inferred`). | Instruction labelling, condition translation | `stage4_<section>.json`<br>`stage4_survey.json`<br>`stage4_flags.json` |
-| **5 Audit**<br>`stage5_audit.py` | Checks stage 4 against stages 2–3: source coverage, row accounting, reference integrity, condition consistency, piping symmetry. | — | `stage5_audit.json` |
+| **1 Ingestion**<br>`stage1_ingestion.py` | Reads the document body in order: paragraphs (text, style, bold, heading level) and tables (rows of cell text). | — | `agent1_s1_document.json` |
+| **2 Sections**<br>`stage2_headings.py` | Assigns headings to seven target sections — Questionnaire, Routing and termination, Acceptance test scenarios, Completion messages, Quota controls, Study specification, Programming and QA requirements — by name, otherwise by content shape. One heading per target. Every target is optional; other sections are kept as `unclassified`. | Shape match | `agent1_s2_blocks.json`<br>`agent1_s2_flags.json` |
+| **3 Transcription**<br>`stage3_raw_json.py` | Copies each section verbatim. Table rows keep the document's own column names and a source reference per row. | Completion messages only | `agent1_s3_<section>.json`<br>`agent1_s3_flags.json` |
+| **4 Deep parse**<br>`stage4_deep_parse.py` | Builds typed questions, routing rules, scenarios, messages and statements. Column meanings come from synonym lists. Formal conditions are rendered by a parser (`derived`); prose ones by the model (`inferred`). | Instruction labelling, condition translation | `agent1_s4_<section>.json`<br>`agent1_s4_survey.json`<br>`agent1_s4_flags.json` |
+| **5 Audit**<br>`stage5_audit.py` | Checks stage 4 against stages 2–3: source coverage, row accounting, reference integrity, condition consistency, piping symmetry. | — | `agent1_s5_audit.json` |
 
 Stage 4 files are written without an envelope or per-item provenance because they are Agent 2's input; later stages still receive the full records in memory.
 
@@ -58,12 +58,12 @@ Stage 4 files are written without an envelope or per-item provenance because the
 
 | Stage | What it does | Model use | Writes |
 |---|---|---|---|
-| **6 Specification**<br>`part2_canonical.py`<br>`part2_conditions.py` | The platform-neutral specification: condition trees built from the verbatim text, typed destinations, display guards, dependencies, randomisation, quotas, endings, scenarios, the survey-wide rules the QRE never states, and a review queue. Every added value records its origin: `extracted`, `derived`, `inferred`, `unknown` or `ambiguous`. | Prose conditions, wording pipes, quota sentences | `part2_canonical.json` |
-| **7 Validation**<br>`run_validation.py` + `part2_validate.py`, `qre_oracle.py`, `agent1_eval.py`, `agent1_decisions.py` | Compares raw QRE, stage 4 and specification using an oracle that reads the document independently; re-runs stage 6 twice to check reproducibility; runs tests derived from the QRE; keeps the register of decisions a person must make. | Reuses stage 6's saved answers | `part2_validation.json`<br>`agent1_evaluation_tests.json`<br>`agent1_evaluation_results.json`<br>`agent1_decisions.json`<br>`agent1_decision_register.md` |
-| **8 Graphs**<br>`part2_graph.py` | A route graph (how a respondent moves) and a dependency graph (which answers a question needs), plus a map from every edge back to its rule. | — | `part2_route_graph.json`<br>`part2_graph_report.json` |
-| **9 Graph check and gate**<br>`graph_validate.py`<br>`run_graph_validation.py` | Checks the saved graph structurally and by walking it. Then sets the Agent 3 gate: APPROVED only if the specification did not fail, every blocking decision is resolved, and the graph is ready. | — | `part2_graph_validation.json`<br>`route_graph` / `dependency_graph` `.graphml` `.gexf`<br>`agent1_stage9_gate.json` |
+| **6 Specification**<br>`part2_canonical.py`<br>`part2_conditions.py` | The platform-neutral specification: condition trees built from the verbatim text, typed destinations, display guards, dependencies, randomisation, quotas, endings, scenarios, the survey-wide rules the QRE never states, and a review queue. Every added value records its origin: `extracted`, `derived`, `inferred`, `unknown` or `ambiguous`. | Prose conditions, wording pipes, quota sentences | `agent1_canonical_survey_spec.json` |
+| **7 Validation**<br>`run_validation.py` + `part2_validate.py`, `qre_oracle.py`, `agent1_eval.py`, `agent1_decisions.py` | Compares raw QRE, stage 4 and specification using an oracle that reads the document independently; re-runs stage 6 twice to check reproducibility; runs tests derived from the QRE; keeps the register of decisions a person must make. | Reuses stage 6's saved answers | `agent1_s7_validation.json`<br>`agent1_s7_evaluation_tests.json`<br>`agent1_s7_evaluation_results.json`<br>`agent1_s7_decisions.json`<br>`agent1_s7_decision_register.md` |
+| **8 Graphs**<br>`part2_graph.py` | A route graph (how a respondent moves) and a dependency graph (which answers a question needs), plus a map from every edge back to its rule. | — | `agent1_s8_route_graph.json`<br>`agent1_s8_graph_report.json` |
+| **9 Graph check and gate**<br>`graph_validate.py`<br>`run_graph_validation.py` | Checks the saved graph structurally and by walking it. Then sets the Agent 3 gate: APPROVED only if the specification did not fail, every blocking decision is resolved, and the graph is ready. | — | `part2_graph_validation.json`<br>`route_graph` / `dependency_graph` `.graphml` `.gexf`<br>`agent1_ready.json` |
 
-All model calls go through `src/common/llm/groq_client.py`. Each answer is saved to `out/<survey>/llm_decisions.json` and reused, so a document reads the same way on every run; set `QRE_LLM_CACHE=off` to ask again. Full detail: [`src/agents/qre_interpretation/README.md`](src/agents/qre_interpretation/README.md).
+All model calls go through `src/common/llm/groq_client.py`. Each answer is saved to `out/<survey>/agent1_llm_cache.json` and reused, so a document reads the same way on every run; set `QRE_LLM_CACHE=off` to ask again. Full detail: [`src/agents/qre_interpretation/README.md`](src/agents/qre_interpretation/README.md).
 
 ### Agent 2 — Survey Builder
 
@@ -79,7 +79,7 @@ Reads four of Agent 1's stage 4 files — survey, questionnaire, routing and mes
 |---|---|
 | **1 Preflight**<br>`preflight.py` | Lists every construct the builder cannot handle, all at once, and stops the build if there are any. Also runs alone: `python -m src.agents.survey_builder.preflight out/<survey>`. |
 | **2 Load**<br>`loader.py`, `models.py` | Converts the files into a LimeSurvey-shaped model: assigns answer codes `A001…` where the QRE gives none, turns answer labels in conditions into codes, puts questions whose ID starts with `S` in a Screening group and the rest in a Main Survey group. LimeSurvey has no terminate action, so terminate rules are inverted into the Main Survey group's show condition and the end screen picks its message from the original rules. Skip and reject rules produce nothing. |
-| **3 Emit**<br>`emitter.py` | Writes the `.lss` XML in the shape a real LimeSurvey export uses, to `out/<survey>_generated.lss`. |
+| **3 Emit**<br>`emitter.py` | Writes the `.lss` XML in the shape a real LimeSurvey export uses, to `out/<survey>/agent2/agent2_<survey>.lss`. |
 
 - **Supported question types:** single choice, multiple choice, free text, grid, constant sum.
 - **Reported by preflight:** conditions it cannot translate, such as AND/OR combinations and question-to-question comparisons.
@@ -92,10 +92,10 @@ Full detail: [`src/agents/survey_builder/README.md`](src/agents/survey_builder/R
 `src/agents/test_design/` · deterministic, no model
 
 ```bash
-python -m src.agents.test_design.run out/<survey> --lss out/<survey>_generated.lss --inputs data/inputs/test_design/<survey>.json
+python -m src.agents.test_design.run out/<survey> --lss out/<survey>/agent2/agent2_<survey>.lss --inputs data/inputs/test_design/<survey>.json
 ```
 
-`--lss`, `--inputs` and `--sample-size` are optional. Reads `part2_canonical.json` and the decisions in `agent1_decisions.json`. `--inputs` supplies facts a QRE does not state, such as sample size and anchored options. Agent 1's gate is copied into `agent3_coverage.json`, but a BLOCKED gate does not stop the run.
+`--lss`, `--inputs` and `--sample-size` are optional. Reads `agent1_canonical_survey_spec.json` and the decisions in `agent1_s7_decisions.json`. `--inputs` supplies facts a QRE does not state, such as sample size and anchored options. Agent 1's gate is copied into `agent3_coverage.json`, but a BLOCKED gate does not stop the run.
 
 | Step | What it does |
 |---|---|
@@ -115,7 +115,7 @@ Writes to `out/<survey>/agent3/`:
 
 - **Block results:** `agent3_targets`, `_witnesses`, `_expected_states`, `_coverage`, `_scenarios`, `_logical_tests`, `_paths` and `_summary`, all `.json`.
 - **Review files:** `agent3_review.md`, `agent3_review.xlsx`, `agent3_test_cases_with_paths.xlsx` and `agent3_test_cases_for_review.xlsx`.
-- **With `--lss` only:** `implementation_snapshot.json`, `agent3_conformance.json` and `agent3_executable_tests.json`.
+- **With `--lss` only:** `agent3_implementation_snapshot.json`, `agent3_conformance.json` and `agent3_executable_tests.json`.
 
 Example output: [`docs/agent3/README.md`](docs/agent3/README.md).
 

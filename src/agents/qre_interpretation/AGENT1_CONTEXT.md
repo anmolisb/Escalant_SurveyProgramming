@@ -26,13 +26,13 @@ had to remember to run - became Stage 9 on 29 Aug 2026; see that entry below.
 
 **What it is.** `src/graph_validate.py`, run by `src/run_graph_validation.py`.
 Proves two separate things about the persisted graph in
-`part2_route_graph.json`, without a model call and without rebuilding
+`agent1_s8_route_graph.json`, without a model call and without rebuilding
 anything upstream:
 
 - **Structural fidelity** — every question and disposition node, every
   routing/skip/termination edge, every guard, every dependency edge, every
   quota edge and every randomisation attribute is compared field-by-field
-  against `part2_canonical.json`. Ten categories (A–J in the task that built
+  against `agent1_canonical_survey_spec.json`. Ten categories (A–J in the task that built
   this), each reported with its own numerator/denominator, never blended
   into one score.
 - **Behavioural fidelity** — for every rule whose condition the QRE states
@@ -70,9 +70,9 @@ canonical specification exactly, everywhere this layer checked.
 
 **Artifacts, per survey, under `out/<stem>/`:**
 `part2_graph_validation.json` (machine-readable), `route_graph.graphml`,
-`route_graph.gexf`, `dependency_graph.graphml`, `dependency_graph.gexf`
+`agent1_s8_route_graph.gexf`, `dependency_graph.graphml`, `dependency_graph.gexf`
 (shareable exports for an external graph tool - GraphML/GEXF cannot hold a
-`None` or a list, so these are a sanitised view; `part2_route_graph.json`
+`None` or a list, so these are a sanitised view; `agent1_s8_route_graph.json`
 stays the lossless source). One shared report: `docs/graph_validation_report.md`.
 
 **What Agent 3 must still read from the canonical specification, never from
@@ -86,8 +86,8 @@ exists whether or not its condition has been confirmed, and the graph alone
 cannot say which of its own transitions are still provisional.
 
 **Standalone script preserved.** `python3 src/run_graph_validation.py` still
-works exactly as before - reads whatever `part2_canonical.json` and
-`part2_route_graph.json` already say, calls no model, safe to re-run any time.
+works exactly as before - reads whatever `agent1_canonical_survey_spec.json` and
+`agent1_s8_route_graph.json` already say, calls no model, safe to re-run any time.
 Nothing in `graph_validate.py`, `run_graph_validation.py` or
 `tests/test_part2_graph.py` changed when it was wired in below.
 
@@ -117,7 +117,7 @@ graph_validation_passed      Stage 9's overall in (READY, READY_WITH_WARNINGS)
 ```
 
 All three required; `APPROVED` only when every one holds. Written to a new,
-additive artifact - `agent1_stage9_gate.json` - that sits beside Stage 7's and
+additive artifact - `agent1_ready.json` - that sits beside Stage 7's and
 Stage 9's own files without editing either of them.
 
 **Verified on both fixtures**, reusing the exact committed Stage 6/7/8/9
@@ -135,11 +135,11 @@ timestamps) - no Stage 4 call, no LLM call:
 
 Both graphs are sufficient input for Agent 3. Neither is approved to run it
 against, because both surveys still have BLOCKING decisions in
-`agent1_decisions.json` nobody has resolved - exactly the distinction this
+`agent1_s7_decisions.json` nobody has resolved - exactly the distinction this
 change exists to keep visible rather than let a clean graph quietly paper
 over. The 16 tests in `tests/test_part2_graph.py` and all of Stage 9's
 existing behavioural/structural results (13 PASS on S01; 46 PASS + 5
 UNVERIFIED on C01, none silently turned into a PASS) are unchanged.
 
-**Artifacts added:** `agent1_stage9_gate.json`, per survey under
+**Artifacts added:** `agent1_ready.json`, per survey under
 `out/<stem>/`, alongside the Stage 9 files already listed above.

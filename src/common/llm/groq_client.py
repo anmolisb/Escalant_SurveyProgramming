@@ -25,6 +25,8 @@ import instructor
 from groq import Groq
 from pydantic import BaseModel
 
+from src.common import paths as fnames
+
 REPO_ROOT = Path(__file__).resolve().parents[3]
 ENV_FILE = REPO_ROOT / ".env"
 
@@ -173,7 +175,7 @@ _CACHE: dict | None = None
 #: the same time, which loses an entry or truncates the file.
 _CACHE_LOCK = threading.Lock()
 
-CACHE_ARTIFACT = "llm_decisions.json"
+CACHE_ARTIFACT = fnames.LLM_CACHE
 
 
 def use_cache(directory: Path | None) -> Path | None:

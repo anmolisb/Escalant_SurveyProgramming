@@ -1,0 +1,37 @@
+{
+  "schema_version": "0.1.0",
+  "artifact": "agent3_conformance",
+  "agent": 3,
+  "survey_id": "S03_employee_training_feedback",
+  "source_document": {
+    "filename": "S03_employee_training_feedback.docx",
+    "sha256": "e4d831ce056a2300513e98431ecd5ba8507cf5a533bbf81626679adf97a05cb1"
+  },
+  "upstream": {
+    "canonical_schema_version": "1.0.0",
+    "canonical_generated_at": "2026-10-11T16:36:35+00:00"
+  },
+  "content": {
+    "lss_sha256": "365627d57688471f03c67075729bfff671df523a046ddc23deb4504f925c3b9a",
+    "questions_specified": 11,
+    "questions_built": 11,
+    "options_bound": 36,
+    "findings": [
+      {
+        "kind": "SKIP_RULE_NOT_BUILT",
+        "severity": "NORMAL",
+        "subject": "R4",
+        "detail": "the builder treats a skip as the complement of a show rule and emits nothing; the behaviour is carried by the target question's relevance"
+      },
+      {
+        "kind": "TERMINATION_MODEL_DIFFERS",
+        "severity": "NORMAL",
+        "subject": "TERM_INELIGIBLE",
+        "detail": "LimeSurvey has no terminate action. The build inverts every terminate rule into the main group's relevance and nests the disposition messages into one end screen. Message text recovered for 1 of 1 screenout destinations. Assertions must test 'main group suppressed' plus 'end screen shows this text', never a page named after the disposition."
+      }
+    ],
+    "blocking_count": 0,
+    "verdict": "CONFORMS_WITH_FINDINGS",
+    "note": "Derived from the emitted .lss, not from a self-reported build manifest. The .lss is what LimeSurvey actually imports, so it is stronger evidence than a manifest of intent."
+  }
+}

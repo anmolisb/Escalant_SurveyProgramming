@@ -6,7 +6,7 @@ answer for a question kind it does not know, and the Respondent Bot is left
 stuck on a page it cannot fill. M01's age question was exactly that: Agent 3
 had no answer for an `integer` question, so 51 of 82 journeys stopped at it.
 
-This reads `part2_canonical.json` once, lists what it uses, and checks each
+This reads `agent1_canonical_survey_spec.json` once, lists what it uses, and checks each
 agent against what that agent says it supports. The lists are imported from
 each agent's own code, never retyped here, so adding support in an agent
 updates this check with it.

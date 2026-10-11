@@ -1,4 +1,4 @@
-"""Reader for Agent 1's real `part2_canonical.json`.
+"""Reader for Agent 1's real `agent1_canonical_survey_spec.json`.
 
 Matches the schema Agent 1 actually emits (verified against C01, C02, S01):
 
@@ -27,6 +27,8 @@ import json
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any
+
+from src.common import paths as fnames
 
 
 class SpecError(Exception):
@@ -331,8 +333,9 @@ def load(path: str | Path, sample_size: int | None = None,
         raise SpecError(f"canonical spec not found: {path}")
 
     doc = json.loads(path.read_text(encoding="utf-8"))
-    if doc.get("artifact") not in (None, "part2_canonical"):
-        raise SpecError(f"not a part2_canonical artifact: {doc.get('artifact')}")
+    expected = fnames.artifact_id(fnames.CANONICAL)
+    if doc.get("artifact") not in (None, expected):
+        raise SpecError(f"not a {expected} artifact: {doc.get('artifact')}")
 
     content = doc.get("content")
     if not isinstance(content, dict) or "questions" not in content:

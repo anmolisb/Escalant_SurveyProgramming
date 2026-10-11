@@ -1,0 +1,40 @@
+{
+  "entries": {
+    "2e0fe22c7492acd0ab2271d603bc491d211f5d136b73aea137166ba33cf2fb27": {
+      "response_model": "LLMCompletionMessages",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-10-11T16:36:42+00:00",
+      "asked": "Section: Completion messages\n\nSource text:\nTERM_INELIGIBLE: Thank you for your interest. You do not qualify for this survey.\nCOMPLETE: Thank you. Your response has been recorded.",
+      "response": {
+        "rows": [
+          {
+            "code": "TERM_INELIGIBLE",
+            "message": "Thank you for your interest. You do not qualify for this survey."
+          },
+          {
+            "code": "COMPLETE",
+            "message": "Thank you. Your response has been recorded."
+          }
+        ]
+      }
+    },
+    "f0b24009746abff2c3b12b99761acabef6f4e0a4610c9c42a0067898e9656f2e": {
+      "response_model": "LLMTextPipes",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-10-11T16:36:43+00:00",
+      "asked": "S1: Have you booked or attempted to book a clinic appointment in the past 30 days?\nS2: Are you 18 years of age or older?\nDT1: Great, you're eligible for this survey! Next, a few quick questions about your recent appointment booking.\nQ1: Which channel did you primarily use for this appointment-booking experience?\nQ2: Overall, how satisfied were you with the appointment-booking experience?\nQ3: How e ...",
+      "response": {
+        "pipes": [
+          {
+            "is_pipe": true,
+            "source_question_id": "Q5",
+            "target_question_id": "Q6",
+            "phrase": "the main problem",
+            "confidence": 0.99,
+            "reasoning": "Q6 asks the respondent to \"Please describe the main problem,\" which presupposes that a problem was encountered earlier. The phrase \"the main problem\" refers back to the answer to Q5 (Did you encounter a problem?), making the wording dependent on that prior response."
+          }
+        ]
+      }
+    }
+  }
+}

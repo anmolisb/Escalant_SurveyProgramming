@@ -1,7 +1,7 @@
 """Agent 1 evaluation — derive tests from the QRE, then run them on the canonical output.
 
 The tests come from `qre_oracle`, which reads the document independently. None
-of them is derived from `part2_canonical.json`, because a test written from the
+of them is derived from `agent1_canonical_survey_spec.json`, because a test written from the
 answer proves only that the answer equals itself.
 
 Where the document does not independently establish what the right answer is —

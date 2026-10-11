@@ -96,7 +96,7 @@ class SourceDocument(BaseModel):
 class ArtifactEnvelope(BaseModel):
     """Header wrapped around every artifact this pipeline writes.
 
-    Before this, `stage4_questionnaire.json` was a bare array. Two runs of two
+    Before this, `agent1_s4_questionnaire.json` was a bare array. Two runs of two
     different QREs produced files that were indistinguishable without reading
     the survey content itself, and nothing recorded which document, which code
     version, or when.

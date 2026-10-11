@@ -1,7 +1,7 @@
 """Survey-wide reading rules, treated as configuration rather than code.
 
 Agent 1's canonical spec carries a `semantics` block with the survey-wide
-reading rules it had to settle, and `agent1_decisions.json` carries the
+reading rules it had to settle, and `agent1_s7_decisions.json` carries the
 register saying which of those a human still has to confirm. On C01 three are
 BLOCKING and PENDING_CONFIRMATION:
 
