@@ -3,7 +3,7 @@
 The snapshot test is the safety net: it fails if anything changes the bytes of
 the S01 output. When a change is intentional, regenerate the snapshot with
 
-    python -m src.agents.survey_builder.tests.test_s01 --update
+    python -m tests.survey_builder.test_s01 --update
 
 The structural tests below it pin the four things that were found by comparing
 against a real LimeSurvey export and are easy to break by accident.
@@ -18,7 +18,7 @@ from pathlib import Path
 from src.agents.survey_builder.emitter import emit
 from src.agents.survey_builder.loader import load
 
-FIXTURES = Path(__file__).parent / "stage4-outputs" / "S01"
+FIXTURES = Path(__file__).parent / "canonical" / "S01"
 SNAPSHOT = Path(__file__).parent / "S01_expected.lss"
 
 def _build() -> str:

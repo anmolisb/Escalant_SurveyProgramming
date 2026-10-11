@@ -1,7 +1,7 @@
 # Survey Builder
 
-The Survey Builder takes the JSON files from the QRE Interpreter and builds a
-`.lss` file, which is an XML file that LimeSurvey can import to create the whole
+The Survey Builder takes the QRE Interpreter's canonical specification,
+`part2_canonical.json`, and builds a `.lss` file, which is an XML file that LimeSurvey can import to create the whole
 survey in one step.
 
 ## Running it
@@ -9,10 +9,10 @@ survey in one step.
 Build it:
 
 ```bash
-python -m src.agents.survey_builder.build tests/survey_builder/stage4-outputs/S01
+python -m src.agents.survey_builder.build out/S01_campus_cafeteria_experience
 ```
 
-The file lands in `out/`. In LimeSurvey, go to Surveys, Import, and upload it.
+The file lands in the run's `agent2/` folder. In LimeSurvey, go to Surveys, Import, and upload it.
 
 A build prints one line saying where the file went. If it cannot go ahead it
 says why instead.
@@ -22,26 +22,28 @@ for, which are dropped. Those are not errors, so they are not printed by
 default. To see them:
 
 ```bash
-python -m src.agents.survey_builder.build tests/survey_builder/stage4-outputs/S01 --notes
+python -m src.agents.survey_builder.build out/S01_campus_cafeteria_experience --notes
 ```
 
 When meeting a new QRE, run preflight first. It checks the input without
 building anything and reports everything it finds in one pass:
 
 ```bash
-python -m src.agents.survey_builder.preflight tests/survey_builder/stage4-outputs/S01
+python -m src.agents.survey_builder.preflight out/S01_campus_cafeteria_experience
 ```
 
 ## What goes in
 
-Four JSON files from the QRE Interpreter, in one folder:
+One file from the QRE Interpreter, `part2_canonical.json`, read from the run's
+`agent1/` folder. The parts the builder uses:
 
-| File | Holds |
+| Part | Holds |
 |---|---|
-| `stage4_survey.json` | Title and description |
-| `stage4_questionnaire.json` | The questions, their answer options and any validation |
-| `stage4_routing.json` | Skip and termination rules |
-| `stage4_messages.json` | The messages shown at the end |
+| `survey` | Title, QRE id and description |
+| `questions` | Each question, its answer options, validation, display guard and option source |
+| `randomization` | Which questions shuffle their answers |
+| `rules` | Termination, skip, show and reject rules, with conditions as parsed trees |
+| `dispositions` | The messages shown at the end |
 
 ## What each file does
 
@@ -49,8 +51,8 @@ Four JSON files from the QRE Interpreter, in one folder:
   questions hold answer options. Nothing happens here, it just defines what a
   survey looks like so the other files agree on it.
 
-- **`loader.py`** reads the four JSON files and works out what the survey should
-  be. This is where the thinking happens: it gives every answer option a code,
+- **`loader.py`** reads the canonical specification and works out what the
+  survey should be. This is where the thinking happens: it gives every answer option a code,
   turns "stop if S1 is No" into a rule LimeSurvey understands, and decides which
   questions belong in the screening section.
 
@@ -63,8 +65,8 @@ Four JSON files from the QRE Interpreter, in one folder:
 
 - **`build.py`** runs the whole thing: preflight, then load, then emit.
 
-- **`tests/`** rebuilds S01 and compares it against a saved copy of known-good
-  output. If a change breaks something that used to work, this catches it.
+- **`tests/survey_builder/`** rebuilds S01 and compares it against a saved copy
+  of known-good output, and checks preflight catches what it should. If a change breaks something that used to work, this catches it.
 
 ## Things LimeSurvey does that are not obvious
 
@@ -114,11 +116,14 @@ do something else.
 
 - Question types other than single choice, multiple choice, free text, array,
   constant sum and numeric. Preflight will name any others it finds.
-- Quota controls. The QRE Interpreter does not extract them.
-- Rules combining several conditions with AND and OR in one expression.
-- Rules comparing one question against another rather than against a fixed
-  answer.
-- Anything the QRE Interpreter puts in `other_attributes`, which is dropped.
+- Quota controls. The specification carries them, but nothing builds them yet.
+- Conditions using `sum()` or `count()`, `answered` / `unanswered`, an exact
+  answer set (`Q1 == ['None of these']`), or comparing one question against
+  another. The supported operators are listed in `SUPPORTED_OPS` in
+  `loader.py`.
+- Randomised rows on a grid. The build shuffles the answers instead, and
+  preflight says so.
+- Anything the QRE Interpreter puts in a question's `extra`, which is dropped.
   Preflight lists it so you can check whether it mattered.
 
 Preflight reports all of these before building rather than failing partway.

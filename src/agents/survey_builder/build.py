@@ -2,9 +2,10 @@
 
     python -m src.agents.survey_builder.build out/S01_campus_cafeteria_experience
 
-The stage 4 files are read from the run's agent1/ folder and the survey is
-written to its agent2/ folder. A folder that holds the stage 4 files directly,
-such as tests/survey_builder/stage4-outputs/C02, also works and writes to out/.
+Agent 1's canonical specification, part2_canonical.json, is read from the
+run's agent1/ folder and the survey is written to its agent2/ folder. A folder
+that holds that file directly, such as tests/survey_builder/canonical/S01,
+also works and writes to out/.
 
 The input is checked before anything is built, because the loader raises on the
 first problem it meets and a new QRE usually has several. A build that cannot
@@ -27,7 +28,7 @@ from src.common.paths import AGENT1, OUT_ROOT, agent1_dir, agent2_lss
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("directory", help="a QRE run folder, or a stage 4 output folder")
+    parser.add_argument("directory", help="a QRE run folder, or a folder holding part2_canonical.json")
     parser.add_argument("--notes", action="store_true",
                         help="also list input the builder is ignoring")
     args = parser.parse_args()

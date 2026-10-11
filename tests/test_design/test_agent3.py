@@ -26,7 +26,7 @@ from src.agents.test_design.models import COVERED
 from src.agents.test_design.semantics import Semantics
 
 # Fixtures live beside this file, the same way tests/survey_builder keeps its
-# stage4-outputs. Nothing is resolved relative to the repository root, so the
+# canonical/ fixtures. Nothing is resolved relative to the repository root, so the
 # suite cannot be broken by being moved.
 FIXTURE_ROOT = Path(__file__).parent / "canonical-outputs"
 

@@ -1,62 +1,42 @@
-"""Load stage 4 JSON into the survey IR.
+"""Load Agent 1's canonical specification into the survey IR.
 
-Reads four files from the stage 4 output directory: survey, questionnaire,
-routing and messages.
+Reads one file, `part2_canonical.json`. Everything the builder needs is in it:
+the survey heading, the questions with their options and validation, the
+routing rules and display guards as parsed condition trees, and the endings.
 
 Two jobs the QRE does not do for us:
 
-1. Option codes. Stage 4 leaves `code` null when the QRE did not spell one out.
-   We generate A001, A002, ... in option order. Every downstream reference is
-   by code, never by label.
+1. Option codes. The canonical leaves `code` null when the QRE did not spell
+   one out. We generate A001, A002, ... in option order. Every downstream
+   reference is by code, never by label.
 
-2. Label to code resolution. Routing conditions name answers by label
-   ("S1 == 'No'"), so we look the label up to get its code. A miss raises;
-   defaulting here would silently invert a screening rule.
+2. Condition to relevance. Conditions arrive as trees (operator, question,
+   answers) rather than strings, so they are written out by walking the tree.
+   An answer is found by its label on the question it belongs to. A miss
+   raises; defaulting here would silently invert a screening rule.
+
+What this loader can build is stated once, in SUPPORTED_KINDS, SUPPORTED_OPS
+and SUPPORTED_RULE_KINDS, so a readiness check can report gaps before a build
+rather than meeting them halfway through one.
 """
 
 from __future__ import annotations
 
 import json
-import re
 from pathlib import Path
 
 from src.agents.survey_builder.models import Group, Option, Question, Subquestion, Survey
 
+#: The file this loader reads, inside Agent 1's output folder.
+CANONICAL_FILE = "part2_canonical.json"
+
 # Questions whose id starts with S are screening; everything else is main body.
 _SCREENING_PREFIX = "S"
-
-# "Q5 == 'Yes'" -> ("Q5", "==", "Yes")
-_COMPARISON = re.compile(r"^\s*(\w+)\s*(==|!=)\s*'([^']*)'\s*$")
-
-# "Q12 IN ['Fully','Partly']", brackets or parentheses.
-_MEMBERSHIP = re.compile(
-    r"^\s*(\w+)\s+(NOT\s+IN|IN)\s*[\[(](.+)[\])]\s*$", re.IGNORECASE
-)
-
-# "CONTAINS_ANY(Q1, 'a', 'b')" and "CONTAINS_ANY(Q1, ['a','b'])".
-_CONTAINS_CALL = re.compile(
-    r"^\s*(CONTAINS_ANY|CONTAINS_ALL)\s*\(\s*(\w+)\s*,\s*(.+?)\s*\)\s*$",
-    re.IGNORECASE,
-)
-
-# "Q5 CONTAINS_ANY ('a','b')".
-_CONTAINS_INFIX = re.compile(
-    r"^\s*(\w+)\s+(CONTAINS_ANY|CONTAINS_ALL)\s*[\[(](.+)[\])]\s*$",
-    re.IGNORECASE,
-)
-
-# "S3 < 18", "S3 >= 18". A numeric question holds a typed-in number, so the
-# value is compared directly rather than looked up as an answer code.
-_NUMERIC_COMPARISON = re.compile(
-    r"^\s*(\w+)\s*(<=|>=|<|>|==|!=)\s*(-?\d+(?:\.\d+)?)\s*$"
-)
-
-_QUOTED = re.compile(r"'([^']*)'")
 
 #: A ticked checkbox stores this, and each option is its own field.
 _CHECKED = "Y"
 
-# Stage 4 neutral type -> LimeSurvey type letter.
+# Canonical question kind -> LimeSurvey type letter.
 _TYPE_MAP = {
     "single": "L",
     "multi": "M",
@@ -73,16 +53,30 @@ _NUMERIC_TYPES = {"N", "K"}
 #: Types whose options are stored as subquestions rather than answers.
 _SUBQUESTION_TYPES = {"M", "K"}
 
-# "Show only touchpoints selected at Q5." -> Q5
-_SOURCE_QUESTION = re.compile(r"\b([A-Z]{1,3}\d+)\b")
+#: Question kinds this builder can turn into a LimeSurvey question.
+SUPPORTED_KINDS = frozenset(_TYPE_MAP)
+
+#: Condition operators `_relevance` can write as ExpressionScript.
+SUPPORTED_OPS = frozenset({
+    "eq", "ne", "lt", "le", "gt", "ge", "in", "not_in",
+    "contains", "contains_any", "contains_all", "and", "or", "not",
+})
+
+#: Rule kinds the builder acts on. A skip rule is the complement of a show rule
+#: and is already satisfied by it. A reject rule restates a constraint the
+#: question carries itself (sum, exclusive option, piped options), so it is
+#: deliberately not emitted a second time.
+SUPPORTED_RULE_KINDS = frozenset({"terminate", "show", "skip", "reject"})
+
+_COMPARE = {"eq": "==", "ne": "!=", "lt": "<", "le": "<=", "gt": ">", "ge": ">="}
 
 
 class ConditionError(ValueError):
-    """A routing condition could not be resolved against the questionnaire."""
+    """A condition could not be resolved against the questionnaire."""
 
 
 def _number(value) -> str:
-    """Stage 4 writes numbers as floats; LimeSurvey wants 18, not 18.0."""
+    """Numbers can arrive as floats; LimeSurvey wants 18, not 18.0."""
     number = float(value)
     return str(int(number)) if number.is_integer() else str(number)
 
@@ -96,26 +90,27 @@ def _subquestion_code_for(index: int) -> str:
 
 
 def _limesurvey_type(raw: dict) -> str:
-    """Map a neutral question type to LimeSurvey's type letter.
+    """Map a canonical question kind to LimeSurvey's type letter.
 
     Free text always becomes T. LimeSurvey also has S for a single-line box,
     but the QRE never says which it wants and the difference is only the size
     of the input; both accept the same answers. Guessing from max_length would
     invent a distinction the source never made.
     """
-    kind = (raw.get("type") or "").strip().lower()
+    kind = (raw.get("kind") or "").strip().lower()
     if kind not in _TYPE_MAP:
-        raise ValueError(f"{raw.get('id')}: unmapped question type {kind!r}")
+        raise ValueError(f"{raw.get('question_id')}: unmapped question kind {kind!r}")
     return _TYPE_MAP[kind]
 
 
-def _build_question(raw: dict, order: int) -> Question:
+def _build_question(raw: dict, order: int, randomized: bool) -> Question:
+    validation = raw.get("validation") or {}
     question = Question(
-        title=raw["id"],
+        title=raw["question_id"],
         text=raw["wording"],
         type=_limesurvey_type(raw),
         question_order=order,
-        mandatory="N" if raw.get("optional") else "Y",
+        mandatory="Y" if validation.get("mandatory", True) else "N",
     )
 
     raw_options = raw.get("options") or []
@@ -153,30 +148,30 @@ def _build_question(raw: dict, order: int) -> Question:
     if question.type in _NUMERIC_TYPES:
         # LimeSurvey names the bounds on a numeric question with an _n suffix;
         # min_num_value and max_num_value without it are a different setting.
-        if raw.get("min_value") is not None:
-            question.attributes["min_num_value_n"] = _number(raw["min_value"])
-        if raw.get("max_value") is not None:
-            question.attributes["max_num_value_n"] = _number(raw["max_value"])
-        if (raw.get("type") or "").strip().lower() == "integer":
+        if validation.get("min_value") is not None:
+            question.attributes["min_num_value_n"] = _number(validation["min_value"])
+        if validation.get("max_value") is not None:
+            question.attributes["max_num_value_n"] = _number(validation["max_value"])
+        if (raw.get("kind") or "").strip().lower() == "integer":
             question.attributes["num_value_int_only"] = "1"
 
-    if raw.get("randomize"):
+    if randomized:
         # answer_order takes a word, not a flag; "normal" is the default.
         question.attributes["answer_order"] = "random"
 
-    exclusive = raw.get("exclusive_option")
+    exclusive = validation.get("exclusive_option_label")
     if exclusive:
         # LimeSurvey addresses the option by its subquestion code, not its label.
         question.attributes["exclude_all_others"] = _subquestion_code_of_label(
             question, exclusive
         )
 
-    if raw.get("sum_to") is not None:
+    if validation.get("sum_to") is not None:
         # Forces the entered numbers to add up, which is what makes a
         # multiple-numeric question behave as a constant sum.
-        question.attributes["equals_num_value"] = str(int(raw["sum_to"]))
-    if raw.get("min_selections") is not None:
-        question.attributes["min_answers"] = str(raw["min_selections"])
+        question.attributes["equals_num_value"] = str(int(validation["sum_to"]))
+    if validation.get("min_selections") is not None:
+        question.attributes["min_answers"] = str(validation["min_selections"])
 
     # There is deliberately no maximum_chars here. LimeSurvey's own setting
     # quietly cuts an over-long answer down to fit, so the validation below
@@ -189,12 +184,12 @@ def _build_question(raw: dict, order: int) -> Question:
     # second em_validation_q would replace the first rather than add to it.
     checks: list[str] = []
     tips: list[str] = []
-    if raw.get("min_length") is not None:
-        checks.append(f"strlen(this) >= {raw['min_length']}")
-        tips.append(f"at least {raw['min_length']} characters")
-    if raw.get("max_length") is not None:
-        checks.append(f"strlen(this) <= {raw['max_length']}")
-        tips.append(f"no more than {raw['max_length']} characters")
+    if validation.get("min_length") is not None:
+        checks.append(f"strlen(this) >= {validation['min_length']}")
+        tips.append(f"at least {validation['min_length']} characters")
+    if validation.get("max_length") is not None:
+        checks.append(f"strlen(this) <= {validation['max_length']}")
+        tips.append(f"no more than {validation['max_length']} characters")
     if checks:
         question.attributes["em_validation_q"] = " and ".join(checks)
         question.localized_attributes["em_validation_q_tip"] = (
@@ -229,71 +224,85 @@ def _code_of_label(question: Question, label: str) -> str:
     )
 
 
-def _question(question_id: str, by_title: dict[str, Question]) -> Question:
-    if question_id not in by_title:
+def _question(question_id: str | None, by_title: dict[str, Question]) -> Question:
+    if not question_id or question_id not in by_title:
         raise ConditionError(f"condition names unknown question {question_id!r}")
     return by_title[question_id]
 
 
-def _relevance(condition: str, by_title: dict[str, Question]) -> str:
-    """Turn a neutral condition into a LimeSurvey relevance expression.
+def _labels(operand: dict | None) -> list[str]:
+    """The answers a condition names, by label."""
+    operand = operand or {}
+    if operand.get("values"):
+        return list(operand["values"])
+    if operand.get("text") is not None:
+        return [operand["text"]]
+    return []
 
-        Q5 == 'Yes'                 ->  (Q5.NAOK == "A001")
-        S3 < 18                     ->  (S3.NAOK < 18)
-        Q12 IN ['Fully','Partly']   ->  (Q12.NAOK == "A001" or Q12.NAOK == "A002")
-        CONTAINS_ANY(Q1, 'A', 'B')  ->  (Q1_SQ001.NAOK == "Y" or Q1_SQ002.NAOK == "Y")
+
+def _relevance(condition: dict, by_title: dict[str, Question]) -> str:
+    """Turn a condition tree into a LimeSurvey relevance expression.
+
+        Q5 == 'Yes'                  ->  (Q5.NAOK == "A001")
+        S3 < 18                      ->  (S3.NAOK < 18)
+        Q12 in ['Fully','Partly']    ->  (Q12.NAOK == "A001" or Q12.NAOK == "A002")
+        Q1 contains_any ['A', 'B']   ->  (Q1_SQ001.NAOK == "Y" or Q1_SQ002.NAOK == "Y")
 
     A multiple-choice option is a subquestion, so it is addressed as
     QUESTION_SUBQUESTION and holds "Y" when ticked, not as a value on the
     parent question.
     """
-    match = _COMPARISON.match(condition)
-    if match:
-        question_id, operator, label = match.groups()
-        question = _question(question_id, by_title)
-        code = _code_of_label(question, label)
-        return f'({question_id}.NAOK {operator} "{code}")'
+    op = condition.get("op")
+    if op not in SUPPORTED_OPS:
+        raise ConditionError(f"operator {op!r} is not supported")
 
-    match = _NUMERIC_COMPARISON.match(condition)
-    if match:
-        question_id, operator, value = match.groups()
-        _question(question_id, by_title)
-        return f"({question_id}.NAOK {operator} {_number(value)})"
+    if op in ("and", "or"):
+        parts = [_relevance(part, by_title) for part in condition.get("operands") or []]
+        if not parts:
+            raise ConditionError(f"{op!r} with nothing to combine")
+        return "(" + f" {op} ".join(parts) + ")"
+    if op == "not":
+        parts = condition.get("operands") or []
+        if len(parts) != 1:
+            raise ConditionError("'not' must negate exactly one condition")
+        return f"not{_relevance(parts[0], by_title)}"
 
-    match = _CONTAINS_CALL.match(condition) or _CONTAINS_INFIX.match(condition)
-    if match:
-        groups = match.groups()
-        # The call form reads (keyword, question, body); the infix form reads
-        # (question, keyword, body).
-        if groups[0].upper().startswith("CONTAINS"):
-            keyword, question_id, body = groups
-        else:
-            question_id, keyword, body = groups
-        question = _question(question_id, by_title)
+    left = condition.get("left") or {}
+    right = condition.get("right") or {}
+    if left.get("aggregate"):
+        raise ConditionError(f"{left['aggregate']}() is not supported")
+    if right.get("question_id"):
+        raise ConditionError("comparing one question with another is not supported")
+    question_id = left.get("question_id")
+    question = _question(question_id, by_title)
+
+    if op in _COMPARE and right.get("number") is not None:
+        # A numeric question holds a typed-in number, so the value is compared
+        # directly rather than looked up as an answer code.
+        return f"({question_id}.NAOK {_COMPARE[op]} {_number(right['number'])})"
+
+    labels = _labels(right)
+    if not labels:
+        raise ConditionError(f"{question_id}: condition names no answer")
+
+    if op in ("eq", "ne"):
+        if len(labels) != 1:
+            raise ConditionError(f"{question_id}: {op} needs exactly one answer")
+        code = _code_of_label(question, labels[0])
+        return f'({question_id}.NAOK {_COMPARE[op]} "{code}")'
+
+    if op in ("contains", "contains_any", "contains_all"):
         if not question.subquestions:
-            raise ConditionError(
-                f"{question_id}: {keyword.upper()} needs a multiple-choice question"
-            )
-        labels = _QUOTED.findall(body)
-        if not labels:
-            raise ConditionError(
-                f"cannot resolve {condition!r}; it may compare two questions"
-            )
-        joiner = " and " if keyword.upper().endswith("ALL") else " or "
+            raise ConditionError(f"{question_id}: {op} needs a multiple-choice question")
+        joiner = " and " if op == "contains_all" else " or "
         tests = [
             f'{question_id}_{_code_of_label(question, label)}.NAOK == "{_CHECKED}"'
             for label in labels
         ]
         return "(" + joiner.join(tests) + ")"
 
-    match = _MEMBERSHIP.match(condition)
-    if match:
-        question_id, keyword, body = match.groups()
-        question = _question(question_id, by_title)
-        labels = _QUOTED.findall(body)
-        if not labels:
-            raise ConditionError(f"no quoted values in {condition!r}")
-        negated = keyword.upper().startswith("NOT")
+    if op in ("in", "not_in"):
+        negated = op == "not_in"
         operator = "!=" if negated else "=="
         joiner = " and " if negated else " or "
         tests = [
@@ -302,7 +311,21 @@ def _relevance(condition: str, by_title: dict[str, Question]) -> str:
         ]
         return "(" + joiner.join(tests) + ")"
 
-    raise ConditionError(f"cannot parse condition {condition!r}")
+    raise ConditionError(f"operator {op!r} cannot be applied to {question_id}")
+
+
+def _named_question(condition: dict) -> str | None:
+    """The question a single answer test is about, for a terminate rule.
+
+    Only a plain answer comparison or membership test names the question the
+    respondent is terminated at. A numeric comparison or a combination does
+    not, and those keep the earlier behaviour of gating only the main group.
+    """
+    if condition.get("op") not in ("eq", "ne", "in", "not_in"):
+        return None
+    if (condition.get("right") or {}).get("number") is not None:
+        return None
+    return (condition.get("left") or {}).get("question_id")
 
 
 def _invert(expression: str) -> str:
@@ -316,7 +339,7 @@ def _invert(expression: str) -> str:
     raise ConditionError(f"cannot invert {expression!r}")
 
 
-def _end_text(messages: list[dict], terminations: list[tuple[str, str]]) -> str:
+def _end_text(messages: dict[str, str], terminations: list[tuple[str, str]]) -> str:
     """One end screen that varies by why the respondent got there.
 
     LimeSurvey has no terminate action, so the group relevance inverts the
@@ -324,15 +347,14 @@ def _end_text(messages: list[dict], terminations: list[tuple[str, str]]) -> str:
     originals. A QRE may define several disposition codes; rules sharing a
     message are OR-ed together, and distinct messages nest.
     """
-    by_code = {m["code"]: m["message"] for m in messages}
-    complete = by_code.get("COMPLETE", "Thank you.")
+    complete = messages.get("COMPLETE", "Thank you.")
     if not terminations:
         return f"<p>{complete}</p>"
 
     # Group conditions by the message they produce, preserving first-seen order.
     by_message: dict[str, list[str]] = {}
     for expression, code in terminations:
-        message = by_code.get(code, "You do not qualify for this survey.")
+        message = messages.get(code, "You do not qualify for this survey.")
         by_message.setdefault(message, []).append(expression)
 
     text = f'"{complete}"'
@@ -342,66 +364,53 @@ def _end_text(messages: list[dict], terminations: list[tuple[str, str]]) -> str:
     return f"<p>{{{text}}}</p>"
 
 
-def load(directory: str | Path) -> Survey:
-    directory = Path(directory)
-    survey_raw = json.loads((directory / "stage4_survey.json").read_text())
-    questions_raw = json.loads((directory / "stage4_questionnaire.json").read_text())
-    routing_raw = json.loads((directory / "stage4_routing.json").read_text())
-    messages_raw = json.loads((directory / "stage4_messages.json").read_text())
+def read_canonical(directory: str | Path) -> dict:
+    """The canonical specification in a folder, without its artifact envelope."""
+    data = json.loads((Path(directory) / CANONICAL_FILE).read_text(encoding="utf-8"))
+    return data["content"] if isinstance(data, dict) and "content" in data else data
 
+
+def load(directory: str | Path) -> Survey:
+    spec = read_canonical(directory)
+
+    randomized = {r["question_id"] for r in spec.get("randomization") or []}
     screening: list[Question] = []
     main: list[Question] = []
-    for raw in questions_raw:
-        target = screening if raw["id"].startswith(_SCREENING_PREFIX) else main
-        target.append(_build_question(raw, order=len(target) + 1))
+    for raw in spec.get("questions") or []:
+        target = screening if raw["question_id"].startswith(_SCREENING_PREFIX) else main
+        target.append(
+            _build_question(raw, order=len(target) + 1,
+                            randomized=raw["question_id"] in randomized)
+        )
 
     by_title = {q.title: q for q in [*screening, *main]}
 
-    # Routing is read before the questionnaire's own display conditions.
-    # Both describe the same rule, but the questionnaire copies the QRE
-    # verbatim ("Q1 contains at least one brand") while routing carries the
-    # normalised expression, so routing is the parseable one and wins.
-    #
-    # A skip rule is the complement of a show rule on the same question and is
-    # already satisfied by it, so it needs nothing emitted.
+    # A question's guard already combines the routing table's show rules with
+    # the questionnaire's own display condition, so it is the one place to
+    # read when a question is shown.
+    for raw in spec.get("questions") or []:
+        condition = (raw.get("guard") or {}).get("condition")
+        if condition:
+            by_title[raw["question_id"]].relevance = _relevance(condition, by_title)
+
     proceed: list[str] = []
     terminate: list[tuple[str, str]] = []
     terminate_at: list[tuple[str, str]] = []
-    skipped_rejects: list[str] = []
-    shown: dict[str, str] = {}
-    for rule in routing_raw:
-        action = rule["action"].strip().lower()
-        condition = (
-            rule.get("condition_expression")
-            or rule.get("condition")
-            or rule.get("condition_raw")
-            or ""
-        )
-        if action == "terminate":
-            expression = _relevance(condition, by_title)
-            terminate.append((expression, rule["destination"]))
-            proceed.append(_invert(expression))
-            named = _COMPARISON.match(condition) or _MEMBERSHIP.match(condition)
-            if named:
-                terminate_at.append((expression, named.group(1)))
-        elif action == "reject":
-            # A reject rule bars the respondent from continuing, which is
-            # validation rather than routing. Every one seen so far restates a
-            # constraint already carried on the question itself: sum_to,
-            # exclusive_option or dynamic_option_source. Skipping them here
-            # avoids emitting the same rule twice in two different places.
-            skipped_rejects.append(rule["rule"])
-        elif action == "show":
-            destination = rule["destination"]
-            if destination in by_title:
-                shown[destination] = _relevance(condition, by_title)
-
-    for raw in questions_raw:
-        question = by_title[raw["id"]]
-        if raw["id"] in shown:
-            question.relevance = shown[raw["id"]]
-        elif raw.get("display_condition"):
-            question.relevance = _relevance(raw["display_condition"], by_title)
+    for rule in spec.get("rules") or []:
+        if rule.get("kind") != "terminate":
+            continue
+        condition = rule.get("when")
+        if not condition:
+            raise ConditionError(
+                f"{rule['rule_id']}: terminate rule has no readable condition "
+                f"({rule.get('when_unread')!r})"
+            )
+        expression = _relevance(condition, by_title)
+        terminate.append((expression, (rule.get("destination") or {}).get("id")))
+        proceed.append(_invert(expression))
+        named = _named_question(condition)
+        if named:
+            terminate_at.append((expression, named))
 
     # A terminate rule ends the interview at the question it names, so nothing
     # after that question should be asked. Gating the main group is not enough:
@@ -426,16 +435,15 @@ def load(directory: str | Path) -> Survey:
 
     # A question whose options are carried from an earlier question uses
     # array_filter, which names the source question by code.
-    for raw in questions_raw:
-        source = raw.get("dynamic_option_source")
+    for raw in spec.get("questions") or []:
+        source = (raw.get("option_source") or {}).get("from_question")
         if not source:
             continue
-        match = _SOURCE_QUESTION.search(source)
-        if not match or match.group(1) not in by_title:
+        if source not in by_title:
             raise ConditionError(
-                f"{raw['id']}: cannot tell which question {source!r} refers to"
+                f"{raw['question_id']}: options come from unknown question {source!r}"
             )
-        by_title[raw["id"]].attributes["array_filter"] = match.group(1)
+        by_title[raw["question_id"]].attributes["array_filter"] = source
 
     groups = []
     if screening:
@@ -450,15 +458,22 @@ def load(directory: str | Path) -> Survey:
             )
         )
 
-    qre_id = survey_raw.get("qre_id")
-    title = survey_raw.get("title") or ""
+    heading = spec.get("survey") or {}
+    qre_id = heading.get("qre_id")
+    title = heading.get("title") or ""
     if qre_id and not title.startswith(qre_id):
         title = f"{qre_id} - {title}"
 
+    messages = {
+        d["disposition_id"]: d["message"]
+        for d in spec.get("dispositions") or []
+        if d.get("disposition_id") and d.get("message")
+    }
+
     return Survey(
         title=title,
-        description=survey_raw.get("description") or "",
-        welcome_text=survey_raw.get("welcome_text") or "",
-        end_text=_end_text(messages_raw, terminate),
+        description=heading.get("description") or "",
+        welcome_text=heading.get("welcome_text") or "",
+        end_text=_end_text(messages, terminate),
         groups=groups,
     )
