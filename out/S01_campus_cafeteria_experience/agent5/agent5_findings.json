@@ -1,6 +1,6 @@
 {
   "survey": "S01_campus_cafeteria_experience",
-  "run_at": "2026-10-05T00:37:35",
+  "run_at": "2026-10-11T13:40:10",
   "journeys": [
     {
       "path_id": "P01",
@@ -16,7 +16,9 @@
       "real_broke_at": "",
       "real_first_failure": "",
       "real_first_order": 9999,
-      "causes": []
+      "causes": [],
+      "status": "WORKING",
+      "status_note": "every test on this journey passed"
     },
     {
       "path_id": "P02",
@@ -32,7 +34,9 @@
       "real_broke_at": "",
       "real_first_failure": "",
       "real_first_order": 9999,
-      "causes": []
+      "causes": [],
+      "status": "WORKING",
+      "status_note": "every test on this journey passed"
     },
     {
       "path_id": "P03",
@@ -48,7 +52,9 @@
       "real_broke_at": "",
       "real_first_failure": "",
       "real_first_order": 9999,
-      "causes": []
+      "causes": [],
+      "status": "WORKING",
+      "status_note": "every test on this journey passed"
     },
     {
       "path_id": "P04",
@@ -64,7 +70,9 @@
       "real_broke_at": "",
       "real_first_failure": "",
       "real_first_order": 9999,
-      "causes": []
+      "causes": [],
+      "status": "WORKING",
+      "status_note": "every test on this journey passed"
     }
   ],
   "groups": [],

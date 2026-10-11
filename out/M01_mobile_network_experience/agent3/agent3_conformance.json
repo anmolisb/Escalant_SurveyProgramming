@@ -1,0 +1,85 @@
+{
+  "schema_version": "0.1.0",
+  "artifact": "agent3_conformance",
+  "agent": 3,
+  "survey_id": "M01_mobile_network_experience",
+  "source_document": {
+    "filename": "M01_mobile_network_experience.docx",
+    "sha256": "1be6ec051fbc914680d8add2a2c9e85c568f5468d8f39f5b6e915eb5bfe6f3b5"
+  },
+  "upstream": {
+    "canonical_schema_version": "1.0.0",
+    "canonical_generated_at": "2026-10-11T08:04:40+00:00"
+  },
+  "content": {
+    "lss_sha256": "30f1e2649fbdfdd545402482fcecb4e149fc3f1032536c15ec6525b5d0981342",
+    "questions_specified": 19,
+    "questions_built": 19,
+    "options_bound": 82,
+    "findings": [
+      {
+        "kind": "REJECT_RULE_NOT_BUILT",
+        "severity": "HIGH",
+        "subject": "R3",
+        "detail": "the builder skips reject rules as restatements of question-level constraints; no separate behaviour exists to test"
+      },
+      {
+        "kind": "SKIP_RULE_NOT_BUILT",
+        "severity": "NORMAL",
+        "subject": "R6",
+        "detail": "the builder treats a skip as the complement of a show rule and emits nothing; the behaviour is carried by the target question's relevance"
+      },
+      {
+        "kind": "SKIP_RULE_NOT_BUILT",
+        "severity": "NORMAL",
+        "subject": "R8",
+        "detail": "the builder treats a skip as the complement of a show rule and emits nothing; the behaviour is carried by the target question's relevance"
+      },
+      {
+        "kind": "REJECT_RULE_NOT_BUILT",
+        "severity": "HIGH",
+        "subject": "R9",
+        "detail": "the builder skips reject rules as restatements of question-level constraints; no separate behaviour exists to test"
+      },
+      {
+        "kind": "QUOTAS_NOT_BUILT",
+        "severity": "HIGH",
+        "subject": "QUOTA_REGION",
+        "detail": "the builder emits no quota tables, so no quota behaviour exists in the built survey"
+      },
+      {
+        "kind": "RANDOMIZATION_NOT_BUILT",
+        "severity": "HIGH",
+        "subject": "Q3",
+        "detail": "spec asks for randomization but the built question carries no randomization attribute"
+      },
+      {
+        "kind": "RANDOMIZATION_NOT_BUILT",
+        "severity": "HIGH",
+        "subject": "Q7",
+        "detail": "spec asks for randomization but the built question carries no randomization attribute"
+      },
+      {
+        "kind": "RANDOMIZATION_NOT_BUILT",
+        "severity": "HIGH",
+        "subject": "Q13",
+        "detail": "spec asks for randomization but the built question carries no randomization attribute"
+      },
+      {
+        "kind": "TERMINATION_MODEL_DIFFERS",
+        "severity": "NORMAL",
+        "subject": "TERM_INELIGIBLE",
+        "detail": "LimeSurvey has no terminate action. The build inverts every terminate rule into the main group's relevance and nests the disposition messages into one end screen. Message text recovered for 1 of 1 screenout destinations. Assertions must test 'main group suppressed' plus 'end screen shows this text', never a page named after the disposition."
+      },
+      {
+        "kind": "CARRY_FORWARD_CODE_MISMATCH",
+        "severity": "HIGH",
+        "subject": "Q7->Q8",
+        "detail": "5 of 5 carried-forward options have a different code at each end. 'Dropped calls' is SQ001 at Q7 and A001 at Q8; 'Slow data' is SQ002 at Q7 and A002 at Q8. LimeSurvey matches a carry-forward filter by code rather than by text, so the labels reading correctly at both ends does not mean the filter works. Worth confirming against a hand-built survey before treating as a defect"
+      }
+    ],
+    "blocking_count": 0,
+    "verdict": "CONFORMS_WITH_FINDINGS",
+    "note": "Derived from the emitted .lss, not from a self-reported build manifest. The .lss is what LimeSurvey actually imports, so it is stronger evidence than a manifest of intent."
+  }
+}

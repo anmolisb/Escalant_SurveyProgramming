@@ -1,0 +1,6771 @@
+{
+  "schema_version": "0.1.0",
+  "artifact": "agent3_scenarios",
+  "agent": 3,
+  "survey_id": "M01_mobile_network_experience",
+  "source_document": {
+    "filename": "M01_mobile_network_experience.docx",
+    "sha256": "1be6ec051fbc914680d8add2a2c9e85c568f5468d8f39f5b6e915eb5bfe6f3b5"
+  },
+  "upstream": {
+    "canonical_schema_version": "1.0.0",
+    "canonical_generated_at": "2026-10-11T08:04:40+00:00"
+  },
+  "content": {
+    "scenarios": [
+      {
+        "scenario_id": "SC-e93fe853d9",
+        "target_id": "T-28dda6de6e",
+        "dimension": "D1",
+        "status": "COVERED",
+        "reason": null,
+        "answers": {
+          "S1": "S1-O1",
+          "S2": "S2-O1",
+          "S3": 18,
+          "Q1": "Q1-O1",
+          "Q2": "Q2-O1",
+          "Q3": "Q3-O1",
+          "Q4": "Q4-O1",
+          "Q5": "Q5-O1",
+          "Q6": "Q6-O1",
+          "Q7": [
+            "Q7-O1"
+          ],
+          "Q8": "Q8-O1",
+          "Q9": "Q9-O1",
+          "Q10": "Q10-O1",
+          "Q11": "Q11-O1",
+          "Q12": "Q12-O1",
+          "Q13": "Q13-O1",
+          "D1": "D1-O1",
+          "D2": "D2-O1"
+        },
+        "expected": {
+          "questions_seen_in_order": [
+            "S1",
+            "S2",
+            "S3",
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4",
+            "Q5",
+            "Q6",
+            "Q7",
+            "Q8",
+            "Q9",
+            "Q10",
+            "Q11",
+            "Q12",
+            "Q13",
+            "D1",
+            "D2",
+            "Q14"
+          ],
+          "questions_not_seen": [],
+          "ending_reached": "COMPLETE",
+          "blocked_at": null,
+          "quota_stopped": null,
+          "quota_over_target": null,
+          "validation_messages_expected": [],
+          "piped_text_visible": {
+            "Q2": "Provider A",
+            "Q3": "Provider A",
+            "Q5": "Provider A",
+            "Q9": "Dropped calls",
+            "Q10": "Yes, fully",
+            "Q11": "Provider A",
+            "Q12": "Provider A"
+          },
+          "option_lists_visible": {
+            "Q8": [
+              "Dropped calls"
+            ]
+          }
+        },
+        "proof": "after answering D1 the respondent went on to D2",
+        "provisional_semantics": [
+          "multi_equality"
+        ],
+        "preconditions": {},
+        "campaign": {},
+        "covered_by": null
+      },
+      {
+        "scenario_id": "SC-8ce34f5da5",
+        "target_id": "T-0a8c593040",
+        "dimension": "D1",
+        "status": "COVERED",
+        "reason": null,
+        "answers": {
+          "S1": "S1-O1",
+          "S2": "S2-O1",
+          "S3": 18,
+          "Q1": "Q1-O1",
+          "Q2": "Q2-O1",
+          "Q3": "Q3-O1",
+          "Q4": "Q4-O1",
+          "Q5": "Q5-O1",
+          "Q6": "Q6-O1",
+          "Q7": [
+            "Q7-O1"
+          ],
+          "Q8": "Q8-O1",
+          "Q9": "Q9-O1",
+          "Q10": "Q10-O1",
+          "Q11": "Q11-O1",
+          "Q12": "Q12-O1",
+          "Q13": "Q13-O1",
+          "D1": "D1-O1",
+          "D2": "D2-O1"
+        },
+        "expected": {
+          "questions_seen_in_order": [
+            "S1",
+            "S2",
+            "S3",
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4",
+            "Q5",
+            "Q6",
+            "Q7",
+            "Q8",
+            "Q9",
+            "Q10",
+            "Q11",
+            "Q12",
+            "Q13",
+            "D1",
+            "D2",
+            "Q14"
+          ],
+          "questions_not_seen": [],
+          "ending_reached": "COMPLETE",
+          "blocked_at": null,
+          "quota_stopped": null,
+          "quota_over_target": null,
+          "validation_messages_expected": [],
+          "piped_text_visible": {
+            "Q2": "Provider A",
+            "Q3": "Provider A",
+            "Q5": "Provider A",
+            "Q9": "Dropped calls",
+            "Q10": "Yes, fully",
+            "Q11": "Provider A",
+            "Q12": "Provider A"
+          },
+          "option_lists_visible": {
+            "Q8": [
+              "Dropped calls"
+            ]
+          }
+        },
+        "proof": "after answering D2 the respondent went on to Q14",
+        "provisional_semantics": [
+          "multi_equality"
+        ],
+        "preconditions": {},
+        "campaign": {},
+        "covered_by": null
+      },
+      {
+        "scenario_id": "SC-7615fbc78a",
+        "target_id": "T-f325a4a781",
+        "dimension": "D1",
+        "status": "COVERED",
+        "reason": null,
+        "answers": {
+          "S1": "S1-O1",
+          "S2": "S2-O1",
+          "S3": 18,
+          "Q1": "Q1-O1",
+          "Q2": "Q2-O1",
+          "Q3": "Q3-O1",
+          "Q4": "Q4-O1",
+          "Q5": "Q5-O1",
+          "Q6": "Q6-O1",
+          "Q7": [
+            "Q7-O1"
+          ],
+          "Q8": "Q8-O1",
+          "Q9": "Q9-O1",
+          "Q10": "Q10-O1",
+          "Q11": "Q11-O1",
+          "Q12": "Q12-O1",
+          "Q13": "Q13-O1",
+          "D1": "D1-O1",
+          "D2": "D2-O1"
+        },
+        "expected": {
+          "questions_seen_in_order": [
+            "S1",
+            "S2",
+            "S3",
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4",
+            "Q5",
+            "Q6",
+            "Q7",
+            "Q8",
+            "Q9",
+            "Q10",
+            "Q11",
+            "Q12",
+            "Q13",
+            "D1",
+            "D2",
+            "Q14"
+          ],
+          "questions_not_seen": [],
+          "ending_reached": "COMPLETE",
+          "blocked_at": null,
+          "quota_stopped": null,
+          "quota_over_target": null,
+          "validation_messages_expected": [],
+          "piped_text_visible": {
+            "Q2": "Provider A",
+            "Q3": "Provider A",
+            "Q5": "Provider A",
+            "Q9": "Dropped calls",
+            "Q10": "Yes, fully",
+            "Q11": "Provider A",
+            "Q12": "Provider A"
+          },
+          "option_lists_visible": {
+            "Q8": [
+              "Dropped calls"
+            ]
+          }
+        },
+        "proof": "after answering Q1 the respondent went on to Q2",
+        "provisional_semantics": [
+          "multi_equality"
+        ],
+        "preconditions": {},
+        "campaign": {},
+        "covered_by": null
+      },
+      {
+        "scenario_id": "SC-ec6056b7b4",
+        "target_id": "T-d5aef33769",
+        "dimension": "D1",
+        "status": "COVERED",
+        "reason": null,
+        "answers": {
+          "Q9": "Q9-O1",
+          "S1": "S1-O1",
+          "S2": "S2-O1",
+          "S3": 18,
+          "Q1": "Q1-O1",
+          "Q2": "Q2-O1",
+          "Q3": "Q3-O1",
+          "Q4": "Q4-O1",
+          "Q5": "Q5-O1",
+          "Q6": "Q6-O1",
+          "Q7": [
+            "Q7-O1"
+          ],
+          "Q8": "Q8-O1",
+          "Q10": "Q10-O1",
+          "Q11": "Q11-O1",
+          "Q12": "Q12-O1",
+          "Q13": "Q13-O1",
+          "D1": "D1-O1",
+          "D2": "D2-O1"
+        },
+        "expected": {
+          "questions_seen_in_order": [
+            "S1",
+            "S2",
+            "S3",
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4",
+            "Q5",
+            "Q6",
+            "Q7",
+            "Q8",
+            "Q9",
+            "Q10",
+            "Q11",
+            "Q12",
+            "Q13",
+            "D1",
+            "D2",
+            "Q14"
+          ],
+          "questions_not_seen": [],
+          "ending_reached": "COMPLETE",
+          "blocked_at": null,
+          "quota_stopped": null,
+          "quota_over_target": null,
+          "validation_messages_expected": [],
+          "piped_text_visible": {
+            "Q2": "Provider A",
+            "Q3": "Provider A",
+            "Q5": "Provider A",
+            "Q9": "Dropped calls",
+            "Q10": "Yes, fully",
+            "Q11": "Provider A",
+            "Q12": "Provider A"
+          },
+          "option_lists_visible": {
+            "Q8": [
+              "Dropped calls"
+            ]
+          }
+        },
+        "proof": "after answering Q10 the respondent went on to Q11",
+        "provisional_semantics": [
+          "multi_equality"
+        ],
+        "preconditions": {},
+        "campaign": {},
+        "covered_by": null
+      },
+      {
+        "scenario_id": "SC-184c6d4c0b",
+        "target_id": "T-f0c1fb0bcf",
+        "dimension": "D1",
+        "status": "COVERED",
+        "reason": null,
+        "answers": {
+          "Q9": "Q9-O3",
+          "S1": "S1-O1",
+          "S2": "S2-O1",
+          "S3": 18,
+          "Q1": "Q1-O1",
+          "Q2": "Q2-O1",
+          "Q3": "Q3-O1",
+          "Q4": "Q4-O1",
+          "Q5": "Q5-O1",
+          "Q6": "Q6-O1",
+          "Q7": [
+            "Q7-O1"
+          ],
+          "Q8": "Q8-O1",
+          "Q10": "Q10-O1",
+          "Q11": "Q11-O1",
+          "Q12": "Q12-O1",
+          "Q13": "Q13-O1",
+          "D1": "D1-O1",
+          "D2": "D2-O1"
+        },
+        "expected": {
+          "questions_seen_in_order": [
+            "S1",
+            "S2",
+            "S3",
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4",
+            "Q5",
+            "Q6",
+            "Q7",
+            "Q8",
+            "Q9",
+            "Q11",
+            "Q12",
+            "Q13",
+            "D1",
+            "D2",
+            "Q14"
+          ],
+          "questions_not_seen": [
+            "Q10"
+          ],
+          "ending_reached": "COMPLETE",
+          "blocked_at": null,
+          "quota_stopped": null,
+          "quota_over_target": null,
+          "validation_messages_expected": [],
+          "piped_text_visible": {
+            "Q2": "Provider A",
+            "Q3": "Provider A",
+            "Q5": "Provider A",
+            "Q9": "Dropped calls",
+            "Q11": "Provider A",
+            "Q12": "Provider A"
+          },
+          "option_lists_visible": {
+            "Q8": [
+              "Dropped calls"
+            ]
+          }
+        },
+        "proof": "Q10 predicted hidden while the respondent continued",
+        "provisional_semantics": [
+          "multi_equality",
+          "rule_precedence"
+        ],
+        "preconditions": {},
+        "campaign": {},
+        "covered_by": null
+      },
+      {
+        "scenario_id": "SC-33b32474bc",
+        "target_id": "T-722f7a080e",
+        "dimension": "D1",
+        "status": "COVERED",
+        "reason": null,
+        "answers": {
+          "Q9": "Q9-O1",
+          "S1": "S1-O1",
+          "S2": "S2-O1",
+          "S3": 18,
+          "Q1": "Q1-O1",
+          "Q2": "Q2-O1",
+          "Q3": "Q3-O1",
+          "Q4": "Q4-O1",
+          "Q5": "Q5-O1",
+          "Q6": "Q6-O1",
+          "Q7": [
+            "Q7-O1"
+          ],
+          "Q8": "Q8-O1",
+          "Q10": "Q10-O1",
+          "Q11": "Q11-O1",
+          "Q12": "Q12-O1",
+          "Q13": "Q13-O1",
+          "D1": "D1-O1",
+          "D2": "D2-O1"
+        },
+        "expected": {
+          "questions_seen_in_order": [
+            "S1",
+            "S2",
+            "S3",
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4",
+            "Q5",
+            "Q6",
+            "Q7",
+            "Q8",
+            "Q9",
+            "Q10",
+            "Q11",
+            "Q12",
+            "Q13",
+            "D1",
+            "D2",
+            "Q14"
+          ],
+          "questions_not_seen": [],
+          "ending_reached": "COMPLETE",
+          "blocked_at": null,
+          "quota_stopped": null,
+          "quota_over_target": null,
+          "validation_messages_expected": [],
+          "piped_text_visible": {
+            "Q2": "Provider A",
+            "Q3": "Provider A",
+            "Q5": "Provider A",
+            "Q9": "Dropped calls",
+            "Q10": "Yes, fully",
+            "Q11": "Provider A",
+            "Q12": "Provider A"
+          },
+          "option_lists_visible": {
+            "Q8": [
+              "Dropped calls"
+            ]
+          }
+        },
+        "proof": "Q10 appears in the predicted path",
+        "provisional_semantics": [
+          "multi_equality"
+        ],
+        "preconditions": {},
+        "campaign": {},
+        "covered_by": null
+      },
+      {
+        "scenario_id": "SC-7e0cc298a1",
+        "target_id": "T-11d51719ce",
+        "dimension": "D1",
+        "status": "COVERED",
+        "reason": null,
+        "answers": {
+          "S1": "S1-O1",
+          "S2": "S2-O1",
+          "S3": 18,
+          "Q1": "Q1-O1",
+          "Q2": "Q2-O1",
+          "Q3": "Q3-O1",
+          "Q4": "Q4-O1",
+          "Q5": "Q5-O1",
+          "Q6": "Q6-O1",
+          "Q7": [
+            "Q7-O1"
+          ],
+          "Q8": "Q8-O1",
+          "Q9": "Q9-O1",
+          "Q10": "Q10-O1",
+          "Q11": "Q11-O1",
+          "Q12": "Q12-O1",
+          "Q13": "Q13-O1",
+          "D1": "D1-O1",
+          "D2": "D2-O1"
+        },
+        "expected": {
+          "questions_seen_in_order": [
+            "S1",
+            "S2",
+            "S3",
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4",
+            "Q5",
+            "Q6",
+            "Q7",
+            "Q8",
+            "Q9",
+            "Q10",
+            "Q11",
+            "Q12",
+            "Q13",
+            "D1",
+            "D2",
+            "Q14"
+          ],
+          "questions_not_seen": [],
+          "ending_reached": "COMPLETE",
+          "blocked_at": null,
+          "quota_stopped": null,
+          "quota_over_target": null,
+          "validation_messages_expected": [],
+          "piped_text_visible": {
+            "Q2": "Provider A",
+            "Q3": "Provider A",
+            "Q5": "Provider A",
+            "Q9": "Dropped calls",
+            "Q10": "Yes, fully",
+            "Q11": "Provider A",
+            "Q12": "Provider A"
+          },
+          "option_lists_visible": {
+            "Q8": [
+              "Dropped calls"
+            ]
+          }
+        },
+        "proof": "after answering Q11 the respondent went on to Q12",
+        "provisional_semantics": [
+          "multi_equality"
+        ],
+        "preconditions": {},
+        "campaign": {},
+        "covered_by": null
+      },
+      {
+        "scenario_id": "SC-bc87de1dbb",
+        "target_id": "T-3907421364",
+        "dimension": "D1",
+        "status": "COVERED",
+        "reason": null,
+        "answers": {
+          "S1": "S1-O1",
+          "S2": "S2-O1",
+          "S3": 18,
+          "Q1": "Q1-O1",
+          "Q2": "Q2-O1",
+          "Q3": "Q3-O1",
+          "Q4": "Q4-O1",
+          "Q5": "Q5-O1",
+          "Q6": "Q6-O1",
+          "Q7": [
+            "Q7-O1"
+          ],
+          "Q8": "Q8-O1",
+          "Q9": "Q9-O1",
+          "Q10": "Q10-O1",
+          "Q11": "Q11-O1",
+          "Q12": "Q12-O1",
+          "Q13": "Q13-O1",
+          "D1": "D1-O1",
+          "D2": "D2-O1"
+        },
+        "expected": {
+          "questions_seen_in_order": [
+            "S1",
+            "S2",
+            "S3",
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4",
+            "Q5",
+            "Q6",
+            "Q7",
+            "Q8",
+            "Q9",
+            "Q10",
+            "Q11",
+            "Q12",
+            "Q13",
+            "D1",
+            "D2",
+            "Q14"
+          ],
+          "questions_not_seen": [],
+          "ending_reached": "COMPLETE",
+          "blocked_at": null,
+          "quota_stopped": null,
+          "quota_over_target": null,
+          "validation_messages_expected": [],
+          "piped_text_visible": {
+            "Q2": "Provider A",
+            "Q3": "Provider A",
+            "Q5": "Provider A",
+            "Q9": "Dropped calls",
+            "Q10": "Yes, fully",
+            "Q11": "Provider A",
+            "Q12": "Provider A"
+          },
+          "option_lists_visible": {
+            "Q8": [
+              "Dropped calls"
+            ]
+          }
+        },
+        "proof": "after answering Q12 the respondent went on to Q13",
+        "provisional_semantics": [
+          "multi_equality"
+        ],
+        "preconditions": {},
+        "campaign": {},
+        "covered_by": null
+      },
+      {
+        "scenario_id": "SC-bc51ba83a8",
+        "target_id": "T-a1c44561a6",
+        "dimension": "D1",
+        "status": "COVERED",
+        "reason": null,
+        "answers": {
+          "S1": "S1-O1",
+          "S2": "S2-O1",
+          "S3": 18,
+          "Q1": "Q1-O1",
+          "Q2": "Q2-O1",
+          "Q3": "Q3-O1",
+          "Q4": "Q4-O1",
+          "Q5": "Q5-O1",
+          "Q6": "Q6-O1",
+          "Q7": [
+            "Q7-O1"
+          ],
+          "Q8": "Q8-O1",
+          "Q9": "Q9-O1",
+          "Q10": "Q10-O1",
+          "Q11": "Q11-O1",
+          "Q12": "Q12-O1",
+          "Q13": "Q13-O1",
+          "D1": "D1-O1",
+          "D2": "D2-O1"
+        },
+        "expected": {
+          "questions_seen_in_order": [
+            "S1",
+            "S2",
+            "S3",
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4",
+            "Q5",
+            "Q6",
+            "Q7",
+            "Q8",
+            "Q9",
+            "Q10",
+            "Q11",
+            "Q12",
+            "Q13",
+            "D1",
+            "D2",
+            "Q14"
+          ],
+          "questions_not_seen": [],
+          "ending_reached": "COMPLETE",
+          "blocked_at": null,
+          "quota_stopped": null,
+          "quota_over_target": null,
+          "validation_messages_expected": [],
+          "piped_text_visible": {
+            "Q2": "Provider A",
+            "Q3": "Provider A",
+            "Q5": "Provider A",
+            "Q9": "Dropped calls",
+            "Q10": "Yes, fully",
+            "Q11": "Provider A",
+            "Q12": "Provider A"
+          },
+          "option_lists_visible": {
+            "Q8": [
+              "Dropped calls"
+            ]
+          }
+        },
+        "proof": "after answering Q13 the respondent went on to D1",
+        "provisional_semantics": [
+          "multi_equality"
+        ],
+        "preconditions": {},
+        "campaign": {},
+        "covered_by": null
+      },
+      {
+        "scenario_id": "SC-2765ad5572",
+        "target_id": "T-da4659818e",
+        "dimension": "D1",
+        "status": "COVERED",
+        "reason": null,
+        "answers": {
+          "S1": "S1-O1",
+          "S2": "S2-O1",
+          "S3": 18,
+          "Q1": "Q1-O1",
+          "Q2": "Q2-O1",
+          "Q3": "Q3-O1",
+          "Q4": "Q4-O1",
+          "Q5": "Q5-O1",
+          "Q6": "Q6-O1",
+          "Q7": [
+            "Q7-O1"
+          ],
+          "Q8": "Q8-O1",
+          "Q9": "Q9-O1",
+          "Q10": "Q10-O1",
+          "Q11": "Q11-O1",
+          "Q12": "Q12-O1",
+          "Q13": "Q13-O1",
+          "D1": "D1-O1",
+          "D2": "D2-O1"
+        },
+        "expected": {
+          "questions_seen_in_order": [
+            "S1",
+            "S2",
+            "S3",
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4",
+            "Q5",
+            "Q6",
+            "Q7",
+            "Q8",
+            "Q9",
+            "Q10",
+            "Q11",
+            "Q12",
+            "Q13",
+            "D1",
+            "D2",
+            "Q14"
+          ],
+          "questions_not_seen": [],
+          "ending_reached": "COMPLETE",
+          "blocked_at": null,
+          "quota_stopped": null,
+          "quota_over_target": null,
+          "validation_messages_expected": [],
+          "piped_text_visible": {
+            "Q2": "Provider A",
+            "Q3": "Provider A",
+            "Q5": "Provider A",
+            "Q9": "Dropped calls",
+            "Q10": "Yes, fully",
+            "Q11": "Provider A",
+            "Q12": "Provider A"
+          },
+          "option_lists_visible": {
+            "Q8": [
+              "Dropped calls"
+            ]
+          }
+        },
+        "proof": "Q14 is the last question shown, and answering it took the respondent to COMPLETE",
+        "provisional_semantics": [
+          "multi_equality"
+        ],
+        "preconditions": {},
+        "campaign": {},
+        "covered_by": null
+      },
+      {
+        "scenario_id": "SC-adb1d347fb",
+        "target_id": "T-ea15e888c6",
+        "dimension": "D1",
+        "status": "COVERED",
+        "reason": null,
+        "answers": {
+          "S1": "S1-O1",
+          "S2": "S2-O1",
+          "S3": 18,
+          "Q1": "Q1-O1",
+          "Q2": "Q2-O1",
+          "Q3": "Q3-O1",
+          "Q4": "Q4-O1",
+          "Q5": "Q5-O1",
+          "Q6": "Q6-O1",
+          "Q7": [
+            "Q7-O1"
+          ],
+          "Q8": "Q8-O1",
+          "Q9": "Q9-O1",
+          "Q10": "Q10-O1",
+          "Q11": "Q11-O1",
+          "Q12": "Q12-O1",
+          "Q13": "Q13-O1",
+          "D1": "D1-O1",
+          "D2": "D2-O1"
+        },
+        "expected": {
+          "questions_seen_in_order": [
+            "S1",
+            "S2",
+            "S3",
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4",
+            "Q5",
+            "Q6",
+            "Q7",
+            "Q8",
+            "Q9",
+            "Q10",
+            "Q11",
+            "Q12",
+            "Q13",
+            "D1",
+            "D2",
+            "Q14"
+          ],
+          "questions_not_seen": [],
+          "ending_reached": "COMPLETE",
+          "blocked_at": null,
+          "quota_stopped": null,
+          "quota_over_target": null,
+          "validation_messages_expected": [],
+          "piped_text_visible": {
+            "Q2": "Provider A",
+            "Q3": "Provider A",
+            "Q5": "Provider A",
+            "Q9": "Dropped calls",
+            "Q10": "Yes, fully",
+            "Q11": "Provider A",
+            "Q12": "Provider A"
+          },
+          "option_lists_visible": {
+            "Q8": [
+              "Dropped calls"
+            ]
+          }
+        },
+        "proof": "after answering Q2 the respondent went on to Q3",
+        "provisional_semantics": [
+          "multi_equality"
+        ],
+        "preconditions": {},
+        "campaign": {},
+        "covered_by": null
+      },
+      {
+        "scenario_id": "SC-3117a21705",
+        "target_id": "T-d182c884c0",
+        "dimension": "D1",
+        "status": "COVERED",
+        "reason": null,
+        "answers": {
+          "S1": "S1-O1",
+          "S2": "S2-O1",
+          "S3": 18,
+          "Q1": "Q1-O1",
+          "Q2": "Q2-O1",
+          "Q3": "Q3-O1",
+          "Q4": "Q4-O1",
+          "Q5": "Q5-O1",
+          "Q6": "Q6-O1",
+          "Q7": [
+            "Q7-O1"
+          ],
+          "Q8": "Q8-O1",
+          "Q9": "Q9-O1",
+          "Q10": "Q10-O1",
+          "Q11": "Q11-O1",
+          "Q12": "Q12-O1",
+          "Q13": "Q13-O1",
+          "D1": "D1-O1",
+          "D2": "D2-O1"
+        },
+        "expected": {
+          "questions_seen_in_order": [
+            "S1",
+            "S2",
+            "S3",
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4",
+            "Q5",
+            "Q6",
+            "Q7",
+            "Q8",
+            "Q9",
+            "Q10",
+            "Q11",
+            "Q12",
+            "Q13",
+            "D1",
+            "D2",
+            "Q14"
+          ],
+          "questions_not_seen": [],
+          "ending_reached": "COMPLETE",
+          "blocked_at": null,
+          "quota_stopped": null,
+          "quota_over_target": null,
+          "validation_messages_expected": [],
+          "piped_text_visible": {
+            "Q2": "Provider A",
+            "Q3": "Provider A",
+            "Q5": "Provider A",
+            "Q9": "Dropped calls",
+            "Q10": "Yes, fully",
+            "Q11": "Provider A",
+            "Q12": "Provider A"
+          },
+          "option_lists_visible": {
+            "Q8": [
+              "Dropped calls"
+            ]
+          }
+        },
+        "proof": "after answering Q3 the respondent went on to Q4",
+        "provisional_semantics": [
+          "multi_equality"
+        ],
+        "preconditions": {},
+        "campaign": {},
+        "covered_by": null
+      },
+      {
+        "scenario_id": "SC-9ae23bee19",
+        "target_id": "T-460e9ac790",
+        "dimension": "D1",
+        "status": "COVERED",
+        "reason": null,
+        "answers": {
+          "S1": "S1-O1",
+          "S2": "S2-O1",
+          "S3": 18,
+          "Q1": "Q1-O1",
+          "Q2": "Q2-O1",
+          "Q3": "Q3-O1",
+          "Q4": "Q4-O1",
+          "Q5": "Q5-O1",
+          "Q6": "Q6-O1",
+          "Q7": [
+            "Q7-O1"
+          ],
+          "Q8": "Q8-O1",
+          "Q9": "Q9-O1",
+          "Q10": "Q10-O1",
+          "Q11": "Q11-O1",
+          "Q12": "Q12-O1",
+          "Q13": "Q13-O1",
+          "D1": "D1-O1",
+          "D2": "D2-O1"
+        },
+        "expected": {
+          "questions_seen_in_order": [
+            "S1",
+            "S2",
+            "S3",
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4",
+            "Q5",
+            "Q6",
+            "Q7",
+            "Q8",
+            "Q9",
+            "Q10",
+            "Q11",
+            "Q12",
+            "Q13",
+            "D1",
+            "D2",
+            "Q14"
+          ],
+          "questions_not_seen": [],
+          "ending_reached": "COMPLETE",
+          "blocked_at": null,
+          "quota_stopped": null,
+          "quota_over_target": null,
+          "validation_messages_expected": [],
+          "piped_text_visible": {
+            "Q2": "Provider A",
+            "Q3": "Provider A",
+            "Q5": "Provider A",
+            "Q9": "Dropped calls",
+            "Q10": "Yes, fully",
+            "Q11": "Provider A",
+            "Q12": "Provider A"
+          },
+          "option_lists_visible": {
+            "Q8": [
+              "Dropped calls"
+            ]
+          }
+        },
+        "proof": "after answering Q4 the respondent went on to Q5",
+        "provisional_semantics": [
+          "multi_equality"
+        ],
+        "preconditions": {},
+        "campaign": {},
+        "covered_by": null
+      },
+      {
+        "scenario_id": "SC-8b92da72ef",
+        "target_id": "T-4a81ad1c54",
+        "dimension": "D1",
+        "status": "COVERED",
+        "reason": null,
+        "answers": {
+          "S1": "S1-O1",
+          "S2": "S2-O1",
+          "S3": 18,
+          "Q1": "Q1-O1",
+          "Q2": "Q2-O1",
+          "Q3": "Q3-O1",
+          "Q4": "Q4-O1",
+          "Q5": "Q5-O1",
+          "Q6": "Q6-O1",
+          "Q7": [
+            "Q7-O1"
+          ],
+          "Q8": "Q8-O1",
+          "Q9": "Q9-O1",
+          "Q10": "Q10-O1",
+          "Q11": "Q11-O1",
+          "Q12": "Q12-O1",
+          "Q13": "Q13-O1",
+          "D1": "D1-O1",
+          "D2": "D2-O1"
+        },
+        "expected": {
+          "questions_seen_in_order": [
+            "S1",
+            "S2",
+            "S3",
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4",
+            "Q5",
+            "Q6",
+            "Q7",
+            "Q8",
+            "Q9",
+            "Q10",
+            "Q11",
+            "Q12",
+            "Q13",
+            "D1",
+            "D2",
+            "Q14"
+          ],
+          "questions_not_seen": [],
+          "ending_reached": "COMPLETE",
+          "blocked_at": null,
+          "quota_stopped": null,
+          "quota_over_target": null,
+          "validation_messages_expected": [],
+          "piped_text_visible": {
+            "Q2": "Provider A",
+            "Q3": "Provider A",
+            "Q5": "Provider A",
+            "Q9": "Dropped calls",
+            "Q10": "Yes, fully",
+            "Q11": "Provider A",
+            "Q12": "Provider A"
+          },
+          "option_lists_visible": {
+            "Q8": [
+              "Dropped calls"
+            ]
+          }
+        },
+        "proof": "after answering Q5 the respondent went on to Q6",
+        "provisional_semantics": [
+          "multi_equality"
+        ],
+        "preconditions": {},
+        "campaign": {},
+        "covered_by": null
+      },
+      {
+        "scenario_id": "SC-3d17eeed06",
+        "target_id": "T-a31d9e36e7",
+        "dimension": "D1",
+        "status": "COVERED",
+        "reason": null,
+        "answers": {
+          "S1": "S1-O1",
+          "S2": "S2-O1",
+          "S3": 18,
+          "Q1": "Q1-O1",
+          "Q2": "Q2-O1",
+          "Q3": "Q3-O1",
+          "Q4": "Q4-O1",
+          "Q5": "Q5-O1",
+          "Q6": "Q6-O1",
+          "Q7": [
+            "Q7-O1"
+          ],
+          "Q8": "Q8-O1",
+          "Q9": "Q9-O1",
+          "Q10": "Q10-O1",
+          "Q11": "Q11-O1",
+          "Q12": "Q12-O1",
+          "Q13": "Q13-O1",
+          "D1": "D1-O1",
+          "D2": "D2-O1"
+        },
+        "expected": {
+          "questions_seen_in_order": [
+            "S1",
+            "S2",
+            "S3",
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4",
+            "Q5",
+            "Q6",
+            "Q7",
+            "Q8",
+            "Q9",
+            "Q10",
+            "Q11",
+            "Q12",
+            "Q13",
+            "D1",
+            "D2",
+            "Q14"
+          ],
+          "questions_not_seen": [],
+          "ending_reached": "COMPLETE",
+          "blocked_at": null,
+          "quota_stopped": null,
+          "quota_over_target": null,
+          "validation_messages_expected": [],
+          "piped_text_visible": {
+            "Q2": "Provider A",
+            "Q3": "Provider A",
+            "Q5": "Provider A",
+            "Q9": "Dropped calls",
+            "Q10": "Yes, fully",
+            "Q11": "Provider A",
+            "Q12": "Provider A"
+          },
+          "option_lists_visible": {
+            "Q8": [
+              "Dropped calls"
+            ]
+          }
+        },
+        "proof": "after answering Q6 the respondent went on to Q7",
+        "provisional_semantics": [
+          "multi_equality"
+        ],
+        "preconditions": {},
+        "campaign": {},
+        "covered_by": null
+      },
+      {
+        "scenario_id": "SC-28950102ce",
+        "target_id": "T-a25fbf002c",
+        "dimension": "D1",
+        "status": "COVERED",
+        "reason": null,
+        "answers": {
+          "S1": "S1-O1",
+          "S2": "S2-O1",
+          "S3": 18,
+          "Q1": "Q1-O1",
+          "Q2": "Q2-O1",
+          "Q3": "Q3-O1",
+          "Q4": "Q4-O1",
+          "Q5": "Q5-O1",
+          "Q6": "Q6-O1",
+          "Q7": [
+            "Q7-O1"
+          ],
+          "Q8": "Q8-O1",
+          "Q9": "Q9-O1",
+          "Q10": "Q10-O1",
+          "Q11": "Q11-O1",
+          "Q12": "Q12-O1",
+          "Q13": "Q13-O1",
+          "D1": "D1-O1",
+          "D2": "D2-O1"
+        },
+        "expected": {
+          "questions_seen_in_order": [
+            "S1",
+            "S2",
+            "S3",
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4",
+            "Q5",
+            "Q6",
+            "Q7",
+            "Q8",
+            "Q9",
+            "Q10",
+            "Q11",
+            "Q12",
+            "Q13",
+            "D1",
+            "D2",
+            "Q14"
+          ],
+          "questions_not_seen": [],
+          "ending_reached": "COMPLETE",
+          "blocked_at": null,
+          "quota_stopped": null,
+          "quota_over_target": null,
+          "validation_messages_expected": [],
+          "piped_text_visible": {
+            "Q2": "Provider A",
+            "Q3": "Provider A",
+            "Q5": "Provider A",
+            "Q9": "Dropped calls",
+            "Q10": "Yes, fully",
+            "Q11": "Provider A",
+            "Q12": "Provider A"
+          },
+          "option_lists_visible": {
+            "Q8": [
+              "Dropped calls"
+            ]
+          }
+        },
+        "proof": "after answering Q7 the respondent went on to Q8",
+        "provisional_semantics": [
+          "multi_equality"
+        ],
+        "preconditions": {},
+        "campaign": {},
+        "covered_by": null
+      },
+      {
+        "scenario_id": "SC-96903ed29b",
+        "target_id": "T-b3b76ca11a",
+        "dimension": "D1",
+        "status": "COVERED",
+        "reason": null,
+        "answers": {
+          "Q7": [
+            "Q7-O1"
+          ],
+          "S1": "S1-O1",
+          "S2": "S2-O1",
+          "S3": 18,
+          "Q1": "Q1-O1",
+          "Q2": "Q2-O1",
+          "Q3": "Q3-O1",
+          "Q4": "Q4-O1",
+          "Q5": "Q5-O1",
+          "Q6": "Q6-O1",
+          "Q8": "Q8-O1",
+          "Q9": "Q9-O1",
+          "Q10": "Q10-O1",
+          "Q11": "Q11-O1",
+          "Q12": "Q12-O1",
+          "Q13": "Q13-O1",
+          "D1": "D1-O1",
+          "D2": "D2-O1"
+        },
+        "expected": {
+          "questions_seen_in_order": [
+            "S1",
+            "S2",
+            "S3",
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4",
+            "Q5",
+            "Q6",
+            "Q7",
+            "Q8",
+            "Q9",
+            "Q10",
+            "Q11",
+            "Q12",
+            "Q13",
+            "D1",
+            "D2",
+            "Q14"
+          ],
+          "questions_not_seen": [],
+          "ending_reached": "COMPLETE",
+          "blocked_at": null,
+          "quota_stopped": null,
+          "quota_over_target": null,
+          "validation_messages_expected": [],
+          "piped_text_visible": {
+            "Q2": "Provider A",
+            "Q3": "Provider A",
+            "Q5": "Provider A",
+            "Q9": "Dropped calls",
+            "Q10": "Yes, fully",
+            "Q11": "Provider A",
+            "Q12": "Provider A"
+          },
+          "option_lists_visible": {
+            "Q8": [
+              "Dropped calls"
+            ]
+          }
+        },
+        "proof": "after answering Q8 the respondent went on to Q9",
+        "provisional_semantics": [
+          "multi_equality"
+        ],
+        "preconditions": {},
+        "campaign": {},
+        "covered_by": null
+      },
+      {
+        "scenario_id": "SC-7364c3b7c8",
+        "target_id": "T-21fd637902",
+        "dimension": "D1",
+        "status": "COVERED",
+        "reason": null,
+        "answers": {
+          "Q7": [
+            "Q7-O6"
+          ],
+          "S1": "S1-O1",
+          "S2": "S2-O1",
+          "S3": 18,
+          "Q1": "Q1-O1",
+          "Q2": "Q2-O1",
+          "Q3": "Q3-O1",
+          "Q4": "Q4-O1",
+          "Q5": "Q5-O1",
+          "Q6": "Q6-O1",
+          "Q8": "Q8-O1",
+          "Q9": "Q9-O1",
+          "Q10": "Q10-O1",
+          "Q11": "Q11-O1",
+          "Q12": "Q12-O1",
+          "Q13": "Q13-O1",
+          "D1": "D1-O1",
+          "D2": "D2-O1"
+        },
+        "expected": {
+          "questions_seen_in_order": [
+            "S1",
+            "S2",
+            "S3",
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4",
+            "Q5",
+            "Q6",
+            "Q7",
+            "Q11",
+            "Q12",
+            "Q13",
+            "D1",
+            "D2",
+            "Q14"
+          ],
+          "questions_not_seen": [
+            "Q8",
+            "Q9",
+            "Q10"
+          ],
+          "ending_reached": "COMPLETE",
+          "blocked_at": null,
+          "quota_stopped": null,
+          "quota_over_target": null,
+          "validation_messages_expected": [],
+          "piped_text_visible": {
+            "Q2": "Provider A",
+            "Q3": "Provider A",
+            "Q5": "Provider A",
+            "Q11": "Provider A",
+            "Q12": "Provider A"
+          },
+          "option_lists_visible": {}
+        },
+        "proof": "Q8 predicted hidden while the respondent continued",
+        "provisional_semantics": [
+          "multi_equality",
+          "rule_precedence"
+        ],
+        "preconditions": {},
+        "campaign": {},
+        "covered_by": null
+      },
+      {
+        "scenario_id": "SC-f761cc8fd4",
+        "target_id": "T-0e25b5f453",
+        "dimension": "D1",
+        "status": "COVERED",
+        "reason": null,
+        "answers": {
+          "Q7": [
+            "Q7-O1"
+          ],
+          "S1": "S1-O1",
+          "S2": "S2-O1",
+          "S3": 18,
+          "Q1": "Q1-O1",
+          "Q2": "Q2-O1",
+          "Q3": "Q3-O1",
+          "Q4": "Q4-O1",
+          "Q5": "Q5-O1",
+          "Q6": "Q6-O1",
+          "Q8": "Q8-O1",
+          "Q9": "Q9-O1",
+          "Q10": "Q10-O1",
+          "Q11": "Q11-O1",
+          "Q12": "Q12-O1",
+          "Q13": "Q13-O1",
+          "D1": "D1-O1",
+          "D2": "D2-O1"
+        },
+        "expected": {
+          "questions_seen_in_order": [
+            "S1",
+            "S2",
+            "S3",
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4",
+            "Q5",
+            "Q6",
+            "Q7",
+            "Q8",
+            "Q9",
+            "Q10",
+            "Q11",
+            "Q12",
+            "Q13",
+            "D1",
+            "D2",
+            "Q14"
+          ],
+          "questions_not_seen": [],
+          "ending_reached": "COMPLETE",
+          "blocked_at": null,
+          "quota_stopped": null,
+          "quota_over_target": null,
+          "validation_messages_expected": [],
+          "piped_text_visible": {
+            "Q2": "Provider A",
+            "Q3": "Provider A",
+            "Q5": "Provider A",
+            "Q9": "Dropped calls",
+            "Q10": "Yes, fully",
+            "Q11": "Provider A",
+            "Q12": "Provider A"
+          },
+          "option_lists_visible": {
+            "Q8": [
+              "Dropped calls"
+            ]
+          }
+        },
+        "proof": "Q8 appears in the predicted path",
+        "provisional_semantics": [
+          "multi_equality"
+        ],
+        "preconditions": {},
+        "campaign": {},
+        "covered_by": null
+      },
+      {
+        "scenario_id": "SC-d7db9118e5",
+        "target_id": "T-2d38100fad",
+        "dimension": "D1",
+        "status": "COVERED",
+        "reason": null,
+        "answers": {
+          "Q7": [
+            "Q7-O1"
+          ],
+          "S1": "S1-O1",
+          "S2": "S2-O1",
+          "S3": 18,
+          "Q1": "Q1-O1",
+          "Q2": "Q2-O1",
+          "Q3": "Q3-O1",
+          "Q4": "Q4-O1",
+          "Q5": "Q5-O1",
+          "Q6": "Q6-O1",
+          "Q8": "Q8-O1",
+          "Q9": "Q9-O1",
+          "Q10": "Q10-O1",
+          "Q11": "Q11-O1",
+          "Q12": "Q12-O1",
+          "Q13": "Q13-O1",
+          "D1": "D1-O1",
+          "D2": "D2-O1"
+        },
+        "expected": {
+          "questions_seen_in_order": [
+            "S1",
+            "S2",
+            "S3",
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4",
+            "Q5",
+            "Q6",
+            "Q7",
+            "Q8",
+            "Q9",
+            "Q10",
+            "Q11",
+            "Q12",
+            "Q13",
+            "D1",
+            "D2",
+            "Q14"
+          ],
+          "questions_not_seen": [],
+          "ending_reached": "COMPLETE",
+          "blocked_at": null,
+          "quota_stopped": null,
+          "quota_over_target": null,
+          "validation_messages_expected": [],
+          "piped_text_visible": {
+            "Q2": "Provider A",
+            "Q3": "Provider A",
+            "Q5": "Provider A",
+            "Q9": "Dropped calls",
+            "Q10": "Yes, fully",
+            "Q11": "Provider A",
+            "Q12": "Provider A"
+          },
+          "option_lists_visible": {
+            "Q8": [
+              "Dropped calls"
+            ]
+          }
+        },
+        "proof": "after answering Q9 the respondent went on to Q10",
+        "provisional_semantics": [
+          "multi_equality"
+        ],
+        "preconditions": {},
+        "campaign": {},
+        "covered_by": null
+      },
+      {
+        "scenario_id": "SC-b8e88e2168",
+        "target_id": "T-38fdb69243",
+        "dimension": "D1",
+        "status": "COVERED",
+        "reason": null,
+        "answers": {
+          "Q7": [
+            "Q7-O6"
+          ],
+          "S1": "S1-O1",
+          "S2": "S2-O1",
+          "S3": 18,
+          "Q1": "Q1-O1",
+          "Q2": "Q2-O1",
+          "Q3": "Q3-O1",
+          "Q4": "Q4-O1",
+          "Q5": "Q5-O1",
+          "Q6": "Q6-O1",
+          "Q8": "Q8-O1",
+          "Q9": "Q9-O1",
+          "Q10": "Q10-O1",
+          "Q11": "Q11-O1",
+          "Q12": "Q12-O1",
+          "Q13": "Q13-O1",
+          "D1": "D1-O1",
+          "D2": "D2-O1"
+        },
+        "expected": {
+          "questions_seen_in_order": [
+            "S1",
+            "S2",
+            "S3",
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4",
+            "Q5",
+            "Q6",
+            "Q7",
+            "Q11",
+            "Q12",
+            "Q13",
+            "D1",
+            "D2",
+            "Q14"
+          ],
+          "questions_not_seen": [
+            "Q8",
+            "Q9",
+            "Q10"
+          ],
+          "ending_reached": "COMPLETE",
+          "blocked_at": null,
+          "quota_stopped": null,
+          "quota_over_target": null,
+          "validation_messages_expected": [],
+          "piped_text_visible": {
+            "Q2": "Provider A",
+            "Q3": "Provider A",
+            "Q5": "Provider A",
+            "Q11": "Provider A",
+            "Q12": "Provider A"
+          },
+          "option_lists_visible": {}
+        },
+        "proof": "Q9 predicted hidden while the respondent continued",
+        "provisional_semantics": [
+          "multi_equality",
+          "rule_precedence"
+        ],
+        "preconditions": {},
+        "campaign": {},
+        "covered_by": null
+      },
+      {
+        "scenario_id": "SC-20d5434d71",
+        "target_id": "T-b4a5f414c4",
+        "dimension": "D1",
+        "status": "COVERED",
+        "reason": null,
+        "answers": {
+          "Q7": [
+            "Q7-O1"
+          ],
+          "S1": "S1-O1",
+          "S2": "S2-O1",
+          "S3": 18,
+          "Q1": "Q1-O1",
+          "Q2": "Q2-O1",
+          "Q3": "Q3-O1",
+          "Q4": "Q4-O1",
+          "Q5": "Q5-O1",
+          "Q6": "Q6-O1",
+          "Q8": "Q8-O1",
+          "Q9": "Q9-O1",
+          "Q10": "Q10-O1",
+          "Q11": "Q11-O1",
+          "Q12": "Q12-O1",
+          "Q13": "Q13-O1",
+          "D1": "D1-O1",
+          "D2": "D2-O1"
+        },
+        "expected": {
+          "questions_seen_in_order": [
+            "S1",
+            "S2",
+            "S3",
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4",
+            "Q5",
+            "Q6",
+            "Q7",
+            "Q8",
+            "Q9",
+            "Q10",
+            "Q11",
+            "Q12",
+            "Q13",
+            "D1",
+            "D2",
+            "Q14"
+          ],
+          "questions_not_seen": [],
+          "ending_reached": "COMPLETE",
+          "blocked_at": null,
+          "quota_stopped": null,
+          "quota_over_target": null,
+          "validation_messages_expected": [],
+          "piped_text_visible": {
+            "Q2": "Provider A",
+            "Q3": "Provider A",
+            "Q5": "Provider A",
+            "Q9": "Dropped calls",
+            "Q10": "Yes, fully",
+            "Q11": "Provider A",
+            "Q12": "Provider A"
+          },
+          "option_lists_visible": {
+            "Q8": [
+              "Dropped calls"
+            ]
+          }
+        },
+        "proof": "Q9 appears in the predicted path",
+        "provisional_semantics": [
+          "multi_equality"
+        ],
+        "preconditions": {},
+        "campaign": {},
+        "covered_by": null
+      },
+      {
+        "scenario_id": "SC-4605289e5c",
+        "target_id": "T-a7b4f8c9c7",
+        "dimension": "D1",
+        "status": "COVERED",
+        "reason": null,
+        "answers": {
+          "Q7": [
+            "Q7-O6"
+          ],
+          "S1": "S1-O1",
+          "S2": "S2-O1",
+          "S3": 18,
+          "Q1": "Q1-O1",
+          "Q2": "Q2-O1",
+          "Q3": "Q3-O1",
+          "Q4": "Q4-O1",
+          "Q5": "Q5-O1",
+          "Q6": "Q6-O1",
+          "Q8": "Q8-O1",
+          "Q9": "Q9-O1",
+          "Q10": "Q10-O1",
+          "Q11": "Q11-O1",
+          "Q12": "Q12-O1",
+          "Q13": "Q13-O1",
+          "D1": "D1-O1",
+          "D2": "D2-O1"
+        },
+        "expected": {
+          "questions_seen_in_order": [
+            "S1",
+            "S2",
+            "S3",
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4",
+            "Q5",
+            "Q6",
+            "Q7",
+            "Q11",
+            "Q12",
+            "Q13",
+            "D1",
+            "D2",
+            "Q14"
+          ],
+          "questions_not_seen": [
+            "Q8",
+            "Q9",
+            "Q10"
+          ],
+          "ending_reached": "COMPLETE",
+          "blocked_at": null,
+          "quota_stopped": null,
+          "quota_over_target": null,
+          "validation_messages_expected": [],
+          "piped_text_visible": {
+            "Q2": "Provider A",
+            "Q3": "Provider A",
+            "Q5": "Provider A",
+            "Q11": "Provider A",
+            "Q12": "Provider A"
+          },
+          "option_lists_visible": {}
+        },
+        "proof": "R6 fired and the respondent resumed at Q11",
+        "provisional_semantics": [
+          "multi_equality",
+          "rule_precedence"
+        ],
+        "preconditions": {},
+        "campaign": {},
+        "covered_by": null
+      },
+      {
+        "scenario_id": "SC-4472b0db5d",
+        "target_id": "T-8d50511ba8",
+        "dimension": "D1",
+        "status": "COVERED",
+        "reason": null,
+        "answers": {
+          "Q7": [
+            "Q7-O1"
+          ],
+          "S1": "S1-O1",
+          "S2": "S2-O1",
+          "S3": 18,
+          "Q1": "Q1-O1",
+          "Q2": "Q2-O1",
+          "Q3": "Q3-O1",
+          "Q4": "Q4-O1",
+          "Q5": "Q5-O1",
+          "Q6": "Q6-O1",
+          "Q8": "Q8-O1",
+          "Q9": "Q9-O1",
+          "Q10": "Q10-O1",
+          "Q11": "Q11-O1",
+          "Q12": "Q12-O1",
+          "Q13": "Q13-O1",
+          "D1": "D1-O1",
+          "D2": "D2-O1"
+        },
+        "expected": {
+          "questions_seen_in_order": [
+            "S1",
+            "S2",
+            "S3",
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4",
+            "Q5",
+            "Q6",
+            "Q7",
+            "Q8",
+            "Q9",
+            "Q10",
+            "Q11",
+            "Q12",
+            "Q13",
+            "D1",
+            "D2",
+            "Q14"
+          ],
+          "questions_not_seen": [],
+          "ending_reached": "COMPLETE",
+          "blocked_at": null,
+          "quota_stopped": null,
+          "quota_over_target": null,
+          "validation_messages_expected": [],
+          "piped_text_visible": {
+            "Q2": "Provider A",
+            "Q3": "Provider A",
+            "Q5": "Provider A",
+            "Q9": "Dropped calls",
+            "Q10": "Yes, fully",
+            "Q11": "Provider A",
+            "Q12": "Provider A"
+          },
+          "option_lists_visible": {
+            "Q8": [
+              "Dropped calls"
+            ]
+          }
+        },
+        "proof": "R6 correctly did not fire; respondent continued in sequence",
+        "provisional_semantics": [
+          "multi_equality"
+        ],
+        "preconditions": {},
+        "campaign": {},
+        "covered_by": null
+      },
+      {
+        "scenario_id": "SC-7f1d95db44",
+        "target_id": "T-2b1d94d232",
+        "dimension": "D1",
+        "status": "COVERED",
+        "reason": null,
+        "answers": {
+          "Q9": "Q9-O3",
+          "S1": "S1-O1",
+          "S2": "S2-O1",
+          "S3": 18,
+          "Q1": "Q1-O1",
+          "Q2": "Q2-O1",
+          "Q3": "Q3-O1",
+          "Q4": "Q4-O1",
+          "Q5": "Q5-O1",
+          "Q6": "Q6-O1",
+          "Q7": [
+            "Q7-O1"
+          ],
+          "Q8": "Q8-O1",
+          "Q10": "Q10-O1",
+          "Q11": "Q11-O1",
+          "Q12": "Q12-O1",
+          "Q13": "Q13-O1",
+          "D1": "D1-O1",
+          "D2": "D2-O1"
+        },
+        "expected": {
+          "questions_seen_in_order": [
+            "S1",
+            "S2",
+            "S3",
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4",
+            "Q5",
+            "Q6",
+            "Q7",
+            "Q8",
+            "Q9",
+            "Q11",
+            "Q12",
+            "Q13",
+            "D1",
+            "D2",
+            "Q14"
+          ],
+          "questions_not_seen": [
+            "Q10"
+          ],
+          "ending_reached": "COMPLETE",
+          "blocked_at": null,
+          "quota_stopped": null,
+          "quota_over_target": null,
+          "validation_messages_expected": [],
+          "piped_text_visible": {
+            "Q2": "Provider A",
+            "Q3": "Provider A",
+            "Q5": "Provider A",
+            "Q9": "Dropped calls",
+            "Q11": "Provider A",
+            "Q12": "Provider A"
+          },
+          "option_lists_visible": {
+            "Q8": [
+              "Dropped calls"
+            ]
+          }
+        },
+        "proof": "R8 fired and the respondent resumed at Q11",
+        "provisional_semantics": [
+          "multi_equality",
+          "rule_precedence"
+        ],
+        "preconditions": {},
+        "campaign": {},
+        "covered_by": null
+      },
+      {
+        "scenario_id": "SC-8baeaeedf8",
+        "target_id": "T-c13c930f08",
+        "dimension": "D1",
+        "status": "COVERED",
+        "reason": null,
+        "answers": {
+          "Q9": "Q9-O1",
+          "S1": "S1-O1",
+          "S2": "S2-O1",
+          "S3": 18,
+          "Q1": "Q1-O1",
+          "Q2": "Q2-O1",
+          "Q3": "Q3-O1",
+          "Q4": "Q4-O1",
+          "Q5": "Q5-O1",
+          "Q6": "Q6-O1",
+          "Q7": [
+            "Q7-O1"
+          ],
+          "Q8": "Q8-O1",
+          "Q10": "Q10-O1",
+          "Q11": "Q11-O1",
+          "Q12": "Q12-O1",
+          "Q13": "Q13-O1",
+          "D1": "D1-O1",
+          "D2": "D2-O1"
+        },
+        "expected": {
+          "questions_seen_in_order": [
+            "S1",
+            "S2",
+            "S3",
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4",
+            "Q5",
+            "Q6",
+            "Q7",
+            "Q8",
+            "Q9",
+            "Q10",
+            "Q11",
+            "Q12",
+            "Q13",
+            "D1",
+            "D2",
+            "Q14"
+          ],
+          "questions_not_seen": [],
+          "ending_reached": "COMPLETE",
+          "blocked_at": null,
+          "quota_stopped": null,
+          "quota_over_target": null,
+          "validation_messages_expected": [],
+          "piped_text_visible": {
+            "Q2": "Provider A",
+            "Q3": "Provider A",
+            "Q5": "Provider A",
+            "Q9": "Dropped calls",
+            "Q10": "Yes, fully",
+            "Q11": "Provider A",
+            "Q12": "Provider A"
+          },
+          "option_lists_visible": {
+            "Q8": [
+              "Dropped calls"
+            ]
+          }
+        },
+        "proof": "R8 correctly did not fire; respondent continued in sequence",
+        "provisional_semantics": [
+          "multi_equality"
+        ],
+        "preconditions": {},
+        "campaign": {},
+        "covered_by": null
+      },
+      {
+        "scenario_id": "SC-c982e24c06",
+        "target_id": "T-94ce2e5d20",
+        "dimension": "D1",
+        "status": "COVERED",
+        "reason": null,
+        "answers": {
+          "S1": "S1-O1",
+          "S2": "S2-O1",
+          "S3": 18,
+          "Q1": "Q1-O1",
+          "Q2": "Q2-O1",
+          "Q3": "Q3-O1",
+          "Q4": "Q4-O1",
+          "Q5": "Q5-O1",
+          "Q6": "Q6-O1",
+          "Q7": [
+            "Q7-O1"
+          ],
+          "Q8": "Q8-O1",
+          "Q9": "Q9-O1",
+          "Q10": "Q10-O1",
+          "Q11": "Q11-O1",
+          "Q12": "Q12-O1",
+          "Q13": "Q13-O1",
+          "D1": "D1-O1",
+          "D2": "D2-O1"
+        },
+        "expected": {
+          "questions_seen_in_order": [
+            "S1",
+            "S2",
+            "S3",
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4",
+            "Q5",
+            "Q6",
+            "Q7",
+            "Q8",
+            "Q9",
+            "Q10",
+            "Q11",
+            "Q12",
+            "Q13",
+            "D1",
+            "D2",
+            "Q14"
+          ],
+          "questions_not_seen": [],
+          "ending_reached": "COMPLETE",
+          "blocked_at": null,
+          "quota_stopped": null,
+          "quota_over_target": null,
+          "validation_messages_expected": [],
+          "piped_text_visible": {
+            "Q2": "Provider A",
+            "Q3": "Provider A",
+            "Q5": "Provider A",
+            "Q9": "Dropped calls",
+            "Q10": "Yes, fully",
+            "Q11": "Provider A",
+            "Q12": "Provider A"
+          },
+          "option_lists_visible": {
+            "Q8": [
+              "Dropped calls"
+            ]
+          }
+        },
+        "proof": "after answering S1 the respondent went on to S2",
+        "provisional_semantics": [
+          "multi_equality"
+        ],
+        "preconditions": {},
+        "campaign": {},
+        "covered_by": null
+      },
+      {
+        "scenario_id": "SC-5c82eeb0be",
+        "target_id": "T-9b21d71193",
+        "dimension": "D1",
+        "status": "COVERED",
+        "reason": null,
+        "answers": {
+          "S1": "S1-O1",
+          "S2": "S2-O1",
+          "S3": 18,
+          "Q1": "Q1-O1",
+          "Q2": "Q2-O1",
+          "Q3": "Q3-O1",
+          "Q4": "Q4-O1",
+          "Q5": "Q5-O1",
+          "Q6": "Q6-O1",
+          "Q7": [
+            "Q7-O1"
+          ],
+          "Q8": "Q8-O1",
+          "Q9": "Q9-O1",
+          "Q10": "Q10-O1",
+          "Q11": "Q11-O1",
+          "Q12": "Q12-O1",
+          "Q13": "Q13-O1",
+          "D1": "D1-O1",
+          "D2": "D2-O1"
+        },
+        "expected": {
+          "questions_seen_in_order": [
+            "S1",
+            "S2",
+            "S3",
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4",
+            "Q5",
+            "Q6",
+            "Q7",
+            "Q8",
+            "Q9",
+            "Q10",
+            "Q11",
+            "Q12",
+            "Q13",
+            "D1",
+            "D2",
+            "Q14"
+          ],
+          "questions_not_seen": [],
+          "ending_reached": "COMPLETE",
+          "blocked_at": null,
+          "quota_stopped": null,
+          "quota_over_target": null,
+          "validation_messages_expected": [],
+          "piped_text_visible": {
+            "Q2": "Provider A",
+            "Q3": "Provider A",
+            "Q5": "Provider A",
+            "Q9": "Dropped calls",
+            "Q10": "Yes, fully",
+            "Q11": "Provider A",
+            "Q12": "Provider A"
+          },
+          "option_lists_visible": {
+            "Q8": [
+              "Dropped calls"
+            ]
+          }
+        },
+        "proof": "after answering S2 the respondent went on to S3",
+        "provisional_semantics": [
+          "multi_equality"
+        ],
+        "preconditions": {},
+        "campaign": {},
+        "covered_by": null
+      },
+      {
+        "scenario_id": "SC-67bc53019d",
+        "target_id": "T-4b5b9751c7",
+        "dimension": "D1",
+        "status": "COVERED",
+        "reason": null,
+        "answers": {
+          "S1": "S1-O1",
+          "S2": "S2-O1",
+          "S3": 18,
+          "Q1": "Q1-O1",
+          "Q2": "Q2-O1",
+          "Q3": "Q3-O1",
+          "Q4": "Q4-O1",
+          "Q5": "Q5-O1",
+          "Q6": "Q6-O1",
+          "Q7": [
+            "Q7-O1"
+          ],
+          "Q8": "Q8-O1",
+          "Q9": "Q9-O1",
+          "Q10": "Q10-O1",
+          "Q11": "Q11-O1",
+          "Q12": "Q12-O1",
+          "Q13": "Q13-O1",
+          "D1": "D1-O1",
+          "D2": "D2-O1"
+        },
+        "expected": {
+          "questions_seen_in_order": [
+            "S1",
+            "S2",
+            "S3",
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4",
+            "Q5",
+            "Q6",
+            "Q7",
+            "Q8",
+            "Q9",
+            "Q10",
+            "Q11",
+            "Q12",
+            "Q13",
+            "D1",
+            "D2",
+            "Q14"
+          ],
+          "questions_not_seen": [],
+          "ending_reached": "COMPLETE",
+          "blocked_at": null,
+          "quota_stopped": null,
+          "quota_over_target": null,
+          "validation_messages_expected": [],
+          "piped_text_visible": {
+            "Q2": "Provider A",
+            "Q3": "Provider A",
+            "Q5": "Provider A",
+            "Q9": "Dropped calls",
+            "Q10": "Yes, fully",
+            "Q11": "Provider A",
+            "Q12": "Provider A"
+          },
+          "option_lists_visible": {
+            "Q8": [
+              "Dropped calls"
+            ]
+          }
+        },
+        "proof": "after answering S3 the respondent went on to Q1",
+        "provisional_semantics": [
+          "multi_equality"
+        ],
+        "preconditions": {},
+        "campaign": {},
+        "covered_by": null
+      },
+      {
+        "scenario_id": "SC-1732434b9d",
+        "target_id": "T-05b0993ae8",
+        "dimension": "D2",
+        "status": "COVERED",
+        "reason": null,
+        "answers": {
+          "S1": "S1-O1",
+          "S2": "S2-O1",
+          "S3": 18,
+          "Q1": "Q1-O1",
+          "Q2": "Q2-O1",
+          "Q3": "Q3-O1",
+          "Q4": "Q4-O1",
+          "Q5": "Q5-O1",
+          "Q6": "Q6-O1",
+          "Q7": [
+            "Q7-O1"
+          ],
+          "Q8": "Q8-O1",
+          "Q9": "Q9-O1",
+          "Q10": "Q10-O1",
+          "Q11": "Q11-O1",
+          "Q12": "Q12-O1",
+          "Q13": "Q13-O1",
+          "D1": "D1-O1",
+          "D2": "D2-O1"
+        },
+        "expected": {
+          "questions_seen_in_order": [
+            "S1",
+            "S2",
+            "S3",
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4",
+            "Q5",
+            "Q6",
+            "Q7",
+            "Q8",
+            "Q9",
+            "Q10",
+            "Q11",
+            "Q12",
+            "Q13",
+            "D1",
+            "D2",
+            "Q14"
+          ],
+          "questions_not_seen": [],
+          "ending_reached": "COMPLETE",
+          "blocked_at": null,
+          "quota_stopped": null,
+          "quota_over_target": null,
+          "validation_messages_expected": [],
+          "piped_text_visible": {
+            "Q2": "Provider A",
+            "Q3": "Provider A",
+            "Q5": "Provider A",
+            "Q9": "Dropped calls",
+            "Q10": "Yes, fully",
+            "Q11": "Provider A",
+            "Q12": "Provider A"
+          },
+          "option_lists_visible": {
+            "Q8": [
+              "Dropped calls"
+            ]
+          }
+        },
+        "proof": "predicted ending is COMPLETE, path ['__START__', 'S1', 'S2', 'S3', 'Q1', 'Q2', 'Q3', 'Q4', 'Q5', 'Q6', 'Q7', 'Q8', 'Q9', 'Q10', 'Q11', 'Q12', 'Q13', 'D1', 'D2', 'Q14', 'COMPLETE']",
+        "provisional_semantics": [
+          "multi_equality"
+        ],
+        "preconditions": {},
+        "campaign": {},
+        "covered_by": null
+      },
+      {
+        "scenario_id": "SC-27b5d8b078",
+        "target_id": "T-ad81bd1fb8",
+        "dimension": "D2",
+        "status": "COVERED",
+        "reason": null,
+        "answers": {
+          "S1": "S1-O2",
+          "S2": "S2-O1",
+          "S3": 18,
+          "Q1": "Q1-O1",
+          "Q2": "Q2-O1",
+          "Q3": "Q3-O1",
+          "Q4": "Q4-O1",
+          "Q5": "Q5-O1",
+          "Q6": "Q6-O1",
+          "Q7": [
+            "Q7-O1"
+          ],
+          "Q8": "Q8-O1",
+          "Q9": "Q9-O1",
+          "Q10": "Q10-O1",
+          "Q11": "Q11-O1",
+          "Q12": "Q12-O1",
+          "Q13": "Q13-O1",
+          "D1": "D1-O1",
+          "D2": "D2-O1"
+        },
+        "expected": {
+          "questions_seen_in_order": [
+            "S1"
+          ],
+          "questions_not_seen": [],
+          "ending_reached": "TERM_INELIGIBLE",
+          "blocked_at": null,
+          "quota_stopped": null,
+          "quota_over_target": null,
+          "validation_messages_expected": [],
+          "piped_text_visible": {},
+          "option_lists_visible": {}
+        },
+        "proof": "R1, evaluated at S1, sent the respondent to TERM_INELIGIBLE; path ['__START__', 'S1', 'TERM_INELIGIBLE']",
+        "provisional_semantics": [
+          "rule_precedence"
+        ],
+        "preconditions": {},
+        "campaign": {},
+        "covered_by": null
+      },
+      {
+        "scenario_id": "SC-ba30d7cabe",
+        "target_id": "T-b13742d625",
+        "dimension": "D2",
+        "status": "COVERED",
+        "reason": null,
+        "answers": {
+          "S1": "S1-O1",
+          "S2": "S2-O2",
+          "S3": 18,
+          "Q1": "Q1-O1",
+          "Q2": "Q2-O1",
+          "Q3": "Q3-O1",
+          "Q4": "Q4-O1",
+          "Q5": "Q5-O1",
+          "Q6": "Q6-O1",
+          "Q7": [
+            "Q7-O1"
+          ],
+          "Q8": "Q8-O1",
+          "Q9": "Q9-O1",
+          "Q10": "Q10-O1",
+          "Q11": "Q11-O1",
+          "Q12": "Q12-O1",
+          "Q13": "Q13-O1",
+          "D1": "D1-O1",
+          "D2": "D2-O1"
+        },
+        "expected": {
+          "questions_seen_in_order": [
+            "S1",
+            "S2"
+          ],
+          "questions_not_seen": [],
+          "ending_reached": "TERM_INELIGIBLE",
+          "blocked_at": null,
+          "quota_stopped": null,
+          "quota_over_target": null,
+          "validation_messages_expected": [],
+          "piped_text_visible": {},
+          "option_lists_visible": {}
+        },
+        "proof": "R2, evaluated at S2, sent the respondent to TERM_INELIGIBLE; path ['__START__', 'S1', 'S2', 'TERM_INELIGIBLE']",
+        "provisional_semantics": [
+          "rule_precedence"
+        ],
+        "preconditions": {},
+        "campaign": {},
+        "covered_by": null
+      },
+      {
+        "scenario_id": "SC-9d21c1a653",
+        "target_id": "T-fb49931115",
+        "dimension": "D2",
+        "status": "UNCOVERED",
+        "reason": "QUOTA_SIZE_UNDEFINED",
+        "answers": {},
+        "expected": {},
+        "proof": "reached only by filling a quota cell: needs sequential respondents and a sample size the QRE never states; reachable but the QRE never states what it shows the respondent",
+        "provisional_semantics": [],
+        "preconditions": {},
+        "campaign": {},
+        "covered_by": null
+      },
+      {
+        "scenario_id": "SC-12c775e268",
+        "target_id": "T-f6726b3e96",
+        "dimension": "D3",
+        "status": "COVERED",
+        "reason": null,
+        "answers": {
+          "S1": "S1-O1",
+          "S2": "S2-O1",
+          "S3": 18,
+          "Q1": "Q1-O1",
+          "Q2": "Q2-O1",
+          "Q3": "Q3-O1",
+          "Q4": "Q4-O1",
+          "Q5": "Q5-O1",
+          "Q6": "Q6-O1",
+          "Q7": [
+            "Q7-O1"
+          ],
+          "Q8": "Q8-O1",
+          "Q9": "Q9-O1",
+          "Q10": "Q10-O1",
+          "Q11": "Q11-O1",
+          "Q12": "Q12-O1",
+          "Q13": "Q13-O1",
+          "D1": "D1-O1",
+          "D2": "D2-O1",
+          "Q14": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+        },
+        "expected": {
+          "questions_seen_in_order": [
+            "S1",
+            "S2",
+            "S3",
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4",
+            "Q5",
+            "Q6",
+            "Q7",
+            "Q8",
+            "Q9",
+            "Q10",
+            "Q11",
+            "Q12",
+            "Q13",
+            "D1",
+            "D2",
+            "Q14"
+          ],
+          "questions_not_seen": [],
+          "ending_reached": "COMPLETE",
+          "blocked_at": null,
+          "quota_stopped": null,
+          "quota_over_target": null,
+          "validation_messages_expected": [],
+          "piped_text_visible": {
+            "Q2": "Provider A",
+            "Q3": "Provider A",
+            "Q5": "Provider A",
+            "Q9": "Dropped calls",
+            "Q10": "Yes, fully",
+            "Q11": "Provider A",
+            "Q12": "Provider A"
+          },
+          "option_lists_visible": {
+            "Q8": [
+              "Dropped calls"
+            ]
+          }
+        },
+        "proof": "Q14 accepted the answer with no validation message",
+        "provisional_semantics": [
+          "multi_equality"
+        ],
+        "preconditions": {},
+        "campaign": {},
+        "covered_by": null
+      },
+      {
+        "scenario_id": "SC-913f075ede",
+        "target_id": "T-ffc0366e37",
+        "dimension": "D3",
+        "status": "COVERED",
+        "reason": null,
+        "answers": {
+          "S1": "S1-O1",
+          "S2": "S2-O1",
+          "S3": 18,
+          "Q1": "Q1-O1",
+          "Q2": "Q2-O1",
+          "Q3": "Q3-O1",
+          "Q4": "Q4-O1",
+          "Q5": "Q5-O1",
+          "Q6": "Q6-O1",
+          "Q7": [
+            "Q7-O1"
+          ],
+          "Q8": "Q8-O1",
+          "Q9": "Q9-O1",
+          "Q10": "Q10-O1",
+          "Q11": "Q11-O1",
+          "Q12": "Q12-O1",
+          "Q13": "Q13-O1",
+          "D1": "D1-O1",
+          "D2": "D2-O1",
+          "Q14": "x"
+        },
+        "expected": {
+          "questions_seen_in_order": [
+            "S1",
+            "S2",
+            "S3",
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4",
+            "Q5",
+            "Q6",
+            "Q7",
+            "Q8",
+            "Q9",
+            "Q10",
+            "Q11",
+            "Q12",
+            "Q13",
+            "D1",
+            "D2",
+            "Q14"
+          ],
+          "questions_not_seen": [],
+          "ending_reached": "COMPLETE",
+          "blocked_at": null,
+          "quota_stopped": null,
+          "quota_over_target": null,
+          "validation_messages_expected": [],
+          "piped_text_visible": {
+            "Q2": "Provider A",
+            "Q3": "Provider A",
+            "Q5": "Provider A",
+            "Q9": "Dropped calls",
+            "Q10": "Yes, fully",
+            "Q11": "Provider A",
+            "Q12": "Provider A"
+          },
+          "option_lists_visible": {
+            "Q8": [
+              "Dropped calls"
+            ]
+          }
+        },
+        "proof": "Q14 accepted the answer with no validation message",
+        "provisional_semantics": [
+          "multi_equality"
+        ],
+        "preconditions": {},
+        "campaign": {},
+        "covered_by": null
+      },
+      {
+        "scenario_id": "SC-0c6f02c472",
+        "target_id": "T-2b7da8cff1",
+        "dimension": "D3",
+        "status": "COVERED",
+        "reason": null,
+        "answers": {
+          "S1": "S1-O1",
+          "S2": "S2-O1",
+          "S3": 18,
+          "Q1": "Q1-O1",
+          "Q2": "Q2-O1",
+          "Q3": "Q3-O1",
+          "Q4": "Q4-O1",
+          "Q5": "Q5-O1",
+          "Q6": "Q6-O1",
+          "Q7": [
+            "Q7-O1"
+          ],
+          "Q8": "Q8-O1",
+          "Q9": "Q9-O1",
+          "Q10": "Q10-O1",
+          "Q11": "Q11-O1",
+          "Q12": "Q12-O1",
+          "Q13": "Q13-O1",
+          "D1": "D1-O1",
+          "D2": "D2-O1",
+          "Q14": "O'Brien said \"yes\" <50% & more"
+        },
+        "expected": {
+          "questions_seen_in_order": [
+            "S1",
+            "S2",
+            "S3",
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4",
+            "Q5",
+            "Q6",
+            "Q7",
+            "Q8",
+            "Q9",
+            "Q10",
+            "Q11",
+            "Q12",
+            "Q13",
+            "D1",
+            "D2",
+            "Q14"
+          ],
+          "questions_not_seen": [],
+          "ending_reached": "COMPLETE",
+          "blocked_at": null,
+          "quota_stopped": null,
+          "quota_over_target": null,
+          "validation_messages_expected": [],
+          "piped_text_visible": {
+            "Q2": "Provider A",
+            "Q3": "Provider A",
+            "Q5": "Provider A",
+            "Q9": "Dropped calls",
+            "Q10": "Yes, fully",
+            "Q11": "Provider A",
+            "Q12": "Provider A"
+          },
+          "option_lists_visible": {
+            "Q8": [
+              "Dropped calls"
+            ]
+          }
+        },
+        "proof": "Q14 accepted the answer with no validation message",
+        "provisional_semantics": [
+          "multi_equality"
+        ],
+        "preconditions": {},
+        "campaign": {},
+        "covered_by": null
+      },
+      {
+        "scenario_id": "SC-41b68635d5",
+        "target_id": "T-71252ee14c",
+        "dimension": "D3",
+        "status": "COVERED",
+        "reason": null,
+        "answers": {
+          "S1": "S1-O1",
+          "S2": "S2-O1",
+          "S3": 18,
+          "Q1": "Q1-O1",
+          "Q2": "Q2-O1",
+          "Q3": "Q3-O1",
+          "Q4": "Q4-O1",
+          "Q5": "Q5-O1",
+          "Q6": "Q6-O1",
+          "Q7": [
+            "Q7-O1"
+          ],
+          "Q8": "Q8-O1",
+          "Q9": "Q9-O1",
+          "Q10": "Q10-O1",
+          "Q11": "Q11-O1",
+          "Q12": "Q12-O1",
+          "Q13": "Q13-O1",
+          "D1": "D1-O1",
+          "D2": "D2-O1",
+          "Q14": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+        },
+        "expected": {
+          "questions_seen_in_order": [
+            "S1",
+            "S2",
+            "S3",
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4",
+            "Q5",
+            "Q6",
+            "Q7",
+            "Q8",
+            "Q9",
+            "Q10",
+            "Q11",
+            "Q12",
+            "Q13",
+            "D1",
+            "D2",
+            "Q14"
+          ],
+          "questions_not_seen": [],
+          "ending_reached": null,
+          "blocked_at": "Q14",
+          "quota_stopped": null,
+          "quota_over_target": null,
+          "validation_messages_expected": [
+            {
+              "question_id": "Q14",
+              "rule": "max_length",
+              "outcome": "violated",
+              "detail": "length 751 above maximum 750"
+            }
+          ],
+          "piped_text_visible": {
+            "Q2": "Provider A",
+            "Q3": "Provider A",
+            "Q5": "Provider A",
+            "Q9": "Dropped calls",
+            "Q10": "Yes, fully",
+            "Q11": "Provider A",
+            "Q12": "Provider A"
+          },
+          "option_lists_visible": {
+            "Q8": [
+              "Dropped calls"
+            ]
+          }
+        },
+        "proof": "a validation message is predicted for Q14",
+        "provisional_semantics": [
+          "multi_equality"
+        ],
+        "preconditions": {},
+        "campaign": {},
+        "covered_by": null
+      },
+      {
+        "scenario_id": "SC-715754ef97",
+        "target_id": "T-8b8259b796",
+        "dimension": "D3",
+        "status": "COVERED",
+        "reason": null,
+        "answers": {
+          "S1": "S1-O1",
+          "S2": "S2-O1",
+          "S3": 18,
+          "Q1": "Q1-O1",
+          "Q2": "Q2-O1",
+          "Q3": "Q3-O1",
+          "Q4": "Q4-O1",
+          "Q5": "Q5-O1",
+          "Q6": "Q6-O1",
+          "Q7": [
+            "Q7-O6"
+          ],
+          "Q8": "Q8-O1",
+          "Q9": "Q9-O1",
+          "Q10": "Q10-O1",
+          "Q11": "Q11-O1",
+          "Q12": "Q12-O1",
+          "Q13": "Q13-O1",
+          "D1": "D1-O1",
+          "D2": "D2-O1"
+        },
+        "expected": {
+          "questions_seen_in_order": [
+            "S1",
+            "S2",
+            "S3",
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4",
+            "Q5",
+            "Q6",
+            "Q7",
+            "Q11",
+            "Q12",
+            "Q13",
+            "D1",
+            "D2",
+            "Q14"
+          ],
+          "questions_not_seen": [
+            "Q8",
+            "Q9",
+            "Q10"
+          ],
+          "ending_reached": "COMPLETE",
+          "blocked_at": null,
+          "quota_stopped": null,
+          "quota_over_target": null,
+          "validation_messages_expected": [],
+          "piped_text_visible": {
+            "Q2": "Provider A",
+            "Q3": "Provider A",
+            "Q5": "Provider A",
+            "Q11": "Provider A",
+            "Q12": "Provider A"
+          },
+          "option_lists_visible": {}
+        },
+        "proof": "Q7 accepted the answer with no validation message",
+        "provisional_semantics": [
+          "multi_equality",
+          "rule_precedence"
+        ],
+        "preconditions": {},
+        "campaign": {},
+        "covered_by": null
+      },
+      {
+        "scenario_id": "SC-278deb3281",
+        "target_id": "T-b6990094a9",
+        "dimension": "D3",
+        "status": "COVERED",
+        "reason": null,
+        "answers": {
+          "S1": "S1-O1",
+          "S2": "S2-O1",
+          "S3": 18,
+          "Q1": "Q1-O1",
+          "Q2": "Q2-O1",
+          "Q3": "Q3-O1",
+          "Q4": "Q4-O1",
+          "Q5": "Q5-O1",
+          "Q6": "Q6-O1",
+          "Q7": [
+            "Q7-O6",
+            "Q7-O1"
+          ],
+          "Q8": "Q8-O1",
+          "Q9": "Q9-O1",
+          "Q10": "Q10-O1",
+          "Q11": "Q11-O1",
+          "Q12": "Q12-O1",
+          "Q13": "Q13-O1",
+          "D1": "D1-O1",
+          "D2": "D2-O1"
+        },
+        "expected": {
+          "questions_seen_in_order": [
+            "S1",
+            "S2",
+            "S3",
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4",
+            "Q5",
+            "Q6",
+            "Q7"
+          ],
+          "questions_not_seen": [
+            "Q8",
+            "Q9",
+            "Q10",
+            "Q11",
+            "Q12",
+            "Q13",
+            "D1",
+            "D2",
+            "Q14"
+          ],
+          "ending_reached": null,
+          "blocked_at": "Q7",
+          "quota_stopped": null,
+          "quota_over_target": null,
+          "validation_messages_expected": [
+            {
+              "question_id": "Q7",
+              "rule": "exclusive_option",
+              "outcome": "violated",
+              "detail": "exclusive option Q7-O6 chosen alongside ['Q7-O1']"
+            }
+          ],
+          "piped_text_visible": {
+            "Q2": "Provider A",
+            "Q3": "Provider A",
+            "Q5": "Provider A"
+          },
+          "option_lists_visible": {}
+        },
+        "proof": "a validation message is predicted for Q7",
+        "provisional_semantics": [],
+        "preconditions": {},
+        "campaign": {},
+        "covered_by": null
+      },
+      {
+        "scenario_id": "SC-dcfa71d82b",
+        "target_id": "T-20f03d19ee",
+        "dimension": "D3",
+        "status": "COVERED",
+        "reason": null,
+        "answers": {
+          "S1": "S1-O1",
+          "S2": "S2-O1",
+          "S3": 18,
+          "Q1": "Q1-O1",
+          "Q2": "Q2-O1",
+          "Q3": "Q3-O1",
+          "Q4": "Q4-O1",
+          "Q5": "Q5-O1",
+          "Q6": "Q6-O1",
+          "Q7": [
+            "Q7-O1"
+          ],
+          "Q8": "Q8-O1",
+          "Q9": "Q9-O1",
+          "Q10": "Q10-O1",
+          "Q11": "Q11-O1",
+          "Q12": "Q12-O1",
+          "Q13": "Q13-O1",
+          "D1": "D1-O1",
+          "D2": "D2-O1"
+        },
+        "expected": {
+          "questions_seen_in_order": [
+            "S1",
+            "S2",
+            "S3",
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4",
+            "Q5",
+            "Q6",
+            "Q7",
+            "Q8",
+            "Q9",
+            "Q10",
+            "Q11",
+            "Q12",
+            "Q13",
+            "D1",
+            "D2",
+            "Q14"
+          ],
+          "questions_not_seen": [],
+          "ending_reached": "COMPLETE",
+          "blocked_at": null,
+          "quota_stopped": null,
+          "quota_over_target": null,
+          "validation_messages_expected": [],
+          "piped_text_visible": {
+            "Q2": "Provider A",
+            "Q3": "Provider A",
+            "Q5": "Provider A",
+            "Q9": "Dropped calls",
+            "Q10": "Yes, fully",
+            "Q11": "Provider A",
+            "Q12": "Provider A"
+          },
+          "option_lists_visible": {
+            "Q8": [
+              "Dropped calls"
+            ]
+          }
+        },
+        "proof": "S3 accepted the answer with no validation message",
+        "provisional_semantics": [
+          "multi_equality"
+        ],
+        "preconditions": {},
+        "campaign": {},
+        "covered_by": null
+      },
+      {
+        "scenario_id": "SC-15f7658748",
+        "target_id": "T-fd2126c3e9",
+        "dimension": "D3",
+        "status": "UNCOVERED",
+        "reason": "UNVERIFIABLE",
+        "answers": {
+          "S1": "S1-O1",
+          "S2": "S2-O1",
+          "S3": 81,
+          "Q1": "Q1-O1",
+          "Q2": "Q2-O1",
+          "Q3": "Q3-O1",
+          "Q4": "Q4-O1",
+          "Q5": "Q5-O1",
+          "Q6": "Q6-O1",
+          "Q7": [
+            "Q7-O1"
+          ],
+          "Q8": "Q8-O1",
+          "Q9": "Q9-O1",
+          "Q10": "Q10-O1",
+          "Q11": "Q11-O1",
+          "Q12": "Q12-O1",
+          "Q13": "Q13-O1",
+          "D1": "D1-O1",
+          "D2": "D2-O1"
+        },
+        "expected": {
+          "questions_seen_in_order": [
+            "S1",
+            "S2",
+            "S3",
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4",
+            "Q5",
+            "Q6",
+            "Q7",
+            "Q8",
+            "Q9",
+            "Q10",
+            "Q11",
+            "Q12",
+            "Q13",
+            "D1",
+            "D2",
+            "Q14"
+          ],
+          "questions_not_seen": [],
+          "ending_reached": "COMPLETE",
+          "blocked_at": null,
+          "quota_stopped": null,
+          "quota_over_target": null,
+          "validation_messages_expected": [],
+          "piped_text_visible": {
+            "Q2": "Provider A",
+            "Q3": "Provider A",
+            "Q5": "Provider A",
+            "Q9": "Dropped calls",
+            "Q10": "Yes, fully",
+            "Q11": "Provider A",
+            "Q12": "Provider A"
+          },
+          "option_lists_visible": {
+            "Q8": [
+              "Dropped calls"
+            ]
+          }
+        },
+        "proof": "no validation message predicted for S3",
+        "provisional_semantics": [
+          "multi_equality"
+        ],
+        "preconditions": {},
+        "campaign": {},
+        "covered_by": null
+      },
+      {
+        "scenario_id": "SC-0588b16278",
+        "target_id": "T-7c28ecb52e",
+        "dimension": "D4",
+        "status": "COVERED",
+        "reason": null,
+        "answers": {
+          "S1": "S1-O1",
+          "S2": "S2-O1",
+          "S3": 18,
+          "Q1": "Q1-O1",
+          "Q2": "Q2-O1",
+          "Q3": "Q3-O1",
+          "Q4": "Q4-O1",
+          "Q5": "Q5-O1",
+          "Q6": "Q6-O1",
+          "Q7": [
+            "Q7-O1"
+          ],
+          "Q8": "Q8-O1",
+          "Q9": "Q9-O1",
+          "Q10": "Q10-O1",
+          "Q11": "Q11-O1",
+          "Q12": "Q12-O1",
+          "Q13": "Q13-O1",
+          "D1": null,
+          "D2": "D2-O1"
+        },
+        "expected": {
+          "questions_seen_in_order": [
+            "S1",
+            "S2",
+            "S3",
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4",
+            "Q5",
+            "Q6",
+            "Q7",
+            "Q8",
+            "Q9",
+            "Q10",
+            "Q11",
+            "Q12",
+            "Q13",
+            "D1"
+          ],
+          "questions_not_seen": [
+            "D2",
+            "Q14"
+          ],
+          "ending_reached": null,
+          "blocked_at": "D1",
+          "quota_stopped": null,
+          "quota_over_target": null,
+          "validation_messages_expected": [
+            {
+              "question_id": "D1",
+              "rule": "mandatory",
+              "outcome": "violated",
+              "detail": "mandatory question left blank, progress should be blocked"
+            }
+          ],
+          "piped_text_visible": {
+            "Q2": "Provider A",
+            "Q3": "Provider A",
+            "Q5": "Provider A",
+            "Q9": "Dropped calls",
+            "Q10": "Yes, fully",
+            "Q11": "Provider A",
+            "Q12": "Provider A"
+          },
+          "option_lists_visible": {
+            "Q8": [
+              "Dropped calls"
+            ]
+          }
+        },
+        "proof": "D1 blocked the blank answer as required",
+        "provisional_semantics": [
+          "multi_equality"
+        ],
+        "preconditions": {},
+        "campaign": {},
+        "covered_by": null
+      },
+      {
+        "scenario_id": "SC-a1f747eae5",
+        "target_id": "T-dbfdeade73",
+        "dimension": "D4",
+        "status": "COVERED",
+        "reason": null,
+        "answers": {
+          "S1": "S1-O1",
+          "S2": "S2-O1",
+          "S3": 18,
+          "Q1": "Q1-O1",
+          "Q2": "Q2-O1",
+          "Q3": "Q3-O1",
+          "Q4": "Q4-O1",
+          "Q5": "Q5-O1",
+          "Q6": "Q6-O1",
+          "Q7": [
+            "Q7-O1"
+          ],
+          "Q8": "Q8-O1",
+          "Q9": "Q9-O1",
+          "Q10": "Q10-O1",
+          "Q11": "Q11-O1",
+          "Q12": "Q12-O1",
+          "Q13": "Q13-O1",
+          "D1": "D1-O1",
+          "D2": null
+        },
+        "expected": {
+          "questions_seen_in_order": [
+            "S1",
+            "S2",
+            "S3",
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4",
+            "Q5",
+            "Q6",
+            "Q7",
+            "Q8",
+            "Q9",
+            "Q10",
+            "Q11",
+            "Q12",
+            "Q13",
+            "D1",
+            "D2"
+          ],
+          "questions_not_seen": [
+            "Q14"
+          ],
+          "ending_reached": null,
+          "blocked_at": "D2",
+          "quota_stopped": null,
+          "quota_over_target": null,
+          "validation_messages_expected": [
+            {
+              "question_id": "D2",
+              "rule": "mandatory",
+              "outcome": "violated",
+              "detail": "mandatory question left blank, progress should be blocked"
+            }
+          ],
+          "piped_text_visible": {
+            "Q2": "Provider A",
+            "Q3": "Provider A",
+            "Q5": "Provider A",
+            "Q9": "Dropped calls",
+            "Q10": "Yes, fully",
+            "Q11": "Provider A",
+            "Q12": "Provider A"
+          },
+          "option_lists_visible": {
+            "Q8": [
+              "Dropped calls"
+            ]
+          }
+        },
+        "proof": "D2 blocked the blank answer as required",
+        "provisional_semantics": [
+          "multi_equality"
+        ],
+        "preconditions": {},
+        "campaign": {},
+        "covered_by": null
+      },
+      {
+        "scenario_id": "SC-d65358dcdd",
+        "target_id": "T-e12aace78c",
+        "dimension": "D4",
+        "status": "COVERED",
+        "reason": null,
+        "answers": {
+          "S1": "S1-O1",
+          "S2": "S2-O1",
+          "S3": 18,
+          "Q1": null,
+          "Q2": "Q2-O1",
+          "Q3": "Q3-O1",
+          "Q4": "Q4-O1",
+          "Q5": "Q5-O1",
+          "Q6": "Q6-O1",
+          "Q7": [
+            "Q7-O1"
+          ],
+          "Q8": "Q8-O1",
+          "Q9": "Q9-O1",
+          "Q10": "Q10-O1",
+          "Q11": "Q11-O1",
+          "Q12": "Q12-O1",
+          "Q13": "Q13-O1",
+          "D1": "D1-O1",
+          "D2": "D2-O1"
+        },
+        "expected": {
+          "questions_seen_in_order": [
+            "S1",
+            "S2",
+            "S3",
+            "Q1"
+          ],
+          "questions_not_seen": [
+            "Q2",
+            "Q3",
+            "Q4",
+            "Q5",
+            "Q6",
+            "Q7",
+            "Q8",
+            "Q9",
+            "Q10",
+            "Q11",
+            "Q12",
+            "Q13",
+            "D1",
+            "D2",
+            "Q14"
+          ],
+          "ending_reached": null,
+          "blocked_at": "Q1",
+          "quota_stopped": null,
+          "quota_over_target": null,
+          "validation_messages_expected": [
+            {
+              "question_id": "Q1",
+              "rule": "mandatory",
+              "outcome": "violated",
+              "detail": "mandatory question left blank, progress should be blocked"
+            }
+          ],
+          "piped_text_visible": {},
+          "option_lists_visible": {}
+        },
+        "proof": "Q1 blocked the blank answer as required",
+        "provisional_semantics": [],
+        "preconditions": {},
+        "campaign": {},
+        "covered_by": null
+      },
+      {
+        "scenario_id": "SC-6d888da0af",
+        "target_id": "T-68390df668",
+        "dimension": "D4",
+        "status": "COVERED",
+        "reason": null,
+        "answers": {
+          "Q9": "Q9-O1",
+          "S1": "S1-O1",
+          "S2": "S2-O1",
+          "S3": 18,
+          "Q1": "Q1-O1",
+          "Q2": "Q2-O1",
+          "Q3": "Q3-O1",
+          "Q4": "Q4-O1",
+          "Q5": "Q5-O1",
+          "Q6": "Q6-O1",
+          "Q7": [
+            "Q7-O1"
+          ],
+          "Q8": "Q8-O1",
+          "Q10": null,
+          "Q11": "Q11-O1",
+          "Q12": "Q12-O1",
+          "Q13": "Q13-O1",
+          "D1": "D1-O1",
+          "D2": "D2-O1"
+        },
+        "expected": {
+          "questions_seen_in_order": [
+            "S1",
+            "S2",
+            "S3",
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4",
+            "Q5",
+            "Q6",
+            "Q7",
+            "Q8",
+            "Q9",
+            "Q10"
+          ],
+          "questions_not_seen": [
+            "Q11",
+            "Q12",
+            "Q13",
+            "D1",
+            "D2",
+            "Q14"
+          ],
+          "ending_reached": null,
+          "blocked_at": "Q10",
+          "quota_stopped": null,
+          "quota_over_target": null,
+          "validation_messages_expected": [
+            {
+              "question_id": "Q10",
+              "rule": "mandatory",
+              "outcome": "violated",
+              "detail": "mandatory question left blank, progress should be blocked"
+            }
+          ],
+          "piped_text_visible": {
+            "Q2": "Provider A",
+            "Q3": "Provider A",
+            "Q5": "Provider A",
+            "Q9": "Dropped calls",
+            "Q10": "Yes, fully"
+          },
+          "option_lists_visible": {
+            "Q8": [
+              "Dropped calls"
+            ]
+          }
+        },
+        "proof": "Q10 blocked the blank answer as required",
+        "provisional_semantics": [
+          "multi_equality"
+        ],
+        "preconditions": {},
+        "campaign": {},
+        "covered_by": null
+      },
+      {
+        "scenario_id": "SC-0420517b20",
+        "target_id": "T-b5d13c56c1",
+        "dimension": "D4",
+        "status": "COVERED",
+        "reason": null,
+        "answers": {
+          "S1": "S1-O1",
+          "S2": "S2-O1",
+          "S3": 18,
+          "Q1": "Q1-O1",
+          "Q2": "Q2-O1",
+          "Q3": "Q3-O1",
+          "Q4": "Q4-O1",
+          "Q5": "Q5-O1",
+          "Q6": "Q6-O1",
+          "Q7": [
+            "Q7-O1"
+          ],
+          "Q8": "Q8-O1",
+          "Q9": "Q9-O1",
+          "Q10": "Q10-O1",
+          "Q11": null,
+          "Q12": "Q12-O1",
+          "Q13": "Q13-O1",
+          "D1": "D1-O1",
+          "D2": "D2-O1"
+        },
+        "expected": {
+          "questions_seen_in_order": [
+            "S1",
+            "S2",
+            "S3",
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4",
+            "Q5",
+            "Q6",
+            "Q7",
+            "Q8",
+            "Q9",
+            "Q10",
+            "Q11"
+          ],
+          "questions_not_seen": [
+            "Q12",
+            "Q13",
+            "D1",
+            "D2",
+            "Q14"
+          ],
+          "ending_reached": null,
+          "blocked_at": "Q11",
+          "quota_stopped": null,
+          "quota_over_target": null,
+          "validation_messages_expected": [
+            {
+              "question_id": "Q11",
+              "rule": "mandatory",
+              "outcome": "violated",
+              "detail": "mandatory question left blank, progress should be blocked"
+            }
+          ],
+          "piped_text_visible": {
+            "Q2": "Provider A",
+            "Q3": "Provider A",
+            "Q5": "Provider A",
+            "Q9": "Dropped calls",
+            "Q10": "Yes, fully",
+            "Q11": "Provider A"
+          },
+          "option_lists_visible": {
+            "Q8": [
+              "Dropped calls"
+            ]
+          }
+        },
+        "proof": "Q11 blocked the blank answer as required",
+        "provisional_semantics": [
+          "multi_equality"
+        ],
+        "preconditions": {},
+        "campaign": {},
+        "covered_by": null
+      },
+      {
+        "scenario_id": "SC-f6367081b5",
+        "target_id": "T-90ff9bb975",
+        "dimension": "D4",
+        "status": "COVERED",
+        "reason": null,
+        "answers": {
+          "S1": "S1-O1",
+          "S2": "S2-O1",
+          "S3": 18,
+          "Q1": "Q1-O1",
+          "Q2": "Q2-O1",
+          "Q3": "Q3-O1",
+          "Q4": "Q4-O1",
+          "Q5": "Q5-O1",
+          "Q6": "Q6-O1",
+          "Q7": [
+            "Q7-O1"
+          ],
+          "Q8": "Q8-O1",
+          "Q9": "Q9-O1",
+          "Q10": "Q10-O1",
+          "Q11": "Q11-O1",
+          "Q12": null,
+          "Q13": "Q13-O1",
+          "D1": "D1-O1",
+          "D2": "D2-O1"
+        },
+        "expected": {
+          "questions_seen_in_order": [
+            "S1",
+            "S2",
+            "S3",
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4",
+            "Q5",
+            "Q6",
+            "Q7",
+            "Q8",
+            "Q9",
+            "Q10",
+            "Q11",
+            "Q12"
+          ],
+          "questions_not_seen": [
+            "Q13",
+            "D1",
+            "D2",
+            "Q14"
+          ],
+          "ending_reached": null,
+          "blocked_at": "Q12",
+          "quota_stopped": null,
+          "quota_over_target": null,
+          "validation_messages_expected": [
+            {
+              "question_id": "Q12",
+              "rule": "mandatory",
+              "outcome": "violated",
+              "detail": "mandatory question left blank, progress should be blocked"
+            }
+          ],
+          "piped_text_visible": {
+            "Q2": "Provider A",
+            "Q3": "Provider A",
+            "Q5": "Provider A",
+            "Q9": "Dropped calls",
+            "Q10": "Yes, fully",
+            "Q11": "Provider A",
+            "Q12": "Provider A"
+          },
+          "option_lists_visible": {
+            "Q8": [
+              "Dropped calls"
+            ]
+          }
+        },
+        "proof": "Q12 blocked the blank answer as required",
+        "provisional_semantics": [
+          "multi_equality"
+        ],
+        "preconditions": {},
+        "campaign": {},
+        "covered_by": null
+      },
+      {
+        "scenario_id": "SC-dbc433370a",
+        "target_id": "T-c0d2efa11b",
+        "dimension": "D4",
+        "status": "COVERED",
+        "reason": null,
+        "answers": {
+          "S1": "S1-O1",
+          "S2": "S2-O1",
+          "S3": 18,
+          "Q1": "Q1-O1",
+          "Q2": "Q2-O1",
+          "Q3": "Q3-O1",
+          "Q4": "Q4-O1",
+          "Q5": "Q5-O1",
+          "Q6": "Q6-O1",
+          "Q7": [
+            "Q7-O1"
+          ],
+          "Q8": "Q8-O1",
+          "Q9": "Q9-O1",
+          "Q10": "Q10-O1",
+          "Q11": "Q11-O1",
+          "Q12": "Q12-O1",
+          "Q13": null,
+          "D1": "D1-O1",
+          "D2": "D2-O1"
+        },
+        "expected": {
+          "questions_seen_in_order": [
+            "S1",
+            "S2",
+            "S3",
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4",
+            "Q5",
+            "Q6",
+            "Q7",
+            "Q8",
+            "Q9",
+            "Q10",
+            "Q11",
+            "Q12",
+            "Q13"
+          ],
+          "questions_not_seen": [
+            "D1",
+            "D2",
+            "Q14"
+          ],
+          "ending_reached": null,
+          "blocked_at": "Q13",
+          "quota_stopped": null,
+          "quota_over_target": null,
+          "validation_messages_expected": [
+            {
+              "question_id": "Q13",
+              "rule": "mandatory",
+              "outcome": "violated",
+              "detail": "mandatory question left blank, progress should be blocked"
+            }
+          ],
+          "piped_text_visible": {
+            "Q2": "Provider A",
+            "Q3": "Provider A",
+            "Q5": "Provider A",
+            "Q9": "Dropped calls",
+            "Q10": "Yes, fully",
+            "Q11": "Provider A",
+            "Q12": "Provider A"
+          },
+          "option_lists_visible": {
+            "Q8": [
+              "Dropped calls"
+            ]
+          }
+        },
+        "proof": "Q13 blocked the blank answer as required",
+        "provisional_semantics": [
+          "multi_equality"
+        ],
+        "preconditions": {},
+        "campaign": {},
+        "covered_by": null
+      },
+      {
+        "scenario_id": "SC-09b5a54077",
+        "target_id": "T-95e4e5eea7",
+        "dimension": "D4",
+        "status": "COVERED",
+        "reason": null,
+        "answers": {
+          "S1": "S1-O1",
+          "S2": "S2-O1",
+          "S3": 18,
+          "Q1": "Q1-O1",
+          "Q2": "Q2-O1",
+          "Q3": "Q3-O1",
+          "Q4": "Q4-O1",
+          "Q5": "Q5-O1",
+          "Q6": "Q6-O1",
+          "Q7": [
+            "Q7-O1"
+          ],
+          "Q8": "Q8-O1",
+          "Q9": "Q9-O1",
+          "Q10": "Q10-O1",
+          "Q11": "Q11-O1",
+          "Q12": "Q12-O1",
+          "Q13": "Q13-O1",
+          "D1": "D1-O1",
+          "D2": "D2-O1",
+          "Q14": null
+        },
+        "expected": {
+          "questions_seen_in_order": [
+            "S1",
+            "S2",
+            "S3",
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4",
+            "Q5",
+            "Q6",
+            "Q7",
+            "Q8",
+            "Q9",
+            "Q10",
+            "Q11",
+            "Q12",
+            "Q13",
+            "D1",
+            "D2",
+            "Q14"
+          ],
+          "questions_not_seen": [],
+          "ending_reached": "COMPLETE",
+          "blocked_at": null,
+          "quota_stopped": null,
+          "quota_over_target": null,
+          "validation_messages_expected": [],
+          "piped_text_visible": {
+            "Q2": "Provider A",
+            "Q3": "Provider A",
+            "Q5": "Provider A",
+            "Q9": "Dropped calls",
+            "Q10": "Yes, fully",
+            "Q11": "Provider A",
+            "Q12": "Provider A"
+          },
+          "option_lists_visible": {
+            "Q8": [
+              "Dropped calls"
+            ]
+          }
+        },
+        "proof": "Q14 permitted a blank answer, as an optional question should",
+        "provisional_semantics": [
+          "multi_equality"
+        ],
+        "preconditions": {},
+        "campaign": {},
+        "covered_by": null
+      },
+      {
+        "scenario_id": "SC-60c88fe728",
+        "target_id": "T-0b5aef83fb",
+        "dimension": "D4",
+        "status": "COVERED",
+        "reason": null,
+        "answers": {
+          "S1": "S1-O1",
+          "S2": "S2-O1",
+          "S3": 18,
+          "Q1": "Q1-O1",
+          "Q2": "Q2-O1",
+          "Q3": "Q3-O1",
+          "Q4": "Q4-O1",
+          "Q5": "Q5-O1",
+          "Q6": "Q6-O1",
+          "Q7": [
+            "Q7-O1"
+          ],
+          "Q8": "Q8-O1",
+          "Q9": "Q9-O1",
+          "Q10": "Q10-O1",
+          "Q11": "Q11-O1",
+          "Q12": "Q12-O1",
+          "Q13": "Q13-O1",
+          "D1": "D1-O1",
+          "D2": "D2-O1",
+          "Q14": "   "
+        },
+        "expected": {
+          "questions_seen_in_order": [
+            "S1",
+            "S2",
+            "S3",
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4",
+            "Q5",
+            "Q6",
+            "Q7",
+            "Q8",
+            "Q9",
+            "Q10",
+            "Q11",
+            "Q12",
+            "Q13",
+            "D1",
+            "D2",
+            "Q14"
+          ],
+          "questions_not_seen": [],
+          "ending_reached": "COMPLETE",
+          "blocked_at": null,
+          "quota_stopped": null,
+          "quota_over_target": null,
+          "validation_messages_expected": [],
+          "piped_text_visible": {
+            "Q2": "Provider A",
+            "Q3": "Provider A",
+            "Q5": "Provider A",
+            "Q9": "Dropped calls",
+            "Q10": "Yes, fully",
+            "Q11": "Provider A",
+            "Q12": "Provider A"
+          },
+          "option_lists_visible": {
+            "Q8": [
+              "Dropped calls"
+            ]
+          }
+        },
+        "proof": "Q14 accepted spaces, as an optional question should",
+        "provisional_semantics": [
+          "multi_equality",
+          "whitespace_is_an_answer"
+        ],
+        "preconditions": {},
+        "campaign": {},
+        "covered_by": null
+      },
+      {
+        "scenario_id": "SC-484a976caf",
+        "target_id": "T-727f5e7cc5",
+        "dimension": "D4",
+        "status": "COVERED",
+        "reason": null,
+        "answers": {
+          "S1": "S1-O1",
+          "S2": "S2-O1",
+          "S3": 18,
+          "Q1": "Q1-O1",
+          "Q2": null,
+          "Q3": "Q3-O1",
+          "Q4": "Q4-O1",
+          "Q5": "Q5-O1",
+          "Q6": "Q6-O1",
+          "Q7": [
+            "Q7-O1"
+          ],
+          "Q8": "Q8-O1",
+          "Q9": "Q9-O1",
+          "Q10": "Q10-O1",
+          "Q11": "Q11-O1",
+          "Q12": "Q12-O1",
+          "Q13": "Q13-O1",
+          "D1": "D1-O1",
+          "D2": "D2-O1"
+        },
+        "expected": {
+          "questions_seen_in_order": [
+            "S1",
+            "S2",
+            "S3",
+            "Q1",
+            "Q2"
+          ],
+          "questions_not_seen": [
+            "Q3",
+            "Q4",
+            "Q5",
+            "Q6",
+            "Q7",
+            "Q8",
+            "Q9",
+            "Q10",
+            "Q11",
+            "Q12",
+            "Q13",
+            "D1",
+            "D2",
+            "Q14"
+          ],
+          "ending_reached": null,
+          "blocked_at": "Q2",
+          "quota_stopped": null,
+          "quota_over_target": null,
+          "validation_messages_expected": [
+            {
+              "question_id": "Q2",
+              "rule": "mandatory",
+              "outcome": "violated",
+              "detail": "mandatory question left blank, progress should be blocked"
+            }
+          ],
+          "piped_text_visible": {
+            "Q2": "Provider A"
+          },
+          "option_lists_visible": {}
+        },
+        "proof": "Q2 blocked the blank answer as required",
+        "provisional_semantics": [],
+        "preconditions": {},
+        "campaign": {},
+        "covered_by": null
+      },
+      {
+        "scenario_id": "SC-934661f2ad",
+        "target_id": "T-4bdf659dfa",
+        "dimension": "D4",
+        "status": "COVERED",
+        "reason": null,
+        "answers": {
+          "S1": "S1-O1",
+          "S2": "S2-O1",
+          "S3": 18,
+          "Q1": "Q1-O1",
+          "Q2": "Q2-O1",
+          "Q3": null,
+          "Q4": "Q4-O1",
+          "Q5": "Q5-O1",
+          "Q6": "Q6-O1",
+          "Q7": [
+            "Q7-O1"
+          ],
+          "Q8": "Q8-O1",
+          "Q9": "Q9-O1",
+          "Q10": "Q10-O1",
+          "Q11": "Q11-O1",
+          "Q12": "Q12-O1",
+          "Q13": "Q13-O1",
+          "D1": "D1-O1",
+          "D2": "D2-O1"
+        },
+        "expected": {
+          "questions_seen_in_order": [
+            "S1",
+            "S2",
+            "S3",
+            "Q1",
+            "Q2",
+            "Q3"
+          ],
+          "questions_not_seen": [
+            "Q4",
+            "Q5",
+            "Q6",
+            "Q7",
+            "Q8",
+            "Q9",
+            "Q10",
+            "Q11",
+            "Q12",
+            "Q13",
+            "D1",
+            "D2",
+            "Q14"
+          ],
+          "ending_reached": null,
+          "blocked_at": "Q3",
+          "quota_stopped": null,
+          "quota_over_target": null,
+          "validation_messages_expected": [
+            {
+              "question_id": "Q3",
+              "rule": "mandatory",
+              "outcome": "violated",
+              "detail": "mandatory question left blank, progress should be blocked"
+            }
+          ],
+          "piped_text_visible": {
+            "Q2": "Provider A",
+            "Q3": "Provider A"
+          },
+          "option_lists_visible": {}
+        },
+        "proof": "Q3 blocked the blank answer as required",
+        "provisional_semantics": [],
+        "preconditions": {},
+        "campaign": {},
+        "covered_by": null
+      },
+      {
+        "scenario_id": "SC-c26fa792a6",
+        "target_id": "T-9a87b3907e",
+        "dimension": "D4",
+        "status": "COVERED",
+        "reason": null,
+        "answers": {
+          "S1": "S1-O1",
+          "S2": "S2-O1",
+          "S3": 18,
+          "Q1": "Q1-O1",
+          "Q2": "Q2-O1",
+          "Q3": "Q3-O1",
+          "Q4": null,
+          "Q5": "Q5-O1",
+          "Q6": "Q6-O1",
+          "Q7": [
+            "Q7-O1"
+          ],
+          "Q8": "Q8-O1",
+          "Q9": "Q9-O1",
+          "Q10": "Q10-O1",
+          "Q11": "Q11-O1",
+          "Q12": "Q12-O1",
+          "Q13": "Q13-O1",
+          "D1": "D1-O1",
+          "D2": "D2-O1"
+        },
+        "expected": {
+          "questions_seen_in_order": [
+            "S1",
+            "S2",
+            "S3",
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4"
+          ],
+          "questions_not_seen": [
+            "Q5",
+            "Q6",
+            "Q7",
+            "Q8",
+            "Q9",
+            "Q10",
+            "Q11",
+            "Q12",
+            "Q13",
+            "D1",
+            "D2",
+            "Q14"
+          ],
+          "ending_reached": null,
+          "blocked_at": "Q4",
+          "quota_stopped": null,
+          "quota_over_target": null,
+          "validation_messages_expected": [
+            {
+              "question_id": "Q4",
+              "rule": "mandatory",
+              "outcome": "violated",
+              "detail": "mandatory question left blank, progress should be blocked"
+            }
+          ],
+          "piped_text_visible": {
+            "Q2": "Provider A",
+            "Q3": "Provider A"
+          },
+          "option_lists_visible": {}
+        },
+        "proof": "Q4 blocked the blank answer as required",
+        "provisional_semantics": [],
+        "preconditions": {},
+        "campaign": {},
+        "covered_by": null
+      },
+      {
+        "scenario_id": "SC-3a78df1d70",
+        "target_id": "T-0249397b0f",
+        "dimension": "D4",
+        "status": "COVERED",
+        "reason": null,
+        "answers": {
+          "S1": "S1-O1",
+          "S2": "S2-O1",
+          "S3": 18,
+          "Q1": "Q1-O1",
+          "Q2": "Q2-O1",
+          "Q3": "Q3-O1",
+          "Q4": "Q4-O1",
+          "Q5": null,
+          "Q6": "Q6-O1",
+          "Q7": [
+            "Q7-O1"
+          ],
+          "Q8": "Q8-O1",
+          "Q9": "Q9-O1",
+          "Q10": "Q10-O1",
+          "Q11": "Q11-O1",
+          "Q12": "Q12-O1",
+          "Q13": "Q13-O1",
+          "D1": "D1-O1",
+          "D2": "D2-O1"
+        },
+        "expected": {
+          "questions_seen_in_order": [
+            "S1",
+            "S2",
+            "S3",
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4",
+            "Q5"
+          ],
+          "questions_not_seen": [
+            "Q6",
+            "Q7",
+            "Q8",
+            "Q9",
+            "Q10",
+            "Q11",
+            "Q12",
+            "Q13",
+            "D1",
+            "D2",
+            "Q14"
+          ],
+          "ending_reached": null,
+          "blocked_at": "Q5",
+          "quota_stopped": null,
+          "quota_over_target": null,
+          "validation_messages_expected": [
+            {
+              "question_id": "Q5",
+              "rule": "mandatory",
+              "outcome": "violated",
+              "detail": "mandatory question left blank, progress should be blocked"
+            }
+          ],
+          "piped_text_visible": {
+            "Q2": "Provider A",
+            "Q3": "Provider A",
+            "Q5": "Provider A"
+          },
+          "option_lists_visible": {}
+        },
+        "proof": "Q5 blocked the blank answer as required",
+        "provisional_semantics": [],
+        "preconditions": {},
+        "campaign": {},
+        "covered_by": null
+      },
+      {
+        "scenario_id": "SC-eb019835ce",
+        "target_id": "T-e98006aa3a",
+        "dimension": "D4",
+        "status": "COVERED",
+        "reason": null,
+        "answers": {
+          "S1": "S1-O1",
+          "S2": "S2-O1",
+          "S3": 18,
+          "Q1": "Q1-O1",
+          "Q2": "Q2-O1",
+          "Q3": "Q3-O1",
+          "Q4": "Q4-O1",
+          "Q5": "Q5-O1",
+          "Q6": null,
+          "Q7": [
+            "Q7-O1"
+          ],
+          "Q8": "Q8-O1",
+          "Q9": "Q9-O1",
+          "Q10": "Q10-O1",
+          "Q11": "Q11-O1",
+          "Q12": "Q12-O1",
+          "Q13": "Q13-O1",
+          "D1": "D1-O1",
+          "D2": "D2-O1"
+        },
+        "expected": {
+          "questions_seen_in_order": [
+            "S1",
+            "S2",
+            "S3",
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4",
+            "Q5",
+            "Q6"
+          ],
+          "questions_not_seen": [
+            "Q7",
+            "Q8",
+            "Q9",
+            "Q10",
+            "Q11",
+            "Q12",
+            "Q13",
+            "D1",
+            "D2",
+            "Q14"
+          ],
+          "ending_reached": null,
+          "blocked_at": "Q6",
+          "quota_stopped": null,
+          "quota_over_target": null,
+          "validation_messages_expected": [
+            {
+              "question_id": "Q6",
+              "rule": "mandatory",
+              "outcome": "violated",
+              "detail": "mandatory question left blank, progress should be blocked"
+            }
+          ],
+          "piped_text_visible": {
+            "Q2": "Provider A",
+            "Q3": "Provider A",
+            "Q5": "Provider A"
+          },
+          "option_lists_visible": {}
+        },
+        "proof": "Q6 blocked the blank answer as required",
+        "provisional_semantics": [],
+        "preconditions": {},
+        "campaign": {},
+        "covered_by": null
+      },
+      {
+        "scenario_id": "SC-ee247bf3c7",
+        "target_id": "T-fdb731cc7b",
+        "dimension": "D4",
+        "status": "COVERED",
+        "reason": null,
+        "answers": {
+          "S1": "S1-O1",
+          "S2": "S2-O1",
+          "S3": 18,
+          "Q1": "Q1-O1",
+          "Q2": "Q2-O1",
+          "Q3": "Q3-O1",
+          "Q4": "Q4-O1",
+          "Q5": "Q5-O1",
+          "Q6": "Q6-O1",
+          "Q7": null,
+          "Q8": "Q8-O1",
+          "Q9": "Q9-O1",
+          "Q10": "Q10-O1",
+          "Q11": "Q11-O1",
+          "Q12": "Q12-O1",
+          "Q13": "Q13-O1",
+          "D1": "D1-O1",
+          "D2": "D2-O1"
+        },
+        "expected": {
+          "questions_seen_in_order": [
+            "S1",
+            "S2",
+            "S3",
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4",
+            "Q5",
+            "Q6",
+            "Q7"
+          ],
+          "questions_not_seen": [
+            "Q8",
+            "Q9",
+            "Q10",
+            "Q11",
+            "Q12",
+            "Q13",
+            "D1",
+            "D2",
+            "Q14"
+          ],
+          "ending_reached": null,
+          "blocked_at": "Q7",
+          "quota_stopped": null,
+          "quota_over_target": null,
+          "validation_messages_expected": [
+            {
+              "question_id": "Q7",
+              "rule": "mandatory",
+              "outcome": "violated",
+              "detail": "mandatory question left blank, progress should be blocked"
+            }
+          ],
+          "piped_text_visible": {
+            "Q2": "Provider A",
+            "Q3": "Provider A",
+            "Q5": "Provider A"
+          },
+          "option_lists_visible": {}
+        },
+        "proof": "Q7 blocked the blank answer as required",
+        "provisional_semantics": [],
+        "preconditions": {},
+        "campaign": {},
+        "covered_by": null
+      },
+      {
+        "scenario_id": "SC-230192353e",
+        "target_id": "T-f5b246159d",
+        "dimension": "D4",
+        "status": "COVERED",
+        "reason": null,
+        "answers": {
+          "Q7": [
+            "Q7-O1"
+          ],
+          "S1": "S1-O1",
+          "S2": "S2-O1",
+          "S3": 18,
+          "Q1": "Q1-O1",
+          "Q2": "Q2-O1",
+          "Q3": "Q3-O1",
+          "Q4": "Q4-O1",
+          "Q5": "Q5-O1",
+          "Q6": "Q6-O1",
+          "Q8": null,
+          "Q9": "Q9-O1",
+          "Q10": "Q10-O1",
+          "Q11": "Q11-O1",
+          "Q12": "Q12-O1",
+          "Q13": "Q13-O1",
+          "D1": "D1-O1",
+          "D2": "D2-O1"
+        },
+        "expected": {
+          "questions_seen_in_order": [
+            "S1",
+            "S2",
+            "S3",
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4",
+            "Q5",
+            "Q6",
+            "Q7",
+            "Q8"
+          ],
+          "questions_not_seen": [
+            "Q9",
+            "Q10",
+            "Q11",
+            "Q12",
+            "Q13",
+            "D1",
+            "D2",
+            "Q14"
+          ],
+          "ending_reached": null,
+          "blocked_at": "Q8",
+          "quota_stopped": null,
+          "quota_over_target": null,
+          "validation_messages_expected": [
+            {
+              "question_id": "Q8",
+              "rule": "mandatory",
+              "outcome": "violated",
+              "detail": "mandatory question left blank, progress should be blocked"
+            }
+          ],
+          "piped_text_visible": {
+            "Q2": "Provider A",
+            "Q3": "Provider A",
+            "Q5": "Provider A"
+          },
+          "option_lists_visible": {
+            "Q8": [
+              "Dropped calls"
+            ]
+          }
+        },
+        "proof": "Q8 blocked the blank answer as required",
+        "provisional_semantics": [
+          "multi_equality"
+        ],
+        "preconditions": {},
+        "campaign": {},
+        "covered_by": null
+      },
+      {
+        "scenario_id": "SC-3067c2c6a1",
+        "target_id": "T-eb5ef7c538",
+        "dimension": "D4",
+        "status": "COVERED",
+        "reason": null,
+        "answers": {
+          "Q7": [
+            "Q7-O1"
+          ],
+          "S1": "S1-O1",
+          "S2": "S2-O1",
+          "S3": 18,
+          "Q1": "Q1-O1",
+          "Q2": "Q2-O1",
+          "Q3": "Q3-O1",
+          "Q4": "Q4-O1",
+          "Q5": "Q5-O1",
+          "Q6": "Q6-O1",
+          "Q8": "Q8-O1",
+          "Q9": null,
+          "Q10": "Q10-O1",
+          "Q11": "Q11-O1",
+          "Q12": "Q12-O1",
+          "Q13": "Q13-O1",
+          "D1": "D1-O1",
+          "D2": "D2-O1"
+        },
+        "expected": {
+          "questions_seen_in_order": [
+            "S1",
+            "S2",
+            "S3",
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4",
+            "Q5",
+            "Q6",
+            "Q7",
+            "Q8",
+            "Q9"
+          ],
+          "questions_not_seen": [
+            "Q10",
+            "Q11",
+            "Q12",
+            "Q13",
+            "D1",
+            "D2",
+            "Q14"
+          ],
+          "ending_reached": null,
+          "blocked_at": "Q9",
+          "quota_stopped": null,
+          "quota_over_target": null,
+          "validation_messages_expected": [
+            {
+              "question_id": "Q9",
+              "rule": "mandatory",
+              "outcome": "violated",
+              "detail": "mandatory question left blank, progress should be blocked"
+            }
+          ],
+          "piped_text_visible": {
+            "Q2": "Provider A",
+            "Q3": "Provider A",
+            "Q5": "Provider A",
+            "Q9": "Dropped calls"
+          },
+          "option_lists_visible": {
+            "Q8": [
+              "Dropped calls"
+            ]
+          }
+        },
+        "proof": "Q9 blocked the blank answer as required",
+        "provisional_semantics": [
+          "multi_equality"
+        ],
+        "preconditions": {},
+        "campaign": {},
+        "covered_by": null
+      },
+      {
+        "scenario_id": "SC-79e0b884fd",
+        "target_id": "T-04f1f82dbc",
+        "dimension": "D4",
+        "status": "COVERED",
+        "reason": null,
+        "answers": {
+          "S1": null,
+          "S2": "S2-O1",
+          "S3": 18,
+          "Q1": "Q1-O1",
+          "Q2": "Q2-O1",
+          "Q3": "Q3-O1",
+          "Q4": "Q4-O1",
+          "Q5": "Q5-O1",
+          "Q6": "Q6-O1",
+          "Q7": [
+            "Q7-O1"
+          ],
+          "Q8": "Q8-O1",
+          "Q9": "Q9-O1",
+          "Q10": "Q10-O1",
+          "Q11": "Q11-O1",
+          "Q12": "Q12-O1",
+          "Q13": "Q13-O1",
+          "D1": "D1-O1",
+          "D2": "D2-O1"
+        },
+        "expected": {
+          "questions_seen_in_order": [
+            "S1"
+          ],
+          "questions_not_seen": [
+            "S2",
+            "S3",
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4",
+            "Q5",
+            "Q6",
+            "Q7",
+            "Q8",
+            "Q9",
+            "Q10",
+            "Q11",
+            "Q12",
+            "Q13",
+            "D1",
+            "D2",
+            "Q14"
+          ],
+          "ending_reached": null,
+          "blocked_at": "S1",
+          "quota_stopped": null,
+          "quota_over_target": null,
+          "validation_messages_expected": [
+            {
+              "question_id": "S1",
+              "rule": "mandatory",
+              "outcome": "violated",
+              "detail": "mandatory question left blank, progress should be blocked"
+            }
+          ],
+          "piped_text_visible": {},
+          "option_lists_visible": {}
+        },
+        "proof": "S1 blocked the blank answer as required",
+        "provisional_semantics": [],
+        "preconditions": {},
+        "campaign": {},
+        "covered_by": null
+      },
+      {
+        "scenario_id": "SC-36b145d229",
+        "target_id": "T-f3c7bd7103",
+        "dimension": "D4",
+        "status": "COVERED",
+        "reason": null,
+        "answers": {
+          "S1": "S1-O1",
+          "S2": null,
+          "S3": 18,
+          "Q1": "Q1-O1",
+          "Q2": "Q2-O1",
+          "Q3": "Q3-O1",
+          "Q4": "Q4-O1",
+          "Q5": "Q5-O1",
+          "Q6": "Q6-O1",
+          "Q7": [
+            "Q7-O1"
+          ],
+          "Q8": "Q8-O1",
+          "Q9": "Q9-O1",
+          "Q10": "Q10-O1",
+          "Q11": "Q11-O1",
+          "Q12": "Q12-O1",
+          "Q13": "Q13-O1",
+          "D1": "D1-O1",
+          "D2": "D2-O1"
+        },
+        "expected": {
+          "questions_seen_in_order": [
+            "S1",
+            "S2"
+          ],
+          "questions_not_seen": [
+            "S3",
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4",
+            "Q5",
+            "Q6",
+            "Q7",
+            "Q8",
+            "Q9",
+            "Q10",
+            "Q11",
+            "Q12",
+            "Q13",
+            "D1",
+            "D2",
+            "Q14"
+          ],
+          "ending_reached": null,
+          "blocked_at": "S2",
+          "quota_stopped": null,
+          "quota_over_target": null,
+          "validation_messages_expected": [
+            {
+              "question_id": "S2",
+              "rule": "mandatory",
+              "outcome": "violated",
+              "detail": "mandatory question left blank, progress should be blocked"
+            }
+          ],
+          "piped_text_visible": {},
+          "option_lists_visible": {}
+        },
+        "proof": "S2 blocked the blank answer as required",
+        "provisional_semantics": [],
+        "preconditions": {},
+        "campaign": {},
+        "covered_by": null
+      },
+      {
+        "scenario_id": "SC-18c29a130b",
+        "target_id": "T-c3fc047030",
+        "dimension": "D4",
+        "status": "COVERED",
+        "reason": null,
+        "answers": {
+          "S1": "S1-O1",
+          "S2": "S2-O1",
+          "S3": null,
+          "Q1": "Q1-O1",
+          "Q2": "Q2-O1",
+          "Q3": "Q3-O1",
+          "Q4": "Q4-O1",
+          "Q5": "Q5-O1",
+          "Q6": "Q6-O1",
+          "Q7": [
+            "Q7-O1"
+          ],
+          "Q8": "Q8-O1",
+          "Q9": "Q9-O1",
+          "Q10": "Q10-O1",
+          "Q11": "Q11-O1",
+          "Q12": "Q12-O1",
+          "Q13": "Q13-O1",
+          "D1": "D1-O1",
+          "D2": "D2-O1"
+        },
+        "expected": {
+          "questions_seen_in_order": [
+            "S1",
+            "S2",
+            "S3"
+          ],
+          "questions_not_seen": [
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4",
+            "Q5",
+            "Q6",
+            "Q7",
+            "Q8",
+            "Q9",
+            "Q10",
+            "Q11",
+            "Q12",
+            "Q13",
+            "D1",
+            "D2",
+            "Q14"
+          ],
+          "ending_reached": null,
+          "blocked_at": "S3",
+          "quota_stopped": null,
+          "quota_over_target": null,
+          "validation_messages_expected": [
+            {
+              "question_id": "S3",
+              "rule": "mandatory",
+              "outcome": "violated",
+              "detail": "mandatory question left blank, progress should be blocked"
+            }
+          ],
+          "piped_text_visible": {},
+          "option_lists_visible": {}
+        },
+        "proof": "S3 blocked the blank answer as required",
+        "provisional_semantics": [],
+        "preconditions": {},
+        "campaign": {},
+        "covered_by": null
+      },
+      {
+        "scenario_id": "SC-8a54e3ead0",
+        "target_id": "T-813a61d605",
+        "dimension": "D5",
+        "status": "COVERED",
+        "reason": null,
+        "answers": {
+          "Q7": [
+            "Q7-O1"
+          ],
+          "S1": "S1-O1",
+          "S2": "S2-O1",
+          "S3": 18,
+          "Q1": "Q1-O1",
+          "Q2": "Q2-O1",
+          "Q3": "Q3-O1",
+          "Q4": "Q4-O1",
+          "Q5": "Q5-O1",
+          "Q6": "Q6-O1",
+          "Q8": "Q8-O1",
+          "Q9": "Q9-O1",
+          "Q10": "Q10-O1",
+          "Q11": "Q11-O1",
+          "Q12": "Q12-O1",
+          "Q13": "Q13-O1",
+          "D1": "D1-O1",
+          "D2": "D2-O1"
+        },
+        "expected": {
+          "questions_seen_in_order": [
+            "S1",
+            "S2",
+            "S3",
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4",
+            "Q5",
+            "Q6",
+            "Q7",
+            "Q8",
+            "Q9",
+            "Q10",
+            "Q11",
+            "Q12",
+            "Q13",
+            "D1",
+            "D2",
+            "Q14"
+          ],
+          "questions_not_seen": [],
+          "ending_reached": "COMPLETE",
+          "blocked_at": null,
+          "quota_stopped": null,
+          "quota_over_target": null,
+          "validation_messages_expected": [],
+          "piped_text_visible": {
+            "Q2": "Provider A",
+            "Q3": "Provider A",
+            "Q5": "Provider A",
+            "Q9": "Dropped calls",
+            "Q10": "Yes, fully",
+            "Q11": "Provider A",
+            "Q12": "Provider A"
+          },
+          "option_lists_visible": {
+            "Q8": [
+              "Dropped calls"
+            ]
+          }
+        },
+        "proof": "Q8 predicted to show only ['Dropped calls']",
+        "provisional_semantics": [
+          "multi_equality"
+        ],
+        "preconditions": {},
+        "campaign": {},
+        "covered_by": null
+      },
+      {
+        "scenario_id": "SC-50205963ee",
+        "target_id": "T-abb8c514fa",
+        "dimension": "D6",
+        "status": "COVERED",
+        "reason": null,
+        "answers": {
+          "Q1": "Q1-O1",
+          "S1": "S1-O1",
+          "S2": "S2-O1",
+          "S3": 18,
+          "Q2": "Q2-O1",
+          "Q3": "Q3-O1",
+          "Q4": "Q4-O1",
+          "Q5": "Q5-O1",
+          "Q6": "Q6-O1",
+          "Q7": [
+            "Q7-O1"
+          ],
+          "Q8": "Q8-O1",
+          "Q9": "Q9-O1",
+          "Q10": "Q10-O1",
+          "Q11": "Q11-O1",
+          "Q12": "Q12-O1",
+          "Q13": "Q13-O1",
+          "D1": "D1-O1",
+          "D2": "D2-O1"
+        },
+        "expected": {
+          "questions_seen_in_order": [
+            "S1",
+            "S2",
+            "S3",
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4",
+            "Q5",
+            "Q6",
+            "Q7",
+            "Q8",
+            "Q9",
+            "Q10",
+            "Q11",
+            "Q12",
+            "Q13",
+            "D1",
+            "D2",
+            "Q14"
+          ],
+          "questions_not_seen": [],
+          "ending_reached": "COMPLETE",
+          "blocked_at": null,
+          "quota_stopped": null,
+          "quota_over_target": null,
+          "validation_messages_expected": [],
+          "piped_text_visible": {
+            "Q2": "Provider A",
+            "Q3": "Provider A",
+            "Q5": "Provider A",
+            "Q9": "Dropped calls",
+            "Q10": "Yes, fully",
+            "Q11": "Provider A",
+            "Q12": "Provider A"
+          },
+          "option_lists_visible": {
+            "Q8": [
+              "Dropped calls"
+            ]
+          }
+        },
+        "proof": "Q11 predicted to render 'Provider A' in its wording",
+        "provisional_semantics": [
+          "multi_equality"
+        ],
+        "preconditions": {},
+        "campaign": {},
+        "covered_by": null
+      },
+      {
+        "scenario_id": "SC-62f6881fcd",
+        "target_id": "T-2b1c6ded3c",
+        "dimension": "D6",
+        "status": "COVERED",
+        "reason": null,
+        "answers": {
+          "Q1": "Q1-O1",
+          "S1": "S1-O1",
+          "S2": "S2-O1",
+          "S3": 18,
+          "Q2": "Q2-O1",
+          "Q3": "Q3-O1",
+          "Q4": "Q4-O1",
+          "Q5": "Q5-O1",
+          "Q6": "Q6-O1",
+          "Q7": [
+            "Q7-O1"
+          ],
+          "Q8": "Q8-O1",
+          "Q9": "Q9-O1",
+          "Q10": "Q10-O1",
+          "Q11": "Q11-O1",
+          "Q12": "Q12-O1",
+          "Q13": "Q13-O1",
+          "D1": "D1-O1",
+          "D2": "D2-O1"
+        },
+        "expected": {
+          "questions_seen_in_order": [
+            "S1",
+            "S2",
+            "S3",
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4",
+            "Q5",
+            "Q6",
+            "Q7",
+            "Q8",
+            "Q9",
+            "Q10",
+            "Q11",
+            "Q12",
+            "Q13",
+            "D1",
+            "D2",
+            "Q14"
+          ],
+          "questions_not_seen": [],
+          "ending_reached": "COMPLETE",
+          "blocked_at": null,
+          "quota_stopped": null,
+          "quota_over_target": null,
+          "validation_messages_expected": [],
+          "piped_text_visible": {
+            "Q2": "Provider A",
+            "Q3": "Provider A",
+            "Q5": "Provider A",
+            "Q9": "Dropped calls",
+            "Q10": "Yes, fully",
+            "Q11": "Provider A",
+            "Q12": "Provider A"
+          },
+          "option_lists_visible": {
+            "Q8": [
+              "Dropped calls"
+            ]
+          }
+        },
+        "proof": "Q12 predicted to render 'Provider A' in its wording",
+        "provisional_semantics": [
+          "multi_equality"
+        ],
+        "preconditions": {},
+        "campaign": {},
+        "covered_by": null
+      },
+      {
+        "scenario_id": "SC-0af650da83",
+        "target_id": "T-6eac8ecd08",
+        "dimension": "D6",
+        "status": "COVERED",
+        "reason": null,
+        "answers": {
+          "Q1": "Q1-O1",
+          "S1": "S1-O1",
+          "S2": "S2-O1",
+          "S3": 18,
+          "Q2": "Q2-O1",
+          "Q3": "Q3-O1",
+          "Q4": "Q4-O1",
+          "Q5": "Q5-O1",
+          "Q6": "Q6-O1",
+          "Q7": [
+            "Q7-O1"
+          ],
+          "Q8": "Q8-O1",
+          "Q9": "Q9-O1",
+          "Q10": "Q10-O1",
+          "Q11": "Q11-O1",
+          "Q12": "Q12-O1",
+          "Q13": "Q13-O1",
+          "D1": "D1-O1",
+          "D2": "D2-O1"
+        },
+        "expected": {
+          "questions_seen_in_order": [
+            "S1",
+            "S2",
+            "S3",
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4",
+            "Q5",
+            "Q6",
+            "Q7",
+            "Q8",
+            "Q9",
+            "Q10",
+            "Q11",
+            "Q12",
+            "Q13",
+            "D1",
+            "D2",
+            "Q14"
+          ],
+          "questions_not_seen": [],
+          "ending_reached": "COMPLETE",
+          "blocked_at": null,
+          "quota_stopped": null,
+          "quota_over_target": null,
+          "validation_messages_expected": [],
+          "piped_text_visible": {
+            "Q2": "Provider A",
+            "Q3": "Provider A",
+            "Q5": "Provider A",
+            "Q9": "Dropped calls",
+            "Q10": "Yes, fully",
+            "Q11": "Provider A",
+            "Q12": "Provider A"
+          },
+          "option_lists_visible": {
+            "Q8": [
+              "Dropped calls"
+            ]
+          }
+        },
+        "proof": "Q2 predicted to render 'Provider A' in its wording",
+        "provisional_semantics": [
+          "multi_equality"
+        ],
+        "preconditions": {},
+        "campaign": {},
+        "covered_by": null
+      },
+      {
+        "scenario_id": "SC-9bccd855ea",
+        "target_id": "T-d80f93e85d",
+        "dimension": "D6",
+        "status": "COVERED",
+        "reason": null,
+        "answers": {
+          "Q1": "Q1-O1",
+          "S1": "S1-O1",
+          "S2": "S2-O1",
+          "S3": 18,
+          "Q2": "Q2-O1",
+          "Q3": "Q3-O1",
+          "Q4": "Q4-O1",
+          "Q5": "Q5-O1",
+          "Q6": "Q6-O1",
+          "Q7": [
+            "Q7-O1"
+          ],
+          "Q8": "Q8-O1",
+          "Q9": "Q9-O1",
+          "Q10": "Q10-O1",
+          "Q11": "Q11-O1",
+          "Q12": "Q12-O1",
+          "Q13": "Q13-O1",
+          "D1": "D1-O1",
+          "D2": "D2-O1"
+        },
+        "expected": {
+          "questions_seen_in_order": [
+            "S1",
+            "S2",
+            "S3",
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4",
+            "Q5",
+            "Q6",
+            "Q7",
+            "Q8",
+            "Q9",
+            "Q10",
+            "Q11",
+            "Q12",
+            "Q13",
+            "D1",
+            "D2",
+            "Q14"
+          ],
+          "questions_not_seen": [],
+          "ending_reached": "COMPLETE",
+          "blocked_at": null,
+          "quota_stopped": null,
+          "quota_over_target": null,
+          "validation_messages_expected": [],
+          "piped_text_visible": {
+            "Q2": "Provider A",
+            "Q3": "Provider A",
+            "Q5": "Provider A",
+            "Q9": "Dropped calls",
+            "Q10": "Yes, fully",
+            "Q11": "Provider A",
+            "Q12": "Provider A"
+          },
+          "option_lists_visible": {
+            "Q8": [
+              "Dropped calls"
+            ]
+          }
+        },
+        "proof": "Q3 predicted to render 'Provider A' in its wording",
+        "provisional_semantics": [
+          "multi_equality"
+        ],
+        "preconditions": {},
+        "campaign": {},
+        "covered_by": null
+      },
+      {
+        "scenario_id": "SC-f3faef52db",
+        "target_id": "T-7dd1f6b60f",
+        "dimension": "D6",
+        "status": "COVERED",
+        "reason": null,
+        "answers": {
+          "Q1": "Q1-O1",
+          "S1": "S1-O1",
+          "S2": "S2-O1",
+          "S3": 18,
+          "Q2": "Q2-O1",
+          "Q3": "Q3-O1",
+          "Q4": "Q4-O1",
+          "Q5": "Q5-O1",
+          "Q6": "Q6-O1",
+          "Q7": [
+            "Q7-O1"
+          ],
+          "Q8": "Q8-O1",
+          "Q9": "Q9-O1",
+          "Q10": "Q10-O1",
+          "Q11": "Q11-O1",
+          "Q12": "Q12-O1",
+          "Q13": "Q13-O1",
+          "D1": "D1-O1",
+          "D2": "D2-O1"
+        },
+        "expected": {
+          "questions_seen_in_order": [
+            "S1",
+            "S2",
+            "S3",
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4",
+            "Q5",
+            "Q6",
+            "Q7",
+            "Q8",
+            "Q9",
+            "Q10",
+            "Q11",
+            "Q12",
+            "Q13",
+            "D1",
+            "D2",
+            "Q14"
+          ],
+          "questions_not_seen": [],
+          "ending_reached": "COMPLETE",
+          "blocked_at": null,
+          "quota_stopped": null,
+          "quota_over_target": null,
+          "validation_messages_expected": [],
+          "piped_text_visible": {
+            "Q2": "Provider A",
+            "Q3": "Provider A",
+            "Q5": "Provider A",
+            "Q9": "Dropped calls",
+            "Q10": "Yes, fully",
+            "Q11": "Provider A",
+            "Q12": "Provider A"
+          },
+          "option_lists_visible": {
+            "Q8": [
+              "Dropped calls"
+            ]
+          }
+        },
+        "proof": "Q5 predicted to render 'Provider A' in its wording",
+        "provisional_semantics": [
+          "multi_equality"
+        ],
+        "preconditions": {},
+        "campaign": {},
+        "covered_by": null
+      },
+      {
+        "scenario_id": "SC-88b7fe6a32",
+        "target_id": "T-937569ef64",
+        "dimension": "D6",
+        "status": "COVERED",
+        "reason": null,
+        "answers": {
+          "Q7": [
+            "Q7-O1"
+          ],
+          "Q8": "Q8-O1",
+          "S1": "S1-O1",
+          "S2": "S2-O1",
+          "S3": 18,
+          "Q1": "Q1-O1",
+          "Q2": "Q2-O1",
+          "Q3": "Q3-O1",
+          "Q4": "Q4-O1",
+          "Q5": "Q5-O1",
+          "Q6": "Q6-O1",
+          "Q9": "Q9-O1",
+          "Q10": "Q10-O1",
+          "Q11": "Q11-O1",
+          "Q12": "Q12-O1",
+          "Q13": "Q13-O1",
+          "D1": "D1-O1",
+          "D2": "D2-O1"
+        },
+        "expected": {
+          "questions_seen_in_order": [
+            "S1",
+            "S2",
+            "S3",
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4",
+            "Q5",
+            "Q6",
+            "Q7",
+            "Q8",
+            "Q9",
+            "Q10",
+            "Q11",
+            "Q12",
+            "Q13",
+            "D1",
+            "D2",
+            "Q14"
+          ],
+          "questions_not_seen": [],
+          "ending_reached": "COMPLETE",
+          "blocked_at": null,
+          "quota_stopped": null,
+          "quota_over_target": null,
+          "validation_messages_expected": [],
+          "piped_text_visible": {
+            "Q2": "Provider A",
+            "Q3": "Provider A",
+            "Q5": "Provider A",
+            "Q9": "Dropped calls",
+            "Q10": "Yes, fully",
+            "Q11": "Provider A",
+            "Q12": "Provider A"
+          },
+          "option_lists_visible": {
+            "Q8": [
+              "Dropped calls"
+            ]
+          }
+        },
+        "proof": "Q9 predicted to render 'Dropped calls' in its wording",
+        "provisional_semantics": [
+          "multi_equality"
+        ],
+        "preconditions": {},
+        "campaign": {},
+        "covered_by": null
+      },
+      {
+        "scenario_id": "SC-dd33d9101e",
+        "target_id": "T-b6ca4e4ef3",
+        "dimension": "D6",
+        "status": "COVERED",
+        "reason": null,
+        "answers": {
+          "Q9": "Q9-O1",
+          "S1": "S1-O1",
+          "S2": "S2-O1",
+          "S3": 18,
+          "Q1": "Q1-O1",
+          "Q2": "Q2-O1",
+          "Q3": "Q3-O1",
+          "Q4": "Q4-O1",
+          "Q5": "Q5-O1",
+          "Q6": "Q6-O1",
+          "Q7": [
+            "Q7-O1"
+          ],
+          "Q8": "Q8-O1",
+          "Q10": "Q10-O1",
+          "Q11": "Q11-O1",
+          "Q12": "Q12-O1",
+          "Q13": "Q13-O1",
+          "D1": "D1-O1",
+          "D2": "D2-O1"
+        },
+        "expected": {
+          "questions_seen_in_order": [
+            "S1",
+            "S2",
+            "S3",
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4",
+            "Q5",
+            "Q6",
+            "Q7",
+            "Q8",
+            "Q9",
+            "Q10",
+            "Q11",
+            "Q12",
+            "Q13",
+            "D1",
+            "D2",
+            "Q14"
+          ],
+          "questions_not_seen": [],
+          "ending_reached": "COMPLETE",
+          "blocked_at": null,
+          "quota_stopped": null,
+          "quota_over_target": null,
+          "validation_messages_expected": [],
+          "piped_text_visible": {
+            "Q2": "Provider A",
+            "Q3": "Provider A",
+            "Q5": "Provider A",
+            "Q9": "Dropped calls",
+            "Q10": "Yes, fully",
+            "Q11": "Provider A",
+            "Q12": "Provider A"
+          },
+          "option_lists_visible": {
+            "Q8": [
+              "Dropped calls"
+            ]
+          }
+        },
+        "proof": "Q10 predicted to render 'Yes, fully' in its wording",
+        "provisional_semantics": [
+          "multi_equality"
+        ],
+        "preconditions": {},
+        "campaign": {},
+        "covered_by": null
+      },
+      {
+        "scenario_id": "SC-9afc774e41",
+        "target_id": "T-fed37f6213",
+        "dimension": "D7",
+        "status": "UNCOVERED",
+        "reason": "RANDOMIZATION_ANCHOR_UNDEFINED",
+        "answers": {},
+        "expected": {},
+        "proof": "anchored_origin=unknown: the QRE does not say which items are anchored, so there is no position to assert. Everything else about the shuffle is covered by the other two claims",
+        "provisional_semantics": [],
+        "preconditions": {},
+        "campaign": {},
+        "covered_by": null
+      },
+      {
+        "scenario_id": "SC-69f6b4cc7b",
+        "target_id": "T-fec7807e2e",
+        "dimension": "D7",
+        "status": "COVERED",
+        "reason": null,
+        "answers": {
+          "S1": "S1-O1",
+          "S2": "S2-O1",
+          "S3": 18,
+          "Q1": "Q1-O1",
+          "Q2": "Q2-O1",
+          "Q3": "Q3-O1",
+          "Q4": "Q4-O1",
+          "Q5": "Q5-O1",
+          "Q6": "Q6-O1",
+          "Q7": [
+            "Q7-O1"
+          ],
+          "Q8": "Q8-O1",
+          "Q9": "Q9-O1",
+          "Q10": "Q10-O1",
+          "Q11": "Q11-O1",
+          "Q12": "Q12-O1",
+          "Q13": "Q13-O1",
+          "D1": "D1-O1",
+          "D2": "D2-O1"
+        },
+        "expected": {
+          "questions_seen_in_order": [
+            "S1",
+            "S2",
+            "S3",
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4",
+            "Q5",
+            "Q6",
+            "Q7",
+            "Q8",
+            "Q9",
+            "Q10",
+            "Q11",
+            "Q12",
+            "Q13",
+            "D1",
+            "D2",
+            "Q14"
+          ],
+          "questions_not_seen": [],
+          "ending_reached": "COMPLETE",
+          "blocked_at": null,
+          "quota_stopped": null,
+          "quota_over_target": null,
+          "validation_messages_expected": [],
+          "piped_text_visible": {
+            "Q2": "Provider A",
+            "Q3": "Provider A",
+            "Q5": "Provider A",
+            "Q9": "Dropped calls",
+            "Q10": "Yes, fully",
+            "Q11": "Provider A",
+            "Q12": "Provider A"
+          },
+          "option_lists_visible": {
+            "Q8": [
+              "Dropped calls"
+            ]
+          }
+        },
+        "proof": "Q13 was reached, so its rendered option list can be counted against the 5 the QRE lists",
+        "provisional_semantics": [
+          "multi_equality"
+        ],
+        "preconditions": {},
+        "campaign": {},
+        "covered_by": null
+      },
+      {
+        "scenario_id": "SC-0372da2b56",
+        "target_id": "T-d5f886a336",
+        "dimension": "D7",
+        "status": "COVERED",
+        "reason": null,
+        "answers": {
+          "S1": "S1-O1",
+          "S2": "S2-O1",
+          "S3": 18,
+          "Q1": "Q1-O1",
+          "Q2": "Q2-O1",
+          "Q3": "Q3-O1",
+          "Q4": "Q4-O1",
+          "Q5": "Q5-O1",
+          "Q6": "Q6-O1",
+          "Q7": [
+            "Q7-O1"
+          ],
+          "Q8": "Q8-O1",
+          "Q9": "Q9-O1",
+          "Q10": "Q10-O1",
+          "Q11": "Q11-O1",
+          "Q12": "Q12-O1",
+          "Q13": "Q13-O1",
+          "D1": "D1-O1",
+          "D2": "D2-O1"
+        },
+        "expected": {
+          "questions_seen_in_order": [
+            "S1",
+            "S2",
+            "S3",
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4",
+            "Q5",
+            "Q6",
+            "Q7",
+            "Q8",
+            "Q9",
+            "Q10",
+            "Q11",
+            "Q12",
+            "Q13",
+            "D1",
+            "D2",
+            "Q14"
+          ],
+          "questions_not_seen": [],
+          "ending_reached": "COMPLETE",
+          "blocked_at": null,
+          "quota_stopped": null,
+          "quota_over_target": null,
+          "validation_messages_expected": [],
+          "piped_text_visible": {
+            "Q2": "Provider A",
+            "Q3": "Provider A",
+            "Q5": "Provider A",
+            "Q9": "Dropped calls",
+            "Q10": "Yes, fully",
+            "Q11": "Provider A",
+            "Q12": "Provider A"
+          },
+          "option_lists_visible": {
+            "Q8": [
+              "Dropped calls"
+            ]
+          }
+        },
+        "proof": "Q13 was reached, so the order it renders can be recorded and compared across repeated runs",
+        "provisional_semantics": [
+          "multi_equality"
+        ],
+        "preconditions": {},
+        "campaign": {
+          "repetitions": 5,
+          "compare": "display_order",
+          "question": "Q13"
+        },
+        "covered_by": null
+      },
+      {
+        "scenario_id": "SC-c57c6fa884",
+        "target_id": "T-666bbb60d0",
+        "dimension": "D7",
+        "status": "UNCOVERED",
+        "reason": "RANDOMIZATION_ANCHOR_UNDEFINED",
+        "answers": {},
+        "expected": {},
+        "proof": "anchored_origin=unknown: the QRE does not say which items are anchored, so there is no position to assert. Everything else about the shuffle is covered by the other two claims",
+        "provisional_semantics": [],
+        "preconditions": {},
+        "campaign": {},
+        "covered_by": null
+      },
+      {
+        "scenario_id": "SC-f039937c5a",
+        "target_id": "T-bf24c85774",
+        "dimension": "D7",
+        "status": "COVERED",
+        "reason": null,
+        "answers": {
+          "S1": "S1-O1",
+          "S2": "S2-O1",
+          "S3": 18,
+          "Q1": "Q1-O1",
+          "Q2": "Q2-O1",
+          "Q3": "Q3-O1",
+          "Q4": "Q4-O1",
+          "Q5": "Q5-O1",
+          "Q6": "Q6-O1",
+          "Q7": [
+            "Q7-O1"
+          ],
+          "Q8": "Q8-O1",
+          "Q9": "Q9-O1",
+          "Q10": "Q10-O1",
+          "Q11": "Q11-O1",
+          "Q12": "Q12-O1",
+          "Q13": "Q13-O1",
+          "D1": "D1-O1",
+          "D2": "D2-O1"
+        },
+        "expected": {
+          "questions_seen_in_order": [
+            "S1",
+            "S2",
+            "S3",
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4",
+            "Q5",
+            "Q6",
+            "Q7",
+            "Q8",
+            "Q9",
+            "Q10",
+            "Q11",
+            "Q12",
+            "Q13",
+            "D1",
+            "D2",
+            "Q14"
+          ],
+          "questions_not_seen": [],
+          "ending_reached": "COMPLETE",
+          "blocked_at": null,
+          "quota_stopped": null,
+          "quota_over_target": null,
+          "validation_messages_expected": [],
+          "piped_text_visible": {
+            "Q2": "Provider A",
+            "Q3": "Provider A",
+            "Q5": "Provider A",
+            "Q9": "Dropped calls",
+            "Q10": "Yes, fully",
+            "Q11": "Provider A",
+            "Q12": "Provider A"
+          },
+          "option_lists_visible": {
+            "Q8": [
+              "Dropped calls"
+            ]
+          }
+        },
+        "proof": "Q3 was reached, so its rendered option list can be counted against the 5 the QRE lists",
+        "provisional_semantics": [
+          "multi_equality"
+        ],
+        "preconditions": {},
+        "campaign": {},
+        "covered_by": null
+      },
+      {
+        "scenario_id": "SC-5e4d6c0be3",
+        "target_id": "T-2f48b28f6f",
+        "dimension": "D7",
+        "status": "COVERED",
+        "reason": null,
+        "answers": {
+          "S1": "S1-O1",
+          "S2": "S2-O1",
+          "S3": 18,
+          "Q1": "Q1-O1",
+          "Q2": "Q2-O1",
+          "Q3": "Q3-O1",
+          "Q4": "Q4-O1",
+          "Q5": "Q5-O1",
+          "Q6": "Q6-O1",
+          "Q7": [
+            "Q7-O1"
+          ],
+          "Q8": "Q8-O1",
+          "Q9": "Q9-O1",
+          "Q10": "Q10-O1",
+          "Q11": "Q11-O1",
+          "Q12": "Q12-O1",
+          "Q13": "Q13-O1",
+          "D1": "D1-O1",
+          "D2": "D2-O1"
+        },
+        "expected": {
+          "questions_seen_in_order": [
+            "S1",
+            "S2",
+            "S3",
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4",
+            "Q5",
+            "Q6",
+            "Q7",
+            "Q8",
+            "Q9",
+            "Q10",
+            "Q11",
+            "Q12",
+            "Q13",
+            "D1",
+            "D2",
+            "Q14"
+          ],
+          "questions_not_seen": [],
+          "ending_reached": "COMPLETE",
+          "blocked_at": null,
+          "quota_stopped": null,
+          "quota_over_target": null,
+          "validation_messages_expected": [],
+          "piped_text_visible": {
+            "Q2": "Provider A",
+            "Q3": "Provider A",
+            "Q5": "Provider A",
+            "Q9": "Dropped calls",
+            "Q10": "Yes, fully",
+            "Q11": "Provider A",
+            "Q12": "Provider A"
+          },
+          "option_lists_visible": {
+            "Q8": [
+              "Dropped calls"
+            ]
+          }
+        },
+        "proof": "Q3 was reached, so the order it renders can be recorded and compared across repeated runs",
+        "provisional_semantics": [
+          "multi_equality"
+        ],
+        "preconditions": {},
+        "campaign": {
+          "repetitions": 5,
+          "compare": "display_order",
+          "question": "Q3"
+        },
+        "covered_by": null
+      },
+      {
+        "scenario_id": "SC-17738715d5",
+        "target_id": "T-a66e4b4651",
+        "dimension": "D7",
+        "status": "UNCOVERED",
+        "reason": "RANDOMIZATION_ANCHOR_UNDEFINED",
+        "answers": {},
+        "expected": {},
+        "proof": "anchored_origin=ambiguous: the QRE does not say which items are anchored, so there is no position to assert. Everything else about the shuffle is covered by the other two claims",
+        "provisional_semantics": [],
+        "preconditions": {},
+        "campaign": {},
+        "covered_by": null
+      },
+      {
+        "scenario_id": "SC-7ce3096373",
+        "target_id": "T-d4dc71a8ec",
+        "dimension": "D7",
+        "status": "COVERED",
+        "reason": null,
+        "answers": {
+          "S1": "S1-O1",
+          "S2": "S2-O1",
+          "S3": 18,
+          "Q1": "Q1-O1",
+          "Q2": "Q2-O1",
+          "Q3": "Q3-O1",
+          "Q4": "Q4-O1",
+          "Q5": "Q5-O1",
+          "Q6": "Q6-O1",
+          "Q7": [
+            "Q7-O1"
+          ],
+          "Q8": "Q8-O1",
+          "Q9": "Q9-O1",
+          "Q10": "Q10-O1",
+          "Q11": "Q11-O1",
+          "Q12": "Q12-O1",
+          "Q13": "Q13-O1",
+          "D1": "D1-O1",
+          "D2": "D2-O1"
+        },
+        "expected": {
+          "questions_seen_in_order": [
+            "S1",
+            "S2",
+            "S3",
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4",
+            "Q5",
+            "Q6",
+            "Q7",
+            "Q8",
+            "Q9",
+            "Q10",
+            "Q11",
+            "Q12",
+            "Q13",
+            "D1",
+            "D2",
+            "Q14"
+          ],
+          "questions_not_seen": [],
+          "ending_reached": "COMPLETE",
+          "blocked_at": null,
+          "quota_stopped": null,
+          "quota_over_target": null,
+          "validation_messages_expected": [],
+          "piped_text_visible": {
+            "Q2": "Provider A",
+            "Q3": "Provider A",
+            "Q5": "Provider A",
+            "Q9": "Dropped calls",
+            "Q10": "Yes, fully",
+            "Q11": "Provider A",
+            "Q12": "Provider A"
+          },
+          "option_lists_visible": {
+            "Q8": [
+              "Dropped calls"
+            ]
+          }
+        },
+        "proof": "Q7 was reached, so its rendered option list can be counted against the 6 the QRE lists",
+        "provisional_semantics": [
+          "multi_equality"
+        ],
+        "preconditions": {},
+        "campaign": {},
+        "covered_by": null
+      },
+      {
+        "scenario_id": "SC-20118df0c1",
+        "target_id": "T-968451c47e",
+        "dimension": "D7",
+        "status": "COVERED",
+        "reason": null,
+        "answers": {
+          "S1": "S1-O1",
+          "S2": "S2-O1",
+          "S3": 18,
+          "Q1": "Q1-O1",
+          "Q2": "Q2-O1",
+          "Q3": "Q3-O1",
+          "Q4": "Q4-O1",
+          "Q5": "Q5-O1",
+          "Q6": "Q6-O1",
+          "Q7": [
+            "Q7-O1"
+          ],
+          "Q8": "Q8-O1",
+          "Q9": "Q9-O1",
+          "Q10": "Q10-O1",
+          "Q11": "Q11-O1",
+          "Q12": "Q12-O1",
+          "Q13": "Q13-O1",
+          "D1": "D1-O1",
+          "D2": "D2-O1"
+        },
+        "expected": {
+          "questions_seen_in_order": [
+            "S1",
+            "S2",
+            "S3",
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4",
+            "Q5",
+            "Q6",
+            "Q7",
+            "Q8",
+            "Q9",
+            "Q10",
+            "Q11",
+            "Q12",
+            "Q13",
+            "D1",
+            "D2",
+            "Q14"
+          ],
+          "questions_not_seen": [],
+          "ending_reached": "COMPLETE",
+          "blocked_at": null,
+          "quota_stopped": null,
+          "quota_over_target": null,
+          "validation_messages_expected": [],
+          "piped_text_visible": {
+            "Q2": "Provider A",
+            "Q3": "Provider A",
+            "Q5": "Provider A",
+            "Q9": "Dropped calls",
+            "Q10": "Yes, fully",
+            "Q11": "Provider A",
+            "Q12": "Provider A"
+          },
+          "option_lists_visible": {
+            "Q8": [
+              "Dropped calls"
+            ]
+          }
+        },
+        "proof": "Q7 was reached, so the order it renders can be recorded and compared across repeated runs",
+        "provisional_semantics": [
+          "multi_equality"
+        ],
+        "preconditions": {},
+        "campaign": {
+          "repetitions": 5,
+          "compare": "display_order",
+          "question": "Q7"
+        },
+        "covered_by": null
+      },
+      {
+        "scenario_id": "SC-6aa9a004a4",
+        "target_id": "T-0afd1d6279",
+        "dimension": "D8",
+        "status": "COVERED",
+        "reason": null,
+        "answers": {
+          "D1": "D1-O1",
+          "S1": "S1-O1",
+          "S2": "S2-O1",
+          "S3": 18,
+          "Q1": "Q1-O1",
+          "Q2": "Q2-O1",
+          "Q3": "Q3-O1",
+          "Q4": "Q4-O1",
+          "Q5": "Q5-O1",
+          "Q6": "Q6-O1",
+          "Q7": [
+            "Q7-O1"
+          ],
+          "Q8": "Q8-O1",
+          "Q9": "Q9-O1",
+          "Q10": "Q10-O1",
+          "Q11": "Q11-O1",
+          "Q12": "Q12-O1",
+          "Q13": "Q13-O1",
+          "D2": "D2-O1"
+        },
+        "expected": {
+          "questions_seen_in_order": [
+            "S1",
+            "S2",
+            "S3",
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4",
+            "Q5",
+            "Q6",
+            "Q7",
+            "Q8",
+            "Q9",
+            "Q10",
+            "Q11",
+            "Q12",
+            "Q13",
+            "D1",
+            "D2",
+            "Q14"
+          ],
+          "questions_not_seen": [],
+          "ending_reached": "COMPLETE",
+          "blocked_at": null,
+          "quota_stopped": null,
+          "quota_over_target": null,
+          "validation_messages_expected": [],
+          "piped_text_visible": {
+            "Q2": "Provider A",
+            "Q3": "Provider A",
+            "Q5": "Provider A",
+            "Q9": "Dropped calls",
+            "Q10": "Yes, fully",
+            "Q11": "Provider A",
+            "Q12": "Provider A"
+          },
+          "option_lists_visible": {
+            "Q8": [
+              "Dropped calls"
+            ]
+          }
+        },
+        "proof": "respondent admitted into the cell and reached COMPLETE",
+        "provisional_semantics": [
+          "multi_equality"
+        ],
+        "preconditions": {},
+        "campaign": {},
+        "covered_by": null
+      },
+      {
+        "scenario_id": "SC-c80ceef825",
+        "target_id": "T-641fc8c311",
+        "dimension": "D8",
+        "status": "UNCOVERED",
+        "reason": "QUOTA_SIZE_UNDEFINED",
+        "answers": {},
+        "expected": {},
+        "proof": "target is 20.0% with no stated sample size, so a fill campaign cannot be sized",
+        "provisional_semantics": [],
+        "preconditions": {},
+        "campaign": {},
+        "covered_by": null
+      },
+      {
+        "scenario_id": "SC-b4ce55262f",
+        "target_id": "T-7a95930f2f",
+        "dimension": "D8",
+        "status": "COVERED",
+        "reason": null,
+        "answers": {
+          "D1": "D1-O2",
+          "S1": "S1-O1",
+          "S2": "S2-O1",
+          "S3": 18,
+          "Q1": "Q1-O1",
+          "Q2": "Q2-O1",
+          "Q3": "Q3-O1",
+          "Q4": "Q4-O1",
+          "Q5": "Q5-O1",
+          "Q6": "Q6-O1",
+          "Q7": [
+            "Q7-O1"
+          ],
+          "Q8": "Q8-O1",
+          "Q9": "Q9-O1",
+          "Q10": "Q10-O1",
+          "Q11": "Q11-O1",
+          "Q12": "Q12-O1",
+          "Q13": "Q13-O1",
+          "D2": "D2-O1"
+        },
+        "expected": {
+          "questions_seen_in_order": [
+            "S1",
+            "S2",
+            "S3",
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4",
+            "Q5",
+            "Q6",
+            "Q7",
+            "Q8",
+            "Q9",
+            "Q10",
+            "Q11",
+            "Q12",
+            "Q13",
+            "D1",
+            "D2",
+            "Q14"
+          ],
+          "questions_not_seen": [],
+          "ending_reached": "COMPLETE",
+          "blocked_at": null,
+          "quota_stopped": null,
+          "quota_over_target": null,
+          "validation_messages_expected": [],
+          "piped_text_visible": {
+            "Q2": "Provider A",
+            "Q3": "Provider A",
+            "Q5": "Provider A",
+            "Q9": "Dropped calls",
+            "Q10": "Yes, fully",
+            "Q11": "Provider A",
+            "Q12": "Provider A"
+          },
+          "option_lists_visible": {
+            "Q8": [
+              "Dropped calls"
+            ]
+          }
+        },
+        "proof": "respondent admitted into the cell and reached COMPLETE",
+        "provisional_semantics": [
+          "multi_equality"
+        ],
+        "preconditions": {},
+        "campaign": {},
+        "covered_by": null
+      },
+      {
+        "scenario_id": "SC-f864a7ee39",
+        "target_id": "T-577e4a28a0",
+        "dimension": "D8",
+        "status": "UNCOVERED",
+        "reason": "QUOTA_SIZE_UNDEFINED",
+        "answers": {},
+        "expected": {},
+        "proof": "target is 20.0% with no stated sample size, so a fill campaign cannot be sized",
+        "provisional_semantics": [],
+        "preconditions": {},
+        "campaign": {},
+        "covered_by": null
+      },
+      {
+        "scenario_id": "SC-774e51db6b",
+        "target_id": "T-b0edda32be",
+        "dimension": "D8",
+        "status": "COVERED",
+        "reason": null,
+        "answers": {
+          "D1": "D1-O3",
+          "S1": "S1-O1",
+          "S2": "S2-O1",
+          "S3": 18,
+          "Q1": "Q1-O1",
+          "Q2": "Q2-O1",
+          "Q3": "Q3-O1",
+          "Q4": "Q4-O1",
+          "Q5": "Q5-O1",
+          "Q6": "Q6-O1",
+          "Q7": [
+            "Q7-O1"
+          ],
+          "Q8": "Q8-O1",
+          "Q9": "Q9-O1",
+          "Q10": "Q10-O1",
+          "Q11": "Q11-O1",
+          "Q12": "Q12-O1",
+          "Q13": "Q13-O1",
+          "D2": "D2-O1"
+        },
+        "expected": {
+          "questions_seen_in_order": [
+            "S1",
+            "S2",
+            "S3",
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4",
+            "Q5",
+            "Q6",
+            "Q7",
+            "Q8",
+            "Q9",
+            "Q10",
+            "Q11",
+            "Q12",
+            "Q13",
+            "D1",
+            "D2",
+            "Q14"
+          ],
+          "questions_not_seen": [],
+          "ending_reached": "COMPLETE",
+          "blocked_at": null,
+          "quota_stopped": null,
+          "quota_over_target": null,
+          "validation_messages_expected": [],
+          "piped_text_visible": {
+            "Q2": "Provider A",
+            "Q3": "Provider A",
+            "Q5": "Provider A",
+            "Q9": "Dropped calls",
+            "Q10": "Yes, fully",
+            "Q11": "Provider A",
+            "Q12": "Provider A"
+          },
+          "option_lists_visible": {
+            "Q8": [
+              "Dropped calls"
+            ]
+          }
+        },
+        "proof": "respondent admitted into the cell and reached COMPLETE",
+        "provisional_semantics": [
+          "multi_equality"
+        ],
+        "preconditions": {},
+        "campaign": {},
+        "covered_by": null
+      },
+      {
+        "scenario_id": "SC-798f6c9ea8",
+        "target_id": "T-e3d9a4d768",
+        "dimension": "D8",
+        "status": "UNCOVERED",
+        "reason": "QUOTA_SIZE_UNDEFINED",
+        "answers": {},
+        "expected": {},
+        "proof": "target is 20.0% with no stated sample size, so a fill campaign cannot be sized",
+        "provisional_semantics": [],
+        "preconditions": {},
+        "campaign": {},
+        "covered_by": null
+      },
+      {
+        "scenario_id": "SC-9dc14e7a3b",
+        "target_id": "T-f399598e21",
+        "dimension": "D8",
+        "status": "COVERED",
+        "reason": null,
+        "answers": {
+          "D1": "D1-O4",
+          "S1": "S1-O1",
+          "S2": "S2-O1",
+          "S3": 18,
+          "Q1": "Q1-O1",
+          "Q2": "Q2-O1",
+          "Q3": "Q3-O1",
+          "Q4": "Q4-O1",
+          "Q5": "Q5-O1",
+          "Q6": "Q6-O1",
+          "Q7": [
+            "Q7-O1"
+          ],
+          "Q8": "Q8-O1",
+          "Q9": "Q9-O1",
+          "Q10": "Q10-O1",
+          "Q11": "Q11-O1",
+          "Q12": "Q12-O1",
+          "Q13": "Q13-O1",
+          "D2": "D2-O1"
+        },
+        "expected": {
+          "questions_seen_in_order": [
+            "S1",
+            "S2",
+            "S3",
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4",
+            "Q5",
+            "Q6",
+            "Q7",
+            "Q8",
+            "Q9",
+            "Q10",
+            "Q11",
+            "Q12",
+            "Q13",
+            "D1",
+            "D2",
+            "Q14"
+          ],
+          "questions_not_seen": [],
+          "ending_reached": "COMPLETE",
+          "blocked_at": null,
+          "quota_stopped": null,
+          "quota_over_target": null,
+          "validation_messages_expected": [],
+          "piped_text_visible": {
+            "Q2": "Provider A",
+            "Q3": "Provider A",
+            "Q5": "Provider A",
+            "Q9": "Dropped calls",
+            "Q10": "Yes, fully",
+            "Q11": "Provider A",
+            "Q12": "Provider A"
+          },
+          "option_lists_visible": {
+            "Q8": [
+              "Dropped calls"
+            ]
+          }
+        },
+        "proof": "respondent admitted into the cell and reached COMPLETE",
+        "provisional_semantics": [
+          "multi_equality"
+        ],
+        "preconditions": {},
+        "campaign": {},
+        "covered_by": null
+      },
+      {
+        "scenario_id": "SC-654d218d04",
+        "target_id": "T-8b94d3b69f",
+        "dimension": "D8",
+        "status": "UNCOVERED",
+        "reason": "QUOTA_SIZE_UNDEFINED",
+        "answers": {},
+        "expected": {},
+        "proof": "target is 20.0% with no stated sample size, so a fill campaign cannot be sized",
+        "provisional_semantics": [],
+        "preconditions": {},
+        "campaign": {},
+        "covered_by": null
+      },
+      {
+        "scenario_id": "SC-5ab065f996",
+        "target_id": "T-f2a7b18b9d",
+        "dimension": "D8",
+        "status": "COVERED",
+        "reason": null,
+        "answers": {
+          "D1": "D1-O5",
+          "S1": "S1-O1",
+          "S2": "S2-O1",
+          "S3": 18,
+          "Q1": "Q1-O1",
+          "Q2": "Q2-O1",
+          "Q3": "Q3-O1",
+          "Q4": "Q4-O1",
+          "Q5": "Q5-O1",
+          "Q6": "Q6-O1",
+          "Q7": [
+            "Q7-O1"
+          ],
+          "Q8": "Q8-O1",
+          "Q9": "Q9-O1",
+          "Q10": "Q10-O1",
+          "Q11": "Q11-O1",
+          "Q12": "Q12-O1",
+          "Q13": "Q13-O1",
+          "D2": "D2-O1"
+        },
+        "expected": {
+          "questions_seen_in_order": [
+            "S1",
+            "S2",
+            "S3",
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4",
+            "Q5",
+            "Q6",
+            "Q7",
+            "Q8",
+            "Q9",
+            "Q10",
+            "Q11",
+            "Q12",
+            "Q13",
+            "D1",
+            "D2",
+            "Q14"
+          ],
+          "questions_not_seen": [],
+          "ending_reached": "COMPLETE",
+          "blocked_at": null,
+          "quota_stopped": null,
+          "quota_over_target": null,
+          "validation_messages_expected": [],
+          "piped_text_visible": {
+            "Q2": "Provider A",
+            "Q3": "Provider A",
+            "Q5": "Provider A",
+            "Q9": "Dropped calls",
+            "Q10": "Yes, fully",
+            "Q11": "Provider A",
+            "Q12": "Provider A"
+          },
+          "option_lists_visible": {
+            "Q8": [
+              "Dropped calls"
+            ]
+          }
+        },
+        "proof": "respondent admitted into the cell and reached COMPLETE",
+        "provisional_semantics": [
+          "multi_equality"
+        ],
+        "preconditions": {},
+        "campaign": {},
+        "covered_by": null
+      },
+      {
+        "scenario_id": "SC-9d2be58873",
+        "target_id": "T-c56e38f587",
+        "dimension": "D8",
+        "status": "UNCOVERED",
+        "reason": "QUOTA_SIZE_UNDEFINED",
+        "answers": {},
+        "expected": {},
+        "proof": "target is 20.0% with no stated sample size, so a fill campaign cannot be sized",
+        "provisional_semantics": [],
+        "preconditions": {},
+        "campaign": {},
+        "covered_by": null
+      },
+      {
+        "scenario_id": "SC-f6544e8f78",
+        "target_id": "T-2a5b07540f",
+        "dimension": "D9",
+        "status": "COVERED",
+        "reason": null,
+        "answers": {
+          "Q7": [
+            "Q7-O1"
+          ],
+          "S1": "S1-O1",
+          "S2": "S2-O1",
+          "S3": 18,
+          "Q1": "Q1-O1",
+          "Q2": "Q2-O1",
+          "Q3": "Q3-O1",
+          "Q4": "Q4-O1",
+          "Q5": "Q5-O1",
+          "Q6": "Q6-O1",
+          "Q8": "Q8-O1",
+          "Q9": "Q9-O1",
+          "Q10": "Q10-O1",
+          "Q11": "Q11-O1",
+          "Q12": "Q12-O1",
+          "Q13": "Q13-O1",
+          "D1": "D1-O1",
+          "D2": "D2-O1"
+        },
+        "expected": {
+          "questions_seen_in_order": [
+            "S1",
+            "S2",
+            "S3",
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4",
+            "Q5",
+            "Q6",
+            "Q7",
+            "Q8",
+            "Q9",
+            "Q10",
+            "Q11",
+            "Q12",
+            "Q13",
+            "D1",
+            "D2",
+            "Q14"
+          ],
+          "questions_not_seen": [],
+          "ending_reached": "COMPLETE",
+          "blocked_at": null,
+          "quota_stopped": null,
+          "quota_over_target": null,
+          "validation_messages_expected": [],
+          "piped_text_visible": {
+            "Q2": "Provider A",
+            "Q3": "Provider A",
+            "Q5": "Provider A",
+            "Q9": "Dropped calls",
+            "Q10": "Yes, fully",
+            "Q11": "Provider A",
+            "Q12": "Provider A"
+          },
+          "option_lists_visible": {
+            "Q8": [
+              "Dropped calls"
+            ]
+          }
+        },
+        "proof": "Q8 shown by its guard and reflecting its dependency",
+        "provisional_semantics": [
+          "multi_equality"
+        ],
+        "preconditions": {},
+        "campaign": {},
+        "covered_by": null
+      },
+      {
+        "scenario_id": "SC-309bff26c7",
+        "target_id": "T-beab00ecea",
+        "dimension": "D9",
+        "status": "COVERED",
+        "reason": null,
+        "answers": {
+          "Q7": [
+            "Q7-O1"
+          ],
+          "Q8": "Q8-O1",
+          "S1": "S1-O1",
+          "S2": "S2-O1",
+          "S3": 18,
+          "Q1": "Q1-O1",
+          "Q2": "Q2-O1",
+          "Q3": "Q3-O1",
+          "Q4": "Q4-O1",
+          "Q5": "Q5-O1",
+          "Q6": "Q6-O1",
+          "Q9": "Q9-O1",
+          "Q10": "Q10-O1",
+          "Q11": "Q11-O1",
+          "Q12": "Q12-O1",
+          "Q13": "Q13-O1",
+          "D1": "D1-O1",
+          "D2": "D2-O1"
+        },
+        "expected": {
+          "questions_seen_in_order": [
+            "S1",
+            "S2",
+            "S3",
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4",
+            "Q5",
+            "Q6",
+            "Q7",
+            "Q8",
+            "Q9",
+            "Q10",
+            "Q11",
+            "Q12",
+            "Q13",
+            "D1",
+            "D2",
+            "Q14"
+          ],
+          "questions_not_seen": [],
+          "ending_reached": "COMPLETE",
+          "blocked_at": null,
+          "quota_stopped": null,
+          "quota_over_target": null,
+          "validation_messages_expected": [],
+          "piped_text_visible": {
+            "Q2": "Provider A",
+            "Q3": "Provider A",
+            "Q5": "Provider A",
+            "Q9": "Dropped calls",
+            "Q10": "Yes, fully",
+            "Q11": "Provider A",
+            "Q12": "Provider A"
+          },
+          "option_lists_visible": {
+            "Q8": [
+              "Dropped calls"
+            ]
+          }
+        },
+        "proof": "Q9 shown by its guard and reflecting its dependency",
+        "provisional_semantics": [
+          "multi_equality"
+        ],
+        "preconditions": {},
+        "campaign": {},
+        "covered_by": null
+      },
+      {
+        "scenario_id": "SC-8ab88ee12b",
+        "target_id": "T-a085596407",
+        "dimension": "D9",
+        "status": "COVERED",
+        "reason": null,
+        "answers": {
+          "Q9": "Q9-O1",
+          "S1": "S1-O1",
+          "S2": "S2-O1",
+          "S3": 18,
+          "Q1": "Q1-O1",
+          "Q2": "Q2-O1",
+          "Q3": "Q3-O1",
+          "Q4": "Q4-O1",
+          "Q5": "Q5-O1",
+          "Q6": "Q6-O1",
+          "Q7": [
+            "Q7-O1"
+          ],
+          "Q8": "Q8-O1",
+          "Q10": "Q10-O1",
+          "Q11": "Q11-O1",
+          "Q12": "Q12-O1",
+          "Q13": "Q13-O1",
+          "D1": "D1-O1",
+          "D2": "D2-O1"
+        },
+        "expected": {
+          "questions_seen_in_order": [
+            "S1",
+            "S2",
+            "S3",
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4",
+            "Q5",
+            "Q6",
+            "Q7",
+            "Q8",
+            "Q9",
+            "Q10",
+            "Q11",
+            "Q12",
+            "Q13",
+            "D1",
+            "D2",
+            "Q14"
+          ],
+          "questions_not_seen": [],
+          "ending_reached": "COMPLETE",
+          "blocked_at": null,
+          "quota_stopped": null,
+          "quota_over_target": null,
+          "validation_messages_expected": [],
+          "piped_text_visible": {
+            "Q2": "Provider A",
+            "Q3": "Provider A",
+            "Q5": "Provider A",
+            "Q9": "Dropped calls",
+            "Q10": "Yes, fully",
+            "Q11": "Provider A",
+            "Q12": "Provider A"
+          },
+          "option_lists_visible": {
+            "Q8": [
+              "Dropped calls"
+            ]
+          }
+        },
+        "proof": "Q10 shown by its guard and reflecting its dependency",
+        "provisional_semantics": [
+          "multi_equality"
+        ],
+        "preconditions": {},
+        "campaign": {},
+        "covered_by": null
+      },
+      {
+        "scenario_id": "SC-f67bc761fd",
+        "target_id": "T-414b33676a",
+        "dimension": "D3",
+        "status": "UNCOVERED",
+        "reason": "BOUND_REACHED",
+        "answers": {},
+        "expected": {},
+        "proof": "unsupported operator `lt`",
+        "provisional_semantics": [],
+        "preconditions": {},
+        "campaign": {},
+        "covered_by": null
+      },
+      {
+        "scenario_id": "SC-0c55785a16",
+        "target_id": "T-ccda032495",
+        "dimension": "D3",
+        "status": "UNCOVERED",
+        "reason": "BOUND_REACHED",
+        "answers": {},
+        "expected": {},
+        "proof": "unsupported operator `gt`",
+        "provisional_semantics": [],
+        "preconditions": {},
+        "campaign": {},
+        "covered_by": null
+      },
+      {
+        "scenario_id": "SC-2c9b243d2f",
+        "target_id": "T-3da10efb75",
+        "dimension": "D3",
+        "status": "COVERED",
+        "reason": null,
+        "answers": {
+          "Q7": [
+            "Q7-O1"
+          ],
+          "S1": "S1-O1",
+          "S2": "S2-O1",
+          "S3": 18,
+          "Q1": "Q1-O1",
+          "Q2": "Q2-O1",
+          "Q3": "Q3-O1",
+          "Q4": "Q4-O1",
+          "Q5": "Q5-O1",
+          "Q6": "Q6-O1",
+          "Q8": "Q8-O1",
+          "Q9": "Q9-O1",
+          "Q10": "Q10-O1",
+          "Q11": "Q11-O1",
+          "Q12": "Q12-O1",
+          "Q13": "Q13-O1",
+          "D1": "D1-O1",
+          "D2": "D2-O1"
+        },
+        "expected": {
+          "questions_seen_in_order": [
+            "S1",
+            "S2",
+            "S3",
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4",
+            "Q5",
+            "Q6",
+            "Q7",
+            "Q8",
+            "Q9",
+            "Q10",
+            "Q11",
+            "Q12",
+            "Q13",
+            "D1",
+            "D2",
+            "Q14"
+          ],
+          "questions_not_seen": [],
+          "ending_reached": "COMPLETE",
+          "blocked_at": null,
+          "quota_stopped": null,
+          "quota_over_target": null,
+          "validation_messages_expected": [],
+          "piped_text_visible": {
+            "Q2": "Provider A",
+            "Q3": "Provider A",
+            "Q5": "Provider A",
+            "Q9": "Dropped calls",
+            "Q10": "Yes, fully",
+            "Q11": "Provider A",
+            "Q12": "Provider A"
+          },
+          "option_lists_visible": {
+            "Q8": [
+              "Dropped calls"
+            ]
+          }
+        },
+        "proof": "R9 correctly did not fire",
+        "provisional_semantics": [
+          "multi_equality"
+        ],
+        "preconditions": {},
+        "campaign": {},
+        "covered_by": null
+      },
+      {
+        "scenario_id": "SC-68972995ac",
+        "target_id": "T-ceb855fe70",
+        "dimension": "D3",
+        "status": "COVERED",
+        "reason": null,
+        "answers": {
+          "Q7": [
+            "Q7-O1",
+            "Q7-O6"
+          ],
+          "S1": "S1-O1",
+          "S2": "S2-O1",
+          "S3": 18,
+          "Q1": "Q1-O1",
+          "Q2": "Q2-O1",
+          "Q3": "Q3-O1",
+          "Q4": "Q4-O1",
+          "Q5": "Q5-O1",
+          "Q6": "Q6-O1",
+          "Q8": "Q8-O1",
+          "Q9": "Q9-O1",
+          "Q10": "Q10-O1",
+          "Q11": "Q11-O1",
+          "Q12": "Q12-O1",
+          "Q13": "Q13-O1",
+          "D1": "D1-O1",
+          "D2": "D2-O1"
+        },
+        "expected": {
+          "questions_seen_in_order": [
+            "S1",
+            "S2",
+            "S3",
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4",
+            "Q5",
+            "Q6",
+            "Q7"
+          ],
+          "questions_not_seen": [
+            "Q8",
+            "Q9",
+            "Q10",
+            "Q11",
+            "Q12",
+            "Q13",
+            "D1",
+            "D2",
+            "Q14"
+          ],
+          "ending_reached": null,
+          "blocked_at": "Q7",
+          "quota_stopped": null,
+          "quota_over_target": null,
+          "validation_messages_expected": [
+            {
+              "question_id": "Q7",
+              "rule": "exclusive_option",
+              "outcome": "violated",
+              "detail": "exclusive option Q7-O6 chosen alongside ['Q7-O1']"
+            }
+          ],
+          "piped_text_visible": {
+            "Q2": "Provider A",
+            "Q3": "Provider A",
+            "Q5": "Provider A"
+          },
+          "option_lists_visible": {}
+        },
+        "proof": "reject rule R9 fired as expected, at one of the questions its condition names (['Q7'])",
+        "provisional_semantics": [],
+        "preconditions": {},
+        "campaign": {},
+        "covered_by": null
+      }
+    ]
+  }
+}

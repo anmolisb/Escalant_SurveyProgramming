@@ -1,0 +1,47 @@
+{
+  "survey_id": "M01_mobile_network_experience",
+  "sample_size_supplied": null,
+  "anchors_supplied": [],
+  "covered_without_a_separate_run": 0,
+  "targets": 95,
+  "per_dimension": {
+    "D1": 29,
+    "D2": 4,
+    "D3": 12,
+    "D4": 20,
+    "D5": 1,
+    "D6": 7,
+    "D7": 9,
+    "D8": 10,
+    "D9": 3
+  },
+  "feasible_witnesses": 84,
+  "covered": 83,
+  "logical_tests": 83,
+  "coverage_floor_pct": 50.0,
+  "coverage_floor_dimension": "D8",
+  "executable_tests": 83,
+  "executable_coverage_pct": 87.4,
+  "compilation_refused": 0,
+  "conformance_verdict": "CONFORMS_WITH_FINDINGS",
+  "conformance_blocking": 0,
+  "semantics_provisional": [
+    "multi_equality",
+    "rule_precedence",
+    "unasked_reference",
+    "whitespace_is_an_answer"
+  ],
+  "specification_replay": "5 agree / 0 disagree / 0 unresolved of 5",
+  "output_dir": "out/M01_mobile_network_experience/agent3",
+  "coverage_vector": {
+    "D1": "29/29 (100.0%) EXHAUSTIVE",
+    "D2": "3/4 (75.0%) PARTIAL",
+    "D3": "9/12 (75.0%) BOUNDED",
+    "D4": "20/20 (100.0%) EXHAUSTIVE",
+    "D5": "1/1 (100.0%) EXHAUSTIVE",
+    "D6": "7/7 (100.0%) EXHAUSTIVE",
+    "D7": "6/9 (66.7%) PARTIAL",
+    "D8": "5/10 (50.0%) PARTIAL",
+    "D9": "3/3 (100.0%) BOUNDED"
+  }
+}

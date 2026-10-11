@@ -1,6 +1,6 @@
 {
   "survey": "C01_chronic_care_patient_journey",
-  "run_at": "2026-10-04T23:57:31",
+  "run_at": "2026-10-11T14:14:39",
   "journeys": [
     {
       "path_id": "P01",
@@ -16,7 +16,9 @@
       "real_broke_at": "",
       "real_first_failure": "",
       "real_first_order": 9999,
-      "causes": []
+      "causes": [],
+      "status": "WORKING",
+      "status_note": "every test on this journey passed"
     },
     {
       "path_id": "P02",
@@ -32,7 +34,9 @@
       "real_broke_at": "",
       "real_first_failure": "",
       "real_first_order": 9999,
-      "causes": []
+      "causes": [],
+      "status": "WORKING",
+      "status_note": "every test on this journey passed"
     },
     {
       "path_id": "P03",
@@ -48,7 +52,9 @@
       "real_broke_at": "",
       "real_first_failure": "",
       "real_first_order": 9999,
-      "causes": []
+      "causes": [],
+      "status": "WORKING",
+      "status_note": "every test on this journey passed"
     },
     {
       "path_id": "P04",
@@ -64,7 +70,9 @@
       "real_broke_at": "",
       "real_first_failure": "",
       "real_first_order": 9999,
-      "causes": []
+      "causes": [],
+      "status": "WORKING",
+      "status_note": "every test on this journey passed"
     },
     {
       "path_id": "P05",
@@ -83,7 +91,9 @@
       "causes": [
         "COVERAGE_GAP",
         "NEEDS_SAMPLE"
-      ]
+      ],
+      "status": "NOT PROVEN",
+      "status_note": "nothing on this journey is known to be wrong, but not everything could be proved: COVERAGE_GAP, NEEDS_SAMPLE"
     },
     {
       "path_id": "P06",
@@ -101,7 +111,9 @@
       "real_first_order": 9999,
       "causes": [
         "COVERAGE_GAP"
-      ]
+      ],
+      "status": "NOT PROVEN",
+      "status_note": "nothing on this journey is known to be wrong, but not everything could be proved: COVERAGE_GAP"
     },
     {
       "path_id": "P07",
@@ -117,7 +129,9 @@
       "real_broke_at": "",
       "real_first_failure": "",
       "real_first_order": 9999,
-      "causes": []
+      "causes": [],
+      "status": "WORKING",
+      "status_note": "every test on this journey passed"
     },
     {
       "path_id": "P08",
@@ -137,7 +151,9 @@
         "UNSETTLED_QUESTION",
         "COVERAGE_GAP",
         "NEEDS_SAMPLE"
-      ]
+      ],
+      "status": "NOT PROVEN",
+      "status_note": "nothing on this journey is known to be wrong, but not everything could be proved: UNSETTLED_QUESTION, COVERAGE_GAP, NEEDS_SAMPLE"
     },
     {
       "path_id": "P09",
@@ -155,16 +171,18 @@
       "real_first_order": 9999,
       "causes": [
         "UNSETTLED_QUESTION"
-      ]
+      ],
+      "status": "NOT PROVEN",
+      "status_note": "nothing on this journey is known to be wrong, but not everything could be proved: UNSETTLED_QUESTION"
     },
     {
       "path_id": "P10",
       "name": "Completing respondent \u2014 Q1=Independent provider; Q10=No; Q12=Not resolved",
       "route_class": "MAIN",
       "tests": 70,
-      "passed": 57,
+      "passed": 56,
       "failed": 4,
-      "other": 9,
+      "other": 10,
       "broke_at": "Q5",
       "first_failure": "reject rule R19 fires when its condition holds",
       "first_order": 35,
@@ -175,8 +193,11 @@
         "TEST_MODEL_GAP",
         "COVERAGE_GAP",
         "NEEDS_SAMPLE",
-        "NOT_BUILT_YET"
-      ]
+        "NOT_BUILT_YET",
+        "HARNESS_FAULT"
+      ],
+      "status": "BROKEN",
+      "status_note": "a respondent taking this journey would meet something wrong"
     },
     {
       "path_id": "P11",
@@ -192,7 +213,9 @@
       "real_broke_at": "",
       "real_first_failure": "",
       "real_first_order": 9999,
-      "causes": []
+      "causes": [],
+      "status": "WORKING",
+      "status_note": "every test on this journey passed"
     }
   ],
   "groups": [
@@ -279,6 +302,20 @@
       ],
       "severity": 5,
       "order": 107
+    },
+    {
+      "cause": "HARNESS_FAULT",
+      "owner": "Respondent Bot",
+      "question": "D1",
+      "count": 1,
+      "means": "The bot could not carry the test out, so nothing was proved either way. This says nothing about the survey.",
+      "reason": "the journey never reached the point it was testing, so nothing about the survey was observed",
+      "to_fix": "fix the bot, then run this test again. Until then it is neither a pass nor a failure",
+      "tests": [
+        "TC-FT120"
+      ],
+      "severity": 6,
+      "order": 129
     },
     {
       "cause": "COVERAGE_GAP",
@@ -719,6 +756,19 @@
       "to_fix": "no action on this test. It needs a run with a sample, which does not exist yet",
       "observed": "needs several respondents, so it is not a single journey",
       "order": 117
+    },
+    {
+      "test_case_id": "TC-FT120",
+      "question": "D1",
+      "path_id": "P10",
+      "title": "answering D1 normally moves the respondent on to the question that should come next",
+      "outcome": "BLOCKED",
+      "cause": "HARNESS_FAULT",
+      "owner": "Respondent Bot",
+      "reason": "the journey never reached the point it was testing, so nothing about the survey was observed",
+      "to_fix": "fix the bot, then run this test again. Until then it is neither a pass nor a failure",
+      "observed": "D1 never appeared. The respondent was shown: S1, S2, S3, S4, Q1, Q2, Q3, Q4, Q5, Q6, Q7, Q8, Q9, Q10, Q11; D2 never appeared. The respondent was shown: S1, S2, S3, S4, Q1, Q2, Q3, Q4, Q5, Q6, Q7, Q8, Q9, Q10, Q11",
+      "order": 129
     },
     {
       "test_case_id": "TC-FT122",
