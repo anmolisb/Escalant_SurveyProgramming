@@ -189,11 +189,23 @@ def _build_question(raw: dict, order: int, randomized: bool) -> Question:
     # LimeSurvey has no minimum-length setting either. Both limits are
     # expressed as one validation because a question can state both and a
     # second em_validation_q would replace the first rather than add to it.
+    #
+    # Spaces alone are not an answer. LimeSurvey's mandatory check accepts
+    # them, so the minimum is measured on the trimmed answer, and a compulsory
+    # question always needs at least one real character. On an optional
+    # question an answer of spaces counts as blank, so it is let through.
     checks: list[str] = []
     tips: list[str] = []
-    if validation.get("min_length") is not None:
-        checks.append(f"strlen(this) >= {validation['min_length']}")
-        tips.append(f"at least {validation['min_length']} characters")
+    minimum = validation.get("min_length")
+    compulsory = question.mandatory == "Y" and question.type in ("S", "T", "U")
+    if compulsory:
+        checks.append(f"strlen(trim(this)) >= {max(1, minimum or 1)}")
+        tips.append(f"at least {minimum} characters" if minimum
+                    else "an answer, not just spaces")
+    elif minimum is not None:
+        checks.append(f"(strlen(trim(this)) == 0 or "
+                      f"strlen(trim(this)) >= {minimum})")
+        tips.append(f"at least {minimum} characters")
     if validation.get("max_length") is not None:
         checks.append(f"strlen(this) <= {validation['max_length']}")
         tips.append(f"no more than {validation['max_length']} characters")

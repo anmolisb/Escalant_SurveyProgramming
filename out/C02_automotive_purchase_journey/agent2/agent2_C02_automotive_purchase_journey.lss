@@ -1728,7 +1728,7 @@
    <row>
     <qid><![CDATA[1046]]></qid>
     <attribute><![CDATA[em_validation_q]]></attribute>
-    <value><![CDATA[strlen(this) >= 10 and strlen(this) <= 500]]></value>
+    <value><![CDATA[strlen(trim(this)) >= 10 and strlen(this) <= 500]]></value>
    </row>
    <row>
     <qid><![CDATA[1046]]></qid>
@@ -1744,7 +1744,7 @@
    <row>
     <qid><![CDATA[1049]]></qid>
     <attribute><![CDATA[em_validation_q]]></attribute>
-    <value><![CDATA[strlen(this) >= 3 and strlen(this) <= 200]]></value>
+    <value><![CDATA[strlen(trim(this)) >= 3 and strlen(this) <= 200]]></value>
    </row>
    <row>
     <qid><![CDATA[1049]]></qid>
@@ -1765,7 +1765,7 @@
    <row>
     <qid><![CDATA[1058]]></qid>
     <attribute><![CDATA[em_validation_q]]></attribute>
-    <value><![CDATA[strlen(this) >= 5 and strlen(this) <= 500]]></value>
+    <value><![CDATA[strlen(trim(this)) >= 5 and strlen(this) <= 500]]></value>
    </row>
    <row>
     <qid><![CDATA[1058]]></qid>

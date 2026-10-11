@@ -136,6 +136,10 @@ class Bot:
         self.completion_text = ""
         #: question id -> {row id -> its label}, for the rows of a grid.
         self.rows: dict[str, dict[str, str]] = {}
+        #: Tick boxes ticked on the current page, as (field name, label).
+        #: Read back before Next, because LimeSurvey unticks the other
+        #: options when an exclusive one ("None of these") is ticked.
+        self.ticked: list[tuple[str, str]] = []
 
     # -- helpers ------------------------------------------------------------
 
@@ -377,6 +381,23 @@ class Bot:
         except Exception:                                      # pragma: no cover
             return ""
 
+    def cleared_ticks(self) -> list[str]:
+        """Labels of boxes this page ticked that are no longer ticked.
+
+        Forgets the page's ticks either way, because Next is about to send it.
+        """
+        cleared = []
+        for name, label in self.ticked:
+            el = self.page.query_selector(f'input[name="{name}"]')
+            try:
+                still = el is not None and el.is_checked()
+            except Exception:
+                still = True
+            if not still:
+                cleared.append(label or name)
+        self.ticked = []
+        return cleared
+
     def error_showing(self, live_field: str | None = None) -> bool:
         if live_field:
             near = self.page.query_selector(
@@ -443,7 +464,9 @@ class Bot:
                     f"no tick box {live}. The page offers "
                     f"{self.tick_boxes_on_page()}")
             self._tick(el)
-            return "ticked it"
+            label = self._label_of(el)
+            self.ticked.append((live, label))
+            return f"ticked {label!r}" if label else "ticked it"
 
         if kind in ("text", "number"):
             el = (self.page.query_selector(f'textarea[name="{live}"]')
@@ -599,6 +622,9 @@ def run_test(bot: Bot, test: dict, pause: int, budget: float = 45.0) -> Result:
     #: Set when the journey cannot be finished: "refused" or "ended".
     cut_short: str | None = None
     cut_note = ""
+    #: Options the survey unticked itself, so a combination the questionnaire
+    #: forbids could never be sent. That is the survey enforcing the rule.
+    prevented: list[str] = []
 
     try:
         bot.start()
@@ -626,6 +652,14 @@ def run_test(bot: Bot, test: dict, pause: int, budget: float = 45.0) -> Result:
                 # added, which changes the text while leaving the respondent
                 # exactly where they were. Reading that as progress turned
                 # every correct refusal into a reported failure.
+                cleared = bot.cleared_ticks()
+                if cleared:
+                    prevented.extend(cleared)
+                    res.actions.append(Action(
+                        n, "", "checked the tick boxes before Next",
+                        f"the survey had unticked {', '.join(map(repr, cleared))}"
+                        f" when a later option was ticked, so that combination "
+                        f"cannot be sent"))
                 before = set(bot.visible_questions()) or {bot.page.url}
                 bot.next()
                 after = set(bot.visible_questions()) or {bot.page.url}
@@ -801,7 +835,7 @@ def run_test(bot: Bot, test: dict, pause: int, budget: float = 45.0) -> Result:
         return res
 
     for a in test.get("assertions", []):
-        res.checks.append(observe(bot, a, advanced))
+        res.checks.append(observe(bot, a, advanced, prevented))
 
     verdicts = [c.matched for c in res.checks]
     if not verdicts:
@@ -827,7 +861,8 @@ def run_test(bot: Bot, test: dict, pause: int, budget: float = 45.0) -> Result:
     return res
 
 
-def observe(bot: Bot, a: dict, advanced: bool | None) -> Check:
+def observe(bot: Bot, a: dict, advanced: bool | None,
+            prevented: list[str] | None = None) -> Check:
     """Compare one expectation against what the bot saw.
 
     Each branch writes two sentences: what should have happened and what did.
@@ -878,6 +913,18 @@ def observe(bot: Bot, a: dict, advanced: bool | None) -> Check:
                      "next page",
                      "it moved on, as it should" if advanced else
                      "it stayed on the same page, refusing to move")
+
+    if prevented and kind in ("page_does_not_advance",
+                              "error_shown_on_question"):
+        # LimeSurvey enforces an exclusive option by unticking the others,
+        # not by refusing the page. The forbidden answer was never sent, which
+        # is what the rule asks for.
+        return check(True,
+                     "the survey should not accept an answer that breaks a "
+                     "rule the questionnaire sets",
+                     f"the survey unticked {', '.join(map(repr, prevented))} "
+                     f"as soon as the exclusive option was ticked, so the "
+                     f"forbidden combination could not be sent")
 
     if kind == "page_does_not_advance":
         return check(advanced is False,

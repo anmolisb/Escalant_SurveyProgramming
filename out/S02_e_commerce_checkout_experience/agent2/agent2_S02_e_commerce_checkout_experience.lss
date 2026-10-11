@@ -618,7 +618,7 @@
    <row>
     <qid><![CDATA[1014]]></qid>
     <attribute><![CDATA[em_validation_q]]></attribute>
-    <value><![CDATA[strlen(this) >= 10 and strlen(this) <= 500]]></value>
+    <value><![CDATA[strlen(trim(this)) >= 10 and strlen(this) <= 500]]></value>
    </row>
    <row>
     <qid><![CDATA[1014]]></qid>
