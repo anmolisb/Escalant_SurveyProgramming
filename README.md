@@ -58,9 +58,9 @@ Stage 4 files are written without an envelope or per-item provenance because the
 
 | Stage | What it does | Model use | Writes |
 |---|---|---|---|
-| **6 Specification**<br>`part2_canonical.py`<br>`part2_conditions.py` | The platform-neutral specification: condition trees built from the verbatim text, typed destinations, display guards, dependencies, randomisation, quotas, endings, scenarios, the survey-wide rules the QRE never states, and a review queue. Every added value records its origin: `extracted`, `derived`, `inferred`, `unknown` or `ambiguous`. | Prose conditions, wording pipes, quota sentences | `agent1_canonical_survey_spec.json` |
-| **7 Validation**<br>`run_validation.py` + `part2_validate.py`, `qre_oracle.py`, `agent1_eval.py`, `agent1_decisions.py` | Compares raw QRE, stage 4 and specification using an oracle that reads the document independently; re-runs stage 6 twice to check reproducibility; runs tests derived from the QRE; keeps the register of decisions a person must make. | Reuses stage 6's saved answers | `agent1_s7_validation.json`<br>`agent1_s7_evaluation_tests.json`<br>`agent1_s7_evaluation_results.json`<br>`agent1_s7_decisions.json`<br>`agent1_s7_decision_register.md` |
-| **8 Graphs**<br>`part2_graph.py` | A route graph (how a respondent moves) and a dependency graph (which answers a question needs), plus a map from every edge back to its rule. | — | `agent1_s8_route_graph.json`<br>`agent1_s8_graph_report.json` |
+| **6 Specification**<br>`stage6_canonical.py`<br>`stage6_conditions.py` | The platform-neutral specification: condition trees built from the verbatim text, typed destinations, display guards, dependencies, randomisation, quotas, endings, scenarios, the survey-wide rules the QRE never states, and a review queue. Every added value records its origin: `extracted`, `derived`, `inferred`, `unknown` or `ambiguous`. | Prose conditions, wording pipes, quota sentences | `agent1_canonical_survey_spec.json` |
+| **7 Validation**<br>`stage7_validation.py` + `stage7_cross_check.py`, `stage7_oracle.py`, `stage7_tests.py`, `stage7_decisions.py` | Compares raw QRE, stage 4 and specification using an oracle that reads the document independently; re-runs stage 6 twice to check reproducibility; runs tests derived from the QRE; keeps the register of decisions a person must make. | Reuses stage 6's saved answers | `agent1_s7_validation.json`<br>`agent1_s7_evaluation_tests.json`<br>`agent1_s7_evaluation_results.json`<br>`agent1_s7_decisions.json`<br>`agent1_s7_decision_register.md` |
+| **8 Graphs**<br>`stage8_graph.py` | A route graph (how a respondent moves) and a dependency graph (which answers a question needs), plus a map from every edge back to its rule. | — | `agent1_s8_route_graph.json`<br>`agent1_s8_graph_report.json` |
 | **9 Graph check and gate**<br>`graph_validate.py`<br>`run_graph_validation.py` | Checks the saved graph structurally and by walking it. Then sets the Agent 3 gate: APPROVED only if the specification did not fail, every blocking decision is resolved, and the graph is ready. | — | `part2_graph_validation.json`<br>`route_graph` / `dependency_graph` `.graphml` `.gexf`<br>`agent1_ready.json` |
 
 All model calls go through `src/common/llm/groq_client.py`. Each answer is saved to `out/<survey>/agent1_llm_cache.json` and reused, so a document reads the same way on every run; set `QRE_LLM_CACHE=off` to ask again. Full detail: [`src/agents/qre_interpretation/README.md`](src/agents/qre_interpretation/README.md).
@@ -165,7 +165,7 @@ Planned, not yet in the code: LangGraph orchestration, a FastAPI backend, and Pl
 │   ├── dashboard/            Streamlit app
 │   └── orchestration/, backend/, reports/   Empty placeholders
 └── tests/
-    ├── test_conditions.py, test_part2_graph.py, test_stage5_content.py   Agent 1
+    ├── test_conditions.py, test_stage8_graph.py, test_stage5_content.py   Agent 1
     ├── survey_builder/       Agent 2, against a known-good S01 build
     ├── test_design/          Agent 3
     └── unit/, integration/, regression/, uat/   Empty placeholders

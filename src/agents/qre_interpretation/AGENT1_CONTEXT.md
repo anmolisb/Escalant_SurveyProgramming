@@ -89,7 +89,7 @@ cannot say which of its own transitions are still provisional.
 works exactly as before - reads whatever `agent1_canonical_survey_spec.json` and
 `agent1_s8_route_graph.json` already say, calls no model, safe to re-run any time.
 Nothing in `graph_validate.py`, `run_graph_validation.py` or
-`tests/test_part2_graph.py` changed when it was wired in below.
+`tests/test_stage8_graph.py` changed when it was wired in below.
 
 ## Stage 9 in the automatic pipeline — 29 Aug 2026
 
@@ -137,7 +137,7 @@ Both graphs are sufficient input for Agent 3. Neither is approved to run it
 against, because both surveys still have BLOCKING decisions in
 `agent1_s7_decisions.json` nobody has resolved - exactly the distinction this
 change exists to keep visible rather than let a clean graph quietly paper
-over. The 16 tests in `tests/test_part2_graph.py` and all of Stage 9's
+over. The 16 tests in `tests/test_stage8_graph.py` and all of Stage 9's
 existing behavioural/structural results (13 PASS on S01; 46 PASS + 5
 UNVERIFIED on C01, none silently turned into a PASS) are unchanged.
 

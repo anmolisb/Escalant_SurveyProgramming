@@ -2,7 +2,7 @@
 
 Source: `C04_retail_banking_brand_tracker.docx` (sha256 `0d41fa03afd82783…`)
 
-A decision is resolved by editing its entry in `agent1_decisions.json` -
+A decision is resolved by editing its entry in `agent1_s7_decisions.json` -
 set `status` to `RESOLVED`, fill `decision` with the ruling and
 `decision_provenance` with who made it - then re-run the pipeline. It is
 reused from then on unless the source document or this module's

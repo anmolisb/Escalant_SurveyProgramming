@@ -77,9 +77,9 @@ def _condition_summary(condition) -> str | None:
     """A short readable form of a condition, for looking at an edge by eye."""
     if condition is None:
         return None
-    from . import part2_conditions
+    from . import stage6_conditions
 
-    return part2_conditions.describe(condition)
+    return stage6_conditions.describe(condition)
 
 
 # ---------------------------------------------------------------------------

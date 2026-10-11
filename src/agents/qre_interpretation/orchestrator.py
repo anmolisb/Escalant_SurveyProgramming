@@ -74,9 +74,9 @@ from . import stage2_headings
 from . import stage3_raw_json
 from . import stage4_deep_parse
 from . import stage5_audit
-from . import part2_canonical
-from . import part2_graph
-# Not imported at module level: run_validation imports this module to reuse
+from . import stage6_canonical
+from . import stage8_graph
+# Not imported at module level: stage7_validation imports this module to reuse
 # _set_source, so importing it up here would be a cycle. Imported inside
 # run_agent1_validation instead, by which point this module has finished
 # loading.
@@ -339,7 +339,7 @@ def run_part2(source: str, parsed: dict) -> CanonicalSurvey:
     files stay the record of what the document says, so a disagreement about
     interpretation never costs us the extraction.
     """
-    survey = part2_canonical.run(source, parsed)
+    survey = stage6_canonical.run(source, parsed)
     _write(
         _out_dir(source) / paths.CANONICAL,
         survey,
@@ -371,11 +371,11 @@ def run_graphs(
         canonical_status = verdict["canonical_status"]
         human_decision_gate = verdict["human_decision_gate"]
 
-    graphs, report = part2_graph.run(
+    graphs, report = stage8_graph.run(
         survey, canonical_status=canonical_status, human_decision_gate=human_decision_gate,
     )
     out = _out_dir(source)
-    part2_graph.export_route_gexf(graphs, out)
+    stage8_graph.export_route_gexf(graphs, out)
     _write(
         out / paths.agent1_stage(8, "route_graph.json"),
         graphs,
@@ -431,7 +431,7 @@ def write_ready(source: str, survey_id: str, gate: dict) -> Path:
     from, without touching either of them.
 
     A dict payload, not a model, so this uses its own small envelope rather
-    than `_write` - the same reason `run_validation.py` keeps its own: `_write` treats
+    than `_write` - the same reason `stage7_validation.py` keeps its own: `_write` treats
     anything without `model_dump` as a list of records, which would turn this
     single object into a list of its own keys.
     """
@@ -459,9 +459,9 @@ def run_agent1_validation(
     Builds an independent reading of the document and compares the canonical
     specification and the Stage 4 result against it. No model is called.
     """
-    from . import run_validation  # deferred: see the note where this module is imported
+    from . import stage7_validation  # deferred: see the note where this module is imported
 
-    return run_validation.validate(
+    return stage7_validation.validate(
         Path(source).stem, docx_path=docx_path, survey=survey, stage4=parsed
     )
 

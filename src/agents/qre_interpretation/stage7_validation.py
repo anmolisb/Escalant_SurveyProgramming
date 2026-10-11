@@ -18,14 +18,14 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 
-from . import agent1_decisions
-from . import agent1_eval
+from . import stage7_decisions
+from . import stage7_tests
 from src.common.llm import groq_client as llm
 from src.common import paths
 from . import orchestrator
-from . import part2_graph
-from . import part2_validate
-from . import qre_oracle
+from . import stage8_graph
+from . import stage7_cross_check
+from . import stage7_oracle
 from .models import SCHEMA_VERSION, ArtifactEnvelope, CanonicalSurvey
 
 
@@ -64,34 +64,34 @@ def validate(stem: str, docx_path: Path, survey: CanonicalSurvey, stage4: dict) 
     out = paths.agent1_out(stem)
     source_document = orchestrator._set_source(docx)
 
-    oracle = qre_oracle.read(docx)
+    oracle = stage7_oracle.read(docx)
 
-    tests = agent1_eval.build_tests(oracle)
-    results = agent1_eval.run_tests(tests, survey, oracle)
-    coverage = agent1_eval.coverage(results)
+    tests = stage7_tests.build_tests(oracle)
+    results = stage7_tests.run_tests(tests, survey, oracle)
+    coverage = stage7_tests.coverage(results)
 
-    cross = part2_validate.cross_source(oracle, stage4, survey)
-    gate = part2_validate.confirmation_gate(survey, results)
+    cross = stage7_cross_check.cross_source(oracle, stage4, survey)
+    gate = stage7_cross_check.confirmation_gate(survey, results)
 
     # The human decision register. Detected fresh every run from the
     # specification alone, then reconciled against whatever this document
     # already has on record - reusing a prior resolution when nothing that
     # could invalidate it has changed, and demoting it back to pending, loudly,
     # the moment the document or the model has.
-    decisions_path = out / agent1_decisions.REGISTER_ARTIFACT
-    existing_decisions = agent1_decisions.load_register(decisions_path)
-    raw_decisions = agent1_decisions.detect(survey)
-    decisions, decisions_summary = agent1_decisions.reconcile(
+    decisions_path = out / stage7_decisions.REGISTER_ARTIFACT
+    existing_decisions = stage7_decisions.load_register(decisions_path)
+    raw_decisions = stage7_decisions.detect(survey)
+    decisions, decisions_summary = stage7_decisions.reconcile(
         existing_decisions, raw_decisions, stem, source_document, model=llm.get_model())
-    agent1_decisions.save_register(decisions_path, decisions, stem, source_document)
-    (out / agent1_decisions.REGISTER_MARKDOWN).write_text(
-        agent1_decisions.to_markdown(decisions, stem, source_document), encoding="utf-8")
-    gate = part2_validate.attach_decision_ids(gate, decisions)
+    stage7_decisions.save_register(decisions_path, decisions, stem, source_document)
+    (out / stage7_decisions.REGISTER_MARKDOWN).write_text(
+        stage7_decisions.to_markdown(decisions, stem, source_document), encoding="utf-8")
+    gate = stage7_cross_check.attach_decision_ids(gate, decisions)
 
     # Build the graph rather than reasoning about whether it would build. Held
     # in memory: this is a check, and it must not overwrite the committed
     # artifact as a side effect of being run.
-    _graphs, graph_report = part2_graph.run(survey)
+    _graphs, graph_report = stage8_graph.run(survey)
     graph = {
         "nodes": graph_report.nodes, "edges": graph_report.edges,
         "rules_mapped": "%d/%d" % (graph_report.rules_mapped, graph_report.rules_total),
@@ -100,22 +100,22 @@ def validate(stem: str, docx_path: Path, survey: CanonicalSurvey, stage4: dict) 
         "passed": graph_report.passed, "blocking": graph_report.blocking,
         "findings": [f.model_dump(mode="json") for f in graph_report.findings],
     }
-    decision = part2_validate.verdict(results, cross, gate, graph, decisions)
+    decision = stage7_cross_check.verdict(results, cross, gate, graph, decisions)
 
     counts = {status: sum(1 for r in results if r.status == status)
               for status in ("PASS", "FAIL", "UNVERIFIED", "BLOCKED")}
 
-    _write(out / paths.agent1_stage(7, "evaluation_tests.json"), agent1_eval.to_json(tests),
+    _write(out / paths.agent1_stage(7, "evaluation_tests.json"), stage7_tests.to_json(tests),
            artifact=paths.agent1_stage(7, "evaluation_tests"), stage=7, source=docx.name)
     _write(out / paths.agent1_stage(7, "evaluation_results.json"),
-           {"counts": counts, "coverage": coverage, "results": agent1_eval.to_json(results)},
+           {"counts": counts, "coverage": coverage, "results": stage7_tests.to_json(results)},
            artifact=paths.agent1_stage(7, "evaluation_results"), stage=7, source=docx.name)
     _write(out / paths.agent1_stage(7, "validation.json"),
            {"cross_source": cross, "graph": graph,
             "confirmation_required": gate,
             "decisions": {
-                "register": agent1_decisions.REGISTER_ARTIFACT,
-                "human_readable": agent1_decisions.REGISTER_MARKDOWN,
+                "register": stage7_decisions.REGISTER_ARTIFACT,
+                "human_readable": stage7_decisions.REGISTER_MARKDOWN,
                 "summary": decisions_summary,
             },
             "verdict": decision},

@@ -24,7 +24,7 @@ import streamlit as st
 import graphviz
 from graphviz.backend.execute import ExecutableNotFound
 
-from src.agents.qre_interpretation import part2_conditions
+from src.agents.qre_interpretation import stage6_conditions
 from src.agents.qre_interpretation.models import Condition
 from src.common import paths as fnames
 from src.common.paths import agent1_dir, agent2_lss
@@ -305,7 +305,7 @@ def _rendered(condition: dict | None) -> str | None:
     if not condition:
         return None
     try:
-        return part2_conditions.render(Condition.model_validate(condition))
+        return stage6_conditions.render(Condition.model_validate(condition))
     except Exception:  # noqa: BLE001 - a display, not a check
         return None
 

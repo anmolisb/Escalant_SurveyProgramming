@@ -1,6 +1,6 @@
 """Agent 1 evaluation — derive tests from the QRE, then run them on the canonical output.
 
-The tests come from `qre_oracle`, which reads the document independently. None
+The tests come from `stage7_oracle`, which reads the document independently. None
 of them is derived from `agent1_canonical_survey_spec.json`, because a test written from the
 answer proves only that the answer equals itself.
 
@@ -27,7 +27,7 @@ import json
 from dataclasses import asdict, dataclass, field
 from typing import Any
 
-from . import qre_oracle
+from . import stage7_oracle
 from .models import DISPLAY_KINDS, CanonicalSurvey, ConditionOp
 
 CRITICAL = "CRITICAL"
@@ -106,7 +106,7 @@ def _cases_for(condition, question) -> list[tuple[dict, bool]] | None:
         return None
     cases = []
     for state in states:
-        outcome = qre_oracle.evaluate_reference(condition, state)
+        outcome = stage7_oracle.evaluate_reference(condition, state)
         if outcome is None:
             return None
         cases.append((state, outcome))
@@ -153,7 +153,7 @@ def _candidate_states(condition, question) -> tuple[dict, dict] | None:
     return None
 
 
-def build_tests(oracle: qre_oracle.OracleDocument) -> list[TestCase]:
+def build_tests(oracle: stage7_oracle.OracleDocument) -> list[TestCase]:
     tests: list[TestCase] = []
     counter = {"n": 0}
 
@@ -198,7 +198,7 @@ def build_tests(oracle: qre_oracle.OracleDocument) -> list[TestCase]:
             add("display_logic", "guard_present", source_text=q.display_condition,
                 target=q.question_id, expected=q.display_condition,
                 criticality=CRITICAL, source_reference=ref)
-            reference = qre_oracle.parse_reference(q.display_condition)
+            reference = stage7_oracle.parse_reference(q.display_condition)
             if reference is None:
                 add("display_logic", "guard_reading_unverifiable",
                     source_text=q.display_condition, target=q.question_id,
@@ -247,7 +247,7 @@ def build_tests(oracle: qre_oracle.OracleDocument) -> list[TestCase]:
 
         # -- dependencies / randomization ------------------------------------
         if q.option_source_text:
-            named = [i for i in qre_oracle.QID.findall(q.option_source_text) if i != q.question_id]
+            named = [i for i in stage7_oracle.QID.findall(q.option_source_text) if i != q.question_id]
             add("dependencies_piping", "option_source", source_text=q.option_source_text,
                 target=q.question_id, expected=(named[0] if named else None),
                 criticality=CRITICAL, source_reference=ref)
@@ -285,7 +285,7 @@ def build_tests(oracle: qre_oracle.OracleDocument) -> list[TestCase]:
                 expected=("defined" if rule.destination in message_codes else "referenced but undefined"),
                 criticality=CRITICAL, source_reference=ref, disposition=rule.destination)
 
-        reference = qre_oracle.parse_reference(rule.condition)
+        reference = stage7_oracle.parse_reference(rule.condition)
         if reference is None:
             add(category, "rule_reading_unverifiable", source_text=rule.condition,
                 target=rule.rule_id, expected="a reading a person must confirm",
@@ -322,7 +322,7 @@ def build_tests(oracle: qre_oracle.OracleDocument) -> list[TestCase]:
     for statement in oracle.quotas:
         ref = _ref(section="quotas", block_order=statement.block_order)
         if statement.code:
-            named = qre_oracle.QID.findall(statement.text)
+            named = stage7_oracle.QID.findall(statement.text)
             cells = dict(_percentages(statement.text))
             add("quotas", "quota_present", source_text=statement.text, target=statement.code,
                 expected=statement.code, criticality=CRITICAL, source_reference=ref)
@@ -472,7 +472,7 @@ def _canonical_eval(condition, state: dict) -> bool | None:
 
 
 def run_tests(tests: list[TestCase], survey: CanonicalSurvey,
-              oracle: qre_oracle.OracleDocument) -> list[TestResult]:
+              oracle: stage7_oracle.OracleDocument) -> list[TestResult]:
     questions = {q.question_id: q for q in survey.questions}
     rules = {r.rule_id: r for r in survey.rules}
     dispositions = {d.disposition_id: d for d in survey.dispositions}

@@ -13,7 +13,7 @@ import sys
 from pathlib import Path
 
 
-from src.agents.qre_interpretation import part2_conditions as pc
+from src.agents.qre_interpretation import stage6_conditions as pc
 from src.agents.qre_interpretation.models import ConditionOp
 
 

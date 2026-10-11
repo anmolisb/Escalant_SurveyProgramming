@@ -1,16 +1,16 @@
-"""Deterministic tests for the graph builder (`src/part2_graph.py`).
+"""Deterministic tests for the graph builder (`src/stage8_graph.py`).
 
 No model calls, no fixtures named by id. Every test builds a small
 `CanonicalSurvey` in code and asserts what the graph builder does with it, so
 a passing suite says something about the builder's logic rather than about
 S01 or C01 in particular - those two are exercised separately, by running the
-real pipeline (`src/run_validation.py`) against their committed canonical
+real pipeline (`src/stage7_validation.py`) against their committed canonical
 artifacts, which this file does not duplicate.
 
 Runnable two ways:
 
-    python -m pytest tests/test_part2_graph.py
-    python tests/test_part2_graph.py
+    python -m pytest tests/test_stage8_graph.py
+    python tests/test_stage8_graph.py
 
 No pytest fixtures are used, so the second form works with nothing beyond
 this repository's own dependencies.
@@ -24,7 +24,7 @@ from pathlib import Path
 
 import networkx as nx
 
-from src.agents.qre_interpretation import part2_graph
+from src.agents.qre_interpretation import stage8_graph
 from src.agents.qre_interpretation.models import (
     CanonicalDisposition,
     CanonicalQuestion,
@@ -91,7 +91,7 @@ def _linear_survey() -> CanonicalSurvey:
 
 def test_linear_survey_builds_a_clean_spine():
     survey = _linear_survey()
-    graphs, report = part2_graph.run(survey)
+    graphs, report = stage8_graph.run(survey)
     assert report.passed
     assert report.structurally_buildable
     assert report.nodes == 4  # START, Q1, Q2, COMPLETE
@@ -106,14 +106,14 @@ def test_linear_survey_builds_a_clean_spine():
 
 def test_behaviorally_approved_is_null_when_no_verdict_is_supplied():
     survey = _linear_survey()
-    _graphs, report = part2_graph.run(survey)
+    _graphs, report = stage8_graph.run(survey)
     assert report.behaviorally_approved is None
     assert report.approval_blocked_by == []
 
 
 def test_behaviorally_approved_true_when_everything_clears():
     survey = _linear_survey()
-    _graphs, report = part2_graph.run(
+    _graphs, report = stage8_graph.run(
         survey, canonical_status="PASSED", human_decision_gate="CLEAR")
     assert report.behaviorally_approved is True
     assert report.approval_blocked_by == []
@@ -121,7 +121,7 @@ def test_behaviorally_approved_true_when_everything_clears():
 
 def test_behaviorally_approved_false_on_pending_blocking_decisions():
     survey = _linear_survey()
-    _graphs, report = part2_graph.run(
+    _graphs, report = stage8_graph.run(
         survey, canonical_status="PASSED_WITH_WARNINGS",
         human_decision_gate="PENDING_BLOCKING_DECISIONS")
     assert report.structurally_buildable is True  # the graph itself is still fine
@@ -131,7 +131,7 @@ def test_behaviorally_approved_false_on_pending_blocking_decisions():
 
 def test_behaviorally_approved_false_on_failed_canonical_status():
     survey = _linear_survey()
-    _graphs, report = part2_graph.run(
+    _graphs, report = stage8_graph.run(
         survey, canonical_status="FAILED", human_decision_gate="CLEAR")
     assert report.behaviorally_approved is False
     assert "canonical_status=FAILED" in report.approval_blocked_by
@@ -159,7 +159,7 @@ def _branching_survey() -> CanonicalSurvey:
 
 def test_terminate_and_skip_rules_become_edges():
     survey = _branching_survey()
-    graphs, report = part2_graph.run(survey)
+    graphs, report = stage8_graph.run(survey)
     route = nx.node_link_graph(graphs.route_graph, edges="edges", directed=True, multigraph=True)
     kinds = {(u, v, d["kind"]) for u, v, d in route.edges(data=True) if d.get("rule_id")}
     assert ("S1", "TERM_SCREEN", "terminate") in kinds
@@ -170,7 +170,7 @@ def test_terminate_and_skip_rules_become_edges():
 
 def test_show_rule_is_a_guard_not_an_edge():
     survey = _branching_survey()
-    graphs, report = part2_graph.run(survey)
+    graphs, report = stage8_graph.run(survey)
     route = nx.node_link_graph(graphs.route_graph, edges="edges", directed=True, multigraph=True)
     assert route.nodes["Q1"]["has_guard"] is True
     # No edge should carry a rule_id for a SHOW rule - none exists to carry
@@ -187,7 +187,7 @@ def test_terminate_rule_with_missing_evaluation_point_is_reported_not_silently_d
         rules=[rule("R1", RuleKind.TERMINATE, "COMPLETE", DestinationKind.DISPOSITION,
                     when=None, evaluation_point=None)],
     )
-    _graphs, report = part2_graph.run(survey)
+    _graphs, report = stage8_graph.run(survey)
     assert report.blocking >= 1
     assert not report.passed
     assert not report.structurally_buildable
@@ -206,7 +206,7 @@ def test_reject_rule_is_a_constraint_not_an_edge():
         dispositions=[disposition("COMPLETE")],
         rules=[rule("R1", RuleKind.REJECT, "Q1", DestinationKind.QUESTION)],
     )
-    graphs, report = part2_graph.run(survey)
+    graphs, report = stage8_graph.run(survey)
     assert graphs.rule_edge_map["R1"] == ["constraint"]
     route = nx.node_link_graph(graphs.route_graph, edges="edges", directed=True, multigraph=True)
     assert route.number_of_edges() == 2  # only the spine; the reject added no edge
@@ -225,7 +225,7 @@ def test_dependency_becomes_a_dependency_graph_edge_and_stays_a_dag():
         dependencies=[Dependency(from_question="Q1", to_question="Q2",
                                  kind=DependencyKind.OPTION_SOURCE)],
     )
-    graphs, report = part2_graph.run(survey)
+    graphs, report = stage8_graph.run(survey)
     dependency = nx.node_link_graph(graphs.dependency_graph, edges="edges", directed=True)
     assert dependency.has_edge("Q1", "Q2")
     assert nx.is_directed_acyclic_graph(dependency)
@@ -241,7 +241,7 @@ def test_dependency_cycle_is_reported_not_silently_broken():
             Dependency(from_question="Q2", to_question="Q1", kind=DependencyKind.TEXT_PIPE),
         ],
     )
-    _graphs, report = part2_graph.run(survey)
+    _graphs, report = stage8_graph.run(survey)
     assert any(f.check == "dependency_cycle" for f in report.findings)
     assert not report.passed
 
@@ -261,7 +261,7 @@ def test_quota_becomes_a_stateful_edge_and_is_traced():
                       cells=[QuotaCell(option_label="A", target_percent=50.0)],
                       on_full="TERM_FULL", evaluation_point="D1")],
     )
-    graphs, report = part2_graph.run(survey)
+    graphs, report = stage8_graph.run(survey)
     route = nx.node_link_graph(graphs.route_graph, edges="edges", directed=True, multigraph=True)
     quota_edges = [(u, v) for u, v, d in route.edges(data=True) if d.get("kind") == "quota_terminate"]
     assert ("D1", "TERM_FULL") in quota_edges
@@ -282,7 +282,7 @@ def test_randomization_is_node_metadata_not_an_edge():
         randomization=[Randomization(question_id="Q1", scope=RandomizationScope.OPTIONS,
                                      anchored=["None of these"])],
     )
-    graphs, report = part2_graph.run(survey)
+    graphs, report = stage8_graph.run(survey)
     route = nx.node_link_graph(graphs.route_graph, edges="edges", directed=True, multigraph=True)
     assert route.nodes["Q1"]["randomized"] is True
     assert route.nodes["Q1"]["randomization_scope"] == "options"
@@ -294,7 +294,7 @@ def test_randomization_is_node_metadata_not_an_edge():
 
 def test_randomization_coverage_is_none_when_survey_has_none():
     survey = _linear_survey()
-    _graphs, report = part2_graph.run(survey)
+    _graphs, report = stage8_graph.run(survey)
     assert report.coverage["randomization_coverage"]["result"] is None
     assert report.coverage["randomization_coverage"]["denominator"] == 0
 
@@ -313,7 +313,7 @@ def test_unreachable_rule_target_is_reported_and_lowers_traceability():
         rules=[rule("R1", RuleKind.SKIP, "GHOST", DestinationKind.QUESTION,
                     when=eq_condition("Q1", "x"), evaluation_point="Q1")],
     )
-    _graphs, report = part2_graph.run(survey)
+    _graphs, report = stage8_graph.run(survey)
     assert not report.passed
     assert any(f.check == "rule_coverage" for f in report.findings)
     assert report.coverage["traceability_coverage"]["result"] == 0.0
@@ -331,7 +331,7 @@ def test_no_hardcoded_ids_leak_into_a_different_survey_shape():
         rules=[rule("RULE-A", RuleKind.SKIP, "Weird-Id.2", DestinationKind.QUESTION,
                     when=eq_condition("ZZZ_1", "v"), evaluation_point="ZZZ_1")],
     )
-    graphs, report = part2_graph.run(survey)
+    graphs, report = stage8_graph.run(survey)
     assert report.passed
     route = nx.node_link_graph(graphs.route_graph, edges="edges", directed=True, multigraph=True)
     assert "ZZZ_1" in route.nodes and "Weird-Id.2" in route.nodes
@@ -339,7 +339,7 @@ def test_no_hardcoded_ids_leak_into_a_different_survey_shape():
 
 
 # ---------------------------------------------------------------------------
-# Runner for `python tests/test_part2_graph.py`
+# Runner for `python tests/test_stage8_graph.py`
 # ---------------------------------------------------------------------------
 
 if __name__ == "__main__":

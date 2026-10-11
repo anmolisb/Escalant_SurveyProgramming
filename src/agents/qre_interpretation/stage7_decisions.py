@@ -326,7 +326,7 @@ _ISSUES: dict[str, _IssueInfo] = {
 #: `AuditFinding.check` values already produced by Part 2, mapped to the issue
 #: they represent. Anything not in this table is a defect signal (something
 #: to fix in code) rather than a decision (something only a person can
-#: settle), and is deliberately left out - see `part2_validate.cross_source`
+#: settle), and is deliberately left out - see `stage7_cross_check.cross_source`
 #: for that half.
 _FROM_REVIEW_CHECK = {
     "condition_inferred": "ambiguous_routing_condition",

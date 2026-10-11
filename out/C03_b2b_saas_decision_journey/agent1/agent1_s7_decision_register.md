@@ -2,7 +2,7 @@
 
 Source: `C03_b2b_saas_decision_journey.docx` (sha256 `070fc57f0e5668de…`)
 
-A decision is resolved by editing its entry in `agent1_decisions.json` -
+A decision is resolved by editing its entry in `agent1_s7_decisions.json` -
 set `status` to `RESOLVED`, fill `decision` with the ruling and
 `decision_provenance` with who made it - then re-run the pipeline. It is
 reused from then on unless the source document or this module's

@@ -2,7 +2,7 @@
 
 Source: `M05_employee_hybrid_work_experience.docx` (sha256 `992ebf4849f39a99…`)
 
-A decision is resolved by editing its entry in `agent1_decisions.json` -
+A decision is resolved by editing its entry in `agent1_s7_decisions.json` -
 set `status` to `RESOLVED`, fill `decision` with the ruling and
 `decision_provenance` with who made it - then re-run the pipeline. It is
 reused from then on unless the source document or this module's

@@ -55,7 +55,7 @@ from .models import (
     Semantics,
 )
 from src.common.llm.groq_client import LLMUnavailable, complete
-from . import part2_conditions
+from . import stage6_conditions
 
 #: A question id inside free text, so a pipe instruction such as
 #: "Show only brands selected at Q1." can name its source.
@@ -164,7 +164,7 @@ def _build_guards(
             (
                 read(t, FlagTarget(kind="question", id=question.id), f"{question.id}'s display condition")
                 if read
-                else part2_conditions.parse(t)
+                else stage6_conditions.parse(t)
             )
             for t in texts
         ]
@@ -1020,10 +1020,10 @@ def _read_condition(
     if text in cache:
         return cache[text]
 
-    condition = part2_conditions.parse(text)
+    condition = stage6_conditions.parse(text)
     if condition is None:
         referenced = list(dict.fromkeys(_QID.findall(text)))
-        condition, note = part2_conditions.propose(
+        condition, note = stage6_conditions.propose(
             text, referenced, options_by_question, exclusive_by_question
         )
         if condition is None:
@@ -1046,7 +1046,7 @@ def _read_condition(
                         "the parser then accepted. Worth a human eye."
                     ),
                     target=target,
-                    evidence=f"{text}  ->  {part2_conditions.describe(condition)}",
+                    evidence=f"{text}  ->  {stage6_conditions.describe(condition)}",
                 )
             )
     cache[text] = condition

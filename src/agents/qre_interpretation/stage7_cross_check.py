@@ -19,8 +19,8 @@ Deterministic throughout.
 
 from __future__ import annotations
 
-from . import agent1_eval
-from . import qre_oracle
+from . import stage7_tests
+from . import stage7_oracle
 from .models import CanonicalSurvey
 
 PASSED, PASSED_WITH_WARNINGS, FAILED = "PASSED", "PASSED_WITH_WARNINGS", "FAILED"
@@ -31,7 +31,7 @@ PASSED, PASSED_WITH_WARNINGS, FAILED = "PASSED", "PASSED_WITH_WARNINGS", "FAILED
 # ---------------------------------------------------------------------------
 
 
-def cross_source(oracle: qre_oracle.OracleDocument, stage4: dict,
+def cross_source(oracle: stage7_oracle.OracleDocument, stage4: dict,
                  survey: CanonicalSurvey) -> list[dict]:
     """Compare the three records of the same document.
 
@@ -127,7 +127,7 @@ def cross_source(oracle: qre_oracle.OracleDocument, stage4: dict,
         validation = question.validation
         if source is None or validation is None:
             continue
-        stated = {agent1_eval._VALIDATION_ALIASES.get(k, k) for k in source.validate}
+        stated = {stage7_tests._VALIDATION_ALIASES.get(k, k) for k in source.validate}
         for name in ("min_length", "max_length", "min_value", "max_value",
                      "min_selections", "sum_to", "require_each_row"):
             if getattr(validation, name) is not None and name not in stated:
@@ -147,7 +147,7 @@ def cross_source(oracle: qre_oracle.OracleDocument, stage4: dict,
             report("unsupported_quota", "BLOCKING",
                    "Quota %s is not stated anywhere in the QRE." % quota.quota_id, target=quota.quota_id)
             continue
-        stated = dict(agent1_eval._percentages(sentence.text))
+        stated = dict(stage7_tests._percentages(sentence.text))
         for cell in quota.cells:
             if cell.option_label not in stated:
                 report("invented_quota_cell", "BLOCKING",
@@ -259,7 +259,7 @@ def confirmation_gate(survey: CanonicalSurvey, results) -> list[dict]:
         add(finding.check, finding.finding, target, consequence)
 
     for result in results:
-        if result.status != agent1_eval.UNVERIFIED:
+        if result.status != stage7_tests.UNVERIFIED:
             continue
         if result.category == "semantic_assumptions":
             add("semantics_unconfirmed", result.explanation, _plain_id(result.canonical_reference),
@@ -301,10 +301,10 @@ def verdict(results, cross: list[dict],
             gate: list[dict], graph: dict | None = None,
             decisions: dict[str, dict] | None = None) -> dict:
     critical_failures = [r for r in results
-                         if r.status == agent1_eval.FAIL and r.criticality == agent1_eval.CRITICAL]
+                         if r.status == stage7_tests.FAIL and r.criticality == stage7_tests.CRITICAL]
     other_failures = [r for r in results
-                      if r.status == agent1_eval.FAIL and r.criticality != agent1_eval.CRITICAL]
-    blocked = [r for r in results if r.status == agent1_eval.BLOCKED]
+                      if r.status == stage7_tests.FAIL and r.criticality != stage7_tests.CRITICAL]
+    blocked = [r for r in results if r.status == stage7_tests.BLOCKED]
     blocking_cross = [f for f in cross if f["severity"] == "BLOCKING"]
 
     incorrect, missing, ambiguous, must_change, affected = [], [], [], [], []
@@ -348,7 +348,7 @@ def verdict(results, cross: list[dict],
     # raised has actually been resolved by a person - not inferred from any
     # issue's name (a hardcoded list of "these four issues count" would silently
     # miss the next kind of ambiguity a future document raises), but read
-    # straight off the severity a decision was persisted with. `agent1_decisions`
+    # straight off the severity a decision was persisted with. `stage7_decisions`
     # decides severity once, per kind of issue; this only asks whether it is
     # still pending.
     #

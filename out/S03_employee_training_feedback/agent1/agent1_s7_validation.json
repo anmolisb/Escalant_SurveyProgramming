@@ -8,7 +8,7 @@
     "sha256": "e4d831ce056a2300513e98431ecd5ba8507cf5a533bbf81626679adf97a05cb1",
     "bytes": 40650
   },
-  "generated_at": "2026-10-11T16:36:35+00:00",
+  "generated_at": "2026-10-11T17:57:29+00:00",
   "item_count": null,
   "content": {
     "cross_source": [],
@@ -49,11 +49,11 @@
       }
     ],
     "decisions": {
-      "register": "agent1_decisions.json",
-      "human_readable": "agent1_decision_register.md",
+      "register": "agent1_s7_decisions.json",
+      "human_readable": "agent1_s7_decision_register.md",
       "summary": {
         "total": 6,
-        "raised_this_run": 6,
+        "raised_this_run": 0,
         "resolved_reused": 0,
         "pending": 6,
         "resolved": 0,

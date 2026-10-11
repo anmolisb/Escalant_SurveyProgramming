@@ -208,7 +208,7 @@ deterministically.
 Stage 4 keeps every condition exactly as the QRE wrote it: `condition_raw` on a
 routing rule, `display_condition` on a question. It does not interpret them.
 
-Part 2 (`part2_conditions.py`) reads each one into a condition tree. Formal
+Part 2 (`stage6_conditions.py`) reads each one into a condition tree. Formal
 conditions such as `S1 == 'No'` and `Q12 in ['Fully','Partly']` parse
 deterministically, with no model. Only genuine prose, such as `Q5 contains any
 touchpoint`, goes to a model, which is told the question's options and which
@@ -227,7 +227,7 @@ Q3 answered
 sum(Q18) != 100
 ```
 
-`part2_conditions.render` is the only place the written shape is decided, and
+`stage6_conditions.render` is the only place the written shape is decided, and
 every rendering reads back through the parser as the same condition, which
 `tests/test_conditions.py` checks.
 
@@ -253,7 +253,7 @@ it uses:
 memory are unchanged. Stage 5 and Part 2 are handed those objects rather than
 the file, so `agent1_canonical_survey_spec.json` still carries a source reference for every
 question and every rule, and Stage 9's `traceability_coverage` still resolves in
-full. Anything re-reading Stage 4 from disk — `run_validation.py` does — gets
+full. Anything re-reading Stage 4 from disk — `stage7_validation.py` does — gets
 records without provenance, which costs nothing today because the traceability
 checks read the canonical specification instead.
 
@@ -465,14 +465,14 @@ because they fail differently:
 | confirmation | What is still a person's decision, and what does each one block? |
 | evaluation | Do tests derived from the QRE pass against the canonical output? |
 
-**The oracle shares no code with the pipeline it checks.** `qre_oracle.py`
+**The oracle shares no code with the pipeline it checks.** `stage7_oracle.py`
 reads the document through Stage 1 only — a mechanical walk of the body XML
 with no interpretation in it — and works everything else out for itself.
-Importing `part2_canonical` or `part2_conditions` there would make the test
+Importing `stage6_canonical` or `stage6_conditions` there would make the test
 agree with the thing under test by construction, which is the one result that
 would mean nothing (CLAUDE.md §33).
 
-`agent1_decisions.py` keeps the confirmation record. Part 2 already marks where
+`stage7_decisions.py` keeps the confirmation record. Part 2 already marks where
 it inferred or could not read something; what this adds is a record that
 survives between runs, so an owner who confirms "the first matching rule wins"
 on Monday is not asked again on Tuesday — and a confirmation given against one
@@ -560,7 +560,7 @@ Both layers re-run from committed artifacts, with no extraction and no model
 calls:
 
 ```bash
-python3 src/run_validation.py S01_campus_cafeteria_experience
+python3 src/stage7_validation.py S01_campus_cafeteria_experience
 python3 src/run_graph_validation.py S01_campus_cafeteria_experience
 ```
 
@@ -575,15 +575,15 @@ src/
   stage3_raw_json.py
   stage4_deep_parse.py
   stage5_audit.py        five deterministic checks
-  part2_conditions.py    a condition read as a tree, and rendered back
-  part2_canonical.py     the canonical survey specification
-  part2_graph.py         Stage 8 — route and dependency graphs
-  part2_validate.py      Stage 7 — cross-source, reproducibility, confirmation
-  qre_oracle.py          an independent reading of the QRE, used as ground truth
-  agent1_decisions.py    the human decision register, kept between runs
-  agent1_eval.py         tests derived from the QRE, run against the output
+  stage6_conditions.py    a condition read as a tree, and rendered back
+  stage6_canonical.py     the canonical survey specification
+  stage8_graph.py         Stage 8 — route and dependency graphs
+  stage7_cross_check.py      Stage 7 — cross-source, reproducibility, confirmation
+  stage7_oracle.py          an independent reading of the QRE, used as ground truth
+  stage7_decisions.py    the human decision register, kept between runs
+  stage7_tests.py         tests derived from the QRE, run against the output
   graph_validate.py      Stage 9 — structural and behavioural graph checks
-  run_validation.py      Stage 7 on its own, from committed artifacts
+  stage7_validation.py      Stage 7 on its own, from committed artifacts
   run_graph_validation.py  Stage 9 on its own, from committed artifacts
   orchestrator.py
   test_conditions.py     self-check: python3 src/test_conditions.py
@@ -621,7 +621,7 @@ record answers every call.
   Stages 1 to 4 run over all 17 fixtures without error, but the model-dependent
   paths — Stage 2 shape-matching, Stage 3 prose transcription, Stage 4's field
   split, and all three Stage 6 calls — have been exercised on those three.
-- **The only condition evaluator is the oracle's.** `qre_oracle.evaluate_reference`
+- **The only condition evaluator is the oracle's.** `stage7_oracle.evaluate_reference`
   evaluates its own independently-built conditions so Stage 9 can walk a route;
   Part 2's own trees still have nothing that evaluates them. Route feasibility —
   deciding whether the guards along a path can all hold at once — is Agent 3's

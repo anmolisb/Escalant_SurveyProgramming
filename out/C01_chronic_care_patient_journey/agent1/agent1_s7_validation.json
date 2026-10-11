@@ -8,7 +8,7 @@
     "sha256": "9fe8bb4afcacc91f94918506ae31a1ba231222b73050f346ed10ea91064fc093",
     "bytes": 43897
   },
-  "generated_at": "2026-10-11T10:54:35+00:00",
+  "generated_at": "2026-10-11T17:56:54+00:00",
   "item_count": null,
   "content": {
     "cross_source": [],
@@ -131,16 +131,16 @@
       }
     ],
     "decisions": {
-      "register": "agent1_decisions.json",
-      "human_readable": "agent1_decision_register.md",
+      "register": "agent1_s7_decisions.json",
+      "human_readable": "agent1_s7_decision_register.md",
       "summary": {
         "total": 23,
-        "raised_this_run": 2,
+        "raised_this_run": 0,
         "resolved_reused": 0,
         "pending": 15,
         "resolved": 0,
         "not_required": 8,
-        "newly_transitioned_not_required": 4,
+        "newly_transitioned_not_required": 0,
         "context_changed": 0,
         "blocking_pending": [
           "00db7d74442cb17d",

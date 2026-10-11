@@ -3,8 +3,8 @@
 This is the other half of a comparison, so it deliberately shares no code with
 the pipeline it checks. It reads the document through Stage 1 only - a
 mechanical walk of the body XML with no interpretation in it - and works
-everything else out for itself. Importing `part2_canonical` or
-`part2_conditions` here would make the test agree with the thing under test by
+everything else out for itself. Importing `stage6_canonical` or
+`stage6_conditions` here would make the test agree with the thing under test by
 construction, which is the one result that would mean nothing.
 
 Two jobs:
