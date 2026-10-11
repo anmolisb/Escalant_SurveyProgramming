@@ -592,8 +592,10 @@ class SurveyInformation(BaseModel):
 
     Flat values, no origins. Where a field carries any interpretation - reading
     a business objective as a description - it is a Stage 4 flag that says so,
-    not a wrapper around every value. Part 2 does not consume this: it is a
-    heading for the survey, not a fact about how it behaves.
+    not a wrapper around every value. Part 2 copies it into the canonical
+    specification unchanged, as the survey's heading, so the Survey Builder
+    needs nothing but that one file. It is not a fact about how the survey
+    behaves, and nothing in Part 2 reasons over it.
     """
 
     #: None where neither the front matter nor the filename supplies one.
@@ -1244,6 +1246,9 @@ class CanonicalSurvey(BaseModel):
     """
 
     source: str
+    #: The survey's heading - id, title, description, welcome text - copied
+    #: from Stage 4. None only for a specification built without it.
+    survey: SurveyInformation | None = None
     semantics: Semantics = Field(default_factory=Semantics)
     #: What the document says about the study itself - objective, population,
     #: mode, length, and any general instruction.

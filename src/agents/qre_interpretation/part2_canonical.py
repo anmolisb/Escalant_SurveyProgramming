@@ -1393,6 +1393,7 @@ def run(source: str, parsed: dict) -> CanonicalSurvey:
 
     survey = CanonicalSurvey(
         source=source,
+        survey=parsed.get("survey"),
         semantics=semantics,
         metadata=metadata,
         questions=questions,
