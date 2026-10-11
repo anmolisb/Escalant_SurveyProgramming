@@ -42,6 +42,12 @@ MAX_CONCURRENCY = 2
 #: How many times to wait out a rate limit before giving up.
 MAX_RATE_LIMIT_RETRIES = 6
 
+#: The most room one answer may be given. A reply cut off at its token cap is
+#: retried with the cap doubled, up to this. M05's text-pipe answer ran out at
+#: 2000 and crashed the whole run; a longer questionnaire simply needs a longer
+#: answer, and nothing about that is wrong with the prompt or the schema.
+MAX_TOKENS_CEILING = 8000
+
 logger = logging.getLogger(__name__)
 
 T = TypeVar("T", bound=BaseModel)
@@ -127,6 +133,12 @@ def _is_empty_completion(message: str) -> bool:
     return "json_validate_failed" in message and (
         "'failed_generation': ''" in message or '"failed_generation": ""' in message
     )
+
+
+def _is_cut_off(error: Exception) -> bool:
+    """The model ran out of tokens before finishing its answer."""
+    return (type(error).__name__ == "IncompleteOutputException"
+            or "max_tokens length limit" in str(error))
 
 
 def _rate_limit_delay(error: Exception) -> float | None:
@@ -274,13 +286,14 @@ def complete(
         return recorded
 
     last: Exception | None = None
+    budget = max_tokens or MAX_TOKENS
     for _attempt in range(MAX_RATE_LIMIT_RETRIES + 1):
         try:
             answer = get_client().chat.completions.create(
                 model=get_model(),
                 response_model=response_model,
                 temperature=0,
-                max_tokens=max_tokens or MAX_TOKENS,
+                max_tokens=budget,
                 messages=[
                     {"role": "system", "content": system},
                     {"role": "user", "content": user},
@@ -289,6 +302,13 @@ def complete(
             _cache_write(key, user, response_model, answer)
             return answer
         except Exception as exc:
+            if _is_cut_off(exc) and budget < MAX_TOKENS_CEILING:
+                # The answer was longer than the room given. Not a rate limit
+                # and not a bad prompt: ask again with more room. Still cached
+                # under the original key, so a replay finds it.
+                budget = min(budget * 2, MAX_TOKENS_CEILING)
+                logger.info("Answer cut off at its token cap; retrying with %d", budget)
+                continue
             if _is_daily_quota(str(exc)):
                 # Fail now rather than sleeping through five more attempts that
                 # cannot succeed, and say plainly why, because "rate limited"
