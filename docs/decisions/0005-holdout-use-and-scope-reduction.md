@@ -2,7 +2,7 @@
 
 **Date:** 2026-10-11
 **Status:** Proposed (the burn question in section 2 needs a team decision)
-**Affects:** `fixtures/`, `out/`, `tests/agent1_verification/`, decision 0002
+**Affects:** `fixtures/`, `out/`, `tests/agent1_verification/` (removed), `data/ground_truth/Synthetic/`, decisions 0002 and 0003
 
 ## 1. Scope reduction
 
@@ -51,7 +51,37 @@ accuracy claim in the report should rest on C03.
 - Agent 1 is evaluated on S01, M01 and C01 only. Accuracy on other formats is
   not claimed.
 - The verification report (`tests/agent1_verification/`) was regenerated for
-  these three documents. C01's Q6 display condition (`Q5 contains any
-  touchpoint`) is now reported as declined: the 2026-10-05 canonical output
-  leaves it unread for a person to confirm, where the 2026-09-10 report scored
-  an older output that had read it.
+  these three documents before the harness was removed (section 4). C01's Q6
+  display condition (`Q5 contains any touchpoint`) is reported as declined: the
+  2026-10-05 canonical output leaves it unread for a person to confirm, where
+  the 2026-09-10 report scored an older output that had read it.
+
+## 4. One ground-truth check: Stage 7 (agreed by the team)
+
+Three independent readings of the document existed:
+
+| Reading | What it did | Outcome |
+|---|---|---|
+| Stage 7 (`qre_oracle.py`, `agent1_eval.py`) | Runs on every pipeline run. Executes each formal condition against test answers and checks question, type and option coverage. Its verdict drives the Agent 3 gate and the dashboard. | **Kept** |
+| `tests/agent1_verification/` | Run by hand. Compared the canonical specification field by field against machine-generated truth files and wrote an Excel report. | Removed |
+| `data/ground_truth/Synthetic/*.gt.csv` | Worksheets for human coding under decision 0003. Never filled in: every file held only its header row. | Removed |
+
+Stage 7 is kept because the pipeline depends on it and it tests behaviour, not
+only text. Field-level fidelity is checked on every run by Stage 5's
+`content_fidelity` check (Stage 4 against the literal Stage 3 cells).
+
+Last results from the removed harness, kept for the report (2026-10-11,
+canonical outputs of 2026-10-05):
+
+| QRE | Correct | Missed | Mismatch | Invented | Declined |
+|---|---|---|---|---|---|
+| S01 | 99 | 0 | 0 | 0 | 0 |
+| M01 | 201 | 0 | 0 | 0 | 3 |
+| C01 | 345 | 0 | 0 | 0 | 6 |
+
+"Declined" counts values the pipeline deliberately left for a person to
+confirm, such as a condition it would not guess at.
+
+**Limitation for the report:** decision 0003's human-coded ground truth was
+never produced. Every accuracy figure above compares the pipeline with another
+automated reading of the same document, not with a person's reading.

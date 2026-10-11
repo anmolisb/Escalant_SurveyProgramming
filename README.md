@@ -165,10 +165,9 @@ Planned, not yet in the code: LangGraph orchestration, a FastAPI backend, and Pl
 │   ├── dashboard/            Streamlit app
 │   └── orchestration/, backend/, reports/   Empty placeholders
 └── tests/
-    ├── test_conditions.py, test_part2_graph.py   Agent 1
+    ├── test_conditions.py, test_part2_graph.py, test_stage5_content.py   Agent 1
     ├── survey_builder/       Agent 2, against a known-good S01 build
     ├── test_design/          Agent 3
-    ├── agent1_verification/  Agent 1 verification harness, run by hand
     └── unit/, integration/, regression/, uat/   Empty placeholders
 ```
 
