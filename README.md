@@ -150,8 +150,8 @@ Planned, not yet in the code: LangGraph orchestration, a FastAPI backend, and Pl
 │   ├── agent3/               Example Agent 3 workbooks
 │   └── fix-tracker.md, agent1_validation_*.md, graph_validation_report.md
 ├── fixtures/
-│   ├── qre-samples/          17 synthetic QREs (15 DOCX, 2 PDF) — develop against these
-│   └── holdout/              3 QREs held back — do not open (see below)
+│   ├── qre-samples/          S01, M01, C01 with display messages — develop against these
+│   └── holdout/              empty until new holdout QREs are written (decision 0005)
 ├── data/                     Git-ignored except:
 │   ├── inputs/test_design/   Per-survey facts for Agent 3 (committed)
 │   └── ground_truth/
@@ -205,7 +205,7 @@ The key is read when an agent starts, so the next run — from the command line 
 
 ### Working with the corpus
 
-- **Do not open `fixtures/holdout/`.** It measures whether Agent 1 generalises beyond the documents it was built against, and reading it destroys that measurement (decision 0002). The automated guard was removed in the `main` cleanup, so this now rests on discipline alone; CI only checks that `ESCALENT_ALLOW_HOLDOUT` is not set.
+- **Do not open `fixtures/holdout/`.** It measures whether Agent 1 generalises beyond the documents it was built against, and reading it destroys that measurement (decision 0002). The previous three holdouts were retired on 2026-10-11 and the folder is empty until new ones are written (decision 0005). The automated guard was removed in the `main` cleanup, so this rests on discipline alone; CI only checks that `ESCALENT_ALLOW_HOLDOUT` is not set.
 - **Never place client-derived material in a committed folder.** Confidential QREs and ground truth belong in `data/ground_truth/Client/` or outside the repository (`CLAUDE.md` Sections 51–53).
 
 ## Team

@@ -1,7 +1,7 @@
 # 0005 — Record of holdout use, and scope reduced to S01, M01 and C01
 
 **Date:** 2026-10-11
-**Status:** Proposed (the burn question in section 2 needs a team decision)
+**Status:** Accepted (2026-10-11: holdouts retired, section 5)
 **Affects:** `fixtures/`, `out/`, `tests/agent1_verification/` (removed), `data/ground_truth/Synthetic/`, decisions 0002 and 0003
 
 ## 1. Scope reduction
@@ -42,9 +42,8 @@ Agent 3 commit, so it may have served as a development input for Agent 3
 rather than as a measurement of Agent 1. No commit message records a change
 made in response to either document.
 
-**Decision needed:** whether C03 is burned. If it is, replace it with a fresh
-selection as 0002 requires and record the replacement here. Until then, no
-accuracy claim in the report should rest on C03.
+**Decided (section 5):** rather than settle whether C03 is burned, all three
+holdouts are retired. No accuracy claim in the report rests on any of them.
 
 ## 3. What a reader of the report should know
 
@@ -85,3 +84,25 @@ confirm, such as a condition it would not guess at.
 **Limitation for the report:** decision 0003's human-coded ground truth was
 never produced. Every accuracy figure above compares the pipeline with another
 automated reading of the same document, not with a person's reading.
+
+## 5. Holdouts retired, and new ones to be written (2026-10-11)
+
+The three holdout documents (`C03_b2b_saas_decision_journey.docx`,
+`M04_hotel_stay_experience.docx`, `QRE_2_Moderate_Cloud_Storage_Concept_Test.pdf`)
+and their manifest are removed from `fixtures/holdout/`. Reasons:
+
+- C03 may already be burned (section 2), and M04 has been read to build its
+  ground truth, so neither still measures unseen material with confidence.
+- The development QREs now carry display messages (Escalent's request), and
+  the old holdouts do not, so they no longer match the supported format.
+- The PDF is outside the supported S, M and C format.
+
+They remain in git history.
+
+New holdouts will be written in the same S, M and C format, with display
+messages, and with different questions, including question types the
+development corpus does not use. They test whether the pipeline generalises
+within the supported format, not whether it handles other formats. Until they
+exist, the folder holds only `.gitkeep`, and the rules of 0002 apply to them as
+soon as they are added: nobody develops against them, and any use to debug a
+specific failure burns them and is recorded here.

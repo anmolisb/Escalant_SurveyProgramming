@@ -263,9 +263,10 @@ For a single document:
 .venv\Scripts\python.exe scripts/extract_qre.py fixtures/qre-samples/S01_campus_cafeteria_experience.docx
 ```
 
-**Do not point it at `fixtures/holdout/`.** Those three documents are held back
+**Do not point it at `fixtures/holdout/`.** Holdout documents are held back
 to test whether the reader works on material it was not built against, and
-reading them destroys that. The script refuses them, and so does the test suite.
+reading them destroys that. The folder is empty until new holdouts are written
+(decision 0005).
 
 ---
 
