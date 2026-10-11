@@ -467,7 +467,13 @@ def compare(stem: str) -> list[dict]:
 
 
 def main(argv: list[str]) -> int:
-    wanted = argv[1:] or ["S01", "S02", "S03", "S04", "S05"]
+    # With no arguments, every document that has both ground truth and a
+    # canonical specification on disk.
+    wanted = argv[1:] or [
+        path.name.replace(".truth.json", "")
+        for path in sorted(TRUTH.glob("*.truth.json"))
+        if (OUT_DIR / path.name.replace(".truth.json", "") / "agent1" / "part2_canonical.json").exists()
+    ]
     everything: list[dict] = []
     for path in sorted(TRUTH.glob("*.truth.json")):
         stem = path.name.replace(".truth.json", "")

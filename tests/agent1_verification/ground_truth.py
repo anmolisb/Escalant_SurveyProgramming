@@ -9,7 +9,7 @@ It reads the document the way a person would - find the tables, read the header
 row, take the cells - and records what a correct extraction must contain. It
 makes no judgement about what any of it means.
 
-    python3 tests/agent1_verification/ground_truth.py            # all S documents
+    python3 tests/agent1_verification/ground_truth.py            # every development QRE
     python3 tests/agent1_verification/ground_truth.py S03 S04    # named ones
 """
 
@@ -195,7 +195,7 @@ def read(path: Path) -> dict:
 
 
 def main(argv: list[str]) -> int:
-    wanted = [a.upper() for a in argv[1:]] or ["S01", "S02", "S03", "S04", "S05"]
+    wanted = [a.upper() for a in argv[1:]] or [""]  # "" matches every file
     OUT.mkdir(parents=True, exist_ok=True)
     for path in sorted(FIXTURES.glob("*.docx")):
         if path.name.startswith("~$"):
