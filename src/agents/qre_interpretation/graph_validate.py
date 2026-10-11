@@ -32,7 +32,7 @@ whatever that reading wired.
 from __future__ import annotations
 
 import json
-from dataclasses import asdict, dataclass, field
+from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
 
@@ -42,7 +42,7 @@ from . import agent1_eval
 from . import part2_conditions
 from . import part2_graph
 from . import qre_oracle
-from .models import CanonicalSurvey, DestinationKind, RuleKind
+from .models import CanonicalSurvey, RuleKind
 
 PASS, FAIL, UNVERIFIED, BLOCKED = "PASS", "FAIL", "UNVERIFIED", "BLOCKED"
 VERIFIED, WARNING, INCORRECT, MISSING = (
@@ -707,23 +707,14 @@ def _sanitised_copy(graph):
     return copy
 
 
-def export_shareable_graphs(route: nx.MultiDiGraph, dependency: nx.DiGraph, out_dir: Path) -> list[Path]:
-    """Write GraphML and GEXF for both graphs, alongside the JSON that is
-    already there. Returns the paths written; a format networkx cannot
-    produce for a given graph shape is skipped and reported, not silently
-    dropped.
+def export_route_graph(route: nx.MultiDiGraph, out_dir: Path) -> list[Path]:
+    """Write the route graph as GEXF, the file the dashboard draws the flow
+    graph from. Returns the paths written.
     """
     out_dir.mkdir(parents=True, exist_ok=True)
-    written: list[Path] = []
-    for name, graph in (("route_graph", route), ("dependency_graph", dependency)):
-        safe = _sanitised_copy(graph)
-        graphml_path = out_dir / f"{name}.graphml"
-        nx.write_graphml(safe, graphml_path)
-        written.append(graphml_path)
-        gexf_path = out_dir / f"{name}.gexf"
-        nx.write_gexf(safe, gexf_path)
-        written.append(gexf_path)
-    return written
+    gexf_path = out_dir / "route_graph.gexf"
+    nx.write_gexf(_sanitised_copy(route), gexf_path)
+    return [gexf_path]
 
 
 # ---------------------------------------------------------------------------

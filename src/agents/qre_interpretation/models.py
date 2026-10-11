@@ -859,15 +859,6 @@ class Stage5Audit(BaseModel):
     passed: bool = True
 
 
-class Stage4Output(BaseModel):
-    source: str
-    questions: list[Question] = Field(default_factory=list)
-    routing: list[RoutingRule] = Field(default_factory=list)
-    scenarios: list[AcceptanceScenario] = Field(default_factory=list)
-    messages: list[CompletionMessage] = Field(default_factory=list)
-    flags: list[ReviewFlag] = Field(default_factory=list)
-
-
 # ---------------------------------------------------------------------------
 # Part 2 — the canonical survey specification
 # ---------------------------------------------------------------------------

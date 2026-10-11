@@ -1,14 +1,9 @@
-"""Orchestrator. Runs the four stages, writing each artifact to disk.
+"""Orchestrator. Runs every Agent 1 stage in order, writing each artifact to disk.
 
-    python3 src/orchestrator.py <file.docx> [--from-stage N]
+    python -m src.agents.qre_interpretation.orchestrator <file.docx>
 
-Every stage reads only the previous stage's artifact, so any stage can be re-run
-on its own:
-
-    python3 src/orchestrator.py doc.docx --from-stage 4
-
-re-runs the deep parse against the existing stage3 files without re-reading the
-DOCX or re-calling the model for stages 2 and 3.
+A re-run replays every model answer already recorded in llm_decisions.json, so
+it costs no model calls unless a prompt or the document changed.
 
 Artifacts, under out/<document stem>/agent1/, in the order the pipeline actually
 produces them:
@@ -152,9 +147,7 @@ def _set_source(docx_path: Path) -> SourceDocument:
             bytes=len(raw),
         )
     else:
-        # `--from-stage N` can name a document that is not on this machine; the
-        # saved artifacts are enough to continue. Record the name, admit there
-        # is no digest, rather than inventing one.
+        # Record the name and admit there is no digest, rather than inventing one.
         _SOURCE = SourceDocument(filename=docx_path.name)
     return _SOURCE
 
@@ -507,7 +500,9 @@ def write_stage9_gate(source: str, survey_id: str, gate: dict) -> Path:
     return path
 
 
-def run_agent1_validation(docx_path: Path, source: str, survey: CanonicalSurvey) -> dict:
+def run_agent1_validation(
+    docx_path: Path, source: str, survey: CanonicalSurvey, parsed: dict
+) -> dict:
     """Stage 7 - check the canonical output against the raw document, always.
 
     Not a separate command. Every call to `main` reaches this right after the
@@ -515,39 +510,14 @@ def run_agent1_validation(docx_path: Path, source: str, survey: CanonicalSurvey)
     validation report is never more than one run of the pipeline out of date,
     and the graph builder that follows always has a fresh verdict to consult.
 
-    Rebuilds an oracle reading of the document and re-derives the reproducibility
-    comparison, both of which cost model calls only the first time a document is
-    seen - after that, `llm.py`'s decision record answers every prompt this
-    needs, so validating on every call is not validating for free but it is
-    validating for nearly free.
+    Builds an independent reading of the document and compares the canonical
+    specification and the Stage 4 result against it. No model is called.
     """
     from . import run_validation  # deferred: see the note where this module is imported
 
-    return run_validation.validate(Path(source).stem, docx_path=docx_path, survey=survey)
-
-
-# ---------------------------------------------------------------------------
-# Re-entry: load a previous stage's artifact instead of recomputing it
-# ---------------------------------------------------------------------------
-
-
-def load_stage1(source: str) -> Stage1Document:
-    path = _out_dir(source) / "stage1_document.json"
-    return Stage1Document.model_validate(_read_content(path))
-
-
-def load_stage2(source: str) -> Stage2Blocks:
-    path = _out_dir(source) / "stage2_blocks.json"
-    return Stage2Blocks.model_validate(_read_content(path))
-
-
-def load_stage3(source: str) -> list[Stage3Block]:
-    out = _out_dir(source)
-    return [
-        Stage3Block.model_validate(_read_content(p))
-        for p in sorted(out.glob("stage3_*.json"))
-        if p.name != "stage3_flags.json"
-    ]
+    return run_validation.validate(
+        Path(source).stem, docx_path=docx_path, survey=survey, stage4=parsed
+    )
 
 
 def _summarise(blocks: Stage2Blocks, stage3: list[Stage3Block], parsed: dict, flags):
@@ -719,34 +689,18 @@ def _summarise_stage9_gate(gate: dict) -> None:
 
 
 def main(argv: list[str]) -> int:
-    args = [a for a in argv[1:] if not a.startswith("--")]
-    if not args:
+    args = argv[1:]
+    if len(args) != 1:
         print(__doc__)
         return 1
 
     docx_path = Path(args[0])
-    start = 1
-    for arg in argv[1:]:
-        if arg.startswith("--from-stage"):
-            start = int(arg.split("=", 1)[1] if "=" in arg else argv[argv.index(arg) + 1])
-
     source = docx_path.name
     _set_source(docx_path)
 
-    if start <= 1:
-        document = run_stage1(docx_path)
-    else:
-        document = load_stage1(source)
-
-    if start <= 2:
-        blocks = run_stage2(document)
-    else:
-        blocks = load_stage2(source)
-
-    if start <= 3:
-        stage3, stage3_flags = run_stage3(blocks)
-    else:
-        stage3, stage3_flags = load_stage3(source), []
+    document = run_stage1(docx_path)
+    blocks = run_stage2(document)
+    stage3, stage3_flags = run_stage3(blocks)
 
     parsed, stage4_flags = run_stage4(source, stage3, _front_matter(document))
     audit = run_stage5(document, blocks, stage3, parsed)
@@ -755,7 +709,7 @@ def main(argv: list[str]) -> int:
     # not after: the graph builder needs no model and nothing about how it
     # builds depends on the verdict, but the verdict is what the report it
     # writes needs to say whether this graph may be trusted downstream.
-    validation_report = run_agent1_validation(docx_path, source, survey)
+    validation_report = run_agent1_validation(docx_path, source, survey, parsed)
     _graphs, graph_report = run_graphs(source, survey, validation_report)
     # Stage 9 reuses exactly what Stages 6 and 8 just wrote to disk - no
     # model call, nothing upstream rerun.

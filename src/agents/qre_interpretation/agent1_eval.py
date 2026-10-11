@@ -28,7 +28,7 @@ from dataclasses import asdict, dataclass, field
 from typing import Any
 
 from . import qre_oracle
-from .models import CanonicalSurvey, ConditionOp, RuleKind
+from .models import CanonicalSurvey, ConditionOp
 
 CRITICAL = "CRITICAL"
 HIGH = "HIGH"
@@ -38,14 +38,6 @@ VERIFIED = "VERIFIED"
 UNVERIFIED = "UNVERIFIED"
 
 PASS, FAIL, BLOCKED = "PASS", "FAIL", "BLOCKED"
-
-#: Categories whose failure changes what a respondent is asked or where they go.
-#: Kept as data so the recall metric and the verdict agree on what "critical"
-#: means instead of each deciding separately.
-EXECUTABLE_CATEGORIES = {
-    "display_logic", "skip_logic", "routing_logic", "termination_logic",
-    "validation_rules", "dependencies_piping", "quotas", "randomization",
-}
 
 #: `Validate: {...}` keys, as documents write them, against the canonical field
 #: that holds each. A key with no entry here is not an error - it is carried in

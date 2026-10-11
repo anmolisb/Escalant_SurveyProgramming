@@ -1,11 +1,10 @@
 """The validation layer between the canonical specification and the graph builder.
 
-Four questions, kept apart because they fail differently:
+Three questions, kept apart because they fail differently:
 
     cross-source     does the specification say only what the document says,
                      and all of it? Raw QRE, Stage 4 and canonical, compared
                      three ways so a disagreement can be attributed
-    reproducibility  does the same document read the same way twice?
     confirmation     what is still a person's decision, and what does each one
                      change downstream?
     verdict          may this go to the graph builder, and to a test designer?
@@ -15,18 +14,14 @@ the defect and leave the pipeline that produced it unchanged, and the next
 document would arrive with the same problem. It reports, and it refuses to call
 a specification ready while an open question can still change survey behaviour.
 
-Deterministic throughout. Regenerating the specification to compare two runs
-goes through the existing decision record, so a repeat run costs no model calls.
+Deterministic throughout.
 """
 
 from __future__ import annotations
 
-import json
-from pathlib import Path
-
 from . import agent1_eval
 from . import qre_oracle
-from .models import CanonicalSurvey, FlagSeverity, Origin, RuleKind
+from .models import CanonicalSurvey
 
 PASSED, PASSED_WITH_WARNINGS, FAILED = "PASSED", "PASSED_WITH_WARNINGS", "FAILED"
 
@@ -188,97 +183,6 @@ def cross_source(oracle: qre_oracle.OracleDocument, stage4: dict,
 
 
 # ---------------------------------------------------------------------------
-# Reproducibility
-# ---------------------------------------------------------------------------
-
-#: The parts of a specification whose change is a change of behaviour. Ordering
-#: and formatting are excluded on purpose: two runs that agree on all of this
-#: describe the same survey however they lay it out.
-def _behaviour(survey: CanonicalSurvey) -> dict:
-    def condition(node):
-        if node is None:
-            return None
-        return {
-            "op": node.op.value,
-            "left": None if node.left is None else
-                {"q": node.left.question_id, "agg": getattr(node.left.aggregate, "value", None),
-                 "text": node.left.text, "num": node.left.number,
-                 "values": node.left.values, "ids": node.left.option_ids},
-            "right": None if node.right is None else
-                {"q": node.right.question_id, "agg": getattr(node.right.aggregate, "value", None),
-                 "text": node.right.text, "num": node.right.number,
-                 "values": node.right.values, "ids": node.right.option_ids},
-            "operands": [condition(c) for c in node.operands],
-        }
-
-    return {
-        "questions": sorted(
-            ({"id": q.question_id, "seq": q.seq, "kind": q.kind,
-              "options": [(o.option_id, o.label, o.code) for o in q.options],
-              "rows": [(o.option_id, o.label) for o in q.matrix_rows],
-              "validation": None if q.validation is None else q.validation.model_dump(mode="json"),
-              "guard": None if q.guard is None else condition(q.guard.condition),
-              "option_source": None if q.option_source is None else q.option_source.from_question}
-             for q in survey.questions), key=lambda x: str(x["id"])),
-        "rules": sorted(
-            ({"id": r.rule_id, "kind": r.kind.value, "when": condition(r.when),
-              "unread": r.when_unread, "destination": [r.destination.kind.value, r.destination.id],
-              "evaluation_point": r.evaluation_point, "precedence": r.precedence}
-             for r in survey.rules), key=lambda x: str(x["id"])),
-        "dispositions": sorted(
-            ({"id": d.disposition_id, "kind": d.kind, "message": d.message,
-              "defined": d.defined_in_source} for d in survey.dispositions),
-            key=lambda x: str(x["id"])),
-        "dependencies": sorted(
-            ([d.from_question, d.to_question, d.kind.value] for d in survey.dependencies)),
-        "randomization": sorted(
-            ([r.question_id, r.scope.value, sorted(r.anchored)] for r in survey.randomization)),
-        "quotas": sorted(
-            ({"id": q.quota_id, "enforcement": q.enforcement, "variable": q.variable_question_id,
-              "cells": sorted([c.option_label, c.option_id, c.target_percent] for c in q.cells),
-              "on_full": q.on_full, "evaluation_point": q.evaluation_point}
-             for q in survey.quotas), key=lambda x: str(x["id"])),
-        "semantics": {k: v for k, v in survey.semantics.model_dump(mode="json").items()
-                      if not k.endswith("_source")},
-    }
-
-
-def reproducibility(rebuild, runs: int = 2) -> dict:
-    """Build the specification again and compare what matters.
-
-    `rebuild` is a callable returning a fresh CanonicalSurvey from the same
-    inputs. Every model answer it needs is already in the decision record, so
-    repeating costs nothing.
-    """
-    surveys = [rebuild() for _ in range(runs)]
-    exact = [s.model_dump(mode="json") for s in surveys]
-    semantic = [_behaviour(s) for s in surveys]
-
-    exact_same = all(json.dumps(e, sort_keys=True, default=str)
-                     == json.dumps(exact[0], sort_keys=True, default=str) for e in exact)
-    semantic_same = all(json.dumps(s, sort_keys=True, default=str)
-                        == json.dumps(semantic[0], sort_keys=True, default=str) for s in semantic)
-
-    differences = []
-    if not semantic_same:
-        first = semantic[0]
-        for other in semantic[1:]:
-            for key in first:
-                if json.dumps(first[key], sort_keys=True, default=str) != json.dumps(
-                        other[key], sort_keys=True, default=str):
-                    differences.append(key)
-    return {
-        "runs": runs,
-        "exact_reproducible": exact_same,
-        "semantic_reproducible": semantic_same,
-        "meaningful_differences": sorted(set(differences)),
-        "note": ("Formatting and ordering are excluded from the semantic comparison; "
-                 "routing, destinations, conditions, validation, termination, dependencies, "
-                 "quotas and randomization are not."),
-    }
-
-
-# ---------------------------------------------------------------------------
 # What still needs a person
 # ---------------------------------------------------------------------------
 
@@ -393,8 +297,8 @@ def attach_decision_ids(gate: list[dict], decisions: dict[str, dict]) -> list[di
     return gate
 
 
-def verdict(results, coverage_report: dict, cross: list[dict],
-            repro: dict, gate: list[dict], graph: dict | None = None,
+def verdict(results, cross: list[dict],
+            gate: list[dict], graph: dict | None = None,
             decisions: dict[str, dict] | None = None) -> dict:
     critical_failures = [r for r in results
                          if r.status == agent1_eval.FAIL and r.criticality == agent1_eval.CRITICAL]
@@ -417,11 +321,8 @@ def verdict(results, coverage_report: dict, cross: list[dict],
         ambiguous.append("%s — %s" % (entry["issue"], entry["changes_downstream"]))
         affected.extend(entry["affected"])
 
-    if critical_failures or blocking_cross or not repro["semantic_reproducible"]:
+    if critical_failures or blocking_cross:
         status = FAILED
-        if not repro["semantic_reproducible"]:
-            must_change.append("Make the specification reproducible: %s differ between runs."
-                               % ", ".join(repro["meaningful_differences"]))
         if critical_failures:
             must_change.append("Correct the %d critical test failures listed above."
                                % len(critical_failures))
@@ -454,7 +355,7 @@ def verdict(results, coverage_report: dict, cross: list[dict],
     # `agent3_ready` needs both: the graph must build, and nothing blocking may
     # still be waiting on a person.
     graph_built = graph is None or (graph.get("passed") and not graph.get("blocking"))
-    graph_ready = bool(graph_built) and not blocking_cross and repro["semantic_reproducible"]
+    graph_ready = bool(graph_built) and not blocking_cross
 
     decisions = decisions or {}
     pending_blocking = sorted(

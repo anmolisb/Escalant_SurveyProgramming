@@ -47,7 +47,6 @@ import networkx as nx
 from .models import (
     AuditFinding,
     CanonicalSurvey,
-    DestinationKind,
     FlagSeverity,
     FlagTarget,
     GraphReport,

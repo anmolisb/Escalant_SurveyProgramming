@@ -8,7 +8,7 @@
     "sha256": "1be6ec051fbc914680d8add2a2c9e85c568f5468d8f39f5b6e915eb5bfe6f3b5",
     "bytes": 41874
   },
-  "generated_at": "2026-09-11T20:24:03+00:00",
+  "generated_at": "2026-10-11T04:14:33+00:00",
   "item_count": null,
   "content": {
     "cross_source": [
@@ -25,13 +25,6 @@
         "target": "S3"
       }
     ],
-    "reproducibility": {
-      "runs": 2,
-      "exact_reproducible": true,
-      "semantic_reproducible": true,
-      "meaningful_differences": [],
-      "note": "Formatting and ordering are excluded from the semantic comparison; routing, destinations, conditions, validation, termination, dependencies, quotas and randomization are not."
-    },
     "graph": {
       "nodes": 23,
       "edges": 25,
@@ -133,7 +126,7 @@
       "human_readable": "agent1_decision_register.md",
       "summary": {
         "total": 13,
-        "raised_this_run": 13,
+        "raised_this_run": 0,
         "resolved_reused": 0,
         "pending": 13,
         "resolved": 0,

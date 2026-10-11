@@ -8,17 +8,10 @@
     "sha256": "319e6b78a2a1e36ef712ce421e6d2c1db3325a087a07d8d0e93ec38b39207e4b",
     "bytes": 43612
   },
-  "generated_at": "2026-10-04T06:55:23+00:00",
+  "generated_at": "2026-10-11T04:14:34+00:00",
   "item_count": null,
   "content": {
     "cross_source": [],
-    "reproducibility": {
-      "runs": 2,
-      "exact_reproducible": true,
-      "semantic_reproducible": true,
-      "meaningful_differences": [],
-      "note": "Formatting and ordering are excluded from the semantic comparison; routing, destinations, conditions, validation, termination, dependencies, quotas and randomization are not."
-    },
     "graph": {
       "nodes": 38,
       "edges": 39,
@@ -178,7 +171,7 @@
       "human_readable": "agent1_decision_register.md",
       "summary": {
         "total": 18,
-        "raised_this_run": 18,
+        "raised_this_run": 0,
         "resolved_reused": 0,
         "pending": 18,
         "resolved": 0,
