@@ -106,3 +106,24 @@ within the supported format, not whether it handles other formats. Until they
 exist, the folder holds only `.gitkeep`, and the rules of 0002 apply to them as
 soon as they are added: nobody develops against them, and any use to debug a
 specific failure burns them and is recorded here.
+
+## 6. The development corpus grows back to 15 QREs (2026-10-11)
+
+With display-message support finished and checked end to end on S01, M01 and
+C01, the corpus is widened again, this time with display messages in every
+document, so all of it matches the supported format:
+
+| Tier | QREs |
+|---|---|
+| Simple | S01, S02, S03, S04, S05 |
+| Moderate | M01, M02, M03, M04, M05, M06 |
+| Complex | C01, C02, C03, C04 |
+
+S02 to S05, M02, M03, M05, M06, C02 and C04 come from the corpus before section
+1's reduction. M04 and C03 are the two retired holdouts (section 5), now
+ordinary development documents. Each has the same display rows as S01, M01 and
+C01: one after screening for an S QRE, plus an "almost done" message before the
+demographics for an M QRE, plus a mid-survey message before the support
+questions for a C QRE.
+
+F01, F02, Z01 and Z02 stay out: they are not in the S, M and C format.

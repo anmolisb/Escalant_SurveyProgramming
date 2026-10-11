@@ -150,7 +150,7 @@ Planned, not yet in the code: LangGraph orchestration, a FastAPI backend, and Pl
 │   ├── agent3/               Example Agent 3 workbooks
 │   └── fix-tracker.md, agent1_validation_*.md, graph_validation_report.md
 ├── fixtures/
-│   ├── qre-samples/          S01, M01, C01 with display messages — develop against these
+│   ├── qre-samples/          15 S, M and C QREs with display messages — develop against these
 │   └── holdout/              empty until new holdout QREs are written (decision 0005)
 ├── data/                     Git-ignored except:
 │   ├── inputs/test_design/   Per-survey facts for Agent 3 (committed)
