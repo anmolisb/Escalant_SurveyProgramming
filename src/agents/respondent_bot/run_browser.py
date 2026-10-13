@@ -126,9 +126,10 @@ class Bot:
         #: only be read while that question is on screen, and by the end of
         #: the journey the respondent is looking at a thank-you page.
         self.seen_text: list[str] = []
-        #: question id -> its own wording as shown, the first time it appeared.
-        #: A pipe check reads this, not the whole page: the earlier answer is
-        #: also printed as an option on the page that asked for it.
+        #: question id -> what that question showed (wording and its own
+        #: options), the first time it appeared. A pipe check reads this, not
+        #: the whole page: the earlier answer is also printed as an option on
+        #: the page that asked for it.
         self.question_text: dict[str, str] = {}
         #: question id -> {option id -> its label}, for finding the live option.
         #: Needed because LimeSurvey renumbers sub-questions on import exactly
@@ -184,7 +185,7 @@ class Bot:
         if text:
             self.seen_text.append(text)
         live = self.visible_questions()
-        for text in live.values():
+        for ident, text in live.items():
             seen = self._norm(text)
             for qid, w in self.wording.items():
                 if not w:
@@ -193,7 +194,26 @@ class Bot:
                 if (seen == want or seen.startswith(want[:40])) and \
                         qid not in self.seen:
                     self.seen.append(qid)
-                    self.question_text.setdefault(qid, text)
+                    self.question_text.setdefault(qid, self._block_text(ident)
+                                                  or text)
+
+    def _block_text(self, ident: str) -> str:
+        """Everything one question shows: its wording and its own options.
+
+        Only that question's container, so an answer printed on another
+        question's page (the one that asked for it) is never read as this
+        question showing it.
+        """
+        try:
+            el = self.page.query_selector(f'[id="ls-question-text-{ident}"]')
+            if el is None:
+                return ""
+            text = el.evaluate(
+                "e => (e.closest('.question-container') "
+                "|| e.closest('[id^=\"question\"]') || e.parentElement).innerText")
+            return " ".join((text or "").split())
+        except Exception:
+            return ""
 
     def was_seen(self, canonical_question: str) -> bool:
         # A sub-question is not a question in its own right. Asking whether
@@ -998,8 +1018,8 @@ def observe(bot: Bot, a: dict, advanced: bool | None,
         # through: the earlier answer is printed as an option on the page
         # that asked for it, so searching there always finds it.
         shown = bot.question_text.get(base)
-        should = (f"{base}'s wording should include the respondent's "
-                  f"earlier answer, {want[:50]!r}")
+        should = (f"{base} should show the respondent's earlier answer, "
+                  f"{want[:50]!r}, in its wording or its options")
         if shown is None:
             return check(False, should,
                          f"{base} never appeared. The respondent was shown: "
