@@ -1185,6 +1185,9 @@ def main() -> int:
                     help="seconds to allow one test before giving up on it")
     ap.add_argument("--limit", type=int)
     ap.add_argument("--only")
+    ap.add_argument("--retries", type=int, default=1,
+                    help="tries again after a BLOCKED result (default 1, 0 "
+                         "to turn off). Each try submits one response")
     args = ap.parse_args()
 
     try:
@@ -1267,17 +1270,41 @@ def main() -> int:
                 or t["test_id"]
             print(f"  [{i:>3}/{len(tests)}] {label:<10} "
                   f"{t.get('title','')[:54]}", flush=True)
-            # A fresh context per test, so one respondent's session cannot
-            # leak into the next.
-            context = browser.new_context()
-            page = context.new_page()
-            # Without this a single unresponsive page holds the whole run.
-            page.set_default_timeout(10_000)
-            page.set_default_navigation_timeout(15_000)
-            bot = Bot(page, args.base, args.sid, wording, options)
-            bot.completion_text = completion
-            bot.rows = rows
-            r = run_test(bot, t, args.slow, args.budget)
+            def attempt() -> Result:
+                # A fresh context per attempt, so one respondent's session
+                # cannot leak into the next.
+                context = browser.new_context()
+                page = context.new_page()
+                # Without this a single unresponsive page holds the whole run.
+                page.set_default_timeout(10_000)
+                page.set_default_navigation_timeout(15_000)
+                bot = Bot(page, args.base, args.sid, wording, options)
+                bot.completion_text = completion
+                bot.rows = rows
+                try:
+                    return run_test(bot, t, args.slow, args.budget)
+                finally:
+                    context.close()
+
+            r = attempt()
+            # A blocked journey observed nothing about the survey, and most
+            # blocks are a slow page or a dropped connection. One more try
+            # separates those from a journey that can never finish. Each try
+            # submits a response, so it is limited to one.
+            for _ in range(args.retries):
+                if r.status != BLOCKED:
+                    break
+                first = r.blocked_reason
+                print(f"          BLOCKED, trying once more: {first[:60]}",
+                      flush=True)
+                r = attempt()
+                if r.status == BLOCKED:
+                    r.blocked_reason = (f"{r.blocked_reason} (blocked on both "
+                                        f"tries)")
+                else:
+                    r.actions.insert(0, Action(
+                        0, "", "tried a second time",
+                        f"the first try was blocked: {first}"))
             row = index.get(t["test_id"], {})
             r.case_id = row.get("test_case_id", "")
             r.order = row.get("order", 0)
@@ -1287,7 +1314,6 @@ def main() -> int:
                   + (f"  {r.blocked_reason[:64]}" if r.blocked_reason else ""),
                   flush=True)
             results.append(r)
-            context.close()
         browser.close()
 
     counts = {s: sum(1 for r in results if r.status == s) for s in STATUS_ORDER}
