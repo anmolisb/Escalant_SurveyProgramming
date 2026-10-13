@@ -8,7 +8,7 @@
     "sha256": "98e38f24d6ba6a885985207c385b19146cc91ae407b1937b75acde446ac19fcf",
     "bytes": 42037
   },
-  "generated_at": "2026-10-13T11:28:01+00:00",
+  "generated_at": "2026-10-13T12:37:30+00:00",
   "item_count": 249,
   "content": [
     {
@@ -275,7 +275,7 @@
     {
       "test_id": "T016",
       "category": "validation_rules",
-      "check": "validation_extra",
+      "check": "validation_field",
       "source_reference": {
         "section": "questionnaire",
         "block_order": 10,
@@ -285,16 +285,16 @@
       "target": "S3",
       "input_state": null,
       "expected": 18,
-      "criticality": "NORMAL",
+      "criticality": "CRITICAL",
       "ground_truth_status": "VERIFIED",
       "params": {
-        "field": "min"
+        "field": "min_value"
       }
     },
     {
       "test_id": "T017",
       "category": "validation_rules",
-      "check": "validation_extra",
+      "check": "validation_field",
       "source_reference": {
         "section": "questionnaire",
         "block_order": 10,
@@ -304,10 +304,10 @@
       "target": "S3",
       "input_state": null,
       "expected": 80,
-      "criticality": "NORMAL",
+      "criticality": "CRITICAL",
       "ground_truth_status": "VERIFIED",
       "params": {
-        "field": "max"
+        "field": "max_value"
       }
     },
     {

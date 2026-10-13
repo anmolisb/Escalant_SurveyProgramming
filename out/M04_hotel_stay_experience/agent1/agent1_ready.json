@@ -8,15 +8,14 @@
     "sha256": "2f65aef53dbea391830fd1ca701a87474b803b7ec1af35e08a7fa3cccb5dd404",
     "bytes": 42025
   },
-  "generated_at": "2026-10-13T11:27:34+00:00",
+  "generated_at": "2026-10-13T12:37:29+00:00",
   "item_count": null,
   "content": {
     "status": "BLOCKED",
-    "canonical_validation_clear": false,
+    "canonical_validation_clear": true,
     "human_decision_gate_clear": false,
     "graph_validation_passed": true,
     "blocked_by": [
-      "canonical_status=FAILED",
       "human_decision_gate=PENDING_BLOCKING_DECISIONS"
     ]
   }

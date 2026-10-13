@@ -45,6 +45,8 @@ PASS, FAIL, BLOCKED = "PASS", "FAIL", "BLOCKED"
 _VALIDATION_ALIASES = {
     "min_length": "min_length", "max_length": "max_length",
     "min_value": "min_value", "max_value": "max_value",
+    # Stage 4 reads a QRE's {"min": 18, "max": 80} as min_value and max_value.
+    "min": "min_value", "max": "max_value",
     "min_selections": "min_selections",
     "sum": "sum_to", "sum_to": "sum_to",
     "require_each_row": "require_each_row",

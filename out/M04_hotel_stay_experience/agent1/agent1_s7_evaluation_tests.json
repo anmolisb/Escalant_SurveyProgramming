@@ -8,7 +8,7 @@
     "sha256": "2f65aef53dbea391830fd1ca701a87474b803b7ec1af35e08a7fa3cccb5dd404",
     "bytes": 42025
   },
-  "generated_at": "2026-10-13T11:27:34+00:00",
+  "generated_at": "2026-10-13T12:37:29+00:00",
   "item_count": 249,
   "content": [
     {
@@ -275,7 +275,7 @@
     {
       "test_id": "T016",
       "category": "validation_rules",
-      "check": "validation_extra",
+      "check": "validation_field",
       "source_reference": {
         "section": "questionnaire",
         "block_order": 10,
@@ -285,16 +285,16 @@
       "target": "S3",
       "input_state": null,
       "expected": 18,
-      "criticality": "NORMAL",
+      "criticality": "CRITICAL",
       "ground_truth_status": "VERIFIED",
       "params": {
-        "field": "min"
+        "field": "min_value"
       }
     },
     {
       "test_id": "T017",
       "category": "validation_rules",
-      "check": "validation_extra",
+      "check": "validation_field",
       "source_reference": {
         "section": "questionnaire",
         "block_order": 10,
@@ -304,10 +304,10 @@
       "target": "S3",
       "input_state": null,
       "expected": 80,
-      "criticality": "NORMAL",
+      "criticality": "CRITICAL",
       "ground_truth_status": "VERIFIED",
       "params": {
-        "field": "max"
+        "field": "max_value"
       }
     },
     {

@@ -160,9 +160,6 @@ Tests: `tests/test_conditions.py`, `tests/test_stage5_content.py`,
 
 - **Every QRE starts BLOCKED.** Each leaves some readings unstated, and those
   wait for a person in the decision register. That is the gate working.
-- **M QREs exit with code 2.** Stage 7 and Stage 6 name S3's age range fields
-  differently, so the check reports a mismatch. The specification is correct
-  and the survey builds.
 - **Model readings of prose can vary** between documents. A declined condition
   becomes a review item, never a guess.
 - **Only the first completion ending is wired into the graph.** No supported

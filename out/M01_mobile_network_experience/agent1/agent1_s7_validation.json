@@ -8,23 +8,10 @@
     "sha256": "6f7e2db55c2c8ffaabdd4890e35464b4a5325a0ae13e38ffabb37ed06d064964",
     "bytes": 42042
   },
-  "generated_at": "2026-10-13T11:27:03+00:00",
+  "generated_at": "2026-10-13T12:37:27+00:00",
   "item_count": null,
   "content": {
-    "cross_source": [
-      {
-        "check": "invented_validation",
-        "severity": "BLOCKING",
-        "finding": "S3 carries min_value, which the QRE does not state for it.",
-        "target": "S3"
-      },
-      {
-        "check": "invented_validation",
-        "severity": "BLOCKING",
-        "finding": "S3 carries max_value, which the QRE does not state for it.",
-        "target": "S3"
-      }
-    ],
+    "cross_source": [],
     "graph": {
       "nodes": 25,
       "edges": 27,
@@ -115,7 +102,7 @@
         "pending": 8,
         "resolved": 0,
         "not_required": 5,
-        "newly_transitioned_not_required": 3,
+        "newly_transitioned_not_required": 0,
         "context_changed": 0,
         "blocking_pending": [
           "89323997a884fd7e",
@@ -128,8 +115,8 @@
       }
     },
     "verdict": {
-      "canonical_status": "FAILED",
-      "graph_ready": "NO",
+      "canonical_status": "PASSED_WITH_WARNINGS",
+      "graph_ready": "YES",
       "graph_evidence": {
         "nodes": 25,
         "edges": 27,
@@ -169,12 +156,7 @@
         "rule_precedence",
         "unasked_question_semantics"
       ],
-      "what_is_incorrect": [
-        "T016 [validation_rules] a setting the QRE states was dropped \u2014 expected 18, found None",
-        "T017 [validation_rules] a setting the QRE states was dropped \u2014 expected 80, found None",
-        "invented_validation: S3 carries min_value, which the QRE does not state for it.",
-        "invented_validation: S3 carries max_value, which the QRE does not state for it."
-      ],
+      "what_is_incorrect": [],
       "what_is_missing": [],
       "what_is_ambiguous": [
         "randomization_anchoring \u2014 Where an exclusive option appears when the list is shuffled, which decides whether a displayed-order assertion is right.",
@@ -183,9 +165,7 @@
         "quota_ending_missing \u2014 Nothing can be asserted about what a quota-full respondent is shown.",
         "quota_inferred \u2014 Which respondents are counted against which quota, and when they are turned away."
       ],
-      "what_must_change": [
-        "Resolve the 2 cross-source findings: the specification and the document disagree."
-      ],
+      "what_must_change": [],
       "affected_ids": [
         "M01_mobile_network_experience.docx",
         "Q13",
@@ -194,15 +174,14 @@
         "Q8",
         "QUOTA_REGION",
         "R9",
-        "S3",
         "TERM_QUOTA_FULL",
         "semantics"
       ],
       "counts": {
         "critical_failures": 0,
-        "other_failures": 2,
+        "other_failures": 0,
         "blocked": 0,
-        "cross_source_blocking": 2,
+        "cross_source_blocking": 0,
         "confirmation_required": 5,
         "decisions_pending_blocking": 6
       }

@@ -8,12 +8,12 @@
     "sha256": "6f7e2db55c2c8ffaabdd4890e35464b4a5325a0ae13e38ffabb37ed06d064964",
     "bytes": 42042
   },
-  "generated_at": "2026-10-13T11:27:03+00:00",
+  "generated_at": "2026-10-13T12:37:27+00:00",
   "item_count": null,
   "content": {
     "counts": {
-      "PASS": 226,
-      "FAIL": 2,
+      "PASS": 228,
+      "FAIL": 0,
       "UNVERIFIED": 21,
       "BLOCKED": 0
     },
@@ -83,12 +83,12 @@
       },
       "validation_coverage": {
         "definition": "validation instructions carried, including whether an answer is required",
-        "numerator": 23,
+        "numerator": 25,
         "denominator": 25,
         "unverified_excluded": 0,
-        "result": 0.92,
+        "result": 1.0,
         "target": 1.0,
-        "meets_target": false
+        "meets_target": true
       },
       "dependency_piping_coverage": {
         "definition": "piped option lists recorded on the question and as a dependency",
@@ -164,8 +164,8 @@
       },
       "critical_rule_recall": {
         "definition": "executable logic - display, skip, routing, termination, validation, dependencies, quotas, randomization - carried correctly",
-        "numerator": 100,
-        "denominator": 100,
+        "numerator": 102,
+        "denominator": 102,
         "unverified_excluded": 21,
         "result": 1.0,
         "target": 1.0,
@@ -368,26 +368,26 @@
       {
         "test_id": "T016",
         "category": "validation_rules",
-        "criticality": "NORMAL",
-        "status": "FAIL",
+        "criticality": "CRITICAL",
+        "status": "PASS",
         "expected": 18,
-        "actual": null,
+        "actual": 18,
         "evidence": "min: 18",
-        "canonical_reference": "questions[S3].extra.min",
-        "explanation": "a setting the QRE states was dropped",
-        "severity": "warning"
+        "canonical_reference": "questions[S3].validation.min_value",
+        "explanation": "validation rule carried",
+        "severity": "none"
       },
       {
         "test_id": "T017",
         "category": "validation_rules",
-        "criticality": "NORMAL",
-        "status": "FAIL",
+        "criticality": "CRITICAL",
+        "status": "PASS",
         "expected": 80,
-        "actual": null,
+        "actual": 80,
         "evidence": "max: 80",
-        "canonical_reference": "questions[S3].extra.max",
-        "explanation": "a setting the QRE states was dropped",
-        "severity": "warning"
+        "canonical_reference": "questions[S3].validation.max_value",
+        "explanation": "validation rule carried",
+        "severity": "none"
       },
       {
         "test_id": "T018",
