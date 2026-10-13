@@ -198,6 +198,50 @@
           }
         ]
       }
+    },
+    "ecc55915d848a4e6db2dfe7d4dc2fcdeb10d15fcb9109dec5d1c096c9b6afc94": {
+      "response_model": "LLMConditionProposal",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-10-13T12:55:33+00:00",
+      "asked": "Condition as written: Q1 contains at least one brand\n\nAnswer options:\nQ1: 'Bank A', 'Bank B', 'Bank C', 'Digital Bank D', 'None of these' (exclusive)",
+      "response": {
+        "expression": "Q1 contains_any ['Bank A','Bank B','Bank C','Digital Bank D']",
+        "confidence": 1.0,
+        "reasoning": "The phrase 'contains at least one brand' means the respondent selected any of the brand options. Using the grammar, this is expressed with the contains_any operator listing the brand answer labels. The exclusive 'None of these' is omitted because it represents selecting none of the brands."
+      }
+    },
+    "126543ff6a5a10bfa614e8da7c7e98ea916048f0c779d195ed8e306c75238537": {
+      "response_model": "LLMConditionProposal",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-10-13T12:55:35+00:00",
+      "asked": "Condition as written: Q5 contains any touchpoint\n\nAnswer options:\nQ5: 'Branch', 'Mobile app', 'Website', 'Call centre', 'ATM', 'Financial adviser', 'None of these' (exclusive)",
+      "response": {
+        "expression": "Q5 contains_any ['Branch','Mobile app','Website','Call centre','ATM','Financial adviser']",
+        "confidence": 0.99,
+        "reasoning": "The phrase \"contains any touchpoint\" means the respondent selected at least one of the listed touchpoint options. The exclusive option \"None of these\" should be excluded, so we list all other options in a contains_any clause per the provided grammar."
+      }
+    },
+    "251941c8d3532f93fff3f9776d4d2b2e8f866c8d8de65166d679950fd49ce081": {
+      "response_model": "LLMConditionProposal",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-10-13T12:55:44+00:00",
+      "asked": "Condition as written: exclusive option selected with another response at Q1 or Q5\n\nAnswer options:\nQ1: 'Bank A', 'Bank B', 'Bank C', 'Digital Bank D', 'None of these' (exclusive)\nQ5: 'Branch', 'Mobile app', 'Website', 'Call centre', 'ATM', 'Financial adviser', 'None of these' (exclusive)",
+      "response": {
+        "expression": "(Q1 contains 'None of these' and not Q1 == ['None of these']) or (Q5 contains 'None of these' and not Q5 == ['None of these'])",
+        "confidence": 1.0,
+        "reasoning": "The condition describes an exclusive option ('None of these') being selected together with another answer on either Q1 or Q5. This is expressed as the exclusive option being present (contains) while the answer set is not exactly that exclusive option (not ==). The overall condition is the logical OR of the Q1 and Q5 cases, matching the required grammar."
+      }
+    },
+    "2ced2030bb2ddebeb7e561aaeec9d1f7b855f540a1bc66d79331a599114333ac": {
+      "response_model": "LLMConditionProposal",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-10-13T12:55:57+00:00",
+      "asked": "Condition as written: selected option at Q6 was not selected at Q5\n\nAnswer options:\nQ6: 'Branch', 'Mobile app', 'Website', 'Call centre', 'ATM', 'Financial adviser'\nQ5: 'Branch', 'Mobile app', 'Website', 'Call centre', 'ATM', 'Financial adviser', 'None of these' (exclusive)",
+      "response": {
+        "expression": "not Q5 contains Q6",
+        "confidence": 0.99,
+        "reasoning": "The condition states that any option selected in Q6 must not be selected in Q5. Using the membership operator, 'Q5 contains Q6' would mean Q5 includes the option chosen at Q6; negating this with 'not' yields the required condition. This fits the provided grammar."
+      }
     }
   }
 }

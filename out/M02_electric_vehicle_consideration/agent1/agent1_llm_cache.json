@@ -120,6 +120,28 @@
       "response": {
         "pipes": []
       }
+    },
+    "b986e574d279c0e28d35137ab7bb0887061dede8b57eba61daeb80cbefa332b2": {
+      "response_model": "LLMConditionProposal",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-10-13T12:56:22+00:00",
+      "asked": "Condition as written: Q7 contains any problem\n\nAnswer options:\nQ7: 'Charging concern', 'Range concern', 'Purchase price', 'Service availability', 'Resale uncertainty', 'None of these' (exclusive)",
+      "response": {
+        "expression": "Q7 contains_any ['Charging concern','Range concern','Purchase price','Service availability','Resale uncertainty']",
+        "confidence": 0.99,
+        "reasoning": "The phrase \"contains any problem\" means the respondent selected at least one of the problem options listed for Q7. The exclusive option \"None of these\" indicates no problem, so the condition is satisfied when Q7 contains any of the other five options. This maps to the grammar rule \"membership   Q5 contains_any [...]\"."
+      }
+    },
+    "1a177e8efb3adeff78c9e7f05222e2f1b59acdb8b2b175ba6895648244d21e5d": {
+      "response_model": "LLMConditionProposal",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-10-13T12:56:32+00:00",
+      "asked": "Condition as written: Q7 includes 'None of these' plus another option\n\nAnswer options:\nQ7: 'Charging concern', 'Range concern', 'Purchase price', 'Service availability', 'Resale uncertainty', 'None of these' (exclusive)",
+      "response": {
+        "expression": "Q7 contains 'None of these' and not Q7 == ['None of these']",
+        "confidence": 1.0,
+        "reasoning": "The condition states that the respondent selected the exclusive option 'None of these' together with another option. This is expressed as the membership test Q7 contains 'None of these' combined with the negation of the exact set condition Q7 == ['None of these']."
+      }
     }
   }
 }

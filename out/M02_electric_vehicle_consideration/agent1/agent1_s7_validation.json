@@ -8,7 +8,7 @@
     "sha256": "13a0b7cc45ed6f6b7e0c570e5fe3d70c5ae6a7693ffff9dd6e7a970c5c854006",
     "bytes": 42038
   },
-  "generated_at": "2026-10-13T12:37:28+00:00",
+  "generated_at": "2026-10-13T12:56:32+00:00",
   "item_count": null,
   "content": {
     "cross_source": [],
@@ -51,6 +51,17 @@
       },
       {
         "status": "CONFIRMATION_REQUIRED",
+        "issue": "condition_inferred",
+        "why_it_matters": "Q8's display condition was prose, so a model proposed a reading which the parser then accepted. Worth a human eye.",
+        "affected": [
+          "Q8",
+          "R9"
+        ],
+        "changes_downstream": "Whether this rule fires for a given respondent, so which questions they see and which ending they reach.",
+        "decision_ids": []
+      },
+      {
+        "status": "CONFIRMATION_REQUIRED",
         "issue": "semantics_unconfirmed",
         "why_it_matters": "The semantics block records three decisions the QRE never states: that a condition naming an unasked question is false, that the first matching rule wins, and that '==' against a multi-select compares the whole answer set. Each changes which questions appear on many routes and needs confirming.",
         "affected": [
@@ -58,26 +69,6 @@
           "semantics"
         ],
         "changes_downstream": "Which questions appear on many routes, which rule wins when two apply, and whether an 'is exactly' test passes on a multi-select answer.",
-        "decision_ids": []
-      },
-      {
-        "status": "CONFIRMATION_REQUIRED",
-        "issue": "condition_inferred",
-        "why_it_matters": "Q8's display condition was prose, so a model proposed a reading which the parser then accepted. Worth a human eye.",
-        "affected": [
-          "Q8"
-        ],
-        "changes_downstream": "Whether this rule fires for a given respondent, so which questions they see and which ending they reach.",
-        "decision_ids": []
-      },
-      {
-        "status": "CONFIRMATION_REQUIRED",
-        "issue": "condition_unread",
-        "why_it_matters": "Rule R9 could not be read as a condition: model declined: The condition states that Q7 contains 'None of these' together with another option, but \"None of these\" is marked exclusive, meaning it cannot be selected with any other option. Hence the condition is logically impossible and cannot be expressed in the given grammar.",
-        "affected": [
-          "R9"
-        ],
-        "changes_downstream": "The rule has no machine-readable form, so nothing downstream can evaluate it.",
         "decision_ids": []
       },
       {
@@ -105,19 +96,19 @@
       "register": "agent1_s7_decisions.json",
       "human_readable": "agent1_s7_decision_register.md",
       "summary": {
-        "total": 10,
-        "raised_this_run": 0,
+        "total": 11,
+        "raised_this_run": 1,
         "resolved_reused": 0,
         "pending": 8,
         "resolved": 0,
-        "not_required": 2,
-        "newly_transitioned_not_required": 0,
+        "not_required": 3,
+        "newly_transitioned_not_required": 1,
         "context_changed": 0,
         "blocking_pending": [
-          "21bd803d92651205",
           "24b090173a7711d4",
           "33e0a1fe13f0a3e8",
           "4112794b8475f71e",
+          "4198814a8b7e7faf",
           "9302a2e0db8fda70",
           "9b69bce12aaa4ac3"
         ]
@@ -150,10 +141,10 @@
       },
       "human_decision_gate": "PENDING_BLOCKING_DECISIONS",
       "pending_blocking_decisions": [
-        "21bd803d92651205",
         "24b090173a7711d4",
         "33e0a1fe13f0a3e8",
         "4112794b8475f71e",
+        "4198814a8b7e7faf",
         "9302a2e0db8fda70",
         "9b69bce12aaa4ac3"
       ],
@@ -169,9 +160,8 @@
       "what_is_missing": [],
       "what_is_ambiguous": [
         "randomization_anchoring \u2014 Where an exclusive option appears when the list is shuffled, which decides whether a displayed-order assertion is right.",
-        "semantics_unconfirmed \u2014 Which questions appear on many routes, which rule wins when two apply, and whether an 'is exactly' test passes on a multi-select answer.",
         "condition_inferred \u2014 Whether this rule fires for a given respondent, so which questions they see and which ending they reach.",
-        "condition_unread \u2014 The rule has no machine-readable form, so nothing downstream can evaluate it.",
+        "semantics_unconfirmed \u2014 Which questions appear on many routes, which rule wins when two apply, and whether an 'is exactly' test passes on a multi-select answer.",
         "quota_ending_missing \u2014 Nothing can be asserted about what a quota-full respondent is shown.",
         "quota_inferred \u2014 Which respondents are counted against which quota, and when they are turned away."
       ],
@@ -192,7 +182,7 @@
         "other_failures": 0,
         "blocked": 0,
         "cross_source_blocking": 0,
-        "confirmation_required": 6,
+        "confirmation_required": 5,
         "decisions_pending_blocking": 6
       }
     }

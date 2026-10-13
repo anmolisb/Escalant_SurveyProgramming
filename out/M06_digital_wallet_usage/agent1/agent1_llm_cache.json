@@ -168,6 +168,28 @@
       "response": {
         "pipes": []
       }
+    },
+    "7d82dd447d4a068d3dc7886ad54d31811a48241dd295709023204534f827bec8": {
+      "response_model": "LLMConditionProposal",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-10-13T12:57:14+00:00",
+      "asked": "Condition as written: Q7 contains any problem\n\nAnswer options:\nQ7: 'Payment failure', 'Refund delay', 'Incorrect debit', 'Authentication issue', 'Merchant acceptance', 'None of these' (exclusive)",
+      "response": {
+        "expression": "Q7 contains_any ['Payment failure','Refund delay','Incorrect debit','Authentication issue','Merchant acceptance']",
+        "confidence": 0.99,
+        "reasoning": "The phrase 'contains any problem' means the respondent selected at least one of the listed problem options. Using the membership operator 'contains_any' with the list of problem answer labels captures this condition, excluding the exclusive 'None of these' option."
+      }
+    },
+    "5242da4b5cd5fd38140e2ea87bf3fa7fe8053e3c44a34351471154b2ffc77b9d": {
+      "response_model": "LLMConditionProposal",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-10-13T12:57:23+00:00",
+      "asked": "Condition as written: Q7 includes 'None of these' plus another option\n\nAnswer options:\nQ7: 'Payment failure', 'Refund delay', 'Incorrect debit', 'Authentication issue', 'Merchant acceptance', 'None of these' (exclusive)",
+      "response": {
+        "expression": "Q7 contains 'None of these' and not Q7 == ['None of these']",
+        "confidence": 1.0,
+        "reasoning": "The condition states that the respondent selected the exclusive option 'None of these' together with another option. This is expressed as the membership test Q7 contains 'None of these' combined with the negation of the exact set test Q7 == ['None of these']."
+      }
     }
   }
 }

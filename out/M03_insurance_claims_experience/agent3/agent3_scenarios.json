@@ -9,7 +9,7 @@
   },
   "upstream": {
     "canonical_schema_version": "1.0.0",
-    "canonical_generated_at": "2026-10-13T11:27:21+00:00"
+    "canonical_generated_at": "2026-10-13T12:56:47+00:00"
   },
   "content": {
     "scenarios": [
@@ -70,14 +70,7 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [
-            {
-              "question_id": "Q7",
-              "rule": "R9",
-              "outcome": "violated",
-              "detail": "reject rule R9 fires: "
-            }
-          ],
+          "validation_messages_expected": [],
           "piped_text_visible": {},
           "option_lists_visible": {
             "Q8": [
@@ -87,8 +80,7 @@
         },
         "proof": "after answering D1 the respondent went on to D2",
         "provisional_semantics": [
-          "multi_equality",
-          "rule_precedence"
+          "multi_equality"
         ],
         "preconditions": {},
         "campaign": {},
@@ -151,14 +143,7 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [
-            {
-              "question_id": "Q7",
-              "rule": "R9",
-              "outcome": "violated",
-              "detail": "reject rule R9 fires: "
-            }
-          ],
+          "validation_messages_expected": [],
           "piped_text_visible": {},
           "option_lists_visible": {
             "Q8": [
@@ -168,8 +153,7 @@
         },
         "proof": "after answering D2 the respondent went on to Q14",
         "provisional_semantics": [
-          "multi_equality",
-          "rule_precedence"
+          "multi_equality"
         ],
         "preconditions": {},
         "campaign": {},
@@ -232,14 +216,7 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [
-            {
-              "question_id": "Q7",
-              "rule": "R9",
-              "outcome": "violated",
-              "detail": "reject rule R9 fires: "
-            }
-          ],
+          "validation_messages_expected": [],
           "piped_text_visible": {},
           "option_lists_visible": {
             "Q8": [
@@ -249,8 +226,7 @@
         },
         "proof": "after answering DT1 the respondent went on to Q1",
         "provisional_semantics": [
-          "multi_equality",
-          "rule_precedence"
+          "multi_equality"
         ],
         "preconditions": {},
         "campaign": {},
@@ -313,14 +289,7 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [
-            {
-              "question_id": "Q7",
-              "rule": "R9",
-              "outcome": "violated",
-              "detail": "reject rule R9 fires: "
-            }
-          ],
+          "validation_messages_expected": [],
           "piped_text_visible": {},
           "option_lists_visible": {
             "Q8": [
@@ -330,8 +299,7 @@
         },
         "proof": "after answering DT2 the respondent went on to D1",
         "provisional_semantics": [
-          "multi_equality",
-          "rule_precedence"
+          "multi_equality"
         ],
         "preconditions": {},
         "campaign": {},
@@ -394,14 +362,7 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [
-            {
-              "question_id": "Q7",
-              "rule": "R9",
-              "outcome": "violated",
-              "detail": "reject rule R9 fires: "
-            }
-          ],
+          "validation_messages_expected": [],
           "piped_text_visible": {},
           "option_lists_visible": {
             "Q8": [
@@ -411,8 +372,7 @@
         },
         "proof": "after answering Q1 the respondent went on to Q2",
         "provisional_semantics": [
-          "multi_equality",
-          "rule_precedence"
+          "multi_equality"
         ],
         "preconditions": {},
         "campaign": {},
@@ -475,14 +435,7 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [
-            {
-              "question_id": "Q7",
-              "rule": "R9",
-              "outcome": "violated",
-              "detail": "reject rule R9 fires: "
-            }
-          ],
+          "validation_messages_expected": [],
           "piped_text_visible": {},
           "option_lists_visible": {
             "Q8": [
@@ -492,8 +445,7 @@
         },
         "proof": "after answering Q10 the respondent went on to Q11",
         "provisional_semantics": [
-          "multi_equality",
-          "rule_precedence"
+          "multi_equality"
         ],
         "preconditions": {},
         "campaign": {},
@@ -557,14 +509,7 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [
-            {
-              "question_id": "Q7",
-              "rule": "R9",
-              "outcome": "violated",
-              "detail": "reject rule R9 fires: "
-            }
-          ],
+          "validation_messages_expected": [],
           "piped_text_visible": {},
           "option_lists_visible": {
             "Q8": [
@@ -638,14 +583,7 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [
-            {
-              "question_id": "Q7",
-              "rule": "R9",
-              "outcome": "violated",
-              "detail": "reject rule R9 fires: "
-            }
-          ],
+          "validation_messages_expected": [],
           "piped_text_visible": {},
           "option_lists_visible": {
             "Q8": [
@@ -655,8 +593,7 @@
         },
         "proof": "Q10 appears in the predicted path",
         "provisional_semantics": [
-          "multi_equality",
-          "rule_precedence"
+          "multi_equality"
         ],
         "preconditions": {},
         "campaign": {},
@@ -719,14 +656,7 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [
-            {
-              "question_id": "Q7",
-              "rule": "R9",
-              "outcome": "violated",
-              "detail": "reject rule R9 fires: "
-            }
-          ],
+          "validation_messages_expected": [],
           "piped_text_visible": {},
           "option_lists_visible": {
             "Q8": [
@@ -736,8 +666,7 @@
         },
         "proof": "after answering Q11 the respondent went on to Q12",
         "provisional_semantics": [
-          "multi_equality",
-          "rule_precedence"
+          "multi_equality"
         ],
         "preconditions": {},
         "campaign": {},
@@ -800,14 +729,7 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [
-            {
-              "question_id": "Q7",
-              "rule": "R9",
-              "outcome": "violated",
-              "detail": "reject rule R9 fires: "
-            }
-          ],
+          "validation_messages_expected": [],
           "piped_text_visible": {},
           "option_lists_visible": {
             "Q8": [
@@ -817,8 +739,7 @@
         },
         "proof": "after answering Q12 the respondent went on to Q13",
         "provisional_semantics": [
-          "multi_equality",
-          "rule_precedence"
+          "multi_equality"
         ],
         "preconditions": {},
         "campaign": {},
@@ -881,14 +802,7 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [
-            {
-              "question_id": "Q7",
-              "rule": "R9",
-              "outcome": "violated",
-              "detail": "reject rule R9 fires: "
-            }
-          ],
+          "validation_messages_expected": [],
           "piped_text_visible": {},
           "option_lists_visible": {
             "Q8": [
@@ -898,8 +812,7 @@
         },
         "proof": "after answering Q13 the respondent went on to DT2",
         "provisional_semantics": [
-          "multi_equality",
-          "rule_precedence"
+          "multi_equality"
         ],
         "preconditions": {},
         "campaign": {},
@@ -962,14 +875,7 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [
-            {
-              "question_id": "Q7",
-              "rule": "R9",
-              "outcome": "violated",
-              "detail": "reject rule R9 fires: "
-            }
-          ],
+          "validation_messages_expected": [],
           "piped_text_visible": {},
           "option_lists_visible": {
             "Q8": [
@@ -979,8 +885,7 @@
         },
         "proof": "Q14 is the last question shown, and answering it took the respondent to COMPLETE",
         "provisional_semantics": [
-          "multi_equality",
-          "rule_precedence"
+          "multi_equality"
         ],
         "preconditions": {},
         "campaign": {},
@@ -1043,14 +948,7 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [
-            {
-              "question_id": "Q7",
-              "rule": "R9",
-              "outcome": "violated",
-              "detail": "reject rule R9 fires: "
-            }
-          ],
+          "validation_messages_expected": [],
           "piped_text_visible": {},
           "option_lists_visible": {
             "Q8": [
@@ -1060,8 +958,7 @@
         },
         "proof": "after answering Q2 the respondent went on to Q3",
         "provisional_semantics": [
-          "multi_equality",
-          "rule_precedence"
+          "multi_equality"
         ],
         "preconditions": {},
         "campaign": {},
@@ -1124,14 +1021,7 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [
-            {
-              "question_id": "Q7",
-              "rule": "R9",
-              "outcome": "violated",
-              "detail": "reject rule R9 fires: "
-            }
-          ],
+          "validation_messages_expected": [],
           "piped_text_visible": {},
           "option_lists_visible": {
             "Q8": [
@@ -1141,8 +1031,7 @@
         },
         "proof": "after answering Q3 the respondent went on to Q4",
         "provisional_semantics": [
-          "multi_equality",
-          "rule_precedence"
+          "multi_equality"
         ],
         "preconditions": {},
         "campaign": {},
@@ -1205,14 +1094,7 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [
-            {
-              "question_id": "Q7",
-              "rule": "R9",
-              "outcome": "violated",
-              "detail": "reject rule R9 fires: "
-            }
-          ],
+          "validation_messages_expected": [],
           "piped_text_visible": {},
           "option_lists_visible": {
             "Q8": [
@@ -1222,8 +1104,7 @@
         },
         "proof": "after answering Q4 the respondent went on to Q5",
         "provisional_semantics": [
-          "multi_equality",
-          "rule_precedence"
+          "multi_equality"
         ],
         "preconditions": {},
         "campaign": {},
@@ -1286,14 +1167,7 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [
-            {
-              "question_id": "Q7",
-              "rule": "R9",
-              "outcome": "violated",
-              "detail": "reject rule R9 fires: "
-            }
-          ],
+          "validation_messages_expected": [],
           "piped_text_visible": {},
           "option_lists_visible": {
             "Q8": [
@@ -1303,8 +1177,7 @@
         },
         "proof": "after answering Q5 the respondent went on to Q6",
         "provisional_semantics": [
-          "multi_equality",
-          "rule_precedence"
+          "multi_equality"
         ],
         "preconditions": {},
         "campaign": {},
@@ -1367,14 +1240,7 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [
-            {
-              "question_id": "Q7",
-              "rule": "R9",
-              "outcome": "violated",
-              "detail": "reject rule R9 fires: "
-            }
-          ],
+          "validation_messages_expected": [],
           "piped_text_visible": {},
           "option_lists_visible": {
             "Q8": [
@@ -1384,8 +1250,7 @@
         },
         "proof": "after answering Q6 the respondent went on to Q7",
         "provisional_semantics": [
-          "multi_equality",
-          "rule_precedence"
+          "multi_equality"
         ],
         "preconditions": {},
         "campaign": {},
@@ -1448,14 +1313,7 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [
-            {
-              "question_id": "Q7",
-              "rule": "R9",
-              "outcome": "violated",
-              "detail": "reject rule R9 fires: "
-            }
-          ],
+          "validation_messages_expected": [],
           "piped_text_visible": {},
           "option_lists_visible": {
             "Q8": [
@@ -1465,8 +1323,7 @@
         },
         "proof": "after answering Q7 the respondent went on to Q8",
         "provisional_semantics": [
-          "multi_equality",
-          "rule_precedence"
+          "multi_equality"
         ],
         "preconditions": {},
         "campaign": {},
@@ -1529,14 +1386,7 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [
-            {
-              "question_id": "Q7",
-              "rule": "R9",
-              "outcome": "violated",
-              "detail": "reject rule R9 fires: "
-            }
-          ],
+          "validation_messages_expected": [],
           "piped_text_visible": {},
           "option_lists_visible": {
             "Q8": [
@@ -1546,8 +1396,7 @@
         },
         "proof": "after answering Q8 the respondent went on to Q9",
         "provisional_semantics": [
-          "multi_equality",
-          "rule_precedence"
+          "multi_equality"
         ],
         "preconditions": {},
         "campaign": {},
@@ -1681,14 +1530,7 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [
-            {
-              "question_id": "Q7",
-              "rule": "R9",
-              "outcome": "violated",
-              "detail": "reject rule R9 fires: "
-            }
-          ],
+          "validation_messages_expected": [],
           "piped_text_visible": {},
           "option_lists_visible": {
             "Q8": [
@@ -1698,8 +1540,7 @@
         },
         "proof": "Q8 appears in the predicted path",
         "provisional_semantics": [
-          "multi_equality",
-          "rule_precedence"
+          "multi_equality"
         ],
         "preconditions": {},
         "campaign": {},
@@ -1762,14 +1603,7 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [
-            {
-              "question_id": "Q7",
-              "rule": "R9",
-              "outcome": "violated",
-              "detail": "reject rule R9 fires: "
-            }
-          ],
+          "validation_messages_expected": [],
           "piped_text_visible": {},
           "option_lists_visible": {
             "Q8": [
@@ -1779,8 +1613,7 @@
         },
         "proof": "after answering Q9 the respondent went on to Q10",
         "provisional_semantics": [
-          "multi_equality",
-          "rule_precedence"
+          "multi_equality"
         ],
         "preconditions": {},
         "campaign": {},
@@ -1914,14 +1747,7 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [
-            {
-              "question_id": "Q7",
-              "rule": "R9",
-              "outcome": "violated",
-              "detail": "reject rule R9 fires: "
-            }
-          ],
+          "validation_messages_expected": [],
           "piped_text_visible": {},
           "option_lists_visible": {
             "Q8": [
@@ -1931,8 +1757,7 @@
         },
         "proof": "Q9 appears in the predicted path",
         "provisional_semantics": [
-          "multi_equality",
-          "rule_precedence"
+          "multi_equality"
         ],
         "preconditions": {},
         "campaign": {},
@@ -2066,14 +1891,7 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [
-            {
-              "question_id": "Q7",
-              "rule": "R9",
-              "outcome": "violated",
-              "detail": "reject rule R9 fires: "
-            }
-          ],
+          "validation_messages_expected": [],
           "piped_text_visible": {},
           "option_lists_visible": {
             "Q8": [
@@ -2083,8 +1901,7 @@
         },
         "proof": "R6 correctly did not fire; respondent continued in sequence",
         "provisional_semantics": [
-          "multi_equality",
-          "rule_precedence"
+          "multi_equality"
         ],
         "preconditions": {},
         "campaign": {},
@@ -2148,14 +1965,7 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [
-            {
-              "question_id": "Q7",
-              "rule": "R9",
-              "outcome": "violated",
-              "detail": "reject rule R9 fires: "
-            }
-          ],
+          "validation_messages_expected": [],
           "piped_text_visible": {},
           "option_lists_visible": {
             "Q8": [
@@ -2229,14 +2039,7 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [
-            {
-              "question_id": "Q7",
-              "rule": "R9",
-              "outcome": "violated",
-              "detail": "reject rule R9 fires: "
-            }
-          ],
+          "validation_messages_expected": [],
           "piped_text_visible": {},
           "option_lists_visible": {
             "Q8": [
@@ -2246,8 +2049,7 @@
         },
         "proof": "R8 correctly did not fire; respondent continued in sequence",
         "provisional_semantics": [
-          "multi_equality",
-          "rule_precedence"
+          "multi_equality"
         ],
         "preconditions": {},
         "campaign": {},
@@ -2310,14 +2112,7 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [
-            {
-              "question_id": "Q7",
-              "rule": "R9",
-              "outcome": "violated",
-              "detail": "reject rule R9 fires: "
-            }
-          ],
+          "validation_messages_expected": [],
           "piped_text_visible": {},
           "option_lists_visible": {
             "Q8": [
@@ -2327,8 +2122,7 @@
         },
         "proof": "after answering S1 the respondent went on to S2",
         "provisional_semantics": [
-          "multi_equality",
-          "rule_precedence"
+          "multi_equality"
         ],
         "preconditions": {},
         "campaign": {},
@@ -2391,14 +2185,7 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [
-            {
-              "question_id": "Q7",
-              "rule": "R9",
-              "outcome": "violated",
-              "detail": "reject rule R9 fires: "
-            }
-          ],
+          "validation_messages_expected": [],
           "piped_text_visible": {},
           "option_lists_visible": {
             "Q8": [
@@ -2408,8 +2195,7 @@
         },
         "proof": "after answering S2 the respondent went on to S3",
         "provisional_semantics": [
-          "multi_equality",
-          "rule_precedence"
+          "multi_equality"
         ],
         "preconditions": {},
         "campaign": {},
@@ -2472,14 +2258,7 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [
-            {
-              "question_id": "Q7",
-              "rule": "R9",
-              "outcome": "violated",
-              "detail": "reject rule R9 fires: "
-            }
-          ],
+          "validation_messages_expected": [],
           "piped_text_visible": {},
           "option_lists_visible": {
             "Q8": [
@@ -2489,8 +2268,7 @@
         },
         "proof": "after answering S3 the respondent went on to DT1",
         "provisional_semantics": [
-          "multi_equality",
-          "rule_precedence"
+          "multi_equality"
         ],
         "preconditions": {},
         "campaign": {},
@@ -2553,14 +2331,7 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [
-            {
-              "question_id": "Q7",
-              "rule": "R9",
-              "outcome": "violated",
-              "detail": "reject rule R9 fires: "
-            }
-          ],
+          "validation_messages_expected": [],
           "piped_text_visible": {},
           "option_lists_visible": {
             "Q8": [
@@ -2570,8 +2341,7 @@
         },
         "proof": "predicted ending is COMPLETE, path ['__START__', 'S1', 'S2', 'S3', 'DT1', 'Q1', 'Q2', 'Q3', 'Q4', 'Q5', 'Q6', 'Q7', 'Q8', 'Q9', 'Q10', 'Q11', 'Q12', 'Q13', 'DT2', 'D1', 'D2', 'Q14', 'COMPLETE']",
         "provisional_semantics": [
-          "multi_equality",
-          "rule_precedence"
+          "multi_equality"
         ],
         "preconditions": {},
         "campaign": {},
@@ -2748,14 +2518,7 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [
-            {
-              "question_id": "Q7",
-              "rule": "R9",
-              "outcome": "violated",
-              "detail": "reject rule R9 fires: "
-            }
-          ],
+          "validation_messages_expected": [],
           "piped_text_visible": {},
           "option_lists_visible": {
             "Q8": [
@@ -2765,8 +2528,7 @@
         },
         "proof": "Q14 accepted the answer with no validation message",
         "provisional_semantics": [
-          "multi_equality",
-          "rule_precedence"
+          "multi_equality"
         ],
         "preconditions": {},
         "campaign": {},
@@ -2830,14 +2592,7 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [
-            {
-              "question_id": "Q7",
-              "rule": "R9",
-              "outcome": "violated",
-              "detail": "reject rule R9 fires: "
-            }
-          ],
+          "validation_messages_expected": [],
           "piped_text_visible": {},
           "option_lists_visible": {
             "Q8": [
@@ -2847,8 +2602,7 @@
         },
         "proof": "Q14 accepted the answer with no validation message",
         "provisional_semantics": [
-          "multi_equality",
-          "rule_precedence"
+          "multi_equality"
         ],
         "preconditions": {},
         "campaign": {},
@@ -2912,14 +2666,7 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [
-            {
-              "question_id": "Q7",
-              "rule": "R9",
-              "outcome": "violated",
-              "detail": "reject rule R9 fires: "
-            }
-          ],
+          "validation_messages_expected": [],
           "piped_text_visible": {},
           "option_lists_visible": {
             "Q8": [
@@ -2929,8 +2676,7 @@
         },
         "proof": "Q14 accepted the answer with no validation message",
         "provisional_semantics": [
-          "multi_equality",
-          "rule_precedence"
+          "multi_equality"
         ],
         "preconditions": {},
         "campaign": {},
@@ -2996,12 +2742,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [
             {
-              "question_id": "Q7",
-              "rule": "R9",
-              "outcome": "violated",
-              "detail": "reject rule R9 fires: "
-            },
-            {
               "question_id": "Q14",
               "rule": "max_length",
               "outcome": "violated",
@@ -3017,8 +2757,7 @@
         },
         "proof": "a validation message is predicted for Q14",
         "provisional_semantics": [
-          "multi_equality",
-          "rule_precedence"
+          "multi_equality"
         ],
         "preconditions": {},
         "campaign": {},
@@ -3228,14 +2967,7 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [
-            {
-              "question_id": "Q7",
-              "rule": "R9",
-              "outcome": "violated",
-              "detail": "reject rule R9 fires: "
-            }
-          ],
+          "validation_messages_expected": [],
           "piped_text_visible": {},
           "option_lists_visible": {
             "Q8": [
@@ -3245,8 +2977,7 @@
         },
         "proof": "S3 accepted the answer with no validation message",
         "provisional_semantics": [
-          "multi_equality",
-          "rule_precedence"
+          "multi_equality"
         ],
         "preconditions": {},
         "campaign": {},
@@ -3315,12 +3046,6 @@
               "rule": "R3",
               "outcome": "violated",
               "detail": "reject rule R3 fires: S3 < 18 or S3 > 80"
-            },
-            {
-              "question_id": "Q7",
-              "rule": "R9",
-              "outcome": "violated",
-              "detail": "reject rule R9 fires: "
             }
           ],
           "piped_text_visible": {},
@@ -3399,12 +3124,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [
             {
-              "question_id": "Q7",
-              "rule": "R9",
-              "outcome": "violated",
-              "detail": "reject rule R9 fires: "
-            },
-            {
               "question_id": "D1",
               "rule": "mandatory",
               "outcome": "violated",
@@ -3420,8 +3139,7 @@
         },
         "proof": "D1 blocked the blank answer as required",
         "provisional_semantics": [
-          "multi_equality",
-          "rule_precedence"
+          "multi_equality"
         ],
         "preconditions": {},
         "campaign": {},
@@ -3487,12 +3205,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [
             {
-              "question_id": "Q7",
-              "rule": "R9",
-              "outcome": "violated",
-              "detail": "reject rule R9 fires: "
-            },
-            {
               "question_id": "D2",
               "rule": "mandatory",
               "outcome": "violated",
@@ -3508,8 +3220,7 @@
         },
         "proof": "D2 blocked the blank answer as required",
         "provisional_semantics": [
-          "multi_equality",
-          "rule_precedence"
+          "multi_equality"
         ],
         "preconditions": {},
         "campaign": {},
@@ -3650,12 +3361,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [
             {
-              "question_id": "Q7",
-              "rule": "R9",
-              "outcome": "violated",
-              "detail": "reject rule R9 fires: "
-            },
-            {
               "question_id": "Q10",
               "rule": "mandatory",
               "outcome": "violated",
@@ -3671,8 +3376,7 @@
         },
         "proof": "Q10 blocked the blank answer as required",
         "provisional_semantics": [
-          "multi_equality",
-          "rule_precedence"
+          "multi_equality"
         ],
         "preconditions": {},
         "campaign": {},
@@ -3738,12 +3442,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [
             {
-              "question_id": "Q7",
-              "rule": "R9",
-              "outcome": "violated",
-              "detail": "reject rule R9 fires: "
-            },
-            {
               "question_id": "Q11",
               "rule": "mandatory",
               "outcome": "violated",
@@ -3759,8 +3457,7 @@
         },
         "proof": "Q11 blocked the blank answer as required",
         "provisional_semantics": [
-          "multi_equality",
-          "rule_precedence"
+          "multi_equality"
         ],
         "preconditions": {},
         "campaign": {},
@@ -3826,12 +3523,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [
             {
-              "question_id": "Q7",
-              "rule": "R9",
-              "outcome": "violated",
-              "detail": "reject rule R9 fires: "
-            },
-            {
               "question_id": "Q12",
               "rule": "mandatory",
               "outcome": "violated",
@@ -3847,8 +3538,7 @@
         },
         "proof": "Q12 blocked the blank answer as required",
         "provisional_semantics": [
-          "multi_equality",
-          "rule_precedence"
+          "multi_equality"
         ],
         "preconditions": {},
         "campaign": {},
@@ -3914,12 +3604,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [
             {
-              "question_id": "Q7",
-              "rule": "R9",
-              "outcome": "violated",
-              "detail": "reject rule R9 fires: "
-            },
-            {
               "question_id": "Q13",
               "rule": "mandatory",
               "outcome": "violated",
@@ -3935,8 +3619,7 @@
         },
         "proof": "Q13 blocked the blank answer as required",
         "provisional_semantics": [
-          "multi_equality",
-          "rule_precedence"
+          "multi_equality"
         ],
         "preconditions": {},
         "campaign": {},
@@ -4000,14 +3683,7 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [
-            {
-              "question_id": "Q7",
-              "rule": "R9",
-              "outcome": "violated",
-              "detail": "reject rule R9 fires: "
-            }
-          ],
+          "validation_messages_expected": [],
           "piped_text_visible": {},
           "option_lists_visible": {
             "Q8": [
@@ -4017,8 +3693,7 @@
         },
         "proof": "Q14 permitted a blank answer, as an optional question should",
         "provisional_semantics": [
-          "multi_equality",
-          "rule_precedence"
+          "multi_equality"
         ],
         "preconditions": {},
         "campaign": {},
@@ -4082,14 +3757,7 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [
-            {
-              "question_id": "Q7",
-              "rule": "R9",
-              "outcome": "violated",
-              "detail": "reject rule R9 fires: "
-            }
-          ],
+          "validation_messages_expected": [],
           "piped_text_visible": {},
           "option_lists_visible": {
             "Q8": [
@@ -4100,7 +3768,6 @@
         "proof": "Q14 accepted spaces, as an optional question should",
         "provisional_semantics": [
           "multi_equality",
-          "rule_precedence",
           "whitespace_is_an_answer"
         ],
         "preconditions": {},
@@ -4615,12 +4282,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [
             {
-              "question_id": "Q7",
-              "rule": "R9",
-              "outcome": "violated",
-              "detail": "reject rule R9 fires: "
-            },
-            {
               "question_id": "Q8",
               "rule": "mandatory",
               "outcome": "violated",
@@ -4636,8 +4297,7 @@
         },
         "proof": "Q8 blocked the blank answer as required",
         "provisional_semantics": [
-          "multi_equality",
-          "rule_precedence"
+          "multi_equality"
         ],
         "preconditions": {},
         "campaign": {},
@@ -4703,12 +4363,6 @@
           "quota_over_target": null,
           "validation_messages_expected": [
             {
-              "question_id": "Q7",
-              "rule": "R9",
-              "outcome": "violated",
-              "detail": "reject rule R9 fires: "
-            },
-            {
               "question_id": "Q9",
               "rule": "mandatory",
               "outcome": "violated",
@@ -4724,8 +4378,7 @@
         },
         "proof": "Q9 blocked the blank answer as required",
         "provisional_semantics": [
-          "multi_equality",
-          "rule_precedence"
+          "multi_equality"
         ],
         "preconditions": {},
         "campaign": {},
@@ -5013,14 +4666,7 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [
-            {
-              "question_id": "Q7",
-              "rule": "R9",
-              "outcome": "violated",
-              "detail": "reject rule R9 fires: "
-            }
-          ],
+          "validation_messages_expected": [],
           "piped_text_visible": {},
           "option_lists_visible": {
             "Q8": [
@@ -5030,8 +4676,7 @@
         },
         "proof": "Q8 predicted to show only ['Document difficulty']",
         "provisional_semantics": [
-          "multi_equality",
-          "rule_precedence"
+          "multi_equality"
         ],
         "preconditions": {},
         "campaign": {},
@@ -5108,14 +4753,7 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [
-            {
-              "question_id": "Q7",
-              "rule": "R9",
-              "outcome": "violated",
-              "detail": "reject rule R9 fires: "
-            }
-          ],
+          "validation_messages_expected": [],
           "piped_text_visible": {},
           "option_lists_visible": {
             "Q8": [
@@ -5125,8 +4763,7 @@
         },
         "proof": "Q13 was reached, so its rendered option list can be counted against the 5 the QRE lists",
         "provisional_semantics": [
-          "multi_equality",
-          "rule_precedence"
+          "multi_equality"
         ],
         "preconditions": {},
         "campaign": {},
@@ -5189,14 +4826,7 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [
-            {
-              "question_id": "Q7",
-              "rule": "R9",
-              "outcome": "violated",
-              "detail": "reject rule R9 fires: "
-            }
-          ],
+          "validation_messages_expected": [],
           "piped_text_visible": {},
           "option_lists_visible": {
             "Q8": [
@@ -5206,8 +4836,7 @@
         },
         "proof": "Q13 was reached, so the order it renders can be recorded and compared across repeated runs",
         "provisional_semantics": [
-          "multi_equality",
-          "rule_precedence"
+          "multi_equality"
         ],
         "preconditions": {},
         "campaign": {
@@ -5288,14 +4917,7 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [
-            {
-              "question_id": "Q7",
-              "rule": "R9",
-              "outcome": "violated",
-              "detail": "reject rule R9 fires: "
-            }
-          ],
+          "validation_messages_expected": [],
           "piped_text_visible": {},
           "option_lists_visible": {
             "Q8": [
@@ -5305,8 +4927,7 @@
         },
         "proof": "Q3 was reached, so its rendered option list can be counted against the 5 the QRE lists",
         "provisional_semantics": [
-          "multi_equality",
-          "rule_precedence"
+          "multi_equality"
         ],
         "preconditions": {},
         "campaign": {},
@@ -5369,14 +4990,7 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [
-            {
-              "question_id": "Q7",
-              "rule": "R9",
-              "outcome": "violated",
-              "detail": "reject rule R9 fires: "
-            }
-          ],
+          "validation_messages_expected": [],
           "piped_text_visible": {},
           "option_lists_visible": {
             "Q8": [
@@ -5386,8 +5000,7 @@
         },
         "proof": "Q3 was reached, so the order it renders can be recorded and compared across repeated runs",
         "provisional_semantics": [
-          "multi_equality",
-          "rule_precedence"
+          "multi_equality"
         ],
         "preconditions": {},
         "campaign": {
@@ -5468,14 +5081,7 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [
-            {
-              "question_id": "Q7",
-              "rule": "R9",
-              "outcome": "violated",
-              "detail": "reject rule R9 fires: "
-            }
-          ],
+          "validation_messages_expected": [],
           "piped_text_visible": {},
           "option_lists_visible": {
             "Q8": [
@@ -5485,8 +5091,7 @@
         },
         "proof": "Q7 was reached, so its rendered option list can be counted against the 6 the QRE lists",
         "provisional_semantics": [
-          "multi_equality",
-          "rule_precedence"
+          "multi_equality"
         ],
         "preconditions": {},
         "campaign": {},
@@ -5549,14 +5154,7 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [
-            {
-              "question_id": "Q7",
-              "rule": "R9",
-              "outcome": "violated",
-              "detail": "reject rule R9 fires: "
-            }
-          ],
+          "validation_messages_expected": [],
           "piped_text_visible": {},
           "option_lists_visible": {
             "Q8": [
@@ -5566,8 +5164,7 @@
         },
         "proof": "Q7 was reached, so the order it renders can be recorded and compared across repeated runs",
         "provisional_semantics": [
-          "multi_equality",
-          "rule_precedence"
+          "multi_equality"
         ],
         "preconditions": {},
         "campaign": {
@@ -5634,14 +5231,7 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [
-            {
-              "question_id": "Q7",
-              "rule": "R9",
-              "outcome": "violated",
-              "detail": "reject rule R9 fires: "
-            }
-          ],
+          "validation_messages_expected": [],
           "piped_text_visible": {},
           "option_lists_visible": {
             "Q8": [
@@ -5651,8 +5241,7 @@
         },
         "proof": "respondent admitted into the cell and reached COMPLETE",
         "provisional_semantics": [
-          "multi_equality",
-          "rule_precedence"
+          "multi_equality"
         ],
         "preconditions": {},
         "campaign": {},
@@ -5729,14 +5318,7 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [
-            {
-              "question_id": "Q7",
-              "rule": "R9",
-              "outcome": "violated",
-              "detail": "reject rule R9 fires: "
-            }
-          ],
+          "validation_messages_expected": [],
           "piped_text_visible": {},
           "option_lists_visible": {
             "Q8": [
@@ -5746,8 +5328,7 @@
         },
         "proof": "respondent admitted into the cell and reached COMPLETE",
         "provisional_semantics": [
-          "multi_equality",
-          "rule_precedence"
+          "multi_equality"
         ],
         "preconditions": {},
         "campaign": {},
@@ -5824,14 +5405,7 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [
-            {
-              "question_id": "Q7",
-              "rule": "R9",
-              "outcome": "violated",
-              "detail": "reject rule R9 fires: "
-            }
-          ],
+          "validation_messages_expected": [],
           "piped_text_visible": {},
           "option_lists_visible": {
             "Q8": [
@@ -5841,8 +5415,7 @@
         },
         "proof": "respondent admitted into the cell and reached COMPLETE",
         "provisional_semantics": [
-          "multi_equality",
-          "rule_precedence"
+          "multi_equality"
         ],
         "preconditions": {},
         "campaign": {},
@@ -5919,14 +5492,7 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [
-            {
-              "question_id": "Q7",
-              "rule": "R9",
-              "outcome": "violated",
-              "detail": "reject rule R9 fires: "
-            }
-          ],
+          "validation_messages_expected": [],
           "piped_text_visible": {},
           "option_lists_visible": {
             "Q8": [
@@ -5936,8 +5502,7 @@
         },
         "proof": "respondent admitted into the cell and reached COMPLETE",
         "provisional_semantics": [
-          "multi_equality",
-          "rule_precedence"
+          "multi_equality"
         ],
         "preconditions": {},
         "campaign": {},
@@ -6014,14 +5579,7 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [
-            {
-              "question_id": "Q7",
-              "rule": "R9",
-              "outcome": "violated",
-              "detail": "reject rule R9 fires: "
-            }
-          ],
+          "validation_messages_expected": [],
           "piped_text_visible": {},
           "option_lists_visible": {
             "Q8": [
@@ -6031,8 +5589,7 @@
         },
         "proof": "respondent admitted into the cell and reached COMPLETE",
         "provisional_semantics": [
-          "multi_equality",
-          "rule_precedence"
+          "multi_equality"
         ],
         "preconditions": {},
         "campaign": {},
@@ -6109,14 +5666,7 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [
-            {
-              "question_id": "Q7",
-              "rule": "R9",
-              "outcome": "violated",
-              "detail": "reject rule R9 fires: "
-            }
-          ],
+          "validation_messages_expected": [],
           "piped_text_visible": {},
           "option_lists_visible": {
             "Q8": [
@@ -6126,8 +5676,7 @@
         },
         "proof": "Q8 shown by its guard and reflecting its dependency",
         "provisional_semantics": [
-          "multi_equality",
-          "rule_precedence"
+          "multi_equality"
         ],
         "preconditions": {},
         "campaign": {},
@@ -6190,14 +5739,7 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [
-            {
-              "question_id": "Q7",
-              "rule": "R9",
-              "outcome": "violated",
-              "detail": "reject rule R9 fires: "
-            }
-          ],
+          "validation_messages_expected": [],
           "piped_text_visible": {},
           "option_lists_visible": {
             "Q8": [
@@ -6207,8 +5749,7 @@
         },
         "proof": "R3 correctly did not fire",
         "provisional_semantics": [
-          "multi_equality",
-          "rule_precedence"
+          "multi_equality"
         ],
         "preconditions": {},
         "campaign": {},
@@ -6277,12 +5818,6 @@
               "rule": "R3",
               "outcome": "violated",
               "detail": "reject rule R3 fires: S3 < 18 or S3 > 80"
-            },
-            {
-              "question_id": "Q7",
-              "rule": "R9",
-              "outcome": "violated",
-              "detail": "reject rule R9 fires: "
             }
           ],
           "piped_text_visible": {},
@@ -6302,26 +5837,15 @@
         "covered_by": null
       },
       {
-        "scenario_id": "SC-570bc7c49b",
+        "scenario_id": "SC-2c9b243d2f",
         "target_id": "T-3da10efb75",
-        "dimension": "D3",
-        "status": "UNCOVERED",
-        "reason": "INFEASIBLE",
-        "answers": {},
-        "expected": {},
-        "proof": "proven impossible: cannot falsify an absent condition",
-        "provisional_semantics": [],
-        "preconditions": {},
-        "campaign": {},
-        "covered_by": null
-      },
-      {
-        "scenario_id": "SC-fe41355ed8",
-        "target_id": "T-ceb855fe70",
         "dimension": "D3",
         "status": "COVERED",
         "reason": null,
         "answers": {
+          "Q7": [
+            "Q7-O1"
+          ],
           "S1": "S1-O1",
           "S2": "S2-O1",
           "S3": 18,
@@ -6331,9 +5855,6 @@
           "Q4": "Q4-O1",
           "Q5": "Q5-O1",
           "Q6": "Q6-O1",
-          "Q7": [
-            "Q7-O1"
-          ],
           "Q8": "Q8-O1",
           "Q9": "Q9-O1",
           "Q10": "Q10-O1",
@@ -6372,14 +5893,7 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [
-            {
-              "question_id": "Q7",
-              "rule": "R9",
-              "outcome": "violated",
-              "detail": "reject rule R9 fires: "
-            }
-          ],
+          "validation_messages_expected": [],
           "piped_text_visible": {},
           "option_lists_visible": {
             "Q8": [
@@ -6387,11 +5901,86 @@
             ]
           }
         },
-        "proof": "reject rule R9 fired as expected, at one of the questions its condition names ([])",
+        "proof": "R9 correctly did not fire",
         "provisional_semantics": [
-          "multi_equality",
-          "rule_precedence"
+          "multi_equality"
         ],
+        "preconditions": {},
+        "campaign": {},
+        "covered_by": null
+      },
+      {
+        "scenario_id": "SC-68972995ac",
+        "target_id": "T-ceb855fe70",
+        "dimension": "D3",
+        "status": "COVERED",
+        "reason": null,
+        "answers": {
+          "Q7": [
+            "Q7-O1",
+            "Q7-O6"
+          ],
+          "S1": "S1-O1",
+          "S2": "S2-O1",
+          "S3": 18,
+          "Q1": "Q1-O1",
+          "Q2": "Q2-O1",
+          "Q3": "Q3-O1",
+          "Q4": "Q4-O1",
+          "Q5": "Q5-O1",
+          "Q6": "Q6-O1",
+          "Q8": "Q8-O1",
+          "Q9": "Q9-O1",
+          "Q10": "Q10-O1",
+          "Q11": "Q11-O1",
+          "Q12": "Q12-O1",
+          "Q13": "Q13-O1",
+          "D1": "D1-O1",
+          "D2": "D2-O1"
+        },
+        "expected": {
+          "questions_seen_in_order": [
+            "S1",
+            "S2",
+            "S3",
+            "DT1",
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4",
+            "Q5",
+            "Q6",
+            "Q7"
+          ],
+          "questions_not_seen": [
+            "Q8",
+            "Q9",
+            "Q10",
+            "Q11",
+            "Q12",
+            "Q13",
+            "DT2",
+            "D1",
+            "D2",
+            "Q14"
+          ],
+          "ending_reached": null,
+          "blocked_at": "Q7",
+          "quota_stopped": null,
+          "quota_over_target": null,
+          "validation_messages_expected": [
+            {
+              "question_id": "Q7",
+              "rule": "exclusive_option",
+              "outcome": "violated",
+              "detail": "exclusive option Q7-O6 chosen alongside ['Q7-O1']"
+            }
+          ],
+          "piped_text_visible": {},
+          "option_lists_visible": {}
+        },
+        "proof": "reject rule R9 fired as expected, at one of the questions its condition names (['Q7'])",
+        "provisional_semantics": [],
         "preconditions": {},
         "campaign": {},
         "covered_by": null

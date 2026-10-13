@@ -8,7 +8,7 @@
     "sha256": "0d41fa03afd82783d1cbfee0af59ae357d165b9e67f7fc152a8240aca49f3148",
     "bytes": 43847
   },
-  "generated_at": "2026-10-13T12:37:27+00:00",
+  "generated_at": "2026-10-13T12:55:57+00:00",
   "item_count": null,
   "content": {
     "source": "C04_retail_banking_brand_tracker.docx",
@@ -490,7 +490,7 @@
             "operands": [],
             "source_text": "Q1 contains at least one brand",
             "origin": "inferred",
-            "confidence": 0.99
+            "confidence": 1.0
           },
           "agreement": "agree",
           "sources": [
@@ -615,7 +615,7 @@
             "operands": [],
             "source_text": "Q1 contains at least one brand",
             "origin": "inferred",
-            "confidence": 0.99
+            "confidence": 1.0
           },
           "agreement": "agree",
           "sources": [
@@ -3026,7 +3026,7 @@
           "operands": [],
           "source_text": "Q1 contains at least one brand",
           "origin": "inferred",
-          "confidence": 0.99
+          "confidence": 1.0
         },
         "when_unread": null,
         "destination": {
@@ -3081,7 +3081,7 @@
           "operands": [],
           "source_text": "Q1 contains at least one brand",
           "origin": "inferred",
-          "confidence": 0.99
+          "confidence": 1.0
         },
         "when_unread": null,
         "destination": {
@@ -3788,7 +3788,7 @@
           ],
           "source_text": "exclusive option selected with another response at Q1 or Q5",
           "origin": "inferred",
-          "confidence": 0.99
+          "confidence": 1.0
         },
         "when_unread": null,
         "destination": {
@@ -3843,7 +3843,7 @@
           ],
           "source_text": "selected option at Q6 was not selected at Q5",
           "origin": "inferred",
-          "confidence": 0.98
+          "confidence": 0.99
         },
         "when_unread": null,
         "destination": {

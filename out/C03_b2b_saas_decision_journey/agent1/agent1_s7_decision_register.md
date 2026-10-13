@@ -9,7 +9,7 @@ reused from then on unless the source document or this module's
 vocabulary changes, in which case it returns here as pending, with the
 old ruling kept under `previous_decision` for a quick re-confirmation.
 
-**14 PENDING_CONFIRMATION, 1 NOT_REQUIRED**
+**15 PENDING_CONFIRMATION, 3 NOT_REQUIRED**
 
 ## 🔴 `ambiguous_piping` — PENDING_CONFIRMATION (BLOCKING)
 
@@ -23,19 +23,9 @@ old ruling kept under `previous_decision` for a quick re-confirmation.
 
 ## 🔴 `ambiguous_routing_condition` — PENDING_CONFIRMATION (BLOCKING)
 
-- **id:** `4c5e2e192a11a274`
+- **id:** `084782c5edf7956e`
 - **affects:** R19
-- **evidence:** exclusive option selected with another response at Q1 or Q5  ->  ((Q1 contains 'None of these' and Q1 contains_any ['SaaS Brand A', 'SaaS Brand B', 'SaaS Brand C', 'Open-source alternative']) or (Q5 contains 'None of these' and Q5 contains_any ['Vendor website', 'Sales demonstration', 'Peer recommendation', 'Analyst report', 'Trial', 'Procurement process']))
-- **current reading:** A prose condition was rewritten into a formal one by a model, and the parser accepted the rewrite.
-- **alternatives:** A different formal reading of the same sentence is possible.
-- **downstream impact:** Whether this rule or guard fires for a given respondent, so which questions they see and which ending they reach.
-- **recommendation:** A person familiar with the survey should confirm the reading recorded here matches what the sentence intends.
-
-## 🔴 `ambiguous_routing_condition` — PENDING_CONFIRMATION (BLOCKING)
-
-- **id:** `90141adcab653a66`
-- **affects:** Q2
-- **evidence:** Q1 contains at least one brand  ->  Q1 contains_any ['SaaS Brand A', 'SaaS Brand B', 'SaaS Brand C', 'Open-source alternative']
+- **evidence:** exclusive option selected with another response at Q1 or Q5  ->  ((Q1 contains 'None of these' and not Q1 set_eq ['None of these']) or (Q5 contains 'None of these' and not Q5 set_eq ['None of these']))
 - **current reading:** A prose condition was rewritten into a formal one by a model, and the parser accepted the rewrite.
 - **alternatives:** A different formal reading of the same sentence is possible.
 - **downstream impact:** Whether this rule or guard fires for a given respondent, so which questions they see and which ending they reach.
@@ -53,6 +43,16 @@ old ruling kept under `previous_decision` for a quick re-confirmation.
 
 ## 🔴 `ambiguous_routing_condition` — PENDING_CONFIRMATION (BLOCKING)
 
+- **id:** `a966c54c3b2c0d92`
+- **affects:** Q2
+- **evidence:** Q1 contains at least one brand  ->  Q1 contains_any ['SaaS Brand A', 'SaaS Brand B', 'SaaS Brand C']
+- **current reading:** A prose condition was rewritten into a formal one by a model, and the parser accepted the rewrite.
+- **alternatives:** A different formal reading of the same sentence is possible.
+- **downstream impact:** Whether this rule or guard fires for a given respondent, so which questions they see and which ending they reach.
+- **recommendation:** A person familiar with the survey should confirm the reading recorded here matches what the sentence intends.
+
+## 🔴 `ambiguous_routing_condition` — PENDING_CONFIRMATION (BLOCKING)
+
 - **id:** `e48352532a0f89a4`
 - **affects:** R20
 - **evidence:** selected option at Q6 was not selected at Q5  ->  not Q5 contains Q6
@@ -60,6 +60,16 @@ old ruling kept under `previous_decision` for a quick re-confirmation.
 - **alternatives:** A different formal reading of the same sentence is possible.
 - **downstream impact:** Whether this rule or guard fires for a given respondent, so which questions they see and which ending they reach.
 - **recommendation:** A person familiar with the survey should confirm the reading recorded here matches what the sentence intends.
+
+## 🔴 `inferred_condition_partial_options` — PENDING_CONFIRMATION (BLOCKING)
+
+- **id:** `6a7418e2281ca216`
+- **affects:** Q2, Q3, R6, R7
+- **evidence:** Q1 contains at least one brand
+- **current reading:** A model reading a set-valued condition named only some of a question's selectable answers as satisfying it.
+- **alternatives:** The omitted answer(s) should also satisfy the condition.
+- **downstream impact:** Which answers satisfy the rule; a respondent choosing an omitted answer takes a different path than intended.
+- **recommendation:** Confirm whether the omitted answer(s) should count.
 
 ## 🔴 `missing_option_codes` — PENDING_CONFIRMATION (BLOCKING)
 
@@ -157,3 +167,23 @@ old ruling kept under `previous_decision` for a quick re-confirmation.
 - **alternatives:** The wording is generic and does not actually depend on the earlier answer.
 - **downstream impact:** Whether this question's wording depends on an earlier answer, which decides the order a respondent bot must answer in and what text it should expect on screen.
 - **recommendation:** Confirm the dependency with the project owner.
+
+## 🔴 `ambiguous_routing_condition` — NOT_REQUIRED (BLOCKING)
+
+- **id:** `4c5e2e192a11a274`
+- **affects:** R19
+- **evidence:** exclusive option selected with another response at Q1 or Q5  ->  ((Q1 contains 'None of these' and Q1 contains_any ['SaaS Brand A', 'SaaS Brand B', 'SaaS Brand C', 'Open-source alternative']) or (Q5 contains 'None of these' and Q5 contains_any ['Vendor website', 'Sales demonstration', 'Peer recommendation', 'Analyst report', 'Trial', 'Procurement process']))
+- **current reading:** A prose condition was rewritten into a formal one by a model, and the parser accepted the rewrite.
+- **alternatives:** A different formal reading of the same sentence is possible.
+- **downstream impact:** Whether this rule or guard fires for a given respondent, so which questions they see and which ending they reach.
+- **recommendation:** A person familiar with the survey should confirm the reading recorded here matches what the sentence intends.
+
+## 🔴 `ambiguous_routing_condition` — NOT_REQUIRED (BLOCKING)
+
+- **id:** `90141adcab653a66`
+- **affects:** Q2
+- **evidence:** Q1 contains at least one brand  ->  Q1 contains_any ['SaaS Brand A', 'SaaS Brand B', 'SaaS Brand C', 'Open-source alternative']
+- **current reading:** A prose condition was rewritten into a formal one by a model, and the parser accepted the rewrite.
+- **alternatives:** A different formal reading of the same sentence is possible.
+- **downstream impact:** Whether this rule or guard fires for a given respondent, so which questions they see and which ending they reach.
+- **recommendation:** A person familiar with the survey should confirm the reading recorded here matches what the sentence intends.

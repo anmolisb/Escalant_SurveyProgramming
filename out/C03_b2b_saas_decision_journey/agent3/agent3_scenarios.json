@@ -9,7 +9,7 @@
   },
   "upstream": {
     "canonical_schema_version": "1.0.0",
-    "canonical_generated_at": "2026-10-13T11:26:47+00:00"
+    "canonical_generated_at": "2026-10-13T12:55:22+00:00"
   },
   "content": {
     "scenarios": [
@@ -4073,14 +4073,14 @@
         "covered_by": null
       },
       {
-        "scenario_id": "SC-ae31a78d1a",
+        "scenario_id": "SC-e36f94dbf4",
         "target_id": "T-63d8afff5b",
         "dimension": "D1",
         "status": "COVERED",
         "reason": null,
         "answers": {
           "Q1": [
-            "Q1-O5"
+            "Q1-O4"
           ],
           "S1": "S1-O1",
           "S2": "S2-O1",
@@ -4186,8 +4186,7 @@
         },
         "proof": "Q2 predicted hidden while the respondent continued",
         "provisional_semantics": [
-          "multi_equality",
-          "rule_precedence"
+          "multi_equality"
         ],
         "preconditions": {},
         "campaign": {},
@@ -4932,14 +4931,14 @@
         "covered_by": null
       },
       {
-        "scenario_id": "SC-8cc627e6b4",
+        "scenario_id": "SC-c2560bec3a",
         "target_id": "T-5cee4295f8",
         "dimension": "D1",
         "status": "COVERED",
         "reason": null,
         "answers": {
           "Q1": [
-            "Q1-O5"
+            "Q1-O4"
           ],
           "S1": "S1-O1",
           "S2": "S2-O1",
@@ -5045,8 +5044,7 @@
         },
         "proof": "Q3 predicted hidden while the respondent continued",
         "provisional_semantics": [
-          "multi_equality",
-          "rule_precedence"
+          "multi_equality"
         ],
         "preconditions": {},
         "campaign": {},

@@ -8,7 +8,7 @@
     "sha256": "2f65aef53dbea391830fd1ca701a87474b803b7ec1af35e08a7fa3cccb5dd404",
     "bytes": 42025
   },
-  "generated_at": "2026-10-13T12:37:29+00:00",
+  "generated_at": "2026-10-13T12:56:57+00:00",
   "item_count": null,
   "content": {
     "cross_source": [],
@@ -96,20 +96,20 @@
       "register": "agent1_s7_decisions.json",
       "human_readable": "agent1_s7_decision_register.md",
       "summary": {
-        "total": 11,
-        "raised_this_run": 0,
+        "total": 12,
+        "raised_this_run": 1,
         "resolved_reused": 0,
         "pending": 8,
         "resolved": 0,
-        "not_required": 3,
-        "newly_transitioned_not_required": 0,
+        "not_required": 4,
+        "newly_transitioned_not_required": 1,
         "context_changed": 0,
         "blocking_pending": [
           "069b658a7fa43ea0",
           "2a73c5c0e513d0cd",
           "37532e77b1861cdb",
           "415ae5765ad5e79c",
-          "b60417260e1bcc4f",
+          "648eb426b97d5054",
           "bbce7a65b7d378d2"
         ]
       }
@@ -145,7 +145,7 @@
         "2a73c5c0e513d0cd",
         "37532e77b1861cdb",
         "415ae5765ad5e79c",
-        "b60417260e1bcc4f",
+        "648eb426b97d5054",
         "bbce7a65b7d378d2"
       ],
       "agent3_ready": "NO",

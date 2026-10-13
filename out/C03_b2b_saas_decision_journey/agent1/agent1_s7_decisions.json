@@ -7,7 +7,7 @@
     "sha256": "070fc57f0e5668de2baf5a8da5ba1056c4f59fe09f234d14d69c901c5e62164a",
     "bytes": 43871
   },
-  "generated_at": "2026-10-13T12:37:26+00:00",
+  "generated_at": "2026-10-13T12:55:23+00:00",
   "entries": {
     "8709125106baf2ec": {
       "decision_id": "8709125106baf2ec",
@@ -31,7 +31,7 @@
       "recommendation": "Confirm the intended reading with the project owner. Once recorded here it applies to every rule in this survey and does not need asking again unless the document changes.",
       "severity": "BLOCKING",
       "context_key": "450036bdd1d10606",
-      "last_seen_at": "2026-10-13T12:37:26+00:00",
+      "last_seen_at": "2026-10-13T12:55:23+00:00",
       "status": "PENDING_CONFIRMATION",
       "created_at": "2026-10-11T17:13:00+00:00",
       "resolved_at": null,
@@ -62,7 +62,7 @@
       "recommendation": "Confirm the intended precedence with the project owner.",
       "severity": "BLOCKING",
       "context_key": "450036bdd1d10606",
-      "last_seen_at": "2026-10-13T12:37:26+00:00",
+      "last_seen_at": "2026-10-13T12:55:23+00:00",
       "status": "PENDING_CONFIRMATION",
       "created_at": "2026-10-11T17:13:00+00:00",
       "resolved_at": null,
@@ -93,7 +93,7 @@
       "recommendation": "Confirm the intended reading with the project owner.",
       "severity": "BLOCKING",
       "context_key": "450036bdd1d10606",
-      "last_seen_at": "2026-10-13T12:37:26+00:00",
+      "last_seen_at": "2026-10-13T12:55:23+00:00",
       "status": "PENDING_CONFIRMATION",
       "created_at": "2026-10-11T17:13:00+00:00",
       "resolved_at": null,
@@ -102,8 +102,8 @@
       "previous_decision": null,
       "context_changed": false
     },
-    "90141adcab653a66": {
-      "decision_id": "90141adcab653a66",
+    "a966c54c3b2c0d92": {
+      "decision_id": "a966c54c3b2c0d92",
       "survey_id": "C03_b2b_saas_decision_journey",
       "source_document": {
         "filename": "C03_b2b_saas_decision_journey.docx",
@@ -114,7 +114,7 @@
       ],
       "category": "routing",
       "issue": "ambiguous_routing_condition",
-      "source_evidence": "Q1 contains at least one brand  ->  Q1 contains_any ['SaaS Brand A', 'SaaS Brand B', 'SaaS Brand C', 'Open-source alternative']",
+      "source_evidence": "Q1 contains at least one brand  ->  Q1 contains_any ['SaaS Brand A', 'SaaS Brand B', 'SaaS Brand C']",
       "current_interpretation": "A prose condition was rewritten into a formal one by a model, and the parser accepted the rewrite.",
       "alternative_interpretations": [
         "A different formal reading of the same sentence is possible."
@@ -123,9 +123,9 @@
       "recommendation": "A person familiar with the survey should confirm the reading recorded here matches what the sentence intends.",
       "severity": "BLOCKING",
       "context_key": "450036bdd1d10606",
-      "last_seen_at": "2026-10-13T12:37:26+00:00",
+      "last_seen_at": "2026-10-13T12:55:23+00:00",
       "status": "PENDING_CONFIRMATION",
-      "created_at": "2026-10-11T17:13:00+00:00",
+      "created_at": "2026-10-13T12:55:23+00:00",
       "resolved_at": null,
       "decision": null,
       "decision_provenance": null,
@@ -153,7 +153,7 @@
       "recommendation": "A person familiar with the survey should confirm the reading recorded here matches what the sentence intends.",
       "severity": "BLOCKING",
       "context_key": "450036bdd1d10606",
-      "last_seen_at": "2026-10-13T12:37:26+00:00",
+      "last_seen_at": "2026-10-13T12:55:23+00:00",
       "status": "PENDING_CONFIRMATION",
       "created_at": "2026-10-11T17:13:00+00:00",
       "resolved_at": null,
@@ -181,7 +181,7 @@
       "recommendation": "No action needed here; consider noting the asymmetry to the QRE author.",
       "severity": "NON_BLOCKING",
       "context_key": "450036bdd1d10606",
-      "last_seen_at": "2026-10-13T12:37:26+00:00",
+      "last_seen_at": "2026-10-13T12:55:23+00:00",
       "status": "PENDING_CONFIRMATION",
       "created_at": "2026-10-11T17:13:00+00:00",
       "resolved_at": null,
@@ -209,7 +209,7 @@
       "recommendation": "Ask the project owner for the missing codes.",
       "severity": "BLOCKING",
       "context_key": "450036bdd1d10606",
-      "last_seen_at": "2026-10-13T12:37:26+00:00",
+      "last_seen_at": "2026-10-13T12:55:23+00:00",
       "status": "PENDING_CONFIRMATION",
       "created_at": "2026-10-11T17:13:00+00:00",
       "resolved_at": null,
@@ -218,8 +218,8 @@
       "previous_decision": null,
       "context_changed": false
     },
-    "4c5e2e192a11a274": {
-      "decision_id": "4c5e2e192a11a274",
+    "084782c5edf7956e": {
+      "decision_id": "084782c5edf7956e",
       "survey_id": "C03_b2b_saas_decision_journey",
       "source_document": {
         "filename": "C03_b2b_saas_decision_journey.docx",
@@ -230,7 +230,7 @@
       ],
       "category": "routing",
       "issue": "ambiguous_routing_condition",
-      "source_evidence": "exclusive option selected with another response at Q1 or Q5  ->  ((Q1 contains 'None of these' and Q1 contains_any ['SaaS Brand A', 'SaaS Brand B', 'SaaS Brand C', 'Open-source alternative']) or (Q5 contains 'None of these' and Q5 contains_any ['Vendor website', 'Sales demonstration', 'Peer recommendation', 'Analyst report', 'Trial', 'Procurement process']))",
+      "source_evidence": "exclusive option selected with another response at Q1 or Q5  ->  ((Q1 contains 'None of these' and not Q1 set_eq ['None of these']) or (Q5 contains 'None of these' and not Q5 set_eq ['None of these']))",
       "current_interpretation": "A prose condition was rewritten into a formal one by a model, and the parser accepted the rewrite.",
       "alternative_interpretations": [
         "A different formal reading of the same sentence is possible."
@@ -239,9 +239,9 @@
       "recommendation": "A person familiar with the survey should confirm the reading recorded here matches what the sentence intends.",
       "severity": "BLOCKING",
       "context_key": "450036bdd1d10606",
-      "last_seen_at": "2026-10-13T12:37:26+00:00",
+      "last_seen_at": "2026-10-13T12:55:23+00:00",
       "status": "PENDING_CONFIRMATION",
-      "created_at": "2026-10-11T17:13:00+00:00",
+      "created_at": "2026-10-13T12:55:23+00:00",
       "resolved_at": null,
       "decision": null,
       "decision_provenance": null,
@@ -269,7 +269,7 @@
       "recommendation": "A person familiar with the survey should confirm the reading recorded here matches what the sentence intends.",
       "severity": "BLOCKING",
       "context_key": "450036bdd1d10606",
-      "last_seen_at": "2026-10-13T12:37:26+00:00",
+      "last_seen_at": "2026-10-13T12:55:23+00:00",
       "status": "PENDING_CONFIRMATION",
       "created_at": "2026-10-11T17:13:00+00:00",
       "resolved_at": null,
@@ -299,7 +299,7 @@
       "recommendation": "Confirm the quota reading with the project owner.",
       "severity": "BLOCKING",
       "context_key": "450036bdd1d10606",
-      "last_seen_at": "2026-10-13T12:37:26+00:00",
+      "last_seen_at": "2026-10-13T12:55:23+00:00",
       "status": "PENDING_CONFIRMATION",
       "created_at": "2026-10-11T17:13:00+00:00",
       "resolved_at": null,
@@ -329,7 +329,7 @@
       "recommendation": "Confirm the quota reading with the project owner.",
       "severity": "BLOCKING",
       "context_key": "450036bdd1d10606",
-      "last_seen_at": "2026-10-13T12:37:26+00:00",
+      "last_seen_at": "2026-10-13T12:55:23+00:00",
       "status": "PENDING_CONFIRMATION",
       "created_at": "2026-10-11T17:13:00+00:00",
       "resolved_at": null,
@@ -359,7 +359,7 @@
       "recommendation": "Confirm the dependency with the project owner.",
       "severity": "BLOCKING",
       "context_key": "450036bdd1d10606",
-      "last_seen_at": "2026-10-13T12:37:26+00:00",
+      "last_seen_at": "2026-10-13T12:55:23+00:00",
       "status": "PENDING_CONFIRMATION",
       "created_at": "2026-10-13T11:26:47+00:00",
       "resolved_at": null,
@@ -390,9 +390,42 @@
       "recommendation": "Confirm anchoring convention with the project owner.",
       "severity": "NON_BLOCKING",
       "context_key": "450036bdd1d10606",
-      "last_seen_at": "2026-10-13T12:37:26+00:00",
+      "last_seen_at": "2026-10-13T12:55:23+00:00",
       "status": "PENDING_CONFIRMATION",
       "created_at": "2026-10-11T17:13:00+00:00",
+      "resolved_at": null,
+      "decision": null,
+      "decision_provenance": null,
+      "previous_decision": null,
+      "context_changed": false
+    },
+    "6a7418e2281ca216": {
+      "decision_id": "6a7418e2281ca216",
+      "survey_id": "C03_b2b_saas_decision_journey",
+      "source_document": {
+        "filename": "C03_b2b_saas_decision_journey.docx",
+        "sha256": "070fc57f0e5668de2baf5a8da5ba1056c4f59fe09f234d14d69c901c5e62164a"
+      },
+      "affected": [
+        "Q2",
+        "Q3",
+        "R6",
+        "R7"
+      ],
+      "category": "routing",
+      "issue": "inferred_condition_partial_options",
+      "source_evidence": "Q1 contains at least one brand",
+      "current_interpretation": "A model reading a set-valued condition named only some of a question's selectable answers as satisfying it.",
+      "alternative_interpretations": [
+        "The omitted answer(s) should also satisfy the condition."
+      ],
+      "downstream_impact": "Which answers satisfy the rule; a respondent choosing an omitted answer takes a different path than intended.",
+      "recommendation": "Confirm whether the omitted answer(s) should count.",
+      "severity": "BLOCKING",
+      "context_key": "450036bdd1d10606",
+      "last_seen_at": "2026-10-13T12:55:23+00:00",
+      "status": "PENDING_CONFIRMATION",
+      "created_at": "2026-10-13T12:55:23+00:00",
       "resolved_at": null,
       "decision": null,
       "decision_provenance": null,
@@ -418,8 +451,68 @@
       "recommendation": "Ask the project owner for the missing message text.",
       "severity": "NON_BLOCKING",
       "context_key": "450036bdd1d10606",
-      "last_seen_at": "2026-10-13T12:37:26+00:00",
+      "last_seen_at": "2026-10-13T12:55:23+00:00",
       "status": "PENDING_CONFIRMATION",
+      "created_at": "2026-10-11T17:13:00+00:00",
+      "resolved_at": null,
+      "decision": null,
+      "decision_provenance": null,
+      "previous_decision": null,
+      "context_changed": false
+    },
+    "90141adcab653a66": {
+      "decision_id": "90141adcab653a66",
+      "survey_id": "C03_b2b_saas_decision_journey",
+      "source_document": {
+        "filename": "C03_b2b_saas_decision_journey.docx",
+        "sha256": "070fc57f0e5668de2baf5a8da5ba1056c4f59fe09f234d14d69c901c5e62164a"
+      },
+      "affected": [
+        "Q2"
+      ],
+      "category": "routing",
+      "issue": "ambiguous_routing_condition",
+      "source_evidence": "Q1 contains at least one brand  ->  Q1 contains_any ['SaaS Brand A', 'SaaS Brand B', 'SaaS Brand C', 'Open-source alternative']",
+      "current_interpretation": "A prose condition was rewritten into a formal one by a model, and the parser accepted the rewrite.",
+      "alternative_interpretations": [
+        "A different formal reading of the same sentence is possible."
+      ],
+      "downstream_impact": "Whether this rule or guard fires for a given respondent, so which questions they see and which ending they reach.",
+      "recommendation": "A person familiar with the survey should confirm the reading recorded here matches what the sentence intends.",
+      "severity": "BLOCKING",
+      "context_key": "450036bdd1d10606",
+      "last_seen_at": "2026-10-13T12:55:23+00:00",
+      "status": "NOT_REQUIRED",
+      "created_at": "2026-10-11T17:13:00+00:00",
+      "resolved_at": null,
+      "decision": null,
+      "decision_provenance": null,
+      "previous_decision": null,
+      "context_changed": false
+    },
+    "4c5e2e192a11a274": {
+      "decision_id": "4c5e2e192a11a274",
+      "survey_id": "C03_b2b_saas_decision_journey",
+      "source_document": {
+        "filename": "C03_b2b_saas_decision_journey.docx",
+        "sha256": "070fc57f0e5668de2baf5a8da5ba1056c4f59fe09f234d14d69c901c5e62164a"
+      },
+      "affected": [
+        "R19"
+      ],
+      "category": "routing",
+      "issue": "ambiguous_routing_condition",
+      "source_evidence": "exclusive option selected with another response at Q1 or Q5  ->  ((Q1 contains 'None of these' and Q1 contains_any ['SaaS Brand A', 'SaaS Brand B', 'SaaS Brand C', 'Open-source alternative']) or (Q5 contains 'None of these' and Q5 contains_any ['Vendor website', 'Sales demonstration', 'Peer recommendation', 'Analyst report', 'Trial', 'Procurement process']))",
+      "current_interpretation": "A prose condition was rewritten into a formal one by a model, and the parser accepted the rewrite.",
+      "alternative_interpretations": [
+        "A different formal reading of the same sentence is possible."
+      ],
+      "downstream_impact": "Whether this rule or guard fires for a given respondent, so which questions they see and which ending they reach.",
+      "recommendation": "A person familiar with the survey should confirm the reading recorded here matches what the sentence intends.",
+      "severity": "BLOCKING",
+      "context_key": "450036bdd1d10606",
+      "last_seen_at": "2026-10-13T12:55:23+00:00",
+      "status": "NOT_REQUIRED",
       "created_at": "2026-10-11T17:13:00+00:00",
       "resolved_at": null,
       "decision": null,

@@ -9,7 +9,7 @@
   },
   "upstream": {
     "canonical_schema_version": "1.0.0",
-    "canonical_generated_at": "2026-10-13T11:27:21+00:00"
+    "canonical_generated_at": "2026-10-13T12:56:47+00:00"
   },
   "content": {
     "project_inputs": {},
@@ -53,11 +53,10 @@
     "semantics_all_resolved": false,
     "upstream_gate": {
       "status": "BLOCKED",
-      "canonical_validation_clear": false,
+      "canonical_validation_clear": true,
       "human_decision_gate_clear": false,
       "graph_validation_passed": true,
       "blocked_by": [
-        "canonical_status=FAILED",
         "human_decision_gate=PENDING_BLOCKING_DECISIONS"
       ]
     },
@@ -105,14 +104,12 @@
         "D3": {
           "name": "Validation (explicit)",
           "enumerated": 12,
-          "covered": 11,
-          "uncovered": 1,
-          "reasons": {
-            "INFEASIBLE": 1
-          },
+          "covered": 12,
+          "uncovered": 0,
+          "reasons": {},
           "provisional": 10,
-          "enumeration_status": "PARTIAL",
-          "logical_coverage_pct": 91.7
+          "enumeration_status": "EXHAUSTIVE",
+          "logical_coverage_pct": 100.0
         },
         "D4": {
           "name": "Validation (mandatory)",

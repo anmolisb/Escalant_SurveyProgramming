@@ -376,6 +376,18 @@
     {
       "order": 32,
       "test_case_id": "TC-FT29",
+      "target_id": "T-3da10efb75",
+      "executable_id": "EX-503f668c94",
+      "question": "Q7",
+      "dimension": "D3",
+      "path_id": "P04",
+      "path_name": "Completing respondent \u2014 Q7=None of these",
+      "test_class": "FOCUSED",
+      "test_name": "Reject rule R9 does not fire"
+    },
+    {
+      "order": 33,
+      "test_case_id": "TC-FT30",
       "target_id": "T-b6990094a9",
       "executable_id": "EX-ee8e7a0cc6",
       "question": "Q7",
@@ -386,10 +398,10 @@
       "test_name": "Q7 rejects an invalid answer"
     },
     {
-      "order": 33,
-      "test_case_id": "TC-FT30",
+      "order": 34,
+      "test_case_id": "TC-FT31",
       "target_id": "T-ceb855fe70",
-      "executable_id": "EX-db76228391",
+      "executable_id": "EX-602fde16f0",
       "question": "Q7",
       "dimension": "D3",
       "path_id": "P04",
@@ -398,8 +410,8 @@
       "test_name": "Reject rule R9 fires"
     },
     {
-      "order": 34,
-      "test_case_id": "TC-FT31",
+      "order": 35,
+      "test_case_id": "TC-FT32",
       "target_id": "T-fdb731cc7b",
       "executable_id": "EX-f26575298e",
       "question": "Q7",
@@ -410,8 +422,8 @@
       "test_name": "Q7 blocks a blank answer"
     },
     {
-      "order": 35,
-      "test_case_id": "TC-FT32",
+      "order": 36,
+      "test_case_id": "TC-FT33",
       "target_id": "T-d4dc71a8ec",
       "executable_id": "EX-140f6b4f4c",
       "question": "Q7",
@@ -422,7 +434,7 @@
       "test_name": "Q7 shuffles without losing an option"
     },
     {
-      "order": 36,
+      "order": 37,
       "test_case_id": "TC-ST02",
       "target_id": "T-968451c47e",
       "executable_id": "EX-3100badbd1",
@@ -434,8 +446,8 @@
       "test_name": "Q7 genuinely varies its option order"
     },
     {
-      "order": 37,
-      "test_case_id": "TC-FT33",
+      "order": 38,
+      "test_case_id": "TC-FT34",
       "target_id": "T-b3b76ca11a",
       "executable_id": "EX-fae6ee01ba",
       "question": "Q8",
@@ -446,8 +458,8 @@
       "test_name": "Q8 accepts a normal answer and the survey moves on"
     },
     {
-      "order": 38,
-      "test_case_id": "TC-FT34",
+      "order": 39,
+      "test_case_id": "TC-FT35",
       "target_id": "T-0e25b5f453",
       "executable_id": "EX-6171512088",
       "question": "Q8",
@@ -458,8 +470,8 @@
       "test_name": "Q8 is shown when its condition is met"
     },
     {
-      "order": 39,
-      "test_case_id": "TC-FT35",
+      "order": 40,
+      "test_case_id": "TC-FT36",
       "target_id": "T-21fd637902",
       "executable_id": "EX-50ff26bb26",
       "question": "Q8",
@@ -470,8 +482,8 @@
       "test_name": "Q8 is not shown when its condition is not met"
     },
     {
-      "order": 40,
-      "test_case_id": "TC-FT36",
+      "order": 41,
+      "test_case_id": "TC-FT37",
       "target_id": "T-f5b246159d",
       "executable_id": "EX-72d69bd552",
       "question": "Q8",
@@ -482,8 +494,8 @@
       "test_name": "Q8 blocks a blank answer"
     },
     {
-      "order": 41,
-      "test_case_id": "TC-FT37",
+      "order": 42,
+      "test_case_id": "TC-FT38",
       "target_id": "T-813a61d605",
       "executable_id": "EX-f7b17ffa41",
       "question": "Q8",
@@ -494,8 +506,8 @@
       "test_name": "Q8 offers only the options chosen at Q7"
     },
     {
-      "order": 42,
-      "test_case_id": "TC-FT38",
+      "order": 43,
+      "test_case_id": "TC-FT39",
       "target_id": "T-2a5b07540f",
       "executable_id": "EX-42bc08217d",
       "question": "Q8",
@@ -506,8 +518,8 @@
       "test_name": "Q8 is shown and reflects its dependency on Q7 at the same time"
     },
     {
-      "order": 43,
-      "test_case_id": "TC-FT39",
+      "order": 44,
+      "test_case_id": "TC-FT40",
       "target_id": "T-2d38100fad",
       "executable_id": "EX-5ba22f1c02",
       "question": "Q9",
@@ -518,8 +530,8 @@
       "test_name": "Q9 accepts a normal answer and the survey moves on"
     },
     {
-      "order": 44,
-      "test_case_id": "TC-FT40",
+      "order": 45,
+      "test_case_id": "TC-FT41",
       "target_id": "T-b4a5f414c4",
       "executable_id": "EX-eaad7385c4",
       "question": "Q9",
@@ -530,8 +542,8 @@
       "test_name": "Q9 is shown when its condition is met"
     },
     {
-      "order": 45,
-      "test_case_id": "TC-FT41",
+      "order": 46,
+      "test_case_id": "TC-FT42",
       "target_id": "T-38fdb69243",
       "executable_id": "EX-567717a9d0",
       "question": "Q9",
@@ -542,8 +554,8 @@
       "test_name": "Q9 is not shown when its condition is not met"
     },
     {
-      "order": 46,
-      "test_case_id": "TC-FT42",
+      "order": 47,
+      "test_case_id": "TC-FT43",
       "target_id": "T-2b1d94d232",
       "executable_id": "EX-ad20caf9b6",
       "question": "Q9",
@@ -554,8 +566,8 @@
       "test_name": "R8 jumps forward when its condition is met"
     },
     {
-      "order": 47,
-      "test_case_id": "TC-FT43",
+      "order": 48,
+      "test_case_id": "TC-FT44",
       "target_id": "T-c13c930f08",
       "executable_id": "EX-5b636e90cf",
       "question": "Q9",
@@ -566,8 +578,8 @@
       "test_name": "R8 does not jump when its condition is not met"
     },
     {
-      "order": 48,
-      "test_case_id": "TC-FT44",
+      "order": 49,
+      "test_case_id": "TC-FT45",
       "target_id": "T-eb5ef7c538",
       "executable_id": "EX-2527c32d64",
       "question": "Q9",
@@ -578,8 +590,8 @@
       "test_name": "Q9 blocks a blank answer"
     },
     {
-      "order": 49,
-      "test_case_id": "TC-FT45",
+      "order": 50,
+      "test_case_id": "TC-FT46",
       "target_id": "T-d5aef33769",
       "executable_id": "EX-a9483ed576",
       "question": "Q10",
@@ -590,8 +602,8 @@
       "test_name": "Q10 accepts a normal answer and the survey moves on"
     },
     {
-      "order": 50,
-      "test_case_id": "TC-FT46",
+      "order": 51,
+      "test_case_id": "TC-FT47",
       "target_id": "T-722f7a080e",
       "executable_id": "EX-9745547d81",
       "question": "Q10",
@@ -602,8 +614,8 @@
       "test_name": "Q10 is shown when its condition is met"
     },
     {
-      "order": 51,
-      "test_case_id": "TC-FT47",
+      "order": 52,
+      "test_case_id": "TC-FT48",
       "target_id": "T-f0c1fb0bcf",
       "executable_id": "EX-0c789901e3",
       "question": "Q10",
@@ -614,8 +626,8 @@
       "test_name": "Q10 is not shown when its condition is not met"
     },
     {
-      "order": 52,
-      "test_case_id": "TC-FT48",
+      "order": 53,
+      "test_case_id": "TC-FT49",
       "target_id": "T-68390df668",
       "executable_id": "EX-bd0c7cf011",
       "question": "Q10",
@@ -626,8 +638,8 @@
       "test_name": "Q10 blocks a blank answer"
     },
     {
-      "order": 53,
-      "test_case_id": "TC-FT49",
+      "order": 54,
+      "test_case_id": "TC-FT50",
       "target_id": "T-11d51719ce",
       "executable_id": "EX-ce1e698fab",
       "question": "Q11",
@@ -638,8 +650,8 @@
       "test_name": "Q11 accepts a normal answer and the survey moves on"
     },
     {
-      "order": 54,
-      "test_case_id": "TC-FT50",
+      "order": 55,
+      "test_case_id": "TC-FT51",
       "target_id": "T-b5d13c56c1",
       "executable_id": "EX-20aefe7552",
       "question": "Q11",
@@ -650,8 +662,8 @@
       "test_name": "Q11 blocks a blank answer"
     },
     {
-      "order": 55,
-      "test_case_id": "TC-FT51",
+      "order": 56,
+      "test_case_id": "TC-FT52",
       "target_id": "T-3907421364",
       "executable_id": "EX-216a965b6b",
       "question": "Q12",
@@ -662,8 +674,8 @@
       "test_name": "Q12 accepts a normal answer and the survey moves on"
     },
     {
-      "order": 56,
-      "test_case_id": "TC-FT52",
+      "order": 57,
+      "test_case_id": "TC-FT53",
       "target_id": "T-90ff9bb975",
       "executable_id": "EX-6d4b2f4306",
       "question": "Q12",
@@ -674,8 +686,8 @@
       "test_name": "Q12 blocks a blank answer"
     },
     {
-      "order": 57,
-      "test_case_id": "TC-FT53",
+      "order": 58,
+      "test_case_id": "TC-FT54",
       "target_id": "T-a1c44561a6",
       "executable_id": "EX-0464393af2",
       "question": "Q13",
@@ -686,8 +698,8 @@
       "test_name": "Q13 accepts a normal answer and the survey moves on"
     },
     {
-      "order": 58,
-      "test_case_id": "TC-FT54",
+      "order": 59,
+      "test_case_id": "TC-FT55",
       "target_id": "T-c0d2efa11b",
       "executable_id": "EX-5f9d6f7bfd",
       "question": "Q13",
@@ -698,8 +710,8 @@
       "test_name": "Q13 blocks a blank answer"
     },
     {
-      "order": 59,
-      "test_case_id": "TC-FT55",
+      "order": 60,
+      "test_case_id": "TC-FT56",
       "target_id": "T-fec7807e2e",
       "executable_id": "EX-a008c819b9",
       "question": "Q13",
@@ -710,7 +722,7 @@
       "test_name": "Q13 shuffles without losing an option"
     },
     {
-      "order": 60,
+      "order": 61,
       "test_case_id": "TC-ST03",
       "target_id": "T-d5f886a336",
       "executable_id": "EX-0d1b58458e",
@@ -722,8 +734,8 @@
       "test_name": "Q13 genuinely varies its option order"
     },
     {
-      "order": 61,
-      "test_case_id": "TC-FT56",
+      "order": 62,
+      "test_case_id": "TC-FT57",
       "target_id": "T-56d0ac2b77",
       "executable_id": "EX-e474871d43",
       "question": "DT2",
@@ -734,8 +746,8 @@
       "test_name": "DT2 accepts a normal answer and the survey moves on"
     },
     {
-      "order": 62,
-      "test_case_id": "TC-FT57",
+      "order": 63,
+      "test_case_id": "TC-FT58",
       "target_id": "T-28dda6de6e",
       "executable_id": "EX-f64573a322",
       "question": "D1",
@@ -746,8 +758,8 @@
       "test_name": "D1 accepts a normal answer and the survey moves on"
     },
     {
-      "order": 63,
-      "test_case_id": "TC-FT58",
+      "order": 64,
+      "test_case_id": "TC-FT59",
       "target_id": "T-7c28ecb52e",
       "executable_id": "EX-dcaddaf23e",
       "question": "D1",
@@ -758,8 +770,8 @@
       "test_name": "D1 blocks a blank answer"
     },
     {
-      "order": 64,
-      "test_case_id": "TC-FT59",
+      "order": 65,
+      "test_case_id": "TC-FT60",
       "target_id": "T-0afd1d6279",
       "executable_id": "EX-1d598db78c",
       "question": "D1",
@@ -770,8 +782,8 @@
       "test_name": "QUOTA_REGION admits a respondent while D1-O1 is open"
     },
     {
-      "order": 65,
-      "test_case_id": "TC-FT60",
+      "order": 66,
+      "test_case_id": "TC-FT61",
       "target_id": "T-7a95930f2f",
       "executable_id": "EX-da98e6372c",
       "question": "D1",
@@ -782,8 +794,8 @@
       "test_name": "QUOTA_REGION admits a respondent while D1-O2 is open"
     },
     {
-      "order": 66,
-      "test_case_id": "TC-FT61",
+      "order": 67,
+      "test_case_id": "TC-FT62",
       "target_id": "T-b0edda32be",
       "executable_id": "EX-09e652687d",
       "question": "D1",
@@ -794,8 +806,8 @@
       "test_name": "QUOTA_REGION admits a respondent while D1-O3 is open"
     },
     {
-      "order": 67,
-      "test_case_id": "TC-FT62",
+      "order": 68,
+      "test_case_id": "TC-FT63",
       "target_id": "T-f399598e21",
       "executable_id": "EX-9384bdba67",
       "question": "D1",
@@ -806,8 +818,8 @@
       "test_name": "QUOTA_REGION admits a respondent while D1-O4 is open"
     },
     {
-      "order": 68,
-      "test_case_id": "TC-FT63",
+      "order": 69,
+      "test_case_id": "TC-FT64",
       "target_id": "T-f2a7b18b9d",
       "executable_id": "EX-b98489593c",
       "question": "D1",
@@ -818,8 +830,8 @@
       "test_name": "QUOTA_REGION admits a respondent while D1-O5 is open"
     },
     {
-      "order": 69,
-      "test_case_id": "TC-FT64",
+      "order": 70,
+      "test_case_id": "TC-FT65",
       "target_id": "T-0a8c593040",
       "executable_id": "EX-fe8e968a40",
       "question": "D2",
@@ -830,8 +842,8 @@
       "test_name": "D2 accepts a normal answer and the survey moves on"
     },
     {
-      "order": 70,
-      "test_case_id": "TC-FT65",
+      "order": 71,
+      "test_case_id": "TC-FT66",
       "target_id": "T-dbfdeade73",
       "executable_id": "EX-477dab5685",
       "question": "D2",
@@ -842,8 +854,8 @@
       "test_name": "D2 blocks a blank answer"
     },
     {
-      "order": 71,
-      "test_case_id": "TC-FT66",
+      "order": 72,
+      "test_case_id": "TC-FT67",
       "target_id": "T-da4659818e",
       "executable_id": "EX-14dd76b4f1",
       "question": "Q14",
@@ -854,8 +866,8 @@
       "test_name": "Q14 accepts a normal answer and the survey moves on"
     },
     {
-      "order": 72,
-      "test_case_id": "TC-FT67",
+      "order": 73,
+      "test_case_id": "TC-FT68",
       "target_id": "T-ffc0366e37",
       "executable_id": "EX-2c7452ea4b",
       "question": "Q14",
@@ -866,8 +878,8 @@
       "test_name": "Q14 accepts a valid answer"
     },
     {
-      "order": 73,
-      "test_case_id": "TC-FT68",
+      "order": 74,
+      "test_case_id": "TC-FT69",
       "target_id": "T-71252ee14c",
       "executable_id": "EX-5bb922ae60",
       "question": "Q14",
@@ -878,8 +890,8 @@
       "test_name": "Q14 rejects an invalid answer"
     },
     {
-      "order": 74,
-      "test_case_id": "TC-FT69",
+      "order": 75,
+      "test_case_id": "TC-FT70",
       "target_id": "T-95e4e5eea7",
       "executable_id": "EX-72ef46e16a",
       "question": "Q14",
@@ -890,8 +902,8 @@
       "test_name": "Q14 allows a blank answer, being optional"
     },
     {
-      "order": 75,
-      "test_case_id": "TC-FT70",
+      "order": 76,
+      "test_case_id": "TC-FT71",
       "target_id": "T-f6726b3e96",
       "executable_id": "EX-4c3a2416cb",
       "question": "Q14",
@@ -902,8 +914,8 @@
       "test_name": "Q14 rejects an invalid answer"
     },
     {
-      "order": 76,
-      "test_case_id": "TC-FT71",
+      "order": 77,
+      "test_case_id": "TC-FT72",
       "target_id": "T-2b7da8cff1",
       "executable_id": "EX-e044eed4b5",
       "question": "Q14",
@@ -914,8 +926,8 @@
       "test_name": "Q14 rejects an invalid answer"
     },
     {
-      "order": 77,
-      "test_case_id": "TC-FT72",
+      "order": 78,
+      "test_case_id": "TC-FT73",
       "target_id": "T-0b5aef83fb",
       "executable_id": "EX-504c1c12d8",
       "question": "Q14",
@@ -926,7 +938,7 @@
       "test_name": "Q14 allows a blank answer, being optional"
     },
     {
-      "order": 78,
+      "order": 79,
       "test_case_id": "TC-RT03",
       "target_id": "T-05b0993ae8",
       "executable_id": "EX-d7acea633f",

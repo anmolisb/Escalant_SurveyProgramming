@@ -8,7 +8,7 @@
     "sha256": "98e38f24d6ba6a885985207c385b19146cc91ae407b1937b75acde446ac19fcf",
     "bytes": 42037
   },
-  "generated_at": "2026-10-13T12:37:30+00:00",
+  "generated_at": "2026-10-13T12:57:23+00:00",
   "item_count": null,
   "content": {
     "source": "M06_digital_wallet_usage.docx",
@@ -2014,8 +2014,79 @@
       {
         "rule_id": "R9",
         "kind": "reject",
-        "when": null,
-        "when_unread": "Q7 includes 'None of these' plus another option",
+        "when": {
+          "op": "and",
+          "left": null,
+          "right": null,
+          "operands": [
+            {
+              "op": "contains",
+              "left": {
+                "question_id": "Q7",
+                "aggregate": null,
+                "text": null,
+                "number": null,
+                "values": null,
+                "option_ids": null
+              },
+              "right": {
+                "question_id": null,
+                "aggregate": null,
+                "text": "None of these",
+                "number": null,
+                "values": null,
+                "option_ids": [
+                  "Q7-O6"
+                ]
+              },
+              "operands": [],
+              "source_text": "Q7 contains 'None of these'",
+              "origin": "derived",
+              "confidence": null
+            },
+            {
+              "op": "not",
+              "left": null,
+              "right": null,
+              "operands": [
+                {
+                  "op": "set_eq",
+                  "left": {
+                    "question_id": "Q7",
+                    "aggregate": null,
+                    "text": null,
+                    "number": null,
+                    "values": null,
+                    "option_ids": null
+                  },
+                  "right": {
+                    "question_id": null,
+                    "aggregate": null,
+                    "text": null,
+                    "number": null,
+                    "values": [
+                      "None of these"
+                    ],
+                    "option_ids": [
+                      "Q7-O6"
+                    ]
+                  },
+                  "operands": [],
+                  "source_text": "Q7 == ['None of these']",
+                  "origin": "derived",
+                  "confidence": null
+                }
+              ],
+              "source_text": "not Q7 == ['None of these']",
+              "origin": "derived",
+              "confidence": null
+            }
+          ],
+          "source_text": "Q7 includes 'None of these' plus another option",
+          "origin": "inferred",
+          "confidence": 1.0
+        },
+        "when_unread": null,
         "destination": {
           "kind": "question",
           "id": "Q7",
@@ -2658,14 +2729,14 @@
         "source_reference": null
       },
       {
-        "check": "condition_unread",
+        "check": "condition_inferred",
         "severity": "WARNING",
-        "finding": "Rule R9 could not be read as a condition: model declined: The condition states that Q7 must contain 'None of these' together with another option. However, the answer list marks 'None of these' as (exclusive), meaning it cannot be selected alongside any other option. This makes the condition logically impossible to satisfy, and the provided grammar cannot represent such an impossible condition. Therefore the appropriate response is a null expression.",
+        "finding": "Rule R9 was prose, so a model proposed a reading which the parser then accepted. Worth a human eye.",
         "target": {
           "kind": "rule",
           "id": "R9"
         },
-        "evidence": "Q7 includes 'None of these' plus another option",
+        "evidence": "Q7 includes 'None of these' plus another option  ->  (Q7 contains 'None of these' and not Q7 set_eq ['None of these'])",
         "source_reference": null
       },
       {

@@ -9,7 +9,7 @@
   },
   "upstream": {
     "canonical_schema_version": "1.0.0",
-    "canonical_generated_at": "2026-10-13T11:26:47+00:00"
+    "canonical_generated_at": "2026-10-13T12:55:22+00:00"
   },
   "content": {
     "feasible": 159,
@@ -2190,7 +2190,7 @@
         "feasible": true,
         "answers": {
           "Q1": [
-            "Q1-O5"
+            "Q1-O4"
           ],
           "S1": "S1-O1",
           "S2": "S2-O1",
@@ -2314,7 +2314,7 @@
         "feasible": true,
         "answers": {
           "Q1": [
-            "Q1-O5"
+            "Q1-O4"
           ],
           "S1": "S1-O1",
           "S2": "S2-O1",
@@ -5540,7 +5540,7 @@
           "Q22": "Q22-O1"
         },
         "method": "reject-rule condition solved",
-        "evidence": "R19 forced true [leaned on provisional semantics: ['rule_precedence']]",
+        "evidence": "R19 forced true [leaned on provisional semantics: ['multi_equality', 'rule_precedence']]",
         "reason": null,
         "preconditions": {},
         "campaign": {}

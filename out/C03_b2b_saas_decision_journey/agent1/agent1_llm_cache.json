@@ -198,6 +198,50 @@
           }
         ]
       }
+    },
+    "5c2373627ae676d158299650a9497b913e6bd1d3c6277aad9bcf8f3642789ad3": {
+      "response_model": "LLMConditionProposal",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-10-13T12:55:14+00:00",
+      "asked": "Condition as written: Q1 contains at least one brand\n\nAnswer options:\nQ1: 'SaaS Brand A', 'SaaS Brand B', 'SaaS Brand C', 'Open-source alternative', 'None of these' (exclusive)",
+      "response": {
+        "expression": "Q1 contains_any ['SaaS Brand A','SaaS Brand B','SaaS Brand C']",
+        "confidence": 0.97,
+        "reasoning": "The phrase 'contains at least one brand' means the respondent selected any of the brand options. Using the membership operator 'contains_any' with the list of brand labels captures this condition."
+      }
+    },
+    "60492f9fb450df2cf4287e5291989e4df3717280c31cabd169c40b9c2c11d889": {
+      "response_model": "LLMConditionProposal",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-10-13T12:55:16+00:00",
+      "asked": "Condition as written: Q5 contains any touchpoint\n\nAnswer options:\nQ5: 'Vendor website', 'Sales demonstration', 'Peer recommendation', 'Analyst report', 'Trial', 'Procurement process', 'None of these' (exclusive)",
+      "response": {
+        "expression": "Q5 contains_any ['Vendor website','Sales demonstration','Peer recommendation','Analyst report','Trial','Procurement process']",
+        "confidence": 0.99,
+        "reasoning": "The phrase 'contains any touchpoint' means the respondent selected at least one of the listed touchpoint options, which are all options except the exclusive 'None of these'. This maps to the membership operator 'contains_any' with the relevant answer labels."
+      }
+    },
+    "26d07836fac7ee665396d076ee07d81a0b7b6d61aced62f9927c5dea3acf8a7f": {
+      "response_model": "LLMConditionProposal",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-10-13T12:55:19+00:00",
+      "asked": "Condition as written: exclusive option selected with another response at Q1 or Q5\n\nAnswer options:\nQ1: 'SaaS Brand A', 'SaaS Brand B', 'SaaS Brand C', 'Open-source alternative', 'None of these' (exclusive)\nQ5: 'Vendor website', 'Sales demonstration', 'Peer recommendation', 'Analyst report', 'Trial', 'Procurement process', 'None of these' (exclusive)",
+      "response": {
+        "expression": "(Q1 contains 'None of these' and not Q1 == ['None of these']) or (Q5 contains 'None of these' and not Q5 == ['None of these'])",
+        "confidence": 1.0,
+        "reasoning": "The condition describes the exclusive option 'None of these' being chosen together with any other answer for either Q1 or Q5. This is expressed by checking that the option is contained and that the answer set is not exactly only that exclusive option, for each question, combined with OR."
+      }
+    },
+    "ae2f1e6bd394e39a14d3ba2b4bd6575fa22be1cf3522428afc30cc226454b9cc": {
+      "response_model": "LLMConditionProposal",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-10-13T12:55:22+00:00",
+      "asked": "Condition as written: selected option at Q6 was not selected at Q5\n\nAnswer options:\nQ6: 'Vendor website', 'Sales demonstration', 'Peer recommendation', 'Analyst report', 'Trial', 'Procurement process'\nQ5: 'Vendor website', 'Sales demonstration', 'Peer recommendation', 'Analyst report', 'Trial', 'Procurement process', 'None of these' (exclusive)",
+      "response": {
+        "expression": "not Q5 contains Q6",
+        "confidence": 0.99,
+        "reasoning": "The condition states that any option chosen in Q6 must not be chosen in Q5. Using the membership operator, \"Q5 contains Q6\" checks if Q5 includes the answer selected at Q6. Negating this with \"not\" yields the required condition: \"not Q5 contains Q6\"."
+      }
     }
   }
 }

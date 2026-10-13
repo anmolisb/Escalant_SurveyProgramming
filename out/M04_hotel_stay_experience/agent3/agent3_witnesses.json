@@ -9,7 +9,7 @@
   },
   "upstream": {
     "canonical_schema_version": "1.0.0",
-    "canonical_generated_at": "2026-10-13T11:27:34+00:00"
+    "canonical_generated_at": "2026-10-13T12:56:57+00:00"
   },
   "content": {
     "feasible": 79,
@@ -1388,7 +1388,7 @@
           "D2": "D2-O1"
         },
         "method": "reject-rule condition solved",
-        "evidence": "R9 forced true [leaned on provisional semantics: ['rule_precedence']]",
+        "evidence": "R9 forced true [leaned on provisional semantics: ['multi_equality', 'rule_precedence']]",
         "reason": null,
         "preconditions": {},
         "campaign": {}

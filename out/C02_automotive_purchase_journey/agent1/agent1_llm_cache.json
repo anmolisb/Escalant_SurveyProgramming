@@ -198,6 +198,50 @@
           }
         ]
       }
+    },
+    "9de698bfd0108b3082dc662909f2ebf22d00b6dc488e0f803ede2b61d7c33c15": {
+      "response_model": "LLMConditionProposal",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-10-13T12:55:03+00:00",
+      "asked": "Condition as written: Q1 contains at least one brand\n\nAnswer options:\nQ1: 'Auto Brand A', 'Auto Brand B', 'Auto Brand C', 'Auto Brand D', 'None of these' (exclusive)",
+      "response": {
+        "expression": "Q1 contains_any ['Auto Brand A','Auto Brand B','Auto Brand C','Auto Brand D']",
+        "confidence": 0.99,
+        "reasoning": "The written condition 'Q1 contains at least one brand' means the respondent selected any of the brand options (Auto Brand A\u2011D). Using the membership operator for any of a set, the appropriate grammar is Q1 contains_any with the list of brand labels. The exclusive 'None of these' is excluded, matching the intended meaning."
+      }
+    },
+    "238960bda1c829cf8ee932c211ea4e417ccf6cc458bb8aaf047c624c919e2c89": {
+      "response_model": "LLMConditionProposal",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-10-13T12:55:05+00:00",
+      "asked": "Condition as written: Q5 contains any touchpoint\n\nAnswer options:\nQ5: 'Manufacturer website', 'Dealer visit', 'Review site', 'Social media', 'Friends or family', 'Auto show', 'None of these' (exclusive)",
+      "response": {
+        "expression": "Q5 contains_any ['Manufacturer website','Dealer visit','Review site','Social media','Friends or family','Auto show']",
+        "confidence": 0.99,
+        "reasoning": "The phrase 'contains any touchpoint' means the respondent selected at least one of the listed touchpoint options. The exclusive option 'None of these' is excluded, so we list all other answer labels in a contains_any membership test."
+      }
+    },
+    "48377d332c4996870167076d243882cb822696b1c2489c41456ccfb6d41fcd9c": {
+      "response_model": "LLMConditionProposal",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-10-13T12:55:06+00:00",
+      "asked": "Condition as written: exclusive option selected with another response at Q1 or Q5\n\nAnswer options:\nQ1: 'Auto Brand A', 'Auto Brand B', 'Auto Brand C', 'Auto Brand D', 'None of these' (exclusive)\nQ5: 'Manufacturer website', 'Dealer visit', 'Review site', 'Social media', 'Friends or family', 'Auto show', 'None of these' (exclusive)",
+      "response": {
+        "expression": "(Q1 contains 'None of these' and not Q1 == ['None of these']) or (Q5 contains 'None of these' and not Q5 == ['None of these'])",
+        "confidence": 1.0,
+        "reasoning": "The condition describes the forbidden case where the exclusive option 'None of these' is chosen together with any other option for either Q1 or Q5. This is expressed as the exclusive option being contained and the answer set not being exactly that exclusive option, combined with OR for the two questions."
+      }
+    },
+    "80ab0a589508b904ecb467a09d0fb6da2b670d5a5a66263be2bfbec6f5a11873": {
+      "response_model": "LLMConditionProposal",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-10-13T12:55:08+00:00",
+      "asked": "Condition as written: selected option at Q6 was not selected at Q5\n\nAnswer options:\nQ6: 'Manufacturer website', 'Dealer visit', 'Review site', 'Social media', 'Friends or family', 'Auto show'\nQ5: 'Manufacturer website', 'Dealer visit', 'Review site', 'Social media', 'Friends or family', 'Auto show', 'None of these' (exclusive)",
+      "response": {
+        "expression": "not Q5 contains Q6",
+        "confidence": 0.99,
+        "reasoning": "The condition states that any option chosen in Q6 must not be chosen in Q5. Using the membership operator, \"Q5 contains Q6\" would mean Q5 includes the option selected at Q6. Negating this with the \"not\" operator yields the required condition: not Q5 contains Q6."
+      }
     }
   }
 }

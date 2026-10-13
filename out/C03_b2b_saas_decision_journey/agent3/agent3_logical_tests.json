@@ -9,7 +9,7 @@
   },
   "upstream": {
     "canonical_schema_version": "1.0.0",
-    "canonical_generated_at": "2026-10-13T11:26:47+00:00"
+    "canonical_generated_at": "2026-10-13T12:55:22+00:00"
   },
   "content": {
     "count": 159,
@@ -11606,7 +11606,7 @@
         "blocks": false
       },
       {
-        "test_id": "TC-b7c7601f55",
+        "test_id": "TC-f7f230fdae",
         "target_id": "T-63d8afff5b",
         "dimension": "D1",
         "title": "Q2 is not displayed when its guard fails",
@@ -11639,7 +11639,7 @@
             "question_id": "Q1",
             "question_kind": "multi",
             "value": [
-              "Q1-O5"
+              "Q1-O4"
             ],
             "step": 5
           }
@@ -11665,8 +11665,7 @@
         "executable": false,
         "non_executable_reason": "NO_BUILD_MANIFEST",
         "provisional_semantics": [
-          "multi_equality",
-          "rule_precedence"
+          "multi_equality"
         ],
         "campaign": {},
         "setup": [
@@ -11698,7 +11697,7 @@
             "question_id": "Q1",
             "question_kind": "multi",
             "value": [
-              "Q1-O5"
+              "Q1-O4"
             ],
             "step": 5
           }
@@ -13896,7 +13895,7 @@
         "blocks": false
       },
       {
-        "test_id": "TC-96c01d824f",
+        "test_id": "TC-b41beb2f71",
         "target_id": "T-5cee4295f8",
         "dimension": "D1",
         "title": "Q3 is not displayed when its guard fails",
@@ -13929,7 +13928,7 @@
             "question_id": "Q1",
             "question_kind": "multi",
             "value": [
-              "Q1-O5"
+              "Q1-O4"
             ],
             "step": 5
           }
@@ -13955,8 +13954,7 @@
         "executable": false,
         "non_executable_reason": "NO_BUILD_MANIFEST",
         "provisional_semantics": [
-          "multi_equality",
-          "rule_precedence"
+          "multi_equality"
         ],
         "campaign": {},
         "setup": [
@@ -13988,7 +13986,7 @@
             "question_id": "Q1",
             "question_kind": "multi",
             "value": [
-              "Q1-O5"
+              "Q1-O4"
             ],
             "step": 5
           }

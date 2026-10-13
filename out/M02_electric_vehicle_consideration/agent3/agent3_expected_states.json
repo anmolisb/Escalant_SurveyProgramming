@@ -9,7 +9,7 @@
   },
   "upstream": {
     "canonical_schema_version": "1.0.0",
-    "canonical_generated_at": "2026-10-13T11:27:07+00:00"
+    "canonical_generated_at": "2026-10-13T12:56:32+00:00"
   },
   "content": {
     "predictions": {
@@ -39,14 +39,7 @@
           "Q14"
         ],
         "hidden": [],
-        "validation_triggered": [
-          {
-            "question_id": "Q7",
-            "rule": "R9",
-            "outcome": "violated",
-            "detail": "reject rule R9 fires: "
-          }
-        ],
+        "validation_triggered": [],
         "ending": "COMPLETE",
         "path": [
           "__START__",
@@ -80,15 +73,12 @@
           ]
         },
         "unresolved": [],
-        "fired_rules": [
-          "R9"
-        ],
+        "fired_rules": [],
         "blocked_at": null,
         "quota_stopped": null,
         "quota_over_target": null,
         "semantics_used": [
-          "multi_equality",
-          "rule_precedence"
+          "multi_equality"
         ],
         "observable": {
           "questions_seen_in_order": [
@@ -119,14 +109,7 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [
-            {
-              "question_id": "Q7",
-              "rule": "R9",
-              "outcome": "violated",
-              "detail": "reject rule R9 fires: "
-            }
-          ],
+          "validation_messages_expected": [],
           "piped_text_visible": {},
           "option_lists_visible": {
             "Q8": [
@@ -161,14 +144,7 @@
           "Q14"
         ],
         "hidden": [],
-        "validation_triggered": [
-          {
-            "question_id": "Q7",
-            "rule": "R9",
-            "outcome": "violated",
-            "detail": "reject rule R9 fires: "
-          }
-        ],
+        "validation_triggered": [],
         "ending": "COMPLETE",
         "path": [
           "__START__",
@@ -202,15 +178,12 @@
           ]
         },
         "unresolved": [],
-        "fired_rules": [
-          "R9"
-        ],
+        "fired_rules": [],
         "blocked_at": null,
         "quota_stopped": null,
         "quota_over_target": null,
         "semantics_used": [
-          "multi_equality",
-          "rule_precedence"
+          "multi_equality"
         ],
         "observable": {
           "questions_seen_in_order": [
@@ -241,14 +214,7 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [
-            {
-              "question_id": "Q7",
-              "rule": "R9",
-              "outcome": "violated",
-              "detail": "reject rule R9 fires: "
-            }
-          ],
+          "validation_messages_expected": [],
           "piped_text_visible": {},
           "option_lists_visible": {
             "Q8": [
@@ -283,14 +249,7 @@
           "Q14"
         ],
         "hidden": [],
-        "validation_triggered": [
-          {
-            "question_id": "Q7",
-            "rule": "R9",
-            "outcome": "violated",
-            "detail": "reject rule R9 fires: "
-          }
-        ],
+        "validation_triggered": [],
         "ending": "COMPLETE",
         "path": [
           "__START__",
@@ -324,15 +283,12 @@
           ]
         },
         "unresolved": [],
-        "fired_rules": [
-          "R9"
-        ],
+        "fired_rules": [],
         "blocked_at": null,
         "quota_stopped": null,
         "quota_over_target": null,
         "semantics_used": [
-          "multi_equality",
-          "rule_precedence"
+          "multi_equality"
         ],
         "observable": {
           "questions_seen_in_order": [
@@ -363,14 +319,7 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [
-            {
-              "question_id": "Q7",
-              "rule": "R9",
-              "outcome": "violated",
-              "detail": "reject rule R9 fires: "
-            }
-          ],
+          "validation_messages_expected": [],
           "piped_text_visible": {},
           "option_lists_visible": {
             "Q8": [
@@ -405,14 +354,7 @@
           "Q14"
         ],
         "hidden": [],
-        "validation_triggered": [
-          {
-            "question_id": "Q7",
-            "rule": "R9",
-            "outcome": "violated",
-            "detail": "reject rule R9 fires: "
-          }
-        ],
+        "validation_triggered": [],
         "ending": "COMPLETE",
         "path": [
           "__START__",
@@ -446,15 +388,12 @@
           ]
         },
         "unresolved": [],
-        "fired_rules": [
-          "R9"
-        ],
+        "fired_rules": [],
         "blocked_at": null,
         "quota_stopped": null,
         "quota_over_target": null,
         "semantics_used": [
-          "multi_equality",
-          "rule_precedence"
+          "multi_equality"
         ],
         "observable": {
           "questions_seen_in_order": [
@@ -485,14 +424,7 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [
-            {
-              "question_id": "Q7",
-              "rule": "R9",
-              "outcome": "violated",
-              "detail": "reject rule R9 fires: "
-            }
-          ],
+          "validation_messages_expected": [],
           "piped_text_visible": {},
           "option_lists_visible": {
             "Q8": [
@@ -527,14 +459,7 @@
           "Q14"
         ],
         "hidden": [],
-        "validation_triggered": [
-          {
-            "question_id": "Q7",
-            "rule": "R9",
-            "outcome": "violated",
-            "detail": "reject rule R9 fires: "
-          }
-        ],
+        "validation_triggered": [],
         "ending": "COMPLETE",
         "path": [
           "__START__",
@@ -568,15 +493,12 @@
           ]
         },
         "unresolved": [],
-        "fired_rules": [
-          "R9"
-        ],
+        "fired_rules": [],
         "blocked_at": null,
         "quota_stopped": null,
         "quota_over_target": null,
         "semantics_used": [
-          "multi_equality",
-          "rule_precedence"
+          "multi_equality"
         ],
         "observable": {
           "questions_seen_in_order": [
@@ -607,14 +529,7 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [
-            {
-              "question_id": "Q7",
-              "rule": "R9",
-              "outcome": "violated",
-              "detail": "reject rule R9 fires: "
-            }
-          ],
+          "validation_messages_expected": [],
           "piped_text_visible": {},
           "option_lists_visible": {
             "Q8": [
@@ -649,14 +564,7 @@
           "Q14"
         ],
         "hidden": [],
-        "validation_triggered": [
-          {
-            "question_id": "Q7",
-            "rule": "R9",
-            "outcome": "violated",
-            "detail": "reject rule R9 fires: "
-          }
-        ],
+        "validation_triggered": [],
         "ending": "COMPLETE",
         "path": [
           "__START__",
@@ -690,15 +598,12 @@
           ]
         },
         "unresolved": [],
-        "fired_rules": [
-          "R9"
-        ],
+        "fired_rules": [],
         "blocked_at": null,
         "quota_stopped": null,
         "quota_over_target": null,
         "semantics_used": [
-          "multi_equality",
-          "rule_precedence"
+          "multi_equality"
         ],
         "observable": {
           "questions_seen_in_order": [
@@ -729,14 +634,7 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [
-            {
-              "question_id": "Q7",
-              "rule": "R9",
-              "outcome": "violated",
-              "detail": "reject rule R9 fires: "
-            }
-          ],
+          "validation_messages_expected": [],
           "piped_text_visible": {},
           "option_lists_visible": {
             "Q8": [
@@ -771,14 +669,7 @@
           "Q14"
         ],
         "hidden": [],
-        "validation_triggered": [
-          {
-            "question_id": "Q7",
-            "rule": "R9",
-            "outcome": "violated",
-            "detail": "reject rule R9 fires: "
-          }
-        ],
+        "validation_triggered": [],
         "ending": "COMPLETE",
         "path": [
           "__START__",
@@ -812,15 +703,12 @@
           ]
         },
         "unresolved": [],
-        "fired_rules": [
-          "R9"
-        ],
+        "fired_rules": [],
         "blocked_at": null,
         "quota_stopped": null,
         "quota_over_target": null,
         "semantics_used": [
-          "multi_equality",
-          "rule_precedence"
+          "multi_equality"
         ],
         "observable": {
           "questions_seen_in_order": [
@@ -851,14 +739,7 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [
-            {
-              "question_id": "Q7",
-              "rule": "R9",
-              "outcome": "violated",
-              "detail": "reject rule R9 fires: "
-            }
-          ],
+          "validation_messages_expected": [],
           "piped_text_visible": {},
           "option_lists_visible": {
             "Q8": [
@@ -893,14 +774,7 @@
           "Q14"
         ],
         "hidden": [],
-        "validation_triggered": [
-          {
-            "question_id": "Q7",
-            "rule": "R9",
-            "outcome": "violated",
-            "detail": "reject rule R9 fires: "
-          }
-        ],
+        "validation_triggered": [],
         "ending": "COMPLETE",
         "path": [
           "__START__",
@@ -934,15 +808,12 @@
           ]
         },
         "unresolved": [],
-        "fired_rules": [
-          "R9"
-        ],
+        "fired_rules": [],
         "blocked_at": null,
         "quota_stopped": null,
         "quota_over_target": null,
         "semantics_used": [
-          "multi_equality",
-          "rule_precedence"
+          "multi_equality"
         ],
         "observable": {
           "questions_seen_in_order": [
@@ -973,14 +844,7 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [
-            {
-              "question_id": "Q7",
-              "rule": "R9",
-              "outcome": "violated",
-              "detail": "reject rule R9 fires: "
-            }
-          ],
+          "validation_messages_expected": [],
           "piped_text_visible": {},
           "option_lists_visible": {
             "Q8": [
@@ -1015,14 +879,7 @@
           "Q14"
         ],
         "hidden": [],
-        "validation_triggered": [
-          {
-            "question_id": "Q7",
-            "rule": "R9",
-            "outcome": "violated",
-            "detail": "reject rule R9 fires: "
-          }
-        ],
+        "validation_triggered": [],
         "ending": "COMPLETE",
         "path": [
           "__START__",
@@ -1056,15 +913,12 @@
           ]
         },
         "unresolved": [],
-        "fired_rules": [
-          "R9"
-        ],
+        "fired_rules": [],
         "blocked_at": null,
         "quota_stopped": null,
         "quota_over_target": null,
         "semantics_used": [
-          "multi_equality",
-          "rule_precedence"
+          "multi_equality"
         ],
         "observable": {
           "questions_seen_in_order": [
@@ -1095,14 +949,7 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [
-            {
-              "question_id": "Q7",
-              "rule": "R9",
-              "outcome": "violated",
-              "detail": "reject rule R9 fires: "
-            }
-          ],
+          "validation_messages_expected": [],
           "piped_text_visible": {},
           "option_lists_visible": {
             "Q8": [
@@ -1137,14 +984,7 @@
           "Q14"
         ],
         "hidden": [],
-        "validation_triggered": [
-          {
-            "question_id": "Q7",
-            "rule": "R9",
-            "outcome": "violated",
-            "detail": "reject rule R9 fires: "
-          }
-        ],
+        "validation_triggered": [],
         "ending": "COMPLETE",
         "path": [
           "__START__",
@@ -1178,15 +1018,12 @@
           ]
         },
         "unresolved": [],
-        "fired_rules": [
-          "R9"
-        ],
+        "fired_rules": [],
         "blocked_at": null,
         "quota_stopped": null,
         "quota_over_target": null,
         "semantics_used": [
-          "multi_equality",
-          "rule_precedence"
+          "multi_equality"
         ],
         "observable": {
           "questions_seen_in_order": [
@@ -1217,14 +1054,7 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [
-            {
-              "question_id": "Q7",
-              "rule": "R9",
-              "outcome": "violated",
-              "detail": "reject rule R9 fires: "
-            }
-          ],
+          "validation_messages_expected": [],
           "piped_text_visible": {},
           "option_lists_visible": {
             "Q8": [
@@ -1259,14 +1089,7 @@
           "Q14"
         ],
         "hidden": [],
-        "validation_triggered": [
-          {
-            "question_id": "Q7",
-            "rule": "R9",
-            "outcome": "violated",
-            "detail": "reject rule R9 fires: "
-          }
-        ],
+        "validation_triggered": [],
         "ending": "COMPLETE",
         "path": [
           "__START__",
@@ -1300,15 +1123,12 @@
           ]
         },
         "unresolved": [],
-        "fired_rules": [
-          "R9"
-        ],
+        "fired_rules": [],
         "blocked_at": null,
         "quota_stopped": null,
         "quota_over_target": null,
         "semantics_used": [
-          "multi_equality",
-          "rule_precedence"
+          "multi_equality"
         ],
         "observable": {
           "questions_seen_in_order": [
@@ -1339,14 +1159,7 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [
-            {
-              "question_id": "Q7",
-              "rule": "R9",
-              "outcome": "violated",
-              "detail": "reject rule R9 fires: "
-            }
-          ],
+          "validation_messages_expected": [],
           "piped_text_visible": {},
           "option_lists_visible": {
             "Q8": [
@@ -1381,14 +1194,7 @@
           "Q14"
         ],
         "hidden": [],
-        "validation_triggered": [
-          {
-            "question_id": "Q7",
-            "rule": "R9",
-            "outcome": "violated",
-            "detail": "reject rule R9 fires: "
-          }
-        ],
+        "validation_triggered": [],
         "ending": "COMPLETE",
         "path": [
           "__START__",
@@ -1422,15 +1228,12 @@
           ]
         },
         "unresolved": [],
-        "fired_rules": [
-          "R9"
-        ],
+        "fired_rules": [],
         "blocked_at": null,
         "quota_stopped": null,
         "quota_over_target": null,
         "semantics_used": [
-          "multi_equality",
-          "rule_precedence"
+          "multi_equality"
         ],
         "observable": {
           "questions_seen_in_order": [
@@ -1461,14 +1264,7 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [
-            {
-              "question_id": "Q7",
-              "rule": "R9",
-              "outcome": "violated",
-              "detail": "reject rule R9 fires: "
-            }
-          ],
+          "validation_messages_expected": [],
           "piped_text_visible": {},
           "option_lists_visible": {
             "Q8": [
@@ -1503,14 +1299,7 @@
           "Q14"
         ],
         "hidden": [],
-        "validation_triggered": [
-          {
-            "question_id": "Q7",
-            "rule": "R9",
-            "outcome": "violated",
-            "detail": "reject rule R9 fires: "
-          }
-        ],
+        "validation_triggered": [],
         "ending": "COMPLETE",
         "path": [
           "__START__",
@@ -1544,15 +1333,12 @@
           ]
         },
         "unresolved": [],
-        "fired_rules": [
-          "R9"
-        ],
+        "fired_rules": [],
         "blocked_at": null,
         "quota_stopped": null,
         "quota_over_target": null,
         "semantics_used": [
-          "multi_equality",
-          "rule_precedence"
+          "multi_equality"
         ],
         "observable": {
           "questions_seen_in_order": [
@@ -1583,14 +1369,7 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [
-            {
-              "question_id": "Q7",
-              "rule": "R9",
-              "outcome": "violated",
-              "detail": "reject rule R9 fires: "
-            }
-          ],
+          "validation_messages_expected": [],
           "piped_text_visible": {},
           "option_lists_visible": {
             "Q8": [
@@ -1625,14 +1404,7 @@
           "Q14"
         ],
         "hidden": [],
-        "validation_triggered": [
-          {
-            "question_id": "Q7",
-            "rule": "R9",
-            "outcome": "violated",
-            "detail": "reject rule R9 fires: "
-          }
-        ],
+        "validation_triggered": [],
         "ending": "COMPLETE",
         "path": [
           "__START__",
@@ -1666,15 +1438,12 @@
           ]
         },
         "unresolved": [],
-        "fired_rules": [
-          "R9"
-        ],
+        "fired_rules": [],
         "blocked_at": null,
         "quota_stopped": null,
         "quota_over_target": null,
         "semantics_used": [
-          "multi_equality",
-          "rule_precedence"
+          "multi_equality"
         ],
         "observable": {
           "questions_seen_in_order": [
@@ -1705,14 +1474,7 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [
-            {
-              "question_id": "Q7",
-              "rule": "R9",
-              "outcome": "violated",
-              "detail": "reject rule R9 fires: "
-            }
-          ],
+          "validation_messages_expected": [],
           "piped_text_visible": {},
           "option_lists_visible": {
             "Q8": [
@@ -1747,14 +1509,7 @@
           "Q14"
         ],
         "hidden": [],
-        "validation_triggered": [
-          {
-            "question_id": "Q7",
-            "rule": "R9",
-            "outcome": "violated",
-            "detail": "reject rule R9 fires: "
-          }
-        ],
+        "validation_triggered": [],
         "ending": "COMPLETE",
         "path": [
           "__START__",
@@ -1788,15 +1543,12 @@
           ]
         },
         "unresolved": [],
-        "fired_rules": [
-          "R9"
-        ],
+        "fired_rules": [],
         "blocked_at": null,
         "quota_stopped": null,
         "quota_over_target": null,
         "semantics_used": [
-          "multi_equality",
-          "rule_precedence"
+          "multi_equality"
         ],
         "observable": {
           "questions_seen_in_order": [
@@ -1827,14 +1579,7 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [
-            {
-              "question_id": "Q7",
-              "rule": "R9",
-              "outcome": "violated",
-              "detail": "reject rule R9 fires: "
-            }
-          ],
+          "validation_messages_expected": [],
           "piped_text_visible": {},
           "option_lists_visible": {
             "Q8": [
@@ -1869,14 +1614,7 @@
           "Q14"
         ],
         "hidden": [],
-        "validation_triggered": [
-          {
-            "question_id": "Q7",
-            "rule": "R9",
-            "outcome": "violated",
-            "detail": "reject rule R9 fires: "
-          }
-        ],
+        "validation_triggered": [],
         "ending": "COMPLETE",
         "path": [
           "__START__",
@@ -1910,15 +1648,12 @@
           ]
         },
         "unresolved": [],
-        "fired_rules": [
-          "R9"
-        ],
+        "fired_rules": [],
         "blocked_at": null,
         "quota_stopped": null,
         "quota_over_target": null,
         "semantics_used": [
-          "multi_equality",
-          "rule_precedence"
+          "multi_equality"
         ],
         "observable": {
           "questions_seen_in_order": [
@@ -1949,14 +1684,7 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [
-            {
-              "question_id": "Q7",
-              "rule": "R9",
-              "outcome": "violated",
-              "detail": "reject rule R9 fires: "
-            }
-          ],
+          "validation_messages_expected": [],
           "piped_text_visible": {},
           "option_lists_visible": {
             "Q8": [
@@ -1991,14 +1719,7 @@
           "Q14"
         ],
         "hidden": [],
-        "validation_triggered": [
-          {
-            "question_id": "Q7",
-            "rule": "R9",
-            "outcome": "violated",
-            "detail": "reject rule R9 fires: "
-          }
-        ],
+        "validation_triggered": [],
         "ending": "COMPLETE",
         "path": [
           "__START__",
@@ -2032,15 +1753,12 @@
           ]
         },
         "unresolved": [],
-        "fired_rules": [
-          "R9"
-        ],
+        "fired_rules": [],
         "blocked_at": null,
         "quota_stopped": null,
         "quota_over_target": null,
         "semantics_used": [
-          "multi_equality",
-          "rule_precedence"
+          "multi_equality"
         ],
         "observable": {
           "questions_seen_in_order": [
@@ -2071,14 +1789,7 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [
-            {
-              "question_id": "Q7",
-              "rule": "R9",
-              "outcome": "violated",
-              "detail": "reject rule R9 fires: "
-            }
-          ],
+          "validation_messages_expected": [],
           "piped_text_visible": {},
           "option_lists_visible": {
             "Q8": [
@@ -2113,14 +1824,7 @@
           "Q14"
         ],
         "hidden": [],
-        "validation_triggered": [
-          {
-            "question_id": "Q7",
-            "rule": "R9",
-            "outcome": "violated",
-            "detail": "reject rule R9 fires: "
-          }
-        ],
+        "validation_triggered": [],
         "ending": "COMPLETE",
         "path": [
           "__START__",
@@ -2154,15 +1858,12 @@
           ]
         },
         "unresolved": [],
-        "fired_rules": [
-          "R9"
-        ],
+        "fired_rules": [],
         "blocked_at": null,
         "quota_stopped": null,
         "quota_over_target": null,
         "semantics_used": [
-          "multi_equality",
-          "rule_precedence"
+          "multi_equality"
         ],
         "observable": {
           "questions_seen_in_order": [
@@ -2193,14 +1894,7 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [
-            {
-              "question_id": "Q7",
-              "rule": "R9",
-              "outcome": "violated",
-              "detail": "reject rule R9 fires: "
-            }
-          ],
+          "validation_messages_expected": [],
           "piped_text_visible": {},
           "option_lists_visible": {
             "Q8": [
@@ -2235,14 +1929,7 @@
           "Q14"
         ],
         "hidden": [],
-        "validation_triggered": [
-          {
-            "question_id": "Q7",
-            "rule": "R9",
-            "outcome": "violated",
-            "detail": "reject rule R9 fires: "
-          }
-        ],
+        "validation_triggered": [],
         "ending": "COMPLETE",
         "path": [
           "__START__",
@@ -2276,15 +1963,12 @@
           ]
         },
         "unresolved": [],
-        "fired_rules": [
-          "R9"
-        ],
+        "fired_rules": [],
         "blocked_at": null,
         "quota_stopped": null,
         "quota_over_target": null,
         "semantics_used": [
-          "multi_equality",
-          "rule_precedence"
+          "multi_equality"
         ],
         "observable": {
           "questions_seen_in_order": [
@@ -2315,14 +1999,7 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [
-            {
-              "question_id": "Q7",
-              "rule": "R9",
-              "outcome": "violated",
-              "detail": "reject rule R9 fires: "
-            }
-          ],
+          "validation_messages_expected": [],
           "piped_text_visible": {},
           "option_lists_visible": {
             "Q8": [
@@ -2357,14 +2034,7 @@
           "Q14"
         ],
         "hidden": [],
-        "validation_triggered": [
-          {
-            "question_id": "Q7",
-            "rule": "R9",
-            "outcome": "violated",
-            "detail": "reject rule R9 fires: "
-          }
-        ],
+        "validation_triggered": [],
         "ending": "COMPLETE",
         "path": [
           "__START__",
@@ -2398,15 +2068,12 @@
           ]
         },
         "unresolved": [],
-        "fired_rules": [
-          "R9"
-        ],
+        "fired_rules": [],
         "blocked_at": null,
         "quota_stopped": null,
         "quota_over_target": null,
         "semantics_used": [
-          "multi_equality",
-          "rule_precedence"
+          "multi_equality"
         ],
         "observable": {
           "questions_seen_in_order": [
@@ -2437,14 +2104,7 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [
-            {
-              "question_id": "Q7",
-              "rule": "R9",
-              "outcome": "violated",
-              "detail": "reject rule R9 fires: "
-            }
-          ],
+          "validation_messages_expected": [],
           "piped_text_visible": {},
           "option_lists_visible": {
             "Q8": [
@@ -2479,14 +2139,7 @@
           "Q14"
         ],
         "hidden": [],
-        "validation_triggered": [
-          {
-            "question_id": "Q7",
-            "rule": "R9",
-            "outcome": "violated",
-            "detail": "reject rule R9 fires: "
-          }
-        ],
+        "validation_triggered": [],
         "ending": "COMPLETE",
         "path": [
           "__START__",
@@ -2520,15 +2173,12 @@
           ]
         },
         "unresolved": [],
-        "fired_rules": [
-          "R9"
-        ],
+        "fired_rules": [],
         "blocked_at": null,
         "quota_stopped": null,
         "quota_over_target": null,
         "semantics_used": [
-          "multi_equality",
-          "rule_precedence"
+          "multi_equality"
         ],
         "observable": {
           "questions_seen_in_order": [
@@ -2559,14 +2209,7 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [
-            {
-              "question_id": "Q7",
-              "rule": "R9",
-              "outcome": "violated",
-              "detail": "reject rule R9 fires: "
-            }
-          ],
+          "validation_messages_expected": [],
           "piped_text_visible": {},
           "option_lists_visible": {
             "Q8": [
@@ -2601,14 +2244,7 @@
           "Q14"
         ],
         "hidden": [],
-        "validation_triggered": [
-          {
-            "question_id": "Q7",
-            "rule": "R9",
-            "outcome": "violated",
-            "detail": "reject rule R9 fires: "
-          }
-        ],
+        "validation_triggered": [],
         "ending": "COMPLETE",
         "path": [
           "__START__",
@@ -2642,15 +2278,12 @@
           ]
         },
         "unresolved": [],
-        "fired_rules": [
-          "R9"
-        ],
+        "fired_rules": [],
         "blocked_at": null,
         "quota_stopped": null,
         "quota_over_target": null,
         "semantics_used": [
-          "multi_equality",
-          "rule_precedence"
+          "multi_equality"
         ],
         "observable": {
           "questions_seen_in_order": [
@@ -2681,14 +2314,7 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [
-            {
-              "question_id": "Q7",
-              "rule": "R9",
-              "outcome": "violated",
-              "detail": "reject rule R9 fires: "
-            }
-          ],
+          "validation_messages_expected": [],
           "piped_text_visible": {},
           "option_lists_visible": {
             "Q8": [
@@ -2829,14 +2455,7 @@
           "Q14"
         ],
         "hidden": [],
-        "validation_triggered": [
-          {
-            "question_id": "Q7",
-            "rule": "R9",
-            "outcome": "violated",
-            "detail": "reject rule R9 fires: "
-          }
-        ],
+        "validation_triggered": [],
         "ending": "COMPLETE",
         "path": [
           "__START__",
@@ -2870,15 +2489,12 @@
           ]
         },
         "unresolved": [],
-        "fired_rules": [
-          "R9"
-        ],
+        "fired_rules": [],
         "blocked_at": null,
         "quota_stopped": null,
         "quota_over_target": null,
         "semantics_used": [
-          "multi_equality",
-          "rule_precedence"
+          "multi_equality"
         ],
         "observable": {
           "questions_seen_in_order": [
@@ -2909,14 +2525,7 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [
-            {
-              "question_id": "Q7",
-              "rule": "R9",
-              "outcome": "violated",
-              "detail": "reject rule R9 fires: "
-            }
-          ],
+          "validation_messages_expected": [],
           "piped_text_visible": {},
           "option_lists_visible": {
             "Q8": [
@@ -3057,14 +2666,7 @@
           "Q14"
         ],
         "hidden": [],
-        "validation_triggered": [
-          {
-            "question_id": "Q7",
-            "rule": "R9",
-            "outcome": "violated",
-            "detail": "reject rule R9 fires: "
-          }
-        ],
+        "validation_triggered": [],
         "ending": "COMPLETE",
         "path": [
           "__START__",
@@ -3098,15 +2700,12 @@
           ]
         },
         "unresolved": [],
-        "fired_rules": [
-          "R9"
-        ],
+        "fired_rules": [],
         "blocked_at": null,
         "quota_stopped": null,
         "quota_over_target": null,
         "semantics_used": [
-          "multi_equality",
-          "rule_precedence"
+          "multi_equality"
         ],
         "observable": {
           "questions_seen_in_order": [
@@ -3137,14 +2736,7 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [
-            {
-              "question_id": "Q7",
-              "rule": "R9",
-              "outcome": "violated",
-              "detail": "reject rule R9 fires: "
-            }
-          ],
+          "validation_messages_expected": [],
           "piped_text_visible": {},
           "option_lists_visible": {
             "Q8": [
@@ -3180,14 +2772,7 @@
         "hidden": [
           "Q10"
         ],
-        "validation_triggered": [
-          {
-            "question_id": "Q7",
-            "rule": "R9",
-            "outcome": "violated",
-            "detail": "reject rule R9 fires: "
-          }
-        ],
+        "validation_triggered": [],
         "ending": "COMPLETE",
         "path": [
           "__START__",
@@ -3221,7 +2806,6 @@
         },
         "unresolved": [],
         "fired_rules": [
-          "R9",
           "R8"
         ],
         "blocked_at": null,
@@ -3261,14 +2845,7 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [
-            {
-              "question_id": "Q7",
-              "rule": "R9",
-              "outcome": "violated",
-              "detail": "reject rule R9 fires: "
-            }
-          ],
+          "validation_messages_expected": [],
           "piped_text_visible": {},
           "option_lists_visible": {
             "Q8": [
@@ -3409,14 +2986,7 @@
           "Q14"
         ],
         "hidden": [],
-        "validation_triggered": [
-          {
-            "question_id": "Q7",
-            "rule": "R9",
-            "outcome": "violated",
-            "detail": "reject rule R9 fires: "
-          }
-        ],
+        "validation_triggered": [],
         "ending": "COMPLETE",
         "path": [
           "__START__",
@@ -3450,15 +3020,12 @@
           ]
         },
         "unresolved": [],
-        "fired_rules": [
-          "R9"
-        ],
+        "fired_rules": [],
         "blocked_at": null,
         "quota_stopped": null,
         "quota_over_target": null,
         "semantics_used": [
-          "multi_equality",
-          "rule_precedence"
+          "multi_equality"
         ],
         "observable": {
           "questions_seen_in_order": [
@@ -3489,14 +3056,7 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [
-            {
-              "question_id": "Q7",
-              "rule": "R9",
-              "outcome": "violated",
-              "detail": "reject rule R9 fires: "
-            }
-          ],
+          "validation_messages_expected": [],
           "piped_text_visible": {},
           "option_lists_visible": {
             "Q8": [
@@ -3532,14 +3092,7 @@
         "hidden": [
           "Q10"
         ],
-        "validation_triggered": [
-          {
-            "question_id": "Q7",
-            "rule": "R9",
-            "outcome": "violated",
-            "detail": "reject rule R9 fires: "
-          }
-        ],
+        "validation_triggered": [],
         "ending": "COMPLETE",
         "path": [
           "__START__",
@@ -3573,7 +3126,6 @@
         },
         "unresolved": [],
         "fired_rules": [
-          "R9",
           "R8"
         ],
         "blocked_at": null,
@@ -3613,14 +3165,7 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [
-            {
-              "question_id": "Q7",
-              "rule": "R9",
-              "outcome": "violated",
-              "detail": "reject rule R9 fires: "
-            }
-          ],
+          "validation_messages_expected": [],
           "piped_text_visible": {},
           "option_lists_visible": {
             "Q8": [
@@ -3655,14 +3200,7 @@
           "Q14"
         ],
         "hidden": [],
-        "validation_triggered": [
-          {
-            "question_id": "Q7",
-            "rule": "R9",
-            "outcome": "violated",
-            "detail": "reject rule R9 fires: "
-          }
-        ],
+        "validation_triggered": [],
         "ending": "COMPLETE",
         "path": [
           "__START__",
@@ -3696,15 +3234,12 @@
           ]
         },
         "unresolved": [],
-        "fired_rules": [
-          "R9"
-        ],
+        "fired_rules": [],
         "blocked_at": null,
         "quota_stopped": null,
         "quota_over_target": null,
         "semantics_used": [
-          "multi_equality",
-          "rule_precedence"
+          "multi_equality"
         ],
         "observable": {
           "questions_seen_in_order": [
@@ -3735,14 +3270,7 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [
-            {
-              "question_id": "Q7",
-              "rule": "R9",
-              "outcome": "violated",
-              "detail": "reject rule R9 fires: "
-            }
-          ],
+          "validation_messages_expected": [],
           "piped_text_visible": {},
           "option_lists_visible": {
             "Q8": [
@@ -3777,14 +3305,7 @@
           "Q14"
         ],
         "hidden": [],
-        "validation_triggered": [
-          {
-            "question_id": "Q7",
-            "rule": "R9",
-            "outcome": "violated",
-            "detail": "reject rule R9 fires: "
-          }
-        ],
+        "validation_triggered": [],
         "ending": "COMPLETE",
         "path": [
           "__START__",
@@ -3818,15 +3339,12 @@
           ]
         },
         "unresolved": [],
-        "fired_rules": [
-          "R9"
-        ],
+        "fired_rules": [],
         "blocked_at": null,
         "quota_stopped": null,
         "quota_over_target": null,
         "semantics_used": [
-          "multi_equality",
-          "rule_precedence"
+          "multi_equality"
         ],
         "observable": {
           "questions_seen_in_order": [
@@ -3857,14 +3375,7 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [
-            {
-              "question_id": "Q7",
-              "rule": "R9",
-              "outcome": "violated",
-              "detail": "reject rule R9 fires: "
-            }
-          ],
+          "validation_messages_expected": [],
           "piped_text_visible": {},
           "option_lists_visible": {
             "Q8": [
@@ -3976,14 +3487,7 @@
           "Q14"
         ],
         "hidden": [],
-        "validation_triggered": [
-          {
-            "question_id": "Q7",
-            "rule": "R9",
-            "outcome": "violated",
-            "detail": "reject rule R9 fires: "
-          }
-        ],
+        "validation_triggered": [],
         "ending": "COMPLETE",
         "path": [
           "__START__",
@@ -4017,15 +3521,12 @@
           ]
         },
         "unresolved": [],
-        "fired_rules": [
-          "R9"
-        ],
+        "fired_rules": [],
         "blocked_at": null,
         "quota_stopped": null,
         "quota_over_target": null,
         "semantics_used": [
-          "multi_equality",
-          "rule_precedence"
+          "multi_equality"
         ],
         "observable": {
           "questions_seen_in_order": [
@@ -4056,14 +3557,7 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [
-            {
-              "question_id": "Q7",
-              "rule": "R9",
-              "outcome": "violated",
-              "detail": "reject rule R9 fires: "
-            }
-          ],
+          "validation_messages_expected": [],
           "piped_text_visible": {},
           "option_lists_visible": {
             "Q8": [
@@ -4104,12 +3598,6 @@
             "rule": "R3",
             "outcome": "violated",
             "detail": "reject rule R3 fires: S3 < 18 or S3 > 80"
-          },
-          {
-            "question_id": "Q7",
-            "rule": "R9",
-            "outcome": "violated",
-            "detail": "reject rule R9 fires: "
           }
         ],
         "ending": "COMPLETE",
@@ -4146,8 +3634,7 @@
         },
         "unresolved": [],
         "fired_rules": [
-          "R3",
-          "R9"
+          "R3"
         ],
         "blocked_at": null,
         "quota_stopped": null,
@@ -4191,12 +3678,6 @@
               "rule": "R3",
               "outcome": "violated",
               "detail": "reject rule R3 fires: S3 < 18 or S3 > 80"
-            },
-            {
-              "question_id": "Q7",
-              "rule": "R9",
-              "outcome": "violated",
-              "detail": "reject rule R9 fires: "
             }
           ],
           "piped_text_visible": {},
@@ -4442,12 +3923,6 @@
         "hidden": [],
         "validation_triggered": [
           {
-            "question_id": "Q7",
-            "rule": "R9",
-            "outcome": "violated",
-            "detail": "reject rule R9 fires: "
-          },
-          {
             "question_id": "Q14",
             "rule": "length",
             "outcome": "satisfied",
@@ -4487,15 +3962,12 @@
           ]
         },
         "unresolved": [],
-        "fired_rules": [
-          "R9"
-        ],
+        "fired_rules": [],
         "blocked_at": null,
         "quota_stopped": null,
         "quota_over_target": null,
         "semantics_used": [
-          "multi_equality",
-          "rule_precedence"
+          "multi_equality"
         ],
         "observable": {
           "questions_seen_in_order": [
@@ -4526,14 +3998,7 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [
-            {
-              "question_id": "Q7",
-              "rule": "R9",
-              "outcome": "violated",
-              "detail": "reject rule R9 fires: "
-            }
-          ],
+          "validation_messages_expected": [],
           "piped_text_visible": {},
           "option_lists_visible": {
             "Q8": [
@@ -4569,12 +4034,6 @@
         ],
         "hidden": [],
         "validation_triggered": [
-          {
-            "question_id": "Q7",
-            "rule": "R9",
-            "outcome": "violated",
-            "detail": "reject rule R9 fires: "
-          },
           {
             "question_id": "Q14",
             "rule": "max_length",
@@ -4615,15 +4074,12 @@
           ]
         },
         "unresolved": [],
-        "fired_rules": [
-          "R9"
-        ],
+        "fired_rules": [],
         "blocked_at": "Q14",
         "quota_stopped": null,
         "quota_over_target": null,
         "semantics_used": [
-          "multi_equality",
-          "rule_precedence"
+          "multi_equality"
         ],
         "observable": {
           "questions_seen_in_order": [
@@ -4655,12 +4111,6 @@
           "quota_stopped": null,
           "quota_over_target": null,
           "validation_messages_expected": [
-            {
-              "question_id": "Q7",
-              "rule": "R9",
-              "outcome": "violated",
-              "detail": "reject rule R9 fires: "
-            },
             {
               "question_id": "Q14",
               "rule": "max_length",
@@ -4702,14 +4152,7 @@
           "Q14"
         ],
         "hidden": [],
-        "validation_triggered": [
-          {
-            "question_id": "Q7",
-            "rule": "R9",
-            "outcome": "violated",
-            "detail": "reject rule R9 fires: "
-          }
-        ],
+        "validation_triggered": [],
         "ending": "COMPLETE",
         "path": [
           "__START__",
@@ -4743,15 +4186,12 @@
           ]
         },
         "unresolved": [],
-        "fired_rules": [
-          "R9"
-        ],
+        "fired_rules": [],
         "blocked_at": null,
         "quota_stopped": null,
         "quota_over_target": null,
         "semantics_used": [
-          "multi_equality",
-          "rule_precedence"
+          "multi_equality"
         ],
         "observable": {
           "questions_seen_in_order": [
@@ -4782,14 +4222,7 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [
-            {
-              "question_id": "Q7",
-              "rule": "R9",
-              "outcome": "violated",
-              "detail": "reject rule R9 fires: "
-            }
-          ],
+          "validation_messages_expected": [],
           "piped_text_visible": {},
           "option_lists_visible": {
             "Q8": [
@@ -4830,12 +4263,6 @@
             "rule": "R3",
             "outcome": "violated",
             "detail": "reject rule R3 fires: S3 < 18 or S3 > 80"
-          },
-          {
-            "question_id": "Q7",
-            "rule": "R9",
-            "outcome": "violated",
-            "detail": "reject rule R9 fires: "
           }
         ],
         "ending": "COMPLETE",
@@ -4872,8 +4299,7 @@
         },
         "unresolved": [],
         "fired_rules": [
-          "R3",
-          "R9"
+          "R3"
         ],
         "blocked_at": null,
         "quota_stopped": null,
@@ -4917,12 +4343,6 @@
               "rule": "R3",
               "outcome": "violated",
               "detail": "reject rule R3 fires: S3 < 18 or S3 > 80"
-            },
-            {
-              "question_id": "Q7",
-              "rule": "R9",
-              "outcome": "violated",
-              "detail": "reject rule R9 fires: "
             }
           ],
           "piped_text_visible": {},
@@ -4933,7 +4353,7 @@
           }
         }
       },
-      "T-ceb855fe70": {
+      "T-3da10efb75": {
         "witness_target_id": "",
         "shown": [
           "S1",
@@ -4959,14 +4379,7 @@
           "Q14"
         ],
         "hidden": [],
-        "validation_triggered": [
-          {
-            "question_id": "Q7",
-            "rule": "R9",
-            "outcome": "violated",
-            "detail": "reject rule R9 fires: "
-          }
-        ],
+        "validation_triggered": [],
         "ending": "COMPLETE",
         "path": [
           "__START__",
@@ -5000,15 +4413,12 @@
           ]
         },
         "unresolved": [],
-        "fired_rules": [
-          "R9"
-        ],
+        "fired_rules": [],
         "blocked_at": null,
         "quota_stopped": null,
         "quota_over_target": null,
         "semantics_used": [
-          "multi_equality",
-          "rule_precedence"
+          "multi_equality"
         ],
         "observable": {
           "questions_seen_in_order": [
@@ -5039,20 +4449,114 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [
-            {
-              "question_id": "Q7",
-              "rule": "R9",
-              "outcome": "violated",
-              "detail": "reject rule R9 fires: "
-            }
-          ],
+          "validation_messages_expected": [],
           "piped_text_visible": {},
           "option_lists_visible": {
             "Q8": [
               "Charging concern"
             ]
           }
+        }
+      },
+      "T-ceb855fe70": {
+        "witness_target_id": "",
+        "shown": [
+          "S1",
+          "S2",
+          "S3",
+          "DT1",
+          "Q1",
+          "Q2",
+          "Q3",
+          "Q4",
+          "Q5",
+          "Q6",
+          "Q7"
+        ],
+        "hidden": [
+          "Q8",
+          "Q9",
+          "Q10",
+          "Q11",
+          "Q12",
+          "Q13",
+          "DT2",
+          "D1",
+          "D2",
+          "Q14"
+        ],
+        "validation_triggered": [
+          {
+            "question_id": "Q7",
+            "rule": "exclusive_option",
+            "outcome": "violated",
+            "detail": "exclusive option Q7-O6 chosen alongside ['Q7-O1']"
+          }
+        ],
+        "ending": null,
+        "path": [
+          "__START__",
+          "S1",
+          "S2",
+          "S3",
+          "DT1",
+          "Q1",
+          "Q2",
+          "Q3",
+          "Q4",
+          "Q5",
+          "Q6",
+          "Q7",
+          "BLOCKED_AT:Q7"
+        ],
+        "piped_text": {},
+        "piped_options": {},
+        "unresolved": [],
+        "fired_rules": [],
+        "blocked_at": "Q7",
+        "quota_stopped": null,
+        "quota_over_target": null,
+        "semantics_used": [],
+        "observable": {
+          "questions_seen_in_order": [
+            "S1",
+            "S2",
+            "S3",
+            "DT1",
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4",
+            "Q5",
+            "Q6",
+            "Q7"
+          ],
+          "questions_not_seen": [
+            "Q8",
+            "Q9",
+            "Q10",
+            "Q11",
+            "Q12",
+            "Q13",
+            "DT2",
+            "D1",
+            "D2",
+            "Q14"
+          ],
+          "ending_reached": null,
+          "blocked_at": "Q7",
+          "quota_stopped": null,
+          "quota_over_target": null,
+          "validation_messages_expected": [
+            {
+              "question_id": "Q7",
+              "rule": "exclusive_option",
+              "outcome": "violated",
+              "detail": "exclusive option Q7-O6 chosen alongside ['Q7-O1']"
+            }
+          ],
+          "piped_text_visible": {},
+          "option_lists_visible": {}
         }
       },
       "T-f6726b3e96": {
@@ -5082,12 +4586,6 @@
         ],
         "hidden": [],
         "validation_triggered": [
-          {
-            "question_id": "Q7",
-            "rule": "R9",
-            "outcome": "violated",
-            "detail": "reject rule R9 fires: "
-          },
           {
             "question_id": "Q14",
             "rule": "length",
@@ -5128,15 +4626,12 @@
           ]
         },
         "unresolved": [],
-        "fired_rules": [
-          "R9"
-        ],
+        "fired_rules": [],
         "blocked_at": null,
         "quota_stopped": null,
         "quota_over_target": null,
         "semantics_used": [
-          "multi_equality",
-          "rule_precedence"
+          "multi_equality"
         ],
         "observable": {
           "questions_seen_in_order": [
@@ -5167,14 +4662,7 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [
-            {
-              "question_id": "Q7",
-              "rule": "R9",
-              "outcome": "violated",
-              "detail": "reject rule R9 fires: "
-            }
-          ],
+          "validation_messages_expected": [],
           "piped_text_visible": {},
           "option_lists_visible": {
             "Q8": [
@@ -5210,12 +4698,6 @@
         ],
         "hidden": [],
         "validation_triggered": [
-          {
-            "question_id": "Q7",
-            "rule": "R9",
-            "outcome": "violated",
-            "detail": "reject rule R9 fires: "
-          },
           {
             "question_id": "Q14",
             "rule": "length",
@@ -5256,15 +4738,12 @@
           ]
         },
         "unresolved": [],
-        "fired_rules": [
-          "R9"
-        ],
+        "fired_rules": [],
         "blocked_at": null,
         "quota_stopped": null,
         "quota_over_target": null,
         "semantics_used": [
-          "multi_equality",
-          "rule_precedence"
+          "multi_equality"
         ],
         "observable": {
           "questions_seen_in_order": [
@@ -5295,14 +4774,7 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [
-            {
-              "question_id": "Q7",
-              "rule": "R9",
-              "outcome": "violated",
-              "detail": "reject rule R9 fires: "
-            }
-          ],
+          "validation_messages_expected": [],
           "piped_text_visible": {},
           "option_lists_visible": {
             "Q8": [
@@ -5338,12 +4810,6 @@
         ],
         "hidden": [],
         "validation_triggered": [
-          {
-            "question_id": "Q7",
-            "rule": "R9",
-            "outcome": "violated",
-            "detail": "reject rule R9 fires: "
-          },
           {
             "question_id": "Q14",
             "rule": "mandatory",
@@ -5384,15 +4850,12 @@
           ]
         },
         "unresolved": [],
-        "fired_rules": [
-          "R9"
-        ],
+        "fired_rules": [],
         "blocked_at": null,
         "quota_stopped": null,
         "quota_over_target": null,
         "semantics_used": [
           "multi_equality",
-          "rule_precedence",
           "whitespace_is_an_answer"
         ],
         "observable": {
@@ -5424,14 +4887,7 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [
-            {
-              "question_id": "Q7",
-              "rule": "R9",
-              "outcome": "violated",
-              "detail": "reject rule R9 fires: "
-            }
-          ],
+          "validation_messages_expected": [],
           "piped_text_visible": {},
           "option_lists_visible": {
             "Q8": [
@@ -6431,12 +5887,6 @@
         ],
         "validation_triggered": [
           {
-            "question_id": "Q7",
-            "rule": "R9",
-            "outcome": "violated",
-            "detail": "reject rule R9 fires: "
-          },
-          {
             "question_id": "Q8",
             "rule": "mandatory",
             "outcome": "violated",
@@ -6467,15 +5917,12 @@
           ]
         },
         "unresolved": [],
-        "fired_rules": [
-          "R9"
-        ],
+        "fired_rules": [],
         "blocked_at": "Q8",
         "quota_stopped": null,
         "quota_over_target": null,
         "semantics_used": [
-          "multi_equality",
-          "rule_precedence"
+          "multi_equality"
         ],
         "observable": {
           "questions_seen_in_order": [
@@ -6508,12 +5955,6 @@
           "quota_stopped": null,
           "quota_over_target": null,
           "validation_messages_expected": [
-            {
-              "question_id": "Q7",
-              "rule": "R9",
-              "outcome": "violated",
-              "detail": "reject rule R9 fires: "
-            },
             {
               "question_id": "Q8",
               "rule": "mandatory",
@@ -6558,12 +5999,6 @@
         ],
         "validation_triggered": [
           {
-            "question_id": "Q7",
-            "rule": "R9",
-            "outcome": "violated",
-            "detail": "reject rule R9 fires: "
-          },
-          {
             "question_id": "Q9",
             "rule": "mandatory",
             "outcome": "violated",
@@ -6595,15 +6030,12 @@
           ]
         },
         "unresolved": [],
-        "fired_rules": [
-          "R9"
-        ],
+        "fired_rules": [],
         "blocked_at": "Q9",
         "quota_stopped": null,
         "quota_over_target": null,
         "semantics_used": [
-          "multi_equality",
-          "rule_precedence"
+          "multi_equality"
         ],
         "observable": {
           "questions_seen_in_order": [
@@ -6636,12 +6068,6 @@
           "quota_stopped": null,
           "quota_over_target": null,
           "validation_messages_expected": [
-            {
-              "question_id": "Q7",
-              "rule": "R9",
-              "outcome": "violated",
-              "detail": "reject rule R9 fires: "
-            },
             {
               "question_id": "Q9",
               "rule": "mandatory",
@@ -6686,12 +6112,6 @@
         ],
         "validation_triggered": [
           {
-            "question_id": "Q7",
-            "rule": "R9",
-            "outcome": "violated",
-            "detail": "reject rule R9 fires: "
-          },
-          {
             "question_id": "Q10",
             "rule": "mandatory",
             "outcome": "violated",
@@ -6724,15 +6144,12 @@
           ]
         },
         "unresolved": [],
-        "fired_rules": [
-          "R9"
-        ],
+        "fired_rules": [],
         "blocked_at": "Q10",
         "quota_stopped": null,
         "quota_over_target": null,
         "semantics_used": [
-          "multi_equality",
-          "rule_precedence"
+          "multi_equality"
         ],
         "observable": {
           "questions_seen_in_order": [
@@ -6765,12 +6182,6 @@
           "quota_stopped": null,
           "quota_over_target": null,
           "validation_messages_expected": [
-            {
-              "question_id": "Q7",
-              "rule": "R9",
-              "outcome": "violated",
-              "detail": "reject rule R9 fires: "
-            },
             {
               "question_id": "Q10",
               "rule": "mandatory",
@@ -6815,12 +6226,6 @@
         ],
         "validation_triggered": [
           {
-            "question_id": "Q7",
-            "rule": "R9",
-            "outcome": "violated",
-            "detail": "reject rule R9 fires: "
-          },
-          {
             "question_id": "Q11",
             "rule": "mandatory",
             "outcome": "violated",
@@ -6854,15 +6259,12 @@
           ]
         },
         "unresolved": [],
-        "fired_rules": [
-          "R9"
-        ],
+        "fired_rules": [],
         "blocked_at": "Q11",
         "quota_stopped": null,
         "quota_over_target": null,
         "semantics_used": [
-          "multi_equality",
-          "rule_precedence"
+          "multi_equality"
         ],
         "observable": {
           "questions_seen_in_order": [
@@ -6895,12 +6297,6 @@
           "quota_stopped": null,
           "quota_over_target": null,
           "validation_messages_expected": [
-            {
-              "question_id": "Q7",
-              "rule": "R9",
-              "outcome": "violated",
-              "detail": "reject rule R9 fires: "
-            },
             {
               "question_id": "Q11",
               "rule": "mandatory",
@@ -6945,12 +6341,6 @@
         ],
         "validation_triggered": [
           {
-            "question_id": "Q7",
-            "rule": "R9",
-            "outcome": "violated",
-            "detail": "reject rule R9 fires: "
-          },
-          {
             "question_id": "Q12",
             "rule": "mandatory",
             "outcome": "violated",
@@ -6985,15 +6375,12 @@
           ]
         },
         "unresolved": [],
-        "fired_rules": [
-          "R9"
-        ],
+        "fired_rules": [],
         "blocked_at": "Q12",
         "quota_stopped": null,
         "quota_over_target": null,
         "semantics_used": [
-          "multi_equality",
-          "rule_precedence"
+          "multi_equality"
         ],
         "observable": {
           "questions_seen_in_order": [
@@ -7026,12 +6413,6 @@
           "quota_stopped": null,
           "quota_over_target": null,
           "validation_messages_expected": [
-            {
-              "question_id": "Q7",
-              "rule": "R9",
-              "outcome": "violated",
-              "detail": "reject rule R9 fires: "
-            },
             {
               "question_id": "Q12",
               "rule": "mandatory",
@@ -7076,12 +6457,6 @@
         ],
         "validation_triggered": [
           {
-            "question_id": "Q7",
-            "rule": "R9",
-            "outcome": "violated",
-            "detail": "reject rule R9 fires: "
-          },
-          {
             "question_id": "Q13",
             "rule": "mandatory",
             "outcome": "violated",
@@ -7117,15 +6492,12 @@
           ]
         },
         "unresolved": [],
-        "fired_rules": [
-          "R9"
-        ],
+        "fired_rules": [],
         "blocked_at": "Q13",
         "quota_stopped": null,
         "quota_over_target": null,
         "semantics_used": [
-          "multi_equality",
-          "rule_precedence"
+          "multi_equality"
         ],
         "observable": {
           "questions_seen_in_order": [
@@ -7158,12 +6530,6 @@
           "quota_stopped": null,
           "quota_over_target": null,
           "validation_messages_expected": [
-            {
-              "question_id": "Q7",
-              "rule": "R9",
-              "outcome": "violated",
-              "detail": "reject rule R9 fires: "
-            },
             {
               "question_id": "Q13",
               "rule": "mandatory",
@@ -7208,12 +6574,6 @@
         ],
         "validation_triggered": [
           {
-            "question_id": "Q7",
-            "rule": "R9",
-            "outcome": "violated",
-            "detail": "reject rule R9 fires: "
-          },
-          {
             "question_id": "D1",
             "rule": "mandatory",
             "outcome": "violated",
@@ -7251,15 +6611,12 @@
           ]
         },
         "unresolved": [],
-        "fired_rules": [
-          "R9"
-        ],
+        "fired_rules": [],
         "blocked_at": "D1",
         "quota_stopped": null,
         "quota_over_target": null,
         "semantics_used": [
-          "multi_equality",
-          "rule_precedence"
+          "multi_equality"
         ],
         "observable": {
           "questions_seen_in_order": [
@@ -7292,12 +6649,6 @@
           "quota_stopped": null,
           "quota_over_target": null,
           "validation_messages_expected": [
-            {
-              "question_id": "Q7",
-              "rule": "R9",
-              "outcome": "violated",
-              "detail": "reject rule R9 fires: "
-            },
             {
               "question_id": "D1",
               "rule": "mandatory",
@@ -7342,12 +6693,6 @@
         ],
         "validation_triggered": [
           {
-            "question_id": "Q7",
-            "rule": "R9",
-            "outcome": "violated",
-            "detail": "reject rule R9 fires: "
-          },
-          {
             "question_id": "D2",
             "rule": "mandatory",
             "outcome": "violated",
@@ -7386,15 +6731,12 @@
           ]
         },
         "unresolved": [],
-        "fired_rules": [
-          "R9"
-        ],
+        "fired_rules": [],
         "blocked_at": "D2",
         "quota_stopped": null,
         "quota_over_target": null,
         "semantics_used": [
-          "multi_equality",
-          "rule_precedence"
+          "multi_equality"
         ],
         "observable": {
           "questions_seen_in_order": [
@@ -7427,12 +6769,6 @@
           "quota_stopped": null,
           "quota_over_target": null,
           "validation_messages_expected": [
-            {
-              "question_id": "Q7",
-              "rule": "R9",
-              "outcome": "violated",
-              "detail": "reject rule R9 fires: "
-            },
             {
               "question_id": "D2",
               "rule": "mandatory",
@@ -7476,12 +6812,6 @@
         "hidden": [],
         "validation_triggered": [
           {
-            "question_id": "Q7",
-            "rule": "R9",
-            "outcome": "violated",
-            "detail": "reject rule R9 fires: "
-          },
-          {
             "question_id": "Q14",
             "rule": "mandatory",
             "outcome": "satisfied",
@@ -7521,15 +6851,12 @@
           ]
         },
         "unresolved": [],
-        "fired_rules": [
-          "R9"
-        ],
+        "fired_rules": [],
         "blocked_at": null,
         "quota_stopped": null,
         "quota_over_target": null,
         "semantics_used": [
-          "multi_equality",
-          "rule_precedence"
+          "multi_equality"
         ],
         "observable": {
           "questions_seen_in_order": [
@@ -7560,14 +6887,7 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [
-            {
-              "question_id": "Q7",
-              "rule": "R9",
-              "outcome": "violated",
-              "detail": "reject rule R9 fires: "
-            }
-          ],
+          "validation_messages_expected": [],
           "piped_text_visible": {},
           "option_lists_visible": {
             "Q8": [
@@ -7602,14 +6922,7 @@
           "Q14"
         ],
         "hidden": [],
-        "validation_triggered": [
-          {
-            "question_id": "Q7",
-            "rule": "R9",
-            "outcome": "violated",
-            "detail": "reject rule R9 fires: "
-          }
-        ],
+        "validation_triggered": [],
         "ending": "COMPLETE",
         "path": [
           "__START__",
@@ -7643,15 +6956,12 @@
           ]
         },
         "unresolved": [],
-        "fired_rules": [
-          "R9"
-        ],
+        "fired_rules": [],
         "blocked_at": null,
         "quota_stopped": null,
         "quota_over_target": null,
         "semantics_used": [
-          "multi_equality",
-          "rule_precedence"
+          "multi_equality"
         ],
         "observable": {
           "questions_seen_in_order": [
@@ -7682,14 +6992,7 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [
-            {
-              "question_id": "Q7",
-              "rule": "R9",
-              "outcome": "violated",
-              "detail": "reject rule R9 fires: "
-            }
-          ],
+          "validation_messages_expected": [],
           "piped_text_visible": {},
           "option_lists_visible": {
             "Q8": [
@@ -7724,14 +7027,7 @@
           "Q14"
         ],
         "hidden": [],
-        "validation_triggered": [
-          {
-            "question_id": "Q7",
-            "rule": "R9",
-            "outcome": "violated",
-            "detail": "reject rule R9 fires: "
-          }
-        ],
+        "validation_triggered": [],
         "ending": "COMPLETE",
         "path": [
           "__START__",
@@ -7765,15 +7061,12 @@
           ]
         },
         "unresolved": [],
-        "fired_rules": [
-          "R9"
-        ],
+        "fired_rules": [],
         "blocked_at": null,
         "quota_stopped": null,
         "quota_over_target": null,
         "semantics_used": [
-          "multi_equality",
-          "rule_precedence"
+          "multi_equality"
         ],
         "observable": {
           "questions_seen_in_order": [
@@ -7804,14 +7097,7 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [
-            {
-              "question_id": "Q7",
-              "rule": "R9",
-              "outcome": "violated",
-              "detail": "reject rule R9 fires: "
-            }
-          ],
+          "validation_messages_expected": [],
           "piped_text_visible": {},
           "option_lists_visible": {
             "Q8": [
@@ -7846,14 +7132,7 @@
           "Q14"
         ],
         "hidden": [],
-        "validation_triggered": [
-          {
-            "question_id": "Q7",
-            "rule": "R9",
-            "outcome": "violated",
-            "detail": "reject rule R9 fires: "
-          }
-        ],
+        "validation_triggered": [],
         "ending": "COMPLETE",
         "path": [
           "__START__",
@@ -7887,15 +7166,12 @@
           ]
         },
         "unresolved": [],
-        "fired_rules": [
-          "R9"
-        ],
+        "fired_rules": [],
         "blocked_at": null,
         "quota_stopped": null,
         "quota_over_target": null,
         "semantics_used": [
-          "multi_equality",
-          "rule_precedence"
+          "multi_equality"
         ],
         "observable": {
           "questions_seen_in_order": [
@@ -7926,14 +7202,7 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [
-            {
-              "question_id": "Q7",
-              "rule": "R9",
-              "outcome": "violated",
-              "detail": "reject rule R9 fires: "
-            }
-          ],
+          "validation_messages_expected": [],
           "piped_text_visible": {},
           "option_lists_visible": {
             "Q8": [
@@ -7968,14 +7237,7 @@
           "Q14"
         ],
         "hidden": [],
-        "validation_triggered": [
-          {
-            "question_id": "Q7",
-            "rule": "R9",
-            "outcome": "violated",
-            "detail": "reject rule R9 fires: "
-          }
-        ],
+        "validation_triggered": [],
         "ending": "COMPLETE",
         "path": [
           "__START__",
@@ -8009,15 +7271,12 @@
           ]
         },
         "unresolved": [],
-        "fired_rules": [
-          "R9"
-        ],
+        "fired_rules": [],
         "blocked_at": null,
         "quota_stopped": null,
         "quota_over_target": null,
         "semantics_used": [
-          "multi_equality",
-          "rule_precedence"
+          "multi_equality"
         ],
         "observable": {
           "questions_seen_in_order": [
@@ -8048,14 +7307,7 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [
-            {
-              "question_id": "Q7",
-              "rule": "R9",
-              "outcome": "violated",
-              "detail": "reject rule R9 fires: "
-            }
-          ],
+          "validation_messages_expected": [],
           "piped_text_visible": {},
           "option_lists_visible": {
             "Q8": [
@@ -8090,14 +7342,7 @@
           "Q14"
         ],
         "hidden": [],
-        "validation_triggered": [
-          {
-            "question_id": "Q7",
-            "rule": "R9",
-            "outcome": "violated",
-            "detail": "reject rule R9 fires: "
-          }
-        ],
+        "validation_triggered": [],
         "ending": "COMPLETE",
         "path": [
           "__START__",
@@ -8131,15 +7376,12 @@
           ]
         },
         "unresolved": [],
-        "fired_rules": [
-          "R9"
-        ],
+        "fired_rules": [],
         "blocked_at": null,
         "quota_stopped": null,
         "quota_over_target": null,
         "semantics_used": [
-          "multi_equality",
-          "rule_precedence"
+          "multi_equality"
         ],
         "observable": {
           "questions_seen_in_order": [
@@ -8170,14 +7412,7 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [
-            {
-              "question_id": "Q7",
-              "rule": "R9",
-              "outcome": "violated",
-              "detail": "reject rule R9 fires: "
-            }
-          ],
+          "validation_messages_expected": [],
           "piped_text_visible": {},
           "option_lists_visible": {
             "Q8": [
@@ -8212,14 +7447,7 @@
           "Q14"
         ],
         "hidden": [],
-        "validation_triggered": [
-          {
-            "question_id": "Q7",
-            "rule": "R9",
-            "outcome": "violated",
-            "detail": "reject rule R9 fires: "
-          }
-        ],
+        "validation_triggered": [],
         "ending": "COMPLETE",
         "path": [
           "__START__",
@@ -8253,15 +7481,12 @@
           ]
         },
         "unresolved": [],
-        "fired_rules": [
-          "R9"
-        ],
+        "fired_rules": [],
         "blocked_at": null,
         "quota_stopped": null,
         "quota_over_target": null,
         "semantics_used": [
-          "multi_equality",
-          "rule_precedence"
+          "multi_equality"
         ],
         "observable": {
           "questions_seen_in_order": [
@@ -8292,14 +7517,7 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [
-            {
-              "question_id": "Q7",
-              "rule": "R9",
-              "outcome": "violated",
-              "detail": "reject rule R9 fires: "
-            }
-          ],
+          "validation_messages_expected": [],
           "piped_text_visible": {},
           "option_lists_visible": {
             "Q8": [
@@ -8334,14 +7552,7 @@
           "Q14"
         ],
         "hidden": [],
-        "validation_triggered": [
-          {
-            "question_id": "Q7",
-            "rule": "R9",
-            "outcome": "violated",
-            "detail": "reject rule R9 fires: "
-          }
-        ],
+        "validation_triggered": [],
         "ending": "COMPLETE",
         "path": [
           "__START__",
@@ -8375,15 +7586,12 @@
           ]
         },
         "unresolved": [],
-        "fired_rules": [
-          "R9"
-        ],
+        "fired_rules": [],
         "blocked_at": null,
         "quota_stopped": null,
         "quota_over_target": null,
         "semantics_used": [
-          "multi_equality",
-          "rule_precedence"
+          "multi_equality"
         ],
         "observable": {
           "questions_seen_in_order": [
@@ -8414,14 +7622,7 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [
-            {
-              "question_id": "Q7",
-              "rule": "R9",
-              "outcome": "violated",
-              "detail": "reject rule R9 fires: "
-            }
-          ],
+          "validation_messages_expected": [],
           "piped_text_visible": {},
           "option_lists_visible": {
             "Q8": [
@@ -8456,14 +7657,7 @@
           "Q14"
         ],
         "hidden": [],
-        "validation_triggered": [
-          {
-            "question_id": "Q7",
-            "rule": "R9",
-            "outcome": "violated",
-            "detail": "reject rule R9 fires: "
-          }
-        ],
+        "validation_triggered": [],
         "ending": "COMPLETE",
         "path": [
           "__START__",
@@ -8497,15 +7691,12 @@
           ]
         },
         "unresolved": [],
-        "fired_rules": [
-          "R9"
-        ],
+        "fired_rules": [],
         "blocked_at": null,
         "quota_stopped": null,
         "quota_over_target": null,
         "semantics_used": [
-          "multi_equality",
-          "rule_precedence"
+          "multi_equality"
         ],
         "observable": {
           "questions_seen_in_order": [
@@ -8536,14 +7727,7 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [
-            {
-              "question_id": "Q7",
-              "rule": "R9",
-              "outcome": "violated",
-              "detail": "reject rule R9 fires: "
-            }
-          ],
+          "validation_messages_expected": [],
           "piped_text_visible": {},
           "option_lists_visible": {
             "Q8": [
@@ -8578,14 +7762,7 @@
           "Q14"
         ],
         "hidden": [],
-        "validation_triggered": [
-          {
-            "question_id": "Q7",
-            "rule": "R9",
-            "outcome": "violated",
-            "detail": "reject rule R9 fires: "
-          }
-        ],
+        "validation_triggered": [],
         "ending": "COMPLETE",
         "path": [
           "__START__",
@@ -8619,15 +7796,12 @@
           ]
         },
         "unresolved": [],
-        "fired_rules": [
-          "R9"
-        ],
+        "fired_rules": [],
         "blocked_at": null,
         "quota_stopped": null,
         "quota_over_target": null,
         "semantics_used": [
-          "multi_equality",
-          "rule_precedence"
+          "multi_equality"
         ],
         "observable": {
           "questions_seen_in_order": [
@@ -8658,14 +7832,7 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [
-            {
-              "question_id": "Q7",
-              "rule": "R9",
-              "outcome": "violated",
-              "detail": "reject rule R9 fires: "
-            }
-          ],
+          "validation_messages_expected": [],
           "piped_text_visible": {},
           "option_lists_visible": {
             "Q8": [
@@ -8700,14 +7867,7 @@
           "Q14"
         ],
         "hidden": [],
-        "validation_triggered": [
-          {
-            "question_id": "Q7",
-            "rule": "R9",
-            "outcome": "violated",
-            "detail": "reject rule R9 fires: "
-          }
-        ],
+        "validation_triggered": [],
         "ending": "COMPLETE",
         "path": [
           "__START__",
@@ -8741,15 +7901,12 @@
           ]
         },
         "unresolved": [],
-        "fired_rules": [
-          "R9"
-        ],
+        "fired_rules": [],
         "blocked_at": null,
         "quota_stopped": null,
         "quota_over_target": null,
         "semantics_used": [
-          "multi_equality",
-          "rule_precedence"
+          "multi_equality"
         ],
         "observable": {
           "questions_seen_in_order": [
@@ -8780,14 +7937,7 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [
-            {
-              "question_id": "Q7",
-              "rule": "R9",
-              "outcome": "violated",
-              "detail": "reject rule R9 fires: "
-            }
-          ],
+          "validation_messages_expected": [],
           "piped_text_visible": {},
           "option_lists_visible": {
             "Q8": [
@@ -8822,14 +7972,7 @@
           "Q14"
         ],
         "hidden": [],
-        "validation_triggered": [
-          {
-            "question_id": "Q7",
-            "rule": "R9",
-            "outcome": "violated",
-            "detail": "reject rule R9 fires: "
-          }
-        ],
+        "validation_triggered": [],
         "ending": "COMPLETE",
         "path": [
           "__START__",
@@ -8863,15 +8006,12 @@
           ]
         },
         "unresolved": [],
-        "fired_rules": [
-          "R9"
-        ],
+        "fired_rules": [],
         "blocked_at": null,
         "quota_stopped": null,
         "quota_over_target": null,
         "semantics_used": [
-          "multi_equality",
-          "rule_precedence"
+          "multi_equality"
         ],
         "observable": {
           "questions_seen_in_order": [
@@ -8902,14 +8042,7 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [
-            {
-              "question_id": "Q7",
-              "rule": "R9",
-              "outcome": "violated",
-              "detail": "reject rule R9 fires: "
-            }
-          ],
+          "validation_messages_expected": [],
           "piped_text_visible": {},
           "option_lists_visible": {
             "Q8": [
@@ -8944,14 +8077,7 @@
           "Q14"
         ],
         "hidden": [],
-        "validation_triggered": [
-          {
-            "question_id": "Q7",
-            "rule": "R9",
-            "outcome": "violated",
-            "detail": "reject rule R9 fires: "
-          }
-        ],
+        "validation_triggered": [],
         "ending": "COMPLETE",
         "path": [
           "__START__",
@@ -8985,15 +8111,12 @@
           ]
         },
         "unresolved": [],
-        "fired_rules": [
-          "R9"
-        ],
+        "fired_rules": [],
         "blocked_at": null,
         "quota_stopped": null,
         "quota_over_target": null,
         "semantics_used": [
-          "multi_equality",
-          "rule_precedence"
+          "multi_equality"
         ],
         "observable": {
           "questions_seen_in_order": [
@@ -9024,14 +8147,7 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [
-            {
-              "question_id": "Q7",
-              "rule": "R9",
-              "outcome": "violated",
-              "detail": "reject rule R9 fires: "
-            }
-          ],
+          "validation_messages_expected": [],
           "piped_text_visible": {},
           "option_lists_visible": {
             "Q8": [
@@ -9066,14 +8182,7 @@
           "Q14"
         ],
         "hidden": [],
-        "validation_triggered": [
-          {
-            "question_id": "Q7",
-            "rule": "R9",
-            "outcome": "violated",
-            "detail": "reject rule R9 fires: "
-          }
-        ],
+        "validation_triggered": [],
         "ending": "COMPLETE",
         "path": [
           "__START__",
@@ -9107,15 +8216,12 @@
           ]
         },
         "unresolved": [],
-        "fired_rules": [
-          "R9"
-        ],
+        "fired_rules": [],
         "blocked_at": null,
         "quota_stopped": null,
         "quota_over_target": null,
         "semantics_used": [
-          "multi_equality",
-          "rule_precedence"
+          "multi_equality"
         ],
         "observable": {
           "questions_seen_in_order": [
@@ -9146,14 +8252,7 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [
-            {
-              "question_id": "Q7",
-              "rule": "R9",
-              "outcome": "violated",
-              "detail": "reject rule R9 fires: "
-            }
-          ],
+          "validation_messages_expected": [],
           "piped_text_visible": {},
           "option_lists_visible": {
             "Q8": [

@@ -128,6 +128,28 @@
       "response": {
         "pipes": []
       }
+    },
+    "33accce71e418202e465e4bcce423e05b1bfbbc301d3a5bdb1e309ee246bdf3a": {
+      "response_model": "LLMConditionProposal",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-10-13T12:56:50+00:00",
+      "asked": "Condition as written: Q7 contains any problem\n\nAnswer options:\nQ7: 'Room cleanliness', 'Noise', 'Check-in delay', 'Wi-Fi issue', 'Billing problem', 'None of these' (exclusive)",
+      "response": {
+        "expression": "Q7 contains_any ['Room cleanliness','Noise','Check-in delay','Wi-Fi issue','Billing problem']",
+        "confidence": 0.99,
+        "reasoning": "The phrase \"contains any problem\" means the respondent selected at least one of the listed problem options. The exclusive option \"None of these\" indicates no problem, so the condition is expressed as Q7 contains_any with all non\u2011exclusive problem labels."
+      }
+    },
+    "f4a8e16fcd2cd7836e32c0ea91f8e685cf703f60c0630dd4556fcd44e2b8807f": {
+      "response_model": "LLMConditionProposal",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-10-13T12:56:57+00:00",
+      "asked": "Condition as written: Q7 includes 'None of these' plus another option\n\nAnswer options:\nQ7: 'Room cleanliness', 'Noise', 'Check-in delay', 'Wi-Fi issue', 'Billing problem', 'None of these' (exclusive)",
+      "response": {
+        "expression": "Q7 contains 'None of these' and not Q7 == ['None of these']",
+        "confidence": 1.0,
+        "reasoning": "The condition states that the respondent selected the exclusive option 'None of these' together with another option. This is expressed as the presence of 'None of these' (Q7 contains 'None of these') and the answer set not being exactly only that option (not Q7 == ['None of these'])."
+      }
     }
   }
 }

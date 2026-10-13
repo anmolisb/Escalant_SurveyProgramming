@@ -9,36 +9,19 @@
   },
   "upstream": {
     "canonical_schema_version": "1.0.0",
-    "canonical_generated_at": "2026-10-13T11:26:47+00:00"
+    "canonical_generated_at": "2026-10-13T12:55:22+00:00"
   },
   "content": {
     "report": {
       "branches_total": 20,
       "branch_states_total": 36,
-      "branch_states_covered": 34,
+      "branch_states_covered": 36,
       "branch_states_missing": [],
-      "branch_states_shadowed": [
-        {
-          "branch": "B-show-Q2=F",
-          "question": "Q2",
-          "guard": "Q1 contains at least one brand",
-          "shadowed_by": "R5",
-          "skip_condition": "Q1 == ['None of these']",
-          "finding": "Q2 carries a show-condition, and R5 jumps past it under the same circumstances. Whenever the show-condition would be false, the respondent has already been moved on, so the condition is never observed on its own. The two say the same thing. Worth confirming with the author that both are intended."
-        },
-        {
-          "branch": "B-show-Q3=F",
-          "question": "Q3",
-          "guard": "Q1 contains at least one brand",
-          "shadowed_by": "R5",
-          "skip_condition": "Q1 == ['None of these']",
-          "finding": "Q3 carries a show-condition, and R5 jumps past it under the same circumstances. Whenever the show-condition would be false, the respondent has already been moved on, so the condition is never observed on its own. The two say the same thing. Worth confirming with the author that both are intended."
-        }
-      ],
+      "branch_states_shadowed": [],
       "paths_selected": 12,
       "exclusive": true,
       "branch_exhaustive": true,
-      "exhaustive_note": "Every branch that can be reached on its own is reached, in both directions. 2 guard state(s) cannot be reached independently because a skip rule fires under the same condition; those are listed as shadowed, not as gaps.",
+      "exhaustive_note": "Every branch that can be reached on its own is reached, in both directions.",
       "not_enumerated": [
         {
           "family": "Every branch decision crossed with every other",
@@ -967,7 +950,7 @@
       },
       {
         "path_id": "P11",
-        "name": "Completing respondent \u2014 Q1=None of these; Q10=No; Q12=Not resolved",
+        "name": "Completing respondent \u2014 Q1=Open-source alternative; Q10=No; Q12=Not resolved",
         "route_class": "MAIN",
         "sequence": [
           "S1",
@@ -1000,7 +983,7 @@
           "S3": "S3-O2",
           "S4": "S4-O2",
           "Q1": [
-            "Q1-O5"
+            "Q1-O4"
           ],
           "Q5": [
             "Q5-O7"
@@ -1012,11 +995,10 @@
           "Q16": "Q16-O1"
         },
         "branch_values": [],
-        "skipped": [
-          "Q2",
-          "Q3"
-        ],
+        "skipped": [],
         "hidden": [
+          "Q2",
+          "Q3",
           "Q6",
           "Q7",
           "Q8",
@@ -1029,15 +1011,16 @@
           "Q17"
         ],
         "rules_exercised": [
-          "R15",
-          "R5"
+          "R15"
         ],
         "branches_covered": [
           "B-R1=F",
           "B-R2=F",
           "B-R3=F",
           "B-R4=F",
-          "B-R5=T",
+          "B-R5=F",
+          "B-show-Q2=F",
+          "B-show-Q3=F",
           "B-show-Q6=F",
           "B-show-Q7=F",
           "B-show-Q8=F",

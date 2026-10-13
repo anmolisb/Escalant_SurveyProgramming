@@ -8,7 +8,7 @@
     "sha256": "992ebf4849f39a999f5c28690a87ec8d50ad44af4dc86dbe9cb8375b3e7a6595",
     "bytes": 42072
   },
-  "generated_at": "2026-10-13T12:37:29+00:00",
+  "generated_at": "2026-10-13T12:57:10+00:00",
   "item_count": null,
   "content": {
     "source": "M05_employee_hybrid_work_experience.docx",
@@ -836,7 +836,7 @@
             "operands": [],
             "source_text": "Q7 contains any problem",
             "origin": "inferred",
-            "confidence": 0.99
+            "confidence": 1.0
           },
           "agreement": "agree",
           "sources": [
@@ -949,7 +949,7 @@
             "operands": [],
             "source_text": "Q7 contains any problem",
             "origin": "inferred",
-            "confidence": 0.99
+            "confidence": 1.0
           },
           "agreement": "agree",
           "sources": [
@@ -1786,7 +1786,7 @@
           "operands": [],
           "source_text": "Q7 contains any problem",
           "origin": "inferred",
-          "confidence": 0.99
+          "confidence": 1.0
         },
         "when_unread": null,
         "destination": {
@@ -1843,7 +1843,7 @@
           "operands": [],
           "source_text": "Q7 contains any problem",
           "origin": "inferred",
-          "confidence": 0.99
+          "confidence": 1.0
         },
         "when_unread": null,
         "destination": {
@@ -2014,8 +2014,79 @@
       {
         "rule_id": "R9",
         "kind": "reject",
-        "when": null,
-        "when_unread": "Q7 includes 'None of these' plus another option",
+        "when": {
+          "op": "and",
+          "left": null,
+          "right": null,
+          "operands": [
+            {
+              "op": "contains",
+              "left": {
+                "question_id": "Q7",
+                "aggregate": null,
+                "text": null,
+                "number": null,
+                "values": null,
+                "option_ids": null
+              },
+              "right": {
+                "question_id": null,
+                "aggregate": null,
+                "text": "None of these",
+                "number": null,
+                "values": null,
+                "option_ids": [
+                  "Q7-O6"
+                ]
+              },
+              "operands": [],
+              "source_text": "Q7 contains 'None of these'",
+              "origin": "derived",
+              "confidence": null
+            },
+            {
+              "op": "not",
+              "left": null,
+              "right": null,
+              "operands": [
+                {
+                  "op": "set_eq",
+                  "left": {
+                    "question_id": "Q7",
+                    "aggregate": null,
+                    "text": null,
+                    "number": null,
+                    "values": null,
+                    "option_ids": null
+                  },
+                  "right": {
+                    "question_id": null,
+                    "aggregate": null,
+                    "text": null,
+                    "number": null,
+                    "values": [
+                      "None of these"
+                    ],
+                    "option_ids": [
+                      "Q7-O6"
+                    ]
+                  },
+                  "operands": [],
+                  "source_text": "Q7 == ['None of these']",
+                  "origin": "derived",
+                  "confidence": null
+                }
+              ],
+              "source_text": "not Q7 == ['None of these']",
+              "origin": "derived",
+              "confidence": null
+            }
+          ],
+          "source_text": "Q7 includes 'None of these' plus another option",
+          "origin": "inferred",
+          "confidence": 1.0
+        },
+        "when_unread": null,
         "destination": {
           "kind": "question",
           "id": "Q7",
@@ -2658,14 +2729,14 @@
         "source_reference": null
       },
       {
-        "check": "condition_unread",
+        "check": "condition_inferred",
         "severity": "WARNING",
-        "finding": "Rule R9 could not be read as a condition: model declined: The condition states that Q7 includes the exclusive option 'None of these' together with another option. Since 'None of these' is marked exclusive, it cannot be selected alongside any other option, making the condition impossible to represent in the given grammar. Therefore the appropriate response is null.",
+        "finding": "Rule R9 was prose, so a model proposed a reading which the parser then accepted. Worth a human eye.",
         "target": {
           "kind": "rule",
           "id": "R9"
         },
-        "evidence": "Q7 includes 'None of these' plus another option",
+        "evidence": "Q7 includes 'None of these' plus another option  ->  (Q7 contains 'None of these' and not Q7 set_eq ['None of these'])",
         "source_reference": null
       },
       {

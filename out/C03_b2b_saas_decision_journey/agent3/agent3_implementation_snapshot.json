@@ -9,12 +9,12 @@
   },
   "upstream": {
     "canonical_schema_version": "1.0.0",
-    "canonical_generated_at": "2026-10-13T11:26:47+00:00"
+    "canonical_generated_at": "2026-10-13T12:55:22+00:00"
   },
   "content": {
     "survey_id": "C03_b2b_saas_decision_journey",
     "lss_path": "out/C03_b2b_saas_decision_journey/agent2/agent2_C03_b2b_saas_decision_journey.lss",
-    "lss_sha256": "bbc0585b9c958f207f3ba3a6b5fc46f23bb7db5210f5ac1117c8a772930e0383",
+    "lss_sha256": "023ba77296ec3776dca8e3cec22b51892dce9f633f1b2456bf2dac334c23ed46",
     "sid": 900001,
     "groups": {
       "100": "Screening",
@@ -149,7 +149,7 @@
         "title": "Q2",
         "wording": "Which brands would you consider?",
         "mandatory": true,
-        "relevance": "(Q1_SQ001.NAOK == \"Y\" or Q1_SQ002.NAOK == \"Y\" or Q1_SQ003.NAOK == \"Y\" or Q1_SQ004.NAOK == \"Y\")",
+        "relevance": "(Q1_SQ001.NAOK == \"Y\" or Q1_SQ002.NAOK == \"Y\" or Q1_SQ003.NAOK == \"Y\")",
         "order": 3,
         "option_codes": {},
         "subquestion_codes": {
@@ -171,7 +171,7 @@
         "title": "Q3",
         "wording": "Which brand is your current or most recent provider?",
         "mandatory": true,
-        "relevance": "(Q1_SQ001.NAOK == \"Y\" or Q1_SQ002.NAOK == \"Y\" or Q1_SQ003.NAOK == \"Y\" or Q1_SQ004.NAOK == \"Y\")",
+        "relevance": "(Q1_SQ001.NAOK == \"Y\" or Q1_SQ002.NAOK == \"Y\" or Q1_SQ003.NAOK == \"Y\")",
         "order": 4,
         "option_codes": {
           "SaaS Brand A": "A001",

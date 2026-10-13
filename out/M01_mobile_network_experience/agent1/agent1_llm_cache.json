@@ -558,6 +558,28 @@
       "response": {
         "pipes": []
       }
+    },
+    "77451a3c9be6e8f32560090d6e2f2d32cfe3f64f77d95d2ef898f0664648c25b": {
+      "response_model": "LLMConditionProposal",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-10-13T12:56:05+00:00",
+      "asked": "Condition as written: Q7 contains any problem\n\nAnswer options:\nQ7: 'Dropped calls', 'Slow data', 'Unexpected charge', 'Coverage gap', 'Support delay', 'None of these' (exclusive)",
+      "response": {
+        "expression": "Q7 contains_any ['Dropped calls','Slow data','Unexpected charge','Coverage gap','Support delay']",
+        "confidence": 0.99,
+        "reasoning": "The phrase \"contains any problem\" means the respondent selected at least one of the problem options. The exclusive option \"None of these\" indicates no problem, so we list all non\u2011exclusive problem answers in a contains_any clause per the provided grammar."
+      }
+    },
+    "46b84b8eb89d862cc1182a723c7cb730cdfc67d4b44bafe6a2023a8320b06fb9": {
+      "response_model": "LLMConditionProposal",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-10-13T12:56:14+00:00",
+      "asked": "Condition as written: Q7 includes 'None of these' plus another option\n\nAnswer options:\nQ7: 'Dropped calls', 'Slow data', 'Unexpected charge', 'Coverage gap', 'Support delay', 'None of these' (exclusive)",
+      "response": {
+        "expression": "Q7 contains 'None of these' and not Q7 == ['None of these']",
+        "confidence": 1.0,
+        "reasoning": "The condition states that the respondent selected the exclusive option 'None of these' together with another option. This is expressed as the membership test Q7 contains 'None of these' combined with the negation of the exact set test Q7 == ['None of these']."
+      }
     }
   }
 }

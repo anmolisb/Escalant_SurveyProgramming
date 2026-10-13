@@ -9,7 +9,7 @@
   },
   "upstream": {
     "canonical_schema_version": "1.0.0",
-    "canonical_generated_at": "2026-10-13T11:26:47+00:00"
+    "canonical_generated_at": "2026-10-13T12:55:22+00:00"
   },
   "content": {
     "predictions": {
@@ -6403,12 +6403,6 @@
         ],
         "validation_triggered": [
           {
-            "question_id": "Q1",
-            "rule": "exclusive_option",
-            "outcome": "satisfied",
-            "detail": "exclusive option Q1-O5 chosen alone"
-          },
-          {
             "question_id": "Q9",
             "rule": "require_each_row",
             "outcome": "satisfied",
@@ -6479,15 +6473,12 @@
         "unresolved": [
           "R20: condition could not be evaluated at Q6"
         ],
-        "fired_rules": [
-          "R5"
-        ],
+        "fired_rules": [],
         "blocked_at": null,
         "quota_stopped": null,
         "quota_over_target": null,
         "semantics_used": [
-          "multi_equality",
-          "rule_precedence"
+          "multi_equality"
         ],
         "observable": {
           "questions_seen_in_order": [
@@ -6766,12 +6757,6 @@
         ],
         "validation_triggered": [
           {
-            "question_id": "Q1",
-            "rule": "exclusive_option",
-            "outcome": "satisfied",
-            "detail": "exclusive option Q1-O5 chosen alone"
-          },
-          {
             "question_id": "Q9",
             "rule": "require_each_row",
             "outcome": "satisfied",
@@ -6842,15 +6827,12 @@
         "unresolved": [
           "R20: condition could not be evaluated at Q6"
         ],
-        "fired_rules": [
-          "R5"
-        ],
+        "fired_rules": [],
         "blocked_at": null,
         "quota_stopped": null,
         "quota_over_target": null,
         "semantics_used": [
-          "multi_equality",
-          "rule_precedence"
+          "multi_equality"
         ],
         "observable": {
           "questions_seen_in_order": [

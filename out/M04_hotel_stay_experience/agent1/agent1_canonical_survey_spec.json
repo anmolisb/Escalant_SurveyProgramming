@@ -8,7 +8,7 @@
     "sha256": "2f65aef53dbea391830fd1ca701a87474b803b7ec1af35e08a7fa3cccb5dd404",
     "bytes": 42025
   },
-  "generated_at": "2026-10-13T12:37:29+00:00",
+  "generated_at": "2026-10-13T12:56:57+00:00",
   "item_count": null,
   "content": {
     "source": "M04_hotel_stay_experience.docx",
@@ -2045,44 +2045,46 @@
               "confidence": null
             },
             {
-              "op": "contains_any",
-              "left": {
-                "question_id": "Q7",
-                "aggregate": null,
-                "text": null,
-                "number": null,
-                "values": null,
-                "option_ids": null
-              },
-              "right": {
-                "question_id": null,
-                "aggregate": null,
-                "text": null,
-                "number": null,
-                "values": [
-                  "Room cleanliness",
-                  "Noise",
-                  "Check-in delay",
-                  "Wi-Fi issue",
-                  "Billing problem"
-                ],
-                "option_ids": [
-                  "Q7-O1",
-                  "Q7-O2",
-                  "Q7-O3",
-                  "Q7-O4",
-                  "Q7-O5"
-                ]
-              },
-              "operands": [],
-              "source_text": "Q7 contains_any ['Room cleanliness','Noise','Check-in delay','Wi-Fi issue','Billing problem']",
+              "op": "not",
+              "left": null,
+              "right": null,
+              "operands": [
+                {
+                  "op": "set_eq",
+                  "left": {
+                    "question_id": "Q7",
+                    "aggregate": null,
+                    "text": null,
+                    "number": null,
+                    "values": null,
+                    "option_ids": null
+                  },
+                  "right": {
+                    "question_id": null,
+                    "aggregate": null,
+                    "text": null,
+                    "number": null,
+                    "values": [
+                      "None of these"
+                    ],
+                    "option_ids": [
+                      "Q7-O6"
+                    ]
+                  },
+                  "operands": [],
+                  "source_text": "Q7 == ['None of these']",
+                  "origin": "derived",
+                  "confidence": null
+                }
+              ],
+              "source_text": "not Q7 == ['None of these']",
               "origin": "derived",
               "confidence": null
             }
           ],
           "source_text": "Q7 includes 'None of these' plus another option",
           "origin": "inferred",
-          "confidence": 0.99
+          "confidence": 1.0
         },
         "when_unread": null,
         "destination": {
@@ -2734,7 +2736,7 @@
           "kind": "rule",
           "id": "R9"
         },
-        "evidence": "Q7 includes 'None of these' plus another option  ->  (Q7 contains 'None of these' and Q7 contains_any ['Room cleanliness', 'Noise', 'Check-in delay', 'Wi-Fi issue', 'Billing problem'])",
+        "evidence": "Q7 includes 'None of these' plus another option  ->  (Q7 contains 'None of these' and not Q7 set_eq ['None of these'])",
         "source_reference": null
       },
       {

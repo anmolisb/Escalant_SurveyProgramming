@@ -7,7 +7,7 @@
     "sha256": "2f65aef53dbea391830fd1ca701a87474b803b7ec1af35e08a7fa3cccb5dd404",
     "bytes": 42025
   },
-  "generated_at": "2026-10-13T12:37:29+00:00",
+  "generated_at": "2026-10-13T12:56:57+00:00",
   "entries": {
     "37532e77b1861cdb": {
       "decision_id": "37532e77b1861cdb",
@@ -31,7 +31,7 @@
       "recommendation": "Confirm the intended reading with the project owner. Once recorded here it applies to every rule in this survey and does not need asking again unless the document changes.",
       "severity": "BLOCKING",
       "context_key": "450036bdd1d10606",
-      "last_seen_at": "2026-10-13T12:37:29+00:00",
+      "last_seen_at": "2026-10-13T12:56:57+00:00",
       "status": "PENDING_CONFIRMATION",
       "created_at": "2026-10-11T16:42:01+00:00",
       "resolved_at": null,
@@ -62,7 +62,7 @@
       "recommendation": "Confirm the intended precedence with the project owner.",
       "severity": "BLOCKING",
       "context_key": "450036bdd1d10606",
-      "last_seen_at": "2026-10-13T12:37:29+00:00",
+      "last_seen_at": "2026-10-13T12:56:57+00:00",
       "status": "PENDING_CONFIRMATION",
       "created_at": "2026-10-11T16:42:01+00:00",
       "resolved_at": null,
@@ -93,7 +93,7 @@
       "recommendation": "Confirm the intended reading with the project owner.",
       "severity": "BLOCKING",
       "context_key": "450036bdd1d10606",
-      "last_seen_at": "2026-10-13T12:37:29+00:00",
+      "last_seen_at": "2026-10-13T12:56:57+00:00",
       "status": "PENDING_CONFIRMATION",
       "created_at": "2026-10-11T16:42:01+00:00",
       "resolved_at": null,
@@ -123,7 +123,7 @@
       "recommendation": "A person familiar with the survey should confirm the reading recorded here matches what the sentence intends.",
       "severity": "BLOCKING",
       "context_key": "450036bdd1d10606",
-      "last_seen_at": "2026-10-13T12:37:29+00:00",
+      "last_seen_at": "2026-10-13T12:56:57+00:00",
       "status": "PENDING_CONFIRMATION",
       "created_at": "2026-10-11T16:42:01+00:00",
       "resolved_at": null,
@@ -132,8 +132,8 @@
       "previous_decision": null,
       "context_changed": false
     },
-    "b60417260e1bcc4f": {
-      "decision_id": "b60417260e1bcc4f",
+    "648eb426b97d5054": {
+      "decision_id": "648eb426b97d5054",
       "survey_id": "M04_hotel_stay_experience",
       "source_document": {
         "filename": "M04_hotel_stay_experience.docx",
@@ -144,7 +144,7 @@
       ],
       "category": "routing",
       "issue": "ambiguous_routing_condition",
-      "source_evidence": "Q7 includes 'None of these' plus another option  ->  (Q7 contains 'None of these' and Q7 contains_any ['Room cleanliness', 'Noise', 'Check-in delay', 'Wi-Fi issue', 'Billing problem'])",
+      "source_evidence": "Q7 includes 'None of these' plus another option  ->  (Q7 contains 'None of these' and not Q7 set_eq ['None of these'])",
       "current_interpretation": "A prose condition was rewritten into a formal one by a model, and the parser accepted the rewrite.",
       "alternative_interpretations": [
         "A different formal reading of the same sentence is possible."
@@ -153,9 +153,9 @@
       "recommendation": "A person familiar with the survey should confirm the reading recorded here matches what the sentence intends.",
       "severity": "BLOCKING",
       "context_key": "450036bdd1d10606",
-      "last_seen_at": "2026-10-13T12:37:29+00:00",
+      "last_seen_at": "2026-10-13T12:56:57+00:00",
       "status": "PENDING_CONFIRMATION",
-      "created_at": "2026-10-11T16:42:01+00:00",
+      "created_at": "2026-10-13T12:56:57+00:00",
       "resolved_at": null,
       "decision": null,
       "decision_provenance": null,
@@ -183,7 +183,7 @@
       "recommendation": "Confirm the quota reading with the project owner.",
       "severity": "BLOCKING",
       "context_key": "450036bdd1d10606",
-      "last_seen_at": "2026-10-13T12:37:29+00:00",
+      "last_seen_at": "2026-10-13T12:56:57+00:00",
       "status": "PENDING_CONFIRMATION",
       "created_at": "2026-10-11T16:42:01+00:00",
       "resolved_at": null,
@@ -213,7 +213,7 @@
       "recommendation": "Confirm anchoring convention with the project owner.",
       "severity": "NON_BLOCKING",
       "context_key": "450036bdd1d10606",
-      "last_seen_at": "2026-10-13T12:37:29+00:00",
+      "last_seen_at": "2026-10-13T12:56:57+00:00",
       "status": "PENDING_CONFIRMATION",
       "created_at": "2026-10-11T16:42:01+00:00",
       "resolved_at": null,
@@ -241,8 +241,38 @@
       "recommendation": "Ask the project owner for the missing message text.",
       "severity": "NON_BLOCKING",
       "context_key": "450036bdd1d10606",
-      "last_seen_at": "2026-10-13T12:37:29+00:00",
+      "last_seen_at": "2026-10-13T12:56:57+00:00",
       "status": "PENDING_CONFIRMATION",
+      "created_at": "2026-10-11T16:42:01+00:00",
+      "resolved_at": null,
+      "decision": null,
+      "decision_provenance": null,
+      "previous_decision": null,
+      "context_changed": false
+    },
+    "b60417260e1bcc4f": {
+      "decision_id": "b60417260e1bcc4f",
+      "survey_id": "M04_hotel_stay_experience",
+      "source_document": {
+        "filename": "M04_hotel_stay_experience.docx",
+        "sha256": "2f65aef53dbea391830fd1ca701a87474b803b7ec1af35e08a7fa3cccb5dd404"
+      },
+      "affected": [
+        "R9"
+      ],
+      "category": "routing",
+      "issue": "ambiguous_routing_condition",
+      "source_evidence": "Q7 includes 'None of these' plus another option  ->  (Q7 contains 'None of these' and Q7 contains_any ['Room cleanliness', 'Noise', 'Check-in delay', 'Wi-Fi issue', 'Billing problem'])",
+      "current_interpretation": "A prose condition was rewritten into a formal one by a model, and the parser accepted the rewrite.",
+      "alternative_interpretations": [
+        "A different formal reading of the same sentence is possible."
+      ],
+      "downstream_impact": "Whether this rule or guard fires for a given respondent, so which questions they see and which ending they reach.",
+      "recommendation": "A person familiar with the survey should confirm the reading recorded here matches what the sentence intends.",
+      "severity": "BLOCKING",
+      "context_key": "450036bdd1d10606",
+      "last_seen_at": "2026-10-13T12:56:57+00:00",
+      "status": "NOT_REQUIRED",
       "created_at": "2026-10-11T16:42:01+00:00",
       "resolved_at": null,
       "decision": null,

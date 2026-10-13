@@ -9,7 +9,7 @@ reused from then on unless the source document or this module's
 vocabulary changes, in which case it returns here as pending, with the
 old ruling kept under `previous_decision` for a quick re-confirmation.
 
-**8 PENDING_CONFIRMATION, 6 NOT_REQUIRED**
+**8 PENDING_CONFIRMATION, 7 NOT_REQUIRED**
 
 ## 🔴 `ambiguous_routing_condition` — PENDING_CONFIRMATION (BLOCKING)
 
@@ -23,9 +23,9 @@ old ruling kept under `previous_decision` for a quick re-confirmation.
 
 ## 🔴 `ambiguous_routing_condition` — PENDING_CONFIRMATION (BLOCKING)
 
-- **id:** `f91bf53727a683b1`
+- **id:** `ec36320a13103cce`
 - **affects:** R9
-- **evidence:** Q7 includes 'None of these' plus another option
+- **evidence:** Q7 includes 'None of these' plus another option  ->  (Q7 contains 'None of these' and not Q7 set_eq ['None of these'])
 - **current reading:** A prose condition was rewritten into a formal one by a model, and the parser accepted the rewrite.
 - **alternatives:** A different formal reading of the same sentence is possible.
 - **downstream impact:** Whether this rule or guard fires for a given respondent, so which questions they see and which ending they reach.
@@ -149,3 +149,13 @@ old ruling kept under `previous_decision` for a quick re-confirmation.
 - **alternatives:** The wording is generic and does not actually depend on the earlier answer.
 - **downstream impact:** Whether this question's wording depends on an earlier answer, which decides the order a respondent bot must answer in and what text it should expect on screen.
 - **recommendation:** Confirm the dependency with the project owner.
+
+## 🔴 `ambiguous_routing_condition` — NOT_REQUIRED (BLOCKING)
+
+- **id:** `f91bf53727a683b1`
+- **affects:** R9
+- **evidence:** Q7 includes 'None of these' plus another option
+- **current reading:** A prose condition was rewritten into a formal one by a model, and the parser accepted the rewrite.
+- **alternatives:** A different formal reading of the same sentence is possible.
+- **downstream impact:** Whether this rule or guard fires for a given respondent, so which questions they see and which ending they reach.
+- **recommendation:** A person familiar with the survey should confirm the reading recorded here matches what the sentence intends.

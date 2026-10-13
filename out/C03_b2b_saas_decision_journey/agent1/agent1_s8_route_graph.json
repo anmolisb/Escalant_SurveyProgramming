@@ -8,7 +8,7 @@
     "sha256": "070fc57f0e5668de2baf5a8da5ba1056c4f59fe09f234d14d69c901c5e62164a",
     "bytes": 43871
   },
-  "generated_at": "2026-10-13T12:37:26+00:00",
+  "generated_at": "2026-10-13T12:55:23+00:00",
   "item_count": null,
   "content": {
     "source": "C03_b2b_saas_decision_journey.docx",
@@ -91,7 +91,7 @@
           "kind": "question",
           "seq": 7,
           "has_guard": true,
-          "guard": "Q1 contains_any ['SaaS Brand A', 'SaaS Brand B', 'SaaS Brand C', 'Open-source alternative']",
+          "guard": "Q1 contains_any ['SaaS Brand A', 'SaaS Brand B', 'SaaS Brand C']",
           "guard_agreement": "agree",
           "randomized": false,
           "randomization_scope": null,
@@ -102,7 +102,7 @@
           "kind": "question",
           "seq": 8,
           "has_guard": true,
-          "guard": "Q1 contains_any ['SaaS Brand A', 'SaaS Brand B', 'SaaS Brand C', 'Open-source alternative']",
+          "guard": "Q1 contains_any ['SaaS Brand A', 'SaaS Brand B', 'SaaS Brand C']",
           "guard_agreement": "agree",
           "randomized": false,
           "randomization_scope": null,

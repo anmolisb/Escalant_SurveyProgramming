@@ -8,7 +8,7 @@
     "sha256": "070fc57f0e5668de2baf5a8da5ba1056c4f59fe09f234d14d69c901c5e62164a",
     "bytes": 43871
   },
-  "generated_at": "2026-10-13T12:37:26+00:00",
+  "generated_at": "2026-10-13T12:55:23+00:00",
   "item_count": null,
   "content": {
     "cross_source": [],
@@ -63,6 +63,21 @@
         ],
         "changes_downstream": "Whether this rule fires for a given respondent, so which questions they see and which ending they reach.",
         "decision_ids": []
+      },
+      {
+        "status": "CONFIRMATION_REQUIRED",
+        "issue": "inferred_condition_partial_options",
+        "why_it_matters": "Rule R6 was read as naming 3 of Q1's 4 selectable answers, leaving out ['Open-source alternative']. A model chose which ones count and the QRE does not say.",
+        "affected": [
+          "Q2",
+          "Q3",
+          "R6",
+          "R7"
+        ],
+        "changes_downstream": "Which answers satisfy the rule. Respondents choosing an omitted answer take a different path than they should.",
+        "decision_ids": [
+          "6a7418e2281ca216"
+        ]
       },
       {
         "status": "CONFIRMATION_REQUIRED",
@@ -133,23 +148,24 @@
       "register": "agent1_s7_decisions.json",
       "human_readable": "agent1_s7_decision_register.md",
       "summary": {
-        "total": 15,
-        "raised_this_run": 0,
+        "total": 18,
+        "raised_this_run": 3,
         "resolved_reused": 0,
-        "pending": 14,
+        "pending": 15,
         "resolved": 0,
-        "not_required": 1,
-        "newly_transitioned_not_required": 0,
+        "not_required": 3,
+        "newly_transitioned_not_required": 2,
         "context_changed": 0,
         "blocking_pending": [
+          "084782c5edf7956e",
           "1b92fa7ca7484684",
           "42aa70e715b331b5",
-          "4c5e2e192a11a274",
           "69677d6a314c267d",
+          "6a7418e2281ca216",
           "8709125106baf2ec",
           "8bdd321514541300",
-          "90141adcab653a66",
           "a634760c89abba97",
+          "a966c54c3b2c0d92",
           "ab9464eb582c3912",
           "e48352532a0f89a4",
           "f4087a4027f59625"
@@ -183,14 +199,15 @@
       },
       "human_decision_gate": "PENDING_BLOCKING_DECISIONS",
       "pending_blocking_decisions": [
+        "084782c5edf7956e",
         "1b92fa7ca7484684",
         "42aa70e715b331b5",
-        "4c5e2e192a11a274",
         "69677d6a314c267d",
+        "6a7418e2281ca216",
         "8709125106baf2ec",
         "8bdd321514541300",
-        "90141adcab653a66",
         "a634760c89abba97",
+        "a966c54c3b2c0d92",
         "ab9464eb582c3912",
         "e48352532a0f89a4",
         "f4087a4027f59625"
@@ -199,6 +216,7 @@
       "agent3_blocked_by": [
         "ambiguous_piping",
         "ambiguous_routing_condition",
+        "inferred_condition_partial_options",
         "missing_option_codes",
         "multi_select_equality",
         "quota_behaviour",
@@ -210,6 +228,7 @@
       "what_is_ambiguous": [
         "randomization_anchoring \u2014 Where an exclusive option appears when the list is shuffled, which decides whether a displayed-order assertion is right.",
         "condition_inferred \u2014 Whether this rule fires for a given respondent, so which questions they see and which ending they reach.",
+        "inferred_condition_partial_options \u2014 Which answers satisfy the rule. Respondents choosing an omitted answer take a different path than they should.",
         "quota_inferred \u2014 Which respondents are counted against which quota, and when they are turned away.",
         "semantics_unconfirmed \u2014 Which questions appear on many routes, which rule wins when two apply, and whether an 'is exactly' test passes on a multi-select answer.",
         "guard_single_source \u2014 A display condition stated in only one place. Anyone reading the other place builds a survey without it.",
@@ -227,6 +246,7 @@
         "Q19",
         "Q2",
         "Q20",
+        "Q3",
         "Q5",
         "Q6",
         "Q9",
@@ -234,6 +254,8 @@
         "QUOTA_REGION",
         "R19",
         "R20",
+        "R6",
+        "R7",
         "TERM_QUOTA_FULL",
         "semantics"
       ],
@@ -242,8 +264,8 @@
         "other_failures": 0,
         "blocked": 0,
         "cross_source_blocking": 0,
-        "confirmation_required": 8,
-        "decisions_pending_blocking": 11
+        "confirmation_required": 9,
+        "decisions_pending_blocking": 12
       }
     }
   }

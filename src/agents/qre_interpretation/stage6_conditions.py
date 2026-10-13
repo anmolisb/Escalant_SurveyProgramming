@@ -468,6 +468,12 @@ An option marked (exclusive) cannot be chosen with any other: it means the
 respondent chose none of the rest. A condition about choosing "any" of the
 things a question lists means any option except the exclusive one.
 
+A condition may describe an exclusive option chosen together with another one.
+That is not a contradiction: it is the forbidden answer, written down so the
+survey can refuse it. Write it as stated, for example
+  Q1 contains 'None of these' and not Q1 == ['None of these']
+and never return null because the combination ought not to happen.
+
 Two operators are easy to confuse and mean different things:
   Q1 == ['None of these']       the answer set is EXACTLY that, nothing else
   Q1 contains 'None of these'   that was chosen, possibly among others

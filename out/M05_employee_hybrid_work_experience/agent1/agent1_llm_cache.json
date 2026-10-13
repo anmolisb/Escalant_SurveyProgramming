@@ -120,6 +120,28 @@
       "response": {
         "pipes": []
       }
+    },
+    "f8ccb808662cb2fb639e77e2c72c3980dc4892d3229fcb3338760ace926e39a3": {
+      "response_model": "LLMConditionProposal",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-10-13T12:57:05+00:00",
+      "asked": "Condition as written: Q7 contains any problem\n\nAnswer options:\nQ7: 'Meeting overload', 'Technology failure', 'Access to information', 'Isolation', 'Workspace difficulty', 'None of these' (exclusive)",
+      "response": {
+        "expression": "Q7 contains_any ['Meeting overload','Technology failure','Access to information','Isolation','Workspace difficulty']",
+        "confidence": 1.0,
+        "reasoning": "The phrase 'contains any problem' means the respondent selected at least one of the problem options. The exclusive option 'None of these' is excluded, so we list all other options using the contains_any operator as defined in the grammar."
+      }
+    },
+    "ab593679f7935d2a7e2ef2fe8b3eb22eb7c8bd9b500dbaf392ea4bfa53c0d989": {
+      "response_model": "LLMConditionProposal",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-10-13T12:57:10+00:00",
+      "asked": "Condition as written: Q7 includes 'None of these' plus another option\n\nAnswer options:\nQ7: 'Meeting overload', 'Technology failure', 'Access to information', 'Isolation', 'Workspace difficulty', 'None of these' (exclusive)",
+      "response": {
+        "expression": "Q7 contains 'None of these' and not Q7 == ['None of these']",
+        "confidence": 1.0,
+        "reasoning": "The condition states that the respondent selected the exclusive option 'None of these' together with another option. This is expressed as the membership test Q7 contains 'None of these' combined with the negation of the exact set equality Q7 == ['None of these']."
+      }
     }
   }
 }

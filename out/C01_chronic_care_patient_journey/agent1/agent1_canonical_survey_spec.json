@@ -8,7 +8,7 @@
     "sha256": "9fe8bb4afcacc91f94918506ae31a1ba231222b73050f346ed10ea91064fc093",
     "bytes": 43897
   },
-  "generated_at": "2026-10-13T12:37:25+00:00",
+  "generated_at": "2026-10-13T12:54:54+00:00",
   "item_count": null,
   "content": {
     "source": "C01_chronic_care_patient_journey.docx",
@@ -490,7 +490,7 @@
             "operands": [],
             "source_text": "Q1 contains at least one brand",
             "origin": "inferred",
-            "confidence": 0.98
+            "confidence": 0.99
           },
           "agreement": "agree",
           "sources": [
@@ -615,7 +615,7 @@
             "operands": [],
             "source_text": "Q1 contains at least one brand",
             "origin": "inferred",
-            "confidence": 0.98
+            "confidence": 0.99
           },
           "agreement": "agree",
           "sources": [
@@ -890,7 +890,7 @@
             "operands": [],
             "source_text": "Q5 contains any touchpoint",
             "origin": "inferred",
-            "confidence": 0.98
+            "confidence": 0.99
           },
           "agreement": "agree",
           "sources": [
@@ -3026,7 +3026,7 @@
           "operands": [],
           "source_text": "Q1 contains at least one brand",
           "origin": "inferred",
-          "confidence": 0.98
+          "confidence": 0.99
         },
         "when_unread": null,
         "destination": {
@@ -3081,7 +3081,7 @@
           "operands": [],
           "source_text": "Q1 contains at least one brand",
           "origin": "inferred",
-          "confidence": 0.98
+          "confidence": 0.99
         },
         "when_unread": null,
         "destination": {
@@ -3140,7 +3140,7 @@
           "operands": [],
           "source_text": "Q5 contains any touchpoint",
           "origin": "inferred",
-          "confidence": 0.98
+          "confidence": 0.99
         },
         "when_unread": null,
         "destination": {
@@ -3788,7 +3788,7 @@
           ],
           "source_text": "exclusive option selected with another response at Q1 or Q5",
           "origin": "inferred",
-          "confidence": 0.99
+          "confidence": 1.0
         },
         "when_unread": null,
         "destination": {
