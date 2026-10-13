@@ -20,6 +20,7 @@ from pathlib import Path
 from src.agents.survey_builder.loader import (
     CANONICAL_FILE,
     SUPPORTED_KINDS,
+    SHUFFLE_SETTINGS,
     SUPPORTED_RULE_KINDS,
     ConditionError,
     _NUMERIC_TYPES,
@@ -64,7 +65,8 @@ def check_spec(spec: dict) -> list[Gap]:
     """Every gap between one canonical specification and what the builder does."""
     gaps: list[Gap] = []
     questions_raw = spec.get("questions") or []
-    randomized = {r["question_id"]: r.get("scope") for r in spec.get("randomization") or []}
+    randomized = {r["question_id"]: r.get("scope") or "options"
+                  for r in spec.get("randomization") or []}
 
     # Question kinds, and any other construct that stops a question building.
     by_title = {}
@@ -78,7 +80,7 @@ def check_spec(spec: dict) -> list[Gap]:
             )
             continue
         try:
-            by_title[qid] = _build_question(raw, 1, qid in randomized)
+            by_title[qid] = _build_question(raw, 1, randomized.get(qid))
         except Exception as error:  # noqa: BLE001 - reporting, not handling
             gaps.append(Gap(qid, "question cannot be built", str(error)))
 
@@ -100,10 +102,13 @@ def check_spec(spec: dict) -> list[Gap]:
                             f"kind {raw.get('kind')!r} has no bounds in LimeSurvey",
                             blocking=False)
                     )
-        if randomized.get(qid) == "rows":
+        scope = randomized.get(qid)
+        if scope and (question.type, scope) not in SHUFFLE_SETTINGS:
             gaps.append(
-                Gap(qid, "rows are randomised, but the build randomises answers",
-                    "answer_order shuffles the scale, not the rows of the grid",
+                Gap(qid, f"{scope} are randomised, but the build cannot shuffle "
+                         f"them on a type {question.type} question",
+                    "no LimeSurvey setting for this is known yet, so the order "
+                    "stays as written",
                     blocking=False)
             )
         if raw.get("extra"):

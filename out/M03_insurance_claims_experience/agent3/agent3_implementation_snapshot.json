@@ -14,7 +14,7 @@
   "content": {
     "survey_id": "M03_insurance_claims_experience",
     "lss_path": "out/M03_insurance_claims_experience/agent2/agent2_M03_insurance_claims_experience.lss",
-    "lss_sha256": "930114a6baca488fe7bd8d06ce01dd0e7d74a8a1481be6c59dc4abd0577ca8af",
+    "lss_sha256": "0ab7bcf48c036471d77f9b0e6b3834685ad51f7e2a74e7ae2e04d9667b6cc77a",
     "sid": 900001,
     "groups": {
       "100": "Screening",
@@ -245,7 +245,7 @@
           "None of these": "SQ006"
         },
         "attributes": {
-          "answer_order": "random",
+          "subquestion_order": "random",
           "exclude_all_others": "SQ006"
         }
       },

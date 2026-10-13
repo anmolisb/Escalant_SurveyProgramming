@@ -14,7 +14,7 @@
   "content": {
     "survey_id": "C02_automotive_purchase_journey",
     "lss_path": "out/C02_automotive_purchase_journey/agent2/agent2_C02_automotive_purchase_journey.lss",
-    "lss_sha256": "bc61763a2799110f3f2c0e716979053e7983cb16832ae7e1f4641e3bb782a333",
+    "lss_sha256": "a8905a0dc853315e038cb216ce5cf40a58013ea827ac4e7d2dca9affc598506c",
     "sid": 900001,
     "groups": {
       "100": "Screening",
@@ -136,7 +136,7 @@
           "None of these": "SQ005"
         },
         "attributes": {
-          "answer_order": "random",
+          "subquestion_order": "random",
           "exclude_all_others": "SQ005"
         }
       },
@@ -226,7 +226,7 @@
           "None of these": "SQ007"
         },
         "attributes": {
-          "answer_order": "random",
+          "subquestion_order": "random",
           "exclude_all_others": "SQ007"
         }
       },
@@ -329,7 +329,7 @@
           "Value for money": "SQ006"
         },
         "attributes": {
-          "answer_order": "random"
+          "random_order": "1"
         }
       },
       "DT2": {

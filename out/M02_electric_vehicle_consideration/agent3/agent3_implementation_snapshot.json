@@ -14,7 +14,7 @@
   "content": {
     "survey_id": "M02_electric_vehicle_consideration",
     "lss_path": "out/M02_electric_vehicle_consideration/agent2/agent2_M02_electric_vehicle_consideration.lss",
-    "lss_sha256": "2f5f31f065e789c2d7964e4c0fcad0e547551aaf15ab2faac3073d4ee9cda785",
+    "lss_sha256": "d5a5c6c51700f3c2c518133b3de0412e50ee3fb5f73a01faee143618a1be3c54",
     "sid": 900001,
     "groups": {
       "100": "Screening",
@@ -245,7 +245,7 @@
           "None of these": "SQ006"
         },
         "attributes": {
-          "answer_order": "random",
+          "subquestion_order": "random",
           "exclude_all_others": "SQ006"
         }
       },

@@ -14,7 +14,7 @@
   "content": {
     "survey_id": "C04_retail_banking_brand_tracker",
     "lss_path": "out/C04_retail_banking_brand_tracker/agent2/agent2_C04_retail_banking_brand_tracker.lss",
-    "lss_sha256": "306b3016bb84ebabaef1f70da81d053a5e79bab465426f372e95ef7b3ae42d6e",
+    "lss_sha256": "45033f5b062ffbbd3e408eb93d8b6132719eac94a1ff2a1260cb8c38323934b8",
     "sid": 900001,
     "groups": {
       "100": "Screening",
@@ -136,7 +136,7 @@
           "None of these": "SQ005"
         },
         "attributes": {
-          "answer_order": "random",
+          "subquestion_order": "random",
           "exclude_all_others": "SQ005"
         }
       },
@@ -226,7 +226,7 @@
           "None of these": "SQ007"
         },
         "attributes": {
-          "answer_order": "random",
+          "subquestion_order": "random",
           "exclude_all_others": "SQ007"
         }
       },
@@ -329,7 +329,7 @@
           "Problem resolution": "SQ006"
         },
         "attributes": {
-          "answer_order": "random"
+          "random_order": "1"
         }
       },
       "DT2": {

@@ -401,6 +401,32 @@ def _closest(needle: str, haystack: list[str]) -> str | None:
     return best if score >= 0.4 else None
 
 
+def _shuffles(attributes: dict) -> list[str]:
+    """The settings on a built question that shuffle something.
+
+    LimeSurvey has three: answer_order and subquestion_order take a word, and
+    random_order takes a flag.
+    """
+    out = []
+    for key, value in attributes.items():
+        v = str(value).strip().lower()
+        if key in ("answer_order", "subquestion_order") and v.startswith("random"):
+            out.append(key)
+        elif key == "random_order" and v not in ("", "0"):
+            out.append(key)
+    return out
+
+
+#: What must be shuffled for each kind of randomisation, by LimeSurvey type.
+#: A grid with its scale shuffled instead of its rows is shuffled, but wrong.
+_SHUFFLE_NEEDED = {
+    ("L", "options"): "answer_order",
+    ("M", "options"): "subquestion_order",
+    ("F", "rows"): "random_order",
+    ("F", "options"): "answer_order",
+}
+
+
 def conformance(spec: CanonicalSpec, snap: ImplementationSnapshot) -> dict:
     """Every place the implementation disagrees with the specification.
 
@@ -515,12 +541,15 @@ def conformance(spec: CanonicalSpec, snap: ImplementationSnapshot) -> dict:
         built = snap.questions.get(r.question_id)
         if built is None:
             continue
-        if not any(k.startswith("random") for k in built.attributes):
+        shuffled = _shuffles(built.attributes)
+        needed = _SHUFFLE_NEEDED.get((built.type, r.scope or "options"))
+        if not shuffled or (needed and needed not in shuffled):
             findings.append({"kind": "RANDOMIZATION_NOT_BUILT", "severity": "HIGH",
                              "subject": r.question_id,
-                             "detail": "spec asks for randomization but the built "
-                                       "question carries no randomization "
-                                       "attribute"})
+                             "detail": (f"spec asks for its {r.scope or 'options'} "
+                                        f"to be shuffled, but the built question "
+                                        f"sets {shuffled or 'nothing'}"
+                                        + (f" rather than {needed}" if needed else ""))})
 
     for d in spec.dependencies:
         if d.kind != "text_pipe":
@@ -665,8 +694,7 @@ def conformance(spec: CanonicalSpec, snap: ImplementationSnapshot) -> dict:
         built_q = snap.questions.get(q.id)
         if built_q is None:
             continue
-        shuffled = [k for k, v in built_q.attributes.items()
-                    if k.startswith("random") and str(v).strip() not in ("", "0")]
+        shuffled = _shuffles(built_q.attributes)
         if shuffled:
             findings.append({
                 "kind": "UNEXPECTED_RANDOMIZATION", "severity": "HIGH",

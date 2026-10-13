@@ -189,7 +189,7 @@ No target is ever silently dropped. Each carries one specific reason.
 
 ## Block A - implementation conformance
 
-Derived from the emitted `.lss` (sha `930114a6baca`), not from a self-reported manifest.
+Derived from the emitted `.lss` (sha `0ab7bcf48c03`), not from a self-reported manifest.
 
 - Questions specified: 21
 - Questions built: 21
@@ -200,7 +200,6 @@ Derived from the emitted `.lss` (sha `930114a6baca`), not from a self-reported m
 |---|---|---|---|
 | CARRY_FORWARD_CODE_MISMATCH | HIGH | 1 | Q7->Q8 |
 | QUOTAS_NOT_BUILT | HIGH | 1 | QUOTA_REGION |
-| RANDOMIZATION_NOT_BUILT | HIGH | 3 | Q3, Q7, Q13 |
 | REJECT_RULE_NOT_BUILT | HIGH | 2 | R3, R9 |
 | SKIP_RULE_NOT_BUILT | NORMAL | 2 | R6, R8 |
 | TERMINATION_MODEL_DIFFERS | NORMAL | 1 | TERM_INELIGIBLE |
@@ -216,7 +215,7 @@ Derived from the emitted `.lss` (sha `930114a6baca`), not from a self-reported m
 
 ## Sample executable test
 
-### `EX-86388ef3ed` - answering D1 normally moves the respondent on to the question that should come next
+### `EX-f64573a322` - answering D1 normally moves the respondent on to the question that should come next
 
 Survey id 900001. Dimension D1. Traces to D1.
 

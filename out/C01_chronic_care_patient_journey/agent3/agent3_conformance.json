@@ -12,7 +12,7 @@
     "canonical_generated_at": "2026-10-13T11:26:31+00:00"
   },
   "content": {
-    "lss_sha256": "0645dbd179214dd995e3e4dbed0fccfdfa576091e7777df0afaebf97ef2664a2",
+    "lss_sha256": "e5043f4c41efc3c9b87fc69e3a115e877d5b17dc728a9ec8d2b2ae4d140d4c15",
     "questions_specified": 34,
     "questions_built": 34,
     "options_bound": 126,
@@ -46,36 +46,6 @@
         "severity": "HIGH",
         "subject": "QUOTA_REGION, QUOTA_AGE",
         "detail": "the builder emits no quota tables, so no quota behaviour exists in the built survey"
-      },
-      {
-        "kind": "RANDOMIZATION_NOT_BUILT",
-        "severity": "HIGH",
-        "subject": "Q1",
-        "detail": "spec asks for randomization but the built question carries no randomization attribute"
-      },
-      {
-        "kind": "RANDOMIZATION_NOT_BUILT",
-        "severity": "HIGH",
-        "subject": "Q5",
-        "detail": "spec asks for randomization but the built question carries no randomization attribute"
-      },
-      {
-        "kind": "RANDOMIZATION_NOT_BUILT",
-        "severity": "HIGH",
-        "subject": "Q9",
-        "detail": "spec asks for randomization but the built question carries no randomization attribute"
-      },
-      {
-        "kind": "RANDOMIZATION_NOT_BUILT",
-        "severity": "HIGH",
-        "subject": "Q16",
-        "detail": "spec asks for randomization but the built question carries no randomization attribute"
-      },
-      {
-        "kind": "RANDOMIZATION_NOT_BUILT",
-        "severity": "HIGH",
-        "subject": "Q19",
-        "detail": "spec asks for randomization but the built question carries no randomization attribute"
       },
       {
         "kind": "TEXT_PIPE_NOT_BUILT",

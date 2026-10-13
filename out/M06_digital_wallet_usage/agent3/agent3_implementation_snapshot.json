@@ -14,7 +14,7 @@
   "content": {
     "survey_id": "M06_digital_wallet_usage",
     "lss_path": "out/M06_digital_wallet_usage/agent2/agent2_M06_digital_wallet_usage.lss",
-    "lss_sha256": "4964b82e4bfcf0ec51d92183b234220f94a303bed923ce2e7d594927d97ef058",
+    "lss_sha256": "7ec10128c05dddec96fe4da04a951c3c169a14920be4953ddd464d431a680add",
     "sid": 900001,
     "groups": {
       "100": "Screening",
@@ -245,7 +245,7 @@
           "None of these": "SQ006"
         },
         "attributes": {
-          "answer_order": "random",
+          "subquestion_order": "random",
           "exclude_all_others": "SQ006"
         }
       },

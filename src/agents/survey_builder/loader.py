@@ -106,7 +106,20 @@ def _limesurvey_type(raw: dict) -> str:
     return _TYPE_MAP[kind]
 
 
-def _build_question(raw: dict, order: int, randomized: bool) -> Question:
+#: Which setting shuffles what, by LimeSurvey type and by what the QRE asks to
+#: shuffle. Read from a survey exported from LimeSurvey after setting each one
+#: by hand: a single choice keeps its options as answers, a multiple choice
+#: keeps them as subquestions, and a grid keeps its rows as subquestions and
+#: its scale as answers. answer_order on a grid shuffles the scale.
+SHUFFLE_SETTINGS = {
+    ("L", "options"): ("answer_order", "random"),
+    ("M", "options"): ("subquestion_order", "random"),
+    ("F", "rows"): ("random_order", "1"),
+    ("F", "options"): ("answer_order", "random"),
+}
+
+
+def _build_question(raw: dict, order: int, randomized: str | None) -> Question:
     validation = raw.get("validation") or {}
     question = Question(
         title=raw["question_id"],
@@ -163,8 +176,9 @@ def _build_question(raw: dict, order: int, randomized: bool) -> Question:
             question.attributes["num_value_int_only"] = "1"
 
     if randomized:
-        # answer_order takes a word, not a flag; "normal" is the default.
-        question.attributes["answer_order"] = "random"
+        setting = SHUFFLE_SETTINGS.get((question.type, randomized))
+        if setting:
+            question.attributes[setting[0]] = setting[1]
 
     exclusive = validation.get("exclusive_option_label")
     if exclusive:
@@ -392,14 +406,15 @@ def read_canonical(directory: str | Path) -> dict:
 def load(directory: str | Path) -> Survey:
     spec = read_canonical(directory)
 
-    randomized = {r["question_id"] for r in spec.get("randomization") or []}
+    randomized = {r["question_id"]: r.get("scope") or "options"
+                  for r in spec.get("randomization") or []}
     screening: list[Question] = []
     main: list[Question] = []
     for raw in spec.get("questions") or []:
         target = screening if raw["question_id"].startswith(_SCREENING_PREFIX) else main
         target.append(
             _build_question(raw, order=len(target) + 1,
-                            randomized=raw["question_id"] in randomized)
+                            randomized=randomized.get(raw["question_id"]))
         )
 
     by_title = {q.title: q for q in [*screening, *main]}

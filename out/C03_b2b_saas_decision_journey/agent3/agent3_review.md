@@ -225,7 +225,7 @@ No target is ever silently dropped. Each carries one specific reason.
 
 ## Block A - implementation conformance
 
-Derived from the emitted `.lss` (sha `79bd6a2a5377`), not from a self-reported manifest.
+Derived from the emitted `.lss` (sha `bbc0585b9c95`), not from a self-reported manifest.
 
 - Questions specified: 34
 - Questions built: 34
@@ -237,7 +237,6 @@ Derived from the emitted `.lss` (sha `79bd6a2a5377`), not from a self-reported m
 | CARRY_FORWARD_CODE_MISMATCH | HIGH | 1 | Q5->Q6 |
 | DISPOSITION_NOT_DISTINGUISHABLE | HIGH | 1 | TERM_AGE, TERM_CONFLICT, TERM_INVOLVEMENT, TERM_RECENT_RESEARCH |
 | QUOTAS_NOT_BUILT | HIGH | 1 | QUOTA_REGION, QUOTA_AGE |
-| RANDOMIZATION_NOT_BUILT | HIGH | 5 | Q1, Q5, Q9, Q16, Q19 |
 | REJECT_RULE_NOT_BUILT | HIGH | 3 | R18, R19, R20 |
 | SKIP_RULE_NOT_BUILT | NORMAL | 1 | R5 |
 | TERMINATION_MODEL_DIFFERS | NORMAL | 1 | TERM_AGE, TERM_CONFLICT, TERM_INVOLVEMENT, TERM_RECENT_RESEARCH |
@@ -254,7 +253,7 @@ Derived from the emitted `.lss` (sha `79bd6a2a5377`), not from a self-reported m
 
 ## Sample executable test
 
-### `EX-c9187e9762` - answering D1 normally moves the respondent on to the question that should come next
+### `EX-79b5145d13` - answering D1 normally moves the respondent on to the question that should come next
 
 Survey id 900001. Dimension D1. Traces to D1.
 

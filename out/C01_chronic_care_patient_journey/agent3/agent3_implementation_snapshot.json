@@ -14,7 +14,7 @@
   "content": {
     "survey_id": "C01_chronic_care_patient_journey",
     "lss_path": "out/C01_chronic_care_patient_journey/agent2/agent2_C01_chronic_care_patient_journey.lss",
-    "lss_sha256": "0645dbd179214dd995e3e4dbed0fccfdfa576091e7777df0afaebf97ef2664a2",
+    "lss_sha256": "e5043f4c41efc3c9b87fc69e3a115e877d5b17dc728a9ec8d2b2ae4d140d4c15",
     "sid": 900001,
     "groups": {
       "100": "Screening",
@@ -136,7 +136,7 @@
           "None of these": "SQ005"
         },
         "attributes": {
-          "answer_order": "random",
+          "subquestion_order": "random",
           "exclude_all_others": "SQ005"
         }
       },
@@ -226,7 +226,7 @@
           "None of these": "SQ007"
         },
         "attributes": {
-          "answer_order": "random",
+          "subquestion_order": "random",
           "exclude_all_others": "SQ007"
         }
       },
@@ -329,7 +329,7 @@
           "Digital tools": "SQ006"
         },
         "attributes": {
-          "answer_order": "random"
+          "random_order": "1"
         }
       },
       "DT2": {

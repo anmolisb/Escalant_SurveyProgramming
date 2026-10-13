@@ -105,8 +105,10 @@ nothing is evaluated until the page is submitted, so a respondent who fails the
 first screening question still works through the rest of the screener before
 being let go. The setting is `format` in `emitter.py`.
 
-**Randomising answers is a word, not a flag.** The `answer_order` attribute
-takes `random` or `normal`.
+**Each question type shuffles with a different setting.** A single choice
+uses `answer_order = random`, a multiple choice `subquestion_order = random`,
+and a grid's rows `random_order = 1`. On a grid, `answer_order` shuffles the
+scale, not the rows. The table is `SHUFFLE_SETTINGS` in `loader.py`.
 
 **A text display is type `X` with the `boilerplate` theme.** It shows its
 wording and asks nothing, so it is never mandatory. The S, M and C QREs use it

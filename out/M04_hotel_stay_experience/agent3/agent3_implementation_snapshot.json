@@ -14,7 +14,7 @@
   "content": {
     "survey_id": "M04_hotel_stay_experience",
     "lss_path": "out/M04_hotel_stay_experience/agent2/agent2_M04_hotel_stay_experience.lss",
-    "lss_sha256": "061a6792f91d484d5ec1cd426e3c79189534c273e72f3f357b93d2daa94884bd",
+    "lss_sha256": "2f4e443ef83329f8cc7362a8c54d22262aa755dc831e4e4eadd3e30e9fd5a475",
     "sid": 900001,
     "groups": {
       "100": "Screening",
@@ -245,7 +245,7 @@
           "None of these": "SQ006"
         },
         "attributes": {
-          "answer_order": "random",
+          "subquestion_order": "random",
           "exclude_all_others": "SQ006"
         }
       },

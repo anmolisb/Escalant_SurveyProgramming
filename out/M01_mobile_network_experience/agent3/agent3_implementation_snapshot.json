@@ -14,7 +14,7 @@
   "content": {
     "survey_id": "M01_mobile_network_experience",
     "lss_path": "out/M01_mobile_network_experience/agent2/agent2_M01_mobile_network_experience.lss",
-    "lss_sha256": "e3dea4f0832e85ab3eeef9d2d7f0ef9aed0bbaa6b336dc33a924c86ea8ef8c5f",
+    "lss_sha256": "cd198c39be952014204d32455aee3374f2fca61b3efc7e8aaeb68f4906f3bd5e",
     "sid": 900001,
     "groups": {
       "100": "Screening",
@@ -245,7 +245,7 @@
           "None of these": "SQ006"
         },
         "attributes": {
-          "answer_order": "random",
+          "subquestion_order": "random",
           "exclude_all_others": "SQ006"
         }
       },

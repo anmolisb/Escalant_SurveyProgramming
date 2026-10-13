@@ -14,7 +14,7 @@
   "content": {
     "survey_id": "C03_b2b_saas_decision_journey",
     "lss_path": "out/C03_b2b_saas_decision_journey/agent2/agent2_C03_b2b_saas_decision_journey.lss",
-    "lss_sha256": "79bd6a2a5377ea4e57f19adcf36f850c5de0af1a8fbc25c44436d9a6585ef764",
+    "lss_sha256": "bbc0585b9c958f207f3ba3a6b5fc46f23bb7db5210f5ac1117c8a772930e0383",
     "sid": 900001,
     "groups": {
       "100": "Screening",
@@ -136,7 +136,7 @@
           "None of these": "SQ005"
         },
         "attributes": {
-          "answer_order": "random",
+          "subquestion_order": "random",
           "exclude_all_others": "SQ005"
         }
       },
@@ -226,7 +226,7 @@
           "None of these": "SQ007"
         },
         "attributes": {
-          "answer_order": "random",
+          "subquestion_order": "random",
           "exclude_all_others": "SQ007"
         }
       },
@@ -329,7 +329,7 @@
           "Total cost": "SQ006"
         },
         "attributes": {
-          "answer_order": "random"
+          "random_order": "1"
         }
       },
       "DT2": {

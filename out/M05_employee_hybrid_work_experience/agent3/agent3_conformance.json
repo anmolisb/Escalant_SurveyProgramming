@@ -12,7 +12,7 @@
     "canonical_generated_at": "2026-10-13T11:27:47+00:00"
   },
   "content": {
-    "lss_sha256": "e3fa5d4aec971e5fb4b0d0fba159752653b5f82b767364e884a4100db4b0226f",
+    "lss_sha256": "2997859796e28b7aff82a1e70ab78d9d47ffe2ce78afef76b8645e6f315bdcac",
     "questions_specified": 21,
     "questions_built": 21,
     "options_bound": 82,
@@ -46,24 +46,6 @@
         "severity": "HIGH",
         "subject": "QUOTA_REGION",
         "detail": "the builder emits no quota tables, so no quota behaviour exists in the built survey"
-      },
-      {
-        "kind": "RANDOMIZATION_NOT_BUILT",
-        "severity": "HIGH",
-        "subject": "Q3",
-        "detail": "spec asks for randomization but the built question carries no randomization attribute"
-      },
-      {
-        "kind": "RANDOMIZATION_NOT_BUILT",
-        "severity": "HIGH",
-        "subject": "Q7",
-        "detail": "spec asks for randomization but the built question carries no randomization attribute"
-      },
-      {
-        "kind": "RANDOMIZATION_NOT_BUILT",
-        "severity": "HIGH",
-        "subject": "Q13",
-        "detail": "spec asks for randomization but the built question carries no randomization attribute"
       },
       {
         "kind": "TERMINATION_MODEL_DIFFERS",
