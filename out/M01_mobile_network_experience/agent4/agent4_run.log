@@ -1,0 +1,171 @@
+  [  1/79] TC-FT01    answering S1 normally moves the respondent on to the q
+          PASSED
+  [  2/79] TC-FT02    S1 blocks progress when left blank
+          PASSED
+  [  3/79] TC-RT01    ending TERM_INELIGIBLE is reached by rule R1, evaluate
+          PASSED
+  [  4/79] TC-FT03    answering S2 normally moves the respondent on to the q
+          PASSED
+  [  5/79] TC-FT04    S2 blocks progress when left blank
+          PASSED
+  [  6/79] TC-RT02    ending TERM_INELIGIBLE is reached by rule R2, evaluate
+          PASSED
+  [  7/79] TC-FT05    answering S3 normally moves the respondent on to the q
+          PASSED
+  [  8/79] TC-FT06    reject rule R3 does not fire when its condition fails
+          PASSED
+  [  9/79] TC-FT07    S3 accepts an answer meeting ['max_value', 'min_value'
+          PASSED
+  [ 10/79] TC-FT08    reject rule R3 fires when its condition holds
+          PASSED
+  [ 11/79] TC-FT09    S3 rejects an answer breaking ['max_value', 'min_value
+          PASSED
+  [ 12/79] TC-FT10    S3 blocks progress when left blank
+          PASSED
+  [ 13/79] TC-FT11    answering DT1 normally moves the respondent on to the 
+          PASSED
+  [ 14/79] TC-FT12    answering Q1 normally moves the respondent on to the q
+          PASSED
+  [ 15/79] TC-FT13    Q1 blocks progress when left blank
+          PASSED
+  [ 16/79] TC-FT14    answering Q2 normally moves the respondent on to the q
+          PASSED
+  [ 17/79] TC-FT15    Q2 blocks progress when left blank
+          PASSED
+  [ 18/79] TC-FT16    answering Q3 normally moves the respondent on to the q
+          PASSED
+  [ 19/79] TC-FT17    Q3 blocks progress when left blank
+          PASSED
+  [ 20/79] TC-FT18    Q3 presents all 5 items exactly once, with none missin
+          INCONCLUSIVE
+  [ 21/79] TC-ST01    Q3 presents its items in a different order to differen
+          SKIPPED  needs several respondents, so it is not a single journey
+  [ 22/79] TC-FT19    answering Q4 normally moves the respondent on to the q
+          PASSED
+  [ 23/79] TC-FT20    Q4 blocks progress when left blank
+          PASSED
+  [ 24/79] TC-FT21    answering Q5 normally moves the respondent on to the q
+          PASSED
+  [ 25/79] TC-FT22    Q5 blocks progress when left blank
+          PASSED
+  [ 26/79] TC-FT23    answering Q6 normally moves the respondent on to the q
+          PASSED
+  [ 27/79] TC-FT24    Q6 blocks progress when left blank
+          PASSED
+  [ 28/79] TC-FT25    answering Q7 normally moves the respondent on to the q
+          PASSED
+  [ 29/79] TC-FT26    R6 jumps to Q11 when its condition holds
+          PASSED
+  [ 30/79] TC-FT27    R6 does not jump when its condition fails, so the resp
+          PASSED
+  [ 31/79] TC-FT28    Q7 accepts an answer meeting ['exclusive_option_id']
+          PASSED
+  [ 32/79] TC-FT29    reject rule R9 does not fire when its condition fails
+          PASSED
+  [ 33/79] TC-FT30    Q7 rejects an answer breaking ['exclusive_option_id']
+          PASSED
+  [ 34/79] TC-FT31    reject rule R9 fires when its condition holds
+          PASSED
+  [ 35/79] TC-FT32    Q7 blocks progress when left blank
+          PASSED
+  [ 36/79] TC-FT33    Q7 presents all 6 items exactly once, with none missin
+          INCONCLUSIVE
+  [ 37/79] TC-ST02    Q7 presents its items in a different order to differen
+          SKIPPED  needs several respondents, so it is not a single journey
+  [ 38/79] TC-FT34    answering Q8 normally moves the respondent on to the q
+          PASSED
+  [ 39/79] TC-FT35    Q8 is displayed when its guard holds
+          PASSED
+  [ 40/79] TC-FT36    Q8 is not displayed when its guard fails
+          PASSED
+  [ 41/79] TC-FT37    Q8 blocks progress when left blank
+          PASSED
+  [ 42/79] TC-FT38    Q8's option list is narrowed to what was chosen at Q7
+          INCONCLUSIVE
+  [ 43/79] TC-FT39    Q8 is shown by its guard and simultaneously reflects i
+          PASSED
+  [ 44/79] TC-FT40    answering Q9 normally moves the respondent on to the q
+          PASSED
+  [ 45/79] TC-FT41    Q9 is displayed when its guard holds
+          PASSED
+  [ 46/79] TC-FT42    Q9 is not displayed when its guard fails
+          PASSED
+  [ 47/79] TC-FT43    R8 jumps to Q11 when its condition holds
+          PASSED
+  [ 48/79] TC-FT44    R8 does not jump when its condition fails, so the resp
+          PASSED
+  [ 49/79] TC-FT45    Q9 blocks progress when left blank
+          PASSED
+  [ 50/79] TC-FT46    answering Q10 normally moves the respondent on to the 
+          PASSED
+  [ 51/79] TC-FT47    Q10 is displayed when its guard holds
+          PASSED
+  [ 52/79] TC-FT48    Q10 is not displayed when its guard fails
+          PASSED
+  [ 53/79] TC-FT49    Q10 blocks progress when left blank
+          PASSED
+  [ 54/79] TC-FT50    answering Q11 normally moves the respondent on to the 
+          PASSED
+  [ 55/79] TC-FT51    Q11 blocks progress when left blank
+          PASSED
+  [ 56/79] TC-FT52    answering Q12 normally moves the respondent on to the 
+          PASSED
+  [ 57/79] TC-FT53    Q12 blocks progress when left blank
+          PASSED
+  [ 58/79] TC-FT54    answering Q13 normally moves the respondent on to the 
+          PASSED
+  [ 59/79] TC-FT55    Q13 blocks progress when left blank
+          PASSED
+  [ 60/79] TC-FT56    Q13 presents all 5 items exactly once, with none missi
+          INCONCLUSIVE
+  [ 61/79] TC-ST03    Q13 presents its items in a different order to differe
+          SKIPPED  needs several respondents, so it is not a single journey
+  [ 62/79] TC-FT57    answering DT2 normally moves the respondent on to the 
+          PASSED
+  [ 63/79] TC-FT58    answering D1 normally moves the respondent on to the q
+          PASSED
+  [ 64/79] TC-FT59    D1 blocks progress when left blank
+          PASSED
+  [ 65/79] TC-FT60    QUOTA_REGION:D1-O1 (North) admits a respondent while b
+          INCONCLUSIVE
+  [ 66/79] TC-FT61    QUOTA_REGION:D1-O2 (South) admits a respondent while b
+          INCONCLUSIVE
+  [ 67/79] TC-FT62    QUOTA_REGION:D1-O3 (East) admits a respondent while be
+          INCONCLUSIVE
+  [ 68/79] TC-FT63    QUOTA_REGION:D1-O4 (West) admits a respondent while be
+          INCONCLUSIVE
+  [ 69/79] TC-FT64    QUOTA_REGION:D1-O5 (Central) admits a respondent while
+          INCONCLUSIVE
+  [ 70/79] TC-FT65    answering D2 normally moves the respondent on to the q
+          PASSED
+  [ 71/79] TC-FT66    D2 blocks progress when left blank
+          PASSED
+  [ 72/79] TC-FT67    answering Q14 normally moves the respondent on to the 
+          PASSED
+  [ 73/79] TC-FT68    Q14 accepts an answer meeting ['max_length']
+          PASSED
+  [ 74/79] TC-FT69    Q14 rejects an answer breaking ['max_length']
+          PASSED
+  [ 75/79] TC-FT70    Q14 is optional and permits progress when left blank
+          PASSED
+  [ 76/79] TC-FT71    Q14 accepts an answer of exactly 750 characters, its s
+          PASSED
+  [ 77/79] TC-FT72    Q14 accepts punctuation and quotation marks, because i
+          PASSED
+  [ 78/79] TC-FT73    Q14 accepts an answer of spaces alone, being optional
+          PASSED
+  [ 79/79] TC-RT03    a respondent can reach ending COMPLETE
+          PASSED
+
+  79 tests
+    PASSED           67
+    INCONCLUSIVE      9
+    SKIPPED           3
+
+  SKIPPED  EX-36ae5bbf24  needs several respondents, so it is not a single journey
+
+  SKIPPED  EX-d64d552367  needs several respondents, so it is not a single journey
+
+  SKIPPED  EX-7958f55ac6  needs several respondents, so it is not a single journey
+
+  wrote out/M01_mobile_network_experience/agent4/agent4_results.xlsx

@@ -1,6 +1,6 @@
 {
   "survey": "C01_chronic_care_patient_journey",
-  "run_at": "2026-10-13T21:19:06",
+  "run_at": "2026-10-14T00:08:53",
   "journeys": [
     {
       "path_id": "P01",
@@ -119,8 +119,8 @@
       "name": "Completing respondent \u2014 Q1=None of these",
       "route_class": "MAIN",
       "tests": 23,
-      "passed": 21,
-      "failed": 1,
+      "passed": 22,
+      "failed": 0,
       "other": 1,
       "broke_at": "Q6",
       "first_failure": "Q6's option list is narrowed to what was chosen at Q5",
@@ -129,19 +129,18 @@
       "real_first_failure": "",
       "real_first_order": 9999,
       "causes": [
-        "COVERAGE_GAP",
-        "UNSETTLED_QUESTION"
+        "COVERAGE_GAP"
       ],
       "status": "NOT PROVEN",
-      "status_note": "nothing on this journey is known to be wrong, but not everything could be proved: COVERAGE_GAP, UNSETTLED_QUESTION"
+      "status_note": "nothing on this journey is known to be wrong, but not everything could be proved: COVERAGE_GAP"
     },
     {
       "path_id": "P08",
       "name": "Completing respondent \u2014 Q1=Care Network A; Q10=No; Q15=No",
       "route_class": "MAIN",
       "tests": 30,
-      "passed": 26,
-      "failed": 1,
+      "passed": 27,
+      "failed": 0,
       "other": 3,
       "broke_at": "Q2",
       "first_failure": "Q2's option list is narrowed to what was chosen at Q1",
@@ -151,11 +150,10 @@
       "real_first_order": 9999,
       "causes": [
         "COVERAGE_GAP",
-        "UNSETTLED_QUESTION",
         "NEEDS_SAMPLE"
       ],
       "status": "NOT PROVEN",
-      "status_note": "nothing on this journey is known to be wrong, but not everything could be proved: COVERAGE_GAP, UNSETTLED_QUESTION, NEEDS_SAMPLE"
+      "status_note": "nothing on this journey is known to be wrong, but not everything could be proved: COVERAGE_GAP, NEEDS_SAMPLE"
     },
     {
       "path_id": "P09",
@@ -251,34 +249,6 @@
       ],
       "severity": 3,
       "order": 123
-    },
-    {
-      "cause": "UNSETTLED_QUESTION",
-      "owner": "the client",
-      "question": "Q2",
-      "count": 1,
-      "means": "The questionnaire never settled this, and a reading was assumed. Neither the survey nor the test is wrong until someone decides.",
-      "reason": "this test depends on an unconfirmed reading: multi_equality",
-      "to_fix": "ask the client which reading is intended. Until then this is a question, not a defect",
-      "tests": [
-        "TC-FT22"
-      ],
-      "severity": 5,
-      "order": 27
-    },
-    {
-      "cause": "UNSETTLED_QUESTION",
-      "owner": "the client",
-      "question": "Q6",
-      "count": 1,
-      "means": "The questionnaire never settled this, and a reading was assumed. Neither the survey nor the test is wrong until someone decides.",
-      "reason": "this test depends on an unconfirmed reading: multi_equality",
-      "to_fix": "ask the client which reading is intended. Until then this is a question, not a defect",
-      "tests": [
-        "TC-FT43"
-      ],
-      "severity": 5,
-      "order": 49
     },
     {
       "cause": "COVERAGE_GAP",
@@ -526,19 +496,6 @@
       "order": 26
     },
     {
-      "test_case_id": "TC-FT22",
-      "question": "Q2",
-      "path_id": "P08",
-      "title": "Q2 is shown by its guard and simultaneously reflects its dependency on Q1",
-      "outcome": "FAILED",
-      "cause": "UNSETTLED_QUESTION",
-      "owner": "the client",
-      "reason": "this test depends on an unconfirmed reading: multi_equality",
-      "to_fix": "ask the client which reading is intended. Until then this is a question, not a defect",
-      "observed": "it did not. Q2 read: 'Which brands would you consider?'",
-      "order": 27
-    },
-    {
       "test_case_id": "TC-FT35",
       "question": "Q5",
       "path_id": "P11",
@@ -576,19 +533,6 @@
       "to_fix": "teach the bot to observe it, or record that this claim cannot be proved by running one respondent through the survey",
       "observed": "",
       "order": 48
-    },
-    {
-      "test_case_id": "TC-FT43",
-      "question": "Q6",
-      "path_id": "P07",
-      "title": "Q6 is shown by its guard and simultaneously reflects its dependency on Q5",
-      "outcome": "FAILED",
-      "cause": "UNSETTLED_QUESTION",
-      "owner": "the client",
-      "reason": "this test depends on an unconfirmed reading: multi_equality",
-      "to_fix": "ask the client which reading is intended. Until then this is a question, not a defect",
-      "observed": "it did not. Q6 read: 'Which touchpoint was most influential?'",
-      "order": 49
     },
     {
       "test_case_id": "TC-FT58",
@@ -678,7 +622,7 @@
       "owner": "Survey Builder (already on the backlog)",
       "reason": "before the run, Agent 3 already reported TEXT_PIPE_NOT_BUILT for Q20",
       "to_fix": "no action on this test. It will pass once the survey builder emits that rule",
-      "observed": "it did not. Q20 read: 'How appealing is the selected proposition?'",
+      "observed": "it did not. Q20 read: 'How appealing is the selected proposition? Choose one of the following answers Very poor P'",
       "order": 123
     },
     {
