@@ -9,12 +9,12 @@
   },
   "upstream": {
     "canonical_schema_version": "1.0.0",
-    "canonical_generated_at": "2026-10-11T17:57:10+00:00"
+    "canonical_generated_at": "2026-10-13T11:26:55+00:00"
   },
   "content": {
     "survey_id": "C04_retail_banking_brand_tracker",
     "lss_path": "out/C04_retail_banking_brand_tracker/agent2/agent2_C04_retail_banking_brand_tracker.lss",
-    "lss_sha256": "35b76e736549baf616b9515e3f02d93bc51e10c9534bdb3e84a435b8e9256f59",
+    "lss_sha256": "306b3016bb84ebabaef1f70da81d053a5e79bab465426f372e95ef7b3ae42d6e",
     "sid": 900001,
     "groups": {
       "100": "Screening",
@@ -442,7 +442,7 @@
         "option_codes": {},
         "subquestion_codes": {},
         "attributes": {
-          "em_validation_q": "strlen(this) >= 10 and strlen(this) <= 500",
+          "em_validation_q": "strlen(trim(this)) >= 10 and strlen(this) <= 500",
           "em_validation_q_tip": "Please enter at least 10 characters and no more than 500 characters."
         }
       },
@@ -502,7 +502,7 @@
         "option_codes": {},
         "subquestion_codes": {},
         "attributes": {
-          "em_validation_q": "strlen(this) >= 3 and strlen(this) <= 200",
+          "em_validation_q": "strlen(trim(this)) >= 3 and strlen(this) <= 200",
           "em_validation_q_tip": "Please enter at least 3 characters and no more than 200 characters."
         }
       },
@@ -585,7 +585,7 @@
         "option_codes": {},
         "subquestion_codes": {},
         "attributes": {
-          "em_validation_q": "strlen(this) >= 5 and strlen(this) <= 500",
+          "em_validation_q": "strlen(trim(this)) >= 5 and strlen(this) <= 500",
           "em_validation_q_tip": "Please enter at least 5 characters and no more than 500 characters."
         }
       },

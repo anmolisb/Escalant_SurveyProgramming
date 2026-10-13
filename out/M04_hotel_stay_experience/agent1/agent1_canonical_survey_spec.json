@@ -8,7 +8,7 @@
     "sha256": "2f65aef53dbea391830fd1ca701a87474b803b7ec1af35e08a7fa3cccb5dd404",
     "bytes": 42025
   },
-  "generated_at": "2026-10-11T17:57:21+00:00",
+  "generated_at": "2026-10-13T11:27:34+00:00",
   "item_count": null,
   "content": {
     "source": "M04_hotel_stay_experience.docx",
@@ -2121,57 +2121,6 @@
           "source_kind": "table",
           "text": "Q8 | Which problem had the greatest impact? | single | Room cleanliness; Noise; Check-in delay; Wi-Fi issue; Billing problem | Show if: Q7 contains any problem\nShow only options selected at Q7."
         }
-      },
-      {
-        "from_question": "Q7",
-        "to_question": "Q8",
-        "kind": "text_pipe",
-        "detail": "Which problem",
-        "origin": "inferred",
-        "confidence": 1.0,
-        "source_reference": {
-          "document": "M04_hotel_stay_experience.docx",
-          "section": "Questionnaire",
-          "heading_text": "Questionnaire",
-          "block_order": 10,
-          "row_index": 11,
-          "source_kind": "table",
-          "text": "Q8 | Which problem had the greatest impact? | single | Room cleanliness; Noise; Check-in delay; Wi-Fi issue; Billing problem | Show if: Q7 contains any problem\nShow only options selected at Q7."
-        }
-      },
-      {
-        "from_question": "Q8",
-        "to_question": "Q9",
-        "kind": "text_pipe",
-        "detail": "the main problem",
-        "origin": "inferred",
-        "confidence": 1.0,
-        "source_reference": {
-          "document": "M04_hotel_stay_experience.docx",
-          "section": "Questionnaire",
-          "heading_text": "Questionnaire",
-          "block_order": 10,
-          "row_index": 12,
-          "source_kind": "table",
-          "text": "Q9 | Was the main problem resolved? | single | Yes, fully; Yes, partly; No | Show if: Q7 contains any problem"
-        }
-      },
-      {
-        "from_question": "Q9",
-        "to_question": "Q10",
-        "kind": "text_pipe",
-        "detail": "the resolution",
-        "origin": "inferred",
-        "confidence": 1.0,
-        "source_reference": {
-          "document": "M04_hotel_stay_experience.docx",
-          "section": "Questionnaire",
-          "heading_text": "Questionnaire",
-          "block_order": 10,
-          "row_index": 13,
-          "source_kind": "table",
-          "text": "Q10 | How satisfied were you with the resolution? | single | 1 - Very poor; 2 - Poor; 3 - Fair; 4 - Good; 5 - Excellent | Show if: Q9 in ['Yes, fully','Yes, partly']"
-        }
       }
     ],
     "randomization": [
@@ -2808,39 +2757,6 @@
           "id": "QUOTA_REGION"
         },
         "evidence": "QUOTA_REGION: soft quota on D1: North=20%, South=20%, East=20%, West=2 -> D1, 5 groups",
-        "source_reference": null
-      },
-      {
-        "check": "text_pipe_inferred",
-        "severity": "WARNING",
-        "finding": "Q8's wording appears to quote the answer given at Q7. No table states this; it was read out of the sentence, so it is worth confirming.",
-        "target": {
-          "kind": "question",
-          "id": "Q8"
-        },
-        "evidence": "'Which problem' (confidence 1.00)",
-        "source_reference": null
-      },
-      {
-        "check": "text_pipe_inferred",
-        "severity": "WARNING",
-        "finding": "Q9's wording appears to quote the answer given at Q8. No table states this; it was read out of the sentence, so it is worth confirming.",
-        "target": {
-          "kind": "question",
-          "id": "Q9"
-        },
-        "evidence": "'the main problem' (confidence 1.00)",
-        "source_reference": null
-      },
-      {
-        "check": "text_pipe_inferred",
-        "severity": "WARNING",
-        "finding": "Q10's wording appears to quote the answer given at Q9. No table states this; it was read out of the sentence, so it is worth confirming.",
-        "target": {
-          "kind": "question",
-          "id": "Q10"
-        },
-        "evidence": "'the resolution' (confidence 1.00)",
         "source_reference": null
       },
       {

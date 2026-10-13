@@ -8,7 +8,7 @@
     "sha256": "992ebf4849f39a999f5c28690a87ec8d50ad44af4dc86dbe9cb8375b3e7a6595",
     "bytes": 42072
   },
-  "generated_at": "2026-10-11T17:57:23+00:00",
+  "generated_at": "2026-10-13T11:27:47+00:00",
   "item_count": null,
   "content": {
     "source": "M05_employee_hybrid_work_experience.docx",
@@ -20,7 +20,7 @@
     "rules_total": 9,
     "quotas_mapped": 1,
     "quotas_total": 1,
-    "dependency_edges": 4,
+    "dependency_edges": 3,
     "findings": [
       {
         "check": "termination",
@@ -63,8 +63,8 @@
         "result": 1.0
       },
       "dependency_coverage": {
-        "numerator": 3,
-        "denominator": 3,
+        "numerator": 1,
+        "denominator": 1,
         "result": 1.0
       },
       "quota_coverage": {

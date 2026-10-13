@@ -9,13 +9,13 @@ reused from then on unless the source document or this module's
 vocabulary changes, in which case it returns here as pending, with the
 old ruling kept under `previous_decision` for a quick re-confirmation.
 
-**14 PENDING_CONFIRMATION**
+**14 PENDING_CONFIRMATION, 1 NOT_REQUIRED**
 
 ## 🔴 `ambiguous_piping` — PENDING_CONFIRMATION (BLOCKING)
 
-- **id:** `32174b54b9ac58c9`
+- **id:** `80412c0f63a0555c`
 - **affects:** Q20
-- **evidence:** 'the selected proposition' (confidence 0.99)
+- **evidence:** 'selected proposition' (confidence 0.99)
 - **current reading:** A question's wording was read as quoting an earlier answer, from the phrasing alone; no table states the link.
 - **alternatives:** The wording is generic and does not actually depend on the earlier answer.
 - **downstream impact:** Whether this question's wording depends on an earlier answer, which decides the order a respondent bot must answer in and what text it should expect on screen.
@@ -147,3 +147,13 @@ old ruling kept under `previous_decision` for a quick re-confirmation.
 - **alternatives:** An exclusive option (such as "None of these") stays anchored at the bottom, by convention.
 - **downstream impact:** Where an exclusive option appears when the list is shuffled, which decides whether a displayed-order assertion is correct. Does not change which questions are asked or how they route.
 - **recommendation:** Confirm anchoring convention with the project owner.
+
+## 🔴 `ambiguous_piping` — NOT_REQUIRED (BLOCKING)
+
+- **id:** `32174b54b9ac58c9`
+- **affects:** Q20
+- **evidence:** 'the selected proposition' (confidence 0.99)
+- **current reading:** A question's wording was read as quoting an earlier answer, from the phrasing alone; no table states the link.
+- **alternatives:** The wording is generic and does not actually depend on the earlier answer.
+- **downstream impact:** Whether this question's wording depends on an earlier answer, which decides the order a respondent bot must answer in and what text it should expect on screen.
+- **recommendation:** Confirm the dependency with the project owner.

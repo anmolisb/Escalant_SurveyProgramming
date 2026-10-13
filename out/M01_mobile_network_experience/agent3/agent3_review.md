@@ -4,9 +4,9 @@ Agent 3 v0.1. Blocks B1 to B4 implemented and run. Blocks A and C are blocked on
 
 ## Headline
 
-- **94 coverage targets** enumerated across nine dimensions
-- **82 logically covered**, each with an independently predicted outcome
-- **82 logical test cases** generated, with steps and assertions
+- **88 coverage targets** enumerated across nine dimensions
+- **76 logically covered**, each with an independently predicted outcome
+- **76 logical test cases** generated, with steps and assertions
 - **0 executable tests** - Block C cannot bind a canonical id to a LimeSurvey field without Agent 2's build manifest
 - **Coverage floor 50.0%** (D8). Reported as a floor, never a sum or an average
 - **Specification replay: 5 agree / 0 disagree / 0 unresolved of 5** against the QRE's own acceptance scenarios
@@ -22,10 +22,9 @@ Nine dimensions, reported side by side. They count different kinds of unit, so a
 | D3 | Validation (explicit) | 12 | 9 | 75.0% | BOUNDED | `UNVERIFIABLE` x1, `BOUND_REACHED` x2 |
 | D4 | Validation (mandatory) | 20 | 20 | 100.0% | EXHAUSTIVE | - |
 | D5 | Option-source dependency | 1 | 1 | 100.0% | EXHAUSTIVE | - |
-| D6 | Text-pipe dependency | 4 | 4 | 100.0% | EXHAUSTIVE | - |
 | D7 | Randomization configuration | 9 | 6 | 66.7% | PARTIAL | `RANDOMIZATION_ANCHOR_UNDEFINED` x3 |
 | D8 | Quota cell state | 10 | 5 | 50.0% | PARTIAL | `QUOTA_SIZE_UNDEFINED` x5 |
-| D9 | Interaction | 3 | 3 | 100.0% | BOUNDED | - |
+| D9 | Interaction | 1 | 1 | 100.0% | BOUNDED | - |
 
 **Floor: 50.0% (D8).** FLOOR - lowest dimension. Never a sum or an average.
 
@@ -43,7 +42,7 @@ B3's interpreter cannot run without these. They are read from Agent 1's `semanti
 | default_mandatory | `True` | derived | CONFIRMED | no | - |
 | whitespace_is_an_answer | `not_an_answer` | agent3_fallback | PROVISIONAL | no | - |
 
-4 reading(s) still provisional. **70 of 82 generated tests lean on at least one of them** and are tagged accordingly, so a change of ruling shows exactly which tests must be regenerated.
+4 reading(s) still provisional. **64 of 76 generated tests lean on at least one of them** and are tagged accordingly, so a change of ruling shows exactly which tests must be regenerated.
 
 ## Specification replay
 
@@ -215,10 +214,10 @@ Derived from the emitted `.lss` (sha `e3dea4f0832e`), not from a self-reported m
 
 ## Block C - executable compilation
 
-- Logically covered: 82
-- **Compiled to executable tests: 82**
+- Logically covered: 76
+- **Compiled to executable tests: 76**
 - Refused rather than guessed: 0
-- Executable coverage: **87.2%**
+- Executable coverage: **86.4%**
 
 ## Sample executable test
 

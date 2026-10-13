@@ -201,6 +201,15 @@
           }
         ]
       }
+    },
+    "0a5a71e0dc9ecbed54148a37994034cd3409bc33b641385d8330e857c2d7f486": {
+      "response_model": "LLMTextPipes",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-10-13T11:28:14+00:00",
+      "asked": "S1: Have you purchased food or a beverage from the campus cafeteria in the past 30 days?\nS2: Are you 18 years of age or older?\nDT1: Great, you're eligible for this survey! Next, a few quick questions about your recent cafeteria visit.\nQ1: Which channel did you primarily use for this cafeteria visit?\nQ2: Overall, how satisfied were you with the cafeteria visit?\nQ3: How easy was it to complete what  ...",
+      "response": {
+        "pipes": []
+      }
     }
   }
 }

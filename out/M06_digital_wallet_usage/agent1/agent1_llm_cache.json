@@ -159,6 +159,15 @@
           }
         ]
       }
+    },
+    "aeb25354fa1ebcf5ca8a9c9d6dbaf5f2d20cb96eec218d304e6f85ef508a076b": {
+      "response_model": "LLMTextPipes",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-10-13T11:28:01+00:00",
+      "asked": "S1: Have you used or purchased digital wallet services in the past 6 months?\nS2: Are you personally involved in choosing this product or service?\nS3: What is your age?\nDT1: Great, you're eligible for this survey! Next, a few questions about your recent digital wallet experience.\nQ1: Which digital wallet services channel or provider did you use most recently?\nQ2: When did the most recent experience ...",
+      "response": {
+        "pipes": []
+      }
     }
   }
 }

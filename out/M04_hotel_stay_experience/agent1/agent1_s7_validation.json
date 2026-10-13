@@ -8,7 +8,7 @@
     "sha256": "2f65aef53dbea391830fd1ca701a87474b803b7ec1af35e08a7fa3cccb5dd404",
     "bytes": 42025
   },
-  "generated_at": "2026-10-11T17:57:21+00:00",
+  "generated_at": "2026-10-13T11:27:34+00:00",
   "item_count": null,
   "content": {
     "cross_source": [
@@ -30,7 +30,7 @@
       "edges": 27,
       "rules_mapped": "9/9",
       "quotas_mapped": "1/1",
-      "dependency_edges": 4,
+      "dependency_edges": 3,
       "passed": true,
       "blocking": 0,
       "findings": [
@@ -61,18 +61,6 @@
         "decision_ids": [
           "939a197f18880688"
         ]
-      },
-      {
-        "status": "CONFIRMATION_REQUIRED",
-        "issue": "text_pipe_inferred",
-        "why_it_matters": "Q8's wording appears to quote the answer given at Q7. No table states this; it was read out of the sentence, so it is worth confirming.",
-        "affected": [
-          "Q10",
-          "Q8",
-          "Q9"
-        ],
-        "changes_downstream": "Whether this question's wording depends on an earlier answer, which decides the order a bot must answer in and what text it should expect on screen.",
-        "decision_ids": []
       },
       {
         "status": "CONFIRMATION_REQUIRED",
@@ -124,19 +112,16 @@
         "total": 11,
         "raised_this_run": 0,
         "resolved_reused": 0,
-        "pending": 11,
+        "pending": 8,
         "resolved": 0,
-        "not_required": 0,
-        "newly_transitioned_not_required": 0,
+        "not_required": 3,
+        "newly_transitioned_not_required": 3,
         "context_changed": 0,
         "blocking_pending": [
-          "05aa760eda40ae57",
           "069b658a7fa43ea0",
           "2a73c5c0e513d0cd",
-          "2ab2da86de82e7ed",
           "37532e77b1861cdb",
           "415ae5765ad5e79c",
-          "430470d415f27f9a",
           "b60417260e1bcc4f",
           "bbce7a65b7d378d2"
         ]
@@ -150,7 +135,7 @@
         "edges": 27,
         "rules_mapped": "9/9",
         "quotas_mapped": "1/1",
-        "dependency_edges": 4,
+        "dependency_edges": 3,
         "passed": true,
         "blocking": 0,
         "findings": [
@@ -169,19 +154,15 @@
       },
       "human_decision_gate": "PENDING_BLOCKING_DECISIONS",
       "pending_blocking_decisions": [
-        "05aa760eda40ae57",
         "069b658a7fa43ea0",
         "2a73c5c0e513d0cd",
-        "2ab2da86de82e7ed",
         "37532e77b1861cdb",
         "415ae5765ad5e79c",
-        "430470d415f27f9a",
         "b60417260e1bcc4f",
         "bbce7a65b7d378d2"
       ],
       "agent3_ready": "NO",
       "agent3_blocked_by": [
-        "ambiguous_piping",
         "ambiguous_routing_condition",
         "multi_select_equality",
         "quota_behaviour",
@@ -197,7 +178,6 @@
       "what_is_missing": [],
       "what_is_ambiguous": [
         "randomization_anchoring \u2014 Where an exclusive option appears when the list is shuffled, which decides whether a displayed-order assertion is right.",
-        "text_pipe_inferred \u2014 Whether this question's wording depends on an earlier answer, which decides the order a bot must answer in and what text it should expect on screen.",
         "condition_inferred \u2014 Whether this rule fires for a given respondent, so which questions they see and which ending they reach.",
         "semantics_unconfirmed \u2014 Which questions appear on many routes, which rule wins when two apply, and whether an 'is exactly' test passes on a multi-select answer.",
         "quota_ending_missing \u2014 Nothing can be asserted about what a quota-full respondent is shown.",
@@ -208,12 +188,10 @@
       ],
       "affected_ids": [
         "M04_hotel_stay_experience.docx",
-        "Q10",
         "Q13",
         "Q3",
         "Q7",
         "Q8",
-        "Q9",
         "QUOTA_REGION",
         "R9",
         "S3",
@@ -225,8 +203,8 @@
         "other_failures": 2,
         "blocked": 0,
         "cross_source_blocking": 2,
-        "confirmation_required": 6,
-        "decisions_pending_blocking": 9
+        "confirmation_required": 5,
+        "decisions_pending_blocking": 6
       }
     }
   }

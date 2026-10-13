@@ -4,9 +4,9 @@ Agent 3 v0.1. Blocks B1 to B4 implemented and run. Blocks A and C are blocked on
 
 ## Headline
 
-- **176 coverage targets** enumerated across nine dimensions
-- **160 logically covered**, each with an independently predicted outcome
-- **160 logical test cases** generated, with steps and assertions
+- **175 coverage targets** enumerated across nine dimensions
+- **159 logically covered**, each with an independently predicted outcome
+- **159 logical test cases** generated, with steps and assertions
 - **0 executable tests** - Block C cannot bind a canonical id to a LimeSurvey field without Agent 2's build manifest
 - **Coverage floor 50.0%** (D8). Reported as a floor, never a sum or an average
 - **Specification replay: 6 agree / 0 disagree / 1 unresolved of 7** against the QRE's own acceptance scenarios
@@ -22,7 +22,7 @@ Nine dimensions, reported side by side. They count different kinds of unit, so a
 | D3 | Validation (explicit) | 32 | 32 | 100.0% | EXHAUSTIVE | - |
 | D4 | Validation (mandatory) | 35 | 35 | 100.0% | EXHAUSTIVE | - |
 | D5 | Option-source dependency | 2 | 2 | 100.0% | EXHAUSTIVE | - |
-| D6 | Text-pipe dependency | 2 | 2 | 100.0% | EXHAUSTIVE | - |
+| D6 | Text-pipe dependency | 1 | 1 | 100.0% | EXHAUSTIVE | - |
 | D7 | Randomization configuration | 15 | 10 | 66.7% | PARTIAL | `RANDOMIZATION_ANCHOR_UNDEFINED` x5 |
 | D8 | Quota cell state | 20 | 10 | 50.0% | PARTIAL | `QUOTA_SIZE_UNDEFINED` x10 |
 | D9 | Interaction | 2 | 2 | 100.0% | BOUNDED | - |
@@ -43,7 +43,7 @@ B3's interpreter cannot run without these. They are read from Agent 1's `semanti
 | default_mandatory | `True` | derived | CONFIRMED | no | - |
 | whitespace_is_an_answer | `not_an_answer` | agent3_fallback | PROVISIONAL | no | - |
 
-4 reading(s) still provisional. **153 of 160 generated tests lean on at least one of them** and are tagged accordingly, so a change of ruling shows exactly which tests must be regenerated.
+4 reading(s) still provisional. **152 of 159 generated tests lean on at least one of them** and are tagged accordingly, so a change of ruling shows exactly which tests must be regenerated.
 
 ## Specification replay
 
@@ -225,7 +225,7 @@ No target is ever silently dropped. Each carries one specific reason.
 
 ## Block A - implementation conformance
 
-Derived from the emitted `.lss` (sha `d652e4e3eb85`), not from a self-reported manifest.
+Derived from the emitted `.lss` (sha `0645dbd17921`), not from a self-reported manifest.
 
 - Questions specified: 34
 - Questions built: 34
@@ -246,14 +246,14 @@ Derived from the emitted `.lss` (sha `d652e4e3eb85`), not from a self-reported m
 
 ## Block C - executable compilation
 
-- Logically covered: 160
-- **Compiled to executable tests: 160**
+- Logically covered: 159
+- **Compiled to executable tests: 159**
 - Refused rather than guessed: 0
 - Executable coverage: **90.9%**
 
 ## Sample executable test
 
-### `EX-8aceaaee41` - answering D1 normally moves the respondent on to the question that should come next
+### `EX-ac9f9f775e` - answering D1 normally moves the respondent on to the question that should come next
 
 Survey id 900001. Dimension D1. Traces to D1.
 

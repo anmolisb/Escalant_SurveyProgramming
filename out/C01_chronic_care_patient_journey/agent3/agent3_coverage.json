@@ -9,7 +9,7 @@
   },
   "upstream": {
     "canonical_schema_version": "1.0.0",
-    "canonical_generated_at": "2026-10-11T17:56:54+00:00"
+    "canonical_generated_at": "2026-10-13T11:26:31+00:00"
   },
   "content": {
     "project_inputs": {},
@@ -67,12 +67,12 @@
         "D3": 32,
         "D4": 35,
         "D5": 2,
-        "D6": 2,
+        "D6": 1,
         "D7": 15,
         "D8": 20,
         "D9": 2
       },
-      "records_enumerated": 176,
+      "records_enumerated": 175,
       "predetermined_unresolvable": 16,
       "orphan_rules": [],
       "note": "Dimensions are reported side by side and never summed. records_enumerated counts records, not coverage."
@@ -133,11 +133,11 @@
         },
         "D6": {
           "name": "Text-pipe dependency",
-          "enumerated": 2,
-          "covered": 2,
+          "enumerated": 1,
+          "covered": 1,
           "uncovered": 0,
           "reasons": {},
-          "provisional": 2,
+          "provisional": 1,
           "enumeration_status": "EXHAUSTIVE",
           "logical_coverage_pct": 100.0
         },
@@ -322,8 +322,7 @@
             "COMPLETE"
           ],
           "unresolved": [
-            "Q20: text pipe from Q19 has nothing to render",
-            "Q21: text pipe from Q19 has nothing to render"
+            "Q20: text pipe from Q19 has nothing to render"
           ]
         },
         {
@@ -419,8 +418,7 @@
             "COMPLETE"
           ],
           "unresolved": [
-            "Q20: text pipe from Q19 has nothing to render",
-            "Q21: text pipe from Q19 has nothing to render"
+            "Q20: text pipe from Q19 has nothing to render"
           ]
         },
         {
@@ -523,8 +521,7 @@
             "COMPLETE"
           ],
           "unresolved": [
-            "Q20: text pipe from Q19 has nothing to render",
-            "Q21: text pipe from Q19 has nothing to render"
+            "Q20: text pipe from Q19 has nothing to render"
           ]
         },
         {
@@ -620,8 +617,7 @@
           ],
           "unresolved": [
             "R20: condition could not be evaluated at Q6",
-            "Q20: text pipe from Q19 has nothing to render",
-            "Q21: text pipe from Q19 has nothing to render"
+            "Q20: text pipe from Q19 has nothing to render"
           ]
         }
       ]

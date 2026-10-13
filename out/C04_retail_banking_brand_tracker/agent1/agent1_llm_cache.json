@@ -180,6 +180,24 @@
           }
         ]
       }
+    },
+    "a96917b54fb91583f75fa717f3013e343f603e0e0d8fe75d3575c8453516a15a": {
+      "response_model": "LLMTextPipes",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-10-13T11:26:55+00:00",
+      "asked": "S1: Are you 21 years of age or older?\nS2: Which statement best describes your involvement?\nS3: Have you participated in market research in the past 3 months?\nS4: Do you or an immediate family member work in market research, advertising, or the category being studied?\nDT1: Great, you're eligible for this survey! Next, a few questions about your banking experience.\nQ1: Which of these brands have you ...",
+      "response": {
+        "pipes": [
+          {
+            "is_pipe": true,
+            "source_question_id": "Q19",
+            "target_question_id": "Q20",
+            "phrase": "selected proposition",
+            "confidence": 0.99,
+            "reasoning": "Q20 asks \"How appealing is the selected proposition?\" The term \"selected proposition\" refers back to the respondent's answer to Q19 (\"Which new proposition do you prefer?\"). The word \"selected\" explicitly marks the earlier choice, so the question cannot be shown correctly without inserting that answer."
+          }
+        ]
+      }
     }
   }
 }

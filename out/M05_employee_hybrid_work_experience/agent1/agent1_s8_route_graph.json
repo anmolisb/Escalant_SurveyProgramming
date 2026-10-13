@@ -8,7 +8,7 @@
     "sha256": "992ebf4849f39a999f5c28690a87ec8d50ad44af4dc86dbe9cb8375b3e7a6595",
     "bytes": 42072
   },
-  "generated_at": "2026-10-11T17:57:23+00:00",
+  "generated_at": "2026-10-13T11:27:47+00:00",
   "item_count": null,
   "content": {
     "source": "M05_employee_hybrid_work_experience.docx",
@@ -599,14 +599,7 @@
           "target": "Q9"
         },
         {
-          "kind": "text_pipe",
-          "origin": "inferred",
-          "source": "Q8",
-          "target": "Q9"
-        },
-        {
-          "kind": "text_pipe",
-          "origin": "inferred",
+          "kind": "guard",
           "source": "Q9",
           "target": "Q10"
         }

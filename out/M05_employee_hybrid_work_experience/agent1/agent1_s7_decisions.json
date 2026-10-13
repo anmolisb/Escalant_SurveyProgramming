@@ -7,7 +7,7 @@
     "sha256": "992ebf4849f39a999f5c28690a87ec8d50ad44af4dc86dbe9cb8375b3e7a6595",
     "bytes": 42072
   },
-  "generated_at": "2026-10-11T17:57:23+00:00",
+  "generated_at": "2026-10-13T11:27:47+00:00",
   "entries": {
     "78b20e7bb125102a": {
       "decision_id": "78b20e7bb125102a",
@@ -31,7 +31,7 @@
       "recommendation": "Confirm the intended reading with the project owner. Once recorded here it applies to every rule in this survey and does not need asking again unless the document changes.",
       "severity": "BLOCKING",
       "context_key": "450036bdd1d10606",
-      "last_seen_at": "2026-10-11T17:57:23+00:00",
+      "last_seen_at": "2026-10-13T11:27:47+00:00",
       "status": "PENDING_CONFIRMATION",
       "created_at": "2026-10-11T17:07:00+00:00",
       "resolved_at": null,
@@ -62,7 +62,7 @@
       "recommendation": "Confirm the intended precedence with the project owner.",
       "severity": "BLOCKING",
       "context_key": "450036bdd1d10606",
-      "last_seen_at": "2026-10-11T17:57:23+00:00",
+      "last_seen_at": "2026-10-13T11:27:47+00:00",
       "status": "PENDING_CONFIRMATION",
       "created_at": "2026-10-11T17:07:00+00:00",
       "resolved_at": null,
@@ -93,7 +93,7 @@
       "recommendation": "Confirm the intended reading with the project owner.",
       "severity": "BLOCKING",
       "context_key": "450036bdd1d10606",
-      "last_seen_at": "2026-10-11T17:57:23+00:00",
+      "last_seen_at": "2026-10-13T11:27:47+00:00",
       "status": "PENDING_CONFIRMATION",
       "created_at": "2026-10-11T17:07:00+00:00",
       "resolved_at": null,
@@ -123,7 +123,7 @@
       "recommendation": "A person familiar with the survey should confirm the reading recorded here matches what the sentence intends.",
       "severity": "BLOCKING",
       "context_key": "450036bdd1d10606",
-      "last_seen_at": "2026-10-11T17:57:23+00:00",
+      "last_seen_at": "2026-10-13T11:27:47+00:00",
       "status": "PENDING_CONFIRMATION",
       "created_at": "2026-10-11T17:07:00+00:00",
       "resolved_at": null,
@@ -153,7 +153,7 @@
       "recommendation": "A person familiar with the survey should confirm the reading recorded here matches what the sentence intends.",
       "severity": "BLOCKING",
       "context_key": "450036bdd1d10606",
-      "last_seen_at": "2026-10-11T17:57:23+00:00",
+      "last_seen_at": "2026-10-13T11:27:47+00:00",
       "status": "PENDING_CONFIRMATION",
       "created_at": "2026-10-11T17:07:00+00:00",
       "resolved_at": null,
@@ -183,67 +183,7 @@
       "recommendation": "Confirm the quota reading with the project owner.",
       "severity": "BLOCKING",
       "context_key": "450036bdd1d10606",
-      "last_seen_at": "2026-10-11T17:57:23+00:00",
-      "status": "PENDING_CONFIRMATION",
-      "created_at": "2026-10-11T17:07:00+00:00",
-      "resolved_at": null,
-      "decision": null,
-      "decision_provenance": null,
-      "previous_decision": null,
-      "context_changed": false
-    },
-    "66ad7cc68ad3b110": {
-      "decision_id": "66ad7cc68ad3b110",
-      "survey_id": "M05_employee_hybrid_work_experience",
-      "source_document": {
-        "filename": "M05_employee_hybrid_work_experience.docx",
-        "sha256": "992ebf4849f39a999f5c28690a87ec8d50ad44af4dc86dbe9cb8375b3e7a6595"
-      },
-      "affected": [
-        "Q9"
-      ],
-      "category": "dependency",
-      "issue": "ambiguous_piping",
-      "source_evidence": "'the main problem' (confidence 0.99)",
-      "current_interpretation": "A question's wording was read as quoting an earlier answer, from the phrasing alone; no table states the link.",
-      "alternative_interpretations": [
-        "The wording is generic and does not actually depend on the earlier answer."
-      ],
-      "downstream_impact": "Whether this question's wording depends on an earlier answer, which decides the order a respondent bot must answer in and what text it should expect on screen.",
-      "recommendation": "Confirm the dependency with the project owner.",
-      "severity": "BLOCKING",
-      "context_key": "450036bdd1d10606",
-      "last_seen_at": "2026-10-11T17:57:23+00:00",
-      "status": "PENDING_CONFIRMATION",
-      "created_at": "2026-10-11T17:07:00+00:00",
-      "resolved_at": null,
-      "decision": null,
-      "decision_provenance": null,
-      "previous_decision": null,
-      "context_changed": false
-    },
-    "9a0bbe915e754a85": {
-      "decision_id": "9a0bbe915e754a85",
-      "survey_id": "M05_employee_hybrid_work_experience",
-      "source_document": {
-        "filename": "M05_employee_hybrid_work_experience.docx",
-        "sha256": "992ebf4849f39a999f5c28690a87ec8d50ad44af4dc86dbe9cb8375b3e7a6595"
-      },
-      "affected": [
-        "Q10"
-      ],
-      "category": "dependency",
-      "issue": "ambiguous_piping",
-      "source_evidence": "'the resolution' (confidence 0.99)",
-      "current_interpretation": "A question's wording was read as quoting an earlier answer, from the phrasing alone; no table states the link.",
-      "alternative_interpretations": [
-        "The wording is generic and does not actually depend on the earlier answer."
-      ],
-      "downstream_impact": "Whether this question's wording depends on an earlier answer, which decides the order a respondent bot must answer in and what text it should expect on screen.",
-      "recommendation": "Confirm the dependency with the project owner.",
-      "severity": "BLOCKING",
-      "context_key": "450036bdd1d10606",
-      "last_seen_at": "2026-10-11T17:57:23+00:00",
+      "last_seen_at": "2026-10-13T11:27:47+00:00",
       "status": "PENDING_CONFIRMATION",
       "created_at": "2026-10-11T17:07:00+00:00",
       "resolved_at": null,
@@ -273,7 +213,7 @@
       "recommendation": "Confirm anchoring convention with the project owner.",
       "severity": "NON_BLOCKING",
       "context_key": "450036bdd1d10606",
-      "last_seen_at": "2026-10-11T17:57:23+00:00",
+      "last_seen_at": "2026-10-13T11:27:47+00:00",
       "status": "PENDING_CONFIRMATION",
       "created_at": "2026-10-11T17:07:00+00:00",
       "resolved_at": null,
@@ -301,8 +241,68 @@
       "recommendation": "Ask the project owner for the missing message text.",
       "severity": "NON_BLOCKING",
       "context_key": "450036bdd1d10606",
-      "last_seen_at": "2026-10-11T17:57:23+00:00",
+      "last_seen_at": "2026-10-13T11:27:47+00:00",
       "status": "PENDING_CONFIRMATION",
+      "created_at": "2026-10-11T17:07:00+00:00",
+      "resolved_at": null,
+      "decision": null,
+      "decision_provenance": null,
+      "previous_decision": null,
+      "context_changed": false
+    },
+    "66ad7cc68ad3b110": {
+      "decision_id": "66ad7cc68ad3b110",
+      "survey_id": "M05_employee_hybrid_work_experience",
+      "source_document": {
+        "filename": "M05_employee_hybrid_work_experience.docx",
+        "sha256": "992ebf4849f39a999f5c28690a87ec8d50ad44af4dc86dbe9cb8375b3e7a6595"
+      },
+      "affected": [
+        "Q9"
+      ],
+      "category": "dependency",
+      "issue": "ambiguous_piping",
+      "source_evidence": "'the main problem' (confidence 0.99)",
+      "current_interpretation": "A question's wording was read as quoting an earlier answer, from the phrasing alone; no table states the link.",
+      "alternative_interpretations": [
+        "The wording is generic and does not actually depend on the earlier answer."
+      ],
+      "downstream_impact": "Whether this question's wording depends on an earlier answer, which decides the order a respondent bot must answer in and what text it should expect on screen.",
+      "recommendation": "Confirm the dependency with the project owner.",
+      "severity": "BLOCKING",
+      "context_key": "450036bdd1d10606",
+      "last_seen_at": "2026-10-13T11:27:47+00:00",
+      "status": "NOT_REQUIRED",
+      "created_at": "2026-10-11T17:07:00+00:00",
+      "resolved_at": null,
+      "decision": null,
+      "decision_provenance": null,
+      "previous_decision": null,
+      "context_changed": false
+    },
+    "9a0bbe915e754a85": {
+      "decision_id": "9a0bbe915e754a85",
+      "survey_id": "M05_employee_hybrid_work_experience",
+      "source_document": {
+        "filename": "M05_employee_hybrid_work_experience.docx",
+        "sha256": "992ebf4849f39a999f5c28690a87ec8d50ad44af4dc86dbe9cb8375b3e7a6595"
+      },
+      "affected": [
+        "Q10"
+      ],
+      "category": "dependency",
+      "issue": "ambiguous_piping",
+      "source_evidence": "'the resolution' (confidence 0.99)",
+      "current_interpretation": "A question's wording was read as quoting an earlier answer, from the phrasing alone; no table states the link.",
+      "alternative_interpretations": [
+        "The wording is generic and does not actually depend on the earlier answer."
+      ],
+      "downstream_impact": "Whether this question's wording depends on an earlier answer, which decides the order a respondent bot must answer in and what text it should expect on screen.",
+      "recommendation": "Confirm the dependency with the project owner.",
+      "severity": "BLOCKING",
+      "context_key": "450036bdd1d10606",
+      "last_seen_at": "2026-10-13T11:27:47+00:00",
+      "status": "NOT_REQUIRED",
       "created_at": "2026-10-11T17:07:00+00:00",
       "resolved_at": null,
       "decision": null,

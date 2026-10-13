@@ -9,17 +9,7 @@ reused from then on unless the source document or this module's
 vocabulary changes, in which case it returns here as pending, with the
 old ruling kept under `previous_decision` for a quick re-confirmation.
 
-**3 PENDING_CONFIRMATION**
-
-## 🔴 `ambiguous_piping` — PENDING_CONFIRMATION (BLOCKING)
-
-- **id:** `058581e36407af07`
-- **affects:** Q6
-- **evidence:** 'the main problem' (confidence 0.99)
-- **current reading:** A question's wording was read as quoting an earlier answer, from the phrasing alone; no table states the link.
-- **alternatives:** The wording is generic and does not actually depend on the earlier answer.
-- **downstream impact:** Whether this question's wording depends on an earlier answer, which decides the order a respondent bot must answer in and what text it should expect on screen.
-- **recommendation:** Confirm the dependency with the project owner.
+**2 PENDING_CONFIRMATION, 1 NOT_REQUIRED**
 
 ## 🔴 `rule_precedence` — PENDING_CONFIRMATION (BLOCKING)
 
@@ -40,3 +30,13 @@ old ruling kept under `previous_decision` for a quick re-confirmation.
 - **alternatives:** Treat it as true instead, so the rule fires.; Treat it as an error state needing its own handling.
 - **downstream impact:** Changes which questions are shown and which ending is reached whenever a condition names a question that was skipped.
 - **recommendation:** Confirm the intended reading with the project owner. Once recorded here it applies to every rule in this survey and does not need asking again unless the document changes.
+
+## 🔴 `ambiguous_piping` — NOT_REQUIRED (BLOCKING)
+
+- **id:** `058581e36407af07`
+- **affects:** Q6
+- **evidence:** 'the main problem' (confidence 0.99)
+- **current reading:** A question's wording was read as quoting an earlier answer, from the phrasing alone; no table states the link.
+- **alternatives:** The wording is generic and does not actually depend on the earlier answer.
+- **downstream impact:** Whether this question's wording depends on an earlier answer, which decides the order a respondent bot must answer in and what text it should expect on screen.
+- **recommendation:** Confirm the dependency with the project owner.

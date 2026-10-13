@@ -298,13 +298,17 @@ def _build_dependencies(option_sources: dict[str, OptionSource]) -> list[Depende
 
 _PIPE_SYSTEM = """You are given the questions of a survey, in the order they are asked.
 
-Find every question whose WORDING cannot be shown as written without knowing an
-answer given earlier, because it refers back to that answer.
+Find every question whose wording cannot be shown to a respondent as written,
+because it names an answer the respondent gave earlier without saying what that
+answer was. The survey has to insert the earlier answer for the sentence to say
+anything.
 
-The usual sign is a definite reference to something the respondent already
-chose: "the chosen ...", "the selected ...", "that you picked", "your earlier
-answer". When a question says THE something, and an earlier question is what
-decided which something, that is a reference and you should report it.
+Report one only when the wording itself marks the thing as the respondent's
+earlier pick, with words such as "selected", "chosen", "picked", "you chose" or
+"you mentioned". A definite reference on its own ("the issue", "the visit",
+"your choice", "the service") does not qualify: the sentence still reads
+correctly without the earlier answer, even if a programmer might choose to show
+it.
 
 Qualifies. In this illustration only, the questions are labelled with letters so
 they cannot be confused with the ids you will be given:
@@ -314,10 +318,10 @@ they cannot be confused with the ids you will be given:
   nothing.
 
 Does not qualify:
-    CC: How satisfied are you with your provider?
-    DD: Would you recommend your provider?
-  Both talk about the same real thing, but neither needs the other's answer in
-  order to be displayed.
+    CC: Which of these issues affected you most?
+    DD: Was the issue resolved?
+    EE: How satisfied are you with your provider?
+  DD and EE refer back to something, but each reads correctly as written.
 
 For each one found, give the id of the question doing the referring, the id of
 the earlier question being referred to, and the referring words copied exactly
@@ -388,6 +392,14 @@ def _build_text_pipes(
         elif order.get(target_id, 0) <= order.get(source, 0):
             problem = (
                 f"has {target_id} quoting {source}, but {source} is not asked first"
+            )
+        elif not pipe.phrase or pipe.phrase.casefold() not in next(
+            (q.wording for q in questions if q.id == target_id), ""
+        ).casefold():
+            # The words must be in the wording exactly as given, or the link
+            # rests on something the question does not say.
+            problem = (
+                f"quotes {pipe.phrase!r}, which is not in {target_id}'s wording"
             )
         if problem:
             review.append(

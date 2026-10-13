@@ -8,7 +8,7 @@
     "sha256": "b1295f94ad2dfb73c7448258fd0ccce8cdbddb1eff979d7ffc644b3af50ed548",
     "bytes": 43880
   },
-  "generated_at": "2026-10-11T17:57:00+00:00",
+  "generated_at": "2026-10-13T11:26:39+00:00",
   "item_count": null,
   "content": {
     "source": "C02_automotive_purchase_journey.docx",
@@ -3904,9 +3904,9 @@
         "from_question": "Q19",
         "to_question": "Q20",
         "kind": "text_pipe",
-        "detail": "the selected proposition",
+        "detail": "selected proposition",
         "origin": "inferred",
-        "confidence": 0.98,
+        "confidence": 1.0,
         "source_reference": {
           "document": "C02_automotive_purchase_journey.docx",
           "section": "Questionnaire",
@@ -4975,7 +4975,7 @@
           "kind": "question",
           "id": "Q20"
         },
-        "evidence": "'the selected proposition' (confidence 0.98)",
+        "evidence": "'selected proposition' (confidence 1.00)",
         "source_reference": null
       },
       {

@@ -9,12 +9,12 @@
   },
   "upstream": {
     "canonical_schema_version": "1.0.0",
-    "canonical_generated_at": "2026-10-11T17:57:30+00:00"
+    "canonical_generated_at": "2026-10-13T11:28:46+00:00"
   },
   "content": {
     "survey_id": "S04_bank_branch_visit",
     "lss_path": "out/S04_bank_branch_visit/agent2/agent2_S04_bank_branch_visit.lss",
-    "lss_sha256": "b38ff8ac57e9290266e555a340688d1b8c2fdde110b51e4313aef02f44486c9e",
+    "lss_sha256": "35091c57f5940ec2917cbf792b2f68e76c1d63a4648960514bdcafe4dbad255d",
     "sid": 900001,
     "groups": {
       "100": "Screening",
@@ -196,7 +196,7 @@
         "option_codes": {},
         "subquestion_codes": {},
         "attributes": {
-          "em_validation_q": "strlen(this) >= 10 and strlen(this) <= 500",
+          "em_validation_q": "strlen(trim(this)) >= 10 and strlen(this) <= 500",
           "em_validation_q_tip": "Please enter at least 10 characters and no more than 500 characters."
         }
       },

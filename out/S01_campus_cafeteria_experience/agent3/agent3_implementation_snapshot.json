@@ -9,12 +9,12 @@
   },
   "upstream": {
     "canonical_schema_version": "1.0.0",
-    "canonical_generated_at": "2026-10-11T17:57:26+00:00"
+    "canonical_generated_at": "2026-10-13T11:28:14+00:00"
   },
   "content": {
     "survey_id": "S01_campus_cafeteria_experience",
     "lss_path": "out/S01_campus_cafeteria_experience/agent2/agent2_S01_campus_cafeteria_experience.lss",
-    "lss_sha256": "e4c658b8d25feadfb96885dae833135ae078538389e79b2cf2330f4b7156c692",
+    "lss_sha256": "0bf92090df69abc3c94d15cc14c71798ebc8dc45f17a654319cacbf6fef6a261",
     "sid": 900001,
     "groups": {
       "100": "Screening",
@@ -196,7 +196,7 @@
         "option_codes": {},
         "subquestion_codes": {},
         "attributes": {
-          "em_validation_q": "strlen(this) >= 10 and strlen(this) <= 500",
+          "em_validation_q": "strlen(trim(this)) >= 10 and strlen(this) <= 500",
           "em_validation_q_tip": "Please enter at least 10 characters and no more than 500 characters."
         }
       },

@@ -9,7 +9,7 @@
   },
   "upstream": {
     "canonical_schema_version": "1.0.0",
-    "canonical_generated_at": "2026-10-11T17:57:10+00:00"
+    "canonical_generated_at": "2026-10-13T11:26:55+00:00"
   },
   "content": {
     "report": {
@@ -22,7 +22,7 @@
     },
     "tests": [
       {
-        "test_id": "EX-1fa4bdb85c",
+        "test_id": "EX-86576c9ef1",
         "target_id": "T-28dda6de6e",
         "dimension": "D1",
         "title": "answering D1 normally moves the respondent on to the question that should come next",
@@ -449,7 +449,7 @@
         ]
       },
       {
-        "test_id": "EX-d379d1cf2c",
+        "test_id": "EX-1c0e5e77eb",
         "target_id": "T-0a8c593040",
         "dimension": "D1",
         "title": "answering D2 normally moves the respondent on to the question that should come next",
@@ -876,7 +876,7 @@
         ]
       },
       {
-        "test_id": "EX-ff79e77359",
+        "test_id": "EX-cf906f4cda",
         "target_id": "T-fa7ae79fa5",
         "dimension": "D1",
         "title": "answering D3 normally moves the respondent on to the question that should come next",
@@ -1303,7 +1303,7 @@
         ]
       },
       {
-        "test_id": "EX-b002ff9660",
+        "test_id": "EX-ec83d90c64",
         "target_id": "T-3f0092978e",
         "dimension": "D1",
         "title": "answering D4 normally moves the respondent on to the question that should come next",
@@ -1730,7 +1730,7 @@
         ]
       },
       {
-        "test_id": "EX-1f8f7f2873",
+        "test_id": "EX-80f746119f",
         "target_id": "T-4c28ba9a4a",
         "dimension": "D1",
         "title": "answering DT1 normally moves the respondent on to the question that should come next",
@@ -2149,7 +2149,7 @@
         ]
       },
       {
-        "test_id": "EX-d748548c70",
+        "test_id": "EX-1c51a043e6",
         "target_id": "T-56d0ac2b77",
         "dimension": "D1",
         "title": "answering DT2 normally moves the respondent on to the question that should come next",
@@ -2568,7 +2568,7 @@
         ]
       },
       {
-        "test_id": "EX-fe005ae400",
+        "test_id": "EX-c3cbf249e5",
         "target_id": "T-e9c19f76b4",
         "dimension": "D1",
         "title": "answering DT3 normally moves the respondent on to the question that should come next",
@@ -2987,7 +2987,7 @@
         ]
       },
       {
-        "test_id": "EX-59ad4e7609",
+        "test_id": "EX-f79ccced1f",
         "target_id": "T-f325a4a781",
         "dimension": "D1",
         "title": "answering Q1 normally moves the respondent on to the question that should come next",
@@ -3414,7 +3414,7 @@
         ]
       },
       {
-        "test_id": "EX-316b405eb0",
+        "test_id": "EX-b747787f58",
         "target_id": "T-d5aef33769",
         "dimension": "D1",
         "title": "answering Q10 normally moves the respondent on to the question that should come next",
@@ -3841,7 +3841,7 @@
         ]
       },
       {
-        "test_id": "EX-1314d2b104",
+        "test_id": "EX-a07e83bd6f",
         "target_id": "T-11d51719ce",
         "dimension": "D1",
         "title": "answering Q11 normally moves the respondent on to the question that should come next",
@@ -4268,7 +4268,7 @@
         ]
       },
       {
-        "test_id": "EX-3de55f84d9",
+        "test_id": "EX-59e05baf3e",
         "target_id": "T-c15cef88bd",
         "dimension": "D1",
         "title": "Q11 is not displayed when its guard fails",
@@ -4516,7 +4516,7 @@
         ]
       },
       {
-        "test_id": "EX-a1eca81d95",
+        "test_id": "EX-5669bc2fb0",
         "target_id": "T-52fcaa827e",
         "dimension": "D1",
         "title": "Q11 is displayed when its guard holds",
@@ -4766,7 +4766,7 @@
         ]
       },
       {
-        "test_id": "EX-4020f44a25",
+        "test_id": "EX-7102917c49",
         "target_id": "T-3907421364",
         "dimension": "D1",
         "title": "answering Q12 normally moves the respondent on to the question that should come next",
@@ -5193,7 +5193,7 @@
         ]
       },
       {
-        "test_id": "EX-e46ce3ffb0",
+        "test_id": "EX-5f3f4a5d0b",
         "target_id": "T-75fbb3de72",
         "dimension": "D1",
         "title": "Q12 is not displayed when its guard fails",
@@ -5441,7 +5441,7 @@
         ]
       },
       {
-        "test_id": "EX-a7d3ec0fb7",
+        "test_id": "EX-f076ed6f37",
         "target_id": "T-9c982f1c81",
         "dimension": "D1",
         "title": "Q12 is displayed when its guard holds",
@@ -5701,7 +5701,7 @@
         ]
       },
       {
-        "test_id": "EX-b1e04087c1",
+        "test_id": "EX-994c106b23",
         "target_id": "T-a1c44561a6",
         "dimension": "D1",
         "title": "answering Q13 normally moves the respondent on to the question that should come next",
@@ -6128,7 +6128,7 @@
         ]
       },
       {
-        "test_id": "EX-b4812e1aec",
+        "test_id": "EX-371b4704a9",
         "target_id": "T-7a3c1221d9",
         "dimension": "D1",
         "title": "Q13 is not displayed when its guard fails",
@@ -6396,7 +6396,7 @@
         ]
       },
       {
-        "test_id": "EX-a9d43ee732",
+        "test_id": "EX-aa831bce36",
         "target_id": "T-527abdf025",
         "dimension": "D1",
         "title": "Q13 is displayed when its guard holds",
@@ -6666,7 +6666,7 @@
         ]
       },
       {
-        "test_id": "EX-8187d315dc",
+        "test_id": "EX-f42f5c67e5",
         "target_id": "T-da4659818e",
         "dimension": "D1",
         "title": "answering Q14 normally moves the respondent on to the question that should come next",
@@ -7093,7 +7093,7 @@
         ]
       },
       {
-        "test_id": "EX-bbefc998d8",
+        "test_id": "EX-f54b0001f5",
         "target_id": "T-a25a32f99a",
         "dimension": "D1",
         "title": "Q14 is not displayed when its guard fails",
@@ -7371,7 +7371,7 @@
         ]
       },
       {
-        "test_id": "EX-bca18eff46",
+        "test_id": "EX-9c305a1468",
         "target_id": "T-96aad234ca",
         "dimension": "D1",
         "title": "Q14 is displayed when its guard holds",
@@ -7641,7 +7641,7 @@
         ]
       },
       {
-        "test_id": "EX-fdbb822f09",
+        "test_id": "EX-ea26c0567a",
         "target_id": "T-19d2bb8d63",
         "dimension": "D1",
         "title": "answering Q15 normally moves the respondent on to the question that should come next",
@@ -8068,7 +8068,7 @@
         ]
       },
       {
-        "test_id": "EX-e68d68b701",
+        "test_id": "EX-1e2de9989a",
         "target_id": "T-5a1c63d00b",
         "dimension": "D1",
         "title": "Q15 is not displayed when its guard fails",
@@ -8265,7 +8265,7 @@
         ]
       },
       {
-        "test_id": "EX-de5ef7cc32",
+        "test_id": "EX-65e9ecd78f",
         "target_id": "T-8754622236",
         "dimension": "D1",
         "title": "Q15 is displayed when its guard holds",
@@ -8544,7 +8544,7 @@
         ]
       },
       {
-        "test_id": "EX-719ab153cb",
+        "test_id": "EX-0e17c9874c",
         "target_id": "T-d23f2bd82f",
         "dimension": "D1",
         "title": "answering Q16 normally moves the respondent on to the question that should come next",
@@ -8971,7 +8971,7 @@
         ]
       },
       {
-        "test_id": "EX-26ec1e7f83",
+        "test_id": "EX-50a8c3ea75",
         "target_id": "T-42b635fb7b",
         "dimension": "D1",
         "title": "Q16 is not displayed when its guard fails",
@@ -9259,7 +9259,7 @@
         ]
       },
       {
-        "test_id": "EX-989ddcdc55",
+        "test_id": "EX-26dd533b9f",
         "target_id": "T-926f113e74",
         "dimension": "D1",
         "title": "Q16 is displayed when its guard holds",
@@ -9549,7 +9549,7 @@
         ]
       },
       {
-        "test_id": "EX-82caa8feac",
+        "test_id": "EX-7f9979d671",
         "target_id": "T-4e1cad7a3b",
         "dimension": "D1",
         "title": "answering Q17 normally moves the respondent on to the question that should come next",
@@ -9986,7 +9986,7 @@
         ]
       },
       {
-        "test_id": "EX-b4250628d1",
+        "test_id": "EX-b7e1bf81f7",
         "target_id": "T-de5c572d8c",
         "dimension": "D1",
         "title": "Q17 is not displayed when its guard fails",
@@ -10284,7 +10284,7 @@
         ]
       },
       {
-        "test_id": "EX-208711b9c6",
+        "test_id": "EX-cad1b0176e",
         "target_id": "T-82b516f812",
         "dimension": "D1",
         "title": "Q17 is displayed when its guard holds",
@@ -10584,7 +10584,7 @@
         ]
       },
       {
-        "test_id": "EX-6069b8648c",
+        "test_id": "EX-30ebb13e9f",
         "target_id": "T-dfa61ef090",
         "dimension": "D1",
         "title": "answering Q18 normally moves the respondent on to the question that should come next",
@@ -11011,7 +11011,7 @@
         ]
       },
       {
-        "test_id": "EX-8f83ca3444",
+        "test_id": "EX-23ab25fd5a",
         "target_id": "T-d17654526e",
         "dimension": "D1",
         "title": "answering Q19 normally moves the respondent on to the question that should come next",
@@ -11438,7 +11438,7 @@
         ]
       },
       {
-        "test_id": "EX-3cf7184593",
+        "test_id": "EX-0069560d11",
         "target_id": "T-ea15e888c6",
         "dimension": "D1",
         "title": "answering Q2 normally moves the respondent on to the question that should come next",
@@ -11865,7 +11865,7 @@
         ]
       },
       {
-        "test_id": "EX-e7acbdd230",
+        "test_id": "EX-3a9f3e07a3",
         "target_id": "T-63d8afff5b",
         "dimension": "D1",
         "title": "Q2 is not displayed when its guard fails",
@@ -11974,7 +11974,7 @@
         ]
       },
       {
-        "test_id": "EX-3453cbfb0a",
+        "test_id": "EX-19261b04d1",
         "target_id": "T-a72cd3409f",
         "dimension": "D1",
         "title": "Q2 is displayed when its guard holds",
@@ -12084,7 +12084,7 @@
         ]
       },
       {
-        "test_id": "EX-495b46a0c9",
+        "test_id": "EX-1afbdd6135",
         "target_id": "T-20a79cced5",
         "dimension": "D1",
         "title": "answering Q20 normally moves the respondent on to the question that should come next",
@@ -12511,7 +12511,7 @@
         ]
       },
       {
-        "test_id": "EX-209a4d5857",
+        "test_id": "EX-512bd38524",
         "target_id": "T-8782697728",
         "dimension": "D1",
         "title": "answering Q21 normally moves the respondent on to the question that should come next",
@@ -12938,7 +12938,7 @@
         ]
       },
       {
-        "test_id": "EX-29e5faedc6",
+        "test_id": "EX-161c959355",
         "target_id": "T-82b2e57efa",
         "dimension": "D1",
         "title": "answering Q22 normally moves the respondent on to the question that should come next",
@@ -13365,7 +13365,7 @@
         ]
       },
       {
-        "test_id": "EX-3a2e5ef760",
+        "test_id": "EX-db9083e271",
         "target_id": "T-4e33a23d9e",
         "dimension": "D1",
         "title": "answering Q23 normally moves the respondent on to the question that should come next",
@@ -13792,7 +13792,7 @@
         ]
       },
       {
-        "test_id": "EX-3ec0420e07",
+        "test_id": "EX-d66cce2340",
         "target_id": "T-d182c884c0",
         "dimension": "D1",
         "title": "answering Q3 normally moves the respondent on to the question that should come next",
@@ -14219,7 +14219,7 @@
         ]
       },
       {
-        "test_id": "EX-1966c45a95",
+        "test_id": "EX-980e5d3303",
         "target_id": "T-5cee4295f8",
         "dimension": "D1",
         "title": "Q3 is not displayed when its guard fails",
@@ -14328,7 +14328,7 @@
         ]
       },
       {
-        "test_id": "EX-0ffc5d8ec0",
+        "test_id": "EX-bab36eee18",
         "target_id": "T-1f07f052e1",
         "dimension": "D1",
         "title": "Q3 is displayed when its guard holds",
@@ -14448,7 +14448,7 @@
         ]
       },
       {
-        "test_id": "EX-8e2eb7b666",
+        "test_id": "EX-3939330c2d",
         "target_id": "T-460e9ac790",
         "dimension": "D1",
         "title": "answering Q4 normally moves the respondent on to the question that should come next",
@@ -14875,7 +14875,7 @@
         ]
       },
       {
-        "test_id": "EX-56332d8d0d",
+        "test_id": "EX-cd0f83d46f",
         "target_id": "T-4a81ad1c54",
         "dimension": "D1",
         "title": "answering Q5 normally moves the respondent on to the question that should come next",
@@ -15302,7 +15302,7 @@
         ]
       },
       {
-        "test_id": "EX-3a3d028f65",
+        "test_id": "EX-4728b69819",
         "target_id": "T-a31d9e36e7",
         "dimension": "D1",
         "title": "answering Q6 normally moves the respondent on to the question that should come next",
@@ -15729,7 +15729,7 @@
         ]
       },
       {
-        "test_id": "EX-4449c77c45",
+        "test_id": "EX-ee71b20000",
         "target_id": "T-836bcea7a3",
         "dimension": "D1",
         "title": "Q6 is not displayed when its guard fails",
@@ -15877,7 +15877,7 @@
         ]
       },
       {
-        "test_id": "EX-dd9ab0e182",
+        "test_id": "EX-cccd94d32b",
         "target_id": "T-46ad0b9227",
         "dimension": "D1",
         "title": "Q6 is displayed when its guard holds",
@@ -16027,7 +16027,7 @@
         ]
       },
       {
-        "test_id": "EX-1d08d24e23",
+        "test_id": "EX-bf1750dad4",
         "target_id": "T-a25fbf002c",
         "dimension": "D1",
         "title": "answering Q7 normally moves the respondent on to the question that should come next",
@@ -16454,7 +16454,7 @@
         ]
       },
       {
-        "test_id": "EX-e4c337294e",
+        "test_id": "EX-cfdab9ee1c",
         "target_id": "T-567c52fd5d",
         "dimension": "D1",
         "title": "Q7 is not displayed when its guard fails",
@@ -16612,7 +16612,7 @@
         ]
       },
       {
-        "test_id": "EX-2d21da6a06",
+        "test_id": "EX-7758f26372",
         "target_id": "T-6959e7ba58",
         "dimension": "D1",
         "title": "Q7 is displayed when its guard holds",
@@ -16772,7 +16772,7 @@
         ]
       },
       {
-        "test_id": "EX-f714a5d609",
+        "test_id": "EX-3c75f66592",
         "target_id": "T-b3b76ca11a",
         "dimension": "D1",
         "title": "answering Q8 normally moves the respondent on to the question that should come next",
@@ -17199,7 +17199,7 @@
         ]
       },
       {
-        "test_id": "EX-217a18d00d",
+        "test_id": "EX-5ce5a64dd3",
         "target_id": "T-21fd637902",
         "dimension": "D1",
         "title": "Q8 is not displayed when its guard fails",
@@ -17357,7 +17357,7 @@
         ]
       },
       {
-        "test_id": "EX-c94aadd339",
+        "test_id": "EX-10a407e39f",
         "target_id": "T-0e25b5f453",
         "dimension": "D1",
         "title": "Q8 is displayed when its guard holds",
@@ -17527,7 +17527,7 @@
         ]
       },
       {
-        "test_id": "EX-fea2138c65",
+        "test_id": "EX-7a0764b117",
         "target_id": "T-2d38100fad",
         "dimension": "D1",
         "title": "answering Q9 normally moves the respondent on to the question that should come next",
@@ -17954,7 +17954,7 @@
         ]
       },
       {
-        "test_id": "EX-03fb0b53d9",
+        "test_id": "EX-a4b5a9d8d0",
         "target_id": "T-38fdb69243",
         "dimension": "D1",
         "title": "Q9 is not displayed when its guard fails",
@@ -18112,7 +18112,7 @@
         ]
       },
       {
-        "test_id": "EX-a00ff3fa9c",
+        "test_id": "EX-36bfd0dbad",
         "target_id": "T-b4a5f414c4",
         "dimension": "D1",
         "title": "Q9 is displayed when its guard holds",
@@ -18342,7 +18342,7 @@
         ]
       },
       {
-        "test_id": "EX-4e33c3e8c6",
+        "test_id": "EX-4390e2e05f",
         "target_id": "T-8a3f6119c2",
         "dimension": "D1",
         "title": "R5 jumps to Q4 when its condition holds",
@@ -18442,7 +18442,7 @@
         ]
       },
       {
-        "test_id": "EX-a047194cb0",
+        "test_id": "EX-54e6264b8e",
         "target_id": "T-8e6acd1f8d",
         "dimension": "D1",
         "title": "R5 does not jump when its condition fails, so the respondent continues in sequence",
@@ -18541,7 +18541,7 @@
         ]
       },
       {
-        "test_id": "EX-cd8fe97353",
+        "test_id": "EX-7e56ebb745",
         "target_id": "T-94ce2e5d20",
         "dimension": "D1",
         "title": "answering S1 normally moves the respondent on to the question that should come next",
@@ -18968,7 +18968,7 @@
         ]
       },
       {
-        "test_id": "EX-24b9877ac9",
+        "test_id": "EX-6726defc59",
         "target_id": "T-9b21d71193",
         "dimension": "D1",
         "title": "answering S2 normally moves the respondent on to the question that should come next",
@@ -19395,7 +19395,7 @@
         ]
       },
       {
-        "test_id": "EX-34c66265d9",
+        "test_id": "EX-d8c70a2a45",
         "target_id": "T-4b5b9751c7",
         "dimension": "D1",
         "title": "answering S3 normally moves the respondent on to the question that should come next",
@@ -19822,7 +19822,7 @@
         ]
       },
       {
-        "test_id": "EX-22a30adbbc",
+        "test_id": "EX-12840b4e45",
         "target_id": "T-8820ac5d47",
         "dimension": "D1",
         "title": "answering S4 normally moves the respondent on to the question that should come next",
@@ -20249,7 +20249,7 @@
         ]
       },
       {
-        "test_id": "EX-930165136b",
+        "test_id": "EX-ad02d7ce32",
         "target_id": "T-05b0993ae8",
         "dimension": "D2",
         "title": "a respondent can reach ending COMPLETE",
@@ -20666,7 +20666,7 @@
         ]
       },
       {
-        "test_id": "EX-8fb44a2bdb",
+        "test_id": "EX-08b89b7de8",
         "target_id": "T-9c7815569c",
         "dimension": "D2",
         "title": "ending TERM_AGE is reached by rule R1, evaluated at S1",
@@ -20724,7 +20724,7 @@
         ]
       },
       {
-        "test_id": "EX-28b236ea74",
+        "test_id": "EX-2c92782bf3",
         "target_id": "T-a998295c93",
         "dimension": "D2",
         "title": "ending TERM_CONFLICT is reached by rule R4, evaluated at S4",
@@ -20812,7 +20812,7 @@
         ]
       },
       {
-        "test_id": "EX-3d24d63d41",
+        "test_id": "EX-d5e7bdd22a",
         "target_id": "T-bb9908a756",
         "dimension": "D2",
         "title": "ending TERM_INVOLVEMENT is reached by rule R2, evaluated at S2",
@@ -20880,7 +20880,7 @@
         ]
       },
       {
-        "test_id": "EX-f48f18e829",
+        "test_id": "EX-5e052c01d1",
         "target_id": "T-57e35e6386",
         "dimension": "D2",
         "title": "ending TERM_RECENT_RESEARCH is reached by rule R3, evaluated at S3",
@@ -20958,7 +20958,7 @@
         ]
       },
       {
-        "test_id": "EX-3e7dae3b42",
+        "test_id": "EX-8ce636878e",
         "target_id": "T-64d8be217a",
         "dimension": "D3",
         "title": "Q1 accepts an answer meeting ['exclusive_option_id']",
@@ -21058,7 +21058,7 @@
         ]
       },
       {
-        "test_id": "EX-3c31f6817f",
+        "test_id": "EX-b58590644f",
         "target_id": "T-b922005f72",
         "dimension": "D3",
         "title": "Q1 rejects an answer breaking ['exclusive_option_id']",
@@ -21173,7 +21173,7 @@
         "provisional_semantics": []
       },
       {
-        "test_id": "EX-e5a20e5b34",
+        "test_id": "EX-530938784a",
         "target_id": "T-6d888b4f8a",
         "dimension": "D3",
         "title": "Q11 accepts an answer meeting ['min_selections']",
@@ -21422,7 +21422,7 @@
         ]
       },
       {
-        "test_id": "EX-b45957c699",
+        "test_id": "EX-633224d2d2",
         "target_id": "T-5901081e3b",
         "dimension": "D3",
         "title": "Q11 rejects an answer breaking ['min_selections']",
@@ -21679,7 +21679,7 @@
         ]
       },
       {
-        "test_id": "EX-76438dade5",
+        "test_id": "EX-c42c2b9ed7",
         "target_id": "T-f6726b3e96",
         "dimension": "D3",
         "title": "Q14 accepts an answer of exactly 500 characters, its stated maximum",
@@ -21948,7 +21948,7 @@
         ]
       },
       {
-        "test_id": "EX-a4834cd65d",
+        "test_id": "EX-9298648792",
         "target_id": "T-ffc0366e37",
         "dimension": "D3",
         "title": "Q14 accepts an answer meeting ['max_length', 'min_length']",
@@ -22217,7 +22217,7 @@
         ]
       },
       {
-        "test_id": "EX-3519e24ad1",
+        "test_id": "EX-7621aecdc1",
         "target_id": "T-2b7da8cff1",
         "dimension": "D3",
         "title": "Q14 accepts punctuation and quotation marks, because its rule constrains length and not content",
@@ -22486,7 +22486,7 @@
         ]
       },
       {
-        "test_id": "EX-657b023ddd",
+        "test_id": "EX-05bd9fe785",
         "target_id": "T-71252ee14c",
         "dimension": "D3",
         "title": "Q14 rejects an answer breaking ['max_length', 'min_length']",
@@ -22763,7 +22763,7 @@
         ]
       },
       {
-        "test_id": "EX-c4db813cee",
+        "test_id": "EX-3ccb954725",
         "target_id": "T-2d0768947c",
         "dimension": "D3",
         "title": "Q17 accepts an answer of exactly 200 characters, its stated maximum",
@@ -23062,7 +23062,7 @@
         ]
       },
       {
-        "test_id": "EX-03a80d4a64",
+        "test_id": "EX-9e3daef63d",
         "target_id": "T-a4f9951894",
         "dimension": "D3",
         "title": "Q17 accepts an answer meeting ['max_length', 'min_length']",
@@ -23361,7 +23361,7 @@
         ]
       },
       {
-        "test_id": "EX-3d3691b97e",
+        "test_id": "EX-eb3d1750d3",
         "target_id": "T-08dd173f52",
         "dimension": "D3",
         "title": "Q17 accepts punctuation and quotation marks, because its rule constrains length and not content",
@@ -23660,7 +23660,7 @@
         ]
       },
       {
-        "test_id": "EX-e5abbadcf1",
+        "test_id": "EX-83c695a596",
         "target_id": "T-0b7e13d6e1",
         "dimension": "D3",
         "title": "Q17 rejects an answer breaking ['max_length', 'min_length']",
@@ -23967,7 +23967,7 @@
         ]
       },
       {
-        "test_id": "EX-05d148dce6",
+        "test_id": "EX-2837a0a390",
         "target_id": "T-d9f9a89514",
         "dimension": "D3",
         "title": "Q18 accepts an answer meeting ['sum_to']",
@@ -24306,7 +24306,7 @@
         ]
       },
       {
-        "test_id": "EX-61fdbb8fde",
+        "test_id": "EX-a245a0c442",
         "target_id": "T-f869cc61e4",
         "dimension": "D3",
         "title": "Q18 rejects an answer breaking ['sum_to']",
@@ -24653,7 +24653,7 @@
         ]
       },
       {
-        "test_id": "EX-1685a1e4af",
+        "test_id": "EX-fdff25a3e7",
         "target_id": "T-56550a97dd",
         "dimension": "D3",
         "title": "Q21 accepts an answer of exactly 500 characters, its stated maximum",
@@ -25022,7 +25022,7 @@
         ]
       },
       {
-        "test_id": "EX-ad350b7cf3",
+        "test_id": "EX-7ded6bb86a",
         "target_id": "T-6a8d9edecd",
         "dimension": "D3",
         "title": "Q21 accepts an answer meeting ['max_length', 'min_length']",
@@ -25391,7 +25391,7 @@
         ]
       },
       {
-        "test_id": "EX-fcc4aa1f80",
+        "test_id": "EX-9caad9dea8",
         "target_id": "T-bc16d50ae1",
         "dimension": "D3",
         "title": "Q21 accepts punctuation and quotation marks, because its rule constrains length and not content",
@@ -25760,7 +25760,7 @@
         ]
       },
       {
-        "test_id": "EX-f29dd40c32",
+        "test_id": "EX-0015efae9c",
         "target_id": "T-fd51bdcea7",
         "dimension": "D3",
         "title": "Q21 rejects an answer breaking ['max_length', 'min_length']",
@@ -26137,7 +26137,7 @@
         ]
       },
       {
-        "test_id": "EX-e0ff077131",
+        "test_id": "EX-5a9267721f",
         "target_id": "T-636f0d6630",
         "dimension": "D3",
         "title": "Q23 accepts an answer of exactly 1000 characters, its stated maximum",
@@ -26566,7 +26566,7 @@
         ]
       },
       {
-        "test_id": "EX-6f5a4e45c5",
+        "test_id": "EX-792af15c43",
         "target_id": "T-29e4d99dd7",
         "dimension": "D3",
         "title": "Q23 accepts an answer meeting ['max_length']",
@@ -26995,7 +26995,7 @@
         ]
       },
       {
-        "test_id": "EX-7b44cb19b7",
+        "test_id": "EX-0e02d957bd",
         "target_id": "T-3a4a7d62e9",
         "dimension": "D3",
         "title": "Q23 accepts punctuation and quotation marks, because its rule constrains length and not content",
@@ -27424,7 +27424,7 @@
         ]
       },
       {
-        "test_id": "EX-c8e90c5c26",
+        "test_id": "EX-2e1af116f6",
         "target_id": "T-4638329ce4",
         "dimension": "D3",
         "title": "Q23 rejects an answer breaking ['max_length']",
@@ -27861,7 +27861,7 @@
         ]
       },
       {
-        "test_id": "EX-274b374582",
+        "test_id": "EX-d94522066f",
         "target_id": "T-1ccc2b2a02",
         "dimension": "D3",
         "title": "Q5 accepts an answer meeting ['exclusive_option_id']",
@@ -28000,7 +28000,7 @@
         ]
       },
       {
-        "test_id": "EX-e2892228d5",
+        "test_id": "EX-d420756585",
         "target_id": "T-0ebf80f9a4",
         "dimension": "D3",
         "title": "Q5 rejects an answer breaking ['exclusive_option_id']",
@@ -28157,7 +28157,7 @@
         ]
       },
       {
-        "test_id": "EX-076e7a030c",
+        "test_id": "EX-9a78c95db9",
         "target_id": "T-a62c2ce604",
         "dimension": "D3",
         "title": "Q9 accepts an answer meeting ['require_each_row']",
@@ -28386,7 +28386,7 @@
         ]
       },
       {
-        "test_id": "EX-993e3a2f23",
+        "test_id": "EX-01de790f25",
         "target_id": "T-d59d4c9e33",
         "dimension": "D3",
         "title": "Q9 rejects an answer breaking ['require_each_row']",
@@ -28613,7 +28613,7 @@
         ]
       },
       {
-        "test_id": "EX-0b1dfc1930",
+        "test_id": "EX-c2bd99b3bc",
         "target_id": "T-7c28ecb52e",
         "dimension": "D4",
         "title": "D1 blocks progress when left blank",
@@ -29000,7 +29000,7 @@
         ]
       },
       {
-        "test_id": "EX-42f8af7d15",
+        "test_id": "EX-8a88da5b85",
         "target_id": "T-dbfdeade73",
         "dimension": "D4",
         "title": "D2 blocks progress when left blank",
@@ -29397,7 +29397,7 @@
         ]
       },
       {
-        "test_id": "EX-80d76ee9db",
+        "test_id": "EX-a55486a629",
         "target_id": "T-d10e62a757",
         "dimension": "D4",
         "title": "D3 blocks progress when left blank",
@@ -29804,7 +29804,7 @@
         ]
       },
       {
-        "test_id": "EX-22799093f7",
+        "test_id": "EX-36b9993ba2",
         "target_id": "T-b9cdbaed9b",
         "dimension": "D4",
         "title": "D4 blocks progress when left blank",
@@ -30221,7 +30221,7 @@
         ]
       },
       {
-        "test_id": "EX-6bc1afa0a2",
+        "test_id": "EX-7ed4c3b3d6",
         "target_id": "T-e12aace78c",
         "dimension": "D4",
         "title": "Q1 blocks progress when left blank",
@@ -30326,7 +30326,7 @@
         "provisional_semantics": []
       },
       {
-        "test_id": "EX-d0f093b2b6",
+        "test_id": "EX-45da9d2ca7",
         "target_id": "T-68390df668",
         "dimension": "D4",
         "title": "Q10 blocks progress when left blank",
@@ -30573,7 +30573,7 @@
         ]
       },
       {
-        "test_id": "EX-3a1d3ff1f4",
+        "test_id": "EX-e5afb22e79",
         "target_id": "T-b5d13c56c1",
         "dimension": "D4",
         "title": "Q11 blocks progress when left blank",
@@ -30830,7 +30830,7 @@
         ]
       },
       {
-        "test_id": "EX-f4937dc940",
+        "test_id": "EX-69f3e41885",
         "target_id": "T-90ff9bb975",
         "dimension": "D4",
         "title": "Q12 blocks progress when left blank",
@@ -31097,7 +31097,7 @@
         ]
       },
       {
-        "test_id": "EX-43081cf5f8",
+        "test_id": "EX-e8e0ca691e",
         "target_id": "T-c0d2efa11b",
         "dimension": "D4",
         "title": "Q13 blocks progress when left blank",
@@ -31374,7 +31374,7 @@
         ]
       },
       {
-        "test_id": "EX-282ffc45f9",
+        "test_id": "EX-6ab1e104cf",
         "target_id": "T-2e4c055027",
         "dimension": "D4",
         "title": "Q14 blocks progress when left blank",
@@ -31651,7 +31651,7 @@
         ]
       },
       {
-        "test_id": "EX-8778d5fe65",
+        "test_id": "EX-83dccbfe79",
         "target_id": "T-538bb13bb8",
         "dimension": "D4",
         "title": "Q14 refuses an answer of spaces alone, being compulsory",
@@ -31929,7 +31929,7 @@
         ]
       },
       {
-        "test_id": "EX-c52ea6c689",
+        "test_id": "EX-d4bee6b69e",
         "target_id": "T-f3a91deb36",
         "dimension": "D4",
         "title": "Q15 blocks progress when left blank",
@@ -32216,7 +32216,7 @@
         ]
       },
       {
-        "test_id": "EX-41e8cb72e8",
+        "test_id": "EX-b9fa2b5803",
         "target_id": "T-4d60314582",
         "dimension": "D4",
         "title": "Q16 blocks progress when left blank",
@@ -32513,7 +32513,7 @@
         ]
       },
       {
-        "test_id": "EX-7e2b5d3aaf",
+        "test_id": "EX-d2c5b17094",
         "target_id": "T-f7dbbbe44a",
         "dimension": "D4",
         "title": "Q17 blocks progress when left blank",
@@ -32820,7 +32820,7 @@
         ]
       },
       {
-        "test_id": "EX-dbaa726d49",
+        "test_id": "EX-9efed0219a",
         "target_id": "T-66d084b45e",
         "dimension": "D4",
         "title": "Q17 refuses an answer of spaces alone, being compulsory",
@@ -33128,7 +33128,7 @@
         ]
       },
       {
-        "test_id": "EX-8d46a4405c",
+        "test_id": "EX-77088acdd2",
         "target_id": "T-3d89191a22",
         "dimension": "D4",
         "title": "Q18 blocks progress when left blank",
@@ -33435,7 +33435,7 @@
         ]
       },
       {
-        "test_id": "EX-bad84354e6",
+        "test_id": "EX-acd6290429",
         "target_id": "T-6ac057a591",
         "dimension": "D4",
         "title": "Q19 blocks progress when left blank",
@@ -33792,7 +33792,7 @@
         ]
       },
       {
-        "test_id": "EX-0e9be11bb2",
+        "test_id": "EX-baccdf551c",
         "target_id": "T-727f5e7cc5",
         "dimension": "D4",
         "title": "Q2 blocks progress when left blank",
@@ -33909,7 +33909,7 @@
         ]
       },
       {
-        "test_id": "EX-b8829afd5f",
+        "test_id": "EX-c979b3a533",
         "target_id": "T-ac047e7b7e",
         "dimension": "D4",
         "title": "Q20 blocks progress when left blank",
@@ -34276,7 +34276,7 @@
         ]
       },
       {
-        "test_id": "EX-96550a1018",
+        "test_id": "EX-10b5901b5c",
         "target_id": "T-90ea8c04ea",
         "dimension": "D4",
         "title": "Q21 blocks progress when left blank",
@@ -34653,7 +34653,7 @@
         ]
       },
       {
-        "test_id": "EX-52a9552ac8",
+        "test_id": "EX-082a40e04d",
         "target_id": "T-ccc57c78ea",
         "dimension": "D4",
         "title": "Q21 refuses an answer of spaces alone, being compulsory",
@@ -35031,7 +35031,7 @@
         ]
       },
       {
-        "test_id": "EX-22b0f7a826",
+        "test_id": "EX-4fae6f0a97",
         "target_id": "T-c9577209e2",
         "dimension": "D4",
         "title": "Q22 blocks progress when left blank",
@@ -35458,7 +35458,7 @@
         ]
       },
       {
-        "test_id": "EX-5c7c019d5c",
+        "test_id": "EX-28d6a1cf44",
         "target_id": "T-eee113ba16",
         "dimension": "D4",
         "title": "Q23 is optional and permits progress when left blank",
@@ -35887,7 +35887,7 @@
         ]
       },
       {
-        "test_id": "EX-8e84a57e28",
+        "test_id": "EX-e0368cea94",
         "target_id": "T-c9acd65128",
         "dimension": "D4",
         "title": "Q23 accepts an answer of spaces alone, being optional",
@@ -36317,7 +36317,7 @@
         ]
       },
       {
-        "test_id": "EX-e102bd3e25",
+        "test_id": "EX-ac65f0f6cc",
         "target_id": "T-4bdf659dfa",
         "dimension": "D4",
         "title": "Q3 blocks progress when left blank",
@@ -36444,7 +36444,7 @@
         ]
       },
       {
-        "test_id": "EX-a8a96fc776",
+        "test_id": "EX-d0c8c3e632",
         "target_id": "T-9a87b3907e",
         "dimension": "D4",
         "title": "Q4 blocks progress when left blank",
@@ -36581,7 +36581,7 @@
         ]
       },
       {
-        "test_id": "EX-1b4044ab9c",
+        "test_id": "EX-58fb6b8bd2",
         "target_id": "T-0249397b0f",
         "dimension": "D4",
         "title": "Q5 blocks progress when left blank",
@@ -36728,7 +36728,7 @@
         ]
       },
       {
-        "test_id": "EX-96b1c34b8b",
+        "test_id": "EX-b8317c6acf",
         "target_id": "T-e98006aa3a",
         "dimension": "D4",
         "title": "Q6 blocks progress when left blank",
@@ -36885,7 +36885,7 @@
         ]
       },
       {
-        "test_id": "EX-df49cd97f2",
+        "test_id": "EX-db209792ee",
         "target_id": "T-fdb731cc7b",
         "dimension": "D4",
         "title": "Q7 blocks progress when left blank",
@@ -37052,7 +37052,7 @@
         ]
       },
       {
-        "test_id": "EX-0cdc596980",
+        "test_id": "EX-b499319eeb",
         "target_id": "T-f5b246159d",
         "dimension": "D4",
         "title": "Q8 blocks progress when left blank",
@@ -37229,7 +37229,7 @@
         ]
       },
       {
-        "test_id": "EX-01ac0cc0c8",
+        "test_id": "EX-5cf7a74fe7",
         "target_id": "T-eb5ef7c538",
         "dimension": "D4",
         "title": "Q9 blocks progress when left blank",
@@ -37416,7 +37416,7 @@
         ]
       },
       {
-        "test_id": "EX-7e42c61379",
+        "test_id": "EX-32550892da",
         "target_id": "T-04f1f82dbc",
         "dimension": "D4",
         "title": "S1 blocks progress when left blank",
@@ -37471,7 +37471,7 @@
         "provisional_semantics": []
       },
       {
-        "test_id": "EX-99196222ce",
+        "test_id": "EX-aee55a7c28",
         "target_id": "T-f3c7bd7103",
         "dimension": "D4",
         "title": "S2 blocks progress when left blank",
@@ -37536,7 +37536,7 @@
         "provisional_semantics": []
       },
       {
-        "test_id": "EX-8b1ff73a03",
+        "test_id": "EX-928586493b",
         "target_id": "T-c3fc047030",
         "dimension": "D4",
         "title": "S3 blocks progress when left blank",
@@ -37611,7 +37611,7 @@
         "provisional_semantics": []
       },
       {
-        "test_id": "EX-34c7520a32",
+        "test_id": "EX-b8ecc5b642",
         "target_id": "T-cbb1204084",
         "dimension": "D4",
         "title": "S4 blocks progress when left blank",
@@ -37696,7 +37696,7 @@
         "provisional_semantics": []
       },
       {
-        "test_id": "EX-72f592a304",
+        "test_id": "EX-cd188ad144",
         "target_id": "T-beeb7a1cb6",
         "dimension": "D5",
         "title": "Q2's option list is narrowed to what was chosen at Q1",
@@ -37808,7 +37808,7 @@
         ]
       },
       {
-        "test_id": "EX-0e27faa594",
+        "test_id": "EX-1094ba320c",
         "target_id": "T-953114b8fc",
         "dimension": "D5",
         "title": "Q6's option list is narrowed to what was chosen at Q5",
@@ -37960,7 +37960,7 @@
         ]
       },
       {
-        "test_id": "EX-00e188fcab",
+        "test_id": "EX-e116f54a8a",
         "target_id": "T-ec63a3b3b0",
         "dimension": "D6",
         "title": "Q20's wording renders the answer given at Q19",
@@ -38320,7 +38320,7 @@
         ]
       },
       {
-        "test_id": "EX-7163fc6778",
+        "test_id": "EX-9e37610b59",
         "target_id": "T-8ef0dbe284",
         "dimension": "D7",
         "title": "Q1 presents all 5 items exactly once, with none missing and none repeated",
@@ -38433,7 +38433,7 @@
         ]
       },
       {
-        "test_id": "EX-b87931f107",
+        "test_id": "EX-58707bfa7a",
         "target_id": "T-9a16912391",
         "dimension": "D7",
         "title": "Q1 presents its items in a different order to different respondents, proving shuffling is switched on",
@@ -38536,7 +38536,7 @@
         ]
       },
       {
-        "test_id": "EX-3964f6308c",
+        "test_id": "EX-b96bd257e4",
         "target_id": "T-fbc8e30f0b",
         "dimension": "D7",
         "title": "Q16 presents all 6 items exactly once, with none missing and none repeated",
@@ -38840,7 +38840,7 @@
         ]
       },
       {
-        "test_id": "EX-5b278d5d59",
+        "test_id": "EX-9e9ee9117a",
         "target_id": "T-2aa30145c2",
         "dimension": "D7",
         "title": "Q16 presents its items in a different order to different respondents, proving shuffling is switched on",
@@ -39133,7 +39133,7 @@
         ]
       },
       {
-        "test_id": "EX-a701ed7e6c",
+        "test_id": "EX-181f608139",
         "target_id": "T-e1c58d8b6d",
         "dimension": "D7",
         "title": "Q19 presents all 3 items exactly once, with none missing and none repeated",
@@ -39494,7 +39494,7 @@
         ]
       },
       {
-        "test_id": "EX-eeee3abb36",
+        "test_id": "EX-11bd63f40b",
         "target_id": "T-1c93215387",
         "dimension": "D7",
         "title": "Q19 presents its items in a different order to different respondents, proving shuffling is switched on",
@@ -39847,7 +39847,7 @@
         ]
       },
       {
-        "test_id": "EX-2eda28fbc5",
+        "test_id": "EX-02c562b645",
         "target_id": "T-b0954aa1e5",
         "dimension": "D7",
         "title": "Q5 presents all 7 items exactly once, with none missing and none repeated",
@@ -40002,7 +40002,7 @@
         ]
       },
       {
-        "test_id": "EX-891b29017d",
+        "test_id": "EX-da6672e824",
         "target_id": "T-05b0370cb0",
         "dimension": "D7",
         "title": "Q5 presents its items in a different order to different respondents, proving shuffling is switched on",
@@ -40145,7 +40145,7 @@
         ]
       },
       {
-        "test_id": "EX-59c48c5680",
+        "test_id": "EX-fc780b85a5",
         "target_id": "T-9cc32b009e",
         "dimension": "D7",
         "title": "Q9 presents all 5 items exactly once, with none missing and none repeated",
@@ -40388,7 +40388,7 @@
         ]
       },
       {
-        "test_id": "EX-0078696fa8",
+        "test_id": "EX-73da90bcfd",
         "target_id": "T-fcf8d64445",
         "dimension": "D7",
         "title": "Q9 presents its items in a different order to different respondents, proving shuffling is switched on",
@@ -40621,7 +40621,7 @@
         ]
       },
       {
-        "test_id": "EX-4be6dc5f89",
+        "test_id": "EX-e49fae7955",
         "target_id": "T-8df3f85e9c",
         "dimension": "D8",
         "title": "QUOTA_AGE:D2-O1 (21-29) admits a respondent while below target",
@@ -41010,7 +41010,7 @@
         ]
       },
       {
-        "test_id": "EX-15e75d2bc8",
+        "test_id": "EX-82b22e019c",
         "target_id": "T-7161d904f8",
         "dimension": "D8",
         "title": "QUOTA_AGE:D2-O2 (30-39) admits a respondent while below target",
@@ -41399,7 +41399,7 @@
         ]
       },
       {
-        "test_id": "EX-784f22b276",
+        "test_id": "EX-b39f67ebc1",
         "target_id": "T-1996e6ad8a",
         "dimension": "D8",
         "title": "QUOTA_AGE:D2-O3 (40-49) admits a respondent while below target",
@@ -41788,7 +41788,7 @@
         ]
       },
       {
-        "test_id": "EX-96d6769a62",
+        "test_id": "EX-5c8c0fdfa8",
         "target_id": "T-9f1ddcac4e",
         "dimension": "D8",
         "title": "QUOTA_AGE:D2-O4 (50-59) admits a respondent while below target",
@@ -42177,7 +42177,7 @@
         ]
       },
       {
-        "test_id": "EX-1452d04ab3",
+        "test_id": "EX-7134bbfdb9",
         "target_id": "T-427582f42c",
         "dimension": "D8",
         "title": "QUOTA_AGE:D2-O5 (60+) admits a respondent while below target",
@@ -42566,7 +42566,7 @@
         ]
       },
       {
-        "test_id": "EX-0821323b61",
+        "test_id": "EX-720ea4eb6b",
         "target_id": "T-0afd1d6279",
         "dimension": "D8",
         "title": "QUOTA_REGION:D1-O1 (North) admits a respondent while below target",
@@ -42945,7 +42945,7 @@
         ]
       },
       {
-        "test_id": "EX-5b148f913f",
+        "test_id": "EX-4c4eb8fa16",
         "target_id": "T-7a95930f2f",
         "dimension": "D8",
         "title": "QUOTA_REGION:D1-O2 (South) admits a respondent while below target",
@@ -43324,7 +43324,7 @@
         ]
       },
       {
-        "test_id": "EX-8e6fcc0fe2",
+        "test_id": "EX-e0a89e524b",
         "target_id": "T-b0edda32be",
         "dimension": "D8",
         "title": "QUOTA_REGION:D1-O3 (East) admits a respondent while below target",
@@ -43703,7 +43703,7 @@
         ]
       },
       {
-        "test_id": "EX-afaa5557a1",
+        "test_id": "EX-5557218dd5",
         "target_id": "T-f399598e21",
         "dimension": "D8",
         "title": "QUOTA_REGION:D1-O4 (West) admits a respondent while below target",
@@ -44082,7 +44082,7 @@
         ]
       },
       {
-        "test_id": "EX-54349c7ef0",
+        "test_id": "EX-50f24b562a",
         "target_id": "T-f2a7b18b9d",
         "dimension": "D8",
         "title": "QUOTA_REGION:D1-O5 (Central) admits a respondent while below target",
@@ -44461,7 +44461,7 @@
         ]
       },
       {
-        "test_id": "EX-f2065a3e59",
+        "test_id": "EX-523f036c2d",
         "target_id": "T-3967205a86",
         "dimension": "D9",
         "title": "Q2 is shown by its guard and simultaneously reflects its dependency on Q1",
@@ -44579,7 +44579,7 @@
         ]
       },
       {
-        "test_id": "EX-93986db4e8",
+        "test_id": "EX-4880f2d7fa",
         "target_id": "T-84fe582a25",
         "dimension": "D9",
         "title": "Q6 is shown by its guard and simultaneously reflects its dependency on Q5",
@@ -44737,7 +44737,7 @@
         ]
       },
       {
-        "test_id": "EX-8155a6a4b5",
+        "test_id": "EX-5057c5e1af",
         "target_id": "T-0fb8533a84",
         "dimension": "D3",
         "title": "reject rule R18 does not fire when its condition fails",
@@ -45076,7 +45076,7 @@
         ]
       },
       {
-        "test_id": "EX-60c7aa175d",
+        "test_id": "EX-282930a79d",
         "target_id": "T-4c737d629d",
         "dimension": "D3",
         "title": "reject rule R18 fires when its condition holds",
@@ -45423,7 +45423,7 @@
         ]
       },
       {
-        "test_id": "EX-0791fb8f2c",
+        "test_id": "EX-957a32c706",
         "target_id": "T-d6b9ff6c62",
         "dimension": "D3",
         "title": "reject rule R19 does not fire when its condition fails",
@@ -45562,7 +45562,7 @@
         ]
       },
       {
-        "test_id": "EX-bd58a4e79a",
+        "test_id": "EX-41ac7147aa",
         "target_id": "T-5a5002c9d4",
         "dimension": "D3",
         "title": "reject rule R19 fires when its condition holds",
@@ -45677,7 +45677,7 @@
         "provisional_semantics": []
       },
       {
-        "test_id": "EX-bee1124d30",
+        "test_id": "EX-64f729d704",
         "target_id": "T-4d806a0038",
         "dimension": "D3",
         "title": "reject rule R20 does not fire when its condition fails",
@@ -45826,7 +45826,7 @@
         ]
       },
       {
-        "test_id": "EX-31c5dbea26",
+        "test_id": "EX-53c5aaed00",
         "target_id": "T-45f363eac2",
         "dimension": "D3",
         "title": "reject rule R20 fires when its condition holds",

@@ -111,6 +111,15 @@
           }
         ]
       }
+    },
+    "8137eaef3af31d33fbfce129f60d7586ddb9e1ae29204587bad01b8e99720b54": {
+      "response_model": "LLMTextPipes",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-10-13T11:27:07+00:00",
+      "asked": "S1: Have you used or purchased electric vehicles in the past 6 months?\nS2: Are you personally involved in choosing this product or service?\nS3: What is your age?\nDT1: Great, you're eligible for this survey! Next, a few questions about your recent electric vehicle experience.\nQ1: Which electric vehicles channel or provider did you use most recently?\nQ2: When did the most recent experience occur?\nQ3 ...",
+      "response": {
+        "pipes": []
+      }
     }
   }
 }

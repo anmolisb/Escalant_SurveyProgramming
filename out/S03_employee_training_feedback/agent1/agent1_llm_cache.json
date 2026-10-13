@@ -59,6 +59,15 @@
           }
         ]
       }
+    },
+    "16f3fd77a474ae0d2cc854663b1e1f1b36b039ee52beb0767f119609a83b45cd": {
+      "response_model": "LLMTextPipes",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-10-13T11:28:33+00:00",
+      "asked": "S1: Have you completed an employer-provided training session in the past 30 days?\nS2: Are you 18 years of age or older?\nDT1: Great, you're eligible for this survey! Next, a few quick questions about your recent training session.\nQ1: Which channel did you primarily use for this training session?\nQ2: Overall, how satisfied were you with the training session?\nQ3: How easy was it to complete what you  ...",
+      "response": {
+        "pipes": []
+      }
     }
   }
 }

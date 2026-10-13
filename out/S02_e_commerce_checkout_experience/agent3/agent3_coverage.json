@@ -9,7 +9,7 @@
   },
   "upstream": {
     "canonical_schema_version": "1.0.0",
-    "canonical_generated_at": "2026-10-11T17:57:27+00:00"
+    "canonical_generated_at": "2026-10-13T11:28:24+00:00"
   },
   "content": {
     "project_inputs": {},
@@ -67,12 +67,12 @@
         "D3": 10,
         "D4": 12,
         "D5": 0,
-        "D6": 1,
+        "D6": 0,
         "D7": 0,
         "D8": 0,
-        "D9": 1
+        "D9": 0
       },
-      "records_enumerated": 42,
+      "records_enumerated": 40,
       "predetermined_unresolvable": 0,
       "orphan_rules": [],
       "note": "Dimensions are reported side by side and never summed. records_enumerated counts records, not coverage."
@@ -117,26 +117,6 @@
           "reasons": {},
           "provisional": 2,
           "enumeration_status": "EXHAUSTIVE",
-          "logical_coverage_pct": 100.0
-        },
-        "D6": {
-          "name": "Text-pipe dependency",
-          "enumerated": 1,
-          "covered": 1,
-          "uncovered": 0,
-          "reasons": {},
-          "provisional": 0,
-          "enumeration_status": "EXHAUSTIVE",
-          "logical_coverage_pct": 100.0
-        },
-        "D9": {
-          "name": "Interaction",
-          "enumerated": 1,
-          "covered": 1,
-          "uncovered": 0,
-          "reasons": {},
-          "provisional": 0,
-          "enumeration_status": "BOUNDED",
           "logical_coverage_pct": 100.0
         }
       },

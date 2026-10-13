@@ -3,25 +3,25 @@
   "sample_size_supplied": null,
   "anchors_supplied": [],
   "covered_without_a_separate_run": 0,
-  "targets": 92,
+  "targets": 88,
   "per_dimension": {
     "D1": 31,
     "D2": 4,
     "D3": 12,
     "D4": 20,
     "D5": 1,
-    "D6": 2,
+    "D6": 0,
     "D7": 9,
     "D8": 10,
-    "D9": 3
+    "D9": 1
   },
-  "feasible_witnesses": 80,
-  "covered": 79,
-  "logical_tests": 79,
+  "feasible_witnesses": 76,
+  "covered": 75,
+  "logical_tests": 75,
   "coverage_floor_pct": 50.0,
   "coverage_floor_dimension": "D8",
-  "executable_tests": 79,
-  "executable_coverage_pct": 85.9,
+  "executable_tests": 75,
+  "executable_coverage_pct": 85.2,
   "compilation_refused": 0,
   "conformance_verdict": "CONFORMS_WITH_FINDINGS",
   "conformance_blocking": 0,
@@ -39,9 +39,8 @@
     "D3": "8/12 (66.7%) BOUNDED",
     "D4": "20/20 (100.0%) EXHAUSTIVE",
     "D5": "1/1 (100.0%) EXHAUSTIVE",
-    "D6": "2/2 (100.0%) EXHAUSTIVE",
     "D7": "6/9 (66.7%) PARTIAL",
     "D8": "5/10 (50.0%) PARTIAL",
-    "D9": "3/3 (100.0%) BOUNDED"
+    "D9": "1/1 (100.0%) BOUNDED"
   }
 }

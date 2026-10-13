@@ -8,7 +8,7 @@
     "sha256": "98e38f24d6ba6a885985207c385b19146cc91ae407b1937b75acde446ac19fcf",
     "bytes": 42037
   },
-  "generated_at": "2026-10-11T17:57:24+00:00",
+  "generated_at": "2026-10-13T11:28:01+00:00",
   "item_count": null,
   "content": {
     "source": "M06_digital_wallet_usage.docx",
@@ -588,38 +588,8 @@
       ],
       "edges": [
         {
-          "kind": "text_pipe",
-          "origin": "inferred",
-          "source": "Q1",
-          "target": "Q2"
-        },
-        {
-          "kind": "text_pipe",
-          "origin": "inferred",
-          "source": "Q1",
-          "target": "Q3"
-        },
-        {
-          "kind": "text_pipe",
-          "origin": "inferred",
-          "source": "Q1",
-          "target": "Q5"
-        },
-        {
-          "kind": "text_pipe",
-          "origin": "inferred",
-          "source": "Q1",
-          "target": "Q11"
-        },
-        {
-          "kind": "text_pipe",
-          "origin": "inferred",
-          "source": "Q1",
-          "target": "Q12"
-        },
-        {
-          "kind": "text_pipe",
-          "origin": "inferred",
+          "kind": "option_source",
+          "origin": "derived",
           "source": "Q7",
           "target": "Q8"
         },
@@ -629,14 +599,7 @@
           "target": "Q9"
         },
         {
-          "kind": "text_pipe",
-          "origin": "inferred",
-          "source": "Q8",
-          "target": "Q9"
-        },
-        {
-          "kind": "text_pipe",
-          "origin": "inferred",
+          "kind": "guard",
           "source": "Q9",
           "target": "Q10"
         }

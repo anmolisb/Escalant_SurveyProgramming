@@ -119,6 +119,15 @@
           }
         ]
       }
+    },
+    "7bc22922a3eeac869093653035f060cfca24f10331501a7bfa799ffc99cb2363": {
+      "response_model": "LLMTextPipes",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-10-13T11:27:34+00:00",
+      "asked": "S1: Have you used or purchased hotel stays in the past 6 months?\nS2: Are you personally involved in choosing this product or service?\nS3: What is your age?\nDT1: Great, you're eligible for this survey! Next, a few questions about your recent hotel stay experience.\nQ1: Which hotel stays channel or provider did you use most recently?\nQ2: When did the most recent experience occur?\nQ3: What was the pri ...",
+      "response": {
+        "pipes": []
+      }
     }
   }
 }

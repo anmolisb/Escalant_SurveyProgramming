@@ -9,7 +9,7 @@
   },
   "upstream": {
     "canonical_schema_version": "1.0.0",
-    "canonical_generated_at": "2026-10-11T17:57:26+00:00"
+    "canonical_generated_at": "2026-10-13T11:28:14+00:00"
   },
   "content": {
     "report": {
@@ -19,12 +19,12 @@
         "D3": 10,
         "D4": 12,
         "D5": 0,
-        "D6": 1,
+        "D6": 0,
         "D7": 0,
         "D8": 0,
-        "D9": 1
+        "D9": 0
       },
-      "records_enumerated": 42,
+      "records_enumerated": 40,
       "predetermined_unresolvable": 0,
       "orphan_rules": [],
       "note": "Dimensions are reported side by side and never summed. records_enumerated counts records, not coverage."
@@ -511,32 +511,6 @@
         ],
         "predetermined_reason": null,
         "notes": "question kind: text"
-      },
-      {
-        "target_id": "T-9e8e92980a",
-        "dimension": "D6",
-        "subject": "Q5->Q6",
-        "polarity": "rendered",
-        "claim": "Q6's wording renders the answer given at Q5",
-        "traces_to": [
-          "Q5",
-          "Q6"
-        ],
-        "predetermined_reason": null,
-        "notes": "origin=inferred, no table in the QRE states this link"
-      },
-      {
-        "target_id": "T-84fe582a25",
-        "dimension": "D9",
-        "subject": "Q5+Q6",
-        "polarity": "combined",
-        "claim": "Q6 is shown by its guard and simultaneously reflects its dependency on Q5",
-        "traces_to": [
-          "Q5",
-          "Q6"
-        ],
-        "predetermined_reason": null,
-        "notes": "risk-selected pair, BOUNDED by design"
       }
     ]
   }

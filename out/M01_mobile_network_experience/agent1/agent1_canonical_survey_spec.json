@@ -8,7 +8,7 @@
     "sha256": "6f7e2db55c2c8ffaabdd4890e35464b4a5325a0ae13e38ffabb37ed06d064964",
     "bytes": 42042
   },
-  "generated_at": "2026-10-11T17:57:15+00:00",
+  "generated_at": "2026-10-13T11:27:03+00:00",
   "item_count": null,
   "content": {
     "source": "M01_mobile_network_experience.docx",
@@ -2123,74 +2123,6 @@
           "source_kind": "table",
           "text": "Q8 | Which problem had the greatest impact? | single | Dropped calls; Slow data; Unexpected charge; Coverage gap; Support delay | Show if: Q7 contains any problem\nShow only options selected at Q7."
         }
-      },
-      {
-        "from_question": "Q7",
-        "to_question": "Q9",
-        "kind": "text_pipe",
-        "detail": "the main problem",
-        "origin": "inferred",
-        "confidence": 0.99,
-        "source_reference": {
-          "document": "M01_mobile_network_experience.docx",
-          "section": "Questionnaire",
-          "heading_text": "Questionnaire",
-          "block_order": 10,
-          "row_index": 12,
-          "source_kind": "table",
-          "text": "Q9 | Was the main problem resolved? | single | Yes, fully; Yes, partly; No | Show if: Q7 contains any problem"
-        }
-      },
-      {
-        "from_question": "Q9",
-        "to_question": "Q10",
-        "kind": "text_pipe",
-        "detail": "the resolution",
-        "origin": "inferred",
-        "confidence": 0.99,
-        "source_reference": {
-          "document": "M01_mobile_network_experience.docx",
-          "section": "Questionnaire",
-          "heading_text": "Questionnaire",
-          "block_order": 10,
-          "row_index": 13,
-          "source_kind": "table",
-          "text": "Q10 | How satisfied were you with the resolution? | single | 1 - Very poor; 2 - Poor; 3 - Fair; 4 - Good; 5 - Excellent | Show if: Q9 in ['Yes, fully','Yes, partly']"
-        }
-      },
-      {
-        "from_question": "Q1",
-        "to_question": "Q11",
-        "kind": "text_pipe",
-        "detail": "the provider",
-        "origin": "inferred",
-        "confidence": 0.99,
-        "source_reference": {
-          "document": "M01_mobile_network_experience.docx",
-          "section": "Questionnaire",
-          "heading_text": "Questionnaire",
-          "block_order": 10,
-          "row_index": 14,
-          "source_kind": "table",
-          "text": "Q11 | How likely are you to recommend the provider? | single | 0; 1; 2; 3; 4; 5; 6; 7; 8; 9; 10 | Always show"
-        }
-      },
-      {
-        "from_question": "Q1",
-        "to_question": "Q12",
-        "kind": "text_pipe",
-        "detail": "the provider",
-        "origin": "inferred",
-        "confidence": 0.99,
-        "source_reference": {
-          "document": "M01_mobile_network_experience.docx",
-          "section": "Questionnaire",
-          "heading_text": "Questionnaire",
-          "block_order": 10,
-          "row_index": 15,
-          "source_kind": "table",
-          "text": "Q12 | How likely are you to continue using the provider? | single | Definitely not; Probably not; Unsure; Probably; Definitely | Always show"
-        }
       }
     ],
     "randomization": [
@@ -2827,50 +2759,6 @@
           "id": "QUOTA_REGION"
         },
         "evidence": "QUOTA_REGION: soft quota on D1: North=20%, South=20%, East=20%, West=2 -> D1, 5 groups",
-        "source_reference": null
-      },
-      {
-        "check": "text_pipe_inferred",
-        "severity": "WARNING",
-        "finding": "Q9's wording appears to quote the answer given at Q7. No table states this; it was read out of the sentence, so it is worth confirming.",
-        "target": {
-          "kind": "question",
-          "id": "Q9"
-        },
-        "evidence": "'the main problem' (confidence 0.99)",
-        "source_reference": null
-      },
-      {
-        "check": "text_pipe_inferred",
-        "severity": "WARNING",
-        "finding": "Q10's wording appears to quote the answer given at Q9. No table states this; it was read out of the sentence, so it is worth confirming.",
-        "target": {
-          "kind": "question",
-          "id": "Q10"
-        },
-        "evidence": "'the resolution' (confidence 0.99)",
-        "source_reference": null
-      },
-      {
-        "check": "text_pipe_inferred",
-        "severity": "WARNING",
-        "finding": "Q11's wording appears to quote the answer given at Q1. No table states this; it was read out of the sentence, so it is worth confirming.",
-        "target": {
-          "kind": "question",
-          "id": "Q11"
-        },
-        "evidence": "'the provider' (confidence 0.99)",
-        "source_reference": null
-      },
-      {
-        "check": "text_pipe_inferred",
-        "severity": "WARNING",
-        "finding": "Q12's wording appears to quote the answer given at Q1. No table states this; it was read out of the sentence, so it is worth confirming.",
-        "target": {
-          "kind": "question",
-          "id": "Q12"
-        },
-        "evidence": "'the provider' (confidence 0.99)",
         "source_reference": null
       },
       {

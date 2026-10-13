@@ -9,12 +9,12 @@
   },
   "upstream": {
     "canonical_schema_version": "1.0.0",
-    "canonical_generated_at": "2026-10-11T17:57:29+00:00"
+    "canonical_generated_at": "2026-10-13T11:28:33+00:00"
   },
   "content": {
     "survey_id": "S03_employee_training_feedback",
     "lss_path": "out/S03_employee_training_feedback/agent2/agent2_S03_employee_training_feedback.lss",
-    "lss_sha256": "365627d57688471f03c67075729bfff671df523a046ddc23deb4504f925c3b9a",
+    "lss_sha256": "fd72b27cf21f3c83578a525031e2eff0d6091cdea72d49082e877d1a14725825",
     "sid": 900001,
     "groups": {
       "100": "Screening",
@@ -196,7 +196,7 @@
         "option_codes": {},
         "subquestion_codes": {},
         "attributes": {
-          "em_validation_q": "strlen(this) >= 10 and strlen(this) <= 500",
+          "em_validation_q": "strlen(trim(this)) >= 10 and strlen(this) <= 500",
           "em_validation_q_tip": "Please enter at least 10 characters and no more than 500 characters."
         }
       },

@@ -8,7 +8,7 @@
     "sha256": "e4d831ce056a2300513e98431ecd5ba8507cf5a533bbf81626679adf97a05cb1",
     "bytes": 40650
   },
-  "generated_at": "2026-10-11T17:57:29+00:00",
+  "generated_at": "2026-10-13T11:28:33+00:00",
   "item_count": null,
   "content": {
     "source": "S03_employee_training_feedback.docx",
@@ -991,76 +991,7 @@
         }
       }
     ],
-    "dependencies": [
-      {
-        "from_question": "S1",
-        "to_question": "DT1",
-        "kind": "text_pipe",
-        "detail": "your recent training session",
-        "origin": "inferred",
-        "confidence": 0.99,
-        "source_reference": {
-          "document": "S03_employee_training_feedback.docx",
-          "section": "Questionnaire",
-          "heading_text": "Questionnaire",
-          "block_order": 10,
-          "row_index": 2,
-          "source_kind": "table",
-          "text": "DT1 | Great, you're eligible for this survey! Next, a few quick questions about your recent training session. | text display | \u2014 | Always show"
-        }
-      },
-      {
-        "from_question": "S1",
-        "to_question": "Q1",
-        "kind": "text_pipe",
-        "detail": "this training session",
-        "origin": "inferred",
-        "confidence": 0.99,
-        "source_reference": {
-          "document": "S03_employee_training_feedback.docx",
-          "section": "Questionnaire",
-          "heading_text": "Questionnaire",
-          "block_order": 10,
-          "row_index": 3,
-          "source_kind": "table",
-          "text": "Q1 | Which channel did you primarily use for this training session? | single | In person; Live virtual; Self-paced online | Always show"
-        }
-      },
-      {
-        "from_question": "S1",
-        "to_question": "Q2",
-        "kind": "text_pipe",
-        "detail": "the training session",
-        "origin": "inferred",
-        "confidence": 0.99,
-        "source_reference": {
-          "document": "S03_employee_training_feedback.docx",
-          "section": "Questionnaire",
-          "heading_text": "Questionnaire",
-          "block_order": 10,
-          "row_index": 4,
-          "source_kind": "table",
-          "text": "Q2 | Overall, how satisfied were you with the training session? | single | 1 - Very poor; 2 - Poor; 3 - Fair; 4 - Good; 5 - Excellent | Always show"
-        }
-      },
-      {
-        "from_question": "Q5",
-        "to_question": "Q6",
-        "kind": "text_pipe",
-        "detail": "the main problem",
-        "origin": "inferred",
-        "confidence": 0.99,
-        "source_reference": {
-          "document": "S03_employee_training_feedback.docx",
-          "section": "Questionnaire",
-          "heading_text": "Questionnaire",
-          "block_order": 10,
-          "row_index": 8,
-          "source_kind": "table",
-          "text": "Q6 | Please describe the main problem. | text | \u2014 | Show if: Q5 == 'Yes'\nValidate: {\"min_length\": 10, \"max_length\": 500}"
-        }
-      }
-    ],
+    "dependencies": [],
     "randomization": [],
     "quotas": [],
     "quota_requirements": [],
@@ -1351,50 +1282,6 @@
       }
     ],
     "review": [
-      {
-        "check": "text_pipe_inferred",
-        "severity": "WARNING",
-        "finding": "DT1's wording appears to quote the answer given at S1. No table states this; it was read out of the sentence, so it is worth confirming.",
-        "target": {
-          "kind": "question",
-          "id": "DT1"
-        },
-        "evidence": "'your recent training session' (confidence 0.99)",
-        "source_reference": null
-      },
-      {
-        "check": "text_pipe_inferred",
-        "severity": "WARNING",
-        "finding": "Q1's wording appears to quote the answer given at S1. No table states this; it was read out of the sentence, so it is worth confirming.",
-        "target": {
-          "kind": "question",
-          "id": "Q1"
-        },
-        "evidence": "'this training session' (confidence 0.99)",
-        "source_reference": null
-      },
-      {
-        "check": "text_pipe_inferred",
-        "severity": "WARNING",
-        "finding": "Q2's wording appears to quote the answer given at S1. No table states this; it was read out of the sentence, so it is worth confirming.",
-        "target": {
-          "kind": "question",
-          "id": "Q2"
-        },
-        "evidence": "'the training session' (confidence 0.99)",
-        "source_reference": null
-      },
-      {
-        "check": "text_pipe_inferred",
-        "severity": "WARNING",
-        "finding": "Q6's wording appears to quote the answer given at Q5. No table states this; it was read out of the sentence, so it is worth confirming.",
-        "target": {
-          "kind": "question",
-          "id": "Q6"
-        },
-        "evidence": "'the main problem' (confidence 0.99)",
-        "source_reference": null
-      },
       {
         "check": "semantics_unconfirmed",
         "severity": "BLOCKING",

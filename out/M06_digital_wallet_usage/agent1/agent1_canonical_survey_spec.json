@@ -8,7 +8,7 @@
     "sha256": "98e38f24d6ba6a885985207c385b19146cc91ae407b1937b75acde446ac19fcf",
     "bytes": 42037
   },
-  "generated_at": "2026-10-11T17:57:24+00:00",
+  "generated_at": "2026-10-13T11:28:01+00:00",
   "item_count": null,
   "content": {
     "source": "M06_digital_wallet_usage.docx",
@@ -2037,57 +2037,6 @@
     ],
     "dependencies": [
       {
-        "from_question": "Q1",
-        "to_question": "Q2",
-        "kind": "text_pipe",
-        "detail": "most recent experience",
-        "origin": "inferred",
-        "confidence": 0.99,
-        "source_reference": {
-          "document": "M06_digital_wallet_usage.docx",
-          "section": "Questionnaire",
-          "heading_text": "Questionnaire",
-          "block_order": 10,
-          "row_index": 5,
-          "source_kind": "table",
-          "text": "Q2 | When did the most recent experience occur? | single | Within 7 days; 8-30 days; 1-3 months; 4-6 months | Always show"
-        }
-      },
-      {
-        "from_question": "Q1",
-        "to_question": "Q3",
-        "kind": "text_pipe",
-        "detail": "the experience",
-        "origin": "inferred",
-        "confidence": 0.99,
-        "source_reference": {
-          "document": "M06_digital_wallet_usage.docx",
-          "section": "Questionnaire",
-          "heading_text": "Questionnaire",
-          "block_order": 10,
-          "row_index": 6,
-          "source_kind": "table",
-          "text": "Q3 | What was the primary purpose of the experience? | single | Merchant payment; Person-to-person transfer; Bill payment; Recharge; Online shopping | Randomize"
-        }
-      },
-      {
-        "from_question": "Q1",
-        "to_question": "Q5",
-        "kind": "text_pipe",
-        "detail": "the experience",
-        "origin": "inferred",
-        "confidence": 0.99,
-        "source_reference": {
-          "document": "M06_digital_wallet_usage.docx",
-          "section": "Questionnaire",
-          "heading_text": "Questionnaire",
-          "block_order": 10,
-          "row_index": 8,
-          "source_kind": "table",
-          "text": "Q5 | Rate the ease of completing the experience. | single | 1 - Very poor; 2 - Poor; 3 - Fair; 4 - Good; 5 - Excellent | Always show"
-        }
-      },
-      {
         "from_question": "Q7",
         "to_question": "Q8",
         "kind": "option_source",
@@ -2102,91 +2051,6 @@
           "row_index": 11,
           "source_kind": "table",
           "text": "Q8 | Which problem had the greatest impact? | single | Payment failure; Refund delay; Incorrect debit; Authentication issue; Merchant acceptance | Show if: Q7 contains any problem\nShow only options selected at Q7."
-        }
-      },
-      {
-        "from_question": "Q7",
-        "to_question": "Q8",
-        "kind": "text_pipe",
-        "detail": "the greatest impact",
-        "origin": "inferred",
-        "confidence": 0.99,
-        "source_reference": {
-          "document": "M06_digital_wallet_usage.docx",
-          "section": "Questionnaire",
-          "heading_text": "Questionnaire",
-          "block_order": 10,
-          "row_index": 11,
-          "source_kind": "table",
-          "text": "Q8 | Which problem had the greatest impact? | single | Payment failure; Refund delay; Incorrect debit; Authentication issue; Merchant acceptance | Show if: Q7 contains any problem\nShow only options selected at Q7."
-        }
-      },
-      {
-        "from_question": "Q8",
-        "to_question": "Q9",
-        "kind": "text_pipe",
-        "detail": "the main problem",
-        "origin": "inferred",
-        "confidence": 0.99,
-        "source_reference": {
-          "document": "M06_digital_wallet_usage.docx",
-          "section": "Questionnaire",
-          "heading_text": "Questionnaire",
-          "block_order": 10,
-          "row_index": 12,
-          "source_kind": "table",
-          "text": "Q9 | Was the main problem resolved? | single | Yes, fully; Yes, partly; No | Show if: Q7 contains any problem"
-        }
-      },
-      {
-        "from_question": "Q9",
-        "to_question": "Q10",
-        "kind": "text_pipe",
-        "detail": "the resolution",
-        "origin": "inferred",
-        "confidence": 0.99,
-        "source_reference": {
-          "document": "M06_digital_wallet_usage.docx",
-          "section": "Questionnaire",
-          "heading_text": "Questionnaire",
-          "block_order": 10,
-          "row_index": 13,
-          "source_kind": "table",
-          "text": "Q10 | How satisfied were you with the resolution? | single | 1 - Very poor; 2 - Poor; 3 - Fair; 4 - Good; 5 - Excellent | Show if: Q9 in ['Yes, fully','Yes, partly']"
-        }
-      },
-      {
-        "from_question": "Q1",
-        "to_question": "Q11",
-        "kind": "text_pipe",
-        "detail": "the provider",
-        "origin": "inferred",
-        "confidence": 0.99,
-        "source_reference": {
-          "document": "M06_digital_wallet_usage.docx",
-          "section": "Questionnaire",
-          "heading_text": "Questionnaire",
-          "block_order": 10,
-          "row_index": 14,
-          "source_kind": "table",
-          "text": "Q11 | How likely are you to recommend the provider? | single | 0; 1; 2; 3; 4; 5; 6; 7; 8; 9; 10 | Always show"
-        }
-      },
-      {
-        "from_question": "Q1",
-        "to_question": "Q12",
-        "kind": "text_pipe",
-        "detail": "the provider",
-        "origin": "inferred",
-        "confidence": 0.99,
-        "source_reference": {
-          "document": "M06_digital_wallet_usage.docx",
-          "section": "Questionnaire",
-          "heading_text": "Questionnaire",
-          "block_order": 10,
-          "row_index": 15,
-          "source_kind": "table",
-          "text": "Q12 | How likely are you to continue using the provider? | single | Definitely not; Probably not; Unsure; Probably; Definitely | Always show"
         }
       }
     ],
@@ -2824,94 +2688,6 @@
           "id": "QUOTA_REGION"
         },
         "evidence": "QUOTA_REGION: soft quota on D1: North=20%, South=20%, East=20%, West=2 -> D1, 5 groups",
-        "source_reference": null
-      },
-      {
-        "check": "text_pipe_inferred",
-        "severity": "WARNING",
-        "finding": "Q2's wording appears to quote the answer given at Q1. No table states this; it was read out of the sentence, so it is worth confirming.",
-        "target": {
-          "kind": "question",
-          "id": "Q2"
-        },
-        "evidence": "'most recent experience' (confidence 0.99)",
-        "source_reference": null
-      },
-      {
-        "check": "text_pipe_inferred",
-        "severity": "WARNING",
-        "finding": "Q3's wording appears to quote the answer given at Q1. No table states this; it was read out of the sentence, so it is worth confirming.",
-        "target": {
-          "kind": "question",
-          "id": "Q3"
-        },
-        "evidence": "'the experience' (confidence 0.99)",
-        "source_reference": null
-      },
-      {
-        "check": "text_pipe_inferred",
-        "severity": "WARNING",
-        "finding": "Q5's wording appears to quote the answer given at Q1. No table states this; it was read out of the sentence, so it is worth confirming.",
-        "target": {
-          "kind": "question",
-          "id": "Q5"
-        },
-        "evidence": "'the experience' (confidence 0.99)",
-        "source_reference": null
-      },
-      {
-        "check": "text_pipe_inferred",
-        "severity": "WARNING",
-        "finding": "Q8's wording appears to quote the answer given at Q7. No table states this; it was read out of the sentence, so it is worth confirming.",
-        "target": {
-          "kind": "question",
-          "id": "Q8"
-        },
-        "evidence": "'the greatest impact' (confidence 0.99)",
-        "source_reference": null
-      },
-      {
-        "check": "text_pipe_inferred",
-        "severity": "WARNING",
-        "finding": "Q9's wording appears to quote the answer given at Q8. No table states this; it was read out of the sentence, so it is worth confirming.",
-        "target": {
-          "kind": "question",
-          "id": "Q9"
-        },
-        "evidence": "'the main problem' (confidence 0.99)",
-        "source_reference": null
-      },
-      {
-        "check": "text_pipe_inferred",
-        "severity": "WARNING",
-        "finding": "Q10's wording appears to quote the answer given at Q9. No table states this; it was read out of the sentence, so it is worth confirming.",
-        "target": {
-          "kind": "question",
-          "id": "Q10"
-        },
-        "evidence": "'the resolution' (confidence 0.99)",
-        "source_reference": null
-      },
-      {
-        "check": "text_pipe_inferred",
-        "severity": "WARNING",
-        "finding": "Q11's wording appears to quote the answer given at Q1. No table states this; it was read out of the sentence, so it is worth confirming.",
-        "target": {
-          "kind": "question",
-          "id": "Q11"
-        },
-        "evidence": "'the provider' (confidence 0.99)",
-        "source_reference": null
-      },
-      {
-        "check": "text_pipe_inferred",
-        "severity": "WARNING",
-        "finding": "Q12's wording appears to quote the answer given at Q1. No table states this; it was read out of the sentence, so it is worth confirming.",
-        "target": {
-          "kind": "question",
-          "id": "Q12"
-        },
-        "evidence": "'the provider' (confidence 0.99)",
         "source_reference": null
       },
       {

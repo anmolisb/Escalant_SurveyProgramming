@@ -8,7 +8,7 @@
     "sha256": "9fe8bb4afcacc91f94918506ae31a1ba231222b73050f346ed10ea91064fc093",
     "bytes": 43897
   },
-  "generated_at": "2026-10-11T17:56:54+00:00",
+  "generated_at": "2026-10-13T11:26:31+00:00",
   "item_count": null,
   "content": {
     "cross_source": [],
@@ -17,7 +17,7 @@
       "edges": 42,
       "rules_mapped": "20/20",
       "quotas_mapped": "2/2",
-      "dependency_edges": 15,
+      "dependency_edges": 14,
       "passed": true,
       "blocking": 0,
       "findings": [
@@ -88,17 +88,6 @@
       },
       {
         "status": "CONFIRMATION_REQUIRED",
-        "issue": "text_pipe_inferred",
-        "why_it_matters": "Q20's wording appears to quote the answer given at Q19. No table states this; it was read out of the sentence, so it is worth confirming.",
-        "affected": [
-          "Q20",
-          "Q21"
-        ],
-        "changes_downstream": "Whether this question's wording depends on an earlier answer, which decides the order a bot must answer in and what text it should expect on screen.",
-        "decision_ids": []
-      },
-      {
-        "status": "CONFIRMATION_REQUIRED",
         "issue": "guard_single_source",
         "why_it_matters": "Q15 has a display condition in the questionnaire but no matching rule in the routing table, so reading only the routing table would miss it.",
         "affected": [
@@ -128,19 +117,29 @@
         ],
         "changes_downstream": "Nothing can be asserted about what a quota-full respondent is shown.",
         "decision_ids": []
+      },
+      {
+        "status": "CONFIRMATION_REQUIRED",
+        "issue": "text_pipe_inferred",
+        "why_it_matters": "Q20's wording appears to quote the answer given at Q19. No table states this; it was read out of the sentence, so it is worth confirming.",
+        "affected": [
+          "Q20"
+        ],
+        "changes_downstream": "Whether this question's wording depends on an earlier answer, which decides the order a bot must answer in and what text it should expect on screen.",
+        "decision_ids": []
       }
     ],
     "decisions": {
       "register": "agent1_s7_decisions.json",
       "human_readable": "agent1_s7_decision_register.md",
       "summary": {
-        "total": 23,
-        "raised_this_run": 0,
+        "total": 24,
+        "raised_this_run": 1,
         "resolved_reused": 0,
-        "pending": 15,
+        "pending": 14,
         "resolved": 0,
-        "not_required": 8,
-        "newly_transitioned_not_required": 0,
+        "not_required": 10,
+        "newly_transitioned_not_required": 2,
         "context_changed": 0,
         "blocking_pending": [
           "00db7d74442cb17d",
@@ -149,11 +148,10 @@
           "6d673474a77765fc",
           "70e04d836cb40d1b",
           "71002f0c34af1fbc",
+          "b7929729b6b03674",
           "b90d8580babbddab",
           "c417f67cdc3ab8cb",
-          "c5f3dfc6dfabf018",
           "d1c767adabb142b1",
-          "e4c971197a4cd683",
           "f6de93712798f5f5"
         ]
       }
@@ -166,7 +164,7 @@
         "edges": 42,
         "rules_mapped": "20/20",
         "quotas_mapped": "2/2",
-        "dependency_edges": 15,
+        "dependency_edges": 14,
         "passed": true,
         "blocking": 0,
         "findings": [
@@ -191,11 +189,10 @@
         "6d673474a77765fc",
         "70e04d836cb40d1b",
         "71002f0c34af1fbc",
+        "b7929729b6b03674",
         "b90d8580babbddab",
         "c417f67cdc3ab8cb",
-        "c5f3dfc6dfabf018",
         "d1c767adabb142b1",
-        "e4c971197a4cd683",
         "f6de93712798f5f5"
       ],
       "agent3_ready": "NO",
@@ -215,10 +212,10 @@
         "condition_inferred \u2014 Whether this rule fires for a given respondent, so which questions they see and which ending they reach.",
         "quota_inferred \u2014 Which respondents are counted against which quota, and when they are turned away.",
         "semantics_unconfirmed \u2014 Which questions appear on many routes, which rule wins when two apply, and whether an 'is exactly' test passes on a multi-select answer.",
-        "text_pipe_inferred \u2014 Whether this question's wording depends on an earlier answer, which decides the order a bot must answer in and what text it should expect on screen.",
         "guard_single_source \u2014 A display condition stated in only one place. Anyone reading the other place builds a survey without it.",
         "partial_option_codes \u2014 A bot told to answer by code cannot resolve the uncoded options.",
-        "quota_ending_missing \u2014 Nothing can be asserted about what a quota-full respondent is shown."
+        "quota_ending_missing \u2014 Nothing can be asserted about what a quota-full respondent is shown.",
+        "text_pipe_inferred \u2014 Whether this question's wording depends on an earlier answer, which decides the order a bot must answer in and what text it should expect on screen."
       ],
       "what_must_change": [],
       "affected_ids": [
@@ -230,7 +227,6 @@
         "Q19",
         "Q2",
         "Q20",
-        "Q21",
         "Q5",
         "Q6",
         "Q9",
@@ -247,7 +243,7 @@
         "blocked": 0,
         "cross_source_blocking": 0,
         "confirmation_required": 8,
-        "decisions_pending_blocking": 12
+        "decisions_pending_blocking": 11
       }
     }
   }

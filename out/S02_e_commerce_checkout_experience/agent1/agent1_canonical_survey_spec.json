@@ -8,7 +8,7 @@
     "sha256": "bec693bec7542129c45b2669329a90aa00207496eb912d1d51723439099b9895",
     "bytes": 40667
   },
-  "generated_at": "2026-10-11T17:57:27+00:00",
+  "generated_at": "2026-10-13T11:28:24+00:00",
   "item_count": null,
   "content": {
     "source": "S02_e_commerce_checkout_experience.docx",
@@ -991,25 +991,7 @@
         }
       }
     ],
-    "dependencies": [
-      {
-        "from_question": "Q5",
-        "to_question": "Q6",
-        "kind": "text_pipe",
-        "detail": "the main problem",
-        "origin": "inferred",
-        "confidence": 1.0,
-        "source_reference": {
-          "document": "S02_e_commerce_checkout_experience.docx",
-          "section": "Questionnaire",
-          "heading_text": "Questionnaire",
-          "block_order": 10,
-          "row_index": 8,
-          "source_kind": "table",
-          "text": "Q6 | Please describe the main problem. | text | \u2014 | Show if: Q5 == 'Yes'\nValidate: {\"min_length\": 10, \"max_length\": 500}"
-        }
-      }
-    ],
+    "dependencies": [],
     "randomization": [],
     "quotas": [],
     "quota_requirements": [],
@@ -1300,17 +1282,6 @@
       }
     ],
     "review": [
-      {
-        "check": "text_pipe_inferred",
-        "severity": "WARNING",
-        "finding": "Q6's wording appears to quote the answer given at Q5. No table states this; it was read out of the sentence, so it is worth confirming.",
-        "target": {
-          "kind": "question",
-          "id": "Q6"
-        },
-        "evidence": "'the main problem' (confidence 1.00)",
-        "source_reference": null
-      },
       {
         "check": "semantics_unconfirmed",
         "severity": "BLOCKING",

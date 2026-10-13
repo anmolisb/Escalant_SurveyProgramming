@@ -9,7 +9,7 @@
   },
   "upstream": {
     "canonical_schema_version": "1.0.0",
-    "canonical_generated_at": "2026-10-11T17:57:30+00:00"
+    "canonical_generated_at": "2026-10-13T11:28:46+00:00"
   },
   "content": {
     "scenarios": [
@@ -52,9 +52,7 @@
           "quota_stopped": null,
           "quota_over_target": null,
           "validation_messages_expected": [],
-          "piped_text_visible": {
-            "Q6": "Yes"
-          },
+          "piped_text_visible": {},
           "option_lists_visible": {}
         },
         "proof": "after answering DT1 the respondent went on to Q1",
@@ -102,9 +100,7 @@
           "quota_stopped": null,
           "quota_over_target": null,
           "validation_messages_expected": [],
-          "piped_text_visible": {
-            "Q6": "Yes"
-          },
+          "piped_text_visible": {},
           "option_lists_visible": {}
         },
         "proof": "after answering Q1 the respondent went on to Q2",
@@ -152,9 +148,7 @@
           "quota_stopped": null,
           "quota_over_target": null,
           "validation_messages_expected": [],
-          "piped_text_visible": {
-            "Q6": "Yes"
-          },
+          "piped_text_visible": {},
           "option_lists_visible": {}
         },
         "proof": "after answering Q2 the respondent went on to Q3",
@@ -202,9 +196,7 @@
           "quota_stopped": null,
           "quota_over_target": null,
           "validation_messages_expected": [],
-          "piped_text_visible": {
-            "Q6": "Yes"
-          },
+          "piped_text_visible": {},
           "option_lists_visible": {}
         },
         "proof": "after answering Q3 the respondent went on to Q4",
@@ -252,9 +244,7 @@
           "quota_stopped": null,
           "quota_over_target": null,
           "validation_messages_expected": [],
-          "piped_text_visible": {
-            "Q6": "Yes"
-          },
+          "piped_text_visible": {},
           "option_lists_visible": {}
         },
         "proof": "after answering Q4 the respondent went on to Q5",
@@ -302,9 +292,7 @@
           "quota_stopped": null,
           "quota_over_target": null,
           "validation_messages_expected": [],
-          "piped_text_visible": {
-            "Q6": "Yes"
-          },
+          "piped_text_visible": {},
           "option_lists_visible": {}
         },
         "proof": "after answering Q5 the respondent went on to Q6",
@@ -352,9 +340,7 @@
           "quota_stopped": null,
           "quota_over_target": null,
           "validation_messages_expected": [],
-          "piped_text_visible": {
-            "Q6": "Yes"
-          },
+          "piped_text_visible": {},
           "option_lists_visible": {}
         },
         "proof": "after answering Q6 the respondent went on to Q7",
@@ -453,9 +439,7 @@
           "quota_stopped": null,
           "quota_over_target": null,
           "validation_messages_expected": [],
-          "piped_text_visible": {
-            "Q6": "Yes"
-          },
+          "piped_text_visible": {},
           "option_lists_visible": {}
         },
         "proof": "Q6 appears in the predicted path",
@@ -503,9 +487,7 @@
           "quota_stopped": null,
           "quota_over_target": null,
           "validation_messages_expected": [],
-          "piped_text_visible": {
-            "Q6": "Yes"
-          },
+          "piped_text_visible": {},
           "option_lists_visible": {}
         },
         "proof": "after answering Q7 the respondent went on to Q8",
@@ -553,9 +535,7 @@
           "quota_stopped": null,
           "quota_over_target": null,
           "validation_messages_expected": [],
-          "piped_text_visible": {
-            "Q6": "Yes"
-          },
+          "piped_text_visible": {},
           "option_lists_visible": {}
         },
         "proof": "Q8 is the last question shown, and answering it took the respondent to COMPLETE",
@@ -654,9 +634,7 @@
           "quota_stopped": null,
           "quota_over_target": null,
           "validation_messages_expected": [],
-          "piped_text_visible": {
-            "Q6": "Yes"
-          },
+          "piped_text_visible": {},
           "option_lists_visible": {}
         },
         "proof": "R4 correctly did not fire; respondent continued in sequence",
@@ -704,9 +682,7 @@
           "quota_stopped": null,
           "quota_over_target": null,
           "validation_messages_expected": [],
-          "piped_text_visible": {
-            "Q6": "Yes"
-          },
+          "piped_text_visible": {},
           "option_lists_visible": {}
         },
         "proof": "after answering S1 the respondent went on to S2",
@@ -754,9 +730,7 @@
           "quota_stopped": null,
           "quota_over_target": null,
           "validation_messages_expected": [],
-          "piped_text_visible": {
-            "Q6": "Yes"
-          },
+          "piped_text_visible": {},
           "option_lists_visible": {}
         },
         "proof": "after answering S2 the respondent went on to DT1",
@@ -804,9 +778,7 @@
           "quota_stopped": null,
           "quota_over_target": null,
           "validation_messages_expected": [],
-          "piped_text_visible": {
-            "Q6": "Yes"
-          },
+          "piped_text_visible": {},
           "option_lists_visible": {}
         },
         "proof": "predicted ending is COMPLETE, path ['__START__', 'S1', 'S2', 'DT1', 'Q1', 'Q2', 'Q3', 'Q4', 'Q5', 'Q6', 'Q7', 'Q8', 'COMPLETE']",
@@ -935,9 +907,7 @@
           "quota_stopped": null,
           "quota_over_target": null,
           "validation_messages_expected": [],
-          "piped_text_visible": {
-            "Q6": "Yes"
-          },
+          "piped_text_visible": {},
           "option_lists_visible": {}
         },
         "proof": "Q4 accepted the answer with no validation message",
@@ -1039,9 +1009,7 @@
           "quota_stopped": null,
           "quota_over_target": null,
           "validation_messages_expected": [],
-          "piped_text_visible": {
-            "Q6": "Yes"
-          },
+          "piped_text_visible": {},
           "option_lists_visible": {}
         },
         "proof": "Q6 accepted the answer with no validation message",
@@ -1089,9 +1057,7 @@
           "quota_stopped": null,
           "quota_over_target": null,
           "validation_messages_expected": [],
-          "piped_text_visible": {
-            "Q6": "Yes"
-          },
+          "piped_text_visible": {},
           "option_lists_visible": {}
         },
         "proof": "Q6 accepted the answer with no validation message",
@@ -1139,9 +1105,7 @@
           "quota_stopped": null,
           "quota_over_target": null,
           "validation_messages_expected": [],
-          "piped_text_visible": {
-            "Q6": "Yes"
-          },
+          "piped_text_visible": {},
           "option_lists_visible": {}
         },
         "proof": "Q6 accepted the answer with no validation message",
@@ -1197,9 +1161,7 @@
               "detail": "length 501 above maximum 500"
             }
           ],
-          "piped_text_visible": {
-            "Q6": "Yes"
-          },
+          "piped_text_visible": {},
           "option_lists_visible": {}
         },
         "proof": "a validation message is predicted for Q6",
@@ -1248,9 +1210,7 @@
           "quota_stopped": null,
           "quota_over_target": null,
           "validation_messages_expected": [],
-          "piped_text_visible": {
-            "Q6": "Yes"
-          },
+          "piped_text_visible": {},
           "option_lists_visible": {}
         },
         "proof": "Q8 accepted the answer with no validation message",
@@ -1299,9 +1259,7 @@
           "quota_stopped": null,
           "quota_over_target": null,
           "validation_messages_expected": [],
-          "piped_text_visible": {
-            "Q6": "Yes"
-          },
+          "piped_text_visible": {},
           "option_lists_visible": {}
         },
         "proof": "Q8 accepted the answer with no validation message",
@@ -1350,9 +1308,7 @@
           "quota_stopped": null,
           "quota_over_target": null,
           "validation_messages_expected": [],
-          "piped_text_visible": {
-            "Q6": "Yes"
-          },
+          "piped_text_visible": {},
           "option_lists_visible": {}
         },
         "proof": "Q8 accepted the answer with no validation message",
@@ -1408,9 +1364,7 @@
               "detail": "length 501 above maximum 500"
             }
           ],
-          "piped_text_visible": {
-            "Q6": "Yes"
-          },
+          "piped_text_visible": {},
           "option_lists_visible": {}
         },
         "proof": "a validation message is predicted for Q8",
@@ -1744,9 +1698,7 @@
               "detail": "mandatory question left blank, progress should be blocked"
             }
           ],
-          "piped_text_visible": {
-            "Q6": "Yes"
-          },
+          "piped_text_visible": {},
           "option_lists_visible": {}
         },
         "proof": "Q6 blocked the blank answer as required",
@@ -1802,9 +1754,7 @@
               "detail": "mandatory question left blank, progress should be blocked"
             }
           ],
-          "piped_text_visible": {
-            "Q6": "Yes"
-          },
+          "piped_text_visible": {},
           "option_lists_visible": {}
         },
         "proof": "Q6 refused an answer of spaces alone",
@@ -1862,9 +1812,7 @@
               "detail": "mandatory question left blank, progress should be blocked"
             }
           ],
-          "piped_text_visible": {
-            "Q6": "Yes"
-          },
+          "piped_text_visible": {},
           "option_lists_visible": {}
         },
         "proof": "Q7 blocked the blank answer as required",
@@ -1913,9 +1861,7 @@
           "quota_stopped": null,
           "quota_over_target": null,
           "validation_messages_expected": [],
-          "piped_text_visible": {
-            "Q6": "Yes"
-          },
+          "piped_text_visible": {},
           "option_lists_visible": {}
         },
         "proof": "Q8 permitted a blank answer, as an optional question should",
@@ -1964,9 +1910,7 @@
           "quota_stopped": null,
           "quota_over_target": null,
           "validation_messages_expected": [],
-          "piped_text_visible": {
-            "Q6": "Yes"
-          },
+          "piped_text_visible": {},
           "option_lists_visible": {}
         },
         "proof": "Q8 accepted spaces, as an optional question should",
@@ -2084,106 +2028,6 @@
           "option_lists_visible": {}
         },
         "proof": "S2 blocked the blank answer as required",
-        "provisional_semantics": [],
-        "preconditions": {},
-        "campaign": {},
-        "covered_by": null
-      },
-      {
-        "scenario_id": "SC-4492fa4dc4",
-        "target_id": "T-9e8e92980a",
-        "dimension": "D6",
-        "status": "COVERED",
-        "reason": null,
-        "answers": {
-          "Q5": "Q5-O1",
-          "S1": "S1-O1",
-          "S2": "S2-O1",
-          "Q1": "Q1-O1",
-          "Q2": "Q2-O1",
-          "Q3": "Q3-O1",
-          "Q4": [
-            "Q4-O1"
-          ],
-          "Q6": "xxxxxxxxxx",
-          "Q7": "Q7-O1"
-        },
-        "expected": {
-          "questions_seen_in_order": [
-            "S1",
-            "S2",
-            "DT1",
-            "Q1",
-            "Q2",
-            "Q3",
-            "Q4",
-            "Q5",
-            "Q6",
-            "Q7",
-            "Q8"
-          ],
-          "questions_not_seen": [],
-          "ending_reached": "COMPLETE",
-          "blocked_at": null,
-          "quota_stopped": null,
-          "quota_over_target": null,
-          "validation_messages_expected": [],
-          "piped_text_visible": {
-            "Q6": "Yes"
-          },
-          "option_lists_visible": {}
-        },
-        "proof": "Q6 predicted to render 'Yes' in its wording",
-        "provisional_semantics": [],
-        "preconditions": {},
-        "campaign": {},
-        "covered_by": null
-      },
-      {
-        "scenario_id": "SC-7d0adddbf9",
-        "target_id": "T-84fe582a25",
-        "dimension": "D9",
-        "status": "COVERED",
-        "reason": null,
-        "answers": {
-          "Q5": "Q5-O1",
-          "S1": "S1-O1",
-          "S2": "S2-O1",
-          "Q1": "Q1-O1",
-          "Q2": "Q2-O1",
-          "Q3": "Q3-O1",
-          "Q4": [
-            "Q4-O1"
-          ],
-          "Q6": "xxxxxxxxxx",
-          "Q7": "Q7-O1"
-        },
-        "expected": {
-          "questions_seen_in_order": [
-            "S1",
-            "S2",
-            "DT1",
-            "Q1",
-            "Q2",
-            "Q3",
-            "Q4",
-            "Q5",
-            "Q6",
-            "Q7",
-            "Q8"
-          ],
-          "questions_not_seen": [],
-          "ending_reached": "COMPLETE",
-          "blocked_at": null,
-          "quota_stopped": null,
-          "quota_over_target": null,
-          "validation_messages_expected": [],
-          "piped_text_visible": {
-            "Q6": "Yes"
-          },
-          "option_lists_visible": {}
-        },
-        "proof": "Q6 shown by its guard and reflecting its dependency",
         "provisional_semantics": [],
         "preconditions": {},
         "campaign": {},

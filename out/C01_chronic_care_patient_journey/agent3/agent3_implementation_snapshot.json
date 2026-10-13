@@ -9,12 +9,12 @@
   },
   "upstream": {
     "canonical_schema_version": "1.0.0",
-    "canonical_generated_at": "2026-10-11T17:56:54+00:00"
+    "canonical_generated_at": "2026-10-13T11:26:31+00:00"
   },
   "content": {
     "survey_id": "C01_chronic_care_patient_journey",
     "lss_path": "out/C01_chronic_care_patient_journey/agent2/agent2_C01_chronic_care_patient_journey.lss",
-    "lss_sha256": "d652e4e3eb85ded5e64bf9798427f2b5c4999c3f31e20db5fa8c5ecb61b2de64",
+    "lss_sha256": "0645dbd179214dd995e3e4dbed0fccfdfa576091e7777df0afaebf97ef2664a2",
     "sid": 900001,
     "groups": {
       "100": "Screening",
@@ -442,7 +442,7 @@
         "option_codes": {},
         "subquestion_codes": {},
         "attributes": {
-          "em_validation_q": "strlen(this) >= 10 and strlen(this) <= 500",
+          "em_validation_q": "strlen(trim(this)) >= 10 and strlen(this) <= 500",
           "em_validation_q_tip": "Please enter at least 10 characters and no more than 500 characters."
         }
       },
@@ -502,7 +502,7 @@
         "option_codes": {},
         "subquestion_codes": {},
         "attributes": {
-          "em_validation_q": "strlen(this) >= 3 and strlen(this) <= 200",
+          "em_validation_q": "strlen(trim(this)) >= 3 and strlen(this) <= 200",
           "em_validation_q_tip": "Please enter at least 3 characters and no more than 200 characters."
         }
       },
@@ -585,7 +585,7 @@
         "option_codes": {},
         "subquestion_codes": {},
         "attributes": {
-          "em_validation_q": "strlen(this) >= 5 and strlen(this) <= 500",
+          "em_validation_q": "strlen(trim(this)) >= 5 and strlen(this) <= 500",
           "em_validation_q_tip": "Please enter at least 5 characters and no more than 500 characters."
         }
       },

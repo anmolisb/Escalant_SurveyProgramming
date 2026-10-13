@@ -8,7 +8,7 @@
     "sha256": "98e38f24d6ba6a885985207c385b19146cc91ae407b1937b75acde446ac19fcf",
     "bytes": 42037
   },
-  "generated_at": "2026-10-11T17:57:24+00:00",
+  "generated_at": "2026-10-13T11:28:01+00:00",
   "item_count": null,
   "content": {
     "cross_source": [
@@ -30,7 +30,7 @@
       "edges": 27,
       "rules_mapped": "9/9",
       "quotas_mapped": "1/1",
-      "dependency_edges": 9,
+      "dependency_edges": 3,
       "passed": true,
       "blocking": 0,
       "findings": [
@@ -48,23 +48,6 @@
       ]
     },
     "confirmation_required": [
-      {
-        "status": "CONFIRMATION_REQUIRED",
-        "issue": "text_pipe_inferred",
-        "why_it_matters": "Q2's wording appears to quote the answer given at Q1. No table states this; it was read out of the sentence, so it is worth confirming.",
-        "affected": [
-          "Q10",
-          "Q11",
-          "Q12",
-          "Q2",
-          "Q3",
-          "Q5",
-          "Q8",
-          "Q9"
-        ],
-        "changes_downstream": "Whether this question's wording depends on an earlier answer, which decides the order a bot must answer in and what text it should expect on screen.",
-        "decision_ids": []
-      },
       {
         "status": "CONFIRMATION_REQUIRED",
         "issue": "randomization_anchoring",
@@ -138,23 +121,17 @@
         "total": 14,
         "raised_this_run": 0,
         "resolved_reused": 0,
-        "pending": 14,
+        "pending": 8,
         "resolved": 0,
-        "not_required": 0,
-        "newly_transitioned_not_required": 0,
+        "not_required": 6,
+        "newly_transitioned_not_required": 6,
         "context_changed": 0,
         "blocking_pending": [
           "329a4b9757983c67",
-          "349f8e29f7ced8e6",
-          "383282bcac4bf31f",
           "3b21b4e84dc2bc7e",
-          "5826f93d803a8355",
-          "6a898890465e382d",
           "89d54278bc04bf9b",
-          "a2722c4f3ddbedaa",
           "b1d1be7181c4be03",
           "b345589864cc101c",
-          "b948056fd4e8a13c",
           "f91bf53727a683b1"
         ]
       }
@@ -167,7 +144,7 @@
         "edges": 27,
         "rules_mapped": "9/9",
         "quotas_mapped": "1/1",
-        "dependency_edges": 9,
+        "dependency_edges": 3,
         "passed": true,
         "blocking": 0,
         "findings": [
@@ -187,21 +164,14 @@
       "human_decision_gate": "PENDING_BLOCKING_DECISIONS",
       "pending_blocking_decisions": [
         "329a4b9757983c67",
-        "349f8e29f7ced8e6",
-        "383282bcac4bf31f",
         "3b21b4e84dc2bc7e",
-        "5826f93d803a8355",
-        "6a898890465e382d",
         "89d54278bc04bf9b",
-        "a2722c4f3ddbedaa",
         "b1d1be7181c4be03",
         "b345589864cc101c",
-        "b948056fd4e8a13c",
         "f91bf53727a683b1"
       ],
       "agent3_ready": "NO",
       "agent3_blocked_by": [
-        "ambiguous_piping",
         "ambiguous_routing_condition",
         "multi_select_equality",
         "quota_behaviour",
@@ -216,7 +186,6 @@
       ],
       "what_is_missing": [],
       "what_is_ambiguous": [
-        "text_pipe_inferred \u2014 Whether this question's wording depends on an earlier answer, which decides the order a bot must answer in and what text it should expect on screen.",
         "randomization_anchoring \u2014 Where an exclusive option appears when the list is shuffled, which decides whether a displayed-order assertion is right.",
         "semantics_unconfirmed \u2014 Which questions appear on many routes, which rule wins when two apply, and whether an 'is exactly' test passes on a multi-select answer.",
         "condition_inferred \u2014 Whether this rule fires for a given respondent, so which questions they see and which ending they reach.",
@@ -229,16 +198,10 @@
       ],
       "affected_ids": [
         "M06_digital_wallet_usage.docx",
-        "Q10",
-        "Q11",
-        "Q12",
         "Q13",
-        "Q2",
         "Q3",
-        "Q5",
         "Q7",
         "Q8",
-        "Q9",
         "QUOTA_REGION",
         "R9",
         "S3",
@@ -250,8 +213,8 @@
         "other_failures": 2,
         "blocked": 0,
         "cross_source_blocking": 2,
-        "confirmation_required": 7,
-        "decisions_pending_blocking": 12
+        "confirmation_required": 6,
+        "decisions_pending_blocking": 6
       }
     }
   }

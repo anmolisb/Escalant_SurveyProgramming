@@ -8,7 +8,7 @@
     "sha256": "6f7e2db55c2c8ffaabdd4890e35464b4a5325a0ae13e38ffabb37ed06d064964",
     "bytes": 42042
   },
-  "generated_at": "2026-10-11T17:57:15+00:00",
+  "generated_at": "2026-10-13T11:27:03+00:00",
   "item_count": null,
   "content": {
     "cross_source": [
@@ -30,7 +30,7 @@
       "edges": 27,
       "rules_mapped": "9/9",
       "quotas_mapped": "1/1",
-      "dependency_edges": 5,
+      "dependency_edges": 3,
       "passed": true,
       "blocking": 0,
       "findings": [
@@ -48,19 +48,6 @@
       ]
     },
     "confirmation_required": [
-      {
-        "status": "CONFIRMATION_REQUIRED",
-        "issue": "text_pipe_inferred",
-        "why_it_matters": "Q9's wording appears to quote the answer given at Q7. No table states this; it was read out of the sentence, so it is worth confirming.",
-        "affected": [
-          "Q10",
-          "Q11",
-          "Q12",
-          "Q9"
-        ],
-        "changes_downstream": "Whether this question's wording depends on an earlier answer, which decides the order a bot must answer in and what text it should expect on screen.",
-        "decision_ids": []
-      },
       {
         "status": "CONFIRMATION_REQUIRED",
         "issue": "randomization_anchoring",
@@ -125,18 +112,15 @@
         "total": 13,
         "raised_this_run": 0,
         "resolved_reused": 0,
-        "pending": 11,
+        "pending": 8,
         "resolved": 0,
-        "not_required": 2,
-        "newly_transitioned_not_required": 0,
+        "not_required": 5,
+        "newly_transitioned_not_required": 3,
         "context_changed": 0,
         "blocking_pending": [
-          "38c5cfdf054ba5ca",
-          "479ba5baeee26b97",
           "89323997a884fd7e",
           "8f44c584fbb7802c",
           "c33199c713b4aaab",
-          "c860df53d420d659",
           "d407415a87012399",
           "ee893480c79dbb80",
           "fd8266d76c7306e2"
@@ -151,7 +135,7 @@
         "edges": 27,
         "rules_mapped": "9/9",
         "quotas_mapped": "1/1",
-        "dependency_edges": 5,
+        "dependency_edges": 3,
         "passed": true,
         "blocking": 0,
         "findings": [
@@ -170,19 +154,15 @@
       },
       "human_decision_gate": "PENDING_BLOCKING_DECISIONS",
       "pending_blocking_decisions": [
-        "38c5cfdf054ba5ca",
-        "479ba5baeee26b97",
         "89323997a884fd7e",
         "8f44c584fbb7802c",
         "c33199c713b4aaab",
-        "c860df53d420d659",
         "d407415a87012399",
         "ee893480c79dbb80",
         "fd8266d76c7306e2"
       ],
       "agent3_ready": "NO",
       "agent3_blocked_by": [
-        "ambiguous_piping",
         "ambiguous_routing_condition",
         "multi_select_equality",
         "quota_behaviour",
@@ -197,7 +177,6 @@
       ],
       "what_is_missing": [],
       "what_is_ambiguous": [
-        "text_pipe_inferred \u2014 Whether this question's wording depends on an earlier answer, which decides the order a bot must answer in and what text it should expect on screen.",
         "randomization_anchoring \u2014 Where an exclusive option appears when the list is shuffled, which decides whether a displayed-order assertion is right.",
         "condition_inferred \u2014 Whether this rule fires for a given respondent, so which questions they see and which ending they reach.",
         "semantics_unconfirmed \u2014 Which questions appear on many routes, which rule wins when two apply, and whether an 'is exactly' test passes on a multi-select answer.",
@@ -209,14 +188,10 @@
       ],
       "affected_ids": [
         "M01_mobile_network_experience.docx",
-        "Q10",
-        "Q11",
-        "Q12",
         "Q13",
         "Q3",
         "Q7",
         "Q8",
-        "Q9",
         "QUOTA_REGION",
         "R9",
         "S3",
@@ -228,8 +203,8 @@
         "other_failures": 2,
         "blocked": 0,
         "cross_source_blocking": 2,
-        "confirmation_required": 6,
-        "decisions_pending_blocking": 9
+        "confirmation_required": 5,
+        "decisions_pending_blocking": 6
       }
     }
   }

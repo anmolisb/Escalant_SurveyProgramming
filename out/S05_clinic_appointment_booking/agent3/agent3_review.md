@@ -4,9 +4,9 @@ Agent 3 v0.1. Blocks B1 to B4 implemented and run. Blocks A and C are blocked on
 
 ## Headline
 
-- **42 coverage targets** enumerated across nine dimensions
-- **42 logically covered**, each with an independently predicted outcome
-- **42 logical test cases** generated, with steps and assertions
+- **40 coverage targets** enumerated across nine dimensions
+- **40 logically covered**, each with an independently predicted outcome
+- **40 logical test cases** generated, with steps and assertions
 - **0 executable tests** - Block C cannot bind a canonical id to a LimeSurvey field without Agent 2's build manifest
 - **Coverage floor 100.0%** (D1). Reported as a floor, never a sum or an average
 - **Specification replay: 3 agree / 0 disagree / 0 unresolved of 3** against the QRE's own acceptance scenarios
@@ -21,8 +21,6 @@ Nine dimensions, reported side by side. They count different kinds of unit, so a
 | D2 | Terminal outcome | 3 | 3 | 100.0% | EXHAUSTIVE | - |
 | D3 | Validation (explicit) | 10 | 10 | 100.0% | EXHAUSTIVE | - |
 | D4 | Validation (mandatory) | 12 | 12 | 100.0% | EXHAUSTIVE | - |
-| D6 | Text-pipe dependency | 1 | 1 | 100.0% | EXHAUSTIVE | - |
-| D9 | Interaction | 1 | 1 | 100.0% | BOUNDED | - |
 
 **Floor: 100.0% (D1).** FLOOR - lowest dimension. Never a sum or an average.
 
@@ -40,7 +38,7 @@ B3's interpreter cannot run without these. They are read from Agent 1's `semanti
 | default_mandatory | `True` | derived | CONFIRMED | no | - |
 | whitespace_is_an_answer | `not_an_answer` | agent3_fallback | PROVISIONAL | no | - |
 
-3 reading(s) still provisional. **6 of 42 generated tests lean on at least one of them** and are tagged accordingly, so a change of ruling shows exactly which tests must be regenerated.
+3 reading(s) still provisional. **6 of 40 generated tests lean on at least one of them** and are tagged accordingly, so a change of ruling shows exactly which tests must be regenerated.
 
 ## Specification replay
 
@@ -139,7 +137,7 @@ No target is ever silently dropped. Each carries one specific reason.
 
 ## Block A - implementation conformance
 
-Derived from the emitted `.lss` (sha `7e3d4ea4f89c`), not from a self-reported manifest.
+Derived from the emitted `.lss` (sha `0d775cbaca6a`), not from a self-reported manifest.
 
 - Questions specified: 11
 - Questions built: 11
@@ -155,14 +153,14 @@ Derived from the emitted `.lss` (sha `7e3d4ea4f89c`), not from a self-reported m
 
 ## Block C - executable compilation
 
-- Logically covered: 42
-- **Compiled to executable tests: 42**
+- Logically covered: 40
+- **Compiled to executable tests: 40**
 - Refused rather than guessed: 0
 - Executable coverage: **100.0%**
 
 ## Sample executable test
 
-### `EX-2566cde034` - answering DT1 normally moves the respondent on to the question that should come next
+### `EX-afc0c88f52` - answering DT1 normally moves the respondent on to the question that should come next
 
 Survey id 900001. Dimension D1. Traces to DT1.
 

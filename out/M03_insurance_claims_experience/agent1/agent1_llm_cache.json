@@ -111,6 +111,15 @@
           }
         ]
       }
+    },
+    "ae3d5c3727f87e23c72d8d7b0587e7fa736dcbcd1fb07e1232c59f5833087432": {
+      "response_model": "LLMTextPipes",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-10-13T11:27:21+00:00",
+      "asked": "S1: Have you used or purchased insurance claims in the past 6 months?\nS2: Are you personally involved in choosing this product or service?\nS3: What is your age?\nDT1: Great, you're eligible for this survey! Next, a few questions about your recent insurance claim experience.\nQ1: Which insurance claims channel or provider did you use most recently?\nQ2: When did the most recent experience occur?\nQ3: W ...",
+      "response": {
+        "pipes": []
+      }
     }
   }
 }

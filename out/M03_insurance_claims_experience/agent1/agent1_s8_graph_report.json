@@ -8,7 +8,7 @@
     "sha256": "78c2eabe629581e09af4cec1f22515348e0c344c7fea67dfd8a89e85ff02748a",
     "bytes": 42026
   },
-  "generated_at": "2026-10-11T17:57:19+00:00",
+  "generated_at": "2026-10-13T11:27:21+00:00",
   "item_count": null,
   "content": {
     "source": "M03_insurance_claims_experience.docx",
@@ -20,7 +20,7 @@
     "rules_total": 9,
     "quotas_mapped": 1,
     "quotas_total": 1,
-    "dependency_edges": 4,
+    "dependency_edges": 3,
     "findings": [
       {
         "check": "termination",
@@ -63,8 +63,8 @@
         "result": 1.0
       },
       "dependency_coverage": {
-        "numerator": 3,
-        "denominator": 3,
+        "numerator": 1,
+        "denominator": 1,
         "result": 1.0
       },
       "quota_coverage": {

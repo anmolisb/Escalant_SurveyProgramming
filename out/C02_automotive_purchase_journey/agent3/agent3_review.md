@@ -225,7 +225,7 @@ No target is ever silently dropped. Each carries one specific reason.
 
 ## Block A - implementation conformance
 
-Derived from the emitted `.lss` (sha `b5715ad15a00`), not from a self-reported manifest.
+Derived from the emitted `.lss` (sha `bc61763a2799`), not from a self-reported manifest.
 
 - Questions specified: 34
 - Questions built: 34
@@ -253,7 +253,7 @@ Derived from the emitted `.lss` (sha `b5715ad15a00`), not from a self-reported m
 
 ## Sample executable test
 
-### `EX-ceeccaaae8` - answering D1 normally moves the respondent on to the question that should come next
+### `EX-65ec2cad25` - answering D1 normally moves the respondent on to the question that should come next
 
 Survey id 900001. Dimension D1. Traces to D1.
 

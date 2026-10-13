@@ -9,67 +9,7 @@ reused from then on unless the source document or this module's
 vocabulary changes, in which case it returns here as pending, with the
 old ruling kept under `previous_decision` for a quick re-confirmation.
 
-**14 PENDING_CONFIRMATION**
-
-## 🔴 `ambiguous_piping` — PENDING_CONFIRMATION (BLOCKING)
-
-- **id:** `349f8e29f7ced8e6`
-- **affects:** Q8
-- **evidence:** 'the greatest impact' (confidence 0.99)
-- **current reading:** A question's wording was read as quoting an earlier answer, from the phrasing alone; no table states the link.
-- **alternatives:** The wording is generic and does not actually depend on the earlier answer.
-- **downstream impact:** Whether this question's wording depends on an earlier answer, which decides the order a respondent bot must answer in and what text it should expect on screen.
-- **recommendation:** Confirm the dependency with the project owner.
-
-## 🔴 `ambiguous_piping` — PENDING_CONFIRMATION (BLOCKING)
-
-- **id:** `383282bcac4bf31f`
-- **affects:** Q10
-- **evidence:** 'the resolution' (confidence 0.99)
-- **current reading:** A question's wording was read as quoting an earlier answer, from the phrasing alone; no table states the link.
-- **alternatives:** The wording is generic and does not actually depend on the earlier answer.
-- **downstream impact:** Whether this question's wording depends on an earlier answer, which decides the order a respondent bot must answer in and what text it should expect on screen.
-- **recommendation:** Confirm the dependency with the project owner.
-
-## 🔴 `ambiguous_piping` — PENDING_CONFIRMATION (BLOCKING)
-
-- **id:** `5826f93d803a8355`
-- **affects:** Q3, Q5
-- **evidence:** 'the experience' (confidence 0.99)
-- **current reading:** A question's wording was read as quoting an earlier answer, from the phrasing alone; no table states the link.
-- **alternatives:** The wording is generic and does not actually depend on the earlier answer.
-- **downstream impact:** Whether this question's wording depends on an earlier answer, which decides the order a respondent bot must answer in and what text it should expect on screen.
-- **recommendation:** Confirm the dependency with the project owner.
-
-## 🔴 `ambiguous_piping` — PENDING_CONFIRMATION (BLOCKING)
-
-- **id:** `6a898890465e382d`
-- **affects:** Q9
-- **evidence:** 'the main problem' (confidence 0.99)
-- **current reading:** A question's wording was read as quoting an earlier answer, from the phrasing alone; no table states the link.
-- **alternatives:** The wording is generic and does not actually depend on the earlier answer.
-- **downstream impact:** Whether this question's wording depends on an earlier answer, which decides the order a respondent bot must answer in and what text it should expect on screen.
-- **recommendation:** Confirm the dependency with the project owner.
-
-## 🔴 `ambiguous_piping` — PENDING_CONFIRMATION (BLOCKING)
-
-- **id:** `a2722c4f3ddbedaa`
-- **affects:** Q2
-- **evidence:** 'most recent experience' (confidence 0.99)
-- **current reading:** A question's wording was read as quoting an earlier answer, from the phrasing alone; no table states the link.
-- **alternatives:** The wording is generic and does not actually depend on the earlier answer.
-- **downstream impact:** Whether this question's wording depends on an earlier answer, which decides the order a respondent bot must answer in and what text it should expect on screen.
-- **recommendation:** Confirm the dependency with the project owner.
-
-## 🔴 `ambiguous_piping` — PENDING_CONFIRMATION (BLOCKING)
-
-- **id:** `b948056fd4e8a13c`
-- **affects:** Q11, Q12
-- **evidence:** 'the provider' (confidence 0.99)
-- **current reading:** A question's wording was read as quoting an earlier answer, from the phrasing alone; no table states the link.
-- **alternatives:** The wording is generic and does not actually depend on the earlier answer.
-- **downstream impact:** Whether this question's wording depends on an earlier answer, which decides the order a respondent bot must answer in and what text it should expect on screen.
-- **recommendation:** Confirm the dependency with the project owner.
+**8 PENDING_CONFIRMATION, 6 NOT_REQUIRED**
 
 ## 🔴 `ambiguous_routing_condition` — PENDING_CONFIRMATION (BLOCKING)
 
@@ -149,3 +89,63 @@ old ruling kept under `previous_decision` for a quick re-confirmation.
 - **alternatives:** An exclusive option (such as "None of these") stays anchored at the bottom, by convention.
 - **downstream impact:** Where an exclusive option appears when the list is shuffled, which decides whether a displayed-order assertion is correct. Does not change which questions are asked or how they route.
 - **recommendation:** Confirm anchoring convention with the project owner.
+
+## 🔴 `ambiguous_piping` — NOT_REQUIRED (BLOCKING)
+
+- **id:** `349f8e29f7ced8e6`
+- **affects:** Q8
+- **evidence:** 'the greatest impact' (confidence 0.99)
+- **current reading:** A question's wording was read as quoting an earlier answer, from the phrasing alone; no table states the link.
+- **alternatives:** The wording is generic and does not actually depend on the earlier answer.
+- **downstream impact:** Whether this question's wording depends on an earlier answer, which decides the order a respondent bot must answer in and what text it should expect on screen.
+- **recommendation:** Confirm the dependency with the project owner.
+
+## 🔴 `ambiguous_piping` — NOT_REQUIRED (BLOCKING)
+
+- **id:** `383282bcac4bf31f`
+- **affects:** Q10
+- **evidence:** 'the resolution' (confidence 0.99)
+- **current reading:** A question's wording was read as quoting an earlier answer, from the phrasing alone; no table states the link.
+- **alternatives:** The wording is generic and does not actually depend on the earlier answer.
+- **downstream impact:** Whether this question's wording depends on an earlier answer, which decides the order a respondent bot must answer in and what text it should expect on screen.
+- **recommendation:** Confirm the dependency with the project owner.
+
+## 🔴 `ambiguous_piping` — NOT_REQUIRED (BLOCKING)
+
+- **id:** `5826f93d803a8355`
+- **affects:** Q3, Q5
+- **evidence:** 'the experience' (confidence 0.99)
+- **current reading:** A question's wording was read as quoting an earlier answer, from the phrasing alone; no table states the link.
+- **alternatives:** The wording is generic and does not actually depend on the earlier answer.
+- **downstream impact:** Whether this question's wording depends on an earlier answer, which decides the order a respondent bot must answer in and what text it should expect on screen.
+- **recommendation:** Confirm the dependency with the project owner.
+
+## 🔴 `ambiguous_piping` — NOT_REQUIRED (BLOCKING)
+
+- **id:** `6a898890465e382d`
+- **affects:** Q9
+- **evidence:** 'the main problem' (confidence 0.99)
+- **current reading:** A question's wording was read as quoting an earlier answer, from the phrasing alone; no table states the link.
+- **alternatives:** The wording is generic and does not actually depend on the earlier answer.
+- **downstream impact:** Whether this question's wording depends on an earlier answer, which decides the order a respondent bot must answer in and what text it should expect on screen.
+- **recommendation:** Confirm the dependency with the project owner.
+
+## 🔴 `ambiguous_piping` — NOT_REQUIRED (BLOCKING)
+
+- **id:** `a2722c4f3ddbedaa`
+- **affects:** Q2
+- **evidence:** 'most recent experience' (confidence 0.99)
+- **current reading:** A question's wording was read as quoting an earlier answer, from the phrasing alone; no table states the link.
+- **alternatives:** The wording is generic and does not actually depend on the earlier answer.
+- **downstream impact:** Whether this question's wording depends on an earlier answer, which decides the order a respondent bot must answer in and what text it should expect on screen.
+- **recommendation:** Confirm the dependency with the project owner.
+
+## 🔴 `ambiguous_piping` — NOT_REQUIRED (BLOCKING)
+
+- **id:** `b948056fd4e8a13c`
+- **affects:** Q11, Q12
+- **evidence:** 'the provider' (confidence 0.99)
+- **current reading:** A question's wording was read as quoting an earlier answer, from the phrasing alone; no table states the link.
+- **alternatives:** The wording is generic and does not actually depend on the earlier answer.
+- **downstream impact:** Whether this question's wording depends on an earlier answer, which decides the order a respondent bot must answer in and what text it should expect on screen.
+- **recommendation:** Confirm the dependency with the project owner.

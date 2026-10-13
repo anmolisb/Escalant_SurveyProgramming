@@ -8,7 +8,7 @@
     "sha256": "98e38f24d6ba6a885985207c385b19146cc91ae407b1937b75acde446ac19fcf",
     "bytes": 42037
   },
-  "generated_at": "2026-10-11T17:57:24+00:00",
+  "generated_at": "2026-10-13T11:28:01+00:00",
   "item_count": null,
   "content": {
     "source": "M06_digital_wallet_usage.docx",
@@ -20,7 +20,7 @@
     "rules_total": 9,
     "quotas_mapped": 1,
     "quotas_total": 1,
-    "dependency_edges": 9,
+    "dependency_edges": 3,
     "findings": [
       {
         "check": "termination",
@@ -63,8 +63,8 @@
         "result": 1.0
       },
       "dependency_coverage": {
-        "numerator": 9,
-        "denominator": 9,
+        "numerator": 1,
+        "denominator": 1,
         "result": 1.0
       },
       "quota_coverage": {

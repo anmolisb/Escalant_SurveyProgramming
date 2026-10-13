@@ -35,6 +35,15 @@
           }
         ]
       }
+    },
+    "1c88b205835c677724db31afb80054ddac407c34844065655b3490775666af3d": {
+      "response_model": "LLMTextPipes",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-10-13T11:28:58+00:00",
+      "asked": "S1: Have you booked or attempted to book a clinic appointment in the past 30 days?\nS2: Are you 18 years of age or older?\nDT1: Great, you're eligible for this survey! Next, a few quick questions about your recent appointment booking.\nQ1: Which channel did you primarily use for this appointment-booking experience?\nQ2: Overall, how satisfied were you with the appointment-booking experience?\nQ3: How e ...",
+      "response": {
+        "pipes": []
+      }
     }
   }
 }

@@ -9,11 +9,11 @@
   },
   "upstream": {
     "canonical_schema_version": "1.0.0",
-    "canonical_generated_at": "2026-10-11T17:57:27+00:00"
+    "canonical_generated_at": "2026-10-13T11:28:24+00:00"
   },
   "content": {
-    "feasible": 42,
-    "total": 42,
+    "feasible": 40,
+    "total": 40,
     "witnesses": [
       {
         "target_id": "T-94ce2e5d20",
@@ -893,50 +893,6 @@
         },
         "method": "blank answer probe",
         "evidence": "Q8 left blank, expect it permits progress [leaned on provisional semantics: ['rule_precedence']]",
-        "reason": null,
-        "preconditions": {},
-        "campaign": {}
-      },
-      {
-        "target_id": "T-9e8e92980a",
-        "feasible": true,
-        "answers": {
-          "Q5": "Q5-O1",
-          "S1": "S1-O1",
-          "S2": "S2-O1",
-          "Q1": "Q1-O1",
-          "Q2": "Q2-O1",
-          "Q3": "Q3-O1",
-          "Q4": [
-            "Q4-O1"
-          ],
-          "Q6": "xxxxxxxxxx",
-          "Q7": "Q7-O1"
-        },
-        "method": "source answered, dependent question shown",
-        "evidence": "Q5 answered so Q6's wording can reflect it [leaned on provisional semantics: ['rule_precedence']]",
-        "reason": null,
-        "preconditions": {},
-        "campaign": {}
-      },
-      {
-        "target_id": "T-84fe582a25",
-        "feasible": true,
-        "answers": {
-          "Q5": "Q5-O1",
-          "S1": "S1-O1",
-          "S2": "S2-O1",
-          "Q1": "Q1-O1",
-          "Q2": "Q2-O1",
-          "Q3": "Q3-O1",
-          "Q4": [
-            "Q4-O1"
-          ],
-          "Q6": "xxxxxxxxxx",
-          "Q7": "Q7-O1"
-        },
-        "method": "guard satisfied with dependency present",
-        "evidence": "Q6 shown while dependent on Q5 [leaned on provisional semantics: ['rule_precedence']]",
         "reason": null,
         "preconditions": {},
         "campaign": {}

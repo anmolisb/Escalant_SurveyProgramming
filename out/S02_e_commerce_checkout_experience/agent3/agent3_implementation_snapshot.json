@@ -9,12 +9,12 @@
   },
   "upstream": {
     "canonical_schema_version": "1.0.0",
-    "canonical_generated_at": "2026-10-11T17:57:27+00:00"
+    "canonical_generated_at": "2026-10-13T11:28:24+00:00"
   },
   "content": {
     "survey_id": "S02_e_commerce_checkout_experience",
     "lss_path": "out/S02_e_commerce_checkout_experience/agent2/agent2_S02_e_commerce_checkout_experience.lss",
-    "lss_sha256": "e056f3f3d35dacc51a4f5e5fa55b2eb0f07b2462b4f320b3cfb371b9255b1536",
+    "lss_sha256": "55079ab017753795d53cece8491507505c586ef64a9d59c1c93f855ef3a83c01",
     "sid": 900001,
     "groups": {
       "100": "Screening",
@@ -196,7 +196,7 @@
         "option_codes": {},
         "subquestion_codes": {},
         "attributes": {
-          "em_validation_q": "strlen(this) >= 10 and strlen(this) <= 500",
+          "em_validation_q": "strlen(trim(this)) >= 10 and strlen(this) <= 500",
           "em_validation_q_tip": "Please enter at least 10 characters and no more than 500 characters."
         }
       },

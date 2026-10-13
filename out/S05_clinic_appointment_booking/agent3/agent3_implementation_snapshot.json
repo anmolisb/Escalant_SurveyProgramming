@@ -9,12 +9,12 @@
   },
   "upstream": {
     "canonical_schema_version": "1.0.0",
-    "canonical_generated_at": "2026-10-11T17:57:31+00:00"
+    "canonical_generated_at": "2026-10-13T11:28:58+00:00"
   },
   "content": {
     "survey_id": "S05_clinic_appointment_booking",
     "lss_path": "out/S05_clinic_appointment_booking/agent2/agent2_S05_clinic_appointment_booking.lss",
-    "lss_sha256": "7e3d4ea4f89c325fe8149d796fb1e4abedb3e7e43b005944c8ee362544ab916e",
+    "lss_sha256": "0d775cbaca6aea641d3aa8b669629d57ae35db1ab34f329c19339911065f11f6",
     "sid": 900001,
     "groups": {
       "100": "Screening",
@@ -197,7 +197,7 @@
         "option_codes": {},
         "subquestion_codes": {},
         "attributes": {
-          "em_validation_q": "strlen(this) >= 10 and strlen(this) <= 500",
+          "em_validation_q": "strlen(trim(this)) >= 10 and strlen(this) <= 500",
           "em_validation_q_tip": "Please enter at least 10 characters and no more than 500 characters."
         }
       },

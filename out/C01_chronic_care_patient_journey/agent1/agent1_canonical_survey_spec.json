@@ -8,7 +8,7 @@
     "sha256": "9fe8bb4afcacc91f94918506ae31a1ba231222b73050f346ed10ea91064fc093",
     "bytes": 43897
   },
-  "generated_at": "2026-10-11T17:56:54+00:00",
+  "generated_at": "2026-10-13T11:26:31+00:00",
   "item_count": null,
   "content": {
     "source": "C01_chronic_care_patient_journey.docx",
@@ -3904,9 +3904,9 @@
         "from_question": "Q19",
         "to_question": "Q20",
         "kind": "text_pipe",
-        "detail": "the selected proposition",
+        "detail": "selected proposition",
         "origin": "inferred",
-        "confidence": 1.0,
+        "confidence": 0.99,
         "source_reference": {
           "document": "C01_chronic_care_patient_journey.docx",
           "section": "Questionnaire",
@@ -3915,23 +3915,6 @@
           "row_index": 25,
           "source_kind": "table",
           "text": "Q20 | How appealing is the selected proposition? | single | 1 - Very poor; 2 - Poor; 3 - Fair; 4 - Good; 5 - Excellent | Always show"
-        }
-      },
-      {
-        "from_question": "Q19",
-        "to_question": "Q21",
-        "kind": "text_pipe",
-        "detail": "your choice",
-        "origin": "inferred",
-        "confidence": 0.95,
-        "source_reference": {
-          "document": "C01_chronic_care_patient_journey.docx",
-          "section": "Questionnaire",
-          "heading_text": "Questionnaire",
-          "block_order": 10,
-          "row_index": 26,
-          "source_kind": "table",
-          "text": "Q21 | What most influenced your choice? | text | \u2014 | Validate: {\"min_length\": 5, \"max_length\": 500}"
         }
       }
     ],
@@ -4992,18 +4975,7 @@
           "kind": "question",
           "id": "Q20"
         },
-        "evidence": "'the selected proposition' (confidence 1.00)",
-        "source_reference": null
-      },
-      {
-        "check": "text_pipe_inferred",
-        "severity": "WARNING",
-        "finding": "Q21's wording appears to quote the answer given at Q19. No table states this; it was read out of the sentence, so it is worth confirming.",
-        "target": {
-          "kind": "question",
-          "id": "Q21"
-        },
-        "evidence": "'your choice' (confidence 0.95)",
+        "evidence": "'selected proposition' (confidence 0.99)",
         "source_reference": null
       },
       {

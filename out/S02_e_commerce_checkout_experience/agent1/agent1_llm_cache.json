@@ -35,6 +35,15 @@
           }
         ]
       }
+    },
+    "849ee490d3ac3ca3f1f0a8a95a523e919d3f6b644faf1d8f24419eb16727f450": {
+      "response_model": "LLMTextPipes",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-10-13T11:28:24+00:00",
+      "asked": "S1: Have you completed an online retail purchase in the past 30 days?\nS2: Are you 18 years of age or older?\nDT1: Great, you're eligible for this survey! Next, a few quick questions about your recent online checkout.\nQ1: Which channel did you primarily use for this online checkout?\nQ2: Overall, how satisfied were you with the online checkout?\nQ3: How easy was it to complete what you wanted to do?\nQ ...",
+      "response": {
+        "pipes": []
+      }
     }
   }
 }

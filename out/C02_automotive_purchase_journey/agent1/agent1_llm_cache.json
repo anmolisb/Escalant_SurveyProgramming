@@ -180,6 +180,24 @@
           }
         ]
       }
+    },
+    "f0343d8458e2650271d3ecb19ced46cec09e24381d63cf8e484e066a763be307": {
+      "response_model": "LLMTextPipes",
+      "model": "openai/gpt-oss-120b",
+      "recorded_at": "2026-10-13T11:26:39+00:00",
+      "asked": "S1: Are you 21 years of age or older?\nS2: Which statement best describes your involvement?\nS3: Have you participated in market research in the past 3 months?\nS4: Do you or an immediate family member work in market research, advertising, or the category being studied?\nDT1: Great, you're eligible for this survey! Next, a few questions about your purchase experience.\nQ1: Which of these brands have yo ...",
+      "response": {
+        "pipes": [
+          {
+            "is_pipe": true,
+            "source_question_id": "Q19",
+            "target_question_id": "Q20",
+            "phrase": "selected proposition",
+            "confidence": 1.0,
+            "reasoning": "The wording of Q20 contains the phrase \"selected proposition\", which explicitly refers to the answer the respondent gave earlier in Q19 (the proposition they preferred). Without inserting that earlier answer, the phrase \"the selected proposition\" has no referent, so the question cannot be shown as written."
+          }
+        ]
+      }
     }
   }
 }

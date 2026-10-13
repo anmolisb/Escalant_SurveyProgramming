@@ -9,7 +9,7 @@
   },
   "upstream": {
     "canonical_schema_version": "1.0.0",
-    "canonical_generated_at": "2026-10-11T17:56:54+00:00"
+    "canonical_generated_at": "2026-10-13T11:26:31+00:00"
   },
   "content": {
     "report": {
@@ -19,12 +19,12 @@
         "D3": 32,
         "D4": 35,
         "D5": 2,
-        "D6": 2,
+        "D6": 1,
         "D7": 15,
         "D8": 20,
         "D9": 2
       },
-      "records_enumerated": 176,
+      "records_enumerated": 175,
       "predetermined_unresolvable": 16,
       "orphan_rules": [],
       "note": "Dimensions are reported side by side and never summed. records_enumerated counts records, not coverage."
@@ -1712,19 +1712,6 @@
         "traces_to": [
           "Q19",
           "Q20"
-        ],
-        "predetermined_reason": null,
-        "notes": "origin=inferred, no table in the QRE states this link"
-      },
-      {
-        "target_id": "T-197a13d6a0",
-        "dimension": "D6",
-        "subject": "Q19->Q21",
-        "polarity": "rendered",
-        "claim": "Q21's wording renders the answer given at Q19",
-        "traces_to": [
-          "Q19",
-          "Q21"
         ],
         "predetermined_reason": null,
         "notes": "origin=inferred, no table in the QRE states this link"

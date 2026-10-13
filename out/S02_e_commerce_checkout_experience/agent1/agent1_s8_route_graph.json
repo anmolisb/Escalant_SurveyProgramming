@@ -8,7 +8,7 @@
     "sha256": "bec693bec7542129c45b2669329a90aa00207496eb912d1d51723439099b9895",
     "bytes": 40667
   },
-  "generated_at": "2026-10-11T17:57:27+00:00",
+  "generated_at": "2026-10-13T11:28:24+00:00",
   "item_count": null,
   "content": {
     "source": "S02_e_commerce_checkout_experience.docx",
@@ -334,8 +334,7 @@
       ],
       "edges": [
         {
-          "kind": "text_pipe",
-          "origin": "inferred",
+          "kind": "guard",
           "source": "Q5",
           "target": "Q6"
         }

@@ -8,7 +8,7 @@
     "sha256": "8f7a44cf016c447817c94a85b25d826fa176cdca6f8d11f76130941321849c0b",
     "bytes": 40655
   },
-  "generated_at": "2026-10-11T17:57:31+00:00",
+  "generated_at": "2026-10-13T11:28:58+00:00",
   "item_count": null,
   "content": {
     "cross_source": [],
@@ -33,16 +33,6 @@
         ],
         "changes_downstream": "Which questions appear on many routes, which rule wins when two apply, and whether an 'is exactly' test passes on a multi-select answer.",
         "decision_ids": []
-      },
-      {
-        "status": "CONFIRMATION_REQUIRED",
-        "issue": "text_pipe_inferred",
-        "why_it_matters": "Q6's wording appears to quote the answer given at Q5. No table states this; it was read out of the sentence, so it is worth confirming.",
-        "affected": [
-          "Q6"
-        ],
-        "changes_downstream": "Whether this question's wording depends on an earlier answer, which decides the order a bot must answer in and what text it should expect on screen.",
-        "decision_ids": []
       }
     ],
     "decisions": {
@@ -52,13 +42,12 @@
         "total": 3,
         "raised_this_run": 0,
         "resolved_reused": 0,
-        "pending": 3,
+        "pending": 2,
         "resolved": 0,
-        "not_required": 0,
-        "newly_transitioned_not_required": 0,
+        "not_required": 1,
+        "newly_transitioned_not_required": 1,
         "context_changed": 0,
         "blocking_pending": [
-          "058581e36407af07",
           "28f6e1e4584d075c",
           "91b8b7dc8f52f049"
         ]
@@ -79,25 +68,21 @@
       },
       "human_decision_gate": "PENDING_BLOCKING_DECISIONS",
       "pending_blocking_decisions": [
-        "058581e36407af07",
         "28f6e1e4584d075c",
         "91b8b7dc8f52f049"
       ],
       "agent3_ready": "NO",
       "agent3_blocked_by": [
-        "ambiguous_piping",
         "rule_precedence",
         "unasked_question_semantics"
       ],
       "what_is_incorrect": [],
       "what_is_missing": [],
       "what_is_ambiguous": [
-        "semantics_unconfirmed \u2014 Which questions appear on many routes, which rule wins when two apply, and whether an 'is exactly' test passes on a multi-select answer.",
-        "text_pipe_inferred \u2014 Whether this question's wording depends on an earlier answer, which decides the order a bot must answer in and what text it should expect on screen."
+        "semantics_unconfirmed \u2014 Which questions appear on many routes, which rule wins when two apply, and whether an 'is exactly' test passes on a multi-select answer."
       ],
       "what_must_change": [],
       "affected_ids": [
-        "Q6",
         "S05_clinic_appointment_booking.docx",
         "semantics"
       ],
@@ -106,8 +91,8 @@
         "other_failures": 0,
         "blocked": 0,
         "cross_source_blocking": 0,
-        "confirmation_required": 2,
-        "decisions_pending_blocking": 3
+        "confirmation_required": 1,
+        "decisions_pending_blocking": 2
       }
     }
   }

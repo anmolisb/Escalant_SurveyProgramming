@@ -9,12 +9,12 @@
   },
   "upstream": {
     "canonical_schema_version": "1.0.0",
-    "canonical_generated_at": "2026-10-11T17:57:26+00:00"
+    "canonical_generated_at": "2026-10-13T11:28:14+00:00"
   },
   "content": {
     "report": {
-      "logically_covered": 42,
-      "compiled_executable": 42,
+      "logically_covered": 40,
+      "compiled_executable": 40,
       "refused": 0,
       "executable_coverage_pct": 100.0,
       "refusals": [],
@@ -22,7 +22,7 @@
     },
     "tests": [
       {
-        "test_id": "EX-ea0690dba1",
+        "test_id": "EX-fbe0ffcafa",
         "target_id": "T-4c28ba9a4a",
         "dimension": "D1",
         "title": "answering DT1 normally moves the respondent on to the question that should come next",
@@ -159,7 +159,7 @@
         "provisional_semantics": []
       },
       {
-        "test_id": "EX-fcf536da2b",
+        "test_id": "EX-9d8f160673",
         "target_id": "T-f325a4a781",
         "dimension": "D1",
         "title": "answering Q1 normally moves the respondent on to the question that should come next",
@@ -304,7 +304,7 @@
         "provisional_semantics": []
       },
       {
-        "test_id": "EX-169ca64d46",
+        "test_id": "EX-1dba5537fb",
         "target_id": "T-ea15e888c6",
         "dimension": "D1",
         "title": "answering Q2 normally moves the respondent on to the question that should come next",
@@ -449,7 +449,7 @@
         "provisional_semantics": []
       },
       {
-        "test_id": "EX-8caccf0635",
+        "test_id": "EX-04fdd0c85b",
         "target_id": "T-d182c884c0",
         "dimension": "D1",
         "title": "answering Q3 normally moves the respondent on to the question that should come next",
@@ -594,7 +594,7 @@
         "provisional_semantics": []
       },
       {
-        "test_id": "EX-1eb6c80ed7",
+        "test_id": "EX-974b3f5b3f",
         "target_id": "T-460e9ac790",
         "dimension": "D1",
         "title": "answering Q4 normally moves the respondent on to the question that should come next",
@@ -739,7 +739,7 @@
         "provisional_semantics": []
       },
       {
-        "test_id": "EX-543a7972df",
+        "test_id": "EX-2faaa9514f",
         "target_id": "T-4a81ad1c54",
         "dimension": "D1",
         "title": "answering Q5 normally moves the respondent on to the question that should come next",
@@ -884,7 +884,7 @@
         "provisional_semantics": []
       },
       {
-        "test_id": "EX-810a6fc85f",
+        "test_id": "EX-8fa386889d",
         "target_id": "T-a31d9e36e7",
         "dimension": "D1",
         "title": "answering Q6 normally moves the respondent on to the question that should come next",
@@ -1029,7 +1029,7 @@
         "provisional_semantics": []
       },
       {
-        "test_id": "EX-bcbe7f1463",
+        "test_id": "EX-1b2ae9e01c",
         "target_id": "T-836bcea7a3",
         "dimension": "D1",
         "title": "Q6 is not displayed when its guard fails",
@@ -1157,7 +1157,7 @@
         ]
       },
       {
-        "test_id": "EX-126f5dfd38",
+        "test_id": "EX-8d4628cf26",
         "target_id": "T-46ad0b9227",
         "dimension": "D1",
         "title": "Q6 is displayed when its guard holds",
@@ -1285,7 +1285,7 @@
         "provisional_semantics": []
       },
       {
-        "test_id": "EX-74c2e31646",
+        "test_id": "EX-4e3aa2d89b",
         "target_id": "T-a25fbf002c",
         "dimension": "D1",
         "title": "answering Q7 normally moves the respondent on to the question that should come next",
@@ -1430,7 +1430,7 @@
         "provisional_semantics": []
       },
       {
-        "test_id": "EX-383393e005",
+        "test_id": "EX-c2fe777d92",
         "target_id": "T-b3b76ca11a",
         "dimension": "D1",
         "title": "answering Q8 normally moves the respondent on to the question that should come next",
@@ -1575,7 +1575,7 @@
         "provisional_semantics": []
       },
       {
-        "test_id": "EX-564da8df5f",
+        "test_id": "EX-2661d79d53",
         "target_id": "T-42c434e9a8",
         "dimension": "D1",
         "title": "R4 jumps to Q7 when its condition holds",
@@ -1694,7 +1694,7 @@
         ]
       },
       {
-        "test_id": "EX-018fb4501e",
+        "test_id": "EX-3144941dbb",
         "target_id": "T-bb19b20b74",
         "dimension": "D1",
         "title": "R4 does not jump when its condition fails, so the respondent continues in sequence",
@@ -1811,7 +1811,7 @@
         "provisional_semantics": []
       },
       {
-        "test_id": "EX-e53c08dc54",
+        "test_id": "EX-d72936c6f0",
         "target_id": "T-94ce2e5d20",
         "dimension": "D1",
         "title": "answering S1 normally moves the respondent on to the question that should come next",
@@ -1956,7 +1956,7 @@
         "provisional_semantics": []
       },
       {
-        "test_id": "EX-7b2fc26e98",
+        "test_id": "EX-8082119263",
         "target_id": "T-9b21d71193",
         "dimension": "D1",
         "title": "answering S2 normally moves the respondent on to the question that should come next",
@@ -2101,7 +2101,7 @@
         "provisional_semantics": []
       },
       {
-        "test_id": "EX-c0e9222b0e",
+        "test_id": "EX-3a80f4c42f",
         "target_id": "T-05b0993ae8",
         "dimension": "D2",
         "title": "a respondent can reach ending COMPLETE",
@@ -2236,7 +2236,7 @@
         "provisional_semantics": []
       },
       {
-        "test_id": "EX-8a254051ab",
+        "test_id": "EX-f29a6229df",
         "target_id": "T-ad81bd1fb8",
         "dimension": "D2",
         "title": "ending TERM_INELIGIBLE is reached by rule R1, evaluated at S1",
@@ -2294,7 +2294,7 @@
         ]
       },
       {
-        "test_id": "EX-769e506c7c",
+        "test_id": "EX-45a89ce5b3",
         "target_id": "T-b13742d625",
         "dimension": "D2",
         "title": "ending TERM_INELIGIBLE is reached by rule R2, evaluated at S2",
@@ -2362,7 +2362,7 @@
         ]
       },
       {
-        "test_id": "EX-fe7969f71a",
+        "test_id": "EX-a923a2bddf",
         "target_id": "T-91f64c7737",
         "dimension": "D3",
         "title": "Q4 accepts an answer meeting ['min_selections']",
@@ -2469,7 +2469,7 @@
         "provisional_semantics": []
       },
       {
-        "test_id": "EX-ff7bca4f75",
+        "test_id": "EX-5c29deec12",
         "target_id": "T-bf3e461be3",
         "dimension": "D3",
         "title": "Q4 rejects an answer breaking ['min_selections']",
@@ -2584,7 +2584,7 @@
         "provisional_semantics": []
       },
       {
-        "test_id": "EX-55ce063063",
+        "test_id": "EX-bef217056d",
         "target_id": "T-4ad35b8ed5",
         "dimension": "D3",
         "title": "Q6 accepts an answer of exactly 500 characters, its stated maximum",
@@ -2711,7 +2711,7 @@
         "provisional_semantics": []
       },
       {
-        "test_id": "EX-1583dd0399",
+        "test_id": "EX-95184dd934",
         "target_id": "T-5763469416",
         "dimension": "D3",
         "title": "Q6 accepts an answer meeting ['max_length', 'min_length']",
@@ -2838,7 +2838,7 @@
         "provisional_semantics": []
       },
       {
-        "test_id": "EX-de86a38654",
+        "test_id": "EX-9253cea892",
         "target_id": "T-8a57cf56a3",
         "dimension": "D3",
         "title": "Q6 accepts punctuation and quotation marks, because its rule constrains length and not content",
@@ -2965,7 +2965,7 @@
         "provisional_semantics": []
       },
       {
-        "test_id": "EX-c1dad41eeb",
+        "test_id": "EX-6fb76820f3",
         "target_id": "T-3ba88a35fd",
         "dimension": "D3",
         "title": "Q6 rejects an answer breaking ['max_length', 'min_length']",
@@ -3100,7 +3100,7 @@
         "provisional_semantics": []
       },
       {
-        "test_id": "EX-c654d4f699",
+        "test_id": "EX-7266e1d2ee",
         "target_id": "T-81f7201b2b",
         "dimension": "D3",
         "title": "Q8 accepts an answer of exactly 500 characters, its stated maximum",
@@ -3247,7 +3247,7 @@
         "provisional_semantics": []
       },
       {
-        "test_id": "EX-d63b46eec2",
+        "test_id": "EX-57994bc938",
         "target_id": "T-9363260523",
         "dimension": "D3",
         "title": "Q8 accepts an answer meeting ['max_length']",
@@ -3394,7 +3394,7 @@
         "provisional_semantics": []
       },
       {
-        "test_id": "EX-e6fb7a1cef",
+        "test_id": "EX-37f9a211ba",
         "target_id": "T-5bf7c9d7a3",
         "dimension": "D3",
         "title": "Q8 accepts punctuation and quotation marks, because its rule constrains length and not content",
@@ -3541,7 +3541,7 @@
         "provisional_semantics": []
       },
       {
-        "test_id": "EX-6dc16e9122",
+        "test_id": "EX-993bfc401b",
         "target_id": "T-b073440eac",
         "dimension": "D3",
         "title": "Q8 rejects an answer breaking ['max_length']",
@@ -3696,7 +3696,7 @@
         "provisional_semantics": []
       },
       {
-        "test_id": "EX-d326bc095d",
+        "test_id": "EX-a26abb983c",
         "target_id": "T-e12aace78c",
         "dimension": "D4",
         "title": "Q1 blocks progress when left blank",
@@ -3781,7 +3781,7 @@
         "provisional_semantics": []
       },
       {
-        "test_id": "EX-07709a67ec",
+        "test_id": "EX-67babf3fe0",
         "target_id": "T-727f5e7cc5",
         "dimension": "D4",
         "title": "Q2 blocks progress when left blank",
@@ -3876,7 +3876,7 @@
         "provisional_semantics": []
       },
       {
-        "test_id": "EX-8bdd656698",
+        "test_id": "EX-4854fe9d60",
         "target_id": "T-4bdf659dfa",
         "dimension": "D4",
         "title": "Q3 blocks progress when left blank",
@@ -3981,7 +3981,7 @@
         "provisional_semantics": []
       },
       {
-        "test_id": "EX-9665be0e87",
+        "test_id": "EX-c3e87dc574",
         "target_id": "T-9a87b3907e",
         "dimension": "D4",
         "title": "Q4 blocks progress when left blank",
@@ -4096,7 +4096,7 @@
         "provisional_semantics": []
       },
       {
-        "test_id": "EX-65c9fba674",
+        "test_id": "EX-247bb5f411",
         "target_id": "T-0249397b0f",
         "dimension": "D4",
         "title": "Q5 blocks progress when left blank",
@@ -4221,7 +4221,7 @@
         "provisional_semantics": []
       },
       {
-        "test_id": "EX-5d9a56339e",
+        "test_id": "EX-0343738f41",
         "target_id": "T-e98006aa3a",
         "dimension": "D4",
         "title": "Q6 blocks progress when left blank",
@@ -4356,7 +4356,7 @@
         "provisional_semantics": []
       },
       {
-        "test_id": "EX-4d3207101e",
+        "test_id": "EX-a5b1f28123",
         "target_id": "T-a7c5528feb",
         "dimension": "D4",
         "title": "Q6 refuses an answer of spaces alone, being compulsory",
@@ -4493,7 +4493,7 @@
         ]
       },
       {
-        "test_id": "EX-ce49333171",
+        "test_id": "EX-7594da459b",
         "target_id": "T-fdb731cc7b",
         "dimension": "D4",
         "title": "Q7 blocks progress when left blank",
@@ -4638,7 +4638,7 @@
         "provisional_semantics": []
       },
       {
-        "test_id": "EX-a85ef26fa6",
+        "test_id": "EX-c5736953b7",
         "target_id": "T-fffe27cc01",
         "dimension": "D4",
         "title": "Q8 is optional and permits progress when left blank",
@@ -4785,7 +4785,7 @@
         "provisional_semantics": []
       },
       {
-        "test_id": "EX-b3a96f96e9",
+        "test_id": "EX-b6341e9646",
         "target_id": "T-a7eaf4230c",
         "dimension": "D4",
         "title": "Q8 accepts an answer of spaces alone, being optional",
@@ -4934,7 +4934,7 @@
         ]
       },
       {
-        "test_id": "EX-fcc0125b6a",
+        "test_id": "EX-1711260425",
         "target_id": "T-04f1f82dbc",
         "dimension": "D4",
         "title": "S1 blocks progress when left blank",
@@ -4989,7 +4989,7 @@
         "provisional_semantics": []
       },
       {
-        "test_id": "EX-a75c36d1e3",
+        "test_id": "EX-59c7c5fe97",
         "target_id": "T-f3c7bd7103",
         "dimension": "D4",
         "title": "S2 blocks progress when left blank",
@@ -5046,270 +5046,6 @@
         ],
         "traces_to": [
           "S2"
-        ],
-        "campaign": {},
-        "executable": true,
-        "refusal_reason": null,
-        "missing_bindings": [],
-        "provisional_semantics": []
-      },
-      {
-        "test_id": "EX-fa24271db7",
-        "target_id": "T-9e8e92980a",
-        "dimension": "D6",
-        "title": "Q6's wording renders the answer given at Q5",
-        "sid": 900001,
-        "steps": [
-          {
-            "step": 1,
-            "action": "set_field",
-            "field_name": "S1",
-            "sgqa": "900001X100X1000",
-            "value": "A001",
-            "value_kind": "answer_code",
-            "canonical": "S1/S1-O1",
-            "human": "select A001 (Yes) on S1"
-          },
-          {
-            "step": 2,
-            "action": "set_field",
-            "field_name": "S2",
-            "sgqa": "900001X100X1001",
-            "value": "A001",
-            "value_kind": "answer_code",
-            "canonical": "S2/S2-O1",
-            "human": "select A001 (Yes) on S2"
-          },
-          {
-            "step": 3,
-            "action": "submit_page",
-            "field_name": null,
-            "sgqa": null,
-            "value": null,
-            "value_kind": null,
-            "canonical": null,
-            "human": "submit the Screening page"
-          },
-          {
-            "step": 4,
-            "action": "set_field",
-            "field_name": "Q1",
-            "sgqa": "900001X101X1003",
-            "value": "A001",
-            "value_kind": "answer_code",
-            "canonical": "Q1/Q1-O1",
-            "human": "select A001 (Counter) on Q1"
-          },
-          {
-            "step": 5,
-            "action": "set_field",
-            "field_name": "Q2",
-            "sgqa": "900001X101X1004",
-            "value": "1",
-            "value_kind": "answer_code",
-            "canonical": "Q2/Q2-O1",
-            "human": "select 1 (Very poor) on Q2"
-          },
-          {
-            "step": 6,
-            "action": "set_field",
-            "field_name": "Q3",
-            "sgqa": "900001X101X1005",
-            "value": "1",
-            "value_kind": "answer_code",
-            "canonical": "Q3/Q3-O1",
-            "human": "select 1 (Very poor) on Q3"
-          },
-          {
-            "step": 7,
-            "action": "set_field",
-            "field_name": "Q4_SQ001",
-            "sgqa": "900001X101X1006SQ001",
-            "value": "Y",
-            "value_kind": "checkbox",
-            "canonical": "Q4/Q4-O1",
-            "human": "tick Q4_SQ001 (Food quality)"
-          },
-          {
-            "step": 8,
-            "action": "set_field",
-            "field_name": "Q5",
-            "sgqa": "900001X101X1013",
-            "value": "A001",
-            "value_kind": "answer_code",
-            "canonical": "Q5/Q5-O1",
-            "human": "select A001 (Yes) on Q5"
-          },
-          {
-            "step": 9,
-            "action": "set_field",
-            "field_name": "Q6",
-            "sgqa": "900001X101X1014",
-            "value": "xxxxxxxxxx",
-            "value_kind": "text",
-            "canonical": "Q6",
-            "human": "type 'xxxxxxxxxx' into Q6"
-          },
-          {
-            "step": 10,
-            "action": "submit_page",
-            "field_name": null,
-            "sgqa": null,
-            "value": null,
-            "value_kind": null,
-            "canonical": null,
-            "human": "submit the final page and observe the end screen"
-          }
-        ],
-        "assertions": [
-          {
-            "kind": "question_text_contains",
-            "expected": "Yes",
-            "field_name": "Q6",
-            "sgqa": "900001X101X1014",
-            "canonical": "Q6",
-            "detail": "the question text must render the answer given at Q5"
-          }
-        ],
-        "traces_to": [
-          "Q5",
-          "Q6"
-        ],
-        "campaign": {},
-        "executable": true,
-        "refusal_reason": null,
-        "missing_bindings": [],
-        "provisional_semantics": []
-      },
-      {
-        "test_id": "EX-44ef21a0bc",
-        "target_id": "T-84fe582a25",
-        "dimension": "D9",
-        "title": "Q6 is shown by its guard and simultaneously reflects its dependency on Q5",
-        "sid": 900001,
-        "steps": [
-          {
-            "step": 1,
-            "action": "set_field",
-            "field_name": "S1",
-            "sgqa": "900001X100X1000",
-            "value": "A001",
-            "value_kind": "answer_code",
-            "canonical": "S1/S1-O1",
-            "human": "select A001 (Yes) on S1"
-          },
-          {
-            "step": 2,
-            "action": "set_field",
-            "field_name": "S2",
-            "sgqa": "900001X100X1001",
-            "value": "A001",
-            "value_kind": "answer_code",
-            "canonical": "S2/S2-O1",
-            "human": "select A001 (Yes) on S2"
-          },
-          {
-            "step": 3,
-            "action": "submit_page",
-            "field_name": null,
-            "sgqa": null,
-            "value": null,
-            "value_kind": null,
-            "canonical": null,
-            "human": "submit the Screening page"
-          },
-          {
-            "step": 4,
-            "action": "set_field",
-            "field_name": "Q1",
-            "sgqa": "900001X101X1003",
-            "value": "A001",
-            "value_kind": "answer_code",
-            "canonical": "Q1/Q1-O1",
-            "human": "select A001 (Counter) on Q1"
-          },
-          {
-            "step": 5,
-            "action": "set_field",
-            "field_name": "Q2",
-            "sgqa": "900001X101X1004",
-            "value": "1",
-            "value_kind": "answer_code",
-            "canonical": "Q2/Q2-O1",
-            "human": "select 1 (Very poor) on Q2"
-          },
-          {
-            "step": 6,
-            "action": "set_field",
-            "field_name": "Q3",
-            "sgqa": "900001X101X1005",
-            "value": "1",
-            "value_kind": "answer_code",
-            "canonical": "Q3/Q3-O1",
-            "human": "select 1 (Very poor) on Q3"
-          },
-          {
-            "step": 7,
-            "action": "set_field",
-            "field_name": "Q4_SQ001",
-            "sgqa": "900001X101X1006SQ001",
-            "value": "Y",
-            "value_kind": "checkbox",
-            "canonical": "Q4/Q4-O1",
-            "human": "tick Q4_SQ001 (Food quality)"
-          },
-          {
-            "step": 8,
-            "action": "set_field",
-            "field_name": "Q5",
-            "sgqa": "900001X101X1013",
-            "value": "A001",
-            "value_kind": "answer_code",
-            "canonical": "Q5/Q5-O1",
-            "human": "select A001 (Yes) on Q5"
-          },
-          {
-            "step": 9,
-            "action": "set_field",
-            "field_name": "Q6",
-            "sgqa": "900001X101X1014",
-            "value": "xxxxxxxxxx",
-            "value_kind": "text",
-            "canonical": "Q6",
-            "human": "type 'xxxxxxxxxx' into Q6"
-          },
-          {
-            "step": 10,
-            "action": "submit_page",
-            "field_name": null,
-            "sgqa": null,
-            "value": null,
-            "value_kind": null,
-            "canonical": null,
-            "human": "submit the final page and observe the end screen"
-          }
-        ],
-        "assertions": [
-          {
-            "kind": "field_present",
-            "expected": true,
-            "field_name": "Q6",
-            "sgqa": "900001X101X1014",
-            "canonical": "Q6",
-            "detail": "the question must appear, proving its show-condition"
-          },
-          {
-            "kind": "question_text_contains",
-            "expected": "Yes",
-            "field_name": "Q6",
-            "sgqa": "900001X101X1014",
-            "canonical": "Q6",
-            "detail": "and must simultaneously reflect its dependency on Q5"
-          }
-        ],
-        "traces_to": [
-          "Q5",
-          "Q6"
         ],
         "campaign": {},
         "executable": true,

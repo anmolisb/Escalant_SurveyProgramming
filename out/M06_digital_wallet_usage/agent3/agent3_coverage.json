@@ -9,7 +9,7 @@
   },
   "upstream": {
     "canonical_schema_version": "1.0.0",
-    "canonical_generated_at": "2026-10-11T17:57:24+00:00"
+    "canonical_generated_at": "2026-10-13T11:28:01+00:00"
   },
   "content": {
     "project_inputs": {},
@@ -68,12 +68,12 @@
         "D3": 12,
         "D4": 20,
         "D5": 1,
-        "D6": 8,
+        "D6": 0,
         "D7": 9,
         "D8": 10,
-        "D9": 3
+        "D9": 1
       },
-      "records_enumerated": 98,
+      "records_enumerated": 88,
       "predetermined_unresolvable": 9,
       "orphan_rules": [],
       "note": "Dimensions are reported side by side and never summed. records_enumerated counts records, not coverage."
@@ -136,16 +136,6 @@
           "enumeration_status": "EXHAUSTIVE",
           "logical_coverage_pct": 100.0
         },
-        "D6": {
-          "name": "Text-pipe dependency",
-          "enumerated": 8,
-          "covered": 8,
-          "uncovered": 0,
-          "reasons": {},
-          "provisional": 8,
-          "enumeration_status": "EXHAUSTIVE",
-          "logical_coverage_pct": 100.0
-        },
         "D7": {
           "name": "Randomization configuration",
           "enumerated": 9,
@@ -172,11 +162,11 @@
         },
         "D9": {
           "name": "Interaction",
-          "enumerated": 3,
-          "covered": 3,
+          "enumerated": 1,
+          "covered": 1,
           "uncovered": 0,
           "reasons": {},
-          "provisional": 3,
+          "provisional": 1,
           "enumeration_status": "BOUNDED",
           "logical_coverage_pct": 100.0
         }
@@ -282,12 +272,7 @@
             "COMPLETE"
           ],
           "unresolved": [
-            "R3: condition could not be evaluated at S3",
-            "Q2: text pipe from Q1 has nothing to render",
-            "Q3: text pipe from Q1 has nothing to render",
-            "Q5: text pipe from Q1 has nothing to render",
-            "Q11: text pipe from Q1 has nothing to render",
-            "Q12: text pipe from Q1 has nothing to render"
+            "R3: condition could not be evaluated at S3"
           ]
         },
         {
@@ -356,13 +341,7 @@
             "COMPLETE"
           ],
           "unresolved": [
-            "R3: condition could not be evaluated at S3",
-            "Q2: text pipe from Q1 has nothing to render",
-            "Q3: text pipe from Q1 has nothing to render",
-            "Q5: text pipe from Q1 has nothing to render",
-            "Q9: text pipe from Q8 has nothing to render",
-            "Q11: text pipe from Q1 has nothing to render",
-            "Q12: text pipe from Q1 has nothing to render"
+            "R3: condition could not be evaluated at S3"
           ]
         },
         {
@@ -418,13 +397,7 @@
             "COMPLETE"
           ],
           "unresolved": [
-            "R3: condition could not be evaluated at S3",
-            "Q2: text pipe from Q1 has nothing to render",
-            "Q3: text pipe from Q1 has nothing to render",
-            "Q5: text pipe from Q1 has nothing to render",
-            "Q9: text pipe from Q8 has nothing to render",
-            "Q11: text pipe from Q1 has nothing to render",
-            "Q12: text pipe from Q1 has nothing to render"
+            "R3: condition could not be evaluated at S3"
           ]
         },
         {
@@ -461,11 +434,7 @@
             "Q7",
             "BLOCKED_AT:Q7"
           ],
-          "unresolved": [
-            "Q2: text pipe from Q1 has nothing to render",
-            "Q3: text pipe from Q1 has nothing to render",
-            "Q5: text pipe from Q1 has nothing to render"
-          ]
+          "unresolved": []
         }
       ]
     }
