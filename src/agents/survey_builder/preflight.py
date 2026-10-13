@@ -181,6 +181,20 @@ def check_spec(spec: dict) -> list[Gap]:
                     repr(source))
             )
 
+    # Wording that should show an earlier answer. The QRE says which answer
+    # but not where in the sentence it goes, so the builder keeps the wording
+    # as written rather than inventing where to insert it.
+    for dependency in spec.get("dependencies") or []:
+        if dependency.get("kind") != "text_pipe":
+            continue
+        gaps.append(
+            Gap(dependency.get("to_question", "?"),
+                f"wording should show the answer given at "
+                f"{dependency.get('from_question')}, but text pipes are not built",
+                f"{dependency.get('detail')!r} is shown as written",
+                blocking=False)
+        )
+
     return gaps
 
 

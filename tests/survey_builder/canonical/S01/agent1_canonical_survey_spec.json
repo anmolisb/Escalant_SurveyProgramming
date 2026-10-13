@@ -958,25 +958,7 @@
         }
       }
     ],
-    "dependencies": [
-      {
-        "from_question": "Q5",
-        "to_question": "Q6",
-        "kind": "text_pipe",
-        "detail": "the main problem",
-        "origin": "inferred",
-        "confidence": 0.99,
-        "source_reference": {
-          "document": "S01_campus_cafeteria_experience.docx",
-          "section": "Questionnaire",
-          "heading_text": "Questionnaire",
-          "block_order": 10,
-          "row_index": 7,
-          "source_kind": "table",
-          "text": "Q6 | Please describe the main problem. | text | \u2014 | Show if: Q5 == 'Yes'\nValidate: {\"min_length\": 10, \"max_length\": 500}"
-        }
-      }
-    ],
+    "dependencies": [],
     "randomization": [],
     "quotas": [],
     "quota_requirements": [],

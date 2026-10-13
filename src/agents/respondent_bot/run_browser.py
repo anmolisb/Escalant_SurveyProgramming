@@ -126,6 +126,10 @@ class Bot:
         #: only be read while that question is on screen, and by the end of
         #: the journey the respondent is looking at a thank-you page.
         self.seen_text: list[str] = []
+        #: question id -> its own wording as shown, the first time it appeared.
+        #: A pipe check reads this, not the whole page: the earlier answer is
+        #: also printed as an option on the page that asked for it.
+        self.question_text: dict[str, str] = {}
         #: question id -> {option id -> its label}, for finding the live option.
         #: Needed because LimeSurvey renumbers sub-questions on import exactly
         #: as it renumbers questions: Agent 3's SQ001 is served as S17.
@@ -189,6 +193,7 @@ class Bot:
                 if (seen == want or seen.startswith(want[:40])) and \
                         qid not in self.seen:
                     self.seen.append(qid)
+                    self.question_text.setdefault(qid, text)
 
     def was_seen(self, canonical_question: str) -> bool:
         # A sub-question is not a question in its own right. Asking whether
@@ -196,10 +201,6 @@ class Bot:
         # options of a tick-box question are not separately visible things.
         base = canonical_question.split("_")[0]
         return base in self.seen
-
-    def text_ever_contained(self, wanted: str) -> bool:
-        want = wanted.casefold()
-        return any(want in t.casefold() for t in self.seen_text)
 
     def came_after(self, first: str, second: str) -> bool:
         if first not in self.seen or second not in self.seen:
@@ -992,18 +993,21 @@ def observe(bot: Bot, a: dict, advanced: bool | None,
 
     if kind == "question_text_contains":
         want = str(expected or "")
-        # Read from the pages passed through, not the page the respondent
-        # finished on. A question's wording can only be seen while that
-        # question is on screen, and by the end of a journey that is a
-        # thank-you page.
-        seen = bot.text_ever_contained(want)
-        return check(seen is True,
-                     f"the question wording should include the respondent's "
-                     f"earlier answer, {want[:50]!r}",
-                     "it did, on the page where that question appeared"
-                     if seen else
-                     f"it never did. The respondent was shown: "
-                     f"{', '.join(bot.seen) or 'nothing'}")
+        # Read the question's own wording as it was shown, recorded while it
+        # was on screen. Not the whole page, and not every page passed
+        # through: the earlier answer is printed as an option on the page
+        # that asked for it, so searching there always finds it.
+        shown = bot.question_text.get(base)
+        should = (f"{base}'s wording should include the respondent's "
+                  f"earlier answer, {want[:50]!r}")
+        if shown is None:
+            return check(False, should,
+                         f"{base} never appeared. The respondent was shown: "
+                         f"{', '.join(bot.seen) or 'nothing'}")
+        seen = want.casefold() in shown.casefold()
+        return check(seen, should,
+                     f"it did: {shown[:90]!r}" if seen else
+                     f"it did not. {base} read: {shown[:90]!r}")
 
     return Check(kind, base, expected, None, None,
                  "not checked",

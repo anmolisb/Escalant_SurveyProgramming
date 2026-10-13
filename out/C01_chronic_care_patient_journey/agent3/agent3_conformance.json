@@ -78,6 +78,12 @@
         "detail": "spec asks for randomization but the built question carries no randomization attribute"
       },
       {
+        "kind": "TEXT_PIPE_NOT_BUILT",
+        "severity": "NORMAL",
+        "subject": "Q20",
+        "detail": "the wording should show the answer given at Q19 ('selected proposition'), but the builder emits it as written"
+      },
+      {
         "kind": "TERMINATION_MODEL_DIFFERS",
         "severity": "NORMAL",
         "subject": "TERM_AGE, TERM_CONFLICT, TERM_INVOLVEMENT, TERM_RECENT_RESEARCH",

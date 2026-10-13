@@ -522,6 +522,18 @@ def conformance(spec: CanonicalSpec, snap: ImplementationSnapshot) -> dict:
                                        "question carries no randomization "
                                        "attribute"})
 
+    for d in spec.dependencies:
+        if d.kind != "text_pipe":
+            continue
+        built = snap.questions.get(d.to_question)
+        if built is None or f"{{{d.from_question}" in built.wording:
+            continue
+        findings.append({"kind": "TEXT_PIPE_NOT_BUILT", "severity": "NORMAL",
+                         "subject": d.to_question,
+                         "detail": f"the wording should show the answer given "
+                                   f"at {d.from_question} ({d.detail!r}), but "
+                                   f"the builder emits it as written"})
+
     # The termination mapping, recorded as a structural fact rather than a defect.
     terminating = [r for r in spec.rules if r.kind == "terminate"]
     if terminating:

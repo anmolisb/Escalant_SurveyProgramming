@@ -241,6 +241,7 @@ Derived from the emitted `.lss` (sha `306b3016bb84`), not from a self-reported m
 | REJECT_RULE_NOT_BUILT | HIGH | 3 | R18, R19, R20 |
 | SKIP_RULE_NOT_BUILT | NORMAL | 1 | R5 |
 | TERMINATION_MODEL_DIFFERS | NORMAL | 1 | TERM_AGE, TERM_CONFLICT, TERM_INVOLVEMENT, TERM_RECENT_RESEARCH |
+| TEXT_PIPE_NOT_BUILT | NORMAL | 1 | Q20 |
 
 **TERMINATION_MODEL_DIFFERS** - LimeSurvey has no terminate action. The build inverts every terminate rule into the main group's relevance and nests the disposition messages into one end screen. Message text recovered for 4 of 4 screenout destinations. Assertions must test 'main group suppressed' plus 'end screen shows this text', never a page named after the disposition.
 

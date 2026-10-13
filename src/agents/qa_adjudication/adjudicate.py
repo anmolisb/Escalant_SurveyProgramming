@@ -211,6 +211,8 @@ def _explains(finding: dict, question: str, text: str) -> bool:
         return bool(subjects & {m.upper() for m in _RULE_ID.findall(text)})
     if kind == "RANDOMIZATION_NOT_BUILT":
         return question in subjects and ("order" in low or "random" in low)
+    if kind == "TEXT_PIPE_NOT_BUILT":
+        return question in subjects and "wording" in low
     if kind == "QUOTAS_NOT_BUILT":
         return any(name.lower() in low for name in subjects)
     return question in subjects
@@ -269,7 +271,7 @@ def _decide(result: dict, index_row: dict, conformance: list[dict],
             continue
         if f.get("kind") in ("RANDOMIZATION_NOT_BUILT", "QUOTAS_NOT_BUILT",
                              "SKIP_RULE_NOT_BUILT", "REJECT_RULE_NOT_BUILT",
-                             "GUARD_NOT_BUILT"):
+                             "GUARD_NOT_BUILT", "TEXT_PIPE_NOT_BUILT"):
             return (NOT_BUILT_YET,
                     f"before the run, Agent 3 already reported "
                     f"{f['kind']} for {f['subject']}",
