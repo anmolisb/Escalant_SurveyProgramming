@@ -127,8 +127,8 @@ do something else.
   answer set (`Q1 == ['None of these']`), or comparing one question against
   another. The supported operators are listed in `SUPPORTED_OPS` in
   `loader.py`.
-- Randomised rows on a grid. The build shuffles the answers instead, and
-  preflight says so.
+- Randomisation for types other than single choice, multiple choice and grid.
+  Preflight says so and the order stays as written.
 - Anything the QRE Interpreter puts in a question's `extra`, which is dropped.
   Preflight lists it so you can check whether it mattered.
 

@@ -20,8 +20,9 @@ questionnaire table, routing table, quotas, completion messages, programming
 requirements and acceptance scenarios. Questionnaires may include display
 messages (a "text display" row with nothing to answer).
 
-QREs in a different format need changes to the agents, described in the
-project report.
+The format is described in [`docs/qre-format.md`](docs/qre-format.md). QREs
+in a different format need the changes in
+[`docs/maintenance.md`](docs/maintenance.md).
 
 ## Agents
 
@@ -206,6 +207,8 @@ respondent can select "None of these" together with other options.
 ├── .github/workflows/ci.yml  pytest on Linux and Windows on every push
 ├── config/.env.example       Template for .env (GROQ_API_KEY, GROQ_MODEL)
 ├── docs/principles.md        The design principles the code follows
+├── docs/qre-format.md        The QRE format the pipeline reads
+├── docs/maintenance.md       Troubleshooting, and supporting a new QRE format
 ├── docs/decisions/           Decision log
 ├── fixtures/
 │   ├── qre-samples/          The 15 supported QREs
