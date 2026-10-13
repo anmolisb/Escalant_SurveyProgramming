@@ -1,7 +1,7 @@
 # 0002 — Split the synthetic corpus into a development set and a holdout
 
 **Date:** 2026-08-17
-**Status:** Accepted
+**Status:** Superseded in part by 0005 (2026-10-11), which retired the holdouts. The rule itself continues as principle 10 in `docs/principles.md`.
 **Affects:** `fixtures/`, evaluation strategy (CLAUDE.md Sections 9, 10, 37, 61)
 
 ## Context

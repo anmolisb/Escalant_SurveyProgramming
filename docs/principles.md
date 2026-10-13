@@ -80,9 +80,8 @@ gap is named up front instead of surfacing as blocked journeys.
 
 ## Earlier references
 
-Older records (`docs/decisions/`, `docs/fix-tracker.md`, the weekly progress
-notes and some code history) cite sections of a previous instruction file,
-`CLAUDE.md`. They map to these principles as follows:
+Older records in `docs/decisions/` and earlier code history cite sections of a
+previous instruction file, `CLAUDE.md` (see decision 0006). They map to these principles as follows:
 
 | Old section | Principle |
 |---|---|

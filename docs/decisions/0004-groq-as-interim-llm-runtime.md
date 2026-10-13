@@ -1,4 +1,4 @@
-# 0001 — Groq as the interim LLM runtime
+# 0004 — Groq as the interim LLM runtime
 
 **Date:** 2026-08-17
 **Status:** Accepted (interim)

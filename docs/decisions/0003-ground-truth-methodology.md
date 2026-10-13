@@ -1,7 +1,7 @@
 # 0003 — Ground-truth methodology for Part 1
 
 **Date:** 2026-08-17
-**Status:** Accepted, with one open question (see "Who codes it")
+**Status:** Superseded by 0005 (2026-10-11). Hand-coded ground truth was removed; Stage 7 checks each specification against an independent reading of the document.
 **Affects:** `data/ground_truth/Synthetic/`, `src/evaluation/`, Stages 7 and 8
 **Relates to:** CLAUDE.md Sections 33–35, 38, 42, 45, 49
 

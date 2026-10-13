@@ -1,7 +1,7 @@
 # 0001 — Use pdfplumber for PDF ingestion
 
 **Date:** 2026-08-17
-**Status:** Accepted
+**Status:** Superseded (2026-10-13). Only `.docx` QREs are read; see `docs/qre-format.md`.
 **Affects:** Agent 1 Part 1, document ingestion (CLAUDE.md Sections 8, 11)
 
 ## Context
