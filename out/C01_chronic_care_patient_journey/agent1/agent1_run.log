@@ -1,0 +1,90 @@
+
+SURVEY  C01 — Chronic-Care Patient Journey
+        not stated: welcome_text
+
+TARGET                       MATCHED BY   RAW ROWS  PARSED
+------------------------------------------------------------
+Questionnaire                direct             31      31
+Routing and termination      direct             20      20
+Acceptance test scenarios    direct              7       7
+Completion messages          direct              5       5
+Quota controls               direct              3       3
+Study specification          direct              5       5
+Programming and QA requirements direct              6       6
+
+REVIEW FLAGS — 2 (0 blocking)
+  [INFO    ] Study specification survey_information:description
+      No line is labelled as the survey description; the line labelled 'Business objective' is being read as it.
+  [WARNING ] Study specification survey_information:welcome_text
+      The survey's welcome text is not stated: the document never states what a respondent is shown before the first question.
+
+STAGE 5 AUDIT — FAIL
+SECTION                       ROWS  IDENT   SCORE      
+-------------------------------------------------------
+Questionnaire                   31     31   100%     ok
+Routing and termination         20     20   100%     ok
+Acceptance test scenarios        7      7   100%     ok
+Completion messages              5      5   100%     ok
+Quota controls                   3      3   100%     ok
+Study specification              5      5   100%     ok
+Programming and QA requireme     6      6   100%     ok
+
+FINDINGS — 5 (1 blocking)
+  [BLOCKING] condition_consistency scenario:T3
+      Scenario T3 names Q7, Q8, Q9 but not Q15, though all of them carry the same display condition and so can only appear or not appear together.
+  [WARNING ] source_coverage document:C01_chronic_care_patient_journey.docx
+      3 block(s) sit outside every heading and reached no stage. Content before the first heading is not captured by any target.
+  [WARNING ] reference_integrity rule:R19
+      Rule R19 points at 'CURRENT_QUESTION', which names a position in the flow rather than a question or an ending. The destination column mixes three kinds of thing, so a reader has to guess which is meant.
+  [WARNING ] reference_integrity statement:TERM_QUOTA_FULL
+      'TERM_QUOTA_FULL' is named in a quotas statement but is not a question or an ending in this QRE.
+  [WARNING ] piping_symmetry question:Q2
+      Q2 carries a piping instruction but no rule rejects an answer outside the piped set, while Q6 has one. Its piping would not be tested.
+
+PART 2 — CANONICAL SPECIFICATION
+  rules            20 (18 conditions read)
+  destinations     {'disposition': 4, 'question': 15, 'position': 1}
+  guards           {'agree': 11, 'unread': 1, 'single_source': 1}
+  dependencies     6
+  randomised       5
+  review           22 (1 blocking)
+
+STAGE 7 — AGENT 1 VALIDATION
+  tests            445 (pass 409, fail 0, unverified 36, blocked 0)
+  canonical status PASSED_WITH_WARNINGS
+  human decisions  PENDING_BLOCKING_DECISIONS
+  graph ready      YES
+  agent 3 ready    NO
+  pending blocking decisions: 15 (see agent1_decision_register.md)
+  agent 3 blocked by: ambiguous_piping, ambiguous_routing_condition, inferred_condition_partial_options, missing_option_codes, multi_select_equality, quota_behaviour, rule_precedence, unasked_question_semantics
+
+STAGE 8 — GRAPH BUILDER
+  nodes            38 (31 questions, 6 endings)
+  edges            39
+  rules mapped     20/20
+  quotas mapped    2/2
+  dependency edges 15
+  check            PASS (0 blocking, 1 findings)
+    [WARNING ] termination: Ending TERM_QUOTA_FULL is reachable but the QRE never says what it shows the respondent.
+  coverage by category:
+    node_coverage                    37/37
+    routing_rule_coverage            17/17
+    termination_coverage             4/4
+    skip_display_representation      13/13
+    validation_reject_representation 3/3
+    dependency_coverage              6/6
+    quota_coverage                   2/2
+    randomization_coverage           5/5
+    traceability_coverage            22/22
+  GRAPH_STRUCTURALLY_BUILDABLE  YES
+  GRAPH_BEHAVIORALLY_APPROVED   NO
+    blocked by: human_decision_gate=PENDING_BLOCKING_DECISIONS
+
+AGENT 3 EXECUTION APPROVAL
+  AGENT3_EXECUTION_APPROVAL BLOCKED
+    canonical validation clear   True
+    human decision gate clear    False
+    graph check passed           True
+    blocked by: human_decision_gate=PENDING_BLOCKING_DECISIONS
+
+Artifacts: /Users/raveenavijaya/Escalant_fresh/out/C01_chronic_care_patient_journey/agent1

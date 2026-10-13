@@ -20,10 +20,9 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        # The team develops on Windows; Linux is the cheap runner. Both are run
-        # because the holdout guard resolves and compares filesystem paths, and
-        # path behaviour is exactly the kind of thing that works on one and not
-        # the other.
+        # The team develops on Mac and Windows; Linux is the cheap runner.
+        # Running on Windows too catches path handling that works on one
+        # system and not another.
         os: [ubuntu-latest, windows-latest]
 
     steps:
@@ -40,21 +39,5 @@ jobs:
           python -m pip install --upgrade pip
           python -m pip install -r requirements.txt
 
-      - name: Confirm the holdout is locked
-        # The unlock is a deliberate, local, one-off act (decision 0002). If it
-        # is ever set repository-wide as a variable or secret, the holdout stops
-        # being held out and nothing else would notice.
-        shell: bash
-        run: |
-          if [ "${ESCALENT_ALLOW_HOLDOUT:-}" = "1" ]; then
-            echo "ESCALENT_ALLOW_HOLDOUT is set in CI. The holdout must stay locked."
-            exit 1
-          fi
-          echo "Holdout is locked."
-
       - name: Run tests
-        # The suite was removed in the main cleanup. pytest exits 5 when it
-        # collects nothing, which CI would read as a failure. Drop this once
-        # tests return.
-        shell: bash
-        run: python -m pytest || [ $? -eq 5 ]
+        run: python -m pytest

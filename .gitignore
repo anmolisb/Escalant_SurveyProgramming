@@ -15,7 +15,6 @@ fixtures/real-qre/
 data/**
 !data/**/
 !data/**/.gitkeep
-!data/ground_truth/Synthetic/**
 data/ground_truth/Client/**
 !data/ground_truth/Client/.gitkeep
 # Test design inputs are project facts a person supplies, not generated output.

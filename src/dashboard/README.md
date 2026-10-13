@@ -1,7 +1,7 @@
 # Dashboard
 
-A single Streamlit page over the three agents. Upload a QRE, interpret it,
-build the survey, design the tests.
+A single Streamlit page over the pipeline. Upload a QRE, interpret it, build
+the survey and design the tests, then read the bot's results and the QA report.
 
 ## Running it
 

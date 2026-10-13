@@ -215,7 +215,6 @@ respondent can select "None of these" together with other options.
 │   └── holdout/              QREs kept back to measure how well the pipeline generalises
 ├── data/inputs/test_design/  Facts a QRE does not state, per survey, for Agent 3
 ├── out/                      All agent output, one folder per QRE
-├── scripts/                  One-off maintenance scripts
 ├── src/
 │   ├── agents/               One package per agent
 │   ├── common/llm/           The only place a model provider is called
