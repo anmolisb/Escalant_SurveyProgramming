@@ -439,7 +439,7 @@ def _apply_directives(
             question.dynamic_option_source = text
         elif directive.kind is DirectiveKind.OTHER and text:
             # Kept under the kind that was read, so a reader can tell an
-            # unclassified instruction from a recognised one (CLAUDE.md §16).
+            # unclassified instruction from a recognised one (principle 5).
             question.other_attributes.setdefault("other_instructions", []).append(text)
         if directive.kind in _FLAG_KINDS and text:
             # A flag kind is set by its label alone. Text beyond the label says
@@ -803,7 +803,7 @@ def parse_survey(
 
     Anything neither place supplies stays None and raises a flag naming the
     field, so what still needs a person is listed rather than left to be
-    noticed. Nothing is defaulted (CLAUDE.md §30).
+    noticed. Nothing is defaulted (principle 4).
     """
     information = SurveyInformation(source_file=source)
     flags: list[ReviewFlag] = []
@@ -849,7 +849,7 @@ def parse_survey(
             if statement is not None:
                 # Reading an objective as a description is a judgement, so say
                 # which line was read as what rather than presenting it as
-                # something the QRE labelled (CLAUDE.md §14).
+                # something the QRE labelled (principle 2).
                 flag(
                     FlagSeverity.INFO,
                     field,

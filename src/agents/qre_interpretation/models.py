@@ -50,7 +50,7 @@ class FlagSeverity(str, Enum):
 
 
 class Origin(str, Enum):
-    """Where a value came from, per CLAUDE.md §14.
+    """Where a value came from, per principle 2.
 
     An inference must never be presented as something the QRE stated.
     """
@@ -284,7 +284,7 @@ class ExtractedStatement(BaseModel):
     Part 1 records what the QRE says; Part 2 decides what it means. A quota line
     such as "QUOTA_REGION: hard quota on D1: North=20%, ..." is kept whole here,
     not broken into cells and percentages, because splitting it is interpretation
-    and belongs downstream (CLAUDE.md §19).
+    and belongs downstream (principle 1).
     """
 
     #: Leading identifier where the line supplies one, e.g. QUOTA_REGION.
@@ -313,7 +313,7 @@ class LLMCompletionMessages(BaseModel):
 
 class Option(BaseModel):
     #: A handle for this option, derived from the question id and the option's
-    #: position, e.g. `Q1-O3`. NOT a response code: CLAUDE.md §13 forbids
+    #: position, e.g. `Q1-O3`. NOT a response code: principle 4 forbids
     #: inventing those, and `code` below stays null where the QRE supplied none.
     #: This exists so later stages and other agents can refer to an option
     #: without matching on its label text, which changes with any rewording.
@@ -973,7 +973,7 @@ class CanonicalValidation(BaseModel):
     #: and a bot must not be told an answer is required on no evidence. It was
     #: previously `bool = True`, which asserted mandatory for every question
     #: that carried any validation at all — an inference presented as a reading,
-    #: which CLAUDE.md §14 forbids.
+    #: which principle 2 forbids.
     mandatory: bool | None = None
     mandatory_origin: Origin = Origin.UNKNOWN
 
@@ -1031,7 +1031,7 @@ class CanonicalQuestion(BaseModel):
     #: Attributes Stage 4 read but this model does not name, kept with their
     #: original JSON type rather than dropped. A QRE is free to state something
     #: no schema anticipated, and losing it silently is worse than carrying it
-    #: somewhere a reader can find it (CLAUDE.md §16).
+    #: somewhere a reader can find it (principle 5).
     extra: dict[str, Any] = Field(default_factory=dict)
     #: Where this question came from in the QRE.
     source_reference: SourceReference | None = None
@@ -1180,7 +1180,7 @@ class CanonicalSurvey(BaseModel):
     #: before the next substantive question" existed in Stage 4 and nowhere
     #: after it. Carried verbatim, never parsed into a rule: "before the next
     #: substantive question" names no question, and turning it into one would
-    #: be exactly the invented precision CLAUDE.md §13 forbids.
+    #: be exactly the invented precision principle 4 forbids.
     quota_requirements: list[CanonicalStatement] = Field(default_factory=list)
     #: The QRE's own acceptance tests.
     scenarios: list[CanonicalScenario] = Field(default_factory=list)

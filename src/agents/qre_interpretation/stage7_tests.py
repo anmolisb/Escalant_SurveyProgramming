@@ -363,7 +363,7 @@ def build_tests(oracle: stage7_oracle.OracleDocument) -> list[TestCase]:
 
     # -- provenance and stated assumptions -----------------------------------
     for kind in ("questions", "rules", "dispositions", "scenarios"):
-        add("provenance", "provenance_complete", source_text="CLAUDE.md §15",
+        add("provenance", "provenance_complete", source_text="principle 3",
             target=kind, expected="every element carries a source reference",
             criticality=NORMAL, collection=kind)
     for name in ("unasked_reference", "rule_precedence", "multi_equality"):

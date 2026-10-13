@@ -134,7 +134,7 @@ def _prose_rows_literal(
     Splits only a leading "Code:" or "Label:" prefix, because that much is
     punctuation rather than meaning. The rest of the line is kept whole: turning
     "hard quota on D1: North=20%, South=20%" into cells and percentages is
-    interpretation, and belongs to Part 2 (CLAUDE.md §19).
+    interpretation, and belongs to Part 2 (principle 1).
     """
     rows: list[dict[str, str]] = []
     sources: list[SourceReference] = []

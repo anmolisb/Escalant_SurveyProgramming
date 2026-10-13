@@ -1,7 +1,7 @@
 """The human decision / confirmation layer.
 
 Part 2 already marks the places where it inferred, derived or could not read
-something (CLAUDE.md §14, §31). What did not exist until now is a *record* of
+something (principles 2 and 7). What did not exist until now is a *record* of
 those places that survives from one run to the next: a project owner who
 confirms "the first matching rule wins" on Monday should not be asked the same
 question again on Tuesday, and a confirmation given against one version of a
@@ -395,7 +395,7 @@ def _all_conditions(survey: CanonicalSurvey):
 
 
 def _from_semantics(survey: CanonicalSurvey) -> list[RawDecision]:
-    """The three whole-survey assumptions CLAUDE.md §20 names, raised only
+    """The three whole-survey assumptions Part 2 makes, raised only
     when the survey actually has the shape that makes each one matter."""
     decisions: list[RawDecision] = []
     semantics = survey.semantics

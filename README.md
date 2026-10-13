@@ -8,8 +8,8 @@ built survey behaves as specified, runs those tests in a real browser, and
 reports what the results mean. Checking a survey by hand does not scale: one
 with 18 branch points has more than 262,000 answer paths.
 
-`CLAUDE.md` is the authoritative project document: scope, contracts,
-engineering rules and security.
+The design principles behind the code, including the security rules, are in
+[`docs/principles.md`](docs/principles.md).
 
 ## Supported QREs
 
@@ -203,9 +203,9 @@ respondent can select "None of these" together with other options.
 ## Repository layout
 
 ```
-├── CLAUDE.md                 Authoritative project instructions
 ├── .github/workflows/ci.yml  pytest on Linux and Windows on every push
 ├── config/.env.example       Template for .env (GROQ_API_KEY, GROQ_MODEL)
+├── docs/principles.md        The design principles the code follows
 ├── docs/decisions/           Decision log
 ├── fixtures/
 │   ├── qre-samples/          The 15 supported QREs
@@ -259,14 +259,20 @@ covers the number of tests.
 **Long bot runs.** A C QRE takes about 30 minutes. On a Mac, start it with
 `caffeinate -i` in front so the machine does not sleep mid-run.
 
-## Working with the QREs
+## Working with the QREs and keeping data safe
 
 - **Do not develop against `fixtures/holdout/`.** It measures whether the
   pipeline works on documents it was not built against, and reading it
   destroys that measurement (decision 0002).
-- **Never place client material in a committed folder.** Confidential QREs and
-  ground truth belong in `data/ground_truth/Client/`, which is never committed,
-  or outside the repository (`CLAUDE.md` Sections 51 to 53).
+- **Never place client material in a committed folder.** Confidential QREs,
+  client ground truth and real respondent data belong in
+  `data/ground_truth/Client/`, which git ignores, or outside the repository.
+- **Keys live only in `.env`**, which git ignores. Never commit a key, a token
+  or a log that contains one.
+- **Send confidential QREs only to an approved model provider.** Every model
+  call goes through `src/common/llm/`, so the provider is set in one place.
+
+See [`docs/principles.md`](docs/principles.md), principle 12.
 
 ## Team
 

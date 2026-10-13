@@ -1,7 +1,7 @@
 """Part 2 — reading a routing condition as a tree rather than a string.
 
 This is where Agent 1 stops recording what the QRE said and starts working out
-what it means. CLAUDE.md draws the line here: Part 1 preserves
+what it means. Principle 1 draws the line here: Part 1 preserves
 "Show if: Q5 contains any touchpoint" as text, Part 2 decides that the operator
 is contains_any.
 

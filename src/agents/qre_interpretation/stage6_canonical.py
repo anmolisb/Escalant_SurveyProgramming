@@ -4,7 +4,7 @@ Takes Part 1's artifacts, which record what the QRE says, and produces a reading
 of what it means. Part 1's files stay as they are: this is a separate artifact,
 so a disagreement about interpretation never costs us the extraction.
 
-Every value added here carries an origin. CLAUDE.md §14 is blunt about why:
+Every value added here carries an origin. Principle 2 is blunt about why:
 never present an inference as if the QRE stated it. Three things in particular
 are inferences and are marked as such — when a rule is checked, which rule wins
 when two apply, and what a condition means when it names a question the
