@@ -38,7 +38,8 @@ UNRESOLVED = "UNRESOLVED"
 #: Anything else evaluates to UNRESOLVED.
 SUPPORTED_CONDITIONS = {
     "plain": frozenset({"eq", "ne", "set_eq", "in", "not_in", "contains",
-                        "contains_any", "contains_all", "answered", "unanswered"}),
+                        "contains_any", "contains_all", "answered", "unanswered",
+                        "gt", "ge", "lt", "le"}),
     "sum": frozenset({"eq", "ne"}),
     "cross_question": frozenset({"eq", "ne"}),
 }
@@ -152,6 +153,20 @@ class Interpreter:
             if cond.op == "ne":
                 return set(given) != set(other)
             return UNRESOLVED
+
+        # A numeric answer compared with a number, such as S3 < 18.
+        if cond.right_number is not None and cond.op in (
+                "lt", "le", "lte", "gt", "ge", "gte", "eq", "ne"):
+            raw = answers.get(qid)
+            if isinstance(raw, bool) or not isinstance(raw, (int, float)):
+                try:
+                    raw = float(str(raw))
+                except ValueError:
+                    return UNRESOLVED
+            n = cond.right_number
+            return {"lt": raw < n, "le": raw <= n, "lte": raw <= n,
+                    "gt": raw > n, "ge": raw >= n, "gte": raw >= n,
+                    "eq": raw == n, "ne": raw != n}[cond.op]
 
         expected = self._expected(cond)
         op = cond.op

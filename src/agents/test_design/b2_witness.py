@@ -67,7 +67,8 @@ SUPPORTED_KINDS = frozenset({"single", "multi", "text", "matrix", "constant_sum"
 #: change the other.
 SUPPORTED_CONDITIONS = {
     "plain": frozenset({"eq", "ne", "set_eq", "in", "not_in", "contains",
-                        "contains_any", "contains_all", "answered", "unanswered"}),
+                        "contains_any", "contains_all", "answered", "unanswered",
+                        "gt", "ge", "lt", "le"}),
     "sum": frozenset({"eq", "ne", "gt", "ge", "lt", "le"}),
     "cross_question": frozenset({"contains", "contains_any", "contains_all",
                                  "in", "eq", "ne"}),
@@ -167,10 +168,11 @@ class Requirement:
     """What one question's answer must look like."""
 
     __slots__ = ("must_be", "must_not_be", "must_include", "must_exclude",
-                 "exact_set", "must_answer", "number")
+                 "exact_set", "must_answer", "number", "low", "high")
 
     def __init__(self, must_be=None, must_not_be=None, must_include=None,
-                 must_exclude=None, exact_set=None, must_answer=None, number=None):
+                 must_exclude=None, exact_set=None, must_answer=None, number=None,
+                 low=None, high=None):
         self.must_be: set[str] = set(must_be or ())
         self.must_not_be: set[str] = set(must_not_be or ())
         self.must_include: set[str] = set(must_include or ())
@@ -179,6 +181,11 @@ class Requirement:
                                            if exact_set is not None else None)
         self.must_answer: bool | None = must_answer
         self.number = number
+        #: Inclusive bounds on a numeric answer, from comparisons like S3 < 18.
+        #: Kept as a range rather than one number so that S3 >= 18 and
+        #: S3 <= 80 can both hold: as single numbers they would conflict.
+        self.low = low
+        self.high = high
 
     def merge(self, other: "Requirement") -> "Requirement":
         must_be = set(self.must_be)
@@ -208,7 +215,13 @@ class Requirement:
                        else other.exact_set),
             must_answer=answer,
             number=(self.number if self.number is not None else other.number),
+            low=max((v for v in (self.low, other.low) if v is not None),
+                    default=None),
+            high=min((v for v in (self.high, other.high) if v is not None),
+                     default=None),
         )
+        if out.low is not None and out.high is not None and out.low > out.high:
+            raise Conflict("no number satisfies both bounds")
 
         if out.must_be and out.must_be <= out.must_not_be:
             raise Conflict("required value is also forbidden")
@@ -268,9 +281,9 @@ def _solve_comparison(spec: CanonicalSpec, cond: Cond, want: bool,
             target_total = bound if want else bound + 1
         elif op in ("ne", "sum_ne"):
             target_total = (bound + 1) if want else bound
-        elif op in ("gt", "gte"):
+        elif op in ("gt", "gte", "ge"):
             target_total = (bound + 1) if want else max(0, bound - 1)
-        elif op in ("lt", "lte"):
+        elif op in ("lt", "lte", "le"):
             target_total = max(0, bound - 1) if want else bound + 1
         else:
             raise BoundReached(f"unsupported aggregate operator `{op}`")
@@ -282,6 +295,26 @@ def _solve_comparison(spec: CanonicalSpec, cond: Cond, want: bool,
 
     def R(**kw) -> Assignment:
         return {qid: Requirement(**kw)}
+
+    # ---- a numeric answer compared with a number, such as S3 < 18 ----
+    # Whole steps: the questions this meets ask for ages and counts. A
+    # decimal question still gets a valid answer, one unit past the bound.
+    if cond.right_number is not None and op in (
+            "lt", "lte", "le", "gt", "gte", "ge", "eq", "ne"):
+        n = cond.right_number
+        if op == "lt":
+            low, high = (None, n - 1) if want else (n, None)
+        elif op in ("le", "lte"):
+            low, high = (None, n) if want else (n + 1, None)
+        elif op == "gt":
+            low, high = (n + 1, None) if want else (None, n)
+        elif op in ("ge", "gte"):
+            low, high = (n, None) if want else (None, n - 1)
+        elif (op == "eq") == want:
+            low, high = n, n
+        else:
+            low, high = n + 1, None
+        return R(low=low, high=high, must_answer=True)
 
     if op == "answered":
         return R(must_answer=want)
@@ -487,7 +520,14 @@ def _concretise(spec: CanonicalSpec, assignment: Assignment) -> dict[str, Any]:
                 answers[qid] = req.number
             else:
                 lo = q.validation.get("min_value")
-                answers[qid] = int(lo) if lo is not None else 1
+                value = lo if lo is not None else 1
+                # Inside the bounds the condition needs, as close to an
+                # ordinary valid answer as they allow.
+                if req.low is not None and value < req.low:
+                    value = req.low
+                if req.high is not None and value > req.high:
+                    value = req.high
+                answers[qid] = int(value) if float(value).is_integer() else value
 
         elif q.kind == "constant_sum":
             # The solver may have set the total it needs; otherwise use the

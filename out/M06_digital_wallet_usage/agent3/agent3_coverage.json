@@ -105,16 +105,14 @@
         "D3": {
           "name": "Validation (explicit)",
           "enumerated": 12,
-          "covered": 8,
-          "uncovered": 4,
+          "covered": 11,
+          "uncovered": 1,
           "reasons": {
-            "UNVERIFIABLE": 1,
-            "BOUND_REACHED": 2,
             "INFEASIBLE": 1
           },
-          "provisional": 7,
-          "enumeration_status": "BOUNDED",
-          "logical_coverage_pct": 66.7
+          "provisional": 10,
+          "enumeration_status": "PARTIAL",
+          "logical_coverage_pct": 91.7
         },
         "D4": {
           "name": "Validation (mandatory)",
@@ -271,9 +269,7 @@
             "Q14",
             "COMPLETE"
           ],
-          "unresolved": [
-            "R3: condition could not be evaluated at S3"
-          ]
+          "unresolved": []
         },
         {
           "scenario_id": "T3",
@@ -340,9 +336,7 @@
             "Q14",
             "COMPLETE"
           ],
-          "unresolved": [
-            "R3: condition could not be evaluated at S3"
-          ]
+          "unresolved": []
         },
         {
           "scenario_id": "T4",
@@ -396,9 +390,7 @@
             "Q14",
             "COMPLETE"
           ],
-          "unresolved": [
-            "R3: condition could not be evaluated at S3"
-          ]
+          "unresolved": []
         },
         {
           "scenario_id": "T5",

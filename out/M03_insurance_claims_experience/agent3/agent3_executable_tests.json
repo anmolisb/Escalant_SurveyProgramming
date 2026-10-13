@@ -13,10 +13,10 @@
   },
   "content": {
     "report": {
-      "logically_covered": 75,
-      "compiled_executable": 75,
+      "logically_covered": 78,
+      "compiled_executable": 78,
       "refused": 0,
-      "executable_coverage_pct": 85.2,
+      "executable_coverage_pct": 88.6,
       "refusals": [],
       "note": "Block C refuses rather than guessing a missing identifier. A refusal is a specific named gap, not a silent omission."
     },
@@ -8361,6 +8361,84 @@
         ]
       },
       {
+        "test_id": "EX-a1730bc2e2",
+        "target_id": "T-fd2126c3e9",
+        "dimension": "D3",
+        "title": "S3 rejects an answer breaking ['max_value', 'min_value']",
+        "sid": 900001,
+        "steps": [
+          {
+            "step": 1,
+            "action": "set_field",
+            "field_name": "S1",
+            "sgqa": "900001X100X1000",
+            "value": "A001",
+            "value_kind": "answer_code",
+            "canonical": "S1/S1-O1",
+            "human": "select A001 (Yes) on S1"
+          },
+          {
+            "step": 2,
+            "action": "set_field",
+            "field_name": "S2",
+            "sgqa": "900001X100X1001",
+            "value": "A001",
+            "value_kind": "answer_code",
+            "canonical": "S2/S2-O1",
+            "human": "select A001 (Yes) on S2"
+          },
+          {
+            "step": 3,
+            "action": "set_field",
+            "field_name": "S3",
+            "sgqa": "900001X100X1002",
+            "value": "81",
+            "value_kind": "number",
+            "canonical": "S3",
+            "human": "enter 81 into S3"
+          },
+          {
+            "step": 4,
+            "action": "submit_page",
+            "field_name": null,
+            "sgqa": null,
+            "value": null,
+            "value_kind": null,
+            "canonical": null,
+            "human": "submit \u2014 the survey should REFUSE to move on, because S3 is not acceptable as answered"
+          }
+        ],
+        "assertions": [
+          {
+            "kind": "page_does_not_advance",
+            "expected": true,
+            "field_name": "S3",
+            "sgqa": "900001X100X1002",
+            "canonical": "S3",
+            "detail": "the page must NOT advance; it must redisplay with an error against this question"
+          },
+          {
+            "kind": "error_shown_on_question",
+            "expected": true,
+            "field_name": "S3",
+            "sgqa": "900001X100X1002",
+            "canonical": "S3",
+            "detail": "LimeSurvey redisplays the page with the message against the offending question"
+          }
+        ],
+        "traces_to": [
+          "S3"
+        ],
+        "campaign": {},
+        "executable": true,
+        "refusal_reason": null,
+        "missing_bindings": [],
+        "provisional_semantics": [
+          "multi_equality",
+          "rule_precedence"
+        ]
+      },
+      {
         "test_id": "EX-cad8e56439",
         "target_id": "T-7c28ecb52e",
         "dimension": "D4",
@@ -13952,6 +14030,154 @@
         "traces_to": [
           "Q7",
           "Q8"
+        ],
+        "campaign": {},
+        "executable": true,
+        "refusal_reason": null,
+        "missing_bindings": [],
+        "provisional_semantics": [
+          "multi_equality",
+          "rule_precedence"
+        ]
+      },
+      {
+        "test_id": "EX-90d7c778df",
+        "target_id": "T-414b33676a",
+        "dimension": "D3",
+        "title": "reject rule R3 does not fire when its condition fails",
+        "sid": 900001,
+        "steps": [
+          {
+            "step": 1,
+            "action": "set_field",
+            "field_name": "S1",
+            "sgqa": "900001X100X1000",
+            "value": "A001",
+            "value_kind": "answer_code",
+            "canonical": "S1/S1-O1",
+            "human": "select A001 (Yes) on S1"
+          },
+          {
+            "step": 2,
+            "action": "set_field",
+            "field_name": "S2",
+            "sgqa": "900001X100X1001",
+            "value": "A001",
+            "value_kind": "answer_code",
+            "canonical": "S2/S2-O1",
+            "human": "select A001 (Yes) on S2"
+          },
+          {
+            "step": 3,
+            "action": "set_field",
+            "field_name": "S3",
+            "sgqa": "900001X100X1002",
+            "value": "18",
+            "value_kind": "number",
+            "canonical": "S3",
+            "human": "enter 18 into S3"
+          },
+          {
+            "step": 4,
+            "action": "submit_page",
+            "field_name": null,
+            "sgqa": null,
+            "value": null,
+            "value_kind": null,
+            "canonical": null,
+            "human": "submit the final page and observe the end screen"
+          }
+        ],
+        "assertions": [
+          {
+            "kind": "page_advances",
+            "expected": true,
+            "field_name": null,
+            "sgqa": null,
+            "canonical": "R3",
+            "detail": "the page must advance, because the reject rule's condition is not met"
+          }
+        ],
+        "traces_to": [
+          "R3"
+        ],
+        "campaign": {},
+        "executable": true,
+        "refusal_reason": null,
+        "missing_bindings": [],
+        "provisional_semantics": [
+          "multi_equality",
+          "rule_precedence"
+        ]
+      },
+      {
+        "test_id": "EX-72bc6a13da",
+        "target_id": "T-ccda032495",
+        "dimension": "D3",
+        "title": "reject rule R3 fires when its condition holds",
+        "sid": 900001,
+        "steps": [
+          {
+            "step": 1,
+            "action": "set_field",
+            "field_name": "S1",
+            "sgqa": "900001X100X1000",
+            "value": "A001",
+            "value_kind": "answer_code",
+            "canonical": "S1/S1-O1",
+            "human": "select A001 (Yes) on S1"
+          },
+          {
+            "step": 2,
+            "action": "set_field",
+            "field_name": "S2",
+            "sgqa": "900001X100X1001",
+            "value": "A001",
+            "value_kind": "answer_code",
+            "canonical": "S2/S2-O1",
+            "human": "select A001 (Yes) on S2"
+          },
+          {
+            "step": 3,
+            "action": "set_field",
+            "field_name": "S3",
+            "sgqa": "900001X100X1002",
+            "value": "17",
+            "value_kind": "number",
+            "canonical": "S3",
+            "human": "enter 17 into S3"
+          },
+          {
+            "step": 4,
+            "action": "submit_page",
+            "field_name": null,
+            "sgqa": null,
+            "value": null,
+            "value_kind": null,
+            "canonical": null,
+            "human": "submit \u2014 the survey should REFUSE to move on, because S3 is not acceptable as answered"
+          }
+        ],
+        "assertions": [
+          {
+            "kind": "page_does_not_advance",
+            "expected": true,
+            "field_name": null,
+            "sgqa": null,
+            "canonical": "R3",
+            "detail": "the page must NOT advance; it must redisplay with an error against this question"
+          },
+          {
+            "kind": "error_shown_on_question",
+            "expected": true,
+            "field_name": null,
+            "sgqa": null,
+            "canonical": "R3",
+            "detail": "LimeSurvey redisplays the page with the message against the offending question"
+          }
+        ],
+        "traces_to": [
+          "R3"
         ],
         "campaign": {},
         "executable": true,

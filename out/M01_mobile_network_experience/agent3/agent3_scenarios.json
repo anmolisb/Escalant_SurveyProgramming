@@ -2987,8 +2987,8 @@
         "scenario_id": "SC-15f7658748",
         "target_id": "T-fd2126c3e9",
         "dimension": "D3",
-        "status": "UNCOVERED",
-        "reason": "UNVERIFIABLE",
+        "status": "COVERED",
+        "reason": null,
         "answers": {
           "S1": "S1-O1",
           "S2": "S2-O1",
@@ -3040,7 +3040,14 @@
           "blocked_at": null,
           "quota_stopped": null,
           "quota_over_target": null,
-          "validation_messages_expected": [],
+          "validation_messages_expected": [
+            {
+              "question_id": "S3",
+              "rule": "R3",
+              "outcome": "violated",
+              "detail": "reject rule R3 fires: S3 < 18 or S3 > 80"
+            }
+          ],
           "piped_text_visible": {},
           "option_lists_visible": {
             "Q8": [
@@ -3048,9 +3055,10 @@
             ]
           }
         },
-        "proof": "no validation message predicted for S3",
+        "proof": "a validation message is predicted for S3",
         "provisional_semantics": [
-          "multi_equality"
+          "multi_equality",
+          "rule_precedence"
         ],
         "preconditions": {},
         "campaign": {},
@@ -5675,29 +5683,155 @@
         "covered_by": null
       },
       {
-        "scenario_id": "SC-f67bc761fd",
+        "scenario_id": "SC-e8fc760866",
         "target_id": "T-414b33676a",
         "dimension": "D3",
-        "status": "UNCOVERED",
-        "reason": "BOUND_REACHED",
-        "answers": {},
-        "expected": {},
-        "proof": "unsupported operator `lt`",
-        "provisional_semantics": [],
+        "status": "COVERED",
+        "reason": null,
+        "answers": {
+          "S1": "S1-O1",
+          "S2": "S2-O1",
+          "S3": 18,
+          "Q1": "Q1-O1",
+          "Q2": "Q2-O1",
+          "Q3": "Q3-O1",
+          "Q4": "Q4-O1",
+          "Q5": "Q5-O1",
+          "Q6": "Q6-O1",
+          "Q7": [
+            "Q7-O1"
+          ],
+          "Q8": "Q8-O1",
+          "Q9": "Q9-O1",
+          "Q10": "Q10-O1",
+          "Q11": "Q11-O1",
+          "Q12": "Q12-O1",
+          "Q13": "Q13-O1",
+          "D1": "D1-O1",
+          "D2": "D2-O1"
+        },
+        "expected": {
+          "questions_seen_in_order": [
+            "S1",
+            "S2",
+            "S3",
+            "DT1",
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4",
+            "Q5",
+            "Q6",
+            "Q7",
+            "Q8",
+            "Q9",
+            "Q10",
+            "Q11",
+            "Q12",
+            "Q13",
+            "DT2",
+            "D1",
+            "D2",
+            "Q14"
+          ],
+          "questions_not_seen": [],
+          "ending_reached": "COMPLETE",
+          "blocked_at": null,
+          "quota_stopped": null,
+          "quota_over_target": null,
+          "validation_messages_expected": [],
+          "piped_text_visible": {},
+          "option_lists_visible": {
+            "Q8": [
+              "Dropped calls"
+            ]
+          }
+        },
+        "proof": "R3 correctly did not fire",
+        "provisional_semantics": [
+          "multi_equality"
+        ],
         "preconditions": {},
         "campaign": {},
         "covered_by": null
       },
       {
-        "scenario_id": "SC-0c55785a16",
+        "scenario_id": "SC-1be0ad4750",
         "target_id": "T-ccda032495",
         "dimension": "D3",
-        "status": "UNCOVERED",
-        "reason": "BOUND_REACHED",
-        "answers": {},
-        "expected": {},
-        "proof": "unsupported operator `gt`",
-        "provisional_semantics": [],
+        "status": "COVERED",
+        "reason": null,
+        "answers": {
+          "S1": "S1-O1",
+          "S2": "S2-O1",
+          "S3": 17,
+          "Q1": "Q1-O1",
+          "Q2": "Q2-O1",
+          "Q3": "Q3-O1",
+          "Q4": "Q4-O1",
+          "Q5": "Q5-O1",
+          "Q6": "Q6-O1",
+          "Q7": [
+            "Q7-O1"
+          ],
+          "Q8": "Q8-O1",
+          "Q9": "Q9-O1",
+          "Q10": "Q10-O1",
+          "Q11": "Q11-O1",
+          "Q12": "Q12-O1",
+          "Q13": "Q13-O1",
+          "D1": "D1-O1",
+          "D2": "D2-O1"
+        },
+        "expected": {
+          "questions_seen_in_order": [
+            "S1",
+            "S2",
+            "S3",
+            "DT1",
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4",
+            "Q5",
+            "Q6",
+            "Q7",
+            "Q8",
+            "Q9",
+            "Q10",
+            "Q11",
+            "Q12",
+            "Q13",
+            "DT2",
+            "D1",
+            "D2",
+            "Q14"
+          ],
+          "questions_not_seen": [],
+          "ending_reached": "COMPLETE",
+          "blocked_at": null,
+          "quota_stopped": null,
+          "quota_over_target": null,
+          "validation_messages_expected": [
+            {
+              "question_id": "S3",
+              "rule": "R3",
+              "outcome": "violated",
+              "detail": "reject rule R3 fires: S3 < 18 or S3 > 80"
+            }
+          ],
+          "piped_text_visible": {},
+          "option_lists_visible": {
+            "Q8": [
+              "Dropped calls"
+            ]
+          }
+        },
+        "proof": "reject rule R3 fired as expected, at one of the questions its condition names (['S3'])",
+        "provisional_semantics": [
+          "multi_equality",
+          "rule_precedence"
+        ],
         "preconditions": {},
         "campaign": {},
         "covered_by": null

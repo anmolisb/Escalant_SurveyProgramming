@@ -5,8 +5,8 @@ Agent 3 v0.1. Blocks B1 to B4 implemented and run. Blocks A and C are blocked on
 ## Headline
 
 - **88 coverage targets** enumerated across nine dimensions
-- **75 logically covered**, each with an independently predicted outcome
-- **75 logical test cases** generated, with steps and assertions
+- **78 logically covered**, each with an independently predicted outcome
+- **78 logical test cases** generated, with steps and assertions
 - **0 executable tests** - Block C cannot bind a canonical id to a LimeSurvey field without Agent 2's build manifest
 - **Coverage floor 50.0%** (D8). Reported as a floor, never a sum or an average
 - **Specification replay: 5 agree / 0 disagree / 0 unresolved of 5** against the QRE's own acceptance scenarios
@@ -19,7 +19,7 @@ Nine dimensions, reported side by side. They count different kinds of unit, so a
 |---|---|---|---|---|---|---|
 | D1 | Visibility | 31 | 31 | 100.0% | EXHAUSTIVE | - |
 | D2 | Terminal outcome | 4 | 3 | 75.0% | PARTIAL | `QUOTA_SIZE_UNDEFINED` x1 |
-| D3 | Validation (explicit) | 12 | 8 | 66.7% | BOUNDED | `UNVERIFIABLE` x1, `BOUND_REACHED` x2, `INFEASIBLE` x1 |
+| D3 | Validation (explicit) | 12 | 11 | 91.7% | PARTIAL | `INFEASIBLE` x1 |
 | D4 | Validation (mandatory) | 20 | 20 | 100.0% | EXHAUSTIVE | - |
 | D5 | Option-source dependency | 1 | 1 | 100.0% | EXHAUSTIVE | - |
 | D7 | Randomization configuration | 9 | 6 | 66.7% | PARTIAL | `RANDOMIZATION_ANCHOR_UNDEFINED` x3 |
@@ -42,7 +42,7 @@ B3's interpreter cannot run without these. They are read from Agent 1's `semanti
 | default_mandatory | `True` | derived | CONFIRMED | no | - |
 | whitespace_is_an_answer | `not_an_answer` | agent3_fallback | PROVISIONAL | no | - |
 
-4 reading(s) still provisional. **64 of 75 generated tests lean on at least one of them** and are tagged accordingly, so a change of ruling shows exactly which tests must be regenerated.
+4 reading(s) still provisional. **67 of 78 generated tests lean on at least one of them** and are tagged accordingly, so a change of ruling shows exactly which tests must be regenerated.
 
 ## Specification replay
 
@@ -168,11 +168,6 @@ Then check:
 
 No target is ever silently dropped. Each carries one specific reason.
 
-**`BOUND_REACHED`** - 2 target(s)
-
-- D3 R3 / satisfied
-- D3 R3 / violated
-
 **`INFEASIBLE`** - 1 target(s)
 
 - D3 R9 / satisfied
@@ -191,10 +186,6 @@ No target is ever silently dropped. Each carries one specific reason.
 - D7 Q13 / anchors_held
 - D7 Q3 / anchors_held
 - D7 Q7 / anchors_held
-
-**`UNVERIFIABLE`** - 1 target(s)
-
-- D3 S3 / violated
 
 ## Block A - implementation conformance
 
@@ -218,10 +209,10 @@ Derived from the emitted `.lss` (sha `e3fa5d4aec97`), not from a self-reported m
 
 ## Block C - executable compilation
 
-- Logically covered: 75
-- **Compiled to executable tests: 75**
+- Logically covered: 78
+- **Compiled to executable tests: 78**
 - Refused rather than guessed: 0
-- Executable coverage: **85.2%**
+- Executable coverage: **88.6%**
 
 ## Sample executable test
 

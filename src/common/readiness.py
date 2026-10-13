@@ -73,12 +73,6 @@ def _shape(atom: dict) -> str:
     return "plain"
 
 
-def _numeric_plain(atom: dict) -> bool:
-    """A plain question compared with a number, such as S3 < 18."""
-    return (atom.get("op") in ("lt", "le", "gt", "ge")
-            and (atom.get("right") or {}).get("number") is not None)
-
-
 def _conditions(spec: dict):
     """(where, condition or None, raw text) for every guard and every rule."""
     for q in spec.get("questions") or []:
@@ -91,8 +85,6 @@ def _conditions(spec: dict):
 
 
 def _supports(table: dict, atom: dict) -> bool:
-    if _numeric_plain(atom):
-        return False  # neither the solver nor the oracle compares a plain number
     return atom.get("op") in table.get(_shape(atom), frozenset())
 
 

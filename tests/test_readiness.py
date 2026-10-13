@@ -41,11 +41,20 @@ def test_a_kind_the_test_designer_cannot_answer_blocks(monkeypatch):
     assert any(f.agent == 3 and f.where == "Q1" and f.blocking for f in findings)
 
 
-def test_an_unsupported_operator_is_named_for_the_test_designer():
+def test_a_numeric_comparison_is_supported():
     spec = _spec()
     guard = _question(spec, "Q6")["guard"]["condition"]
     guard["op"] = "lt"
     guard["right"] = {"number": 3}
+    assert not [f for f in readiness.check_spec(spec)
+                if f.agent == 3 and f.where == "Q6"]
+
+
+def test_an_unsupported_operator_is_named_for_the_test_designer():
+    spec = _spec()
+    guard = _question(spec, "Q6")["guard"]["condition"]
+    guard["op"] = "starts_with"
+    guard["right"] = {"text": "A"}
     findings = [f for f in readiness.check_spec(spec) if f.agent == 3]
     assert any(f.where == "Q6" and not f.blocking for f in findings)
 
