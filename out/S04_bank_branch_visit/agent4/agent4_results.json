@@ -1,0 +1,5286 @@
+{
+  "survey": "S04_bank_branch_visit",
+  "survey_id": "353416",
+  "run_at": "2026-10-13T19:00:25.328662+00:00",
+  "counts": {
+    "PASSED": 40,
+    "FAILED": 0,
+    "BLOCKED": 0,
+    "INCONCLUSIVE": 0,
+    "SKIPPED": 0
+  },
+  "results": [
+    {
+      "test_id": "EX-e790ae446c",
+      "title": "answering S1 normally moves the respondent on to the question that should come next",
+      "dimension": "D1",
+      "case_id": "TC-FT01",
+      "order": 1,
+      "question": "S1",
+      "status": "PASSED",
+      "actions": [
+        {
+          "step": 1,
+          "question": "S1",
+          "did": "chose 'Yes'",
+          "detail": "LimeSurvey calls this question Q1093"
+        },
+        {
+          "step": 2,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "S2 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 2,
+          "question": "S2",
+          "did": "chose 'Yes'",
+          "detail": "LimeSurvey calls this question Q1094"
+        },
+        {
+          "step": 3,
+          "question": "",
+          "did": "submitted the page",
+          "detail": "one Next button sends every question on the page at once. the survey moved on to the next page"
+        },
+        {
+          "step": 4,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q1 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 4,
+          "question": "Q1",
+          "did": "chose 'Teller counter'",
+          "detail": "LimeSurvey calls this question Q1096"
+        },
+        {
+          "step": 5,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q2 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 5,
+          "question": "Q2",
+          "did": "chose 'Very poor'",
+          "detail": "LimeSurvey calls this question Q1097"
+        },
+        {
+          "step": 6,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q3 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 6,
+          "question": "Q3",
+          "did": "chose 'Very poor'",
+          "detail": "LimeSurvey calls this question Q1098"
+        },
+        {
+          "step": 7,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q4 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 7,
+          "question": "Q4",
+          "did": "ticked 'Waiting time'",
+          "detail": "LimeSurvey calls this question Q1099"
+        },
+        {
+          "step": 8,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q5 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 8,
+          "question": "Q5",
+          "did": "chose 'Yes'",
+          "detail": "LimeSurvey calls this question Q1100"
+        },
+        {
+          "step": 9,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q6 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 9,
+          "question": "Q6",
+          "did": "typed 'xxxxxxxxxx'",
+          "detail": "LimeSurvey calls this question Q1101"
+        },
+        {
+          "step": 10,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q7 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 10,
+          "question": "Q7",
+          "did": "chose '0'",
+          "detail": "LimeSurvey calls this question Q1102"
+        },
+        {
+          "step": 11,
+          "question": "",
+          "did": "checked the tick boxes before Next",
+          "detail": "the survey had unticked 'Waiting time' when a later option was ticked, so that combination cannot be sent"
+        },
+        {
+          "step": 11,
+          "question": "",
+          "did": "submitted the page",
+          "detail": "one Next button sends every question on the page at once. the survey moved on to the next page"
+        }
+      ],
+      "checks": [
+        {
+          "kind": "field_present",
+          "target": "S1",
+          "expected": true,
+          "observed": "S1 did appear",
+          "matched": true,
+          "why": "",
+          "should": "S1 should have appeared on screen, so the respondent could answer it",
+          "actually": "S1 did appear"
+        },
+        {
+          "kind": "next_field_present",
+          "target": "S2",
+          "expected": "S2",
+          "observed": "S2 did come next",
+          "matched": true,
+          "why": "",
+          "should": "after answering, the next question the respondent sees should be S2",
+          "actually": "S2 did come next"
+        }
+      ],
+      "blocked_reason": "",
+      "provisional": [],
+      "seconds": 4.72
+    },
+    {
+      "test_id": "EX-b25f6bb800",
+      "title": "S1 blocks progress when left blank",
+      "dimension": "D4",
+      "case_id": "TC-FT02",
+      "order": 2,
+      "question": "S1",
+      "status": "PASSED",
+      "actions": [
+        {
+          "step": 1,
+          "question": "S1",
+          "did": "left it blank",
+          "detail": "deliberately answered nothing"
+        },
+        {
+          "step": 2,
+          "question": "",
+          "did": "submitted the page",
+          "detail": "one Next button sends every question on the page at once. the survey stayed on the same page"
+        }
+      ],
+      "checks": [
+        {
+          "kind": "page_does_not_advance",
+          "target": "S1",
+          "expected": true,
+          "observed": "it refused to move on, as it should",
+          "matched": true,
+          "why": "",
+          "should": "the survey should refuse to move on, because the answer breaks a rule the questionnaire sets",
+          "actually": "it refused to move on, as it should"
+        },
+        {
+          "kind": "error_shown_on_question",
+          "target": "S1",
+          "expected": true,
+          "observed": "an error message appeared",
+          "matched": true,
+          "why": "",
+          "should": "an error message should appear on S1, telling the respondent what is wrong",
+          "actually": "an error message appeared"
+        }
+      ],
+      "blocked_reason": "",
+      "provisional": [],
+      "seconds": 0.41
+    },
+    {
+      "test_id": "EX-31ac5ca4c1",
+      "title": "ending TERM_INELIGIBLE is reached by rule R1, evaluated at S1",
+      "dimension": "D2",
+      "case_id": "TC-RT01",
+      "order": 3,
+      "question": "S1",
+      "status": "PASSED",
+      "actions": [
+        {
+          "step": 1,
+          "question": "S1",
+          "did": "chose 'No'",
+          "detail": "LimeSurvey calls this question Q1093"
+        },
+        {
+          "step": 2,
+          "question": "",
+          "did": "submitted the page",
+          "detail": "one Next button sends every question on the page at once. the survey moved on to the next page"
+        }
+      ],
+      "checks": [
+        {
+          "kind": "group_suppressed",
+          "target": "TERM_INELIGIBLE",
+          "expected": true,
+          "observed": "no main-section question appeared",
+          "matched": true,
+          "why": "",
+          "should": "no question from the main section should appear, because this respondent was screened out",
+          "actually": "no main-section question appeared"
+        },
+        {
+          "kind": "end_page_message",
+          "target": "TERM_INELIGIBLE",
+          "expected": "Thank you for your interest. You do not qualify for this survey.",
+          "observed": "it said exactly that",
+          "matched": true,
+          "why": "",
+          "should": "the final page should say: 'Thank you for your interest. You do not qualify for this survey.'",
+          "actually": "it said exactly that"
+        }
+      ],
+      "blocked_reason": "",
+      "provisional": [
+        "rule_precedence"
+      ],
+      "seconds": 0.41
+    },
+    {
+      "test_id": "EX-fb4cb41c06",
+      "title": "answering S2 normally moves the respondent on to the question that should come next",
+      "dimension": "D1",
+      "case_id": "TC-FT03",
+      "order": 4,
+      "question": "S2",
+      "status": "PASSED",
+      "actions": [
+        {
+          "step": 1,
+          "question": "S1",
+          "did": "chose 'Yes'",
+          "detail": "LimeSurvey calls this question Q1093"
+        },
+        {
+          "step": 2,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "S2 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 2,
+          "question": "S2",
+          "did": "chose 'Yes'",
+          "detail": "LimeSurvey calls this question Q1094"
+        },
+        {
+          "step": 3,
+          "question": "",
+          "did": "submitted the page",
+          "detail": "one Next button sends every question on the page at once. the survey moved on to the next page"
+        },
+        {
+          "step": 4,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q1 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 4,
+          "question": "Q1",
+          "did": "chose 'Teller counter'",
+          "detail": "LimeSurvey calls this question Q1096"
+        },
+        {
+          "step": 5,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q2 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 5,
+          "question": "Q2",
+          "did": "chose 'Very poor'",
+          "detail": "LimeSurvey calls this question Q1097"
+        },
+        {
+          "step": 6,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q3 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 6,
+          "question": "Q3",
+          "did": "chose 'Very poor'",
+          "detail": "LimeSurvey calls this question Q1098"
+        },
+        {
+          "step": 7,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q4 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 7,
+          "question": "Q4",
+          "did": "ticked 'Waiting time'",
+          "detail": "LimeSurvey calls this question Q1099"
+        },
+        {
+          "step": 8,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q5 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 8,
+          "question": "Q5",
+          "did": "chose 'Yes'",
+          "detail": "LimeSurvey calls this question Q1100"
+        },
+        {
+          "step": 9,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q6 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 9,
+          "question": "Q6",
+          "did": "typed 'xxxxxxxxxx'",
+          "detail": "LimeSurvey calls this question Q1101"
+        },
+        {
+          "step": 10,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q7 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 10,
+          "question": "Q7",
+          "did": "chose '0'",
+          "detail": "LimeSurvey calls this question Q1102"
+        },
+        {
+          "step": 11,
+          "question": "",
+          "did": "checked the tick boxes before Next",
+          "detail": "the survey had unticked 'Waiting time' when a later option was ticked, so that combination cannot be sent"
+        },
+        {
+          "step": 11,
+          "question": "",
+          "did": "submitted the page",
+          "detail": "one Next button sends every question on the page at once. the survey moved on to the next page"
+        }
+      ],
+      "checks": [
+        {
+          "kind": "field_present",
+          "target": "S2",
+          "expected": true,
+          "observed": "S2 did appear",
+          "matched": true,
+          "why": "",
+          "should": "S2 should have appeared on screen, so the respondent could answer it",
+          "actually": "S2 did appear"
+        },
+        {
+          "kind": "next_field_present",
+          "target": "DT1",
+          "expected": "DT1",
+          "observed": "DT1 did come next",
+          "matched": true,
+          "why": "",
+          "should": "after answering, the next question the respondent sees should be DT1",
+          "actually": "DT1 did come next"
+        }
+      ],
+      "blocked_reason": "",
+      "provisional": [],
+      "seconds": 4.3
+    },
+    {
+      "test_id": "EX-8f21434a7b",
+      "title": "S2 blocks progress when left blank",
+      "dimension": "D4",
+      "case_id": "TC-FT04",
+      "order": 5,
+      "question": "S2",
+      "status": "PASSED",
+      "actions": [
+        {
+          "step": 1,
+          "question": "S1",
+          "did": "chose 'Yes'",
+          "detail": "LimeSurvey calls this question Q1093"
+        },
+        {
+          "step": 2,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "S2 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 2,
+          "question": "S2",
+          "did": "left it blank",
+          "detail": "deliberately answered nothing"
+        },
+        {
+          "step": 3,
+          "question": "",
+          "did": "submitted the page",
+          "detail": "one Next button sends every question on the page at once. the survey stayed on the same page"
+        }
+      ],
+      "checks": [
+        {
+          "kind": "page_does_not_advance",
+          "target": "S2",
+          "expected": true,
+          "observed": "it refused to move on, as it should",
+          "matched": true,
+          "why": "",
+          "should": "the survey should refuse to move on, because the answer breaks a rule the questionnaire sets",
+          "actually": "it refused to move on, as it should"
+        },
+        {
+          "kind": "error_shown_on_question",
+          "target": "S2",
+          "expected": true,
+          "observed": "an error message appeared",
+          "matched": true,
+          "why": "",
+          "should": "an error message should appear on S2, telling the respondent what is wrong",
+          "actually": "an error message appeared"
+        }
+      ],
+      "blocked_reason": "",
+      "provisional": [],
+      "seconds": 0.59
+    },
+    {
+      "test_id": "EX-f5dd32c895",
+      "title": "ending TERM_INELIGIBLE is reached by rule R2, evaluated at S2",
+      "dimension": "D2",
+      "case_id": "TC-RT02",
+      "order": 6,
+      "question": "S2",
+      "status": "PASSED",
+      "actions": [
+        {
+          "step": 1,
+          "question": "S1",
+          "did": "chose 'Yes'",
+          "detail": "LimeSurvey calls this question Q1093"
+        },
+        {
+          "step": 2,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "S2 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 2,
+          "question": "S2",
+          "did": "chose 'No'",
+          "detail": "LimeSurvey calls this question Q1094"
+        },
+        {
+          "step": 3,
+          "question": "",
+          "did": "submitted the page",
+          "detail": "one Next button sends every question on the page at once. the survey moved on to the next page"
+        }
+      ],
+      "checks": [
+        {
+          "kind": "group_suppressed",
+          "target": "TERM_INELIGIBLE",
+          "expected": true,
+          "observed": "no main-section question appeared",
+          "matched": true,
+          "why": "",
+          "should": "no question from the main section should appear, because this respondent was screened out",
+          "actually": "no main-section question appeared"
+        },
+        {
+          "kind": "end_page_message",
+          "target": "TERM_INELIGIBLE",
+          "expected": "Thank you for your interest. You do not qualify for this survey.",
+          "observed": "it said exactly that",
+          "matched": true,
+          "why": "",
+          "should": "the final page should say: 'Thank you for your interest. You do not qualify for this survey.'",
+          "actually": "it said exactly that"
+        }
+      ],
+      "blocked_reason": "",
+      "provisional": [
+        "rule_precedence"
+      ],
+      "seconds": 0.59
+    },
+    {
+      "test_id": "EX-9c83dfa8f1",
+      "title": "answering DT1 normally moves the respondent on to the question that should come next",
+      "dimension": "D1",
+      "case_id": "TC-FT05",
+      "order": 7,
+      "question": "DT1",
+      "status": "PASSED",
+      "actions": [
+        {
+          "step": 1,
+          "question": "S1",
+          "did": "chose 'Yes'",
+          "detail": "LimeSurvey calls this question Q1093"
+        },
+        {
+          "step": 2,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "S2 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 2,
+          "question": "S2",
+          "did": "chose 'Yes'",
+          "detail": "LimeSurvey calls this question Q1094"
+        },
+        {
+          "step": 3,
+          "question": "",
+          "did": "submitted the page",
+          "detail": "one Next button sends every question on the page at once. the survey moved on to the next page"
+        },
+        {
+          "step": 4,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q1 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 4,
+          "question": "Q1",
+          "did": "chose 'Teller counter'",
+          "detail": "LimeSurvey calls this question Q1096"
+        },
+        {
+          "step": 5,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q2 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 5,
+          "question": "Q2",
+          "did": "chose 'Very poor'",
+          "detail": "LimeSurvey calls this question Q1097"
+        },
+        {
+          "step": 6,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q3 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 6,
+          "question": "Q3",
+          "did": "chose 'Very poor'",
+          "detail": "LimeSurvey calls this question Q1098"
+        },
+        {
+          "step": 7,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q4 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 7,
+          "question": "Q4",
+          "did": "ticked 'Waiting time'",
+          "detail": "LimeSurvey calls this question Q1099"
+        },
+        {
+          "step": 8,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q5 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 8,
+          "question": "Q5",
+          "did": "chose 'Yes'",
+          "detail": "LimeSurvey calls this question Q1100"
+        },
+        {
+          "step": 9,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q6 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 9,
+          "question": "Q6",
+          "did": "typed 'xxxxxxxxxx'",
+          "detail": "LimeSurvey calls this question Q1101"
+        },
+        {
+          "step": 10,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q7 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 10,
+          "question": "Q7",
+          "did": "chose '0'",
+          "detail": "LimeSurvey calls this question Q1102"
+        },
+        {
+          "step": 11,
+          "question": "",
+          "did": "checked the tick boxes before Next",
+          "detail": "the survey had unticked 'Waiting time' when a later option was ticked, so that combination cannot be sent"
+        },
+        {
+          "step": 11,
+          "question": "",
+          "did": "submitted the page",
+          "detail": "one Next button sends every question on the page at once. the survey moved on to the next page"
+        }
+      ],
+      "checks": [
+        {
+          "kind": "next_field_present",
+          "target": "Q1",
+          "expected": "Q1",
+          "observed": "Q1 did come next",
+          "matched": true,
+          "why": "",
+          "should": "after answering, the next question the respondent sees should be Q1",
+          "actually": "Q1 did come next"
+        }
+      ],
+      "blocked_reason": "",
+      "provisional": [],
+      "seconds": 4.29
+    },
+    {
+      "test_id": "EX-0fcdc23e54",
+      "title": "answering Q1 normally moves the respondent on to the question that should come next",
+      "dimension": "D1",
+      "case_id": "TC-FT06",
+      "order": 8,
+      "question": "Q1",
+      "status": "PASSED",
+      "actions": [
+        {
+          "step": 1,
+          "question": "S1",
+          "did": "chose 'Yes'",
+          "detail": "LimeSurvey calls this question Q1093"
+        },
+        {
+          "step": 2,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "S2 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 2,
+          "question": "S2",
+          "did": "chose 'Yes'",
+          "detail": "LimeSurvey calls this question Q1094"
+        },
+        {
+          "step": 3,
+          "question": "",
+          "did": "submitted the page",
+          "detail": "one Next button sends every question on the page at once. the survey moved on to the next page"
+        },
+        {
+          "step": 4,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q1 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 4,
+          "question": "Q1",
+          "did": "chose 'Teller counter'",
+          "detail": "LimeSurvey calls this question Q1096"
+        },
+        {
+          "step": 5,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q2 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 5,
+          "question": "Q2",
+          "did": "chose 'Very poor'",
+          "detail": "LimeSurvey calls this question Q1097"
+        },
+        {
+          "step": 6,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q3 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 6,
+          "question": "Q3",
+          "did": "chose 'Very poor'",
+          "detail": "LimeSurvey calls this question Q1098"
+        },
+        {
+          "step": 7,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q4 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 7,
+          "question": "Q4",
+          "did": "ticked 'Waiting time'",
+          "detail": "LimeSurvey calls this question Q1099"
+        },
+        {
+          "step": 8,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q5 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 8,
+          "question": "Q5",
+          "did": "chose 'Yes'",
+          "detail": "LimeSurvey calls this question Q1100"
+        },
+        {
+          "step": 9,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q6 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 9,
+          "question": "Q6",
+          "did": "typed 'xxxxxxxxxx'",
+          "detail": "LimeSurvey calls this question Q1101"
+        },
+        {
+          "step": 10,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q7 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 10,
+          "question": "Q7",
+          "did": "chose '0'",
+          "detail": "LimeSurvey calls this question Q1102"
+        },
+        {
+          "step": 11,
+          "question": "",
+          "did": "checked the tick boxes before Next",
+          "detail": "the survey had unticked 'Waiting time' when a later option was ticked, so that combination cannot be sent"
+        },
+        {
+          "step": 11,
+          "question": "",
+          "did": "submitted the page",
+          "detail": "one Next button sends every question on the page at once. the survey moved on to the next page"
+        }
+      ],
+      "checks": [
+        {
+          "kind": "field_present",
+          "target": "Q1",
+          "expected": true,
+          "observed": "Q1 did appear",
+          "matched": true,
+          "why": "",
+          "should": "Q1 should have appeared on screen, so the respondent could answer it",
+          "actually": "Q1 did appear"
+        },
+        {
+          "kind": "next_field_present",
+          "target": "Q2",
+          "expected": "Q2",
+          "observed": "Q2 did come next",
+          "matched": true,
+          "why": "",
+          "should": "after answering, the next question the respondent sees should be Q2",
+          "actually": "Q2 did come next"
+        }
+      ],
+      "blocked_reason": "",
+      "provisional": [],
+      "seconds": 4.31
+    },
+    {
+      "test_id": "EX-aa87c81d09",
+      "title": "Q1 blocks progress when left blank",
+      "dimension": "D4",
+      "case_id": "TC-FT07",
+      "order": 9,
+      "question": "Q1",
+      "status": "PASSED",
+      "actions": [
+        {
+          "step": 1,
+          "question": "S1",
+          "did": "chose 'Yes'",
+          "detail": "LimeSurvey calls this question Q1093"
+        },
+        {
+          "step": 2,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "S2 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 2,
+          "question": "S2",
+          "did": "chose 'Yes'",
+          "detail": "LimeSurvey calls this question Q1094"
+        },
+        {
+          "step": 3,
+          "question": "",
+          "did": "submitted the page",
+          "detail": "one Next button sends every question on the page at once. the survey moved on to the next page"
+        },
+        {
+          "step": 4,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q1 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 4,
+          "question": "Q1",
+          "did": "left it blank",
+          "detail": "deliberately answered nothing"
+        },
+        {
+          "step": 5,
+          "question": "",
+          "did": "submitted the page",
+          "detail": "one Next button sends every question on the page at once. the survey stayed on the same page"
+        }
+      ],
+      "checks": [
+        {
+          "kind": "page_does_not_advance",
+          "target": "Q1",
+          "expected": true,
+          "observed": "it refused to move on, as it should",
+          "matched": true,
+          "why": "",
+          "should": "the survey should refuse to move on, because the answer breaks a rule the questionnaire sets",
+          "actually": "it refused to move on, as it should"
+        },
+        {
+          "kind": "error_shown_on_question",
+          "target": "Q1",
+          "expected": true,
+          "observed": "an error message appeared",
+          "matched": true,
+          "why": "",
+          "should": "an error message should appear on Q1, telling the respondent what is wrong",
+          "actually": "an error message appeared"
+        }
+      ],
+      "blocked_reason": "",
+      "provisional": [],
+      "seconds": 0.93
+    },
+    {
+      "test_id": "EX-1ec4aaf66b",
+      "title": "answering Q2 normally moves the respondent on to the question that should come next",
+      "dimension": "D1",
+      "case_id": "TC-FT08",
+      "order": 10,
+      "question": "Q2",
+      "status": "PASSED",
+      "actions": [
+        {
+          "step": 1,
+          "question": "S1",
+          "did": "chose 'Yes'",
+          "detail": "LimeSurvey calls this question Q1093"
+        },
+        {
+          "step": 2,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "S2 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 2,
+          "question": "S2",
+          "did": "chose 'Yes'",
+          "detail": "LimeSurvey calls this question Q1094"
+        },
+        {
+          "step": 3,
+          "question": "",
+          "did": "submitted the page",
+          "detail": "one Next button sends every question on the page at once. the survey moved on to the next page"
+        },
+        {
+          "step": 4,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q1 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 4,
+          "question": "Q1",
+          "did": "chose 'Teller counter'",
+          "detail": "LimeSurvey calls this question Q1096"
+        },
+        {
+          "step": 5,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q2 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 5,
+          "question": "Q2",
+          "did": "chose 'Very poor'",
+          "detail": "LimeSurvey calls this question Q1097"
+        },
+        {
+          "step": 6,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q3 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 6,
+          "question": "Q3",
+          "did": "chose 'Very poor'",
+          "detail": "LimeSurvey calls this question Q1098"
+        },
+        {
+          "step": 7,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q4 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 7,
+          "question": "Q4",
+          "did": "ticked 'Waiting time'",
+          "detail": "LimeSurvey calls this question Q1099"
+        },
+        {
+          "step": 8,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q5 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 8,
+          "question": "Q5",
+          "did": "chose 'Yes'",
+          "detail": "LimeSurvey calls this question Q1100"
+        },
+        {
+          "step": 9,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q6 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 9,
+          "question": "Q6",
+          "did": "typed 'xxxxxxxxxx'",
+          "detail": "LimeSurvey calls this question Q1101"
+        },
+        {
+          "step": 10,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q7 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 10,
+          "question": "Q7",
+          "did": "chose '0'",
+          "detail": "LimeSurvey calls this question Q1102"
+        },
+        {
+          "step": 11,
+          "question": "",
+          "did": "checked the tick boxes before Next",
+          "detail": "the survey had unticked 'Waiting time' when a later option was ticked, so that combination cannot be sent"
+        },
+        {
+          "step": 11,
+          "question": "",
+          "did": "submitted the page",
+          "detail": "one Next button sends every question on the page at once. the survey moved on to the next page"
+        }
+      ],
+      "checks": [
+        {
+          "kind": "field_present",
+          "target": "Q2",
+          "expected": true,
+          "observed": "Q2 did appear",
+          "matched": true,
+          "why": "",
+          "should": "Q2 should have appeared on screen, so the respondent could answer it",
+          "actually": "Q2 did appear"
+        },
+        {
+          "kind": "next_field_present",
+          "target": "Q3",
+          "expected": "Q3",
+          "observed": "Q3 did come next",
+          "matched": true,
+          "why": "",
+          "should": "after answering, the next question the respondent sees should be Q3",
+          "actually": "Q3 did come next"
+        }
+      ],
+      "blocked_reason": "",
+      "provisional": [],
+      "seconds": 4.27
+    },
+    {
+      "test_id": "EX-89ac76b041",
+      "title": "Q2 blocks progress when left blank",
+      "dimension": "D4",
+      "case_id": "TC-FT09",
+      "order": 11,
+      "question": "Q2",
+      "status": "PASSED",
+      "actions": [
+        {
+          "step": 1,
+          "question": "S1",
+          "did": "chose 'Yes'",
+          "detail": "LimeSurvey calls this question Q1093"
+        },
+        {
+          "step": 2,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "S2 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 2,
+          "question": "S2",
+          "did": "chose 'Yes'",
+          "detail": "LimeSurvey calls this question Q1094"
+        },
+        {
+          "step": 3,
+          "question": "",
+          "did": "submitted the page",
+          "detail": "one Next button sends every question on the page at once. the survey moved on to the next page"
+        },
+        {
+          "step": 4,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q1 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 4,
+          "question": "Q1",
+          "did": "chose 'Teller counter'",
+          "detail": "LimeSurvey calls this question Q1096"
+        },
+        {
+          "step": 5,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q2 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 5,
+          "question": "Q2",
+          "did": "left it blank",
+          "detail": "deliberately answered nothing"
+        },
+        {
+          "step": 6,
+          "question": "",
+          "did": "submitted the page",
+          "detail": "one Next button sends every question on the page at once. the survey stayed on the same page"
+        }
+      ],
+      "checks": [
+        {
+          "kind": "page_does_not_advance",
+          "target": "Q2",
+          "expected": true,
+          "observed": "it refused to move on, as it should",
+          "matched": true,
+          "why": "",
+          "should": "the survey should refuse to move on, because the answer breaks a rule the questionnaire sets",
+          "actually": "it refused to move on, as it should"
+        },
+        {
+          "kind": "error_shown_on_question",
+          "target": "Q2",
+          "expected": true,
+          "observed": "an error message appeared",
+          "matched": true,
+          "why": "",
+          "should": "an error message should appear on Q2, telling the respondent what is wrong",
+          "actually": "an error message appeared"
+        }
+      ],
+      "blocked_reason": "",
+      "provisional": [],
+      "seconds": 1.12
+    },
+    {
+      "test_id": "EX-6f0dbc4ed0",
+      "title": "answering Q3 normally moves the respondent on to the question that should come next",
+      "dimension": "D1",
+      "case_id": "TC-FT10",
+      "order": 12,
+      "question": "Q3",
+      "status": "PASSED",
+      "actions": [
+        {
+          "step": 1,
+          "question": "S1",
+          "did": "chose 'Yes'",
+          "detail": "LimeSurvey calls this question Q1093"
+        },
+        {
+          "step": 2,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "S2 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 2,
+          "question": "S2",
+          "did": "chose 'Yes'",
+          "detail": "LimeSurvey calls this question Q1094"
+        },
+        {
+          "step": 3,
+          "question": "",
+          "did": "submitted the page",
+          "detail": "one Next button sends every question on the page at once. the survey moved on to the next page"
+        },
+        {
+          "step": 4,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q1 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 4,
+          "question": "Q1",
+          "did": "chose 'Teller counter'",
+          "detail": "LimeSurvey calls this question Q1096"
+        },
+        {
+          "step": 5,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q2 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 5,
+          "question": "Q2",
+          "did": "chose 'Very poor'",
+          "detail": "LimeSurvey calls this question Q1097"
+        },
+        {
+          "step": 6,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q3 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 6,
+          "question": "Q3",
+          "did": "chose 'Very poor'",
+          "detail": "LimeSurvey calls this question Q1098"
+        },
+        {
+          "step": 7,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q4 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 7,
+          "question": "Q4",
+          "did": "ticked 'Waiting time'",
+          "detail": "LimeSurvey calls this question Q1099"
+        },
+        {
+          "step": 8,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q5 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 8,
+          "question": "Q5",
+          "did": "chose 'Yes'",
+          "detail": "LimeSurvey calls this question Q1100"
+        },
+        {
+          "step": 9,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q6 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 9,
+          "question": "Q6",
+          "did": "typed 'xxxxxxxxxx'",
+          "detail": "LimeSurvey calls this question Q1101"
+        },
+        {
+          "step": 10,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q7 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 10,
+          "question": "Q7",
+          "did": "chose '0'",
+          "detail": "LimeSurvey calls this question Q1102"
+        },
+        {
+          "step": 11,
+          "question": "",
+          "did": "checked the tick boxes before Next",
+          "detail": "the survey had unticked 'Waiting time' when a later option was ticked, so that combination cannot be sent"
+        },
+        {
+          "step": 11,
+          "question": "",
+          "did": "submitted the page",
+          "detail": "one Next button sends every question on the page at once. the survey moved on to the next page"
+        }
+      ],
+      "checks": [
+        {
+          "kind": "field_present",
+          "target": "Q3",
+          "expected": true,
+          "observed": "Q3 did appear",
+          "matched": true,
+          "why": "",
+          "should": "Q3 should have appeared on screen, so the respondent could answer it",
+          "actually": "Q3 did appear"
+        },
+        {
+          "kind": "next_field_present",
+          "target": "Q4",
+          "expected": "Q4_SQ001",
+          "observed": "Q4_SQ001 did come next",
+          "matched": true,
+          "why": "",
+          "should": "after answering, the next question the respondent sees should be Q4_SQ001",
+          "actually": "Q4_SQ001 did come next"
+        }
+      ],
+      "blocked_reason": "",
+      "provisional": [],
+      "seconds": 4.28
+    },
+    {
+      "test_id": "EX-6d66e5f4e9",
+      "title": "Q3 blocks progress when left blank",
+      "dimension": "D4",
+      "case_id": "TC-FT11",
+      "order": 13,
+      "question": "Q3",
+      "status": "PASSED",
+      "actions": [
+        {
+          "step": 1,
+          "question": "S1",
+          "did": "chose 'Yes'",
+          "detail": "LimeSurvey calls this question Q1093"
+        },
+        {
+          "step": 2,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "S2 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 2,
+          "question": "S2",
+          "did": "chose 'Yes'",
+          "detail": "LimeSurvey calls this question Q1094"
+        },
+        {
+          "step": 3,
+          "question": "",
+          "did": "submitted the page",
+          "detail": "one Next button sends every question on the page at once. the survey moved on to the next page"
+        },
+        {
+          "step": 4,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q1 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 4,
+          "question": "Q1",
+          "did": "chose 'Teller counter'",
+          "detail": "LimeSurvey calls this question Q1096"
+        },
+        {
+          "step": 5,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q2 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 5,
+          "question": "Q2",
+          "did": "chose 'Very poor'",
+          "detail": "LimeSurvey calls this question Q1097"
+        },
+        {
+          "step": 6,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q3 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 6,
+          "question": "Q3",
+          "did": "left it blank",
+          "detail": "deliberately answered nothing"
+        },
+        {
+          "step": 7,
+          "question": "",
+          "did": "submitted the page",
+          "detail": "one Next button sends every question on the page at once. the survey stayed on the same page"
+        }
+      ],
+      "checks": [
+        {
+          "kind": "page_does_not_advance",
+          "target": "Q3",
+          "expected": true,
+          "observed": "it refused to move on, as it should",
+          "matched": true,
+          "why": "",
+          "should": "the survey should refuse to move on, because the answer breaks a rule the questionnaire sets",
+          "actually": "it refused to move on, as it should"
+        },
+        {
+          "kind": "error_shown_on_question",
+          "target": "Q3",
+          "expected": true,
+          "observed": "an error message appeared",
+          "matched": true,
+          "why": "",
+          "should": "an error message should appear on Q3, telling the respondent what is wrong",
+          "actually": "an error message appeared"
+        }
+      ],
+      "blocked_reason": "",
+      "provisional": [],
+      "seconds": 1.3
+    },
+    {
+      "test_id": "EX-b33617569d",
+      "title": "answering Q4 normally moves the respondent on to the question that should come next",
+      "dimension": "D1",
+      "case_id": "TC-FT12",
+      "order": 14,
+      "question": "Q4",
+      "status": "PASSED",
+      "actions": [
+        {
+          "step": 1,
+          "question": "S1",
+          "did": "chose 'Yes'",
+          "detail": "LimeSurvey calls this question Q1093"
+        },
+        {
+          "step": 2,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "S2 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 2,
+          "question": "S2",
+          "did": "chose 'Yes'",
+          "detail": "LimeSurvey calls this question Q1094"
+        },
+        {
+          "step": 3,
+          "question": "",
+          "did": "submitted the page",
+          "detail": "one Next button sends every question on the page at once. the survey moved on to the next page"
+        },
+        {
+          "step": 4,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q1 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 4,
+          "question": "Q1",
+          "did": "chose 'Teller counter'",
+          "detail": "LimeSurvey calls this question Q1096"
+        },
+        {
+          "step": 5,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q2 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 5,
+          "question": "Q2",
+          "did": "chose 'Very poor'",
+          "detail": "LimeSurvey calls this question Q1097"
+        },
+        {
+          "step": 6,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q3 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 6,
+          "question": "Q3",
+          "did": "chose 'Very poor'",
+          "detail": "LimeSurvey calls this question Q1098"
+        },
+        {
+          "step": 7,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q4 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 7,
+          "question": "Q4",
+          "did": "ticked 'Waiting time'",
+          "detail": "LimeSurvey calls this question Q1099"
+        },
+        {
+          "step": 8,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q5 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 8,
+          "question": "Q5",
+          "did": "chose 'Yes'",
+          "detail": "LimeSurvey calls this question Q1100"
+        },
+        {
+          "step": 9,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q6 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 9,
+          "question": "Q6",
+          "did": "typed 'xxxxxxxxxx'",
+          "detail": "LimeSurvey calls this question Q1101"
+        },
+        {
+          "step": 10,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q7 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 10,
+          "question": "Q7",
+          "did": "chose '0'",
+          "detail": "LimeSurvey calls this question Q1102"
+        },
+        {
+          "step": 11,
+          "question": "",
+          "did": "checked the tick boxes before Next",
+          "detail": "the survey had unticked 'Waiting time' when a later option was ticked, so that combination cannot be sent"
+        },
+        {
+          "step": 11,
+          "question": "",
+          "did": "submitted the page",
+          "detail": "one Next button sends every question on the page at once. the survey moved on to the next page"
+        }
+      ],
+      "checks": [
+        {
+          "kind": "field_present",
+          "target": "Q4",
+          "expected": true,
+          "observed": "Q4 did appear",
+          "matched": true,
+          "why": "",
+          "should": "Q4 should have appeared on screen, so the respondent could answer it",
+          "actually": "Q4 did appear"
+        },
+        {
+          "kind": "next_field_present",
+          "target": "Q5",
+          "expected": "Q5",
+          "observed": "Q5 did come next",
+          "matched": true,
+          "why": "",
+          "should": "after answering, the next question the respondent sees should be Q5",
+          "actually": "Q5 did come next"
+        }
+      ],
+      "blocked_reason": "",
+      "provisional": [],
+      "seconds": 4.29
+    },
+    {
+      "test_id": "EX-156c28b63b",
+      "title": "Q4 accepts an answer meeting ['min_selections']",
+      "dimension": "D3",
+      "case_id": "TC-FT13",
+      "order": 15,
+      "question": "Q4",
+      "status": "PASSED",
+      "actions": [
+        {
+          "step": 1,
+          "question": "S1",
+          "did": "chose 'Yes'",
+          "detail": "LimeSurvey calls this question Q1093"
+        },
+        {
+          "step": 2,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "S2 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 2,
+          "question": "S2",
+          "did": "chose 'Yes'",
+          "detail": "LimeSurvey calls this question Q1094"
+        },
+        {
+          "step": 3,
+          "question": "",
+          "did": "submitted the page",
+          "detail": "one Next button sends every question on the page at once. the survey moved on to the next page"
+        },
+        {
+          "step": 4,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q1 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 4,
+          "question": "Q1",
+          "did": "chose 'Teller counter'",
+          "detail": "LimeSurvey calls this question Q1096"
+        },
+        {
+          "step": 5,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q2 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 5,
+          "question": "Q2",
+          "did": "chose 'Very poor'",
+          "detail": "LimeSurvey calls this question Q1097"
+        },
+        {
+          "step": 6,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q3 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 6,
+          "question": "Q3",
+          "did": "chose 'Very poor'",
+          "detail": "LimeSurvey calls this question Q1098"
+        },
+        {
+          "step": 7,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q4 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 7,
+          "question": "Q4",
+          "did": "ticked 'Waiting time'",
+          "detail": "LimeSurvey calls this question Q1099"
+        },
+        {
+          "step": 8,
+          "question": "",
+          "did": "submitted the page",
+          "detail": "one Next button sends every question on the page at once. the survey moved on to the next page"
+        }
+      ],
+      "checks": [
+        {
+          "kind": "page_advances",
+          "target": "Q4",
+          "expected": true,
+          "observed": "it moved on, as it should",
+          "matched": true,
+          "why": "",
+          "should": "the survey should accept the answer and move to the next page",
+          "actually": "it moved on, as it should"
+        }
+      ],
+      "blocked_reason": "",
+      "provisional": [],
+      "seconds": 3.79
+    },
+    {
+      "test_id": "EX-9a8726ad8f",
+      "title": "Q4 rejects an answer breaking ['min_selections']",
+      "dimension": "D3",
+      "case_id": "TC-FT14",
+      "order": 16,
+      "question": "Q4",
+      "status": "PASSED",
+      "actions": [
+        {
+          "step": 1,
+          "question": "S1",
+          "did": "chose 'Yes'",
+          "detail": "LimeSurvey calls this question Q1093"
+        },
+        {
+          "step": 2,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "S2 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 2,
+          "question": "S2",
+          "did": "chose 'Yes'",
+          "detail": "LimeSurvey calls this question Q1094"
+        },
+        {
+          "step": 3,
+          "question": "",
+          "did": "submitted the page",
+          "detail": "one Next button sends every question on the page at once. the survey moved on to the next page"
+        },
+        {
+          "step": 4,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q1 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 4,
+          "question": "Q1",
+          "did": "chose 'Teller counter'",
+          "detail": "LimeSurvey calls this question Q1096"
+        },
+        {
+          "step": 5,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q2 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 5,
+          "question": "Q2",
+          "did": "chose 'Very poor'",
+          "detail": "LimeSurvey calls this question Q1097"
+        },
+        {
+          "step": 6,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q3 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 6,
+          "question": "Q3",
+          "did": "chose 'Very poor'",
+          "detail": "LimeSurvey calls this question Q1098"
+        },
+        {
+          "step": 7,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q4 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 7,
+          "question": "Q4",
+          "did": "left it blank",
+          "detail": "deliberately answered nothing"
+        },
+        {
+          "step": 8,
+          "question": "",
+          "did": "submitted the page",
+          "detail": "one Next button sends every question on the page at once. the survey stayed on the same page"
+        }
+      ],
+      "checks": [
+        {
+          "kind": "page_does_not_advance",
+          "target": "Q4",
+          "expected": true,
+          "observed": "it refused to move on, as it should",
+          "matched": true,
+          "why": "",
+          "should": "the survey should refuse to move on, because the answer breaks a rule the questionnaire sets",
+          "actually": "it refused to move on, as it should"
+        },
+        {
+          "kind": "error_shown_on_question",
+          "target": "Q4",
+          "expected": true,
+          "observed": "an error message appeared",
+          "matched": true,
+          "why": "",
+          "should": "an error message should appear on Q4, telling the respondent what is wrong",
+          "actually": "an error message appeared"
+        }
+      ],
+      "blocked_reason": "",
+      "provisional": [],
+      "seconds": 1.53
+    },
+    {
+      "test_id": "EX-dd0649df59",
+      "title": "Q4 blocks progress when left blank",
+      "dimension": "D4",
+      "case_id": "TC-FT15",
+      "order": 17,
+      "question": "Q4",
+      "status": "PASSED",
+      "actions": [
+        {
+          "step": 1,
+          "question": "S1",
+          "did": "chose 'Yes'",
+          "detail": "LimeSurvey calls this question Q1093"
+        },
+        {
+          "step": 2,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "S2 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 2,
+          "question": "S2",
+          "did": "chose 'Yes'",
+          "detail": "LimeSurvey calls this question Q1094"
+        },
+        {
+          "step": 3,
+          "question": "",
+          "did": "submitted the page",
+          "detail": "one Next button sends every question on the page at once. the survey moved on to the next page"
+        },
+        {
+          "step": 4,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q1 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 4,
+          "question": "Q1",
+          "did": "chose 'Teller counter'",
+          "detail": "LimeSurvey calls this question Q1096"
+        },
+        {
+          "step": 5,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q2 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 5,
+          "question": "Q2",
+          "did": "chose 'Very poor'",
+          "detail": "LimeSurvey calls this question Q1097"
+        },
+        {
+          "step": 6,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q3 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 6,
+          "question": "Q3",
+          "did": "chose 'Very poor'",
+          "detail": "LimeSurvey calls this question Q1098"
+        },
+        {
+          "step": 7,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q4 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 7,
+          "question": "Q4",
+          "did": "left it blank",
+          "detail": "deliberately answered nothing"
+        },
+        {
+          "step": 8,
+          "question": "",
+          "did": "submitted the page",
+          "detail": "one Next button sends every question on the page at once. the survey stayed on the same page"
+        }
+      ],
+      "checks": [
+        {
+          "kind": "page_does_not_advance",
+          "target": "Q4",
+          "expected": true,
+          "observed": "it refused to move on, as it should",
+          "matched": true,
+          "why": "",
+          "should": "the survey should refuse to move on, because the answer breaks a rule the questionnaire sets",
+          "actually": "it refused to move on, as it should"
+        },
+        {
+          "kind": "error_shown_on_question",
+          "target": "Q4",
+          "expected": true,
+          "observed": "an error message appeared",
+          "matched": true,
+          "why": "",
+          "should": "an error message should appear on Q4, telling the respondent what is wrong",
+          "actually": "an error message appeared"
+        }
+      ],
+      "blocked_reason": "",
+      "provisional": [],
+      "seconds": 1.5
+    },
+    {
+      "test_id": "EX-c9437bba97",
+      "title": "answering Q5 normally moves the respondent on to the question that should come next",
+      "dimension": "D1",
+      "case_id": "TC-FT16",
+      "order": 18,
+      "question": "Q5",
+      "status": "PASSED",
+      "actions": [
+        {
+          "step": 1,
+          "question": "S1",
+          "did": "chose 'Yes'",
+          "detail": "LimeSurvey calls this question Q1093"
+        },
+        {
+          "step": 2,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "S2 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 2,
+          "question": "S2",
+          "did": "chose 'Yes'",
+          "detail": "LimeSurvey calls this question Q1094"
+        },
+        {
+          "step": 3,
+          "question": "",
+          "did": "submitted the page",
+          "detail": "one Next button sends every question on the page at once. the survey moved on to the next page"
+        },
+        {
+          "step": 4,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q1 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 4,
+          "question": "Q1",
+          "did": "chose 'Teller counter'",
+          "detail": "LimeSurvey calls this question Q1096"
+        },
+        {
+          "step": 5,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q2 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 5,
+          "question": "Q2",
+          "did": "chose 'Very poor'",
+          "detail": "LimeSurvey calls this question Q1097"
+        },
+        {
+          "step": 6,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q3 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 6,
+          "question": "Q3",
+          "did": "chose 'Very poor'",
+          "detail": "LimeSurvey calls this question Q1098"
+        },
+        {
+          "step": 7,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q4 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 7,
+          "question": "Q4",
+          "did": "ticked 'Waiting time'",
+          "detail": "LimeSurvey calls this question Q1099"
+        },
+        {
+          "step": 8,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q5 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 8,
+          "question": "Q5",
+          "did": "chose 'Yes'",
+          "detail": "LimeSurvey calls this question Q1100"
+        },
+        {
+          "step": 9,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q6 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 9,
+          "question": "Q6",
+          "did": "typed 'xxxxxxxxxx'",
+          "detail": "LimeSurvey calls this question Q1101"
+        },
+        {
+          "step": 10,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q7 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 10,
+          "question": "Q7",
+          "did": "chose '0'",
+          "detail": "LimeSurvey calls this question Q1102"
+        },
+        {
+          "step": 11,
+          "question": "",
+          "did": "checked the tick boxes before Next",
+          "detail": "the survey had unticked 'Waiting time' when a later option was ticked, so that combination cannot be sent"
+        },
+        {
+          "step": 11,
+          "question": "",
+          "did": "submitted the page",
+          "detail": "one Next button sends every question on the page at once. the survey moved on to the next page"
+        }
+      ],
+      "checks": [
+        {
+          "kind": "field_present",
+          "target": "Q5",
+          "expected": true,
+          "observed": "Q5 did appear",
+          "matched": true,
+          "why": "",
+          "should": "Q5 should have appeared on screen, so the respondent could answer it",
+          "actually": "Q5 did appear"
+        },
+        {
+          "kind": "next_field_present",
+          "target": "Q6",
+          "expected": "Q6",
+          "observed": "Q6 did come next",
+          "matched": true,
+          "why": "",
+          "should": "after answering, the next question the respondent sees should be Q6",
+          "actually": "Q6 did come next"
+        }
+      ],
+      "blocked_reason": "",
+      "provisional": [],
+      "seconds": 4.27
+    },
+    {
+      "test_id": "EX-bd557416d1",
+      "title": "R4 jumps to Q7 when its condition holds",
+      "dimension": "D1",
+      "case_id": "TC-FT17",
+      "order": 19,
+      "question": "Q5",
+      "status": "PASSED",
+      "actions": [
+        {
+          "step": 1,
+          "question": "S1",
+          "did": "chose 'Yes'",
+          "detail": "LimeSurvey calls this question Q1093"
+        },
+        {
+          "step": 2,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "S2 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 2,
+          "question": "S2",
+          "did": "chose 'Yes'",
+          "detail": "LimeSurvey calls this question Q1094"
+        },
+        {
+          "step": 3,
+          "question": "",
+          "did": "submitted the page",
+          "detail": "one Next button sends every question on the page at once. the survey moved on to the next page"
+        },
+        {
+          "step": 4,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q1 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 4,
+          "question": "Q1",
+          "did": "chose 'Teller counter'",
+          "detail": "LimeSurvey calls this question Q1096"
+        },
+        {
+          "step": 5,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q2 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 5,
+          "question": "Q2",
+          "did": "chose 'Very poor'",
+          "detail": "LimeSurvey calls this question Q1097"
+        },
+        {
+          "step": 6,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q3 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 6,
+          "question": "Q3",
+          "did": "chose 'Very poor'",
+          "detail": "LimeSurvey calls this question Q1098"
+        },
+        {
+          "step": 7,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q4 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 7,
+          "question": "Q4",
+          "did": "ticked 'Waiting time'",
+          "detail": "LimeSurvey calls this question Q1099"
+        },
+        {
+          "step": 8,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q5 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 8,
+          "question": "Q5",
+          "did": "chose 'No'",
+          "detail": "LimeSurvey calls this question Q1100"
+        },
+        {
+          "step": 9,
+          "question": "",
+          "did": "checked the tick boxes before Next",
+          "detail": "the survey had unticked 'Waiting time' when a later option was ticked, so that combination cannot be sent"
+        },
+        {
+          "step": 9,
+          "question": "",
+          "did": "submitted the page",
+          "detail": "one Next button sends every question on the page at once. the survey moved on to the next page"
+        }
+      ],
+      "checks": [
+        {
+          "kind": "next_field_present",
+          "target": "Q7",
+          "expected": "Q7",
+          "observed": "Q7 did come next",
+          "matched": true,
+          "why": "",
+          "should": "after answering, the next question the respondent sees should be Q7",
+          "actually": "Q7 did come next"
+        }
+      ],
+      "blocked_reason": "",
+      "provisional": [
+        "rule_precedence"
+      ],
+      "seconds": 4.08
+    },
+    {
+      "test_id": "EX-71ccc30665",
+      "title": "R4 does not jump when its condition fails, so the respondent continues in sequence",
+      "dimension": "D1",
+      "case_id": "TC-FT18",
+      "order": 20,
+      "question": "Q5",
+      "status": "PASSED",
+      "actions": [
+        {
+          "step": 1,
+          "question": "S1",
+          "did": "chose 'Yes'",
+          "detail": "LimeSurvey calls this question Q1093"
+        },
+        {
+          "step": 2,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "S2 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 2,
+          "question": "S2",
+          "did": "chose 'Yes'",
+          "detail": "LimeSurvey calls this question Q1094"
+        },
+        {
+          "step": 3,
+          "question": "",
+          "did": "submitted the page",
+          "detail": "one Next button sends every question on the page at once. the survey moved on to the next page"
+        },
+        {
+          "step": 4,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q1 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 4,
+          "question": "Q1",
+          "did": "chose 'Teller counter'",
+          "detail": "LimeSurvey calls this question Q1096"
+        },
+        {
+          "step": 5,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q2 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 5,
+          "question": "Q2",
+          "did": "chose 'Very poor'",
+          "detail": "LimeSurvey calls this question Q1097"
+        },
+        {
+          "step": 6,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q3 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 6,
+          "question": "Q3",
+          "did": "chose 'Very poor'",
+          "detail": "LimeSurvey calls this question Q1098"
+        },
+        {
+          "step": 7,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q4 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 7,
+          "question": "Q4",
+          "did": "ticked 'Waiting time'",
+          "detail": "LimeSurvey calls this question Q1099"
+        },
+        {
+          "step": 8,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q5 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 8,
+          "question": "Q5",
+          "did": "chose 'Yes'",
+          "detail": "LimeSurvey calls this question Q1100"
+        },
+        {
+          "step": 9,
+          "question": "",
+          "did": "checked the tick boxes before Next",
+          "detail": "the survey had unticked 'Waiting time' when a later option was ticked, so that combination cannot be sent"
+        },
+        {
+          "step": 9,
+          "question": "",
+          "did": "submitted the page",
+          "detail": "one Next button sends every question on the page at once. the survey moved on to the next page"
+        }
+      ],
+      "checks": [
+        {
+          "kind": "next_field_present",
+          "target": "Q6",
+          "expected": "Q6",
+          "observed": "Q6 did come next",
+          "matched": true,
+          "why": "",
+          "should": "after answering, the next question the respondent sees should be Q6",
+          "actually": "Q6 did come next"
+        }
+      ],
+      "blocked_reason": "",
+      "provisional": [],
+      "seconds": 3.96
+    },
+    {
+      "test_id": "EX-a10e82e339",
+      "title": "Q5 blocks progress when left blank",
+      "dimension": "D4",
+      "case_id": "TC-FT19",
+      "order": 21,
+      "question": "Q5",
+      "status": "PASSED",
+      "actions": [
+        {
+          "step": 1,
+          "question": "S1",
+          "did": "chose 'Yes'",
+          "detail": "LimeSurvey calls this question Q1093"
+        },
+        {
+          "step": 2,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "S2 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 2,
+          "question": "S2",
+          "did": "chose 'Yes'",
+          "detail": "LimeSurvey calls this question Q1094"
+        },
+        {
+          "step": 3,
+          "question": "",
+          "did": "submitted the page",
+          "detail": "one Next button sends every question on the page at once. the survey moved on to the next page"
+        },
+        {
+          "step": 4,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q1 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 4,
+          "question": "Q1",
+          "did": "chose 'Teller counter'",
+          "detail": "LimeSurvey calls this question Q1096"
+        },
+        {
+          "step": 5,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q2 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 5,
+          "question": "Q2",
+          "did": "chose 'Very poor'",
+          "detail": "LimeSurvey calls this question Q1097"
+        },
+        {
+          "step": 6,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q3 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 6,
+          "question": "Q3",
+          "did": "chose 'Very poor'",
+          "detail": "LimeSurvey calls this question Q1098"
+        },
+        {
+          "step": 7,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q4 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 7,
+          "question": "Q4",
+          "did": "ticked 'Waiting time'",
+          "detail": "LimeSurvey calls this question Q1099"
+        },
+        {
+          "step": 8,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q5 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 8,
+          "question": "Q5",
+          "did": "left it blank",
+          "detail": "deliberately answered nothing"
+        },
+        {
+          "step": 9,
+          "question": "",
+          "did": "checked the tick boxes before Next",
+          "detail": "the survey had unticked 'Waiting time' when a later option was ticked, so that combination cannot be sent"
+        },
+        {
+          "step": 9,
+          "question": "",
+          "did": "submitted the page",
+          "detail": "one Next button sends every question on the page at once. the survey stayed on the same page"
+        }
+      ],
+      "checks": [
+        {
+          "kind": "page_does_not_advance",
+          "target": "Q5",
+          "expected": true,
+          "observed": "the survey unticked 'Waiting time' as soon as the exclusive option was ticked, so the forbidden combination could not be sent",
+          "matched": true,
+          "why": "",
+          "should": "the survey should not accept an answer that breaks a rule the questionnaire sets",
+          "actually": "the survey unticked 'Waiting time' as soon as the exclusive option was ticked, so the forbidden combination could not be sent"
+        },
+        {
+          "kind": "error_shown_on_question",
+          "target": "Q5",
+          "expected": true,
+          "observed": "the survey unticked 'Waiting time' as soon as the exclusive option was ticked, so the forbidden combination could not be sent",
+          "matched": true,
+          "why": "",
+          "should": "the survey should not accept an answer that breaks a rule the questionnaire sets",
+          "actually": "the survey unticked 'Waiting time' as soon as the exclusive option was ticked, so the forbidden combination could not be sent"
+        }
+      ],
+      "blocked_reason": "",
+      "provisional": [],
+      "seconds": 3.91
+    },
+    {
+      "test_id": "EX-2ffbf55cd5",
+      "title": "answering Q6 normally moves the respondent on to the question that should come next",
+      "dimension": "D1",
+      "case_id": "TC-FT20",
+      "order": 22,
+      "question": "Q6",
+      "status": "PASSED",
+      "actions": [
+        {
+          "step": 1,
+          "question": "S1",
+          "did": "chose 'Yes'",
+          "detail": "LimeSurvey calls this question Q1093"
+        },
+        {
+          "step": 2,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "S2 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 2,
+          "question": "S2",
+          "did": "chose 'Yes'",
+          "detail": "LimeSurvey calls this question Q1094"
+        },
+        {
+          "step": 3,
+          "question": "",
+          "did": "submitted the page",
+          "detail": "one Next button sends every question on the page at once. the survey moved on to the next page"
+        },
+        {
+          "step": 4,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q1 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 4,
+          "question": "Q1",
+          "did": "chose 'Teller counter'",
+          "detail": "LimeSurvey calls this question Q1096"
+        },
+        {
+          "step": 5,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q2 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 5,
+          "question": "Q2",
+          "did": "chose 'Very poor'",
+          "detail": "LimeSurvey calls this question Q1097"
+        },
+        {
+          "step": 6,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q3 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 6,
+          "question": "Q3",
+          "did": "chose 'Very poor'",
+          "detail": "LimeSurvey calls this question Q1098"
+        },
+        {
+          "step": 7,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q4 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 7,
+          "question": "Q4",
+          "did": "ticked 'Waiting time'",
+          "detail": "LimeSurvey calls this question Q1099"
+        },
+        {
+          "step": 8,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q5 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 8,
+          "question": "Q5",
+          "did": "chose 'Yes'",
+          "detail": "LimeSurvey calls this question Q1100"
+        },
+        {
+          "step": 9,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q6 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 9,
+          "question": "Q6",
+          "did": "typed 'xxxxxxxxxx'",
+          "detail": "LimeSurvey calls this question Q1101"
+        },
+        {
+          "step": 10,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q7 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 10,
+          "question": "Q7",
+          "did": "chose '0'",
+          "detail": "LimeSurvey calls this question Q1102"
+        },
+        {
+          "step": 11,
+          "question": "",
+          "did": "checked the tick boxes before Next",
+          "detail": "the survey had unticked 'Waiting time' when a later option was ticked, so that combination cannot be sent"
+        },
+        {
+          "step": 11,
+          "question": "",
+          "did": "submitted the page",
+          "detail": "one Next button sends every question on the page at once. the survey moved on to the next page"
+        }
+      ],
+      "checks": [
+        {
+          "kind": "field_present",
+          "target": "Q6",
+          "expected": true,
+          "observed": "Q6 did appear",
+          "matched": true,
+          "why": "",
+          "should": "Q6 should have appeared on screen, so the respondent could answer it",
+          "actually": "Q6 did appear"
+        },
+        {
+          "kind": "next_field_present",
+          "target": "Q7",
+          "expected": "Q7",
+          "observed": "Q7 did come next",
+          "matched": true,
+          "why": "",
+          "should": "after answering, the next question the respondent sees should be Q7",
+          "actually": "Q7 did come next"
+        }
+      ],
+      "blocked_reason": "",
+      "provisional": [],
+      "seconds": 4.29
+    },
+    {
+      "test_id": "EX-e29c14f307",
+      "title": "Q6 is displayed when its guard holds",
+      "dimension": "D1",
+      "case_id": "TC-FT21",
+      "order": 23,
+      "question": "Q6",
+      "status": "PASSED",
+      "actions": [
+        {
+          "step": 1,
+          "question": "S1",
+          "did": "chose 'Yes'",
+          "detail": "LimeSurvey calls this question Q1093"
+        },
+        {
+          "step": 2,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "S2 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 2,
+          "question": "S2",
+          "did": "chose 'Yes'",
+          "detail": "LimeSurvey calls this question Q1094"
+        },
+        {
+          "step": 3,
+          "question": "",
+          "did": "submitted the page",
+          "detail": "one Next button sends every question on the page at once. the survey moved on to the next page"
+        },
+        {
+          "step": 4,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q1 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 4,
+          "question": "Q1",
+          "did": "chose 'Teller counter'",
+          "detail": "LimeSurvey calls this question Q1096"
+        },
+        {
+          "step": 5,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q2 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 5,
+          "question": "Q2",
+          "did": "chose 'Very poor'",
+          "detail": "LimeSurvey calls this question Q1097"
+        },
+        {
+          "step": 6,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q3 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 6,
+          "question": "Q3",
+          "did": "chose 'Very poor'",
+          "detail": "LimeSurvey calls this question Q1098"
+        },
+        {
+          "step": 7,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q4 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 7,
+          "question": "Q4",
+          "did": "ticked 'Waiting time'",
+          "detail": "LimeSurvey calls this question Q1099"
+        },
+        {
+          "step": 8,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q5 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 8,
+          "question": "Q5",
+          "did": "chose 'Yes'",
+          "detail": "LimeSurvey calls this question Q1100"
+        },
+        {
+          "step": 9,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q6 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 9,
+          "question": "Q6",
+          "did": "typed 'xxxxxxxxxx'",
+          "detail": "LimeSurvey calls this question Q1101"
+        },
+        {
+          "step": 10,
+          "question": "",
+          "did": "checked the tick boxes before Next",
+          "detail": "the survey had unticked 'Waiting time' when a later option was ticked, so that combination cannot be sent"
+        },
+        {
+          "step": 10,
+          "question": "",
+          "did": "submitted the page",
+          "detail": "one Next button sends every question on the page at once. the survey moved on to the next page"
+        }
+      ],
+      "checks": [
+        {
+          "kind": "field_present",
+          "target": "Q6",
+          "expected": true,
+          "observed": "Q6 did appear",
+          "matched": true,
+          "why": "",
+          "should": "Q6 should have appeared on screen, so the respondent could answer it",
+          "actually": "Q6 did appear"
+        }
+      ],
+      "blocked_reason": "",
+      "provisional": [],
+      "seconds": 4.17
+    },
+    {
+      "test_id": "EX-04fcc90140",
+      "title": "Q6 is not displayed when its guard fails",
+      "dimension": "D1",
+      "case_id": "TC-FT22",
+      "order": 24,
+      "question": "Q6",
+      "status": "PASSED",
+      "actions": [
+        {
+          "step": 1,
+          "question": "S1",
+          "did": "chose 'Yes'",
+          "detail": "LimeSurvey calls this question Q1093"
+        },
+        {
+          "step": 2,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "S2 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 2,
+          "question": "S2",
+          "did": "chose 'Yes'",
+          "detail": "LimeSurvey calls this question Q1094"
+        },
+        {
+          "step": 3,
+          "question": "",
+          "did": "submitted the page",
+          "detail": "one Next button sends every question on the page at once. the survey moved on to the next page"
+        },
+        {
+          "step": 4,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q1 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 4,
+          "question": "Q1",
+          "did": "chose 'Teller counter'",
+          "detail": "LimeSurvey calls this question Q1096"
+        },
+        {
+          "step": 5,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q2 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 5,
+          "question": "Q2",
+          "did": "chose 'Very poor'",
+          "detail": "LimeSurvey calls this question Q1097"
+        },
+        {
+          "step": 6,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q3 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 6,
+          "question": "Q3",
+          "did": "chose 'Very poor'",
+          "detail": "LimeSurvey calls this question Q1098"
+        },
+        {
+          "step": 7,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q4 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 7,
+          "question": "Q4",
+          "did": "ticked 'Waiting time'",
+          "detail": "LimeSurvey calls this question Q1099"
+        },
+        {
+          "step": 8,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q5 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 8,
+          "question": "Q5",
+          "did": "chose 'No'",
+          "detail": "LimeSurvey calls this question Q1100"
+        },
+        {
+          "step": 9,
+          "question": "",
+          "did": "checked the tick boxes before Next",
+          "detail": "the survey had unticked 'Waiting time' when a later option was ticked, so that combination cannot be sent"
+        },
+        {
+          "step": 9,
+          "question": "",
+          "did": "submitted the page",
+          "detail": "one Next button sends every question on the page at once. the survey moved on to the next page"
+        }
+      ],
+      "checks": [
+        {
+          "kind": "field_present",
+          "target": "Q6",
+          "expected": false,
+          "observed": "Q6 stayed hidden, as it should",
+          "matched": true,
+          "why": "",
+          "should": "Q6 should NOT have appeared, because the respondent's answers should have hidden it",
+          "actually": "Q6 stayed hidden, as it should"
+        },
+        {
+          "kind": "not_on_end_page",
+          "target": "",
+          "expected": true,
+          "observed": "they carried on, and were not screened out",
+          "matched": true,
+          "why": "",
+          "should": "the respondent should carry on through the survey, not be screened out or stopped on the way",
+          "actually": "they carried on, and were not screened out"
+        }
+      ],
+      "blocked_reason": "",
+      "provisional": [
+        "rule_precedence"
+      ],
+      "seconds": 3.97
+    },
+    {
+      "test_id": "EX-a97263daca",
+      "title": "Q6 accepts an answer meeting ['max_length', 'min_length']",
+      "dimension": "D3",
+      "case_id": "TC-FT23",
+      "order": 25,
+      "question": "Q6",
+      "status": "PASSED",
+      "actions": [
+        {
+          "step": 1,
+          "question": "S1",
+          "did": "chose 'Yes'",
+          "detail": "LimeSurvey calls this question Q1093"
+        },
+        {
+          "step": 2,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "S2 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 2,
+          "question": "S2",
+          "did": "chose 'Yes'",
+          "detail": "LimeSurvey calls this question Q1094"
+        },
+        {
+          "step": 3,
+          "question": "",
+          "did": "submitted the page",
+          "detail": "one Next button sends every question on the page at once. the survey moved on to the next page"
+        },
+        {
+          "step": 4,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q1 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 4,
+          "question": "Q1",
+          "did": "chose 'Teller counter'",
+          "detail": "LimeSurvey calls this question Q1096"
+        },
+        {
+          "step": 5,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q2 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 5,
+          "question": "Q2",
+          "did": "chose 'Very poor'",
+          "detail": "LimeSurvey calls this question Q1097"
+        },
+        {
+          "step": 6,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q3 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 6,
+          "question": "Q3",
+          "did": "chose 'Very poor'",
+          "detail": "LimeSurvey calls this question Q1098"
+        },
+        {
+          "step": 7,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q4 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 7,
+          "question": "Q4",
+          "did": "ticked 'Waiting time'",
+          "detail": "LimeSurvey calls this question Q1099"
+        },
+        {
+          "step": 8,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q5 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 8,
+          "question": "Q5",
+          "did": "chose 'Yes'",
+          "detail": "LimeSurvey calls this question Q1100"
+        },
+        {
+          "step": 9,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q6 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 9,
+          "question": "Q6",
+          "did": "typed 'xxxxxxxxxx'",
+          "detail": "LimeSurvey calls this question Q1101"
+        },
+        {
+          "step": 10,
+          "question": "",
+          "did": "checked the tick boxes before Next",
+          "detail": "the survey had unticked 'Waiting time' when a later option was ticked, so that combination cannot be sent"
+        },
+        {
+          "step": 10,
+          "question": "",
+          "did": "submitted the page",
+          "detail": "one Next button sends every question on the page at once. the survey moved on to the next page"
+        }
+      ],
+      "checks": [
+        {
+          "kind": "page_advances",
+          "target": "Q6",
+          "expected": true,
+          "observed": "it moved on, as it should",
+          "matched": true,
+          "why": "",
+          "should": "the survey should accept the answer and move to the next page",
+          "actually": "it moved on, as it should"
+        }
+      ],
+      "blocked_reason": "",
+      "provisional": [],
+      "seconds": 4.16
+    },
+    {
+      "test_id": "EX-80b8c7edd0",
+      "title": "Q6 rejects an answer breaking ['max_length', 'min_length']",
+      "dimension": "D3",
+      "case_id": "TC-FT24",
+      "order": 26,
+      "question": "Q6",
+      "status": "PASSED",
+      "actions": [
+        {
+          "step": 1,
+          "question": "S1",
+          "did": "chose 'Yes'",
+          "detail": "LimeSurvey calls this question Q1093"
+        },
+        {
+          "step": 2,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "S2 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 2,
+          "question": "S2",
+          "did": "chose 'Yes'",
+          "detail": "LimeSurvey calls this question Q1094"
+        },
+        {
+          "step": 3,
+          "question": "",
+          "did": "submitted the page",
+          "detail": "one Next button sends every question on the page at once. the survey moved on to the next page"
+        },
+        {
+          "step": 4,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q1 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 4,
+          "question": "Q1",
+          "did": "chose 'Teller counter'",
+          "detail": "LimeSurvey calls this question Q1096"
+        },
+        {
+          "step": 5,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q2 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 5,
+          "question": "Q2",
+          "did": "chose 'Very poor'",
+          "detail": "LimeSurvey calls this question Q1097"
+        },
+        {
+          "step": 6,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q3 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 6,
+          "question": "Q3",
+          "did": "chose 'Very poor'",
+          "detail": "LimeSurvey calls this question Q1098"
+        },
+        {
+          "step": 7,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q4 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 7,
+          "question": "Q4",
+          "did": "ticked 'Waiting time'",
+          "detail": "LimeSurvey calls this question Q1099"
+        },
+        {
+          "step": 8,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q5 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 8,
+          "question": "Q5",
+          "did": "chose 'Yes'",
+          "detail": "LimeSurvey calls this question Q1100"
+        },
+        {
+          "step": 9,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q6 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 9,
+          "question": "Q6",
+          "did": "typed a 501-character answer",
+          "detail": "LimeSurvey calls this question Q1101"
+        },
+        {
+          "step": 10,
+          "question": "",
+          "did": "checked the tick boxes before Next",
+          "detail": "the survey had unticked 'Waiting time' when a later option was ticked, so that combination cannot be sent"
+        },
+        {
+          "step": 10,
+          "question": "",
+          "did": "submitted the page",
+          "detail": "one Next button sends every question on the page at once. the survey stayed on the same page"
+        }
+      ],
+      "checks": [
+        {
+          "kind": "page_does_not_advance",
+          "target": "Q6",
+          "expected": true,
+          "observed": "the survey unticked 'Waiting time' as soon as the exclusive option was ticked, so the forbidden combination could not be sent",
+          "matched": true,
+          "why": "",
+          "should": "the survey should not accept an answer that breaks a rule the questionnaire sets",
+          "actually": "the survey unticked 'Waiting time' as soon as the exclusive option was ticked, so the forbidden combination could not be sent"
+        },
+        {
+          "kind": "error_shown_on_question",
+          "target": "Q6",
+          "expected": true,
+          "observed": "the survey unticked 'Waiting time' as soon as the exclusive option was ticked, so the forbidden combination could not be sent",
+          "matched": true,
+          "why": "",
+          "should": "the survey should not accept an answer that breaks a rule the questionnaire sets",
+          "actually": "the survey unticked 'Waiting time' as soon as the exclusive option was ticked, so the forbidden combination could not be sent"
+        }
+      ],
+      "blocked_reason": "",
+      "provisional": [],
+      "seconds": 4.14
+    },
+    {
+      "test_id": "EX-d8b7f0a93f",
+      "title": "Q6 blocks progress when left blank",
+      "dimension": "D4",
+      "case_id": "TC-FT25",
+      "order": 27,
+      "question": "Q6",
+      "status": "PASSED",
+      "actions": [
+        {
+          "step": 1,
+          "question": "S1",
+          "did": "chose 'Yes'",
+          "detail": "LimeSurvey calls this question Q1093"
+        },
+        {
+          "step": 2,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "S2 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 2,
+          "question": "S2",
+          "did": "chose 'Yes'",
+          "detail": "LimeSurvey calls this question Q1094"
+        },
+        {
+          "step": 3,
+          "question": "",
+          "did": "submitted the page",
+          "detail": "one Next button sends every question on the page at once. the survey moved on to the next page"
+        },
+        {
+          "step": 4,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q1 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 4,
+          "question": "Q1",
+          "did": "chose 'Teller counter'",
+          "detail": "LimeSurvey calls this question Q1096"
+        },
+        {
+          "step": 5,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q2 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 5,
+          "question": "Q2",
+          "did": "chose 'Very poor'",
+          "detail": "LimeSurvey calls this question Q1097"
+        },
+        {
+          "step": 6,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q3 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 6,
+          "question": "Q3",
+          "did": "chose 'Very poor'",
+          "detail": "LimeSurvey calls this question Q1098"
+        },
+        {
+          "step": 7,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q4 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 7,
+          "question": "Q4",
+          "did": "ticked 'Waiting time'",
+          "detail": "LimeSurvey calls this question Q1099"
+        },
+        {
+          "step": 8,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q5 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 8,
+          "question": "Q5",
+          "did": "chose 'Yes'",
+          "detail": "LimeSurvey calls this question Q1100"
+        },
+        {
+          "step": 9,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q6 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 9,
+          "question": "Q6",
+          "did": "left it blank",
+          "detail": "deliberately answered nothing"
+        },
+        {
+          "step": 10,
+          "question": "",
+          "did": "checked the tick boxes before Next",
+          "detail": "the survey had unticked 'Waiting time' when a later option was ticked, so that combination cannot be sent"
+        },
+        {
+          "step": 10,
+          "question": "",
+          "did": "submitted the page",
+          "detail": "one Next button sends every question on the page at once. the survey stayed on the same page"
+        }
+      ],
+      "checks": [
+        {
+          "kind": "page_does_not_advance",
+          "target": "Q6",
+          "expected": true,
+          "observed": "the survey unticked 'Waiting time' as soon as the exclusive option was ticked, so the forbidden combination could not be sent",
+          "matched": true,
+          "why": "",
+          "should": "the survey should not accept an answer that breaks a rule the questionnaire sets",
+          "actually": "the survey unticked 'Waiting time' as soon as the exclusive option was ticked, so the forbidden combination could not be sent"
+        },
+        {
+          "kind": "error_shown_on_question",
+          "target": "Q6",
+          "expected": true,
+          "observed": "the survey unticked 'Waiting time' as soon as the exclusive option was ticked, so the forbidden combination could not be sent",
+          "matched": true,
+          "why": "",
+          "should": "the survey should not accept an answer that breaks a rule the questionnaire sets",
+          "actually": "the survey unticked 'Waiting time' as soon as the exclusive option was ticked, so the forbidden combination could not be sent"
+        }
+      ],
+      "blocked_reason": "",
+      "provisional": [],
+      "seconds": 4.13
+    },
+    {
+      "test_id": "EX-325f2dff23",
+      "title": "Q6 accepts an answer of exactly 500 characters, its stated maximum",
+      "dimension": "D3",
+      "case_id": "TC-FT26",
+      "order": 28,
+      "question": "Q6",
+      "status": "PASSED",
+      "actions": [
+        {
+          "step": 1,
+          "question": "S1",
+          "did": "chose 'Yes'",
+          "detail": "LimeSurvey calls this question Q1093"
+        },
+        {
+          "step": 2,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "S2 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 2,
+          "question": "S2",
+          "did": "chose 'Yes'",
+          "detail": "LimeSurvey calls this question Q1094"
+        },
+        {
+          "step": 3,
+          "question": "",
+          "did": "submitted the page",
+          "detail": "one Next button sends every question on the page at once. the survey moved on to the next page"
+        },
+        {
+          "step": 4,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q1 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 4,
+          "question": "Q1",
+          "did": "chose 'Teller counter'",
+          "detail": "LimeSurvey calls this question Q1096"
+        },
+        {
+          "step": 5,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q2 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 5,
+          "question": "Q2",
+          "did": "chose 'Very poor'",
+          "detail": "LimeSurvey calls this question Q1097"
+        },
+        {
+          "step": 6,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q3 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 6,
+          "question": "Q3",
+          "did": "chose 'Very poor'",
+          "detail": "LimeSurvey calls this question Q1098"
+        },
+        {
+          "step": 7,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q4 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 7,
+          "question": "Q4",
+          "did": "ticked 'Waiting time'",
+          "detail": "LimeSurvey calls this question Q1099"
+        },
+        {
+          "step": 8,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q5 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 8,
+          "question": "Q5",
+          "did": "chose 'Yes'",
+          "detail": "LimeSurvey calls this question Q1100"
+        },
+        {
+          "step": 9,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q6 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 9,
+          "question": "Q6",
+          "did": "typed a 500-character answer",
+          "detail": "LimeSurvey calls this question Q1101"
+        },
+        {
+          "step": 10,
+          "question": "",
+          "did": "checked the tick boxes before Next",
+          "detail": "the survey had unticked 'Waiting time' when a later option was ticked, so that combination cannot be sent"
+        },
+        {
+          "step": 10,
+          "question": "",
+          "did": "submitted the page",
+          "detail": "one Next button sends every question on the page at once. the survey moved on to the next page"
+        }
+      ],
+      "checks": [
+        {
+          "kind": "page_advances",
+          "target": "Q6",
+          "expected": true,
+          "observed": "it moved on, as it should",
+          "matched": true,
+          "why": "",
+          "should": "the survey should accept the answer and move to the next page",
+          "actually": "it moved on, as it should"
+        }
+      ],
+      "blocked_reason": "",
+      "provisional": [],
+      "seconds": 4.11
+    },
+    {
+      "test_id": "EX-82ec6a1547",
+      "title": "Q6 accepts punctuation and quotation marks, because its rule constrains length and not content",
+      "dimension": "D3",
+      "case_id": "TC-FT27",
+      "order": 29,
+      "question": "Q6",
+      "status": "PASSED",
+      "actions": [
+        {
+          "step": 1,
+          "question": "S1",
+          "did": "chose 'Yes'",
+          "detail": "LimeSurvey calls this question Q1093"
+        },
+        {
+          "step": 2,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "S2 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 2,
+          "question": "S2",
+          "did": "chose 'Yes'",
+          "detail": "LimeSurvey calls this question Q1094"
+        },
+        {
+          "step": 3,
+          "question": "",
+          "did": "submitted the page",
+          "detail": "one Next button sends every question on the page at once. the survey moved on to the next page"
+        },
+        {
+          "step": 4,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q1 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 4,
+          "question": "Q1",
+          "did": "chose 'Teller counter'",
+          "detail": "LimeSurvey calls this question Q1096"
+        },
+        {
+          "step": 5,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q2 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 5,
+          "question": "Q2",
+          "did": "chose 'Very poor'",
+          "detail": "LimeSurvey calls this question Q1097"
+        },
+        {
+          "step": 6,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q3 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 6,
+          "question": "Q3",
+          "did": "chose 'Very poor'",
+          "detail": "LimeSurvey calls this question Q1098"
+        },
+        {
+          "step": 7,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q4 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 7,
+          "question": "Q4",
+          "did": "ticked 'Waiting time'",
+          "detail": "LimeSurvey calls this question Q1099"
+        },
+        {
+          "step": 8,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q5 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 8,
+          "question": "Q5",
+          "did": "chose 'Yes'",
+          "detail": "LimeSurvey calls this question Q1100"
+        },
+        {
+          "step": 9,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q6 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 9,
+          "question": "Q6",
+          "did": "typed 'O\\'Brien said \"yes\" <50% & more'",
+          "detail": "LimeSurvey calls this question Q1101"
+        },
+        {
+          "step": 10,
+          "question": "",
+          "did": "checked the tick boxes before Next",
+          "detail": "the survey had unticked 'Waiting time' when a later option was ticked, so that combination cannot be sent"
+        },
+        {
+          "step": 10,
+          "question": "",
+          "did": "submitted the page",
+          "detail": "one Next button sends every question on the page at once. the survey moved on to the next page"
+        }
+      ],
+      "checks": [
+        {
+          "kind": "page_advances",
+          "target": "Q6",
+          "expected": true,
+          "observed": "it moved on, as it should",
+          "matched": true,
+          "why": "",
+          "should": "the survey should accept the answer and move to the next page",
+          "actually": "it moved on, as it should"
+        }
+      ],
+      "blocked_reason": "",
+      "provisional": [],
+      "seconds": 4.1
+    },
+    {
+      "test_id": "EX-c2c56d2fd0",
+      "title": "Q6 refuses an answer of spaces alone, being compulsory",
+      "dimension": "D4",
+      "case_id": "TC-FT28",
+      "order": 30,
+      "question": "Q6",
+      "status": "PASSED",
+      "actions": [
+        {
+          "step": 1,
+          "question": "S1",
+          "did": "chose 'Yes'",
+          "detail": "LimeSurvey calls this question Q1093"
+        },
+        {
+          "step": 2,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "S2 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 2,
+          "question": "S2",
+          "did": "chose 'Yes'",
+          "detail": "LimeSurvey calls this question Q1094"
+        },
+        {
+          "step": 3,
+          "question": "",
+          "did": "submitted the page",
+          "detail": "one Next button sends every question on the page at once. the survey moved on to the next page"
+        },
+        {
+          "step": 4,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q1 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 4,
+          "question": "Q1",
+          "did": "chose 'Teller counter'",
+          "detail": "LimeSurvey calls this question Q1096"
+        },
+        {
+          "step": 5,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q2 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 5,
+          "question": "Q2",
+          "did": "chose 'Very poor'",
+          "detail": "LimeSurvey calls this question Q1097"
+        },
+        {
+          "step": 6,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q3 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 6,
+          "question": "Q3",
+          "did": "chose 'Very poor'",
+          "detail": "LimeSurvey calls this question Q1098"
+        },
+        {
+          "step": 7,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q4 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 7,
+          "question": "Q4",
+          "did": "ticked 'Waiting time'",
+          "detail": "LimeSurvey calls this question Q1099"
+        },
+        {
+          "step": 8,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q5 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 8,
+          "question": "Q5",
+          "did": "chose 'Yes'",
+          "detail": "LimeSurvey calls this question Q1100"
+        },
+        {
+          "step": 9,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q6 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 9,
+          "question": "Q6",
+          "did": "typed 3 spaces",
+          "detail": "LimeSurvey calls this question Q1101"
+        },
+        {
+          "step": 10,
+          "question": "",
+          "did": "checked the tick boxes before Next",
+          "detail": "the survey had unticked 'Waiting time' when a later option was ticked, so that combination cannot be sent"
+        },
+        {
+          "step": 10,
+          "question": "",
+          "did": "submitted the page",
+          "detail": "one Next button sends every question on the page at once. the survey stayed on the same page"
+        }
+      ],
+      "checks": [
+        {
+          "kind": "page_does_not_advance",
+          "target": "Q6",
+          "expected": true,
+          "observed": "the survey unticked 'Waiting time' as soon as the exclusive option was ticked, so the forbidden combination could not be sent",
+          "matched": true,
+          "why": "",
+          "should": "the survey should not accept an answer that breaks a rule the questionnaire sets",
+          "actually": "the survey unticked 'Waiting time' as soon as the exclusive option was ticked, so the forbidden combination could not be sent"
+        },
+        {
+          "kind": "error_shown_on_question",
+          "target": "Q6",
+          "expected": true,
+          "observed": "the survey unticked 'Waiting time' as soon as the exclusive option was ticked, so the forbidden combination could not be sent",
+          "matched": true,
+          "why": "",
+          "should": "the survey should not accept an answer that breaks a rule the questionnaire sets",
+          "actually": "the survey unticked 'Waiting time' as soon as the exclusive option was ticked, so the forbidden combination could not be sent"
+        }
+      ],
+      "blocked_reason": "",
+      "provisional": [
+        "whitespace_is_an_answer"
+      ],
+      "seconds": 4.09
+    },
+    {
+      "test_id": "EX-5a192d3277",
+      "title": "answering Q7 normally moves the respondent on to the question that should come next",
+      "dimension": "D1",
+      "case_id": "TC-FT29",
+      "order": 31,
+      "question": "Q7",
+      "status": "PASSED",
+      "actions": [
+        {
+          "step": 1,
+          "question": "S1",
+          "did": "chose 'Yes'",
+          "detail": "LimeSurvey calls this question Q1093"
+        },
+        {
+          "step": 2,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "S2 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 2,
+          "question": "S2",
+          "did": "chose 'Yes'",
+          "detail": "LimeSurvey calls this question Q1094"
+        },
+        {
+          "step": 3,
+          "question": "",
+          "did": "submitted the page",
+          "detail": "one Next button sends every question on the page at once. the survey moved on to the next page"
+        },
+        {
+          "step": 4,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q1 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 4,
+          "question": "Q1",
+          "did": "chose 'Teller counter'",
+          "detail": "LimeSurvey calls this question Q1096"
+        },
+        {
+          "step": 5,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q2 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 5,
+          "question": "Q2",
+          "did": "chose 'Very poor'",
+          "detail": "LimeSurvey calls this question Q1097"
+        },
+        {
+          "step": 6,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q3 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 6,
+          "question": "Q3",
+          "did": "chose 'Very poor'",
+          "detail": "LimeSurvey calls this question Q1098"
+        },
+        {
+          "step": 7,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q4 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 7,
+          "question": "Q4",
+          "did": "ticked 'Waiting time'",
+          "detail": "LimeSurvey calls this question Q1099"
+        },
+        {
+          "step": 8,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q5 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 8,
+          "question": "Q5",
+          "did": "chose 'Yes'",
+          "detail": "LimeSurvey calls this question Q1100"
+        },
+        {
+          "step": 9,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q6 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 9,
+          "question": "Q6",
+          "did": "typed 'xxxxxxxxxx'",
+          "detail": "LimeSurvey calls this question Q1101"
+        },
+        {
+          "step": 10,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q7 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 10,
+          "question": "Q7",
+          "did": "chose '0'",
+          "detail": "LimeSurvey calls this question Q1102"
+        },
+        {
+          "step": 11,
+          "question": "",
+          "did": "checked the tick boxes before Next",
+          "detail": "the survey had unticked 'Waiting time' when a later option was ticked, so that combination cannot be sent"
+        },
+        {
+          "step": 11,
+          "question": "",
+          "did": "submitted the page",
+          "detail": "one Next button sends every question on the page at once. the survey moved on to the next page"
+        }
+      ],
+      "checks": [
+        {
+          "kind": "field_present",
+          "target": "Q7",
+          "expected": true,
+          "observed": "Q7 did appear",
+          "matched": true,
+          "why": "",
+          "should": "Q7 should have appeared on screen, so the respondent could answer it",
+          "actually": "Q7 did appear"
+        },
+        {
+          "kind": "next_field_present",
+          "target": "Q8",
+          "expected": "Q8",
+          "observed": "Q8 did come next",
+          "matched": true,
+          "why": "",
+          "should": "after answering, the next question the respondent sees should be Q8",
+          "actually": "Q8 did come next"
+        }
+      ],
+      "blocked_reason": "",
+      "provisional": [],
+      "seconds": 4.33
+    },
+    {
+      "test_id": "EX-a71071b548",
+      "title": "Q7 blocks progress when left blank",
+      "dimension": "D4",
+      "case_id": "TC-FT30",
+      "order": 32,
+      "question": "Q7",
+      "status": "PASSED",
+      "actions": [
+        {
+          "step": 1,
+          "question": "S1",
+          "did": "chose 'Yes'",
+          "detail": "LimeSurvey calls this question Q1093"
+        },
+        {
+          "step": 2,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "S2 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 2,
+          "question": "S2",
+          "did": "chose 'Yes'",
+          "detail": "LimeSurvey calls this question Q1094"
+        },
+        {
+          "step": 3,
+          "question": "",
+          "did": "submitted the page",
+          "detail": "one Next button sends every question on the page at once. the survey moved on to the next page"
+        },
+        {
+          "step": 4,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q1 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 4,
+          "question": "Q1",
+          "did": "chose 'Teller counter'",
+          "detail": "LimeSurvey calls this question Q1096"
+        },
+        {
+          "step": 5,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q2 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 5,
+          "question": "Q2",
+          "did": "chose 'Very poor'",
+          "detail": "LimeSurvey calls this question Q1097"
+        },
+        {
+          "step": 6,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q3 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 6,
+          "question": "Q3",
+          "did": "chose 'Very poor'",
+          "detail": "LimeSurvey calls this question Q1098"
+        },
+        {
+          "step": 7,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q4 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 7,
+          "question": "Q4",
+          "did": "ticked 'Waiting time'",
+          "detail": "LimeSurvey calls this question Q1099"
+        },
+        {
+          "step": 8,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q5 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 8,
+          "question": "Q5",
+          "did": "chose 'Yes'",
+          "detail": "LimeSurvey calls this question Q1100"
+        },
+        {
+          "step": 9,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q6 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 9,
+          "question": "Q6",
+          "did": "typed 'xxxxxxxxxx'",
+          "detail": "LimeSurvey calls this question Q1101"
+        },
+        {
+          "step": 10,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q7 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 10,
+          "question": "Q7",
+          "did": "left it blank",
+          "detail": "deliberately answered nothing"
+        },
+        {
+          "step": 11,
+          "question": "",
+          "did": "checked the tick boxes before Next",
+          "detail": "the survey had unticked 'Waiting time' when a later option was ticked, so that combination cannot be sent"
+        },
+        {
+          "step": 11,
+          "question": "",
+          "did": "submitted the page",
+          "detail": "one Next button sends every question on the page at once. the survey stayed on the same page"
+        }
+      ],
+      "checks": [
+        {
+          "kind": "page_does_not_advance",
+          "target": "Q7",
+          "expected": true,
+          "observed": "the survey unticked 'Waiting time' as soon as the exclusive option was ticked, so the forbidden combination could not be sent",
+          "matched": true,
+          "why": "",
+          "should": "the survey should not accept an answer that breaks a rule the questionnaire sets",
+          "actually": "the survey unticked 'Waiting time' as soon as the exclusive option was ticked, so the forbidden combination could not be sent"
+        },
+        {
+          "kind": "error_shown_on_question",
+          "target": "Q7",
+          "expected": true,
+          "observed": "the survey unticked 'Waiting time' as soon as the exclusive option was ticked, so the forbidden combination could not be sent",
+          "matched": true,
+          "why": "",
+          "should": "the survey should not accept an answer that breaks a rule the questionnaire sets",
+          "actually": "the survey unticked 'Waiting time' as soon as the exclusive option was ticked, so the forbidden combination could not be sent"
+        }
+      ],
+      "blocked_reason": "",
+      "provisional": [],
+      "seconds": 4.32
+    },
+    {
+      "test_id": "EX-7302c81be5",
+      "title": "answering Q8 normally moves the respondent on to the question that should come next",
+      "dimension": "D1",
+      "case_id": "TC-FT31",
+      "order": 33,
+      "question": "Q8",
+      "status": "PASSED",
+      "actions": [
+        {
+          "step": 1,
+          "question": "S1",
+          "did": "chose 'Yes'",
+          "detail": "LimeSurvey calls this question Q1093"
+        },
+        {
+          "step": 2,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "S2 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 2,
+          "question": "S2",
+          "did": "chose 'Yes'",
+          "detail": "LimeSurvey calls this question Q1094"
+        },
+        {
+          "step": 3,
+          "question": "",
+          "did": "submitted the page",
+          "detail": "one Next button sends every question on the page at once. the survey moved on to the next page"
+        },
+        {
+          "step": 4,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q1 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 4,
+          "question": "Q1",
+          "did": "chose 'Teller counter'",
+          "detail": "LimeSurvey calls this question Q1096"
+        },
+        {
+          "step": 5,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q2 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 5,
+          "question": "Q2",
+          "did": "chose 'Very poor'",
+          "detail": "LimeSurvey calls this question Q1097"
+        },
+        {
+          "step": 6,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q3 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 6,
+          "question": "Q3",
+          "did": "chose 'Very poor'",
+          "detail": "LimeSurvey calls this question Q1098"
+        },
+        {
+          "step": 7,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q4 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 7,
+          "question": "Q4",
+          "did": "ticked 'Waiting time'",
+          "detail": "LimeSurvey calls this question Q1099"
+        },
+        {
+          "step": 8,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q5 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 8,
+          "question": "Q5",
+          "did": "chose 'Yes'",
+          "detail": "LimeSurvey calls this question Q1100"
+        },
+        {
+          "step": 9,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q6 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 9,
+          "question": "Q6",
+          "did": "typed 'xxxxxxxxxx'",
+          "detail": "LimeSurvey calls this question Q1101"
+        },
+        {
+          "step": 10,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q7 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 10,
+          "question": "Q7",
+          "did": "chose '0'",
+          "detail": "LimeSurvey calls this question Q1102"
+        },
+        {
+          "step": 11,
+          "question": "",
+          "did": "checked the tick boxes before Next",
+          "detail": "the survey had unticked 'Waiting time' when a later option was ticked, so that combination cannot be sent"
+        },
+        {
+          "step": 11,
+          "question": "",
+          "did": "submitted the page",
+          "detail": "one Next button sends every question on the page at once. the survey moved on to the next page"
+        }
+      ],
+      "checks": [
+        {
+          "kind": "field_present",
+          "target": "Q8",
+          "expected": true,
+          "observed": "Q8 did appear",
+          "matched": true,
+          "why": "",
+          "should": "Q8 should have appeared on screen, so the respondent could answer it",
+          "actually": "Q8 did appear"
+        },
+        {
+          "kind": "survey_completed",
+          "target": "COMPLETE",
+          "expected": true,
+          "observed": "they reached the completion page",
+          "matched": true,
+          "why": "",
+          "should": "the respondent should reach the end of the survey and be thanked",
+          "actually": "they reached the completion page"
+        }
+      ],
+      "blocked_reason": "",
+      "provisional": [],
+      "seconds": 4.41
+    },
+    {
+      "test_id": "EX-ab4108c04d",
+      "title": "Q8 accepts an answer meeting ['max_length']",
+      "dimension": "D3",
+      "case_id": "TC-FT32",
+      "order": 34,
+      "question": "Q8",
+      "status": "PASSED",
+      "actions": [
+        {
+          "step": 1,
+          "question": "S1",
+          "did": "chose 'Yes'",
+          "detail": "LimeSurvey calls this question Q1093"
+        },
+        {
+          "step": 2,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "S2 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 2,
+          "question": "S2",
+          "did": "chose 'Yes'",
+          "detail": "LimeSurvey calls this question Q1094"
+        },
+        {
+          "step": 3,
+          "question": "",
+          "did": "submitted the page",
+          "detail": "one Next button sends every question on the page at once. the survey moved on to the next page"
+        },
+        {
+          "step": 4,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q1 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 4,
+          "question": "Q1",
+          "did": "chose 'Teller counter'",
+          "detail": "LimeSurvey calls this question Q1096"
+        },
+        {
+          "step": 5,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q2 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 5,
+          "question": "Q2",
+          "did": "chose 'Very poor'",
+          "detail": "LimeSurvey calls this question Q1097"
+        },
+        {
+          "step": 6,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q3 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 6,
+          "question": "Q3",
+          "did": "chose 'Very poor'",
+          "detail": "LimeSurvey calls this question Q1098"
+        },
+        {
+          "step": 7,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q4 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 7,
+          "question": "Q4",
+          "did": "ticked 'Waiting time'",
+          "detail": "LimeSurvey calls this question Q1099"
+        },
+        {
+          "step": 8,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q5 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 8,
+          "question": "Q5",
+          "did": "chose 'Yes'",
+          "detail": "LimeSurvey calls this question Q1100"
+        },
+        {
+          "step": 9,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q6 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 9,
+          "question": "Q6",
+          "did": "typed 'xxxxxxxxxx'",
+          "detail": "LimeSurvey calls this question Q1101"
+        },
+        {
+          "step": 10,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q7 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 10,
+          "question": "Q7",
+          "did": "chose '0'",
+          "detail": "LimeSurvey calls this question Q1102"
+        },
+        {
+          "step": 11,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q8 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 11,
+          "question": "Q8",
+          "did": "typed 'x'",
+          "detail": "LimeSurvey calls this question Q1103"
+        },
+        {
+          "step": 12,
+          "question": "",
+          "did": "checked the tick boxes before Next",
+          "detail": "the survey had unticked 'Waiting time' when a later option was ticked, so that combination cannot be sent"
+        },
+        {
+          "step": 12,
+          "question": "",
+          "did": "submitted the page",
+          "detail": "one Next button sends every question on the page at once. the survey moved on to the next page"
+        }
+      ],
+      "checks": [
+        {
+          "kind": "page_advances",
+          "target": "Q8",
+          "expected": true,
+          "observed": "it moved on, as it should",
+          "matched": true,
+          "why": "",
+          "should": "the survey should accept the answer and move to the next page",
+          "actually": "it moved on, as it should"
+        }
+      ],
+      "blocked_reason": "",
+      "provisional": [],
+      "seconds": 4.43
+    },
+    {
+      "test_id": "EX-b5fb53f0c3",
+      "title": "Q8 rejects an answer breaking ['max_length']",
+      "dimension": "D3",
+      "case_id": "TC-FT33",
+      "order": 35,
+      "question": "Q8",
+      "status": "PASSED",
+      "actions": [
+        {
+          "step": 1,
+          "question": "S1",
+          "did": "chose 'Yes'",
+          "detail": "LimeSurvey calls this question Q1093"
+        },
+        {
+          "step": 2,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "S2 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 2,
+          "question": "S2",
+          "did": "chose 'Yes'",
+          "detail": "LimeSurvey calls this question Q1094"
+        },
+        {
+          "step": 3,
+          "question": "",
+          "did": "submitted the page",
+          "detail": "one Next button sends every question on the page at once. the survey moved on to the next page"
+        },
+        {
+          "step": 4,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q1 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 4,
+          "question": "Q1",
+          "did": "chose 'Teller counter'",
+          "detail": "LimeSurvey calls this question Q1096"
+        },
+        {
+          "step": 5,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q2 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 5,
+          "question": "Q2",
+          "did": "chose 'Very poor'",
+          "detail": "LimeSurvey calls this question Q1097"
+        },
+        {
+          "step": 6,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q3 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 6,
+          "question": "Q3",
+          "did": "chose 'Very poor'",
+          "detail": "LimeSurvey calls this question Q1098"
+        },
+        {
+          "step": 7,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q4 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 7,
+          "question": "Q4",
+          "did": "ticked 'Waiting time'",
+          "detail": "LimeSurvey calls this question Q1099"
+        },
+        {
+          "step": 8,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q5 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 8,
+          "question": "Q5",
+          "did": "chose 'Yes'",
+          "detail": "LimeSurvey calls this question Q1100"
+        },
+        {
+          "step": 9,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q6 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 9,
+          "question": "Q6",
+          "did": "typed 'xxxxxxxxxx'",
+          "detail": "LimeSurvey calls this question Q1101"
+        },
+        {
+          "step": 10,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q7 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 10,
+          "question": "Q7",
+          "did": "chose '0'",
+          "detail": "LimeSurvey calls this question Q1102"
+        },
+        {
+          "step": 11,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q8 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 11,
+          "question": "Q8",
+          "did": "typed a 501-character answer",
+          "detail": "LimeSurvey calls this question Q1103"
+        },
+        {
+          "step": 12,
+          "question": "",
+          "did": "checked the tick boxes before Next",
+          "detail": "the survey had unticked 'Waiting time' when a later option was ticked, so that combination cannot be sent"
+        },
+        {
+          "step": 12,
+          "question": "",
+          "did": "submitted the page",
+          "detail": "one Next button sends every question on the page at once. the survey stayed on the same page"
+        }
+      ],
+      "checks": [
+        {
+          "kind": "page_does_not_advance",
+          "target": "Q8",
+          "expected": true,
+          "observed": "the survey unticked 'Waiting time' as soon as the exclusive option was ticked, so the forbidden combination could not be sent",
+          "matched": true,
+          "why": "",
+          "should": "the survey should not accept an answer that breaks a rule the questionnaire sets",
+          "actually": "the survey unticked 'Waiting time' as soon as the exclusive option was ticked, so the forbidden combination could not be sent"
+        },
+        {
+          "kind": "error_shown_on_question",
+          "target": "Q8",
+          "expected": true,
+          "observed": "the survey unticked 'Waiting time' as soon as the exclusive option was ticked, so the forbidden combination could not be sent",
+          "matched": true,
+          "why": "",
+          "should": "the survey should not accept an answer that breaks a rule the questionnaire sets",
+          "actually": "the survey unticked 'Waiting time' as soon as the exclusive option was ticked, so the forbidden combination could not be sent"
+        }
+      ],
+      "blocked_reason": "",
+      "provisional": [],
+      "seconds": 4.52
+    },
+    {
+      "test_id": "EX-9a703ec65f",
+      "title": "Q8 is optional and permits progress when left blank",
+      "dimension": "D4",
+      "case_id": "TC-FT34",
+      "order": 36,
+      "question": "Q8",
+      "status": "PASSED",
+      "actions": [
+        {
+          "step": 1,
+          "question": "S1",
+          "did": "chose 'Yes'",
+          "detail": "LimeSurvey calls this question Q1093"
+        },
+        {
+          "step": 2,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "S2 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 2,
+          "question": "S2",
+          "did": "chose 'Yes'",
+          "detail": "LimeSurvey calls this question Q1094"
+        },
+        {
+          "step": 3,
+          "question": "",
+          "did": "submitted the page",
+          "detail": "one Next button sends every question on the page at once. the survey moved on to the next page"
+        },
+        {
+          "step": 4,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q1 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 4,
+          "question": "Q1",
+          "did": "chose 'Teller counter'",
+          "detail": "LimeSurvey calls this question Q1096"
+        },
+        {
+          "step": 5,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q2 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 5,
+          "question": "Q2",
+          "did": "chose 'Very poor'",
+          "detail": "LimeSurvey calls this question Q1097"
+        },
+        {
+          "step": 6,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q3 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 6,
+          "question": "Q3",
+          "did": "chose 'Very poor'",
+          "detail": "LimeSurvey calls this question Q1098"
+        },
+        {
+          "step": 7,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q4 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 7,
+          "question": "Q4",
+          "did": "ticked 'Waiting time'",
+          "detail": "LimeSurvey calls this question Q1099"
+        },
+        {
+          "step": 8,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q5 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 8,
+          "question": "Q5",
+          "did": "chose 'Yes'",
+          "detail": "LimeSurvey calls this question Q1100"
+        },
+        {
+          "step": 9,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q6 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 9,
+          "question": "Q6",
+          "did": "typed 'xxxxxxxxxx'",
+          "detail": "LimeSurvey calls this question Q1101"
+        },
+        {
+          "step": 10,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q7 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 10,
+          "question": "Q7",
+          "did": "chose '0'",
+          "detail": "LimeSurvey calls this question Q1102"
+        },
+        {
+          "step": 11,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q8 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 11,
+          "question": "Q8",
+          "did": "left it blank",
+          "detail": "deliberately answered nothing"
+        },
+        {
+          "step": 12,
+          "question": "",
+          "did": "checked the tick boxes before Next",
+          "detail": "the survey had unticked 'Waiting time' when a later option was ticked, so that combination cannot be sent"
+        },
+        {
+          "step": 12,
+          "question": "",
+          "did": "submitted the page",
+          "detail": "one Next button sends every question on the page at once. the survey moved on to the next page"
+        }
+      ],
+      "checks": [
+        {
+          "kind": "page_advances",
+          "target": "Q8",
+          "expected": true,
+          "observed": "it moved on, as it should",
+          "matched": true,
+          "why": "",
+          "should": "the survey should accept the answer and move to the next page",
+          "actually": "it moved on, as it should"
+        }
+      ],
+      "blocked_reason": "",
+      "provisional": [],
+      "seconds": 4.44
+    },
+    {
+      "test_id": "EX-55faec25c4",
+      "title": "Q8 accepts an answer of exactly 500 characters, its stated maximum",
+      "dimension": "D3",
+      "case_id": "TC-FT35",
+      "order": 37,
+      "question": "Q8",
+      "status": "PASSED",
+      "actions": [
+        {
+          "step": 1,
+          "question": "S1",
+          "did": "chose 'Yes'",
+          "detail": "LimeSurvey calls this question Q1093"
+        },
+        {
+          "step": 2,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "S2 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 2,
+          "question": "S2",
+          "did": "chose 'Yes'",
+          "detail": "LimeSurvey calls this question Q1094"
+        },
+        {
+          "step": 3,
+          "question": "",
+          "did": "submitted the page",
+          "detail": "one Next button sends every question on the page at once. the survey moved on to the next page"
+        },
+        {
+          "step": 4,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q1 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 4,
+          "question": "Q1",
+          "did": "chose 'Teller counter'",
+          "detail": "LimeSurvey calls this question Q1096"
+        },
+        {
+          "step": 5,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q2 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 5,
+          "question": "Q2",
+          "did": "chose 'Very poor'",
+          "detail": "LimeSurvey calls this question Q1097"
+        },
+        {
+          "step": 6,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q3 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 6,
+          "question": "Q3",
+          "did": "chose 'Very poor'",
+          "detail": "LimeSurvey calls this question Q1098"
+        },
+        {
+          "step": 7,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q4 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 7,
+          "question": "Q4",
+          "did": "ticked 'Waiting time'",
+          "detail": "LimeSurvey calls this question Q1099"
+        },
+        {
+          "step": 8,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q5 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 8,
+          "question": "Q5",
+          "did": "chose 'Yes'",
+          "detail": "LimeSurvey calls this question Q1100"
+        },
+        {
+          "step": 9,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q6 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 9,
+          "question": "Q6",
+          "did": "typed 'xxxxxxxxxx'",
+          "detail": "LimeSurvey calls this question Q1101"
+        },
+        {
+          "step": 10,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q7 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 10,
+          "question": "Q7",
+          "did": "chose '0'",
+          "detail": "LimeSurvey calls this question Q1102"
+        },
+        {
+          "step": 11,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q8 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 11,
+          "question": "Q8",
+          "did": "typed a 500-character answer",
+          "detail": "LimeSurvey calls this question Q1103"
+        },
+        {
+          "step": 12,
+          "question": "",
+          "did": "checked the tick boxes before Next",
+          "detail": "the survey had unticked 'Waiting time' when a later option was ticked, so that combination cannot be sent"
+        },
+        {
+          "step": 12,
+          "question": "",
+          "did": "submitted the page",
+          "detail": "one Next button sends every question on the page at once. the survey moved on to the next page"
+        }
+      ],
+      "checks": [
+        {
+          "kind": "page_advances",
+          "target": "Q8",
+          "expected": true,
+          "observed": "it moved on, as it should",
+          "matched": true,
+          "why": "",
+          "should": "the survey should accept the answer and move to the next page",
+          "actually": "it moved on, as it should"
+        }
+      ],
+      "blocked_reason": "",
+      "provisional": [],
+      "seconds": 4.48
+    },
+    {
+      "test_id": "EX-a9274543e3",
+      "title": "Q8 accepts punctuation and quotation marks, because its rule constrains length and not content",
+      "dimension": "D3",
+      "case_id": "TC-FT36",
+      "order": 38,
+      "question": "Q8",
+      "status": "PASSED",
+      "actions": [
+        {
+          "step": 1,
+          "question": "S1",
+          "did": "chose 'Yes'",
+          "detail": "LimeSurvey calls this question Q1093"
+        },
+        {
+          "step": 2,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "S2 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 2,
+          "question": "S2",
+          "did": "chose 'Yes'",
+          "detail": "LimeSurvey calls this question Q1094"
+        },
+        {
+          "step": 3,
+          "question": "",
+          "did": "submitted the page",
+          "detail": "one Next button sends every question on the page at once. the survey moved on to the next page"
+        },
+        {
+          "step": 4,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q1 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 4,
+          "question": "Q1",
+          "did": "chose 'Teller counter'",
+          "detail": "LimeSurvey calls this question Q1096"
+        },
+        {
+          "step": 5,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q2 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 5,
+          "question": "Q2",
+          "did": "chose 'Very poor'",
+          "detail": "LimeSurvey calls this question Q1097"
+        },
+        {
+          "step": 6,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q3 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 6,
+          "question": "Q3",
+          "did": "chose 'Very poor'",
+          "detail": "LimeSurvey calls this question Q1098"
+        },
+        {
+          "step": 7,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q4 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 7,
+          "question": "Q4",
+          "did": "ticked 'Waiting time'",
+          "detail": "LimeSurvey calls this question Q1099"
+        },
+        {
+          "step": 8,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q5 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 8,
+          "question": "Q5",
+          "did": "chose 'Yes'",
+          "detail": "LimeSurvey calls this question Q1100"
+        },
+        {
+          "step": 9,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q6 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 9,
+          "question": "Q6",
+          "did": "typed 'xxxxxxxxxx'",
+          "detail": "LimeSurvey calls this question Q1101"
+        },
+        {
+          "step": 10,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q7 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 10,
+          "question": "Q7",
+          "did": "chose '0'",
+          "detail": "LimeSurvey calls this question Q1102"
+        },
+        {
+          "step": 11,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q8 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 11,
+          "question": "Q8",
+          "did": "typed 'O\\'Brien said \"yes\" <50% & more'",
+          "detail": "LimeSurvey calls this question Q1103"
+        },
+        {
+          "step": 12,
+          "question": "",
+          "did": "checked the tick boxes before Next",
+          "detail": "the survey had unticked 'Waiting time' when a later option was ticked, so that combination cannot be sent"
+        },
+        {
+          "step": 12,
+          "question": "",
+          "did": "submitted the page",
+          "detail": "one Next button sends every question on the page at once. the survey moved on to the next page"
+        }
+      ],
+      "checks": [
+        {
+          "kind": "page_advances",
+          "target": "Q8",
+          "expected": true,
+          "observed": "it moved on, as it should",
+          "matched": true,
+          "why": "",
+          "should": "the survey should accept the answer and move to the next page",
+          "actually": "it moved on, as it should"
+        }
+      ],
+      "blocked_reason": "",
+      "provisional": [],
+      "seconds": 4.39
+    },
+    {
+      "test_id": "EX-fd5739bab0",
+      "title": "Q8 accepts an answer of spaces alone, being optional",
+      "dimension": "D4",
+      "case_id": "TC-FT37",
+      "order": 39,
+      "question": "Q8",
+      "status": "PASSED",
+      "actions": [
+        {
+          "step": 1,
+          "question": "S1",
+          "did": "chose 'Yes'",
+          "detail": "LimeSurvey calls this question Q1093"
+        },
+        {
+          "step": 2,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "S2 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 2,
+          "question": "S2",
+          "did": "chose 'Yes'",
+          "detail": "LimeSurvey calls this question Q1094"
+        },
+        {
+          "step": 3,
+          "question": "",
+          "did": "submitted the page",
+          "detail": "one Next button sends every question on the page at once. the survey moved on to the next page"
+        },
+        {
+          "step": 4,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q1 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 4,
+          "question": "Q1",
+          "did": "chose 'Teller counter'",
+          "detail": "LimeSurvey calls this question Q1096"
+        },
+        {
+          "step": 5,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q2 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 5,
+          "question": "Q2",
+          "did": "chose 'Very poor'",
+          "detail": "LimeSurvey calls this question Q1097"
+        },
+        {
+          "step": 6,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q3 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 6,
+          "question": "Q3",
+          "did": "chose 'Very poor'",
+          "detail": "LimeSurvey calls this question Q1098"
+        },
+        {
+          "step": 7,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q4 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 7,
+          "question": "Q4",
+          "did": "ticked 'Waiting time'",
+          "detail": "LimeSurvey calls this question Q1099"
+        },
+        {
+          "step": 8,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q5 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 8,
+          "question": "Q5",
+          "did": "chose 'Yes'",
+          "detail": "LimeSurvey calls this question Q1100"
+        },
+        {
+          "step": 9,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q6 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 9,
+          "question": "Q6",
+          "did": "typed 'xxxxxxxxxx'",
+          "detail": "LimeSurvey calls this question Q1101"
+        },
+        {
+          "step": 10,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q7 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 10,
+          "question": "Q7",
+          "did": "chose '0'",
+          "detail": "LimeSurvey calls this question Q1102"
+        },
+        {
+          "step": 11,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q8 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 11,
+          "question": "Q8",
+          "did": "typed 3 spaces",
+          "detail": "LimeSurvey calls this question Q1103"
+        },
+        {
+          "step": 12,
+          "question": "",
+          "did": "checked the tick boxes before Next",
+          "detail": "the survey had unticked 'Waiting time' when a later option was ticked, so that combination cannot be sent"
+        },
+        {
+          "step": 12,
+          "question": "",
+          "did": "submitted the page",
+          "detail": "one Next button sends every question on the page at once. the survey moved on to the next page"
+        }
+      ],
+      "checks": [
+        {
+          "kind": "page_advances",
+          "target": "Q8",
+          "expected": true,
+          "observed": "it moved on, as it should",
+          "matched": true,
+          "why": "",
+          "should": "the survey should accept the answer and move to the next page",
+          "actually": "it moved on, as it should"
+        }
+      ],
+      "blocked_reason": "",
+      "provisional": [
+        "whitespace_is_an_answer"
+      ],
+      "seconds": 4.46
+    },
+    {
+      "test_id": "EX-5aef1b9ab7",
+      "title": "a respondent can reach ending COMPLETE",
+      "dimension": "D2",
+      "case_id": "TC-RT03",
+      "order": 40,
+      "question": "COMPLETE",
+      "status": "PASSED",
+      "actions": [
+        {
+          "step": 1,
+          "question": "S1",
+          "did": "chose 'Yes'",
+          "detail": "LimeSurvey calls this question Q1093"
+        },
+        {
+          "step": 2,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "S2 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 2,
+          "question": "S2",
+          "did": "chose 'Yes'",
+          "detail": "LimeSurvey calls this question Q1094"
+        },
+        {
+          "step": 3,
+          "question": "",
+          "did": "submitted the page",
+          "detail": "one Next button sends every question on the page at once. the survey moved on to the next page"
+        },
+        {
+          "step": 4,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q1 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 4,
+          "question": "Q1",
+          "did": "chose 'Teller counter'",
+          "detail": "LimeSurvey calls this question Q1096"
+        },
+        {
+          "step": 5,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q2 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 5,
+          "question": "Q2",
+          "did": "chose 'Very poor'",
+          "detail": "LimeSurvey calls this question Q1097"
+        },
+        {
+          "step": 6,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q3 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 6,
+          "question": "Q3",
+          "did": "chose 'Very poor'",
+          "detail": "LimeSurvey calls this question Q1098"
+        },
+        {
+          "step": 7,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q4 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 7,
+          "question": "Q4",
+          "did": "ticked 'Waiting time'",
+          "detail": "LimeSurvey calls this question Q1099"
+        },
+        {
+          "step": 8,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q5 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 8,
+          "question": "Q5",
+          "did": "chose 'Yes'",
+          "detail": "LimeSurvey calls this question Q1100"
+        },
+        {
+          "step": 9,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q6 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 9,
+          "question": "Q6",
+          "did": "typed 'xxxxxxxxxx'",
+          "detail": "LimeSurvey calls this question Q1101"
+        },
+        {
+          "step": 10,
+          "question": "",
+          "did": "moved on a page",
+          "detail": "Q7 was not on this page, so Next was pressed to reach it. This survey shows one question per page"
+        },
+        {
+          "step": 10,
+          "question": "Q7",
+          "did": "chose '0'",
+          "detail": "LimeSurvey calls this question Q1102"
+        },
+        {
+          "step": 11,
+          "question": "",
+          "did": "checked the tick boxes before Next",
+          "detail": "the survey had unticked 'Waiting time' when a later option was ticked, so that combination cannot be sent"
+        },
+        {
+          "step": 11,
+          "question": "",
+          "did": "submitted the page",
+          "detail": "one Next button sends every question on the page at once. the survey moved on to the next page"
+        }
+      ],
+      "checks": [
+        {
+          "kind": "survey_completed",
+          "target": "COMPLETE",
+          "expected": true,
+          "observed": "they reached the completion page",
+          "matched": true,
+          "why": "",
+          "should": "the respondent should reach the end of the survey and be thanked",
+          "actually": "they reached the completion page"
+        }
+      ],
+      "blocked_reason": "",
+      "provisional": [],
+      "seconds": 4.47
+    }
+  ]
+}
