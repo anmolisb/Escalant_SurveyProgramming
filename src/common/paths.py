@@ -45,7 +45,7 @@ LLM_CACHE = "agent1_llm_cache.json"
 #: The human decision register, and its readable form.
 DECISIONS = "agent1_s7_decisions.json"
 DECISION_REGISTER = "agent1_s7_decision_register.md"
-#: The route graph the dashboard draws.
+#: The route graph the web app draws.
 ROUTE_GRAPH_GEXF = "agent1_s8_route_graph.gexf"
 
 # ---------------------------------------------------------------- Agent 3

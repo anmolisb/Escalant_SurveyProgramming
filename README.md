@@ -38,7 +38,7 @@ in a different format need the changes in
 
 Agents are separate command-line programs connected by files. Each reads the
 earlier agents' output from `out/<QRE>/` and writes its own into its own
-folder. The Streamlit dashboard runs the same commands.
+folder. The web app (`frontend/`) runs the same commands.
 
 ```
 QRE (.docx)
@@ -176,16 +176,21 @@ where it broke. Writes `agent5_qc_report.xlsx` and `agent5_findings.json`.
 
 ## Results on the supported QREs
 
-All 15 QREs go through Agents 1 to 3. Live runs against LimeSurvey:
+All 15 QREs have been run through all five agents, against LimeSurvey (local Docker and Cloud).
+Each tier's QREs share a structure, so the counts are the same within a tier:
 
-| QRE | Tests | Passed | Failed | Blocked | Inconclusive | Skipped |
+| Tier | QREs | Tests each | Passed | Failed | Inconclusive | Could not run |
 |---|---|---|---|---|---|---|
-| S01 | 42 | 42 | 0 | 0 | 0 | 0 |
-| M01 | 82 | 68 | 2 | 0 | 9 | 3 |
-| C01 | 160 | 133 | 5 | 0 | 17 | 5 |
+| Simple | S01 to S05 | 40 | 40 | 0 | 0 | 0 |
+| Moderate | M01 to M06 | 79 | 67 | 0 | 9 | 3 |
+| Complex | C01 to C04 | 159 | 136 | 1 | 17 | 5 |
 
-The failures are real findings about the built survey, chiefly that a
-respondent can select "None of these" together with other options.
+The one failure in each Complex QRE is Q20's wording quoting an earlier
+answer, which the Survey Builder does not build yet; it was flagged as not
+built before the run. Inconclusive tests are claims the bot cannot observe
+yet, and the tests that could not run need many respondents (quotas, random
+order). Agent 5 finds no survey defects. Every QRE is still BLOCKED at Agent 1
+until a person rules on its open decisions.
 
 ## Tech stack
 
@@ -197,7 +202,8 @@ respondent can select "None of these" together with other options.
 | NetworkX | Agent 1's route and dependency graphs |
 | Playwright | Agent 4's browser |
 | openpyxl | Agent 3, 4 and 5 workbooks |
-| Streamlit, graphviz | Dashboard |
+| FastAPI, uvicorn, graphviz | The web app's backend and its diagrams |
+| React, Vite (Node.js) | The web app (`frontend/`) |
 | pytest | Tests |
 | LimeSurvey (Community Edition in Docker, or LimeSurvey Cloud) | The survey platform |
 
@@ -214,13 +220,15 @@ respondent can select "None of these" together with other options.
 │   ├── qre-samples/          The 15 supported QREs
 │   └── holdout/              QREs kept back to measure how well the pipeline generalises
 ├── data/inputs/test_design/  Facts a QRE does not state, per survey, for Agent 3
+├── data/uploads/             QREs uploaded through the web app (ignored by git)
+├── frontend/                 The web app (React)
 ├── out/                      All agent output, one folder per QRE
 ├── src/
 │   ├── agents/               One package per agent
 │   ├── common/llm/           The only place a model provider is called
 │   ├── common/paths.py       Every output folder and file name
 │   ├── common/readiness.py   The readiness check for Agents 2 to 4
-│   └── dashboard/            Streamlit app
+│   └── api/                  The web app's backend: reads out/ and runs the agents
 └── tests/
     ├── test_conditions.py, test_stage5_content.py, test_stage8_graph.py   Agent 1
     ├── survey_builder/       Agent 2, including a known-good S01 build
@@ -246,12 +254,16 @@ by git. A key already set in your shell takes precedence over `.env`, so clear
 an old one with `unset GROQ_API_KEY` (PowerShell: `Remove-Item
 Env:GROQ_API_KEY`). `GROQ_MODEL` in the same file selects the model.
 
-To run the dashboard, install the graphviz binary (`brew install graphviz` or
-`apt-get install graphviz`), then:
+**The web app** uploads a questionnaire, runs the agents and shows every
+output. It needs the graphviz binary (`brew install graphviz`). The built site
+is committed, so no Node.js is needed to use it:
 
 ```bash
-PYTHONPATH=. streamlit run src/dashboard/app.py
+python -m src.api.server            # then open http://localhost:8000
 ```
+
+Changing the frontend, and Windows setup, are in
+[`frontend/README.md`](frontend/README.md).
 
 **LimeSurvey.** Run LimeSurvey Community Edition locally in Docker (it serves on
 `http://localhost:8080`), or use a LimeSurvey Cloud site with `--base`. Each test

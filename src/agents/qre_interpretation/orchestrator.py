@@ -21,7 +21,7 @@ produces them (names are defined in src/common/paths.py):
     agent1_s7_decision_register.md      (its human-readable form)
     agent1_s8_route_graph.json          (Stage 8: the graph builder, always run)
     agent1_s8_graph_report.json
-    agent1_s8_route_graph.gexf          (the dashboard's flow graph)
+    agent1_s8_route_graph.gexf          (the web app's flow graph)
     agent1_ready.json                   (whether Agent 3 may run, computed last)
     agent1_llm_cache.json               (every model answer, for replay)
 

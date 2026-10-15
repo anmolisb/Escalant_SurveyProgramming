@@ -580,7 +580,7 @@ def run(
 
 
 # ---------------------------------------------------------------------------
-# Export for the dashboard
+# Export for the web app
 # ---------------------------------------------------------------------------
 
 
@@ -596,7 +596,7 @@ def _sanitise(value):
 
 
 def export_route_gexf(graphs: RouteGraphs, out_dir: Path) -> Path:
-    """Write the route graph as `agent1_s8_route_graph.gexf`, the file the dashboard
+    """Write the route graph as `agent1_s8_route_graph.gexf`, the file the web app
     draws its flow graph from."""
     route = nx.node_link_graph(
         graphs.model_dump(mode="json")["route_graph"],

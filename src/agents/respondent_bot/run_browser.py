@@ -37,6 +37,7 @@ that out needs the whole picture across every test, and it is Agent 5's job.
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import re
 import sys
@@ -52,6 +53,14 @@ PASSED, FAILED, BLOCKED = "PASSED", "FAILED", "BLOCKED"
 INCONCLUSIVE, SKIPPED = "INCONCLUSIVE", "SKIPPED"
 
 STATUS_ORDER = [PASSED, FAILED, BLOCKED, INCONCLUSIVE, SKIPPED]
+
+
+def tests_digest(package: Path) -> str:
+    """A fingerprint of the tests in Agent 3's package, ignoring when it was
+    written, so re-running Agent 3 with nothing changed keeps results current."""
+    data = json.loads(package.read_text(encoding="utf-8"))
+    tests = (data.get("content") or data).get("tests")
+    return hashlib.sha256(json.dumps(tests, sort_keys=True).encode()).hexdigest()
 
 #: The kinds of field write the bot can carry out (see `Bot.fill`). Agent 3
 #: labels every step with one of these.
@@ -1372,6 +1381,9 @@ def main() -> int:
     (dest / "agent4_results.json").write_text(
         json.dumps({"survey": directory.name, "survey_id": args.sid,
                     "run_at": datetime.now(timezone.utc).isoformat(),
+                    # Which test package this ran, so a later redesign of the
+                    # tests shows these results as out of date.
+                    "tests_sha256": tests_digest(package),
                     "counts": counts,
                     "results": [asdict(r) for r in results]},
                    indent=2, default=str), encoding="utf-8")

@@ -670,8 +670,10 @@ def main() -> int:
     (dest / "agent5_findings.json").write_text(json.dumps({
         "survey": directory.name,
         "run_at": datetime.now().isoformat(timespec="seconds"),
+        # Which bot run this explains, so a newer bot run shows it as out of date.
+        "results_run_at": data["a4"].get("run_at"),
         # status and status_note are properties, which asdict leaves out.
-        # The dashboard reads them, so they are written explicitly.
+        # The web app reads them, so they are written explicitly.
         "journeys": [{**asdict(v), "status": v.status,
                       "status_note": v.status_note} for v in verdicts],
         "groups": groups,
